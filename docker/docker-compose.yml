@@ -9,7 +9,7 @@ x-mayan-container:
     MAYAN_DATABASES: "{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'${MAYAN_DATABASE_NAME:-mayan}','PASSWORD':'${MAYAN_DATABASE_PASSWORD:-mayandbpass}','USER':'${MAYAN_DATABASE_USER:-mayan}','HOST':'${MAYAN_DATABASE_HOST:-postgresql}'}}"
     MAYAN_LOCK_MANAGER_BACKEND: mayan.apps.lock_manager.backends.redis_lock.RedisLock
     MAYAN_LOCK_MANAGER_BACKEND_ARGUMENTS: "{'redis_url':'redis://:${MAYAN_REDIS_PASSWORD:-mayanredispassword}@redis:6379/2'}"
-  image: ${MAYAN_DOCKER_IMAGE_NAME:-mayanedms/mayanedms}:${MAYAN_DOCKER_IMAGE_TAG:-s4.2}
+  image: ${MAYAN_DOCKER_IMAGE_NAME:-mayanedms/mayanedms}:${MAYAN_DOCKER_IMAGE_TAG:-s4.3}
   networks:
     - mayan
   restart: unless-stopped
@@ -124,7 +124,7 @@ services:
     command:
       - run_frontend
     labels:
-      - "traefik.enable=true"
+      - "traefik.enable=${MAYAN_TRAEFIK_FRONTEND_ENABLE:-false}"
       - "traefik.http.middlewares.mayan_redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.mayan_redirect.redirectscheme.permanent=false"
       - "traefik.http.routers.mayan_frontend.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
@@ -221,12 +221,12 @@ services:
     profiles:
       - extra_celery_beat
 
-  command_initialsetup_or_performupgrade:
+  setup_or_upgrade:
     <<: *mayan-container
     command:
-      - run_initialsetup_or_performupgrade
+      - run_initial_setup_or_perform_upgrade
     profiles:
-      - extra_command_initialsetup_or_performupgrade
+      - extra_setup_or_upgrade
     restart: "no"
 
   rabbitmq:
@@ -237,9 +237,11 @@ services:
       RABBITMQ_DEFAULT_VHOST: ${MAYAN_RABBITMQ_VHOST:-mayan}
     labels:
       - "traefik.enable=${MAYAN_TRAEFIK_RABBITMQ_ENABLE:-false}"
-      - "traefik.http.routers.mayan_frontend_https.tls=true"
-      - "traefik.http.routers.mayan_frontend.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
-      - "traefik.http.routers.mayan_frontend.entrypoints=:15672"
+      - "traefik.http.routers.rabbitmq.entrypoints=rabbitmq"
+      - "traefik.http.routers.rabbitmq.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
+      - "traefik.http.routers.rabbitmq.tls=true"
+      - "traefik.http.routers.rabbitmq.tls.certresolver=letsencrypt"
+      - "traefik.http.services.rabbitmq.loadbalancer.server.port=15672"
     networks:
       - mayan
     # Enable to allow access to the administration interface.
@@ -255,6 +257,7 @@ services:
     container_name: "traefik"
     command:
       # - "--log.level=DEBUG"
+      - "--api.dashboard=true"
       - "--api.insecure=${MAYAN_TRAEFIK_API_INSECURE:-false}"
       - "--certificatesresolvers.letsencrypt.acme.caserver=${MAYAN_TRAEFIK_LETS_ENCRYPT_SERVER:-https://acme-staging-v02.api.letsencrypt.org/directory}"
       - "--certificatesresolvers.letsencrypt.acme.email=${MAYAN_TRAEFIK_LETS_ENCRYPT_EMAIL}"
@@ -262,9 +265,20 @@ services:
       - "--certificatesresolvers.letsencrypt.acme.tlschallenge=${MAYAN_TRAEFIK_LETS_ENCRYPT_TLS_CHALLENGE:-false}"
       - "--entrypoints.http.address=:80"
       - "--entrypoints.https.address=:443"
+      - "--entrypoints.rabbitmq.address=:15672"
+      - "--entrypoints.traefik.address=:8080"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
     image: traefik:${MAYAN_DOCKER_TRAEFIK_TAG:-v2.5}
+    labels:
+      - "traefik.enable=${MAYAN_TRAEFIK_DASHBOARD_ENABLE:-false}"
+      - "traefik.http.routers.traefik_https.entrypoints=traefik"
+      - "traefik.http.routers.traefik_https.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
+      - "traefik.http.routers.traefik_https.service=api@internal"
+      - "traefik.http.routers.traefik_https.tls=true"
+      - "traefik.http.routers.traefik_https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.traefik_https.middlewares=basic-auth-global"
+      - "traefik.http.middlewares.basic-auth-global.basicauth.users=${MAYAN_TRAEFIK_DASHBOARD_AUTHENTICATION}"
     networks:
       - mayan
       - traefik
@@ -272,6 +286,7 @@ services:
       - "80:80"
       - "443:443"
       - "8080:8080"
+      - "15672:15672"
     profiles:
       - traefik
     restart: unless-stopped
