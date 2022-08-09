@@ -436,7 +436,7 @@ docker-oracle-stop: ## Stop and delete the Oracle test container.
 
 docker-postgresql-start: ## Start a PostgreSQL Docker test container.
 	@docker run --detach --name $(TEST_POSTGRESQL_CONTAINER_NAME) --env POSTGRES_HOST_AUTH_METHOD=trust --env POSTGRES_USER=$(DEFAULT_DATABASE_USER) --env POSTGRES_PASSWORD=$(DEFAULT_DATABASE_PASSWORD) --env POSTGRES_DB=$(DEFAULT_DATABASE_NAME) --publish 5432:5432 --volume $(TEST_POSTGRESQL_CONTAINER_NAME):/var/lib/postgresql/data $(DOCKER_POSTGRES_IMAGE_VERSION)
-	@while ! psql --command "\l" --dbname=$(DEFAULT_DATABASE_NAME) --host=127.0.0.1 --username=$(DEFAULT_DATABASE_USER) >/dev/null 2>&1; do echo -n .;sleep 2; done
+	@while ! docker exec --interactive --tty $(TEST_POSTGRESQL_CONTAINER_NAME) psql --command "\l" --dbname=$(DEFAULT_DATABASE_NAME) --host=127.0.0.1 --username=$(DEFAULT_DATABASE_USER) >/dev/null 2>&1; do echo -n .;sleep 1; done
 
 docker-postgresql-stop: ## Stop and delete the PostgreSQL container.
 	@docker rm --force $(TEST_POSTGRESQL_CONTAINER_NAME) >/dev/null 2>&1
@@ -451,7 +451,7 @@ docker-postgresql-restore:
 docker-redis-start: ## Start a Redis Docker test container.
 docker-redis-start:
 	@docker run --detach --name $(TEST_REDIS_CONTAINER_NAME) --publish 6379:6379 $(DOCKER_REDIS_IMAGE_VERSION)
-	@while ! nc -z 127.0.0.1 6379; do echo -n .; sleep 1; done
+	@while ! docker exec --interactive --tty $(TEST_REDIS_CONTAINER_NAME) redis-cli CONFIG GET databases >/dev/null 2>&1; do echo -n .;sleep 1; done
 
 docker-redis-stop: ## Stop and delete the Redis container.
 docker-redis-stop:
@@ -460,7 +460,7 @@ docker-redis-stop:
 # Staging
 
 staging-start: ## Launch and initialize production-like services using Docker (PostgreSQL and Redis).
-staging-start: staging-stop docker-postgres-start docker-redis-start
+staging-start: staging-stop docker-postgresql-start docker-redis-start
 	export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'$(DEFAULT_DATABASE_NAME)','PASSWORD':'$(DEFAULT_DATABASE_PASSWORD)','USER':'$(DEFAULT_DATABASE_USER)','HOST':'127.0.0.1'}}"; \
 	./manage.py initialsetup --settings=mayan.settings.staging.docker
 
@@ -473,7 +473,7 @@ staging-frontend: ## Launch a front end instance that uses the production-like s
 
 staging-worker: ## Launch a worker instance that uses the production-like services.
 	export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'$(DEFAULT_DATABASE_NAME)','PASSWORD':'$(DEFAULT_DATABASE_PASSWORD)','USER':'$(DEFAULT_DATABASE_USER)','HOST':'127.0.0.1'}}"; \
-	DJANGO_SETTINGS_MODULE=mayan.settings.staging.docker ./manage.py celery worker -A mayan -B -l INFO -O fair
+	DJANGO_SETTINGS_MODULE=mayan.settings.staging.docker celery -A mayan worker -B -l INFO -O fair
 
 # Security
 
@@ -510,7 +510,14 @@ check-missing-inits:
 	@contrib/scripts/find_missing_inits.py
 
 setup-dev-environment: ## Bootstrap a virtualenv by install all dependencies to start developing.
+setup-dev-environment: setup-dev-operating-system-packages setup-dev-python-libraries
+
+setup-dev-operating-system-packages:  ## Install the operating system packages needed for development.
+setup-dev-operating-system-packages:
 	sudo apt-get install --yes exiftool gcc gettext gnupg1 graphviz libcairo2 libffi-dev libjpeg-dev libpng-dev poppler-utils python3-dev sane-utils tesseract-ocr-deu
+
+setup-dev-python-libraries: ## Install the Python libraries needed for development.
+setup-dev-python-libraries:
 	pip install --requirement requirements.txt --requirement requirements/development.txt --requirement requirements/testing-base.txt --requirement requirements/documentation.txt --requirement requirements/build.txt
 
 setup-python-mysql:

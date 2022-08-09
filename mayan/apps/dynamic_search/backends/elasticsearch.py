@@ -68,15 +68,14 @@ class ElasticSearchBackend(SearchBackend):
         result.append(title)
         result.append(len(title) * '=')
 
-        stats = client.indices.stats()
-
         for search_model in SearchModel.all():
             index_name = self.get_index_name(search_model=search_model)
-            index_stats = stats['indices'].get(index_name, {})
-            if index_stats:
-                count = index_stats['total']['docs']['count']
-            else:
-                count = '-1'
+            try:
+                index_stats = client.count(index=index_name)
+            except elasticsearch.exceptions.NotFoundError:
+                index_stats = {}
+
+            count = index_stats.get('count', '-1')
 
             result.append(
                 '{}: {}'.format(search_model.label, count)
@@ -103,9 +102,7 @@ class ElasticSearchBackend(SearchBackend):
         for key, value in query.items():
             elasticsearch_query = Q(
                 Q(
-                    name_or_query='fuzzy', _expand__to_dot=False, **{key: value}
-                ) | Q(
-                    name_or_query='match', _expand__to_dot=False, **{key: value}
+                    name_or_query='match_phrase', _expand__to_dot=False, **{key: value}
                 ) | Q(
                     name_or_query='regexp', _expand__to_dot=False, **{key: value}
                 ) | Q(
@@ -264,6 +261,14 @@ class ElasticSearchBackend(SearchBackend):
             mappings = self.get_search_model_mappings(search_model=search_model)
 
             try:
+                client.indices.delete(index=index_name)
+            except elasticsearch.exceptions.NotFoundError:
+                """
+                Non fatal, might be that this is the first time
+                the method is executed. Proceed.
+                """
+
+            try:
                 client.indices.create(
                     index=index_name,
                     body={
@@ -274,7 +279,6 @@ class ElasticSearchBackend(SearchBackend):
                         },
                     }
                 )
-
             except elasticsearch.exceptions.RequestError:
                 try:
                     client.indices.put_settings(

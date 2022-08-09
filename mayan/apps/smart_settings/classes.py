@@ -3,20 +3,20 @@ import hashlib
 import logging
 import os
 import re
+from shutil import copyfile
 import sys
 
 import yaml
 
 from django.conf import settings
+from django.utils.encoding import force_bytes, force_text
 from django.utils.functional import Promise
-from django.utils.encoding import (
-    force_bytes, force_text
-)
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.common.class_mixins import AppsModuleLoaderMixin
 from mayan.apps.common.serialization import yaml_dump, yaml_load
 
+from .exceptions import BaseSettingsException
 from .literals import (
     NAMESPACE_VERSION_INITIAL, SMART_SETTINGS_NAMESPACES_NAME
 )
@@ -255,19 +255,24 @@ class Setting:
 
     @classmethod
     def save_configuration(cls, path=None):
-        if not path:
-            path = settings.CONFIGURATION_FILEPATH
+        if not settings.COMMON_DISABLE_LOCAL_STORAGE:
+            if not path:
+                path = settings.CONFIGURATION_FILEPATH
 
-        try:
-            with open(file=path, mode='w') as file_object:
-                file_object.write(cls.dump_data())
-        except IOError as exception:
-            if exception.errno == errno.ENOENT:
-                logger.warning(
-                    'The path to the configuration file `%s` doesn\'t '
-                    'exist. It is not possible to save the backup file.',
-                    path
-                )
+            try:
+                with open(file=path, mode='w') as file_object:
+                    file_object.write(cls.dump_data())
+            except IOError as exception:
+                if exception.errno == errno.ENOENT:
+                    logger.warning(
+                        'The path to the configuration file `%s` doesn\'t '
+                        'exist. It is not possible to save the backup file.',
+                        path
+                    )
+        else:
+            logger.info(
+                'Local storage is disabled, skip saving configuration.'
+            )
 
     @classmethod
     def save_last_known_good(cls):
@@ -276,6 +281,27 @@ class Setting:
         if 'revertsettings' not in sys.argv:
             cls.save_configuration(
                 path=settings.CONFIGURATION_LAST_GOOD_FILEPATH
+            )
+
+    @classmethod
+    def revert_configuration(cls):
+        if not settings.COMMON_DISABLE_LOCAL_STORAGE:
+            try:
+                copyfile(
+                    src=settings.CONFIGURATION_LAST_GOOD_FILEPATH,
+                    dst=settings.CONFIGURATION_FILEPATH
+                )
+            except IOError as exception:
+                if exception.errno == errno.ENOENT:
+                    raise BaseSettingsException(
+                        'There is no last valid version to restore.'
+                    ) from exception
+                else:
+                    raise
+        else:
+            logger.info(
+                'Local storage is disabled, cannot revert not existing '
+                'configuration.'
             )
 
     def __init__(

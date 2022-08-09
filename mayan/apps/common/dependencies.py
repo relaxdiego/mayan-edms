@@ -35,7 +35,7 @@ PythonDependency(
         ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
         (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
         SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    ''', module=__name__, name='django', version_string='==3.2.13'
+    ''', module=__name__, name='django', version_string='==3.2.14'
 )
 PythonDependency(
     copyright_text='''
@@ -212,7 +212,7 @@ PythonDependency(
 
 PythonDependency(
     environment=environment_documentation, module=__name__, name='Sphinx',
-    version_string='==3.5.4'
+    version_string='==4.5.0'
 )
 PythonDependency(
     environment=environment_documentation, module=__name__,

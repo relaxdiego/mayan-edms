@@ -1,15 +1,17 @@
-4.4 (XXXX-XX-XX)
+4.4 (2022-XX-XX)
 ================
 - Update Docker image tags:
 
   - Docker from 20-dind to 20.10-dind
   - ElasticSearch from 7.17.0 to 7.17.5
-  - Debian from 11.3-slim to 11.4-slim
   - PostgreSQL from 12.11-alpine to 13.7-alpine
   - Redis from 6.2-alpine to 7.0-alpine
 
+4.3.1 (2022-08-XX)
+==================
+- Fixes and improvements merged from version 4.2.9 and 4.2.10.
 
-4.3 (2022-XX-XX)
+4.3 (2022-07-27)
 ================
 - Partials navigation updates:
 
@@ -50,7 +52,7 @@
   - Define the ``q`` URL query key as an internal literal named
     ``QUERY_PARAMETER_ANY_FIELD``.
 
-- Support AJAX request cancelation. This avoid the user interface from
+- Support AJAX request cancellation. This avoid the user interface from
   appearing to unresponsive when the backend is overloaded.
 - Support AJAX request throttling. Prevents users from requesting too many
   consecutive page loads. Defaults to a maximum of 10 requests in 5 seconds
@@ -67,7 +69,7 @@
 - Convert document file actions from hardcoded logic to an extensible class
   using the ``BaseBackend`` class. Available classes will be loaded from the
   ``document_file_actions`` module. The id of the class defaults to the
-  existing literal values for compatility.
+  existing literal values for compatibility.
 - Add API endpoint called ``document_file_actions`` to list the available
   actions and their properties. API endpoint URL: /api/v4/document_file_actions/
 - Add document version modification backend. Convert the document version
@@ -80,14 +82,14 @@
     - /api/v4/document_version_modification_backends/
 
 - Add workflow action to send user messages.
-- Update ``WorkflowAction`` to user ``common.classes.BaseBackend``.
+- Update ``WorkflowAction`` to use ``common.classes.BaseBackend``.
 - Pagination refactor:
 
   - Remove ``django-pure-pagination`` package.
   - Use Django's 3.2 new ``get_proper_elided_page_range`` for paging.
   - Remove duplicate URL query string manipulation.
   - Remove duplicated pagination template.
-  - Make pagination argument conigurable. Added the setting
+  - Make pagination argument configurable. Added the setting
     ``VIEWS_PAGING_ARGUMENT``. Defaults to ``page`` for compatibility.
 
 - Update the default pagination size from 40 items to 30.
@@ -112,7 +114,7 @@
   - PostgreSQL from 12.9-alpine to 12.10-alpine.
   - RabbitMQ from 3.9-alpine to 3.10-alpine.
   - amqp from 5.0.9 to 5.1.0.
-  - pip from 21.3.1 to 22.0.4.
+  - pip from 21.3.1 to 22.2.
   - psycopg2 from 2.9.2 to 2.9.3.
   - redis from 4.0.2 to 4.2.0.
   - FontAwesome from 5.6.3 to 5.15.4.
@@ -135,7 +137,7 @@
   - transifex-client from 0.14.3 to 0.14.4.
   - twine from 3.4.2 to 3.8.0.
   - wheel from 0.37.0 to 0.37.1.
-  - Pillow from 8.3.1 to 8.4.0.
+  - Pillow from 8.3.1 to 9.2.0.
   - node-semver from 0.8.0 to 0.8.1.
   - packaging from 21.0 to 21.3.
   - python_gnupg from 0.4.7 to 0.4.8.
@@ -157,6 +159,7 @@
   - django-formtools from 2.2 to 2.3.
   - django-widget-tweaks from 1.4.9 to 1.4.12.
   - furl from 2.1.2 to 2.1.3.
+  - Sphinx from 3.5.4 to 4.5.0.
 
 - Silence warning about unordered object pagination for:
 
@@ -177,7 +180,7 @@
   - Support inclusion regular expression.
   - Support exclusion regular expression.
   - Support subfolders.
-  - Update scan code to user ``pathlib.Path``.
+  - Update scan code to use ``pathlib.Path``.
   - Support pagination.
 
 - Add support for workflow escalation. This feature allows moving a workflow
@@ -215,8 +218,8 @@
     is called ``.remove_search_field(search_field=)`` and requires the
     search field instance obtained from the method ``.get_search_fields()``.
   - Remove the ``search_fields`` list and use the ``search_fields_dict``
-    instead for both purposes. The conical method to obtain the search
-    field or a search model is now using the method ``.get_search_fields()``.
+    instead for both purposes. The canonical method to obtain the search
+    field of a search model is now using the method ``.get_search_fields()``.
 
 - Update the ElasticSearch backend default settings to match those of the
   official Python client.
@@ -275,10 +278,10 @@
   - ``checkversion`` replaced by ``dependencies_check_version``.
   - ``createautoadmin`` replaced by ``autoadmin_create``.
   - ``generaterequirements`` replaced by ``dependencies_generate_requirements``.
-  - ``initialsetup`` replaced by ``initial_setup``.
+  - ``initialsetup`` replaced by ``common_initial_setup``.
   - ``installdependencies`` replaced by ``dependencies_install``.
   - ``mountindex`` replaced by ``mirroring_mount_index``.
-  - ``performupgrade`` replaced by ``perform_upgrade``.
+  - ``performupgrade`` replaced by ``common_perform_upgrade``.
   - ``platformtemplate`` replaced by ``platform_template``.
   - ``preparestatic`` replaced by ``appearance_prepare_static``.
   - ``purgelocks`` replaced by ``lock_manager_purge_locks``.
@@ -352,7 +355,7 @@
   - Improve HTML data by allowing the entries to be resolved against the
     context.
   - Support empty URL values. When empty, the link is rendered without a
-    href attribute.
+    href attribute.ElasticSearch
 
 - Add link to make staging folder file selection easier. Closes GitLab
   issue #341. Thanks to Leroy Förster (@gersilex) for the report and
@@ -394,6 +397,110 @@
 - Normalize how the search "Match all" parameter is evaluated.
 - Fix evaluation of "Match all" when using a single level scoped search.
 - Discard non supported images contained in MPO images files.
+- Use the ElasticSearch count API (https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-count.html)
+  to obtain accurate search model status information.
+- Delete existing indexes when calling the ElasticSearch backend initialize
+  method.
+- Wrap search backend errors into a general exception with a short
+  explanation.
+- Documentation updates:
+
+  - Set the Docker Compose installation method as the main method.
+  - Add warning notes for the deprecated installation methods.
+  - Expand the requirements section.
+  - Move the requirements to their on chapter.
+  - Update the features part.
+
+- Add management command ``common_generate_random_secret_key`` to provide
+  random values suitable for use as ``SECRET_KEY``.
+- Refactor initial setup and upgrade commands:
+
+  - Consolidate management command code.
+  - Move command code to a separate class.
+  - Convert code to use pathlib.
+
+- Add support for disabling use of the media folder. Add the bootstrap
+  setting ``COMMON_DISABLE_LOCAL_STORAGE`` to disable use of the local
+  ``media`` folder. When using this setting, all apps must be also configured
+  via their respective storage backend settings to use alternate persistence
+  methods.
+- When serving images using ``APIImageViewMixin``, detect the MIME type of
+  the data before sending the stream. This ensures the image will load
+  correctly in all browsers that require a MIME type value in the header of
+  the stream.
+- Change the ``UUID`` field to ElasticSearch field mapping, from ``Keyword``
+  to ``Text`` to avoid search indexing error when processing document
+  containers with more than 910 documents. ElasticSearch's ``Keyword`` field
+  is limited to 32766 bytes and attempting to index a container with more
+  than 910 documents would exceed this limit.
+- Update the ElasticSearch backend search query configuration to be more
+  strict and lower the number of hits matched. Change the ``match`` query to
+  ``match_phrase`` and remove the ``fuzzy`` query.
+- Ensure document version pages point to an existing content object when
+  exporting. Otherwise they are skipped.
+- Improve document version export code to skip invalid pages. The page loop
+  will skip pages with no content object and regard the first page found
+  with a content object as the first exported page.
+- Don't assume all storages have a preset mode attribute. Such is the case
+  with the ``S3Boto3Storage`` when used for shared uploaded files. Instead
+  introspect the mode and fallback to a safe default valur of ``'rb'``.
+- Disable the settings edit link when local storage is disabled.
+- Display a warning message in the setting edit view when local storage is
+  disabled.
+
+4.2.10 (2022-XX-XX)
+===================
+- Make file improvements. Don't require a local ``psql`` client to
+  launch the PostgreSQL development container. Don't require a local
+  redis client to launch the Redis development container. Fix the
+  staging targets.
+- Display exception errors to console when Celery fails to initialize.
+
+4.2.9 (2022-08-04)
+==================
+- Add permission filtering to the source switch links. The permission
+  filtering will be the same as the views: document create permission for the
+  source links during document uploads and document file new permissions
+  for the source links in the new document file upload view.
+- Don't cache the impersonation and the settings app templates. This ensures
+  the impersonation banner and settings change banner are triggered
+  correctly in all edge cases where multiple frontend processes or load
+  balancers are used.
+- Add make file development targets ``setup-dev-operating-system-packages``
+  and ``setup-dev-python-libraries``.
+
+4.2.8 (2022-07-22)
+==================
+- Fix the permission requirement of the recently created documents dashboard
+  widget. The widget should filter by document view and not document type
+  view permission. Thanks to forum user LeVon Smoker (@lsmoker) for
+  the report.
+- Update Django from version 3.2.13 to 3.2.14.
+  https://docs.djangoproject.com/en/4.0/releases/3.2.14/
+- Update Pillow from version 8.3.1 to 8.3.2.
+- Update cryptodome from version 3.10.1 to 3.10.4.
+- Remove the package ``firefox-geckdriver`` from the make file target
+  ``setup-dev-environment`` as it is no longer available in recent OS LTS
+  releases.
+- Update the GitLab CI file to support releasing testing build of the
+  Python library and the Docker image separately.
+- Update Docker Debian base image from debian:11.3-slim to to
+  debian:11.4-slim. https://www.debian.org/News/2022/20220709
+- Update PyPDF2 from version 1.26.0 to 1.28.4. Closes GitLab issue #1106.
+  Thanks to Stefan Denker (@denkerszaf) for the report and investigation.
+- Update Sphinx from version 3.5.4 to 4.5.0 to avoid bug #9038.
+
+4.2.7 (2022-07-01)
+==================
+- Intercept document file and document version page transformation errors
+  and show a corresponding error template. This allows accessing the page
+  to fix the transformation error. Closes GitLab issue #1101. Thanks to
+  Munzir Taha (@munzirtaha) for the report.
+- Backport search fixes from 4.3:
+
+  - Normalize how the search "Match all" parameter is evaluated.
+  - Fix evaluation of "Match all" when using a single level scoped search.
+  - Improve extraction of URL search query parameters.
 
 4.2.6 (2022-06-25)
 ==================

@@ -23,9 +23,8 @@ from mayan.apps.views.literals import LIST_MODE_CHOICE_LIST
 from .exceptions import DynamicSearchException
 from .literals import (
     DEFAULT_SCOPE_ID, DELIMITER, MESSAGE_FEATURE_NO_STATUS,
-    QUERY_PARAMETER_ANY_FIELD, SCOPE_MATCH_ALL, SCOPE_MATCH_ALL_VALUES,
-    SCOPE_MARKER, SCOPE_OPERATOR_CHOICES, SCOPE_OPERATOR_MARKER,
-    SCOPE_RESULT_MAKER
+    QUERY_PARAMETER_ANY_FIELD, SCOPE_MATCH_ALL, SCOPE_MARKER,
+    SCOPE_OPERATOR_CHOICES, SCOPE_OPERATOR_MARKER, SCOPE_RESULT_MAKER
 )
 from .settings import (
     setting_backend, setting_backend_arguments,
@@ -421,11 +420,20 @@ class SearchBackend:
         )
         # Recursive call to the backend's search using queries as unscoped
         # and then merge then using the corresponding operator.
-        queryset = self.solve_scope(
-            operators=result['operators'],
-            result_scope=result['result_scope'], search_model=search_model,
-            scopes=result['scopes'], user=user
-        )
+        try:
+            queryset = self.solve_scope(
+                operators=result['operators'],
+                result_scope=result['result_scope'], search_model=search_model,
+                scopes=result['scopes'], user=user
+            )
+        except Exception as exception:
+            raise DynamicSearchException(
+                _(
+                    'Search backend error. Verify that the search service is '
+                    'available and that the search syntax is valid for '
+                    'the active search backend; %s' % exception
+                )
+            ) from exception
 
         if search_model.permission:
             queryset = AccessControlList.objects.restrict_queryset(
