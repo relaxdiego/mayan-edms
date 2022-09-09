@@ -119,6 +119,7 @@ class Cabinet(ExtraDataModelMixin, MPTTModel):
     @method_event(
         event_manager_class=EventManagerSave,
         created={
+            'action_object': 'parent',
             'event': event_cabinet_created,
             'target': 'self',
         },

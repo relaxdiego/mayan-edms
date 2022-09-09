@@ -11,6 +11,8 @@
   object storage implementations.
 - Add support for OpenID Connect (OIDC) authentication. Adds the new
   ``authentication_oidc`` app.
+- Add the parent cabinet as the action object to the cabinet creation event
+  when a child cabinet is created.
 
 4.3.1 (2022-08-21)
 ==================
