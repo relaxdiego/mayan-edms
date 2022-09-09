@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 08:19+0000\n"
+"POT-Creation-Date: 2022-08-21 06:40+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
@@ -121,15 +121,15 @@ msgstr "Retirer"
 
 #: forms.py:178
 msgid "Basic"
-msgstr ""
+msgstr "De base"
 
 #: forms.py:182
 msgid "Values"
-msgstr ""
+msgstr "Valeurs"
 
 #: forms.py:186
 msgid "Validation"
-msgstr ""
+msgstr "Validation"
 
 #: forms.py:190
 msgid "Parsing"
@@ -207,7 +207,7 @@ msgstr "Validateur de date"
 
 #: metadata_validators.py:27
 msgid "Regular expression validator"
-msgstr ""
+msgstr "Validateur d'expression régulière"
 
 #: metadata_validators.py:35
 msgid "The input string does not match the pattern."
@@ -277,7 +277,7 @@ msgstr ""
 
 #: models.py:66
 msgid "Validator arguments"
-msgstr ""
+msgstr "Arguments du validateur"
 
 #: models.py:71
 msgid ""
@@ -293,11 +293,11 @@ msgstr "Analyseur"
 
 #: models.py:77
 msgid "Enter the arguments for the parser in YAML format."
-msgstr ""
+msgstr "Saisissez les arguments de l'analyseur au format YAML."
 
 #: models.py:79
 msgid "Parser arguments"
-msgstr ""
+msgstr "Arguments de l'analyseur"
 
 #: models.py:159
 msgid "Value is not one of the provided options."
@@ -419,9 +419,9 @@ msgstr "Demande d'ajout de métadonnées effectuée sur %(count)d documents"
 #: views/document_views.py:56
 msgid "Add metadata types to document"
 msgid_plural "Add metadata types to documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ajouter des types de métadonnées au document"
+msgstr[1] "Ajouter des types de métadonnées aux documents"
+msgstr[2] "Ajouter des types de métadonnées aux documents"
 
 #: views/document_views.py:67
 #, python-format
@@ -481,9 +481,9 @@ msgstr "Il n'y a pas de métadonnées à modifier"
 #: views/document_views.py:227
 msgid "Edit document metadata"
 msgid_plural "Edit documents metadata"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Modifier les métadonnées du document"
+msgstr[1] "Modifier les métadonnées des documents"
+msgstr[2] "Modifier les métadonnées des documents"
 
 #: views/document_views.py:238
 #, python-format
@@ -536,9 +536,9 @@ msgstr ""
 #: views/document_views.py:399
 msgid "Remove metadata types from the document"
 msgid_plural "Remove metadata types from the documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Supprimer les types de métadonnées du document"
+msgstr[1] "Supprimer les types de métadonnées des documents"
+msgstr[2] "Supprimer les types de métadonnées des documents"
 
 #: views/document_views.py:410
 #, python-format
@@ -580,12 +580,12 @@ msgstr "Le type de métadonnées \"%(object)s\" a été supprimé avec succès."
 #: views/metadata_type_views.py:60
 #, python-format
 msgid "%(count)d metadata type deleted successfully."
-msgstr ""
+msgstr "%(count)d type de métadonnées a été supprimé avec succès."
 
 #: views/metadata_type_views.py:63
 #, python-format
 msgid "%(count)d metadata types deleted successfully."
-msgstr ""
+msgstr "%(count)d types de métadonnées ont été supprimés avec succès."
 
 #: views/metadata_type_views.py:65
 #, python-format
