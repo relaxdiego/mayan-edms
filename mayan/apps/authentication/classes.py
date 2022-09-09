@@ -57,6 +57,9 @@ class AuthenticationBackend(BaseBackend):
 
         return result
 
+    def get_context_data(self):
+        return {}
+
     def get_form_list(self):
         return self.form_list
 
