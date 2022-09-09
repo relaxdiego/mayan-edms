@@ -9,6 +9,8 @@
 
 - Increase compatibility of the file caching storage usage with more S3
   object storage implementations.
+- Add support for OpenID Connect (OIDC) authentication. Adds the new
+  ``authentication_oidc`` app.
 
 4.3.1 (2022-08-21)
 ==================

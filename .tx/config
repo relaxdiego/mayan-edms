@@ -26,6 +26,12 @@ source_file = mayan/apps/authentication/locale/en/LC_MESSAGES/django.po
 source_lang = en
 type = PO
 
+[mayan-edms.authentication_oidc-4-3]
+file_filter = mayan/apps/authentication_oidc/locale/<lang>/LC_MESSAGES/django.po
+source_file = mayan/apps/authentication_oidc/locale/en/LC_MESSAGES/django.po
+source_lang = en
+type = PO
+
 [mayan-edms.authentication_otp-4-3]
 file_filter = mayan/apps/authentication_otp/locale/<lang>/LC_MESSAGES/django.po
 source_file = mayan/apps/authentication_otp/locale/en/LC_MESSAGES/django.po

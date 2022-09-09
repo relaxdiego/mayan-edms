@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'django_celery_beat',
     'formtools',
     'mathfilters',
+    'mozilla_django_oidc',
     'mptt',
     'rest_framework',
     'rest_framework.authtoken',
@@ -78,6 +79,7 @@ INSTALLED_APPS = (
     # and User models are properly setup using runtime methods.
     'mayan.apps.user_management',
     'mayan.apps.authentication',
+    'mayan.apps.authentication_oidc',
     'mayan.apps.authentication_otp',
     'mayan.apps.autoadmin',
     'mayan.apps.common',
@@ -129,7 +131,7 @@ INSTALLED_APPS = (
     'mayan.apps.tags',
     'mayan.apps.web_links',
     # Placed after rest_api to allow template overriding.
-    'drf_yasg'
+    'drf_yasg',
 )
 
 MIDDLEWARE = (

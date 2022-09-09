@@ -147,6 +147,10 @@ class MultiFactorAuthenticationView(
     def get_context_data(self, form, **kwargs):
         context = super().get_context_data(form=form, **kwargs)
 
+        context.update(
+            AuthenticationBackend.cls_get_instance().get_context_data()
+        )
+
         wizard_step = self.form_list[self.steps.current]
 
         if self.storage.current_step == self.steps.last:
@@ -182,6 +186,13 @@ class MayanLoginView(StrongholdPublicMixin, LoginView):
     }
     redirect_authenticated_user = True
     template_name = 'authentication/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            AuthenticationBackend.cls_get_instance().get_context_data()
+        )
+        return context
 
     def get_form_class(self):
         return AuthenticationBackend.cls_get_instance().get_login_form_class()
