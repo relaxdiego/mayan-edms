@@ -358,7 +358,7 @@
   - Improve HTML data by allowing the entries to be resolved against the
     context.
   - Support empty URL values. When empty, the link is rendered without a
-    href attribute.ElasticSearch
+    href attribute.
 
 - Add link to make staging folder file selection easier. Closes GitLab
   issue #341. Thanks to Leroy Förster (@gersilex) for the report and
