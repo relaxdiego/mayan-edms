@@ -170,7 +170,7 @@ class CabinetViewTestMixin:
             }, data={'label': TEST_CABINET_CHILD_LABEL}
         )
 
-        self._test_cabinet = Cabinet.objects.exclude(pk__in=values).first()
+        self._test_cabinet_child = Cabinet.objects.exclude(pk__in=values).first()
         self._test_cabinets.append(self._test_cabinet)
 
         return response

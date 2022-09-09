@@ -3,7 +3,7 @@ from mayan.apps.documents.tests.base import GenericDocumentViewTestCase
 from mayan.apps.testing.tests.base import GenericViewTestCase
 
 from ..events import (
-    event_cabinet_created, event_cabinet_edited,
+    event_cabinet_created, event_cabinet_deleted, event_cabinet_edited,
     event_cabinet_document_added, event_cabinet_document_removed
 )
 from ..models import Cabinet
@@ -201,7 +201,7 @@ class CabinetChildViewTestCase(
         self._test_cabinets[0].refresh_from_db()
         self.assertEqual(Cabinet.objects.count(), cabinet_count + 1)
         self.assertTrue(
-            self._test_cabinets[1] in self._test_cabinets[0].get_descendants()
+            self._test_cabinet_child in self._test_cabinets[0].get_descendants()
         )
 
         events = self._get_test_events()
@@ -209,7 +209,7 @@ class CabinetChildViewTestCase(
 
         self.assertEqual(events[0].action_object, self._test_cabinet)
         self.assertEqual(events[0].actor, self._test_case_user)
-        self.assertEqual(events[0].target, self._test_cabinet)
+        self.assertEqual(events[0].target, self._test_cabinet_child)
         self.assertEqual(events[0].verb, event_cabinet_created.id)
 
     def test_cabinet_child_delete_view_no_permission(self):
@@ -243,8 +243,12 @@ class CabinetChildViewTestCase(
         self.assertEqual(Cabinet.objects.count(), cabinet_count - 1)
 
         events = self._get_test_events()
-        self.assertEqual(events.count(), 0)
+        self.assertEqual(events.count(), 1)
 
+        self.assertEqual(events[0].action_object, self._test_cabinet)
+        self.assertEqual(events[0].actor, self._test_cabinet)
+        self.assertEqual(events[0].target, None)
+        self.assertEqual(events[0].verb, event_cabinet_deleted.id)
 
 class CabinetDocumentViewTestCase(
     CabinetTestMixin, CabinetViewTestMixin, GenericDocumentViewTestCase

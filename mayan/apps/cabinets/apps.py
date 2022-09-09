@@ -17,8 +17,8 @@ from mayan.apps.navigation.classes import SourceColumn
 from mayan.apps.rest_api.fields import DynamicSerializerField
 
 from .events import (
-    event_cabinet_edited, event_cabinet_document_added,
-    event_cabinet_document_removed
+    event_cabinet_deleted, event_cabinet_edited,
+    event_cabinet_document_added, event_cabinet_document_removed
 )
 from .handlers import handler_cabinet_pre_delete, handler_index_document
 from .html_widgets import DocumentCabinetWidget
@@ -108,8 +108,8 @@ class CabinetsApp(MayanAppConfig):
 
         ModelEventType.register(
             model=Cabinet, event_types=(
-                event_cabinet_edited, event_cabinet_document_added,
-                event_cabinet_document_removed
+                event_cabinet_deleted, event_cabinet_edited,
+                event_cabinet_document_added, event_cabinet_document_removed
             )
         )
         ModelEventType.register(

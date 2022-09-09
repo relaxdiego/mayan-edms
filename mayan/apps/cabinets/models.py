@@ -14,8 +14,8 @@ from mayan.apps.events.classes import EventManagerMethodAfter, EventManagerSave
 from mayan.apps.events.decorators import method_event
 
 from .events import (
-    event_cabinet_created, event_cabinet_edited, event_cabinet_document_added,
-    event_cabinet_document_removed
+    event_cabinet_created, event_cabinet_deleted, event_cabinet_edited,
+    event_cabinet_document_added, event_cabinet_document_removed
 )
 
 
@@ -53,9 +53,18 @@ class Cabinet(ExtraDataModelMixin, MPTTModel):
         return self.get_full_path()
 
     @method_event(
+        action_object='parent',
+        event=event_cabinet_deleted,
+        event_manager_class=EventManagerMethodAfter
+    )
+    def delete(self, *args, **kwargs):
+        self._event_actor = getattr(self, '_event_actor', 'parent')
+        return super().delete(*args, **kwargs)
+
+    @method_event(
         action_object='self',
         event=event_cabinet_document_added,
-        event_manager_class=EventManagerMethodAfter,
+        event_manager_class=EventManagerMethodAfter
     )
     def document_add(self, document):
         self._event_target = document
@@ -64,7 +73,7 @@ class Cabinet(ExtraDataModelMixin, MPTTModel):
     @method_event(
         action_object='self',
         event=event_cabinet_document_removed,
-        event_manager_class=EventManagerMethodAfter,
+        event_manager_class=EventManagerMethodAfter
     )
     def document_remove(self, document):
         self._event_target = document

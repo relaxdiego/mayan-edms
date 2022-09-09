@@ -13,6 +13,9 @@
   ``authentication_oidc`` app.
 - Add the parent cabinet as the action object to the cabinet creation event
   when a child cabinet is created.
+- Add the cabinet deleted event. This event is committed when a child cabinet
+  is deleted. The parent cabinet is recorded as the action object for the
+  event.
 
 4.3.1 (2022-08-21)
 ==================
