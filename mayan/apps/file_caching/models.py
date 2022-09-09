@@ -234,9 +234,21 @@ class CachePartition(models.Model):
 
                 # Since open "wb+" doesn't create files, force the creation
                 # of an empty file.
-                self.cache.storage.delete(
-                    name=self.get_full_filename(filename=filename)
-                )
+                try:
+                    self.cache.storage.delete(
+                        name=self.get_full_filename(filename=filename)
+                    )
+                except Exception as exception:
+                    """
+                    Some S3 implementations like Google Cloud Storage throw
+                    an error when attempting to delete a not existent file
+                    key. Ignore this exception, any storage error of concern
+                    will be triggered by the ``storage.save`` call below.
+                    """
+                    logger.debug(
+                        'cache.storage.delete exception: %s', exception
+                    )
+
                 self.cache.storage.save(
                     name=self.get_full_filename(filename=filename),
                     content=ContentFile(content='')
