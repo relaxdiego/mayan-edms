@@ -373,7 +373,7 @@ class EventType:
             # create a new event.
             logger.warning(
                 'Attempting to commit event "%s" without an actor or a '
-                'target. This is not yet supported.', self
+                'target. This is not supported.', self
             )
             return
 
