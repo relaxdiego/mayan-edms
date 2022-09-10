@@ -35,6 +35,7 @@
 
 - Data from file and download content creation or examination now defaults
   to byte format instead of unicode.
+- Include Django Storages and boto3 Python libraries by default.
 
 4.3.1 (2022-08-21)
 ==================
