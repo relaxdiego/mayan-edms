@@ -8,6 +8,26 @@ from .literals import (
 
 
 class CabinetAPIViewTestMixin:
+    def _request_test_cabinet_child_create_api_view(self):
+        data = {
+            'label': TEST_CABINET_CHILD_LABEL,
+            'parent': self._test_cabinet.pk
+        }
+
+        values = list(Cabinet.objects.values_list('pk', flat=True))
+        response = self.post(viewname='rest_api:cabinet-list', data=data)
+
+        self._test_cabinet_child = Cabinet.objects.exclude(pk__in=values).first()
+
+        return response
+
+    def _request_test_cabinet_child_delete_api_view(self):
+        return self.delete(
+            viewname='rest_api:cabinet-detail', kwargs={
+                'cabinet_id': self._test_cabinet_child.pk
+            }
+        )
+
     def _request_test_cabinet_create_api_view(self, extra_data=None):
         data = {'label': TEST_CABINET_LABEL, 'parent': ''}
 

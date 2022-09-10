@@ -21,6 +21,13 @@
   layout.
 - Update navigation permission check to short circuit check when the
   current user has not logged in yet.
+- Cabinet updates:
+
+  - Use the same permission layout to create parent and child cabinets from
+    the API as from the HTTP views.
+  - The create permission is now required to create parent as well as child
+    cabinets. This change replaces requiring the edit permission to create
+    child cabinets via the HTTP views.
 
 4.3.1 (2022-08-21)
 ==================

@@ -7,8 +7,8 @@ from mayan.apps.documents.tests.mixins.document_mixins import DocumentTestMixin
 from mayan.apps.rest_api.tests.base import BaseAPITestCase
 
 from ..events import (
-    event_cabinet_created, event_cabinet_edited, event_cabinet_document_added,
-    event_cabinet_document_removed
+    event_cabinet_created, event_cabinet_deleted, event_cabinet_edited,
+    event_cabinet_document_added, event_cabinet_document_removed
 )
 from ..models import Cabinet
 from ..permissions import (
@@ -209,16 +209,100 @@ class CabinetAPITestCase(
         self.assertEqual(events.count(), 0)
 
 
+class CabinetChildAPITestCase(
+    CabinetAPIViewTestMixin, CabinetTestMixin, BaseAPITestCase
+):
+    auto_create_test_cabinet = True
+
+    def test_cabinet_child_create_api_view_no_permission(self):
+        cabinet_count = Cabinet.objects.count()
+
+        self._clear_events()
+
+        response = self._request_test_cabinet_child_create_api_view()
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        self.assertEqual(Cabinet.objects.count(), cabinet_count)
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_cabinet_child_create_api_view_with_access(self):
+        self.grant_access(
+            obj=self._test_cabinet, permission=permission_cabinet_create
+        )
+
+        cabinet_count = Cabinet.objects.count()
+
+        self._clear_events()
+
+        response = self._request_test_cabinet_child_create_api_view()
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        self._test_cabinets[0].refresh_from_db()
+        self.assertEqual(Cabinet.objects.count(), cabinet_count + 1)
+        self.assertTrue(
+            self._test_cabinet_child in self._test_cabinets[0].get_descendants()
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 1)
+
+        self.assertEqual(events[0].action_object, self._test_cabinet)
+        self.assertEqual(events[0].actor, self._test_case_user)
+        self.assertEqual(events[0].target, self._test_cabinet_child)
+        self.assertEqual(events[0].verb, event_cabinet_created.id)
+
+    def test_cabinet_child_delete_api_view_no_permission(self):
+        self._create_test_cabinet_child()
+
+        test_cabinet_count = Cabinet.objects.count()
+
+        self._clear_events()
+
+        response = self._request_test_cabinet_child_delete_api_view()
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        self.assertEqual(Cabinet.objects.count(), test_cabinet_count)
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_cabinet_child_delete_api_view_with_access(self):
+        self._create_test_cabinet_child()
+
+        self.grant_access(
+            obj=self._test_cabinet, permission=permission_cabinet_delete
+        )
+
+        test_cabinet_count = Cabinet.objects.count()
+
+        self._clear_events()
+
+        response = self._request_test_cabinet_child_delete_api_view()
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        self.assertEqual(Cabinet.objects.count(), test_cabinet_count - 1)
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 1)
+
+        self.assertEqual(events[0].action_object, self._test_cabinet)
+        self.assertEqual(events[0].actor, self._test_case_user)
+        self.assertEqual(events[0].target, None)
+        self.assertEqual(events[0].verb, event_cabinet_deleted.id)
+
+
 class CabinetDocumentAPITestCase(
     CabinetDocumentAPIViewTestMixin, CabinetTestMixin, DocumentTestMixin,
     BaseAPITestCase
 ):
+    auto_create_test_cabinet = True
     auto_upload_test_document = False
 
     def setUp(self):
         super().setUp()
         self._create_test_document_stub()
-        self._create_test_cabinet()
 
     def test_cabinet_document_add_api_view_no_permission(self):
         self.grant_access(
@@ -542,12 +626,12 @@ class DocumentCabinetAPITestCase(
     CabinetAPIViewTestMixin, CabinetTestMixin,
     DocumentCabinetAPIViewTestMixin, DocumentTestMixin, BaseAPITestCase
 ):
+    auto_create_test_cabinet = True
     auto_upload_test_document = False
 
     def setUp(self):
         super().setUp()
         self._create_test_document_stub()
-        self._create_test_cabinet()
         self._test_cabinet.document_add(document=self._test_document)
 
     def test_document_cabinet_list_api_view_no_permission(self):

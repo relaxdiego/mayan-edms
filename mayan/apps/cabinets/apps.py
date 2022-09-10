@@ -33,9 +33,9 @@ from .links import (
 from .menus import menu_cabinets
 from .methods import method_document_get_cabinets
 from .permissions import (
-    permission_cabinet_add_document, permission_cabinet_delete,
-    permission_cabinet_edit, permission_cabinet_remove_document,
-    permission_cabinet_view
+    permission_cabinet_add_document, permission_cabinet_create,
+    permission_cabinet_delete, permission_cabinet_edit,
+    permission_cabinet_remove_document, permission_cabinet_view
 )
 
 
@@ -128,8 +128,9 @@ class CabinetsApp(MayanAppConfig):
         ModelPermission.register(
             model=Cabinet, permissions=(
                 permission_acl_edit, permission_acl_view,
-                permission_cabinet_delete, permission_cabinet_edit,
-                permission_cabinet_view, permission_cabinet_add_document,
+                permission_cabinet_create, permission_cabinet_delete,
+                permission_cabinet_edit, permission_cabinet_view,
+                permission_cabinet_add_document,
                 permission_cabinet_remove_document
             ), bind_link=False
         )

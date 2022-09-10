@@ -1,3 +1,6 @@
+from rest_framework.generics import get_object_or_404
+
+from mayan.apps.acls.models import AccessControlList
 from mayan.apps.documents.models.document_models import Document
 from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.documents.serializers.document_serializers import DocumentSerializer
@@ -43,10 +46,38 @@ class APICabinetListView(generics.ListCreateAPIView):
     queryset = Cabinet.objects.all()
     serializer_class = CabinetSerializer
 
+    def get_mayan_view_permissions(self, request, view):
+        if request.method == 'POST':
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+
+            if serializer.validated_data['parent']:
+                return {}
+            else:
+                return super().get_mayan_view_permissions(
+                    request=request, view=view
+                )
+        else:
+            return super().get_mayan_view_permissions(
+                request=request, view=view
+            )
+
     def get_instance_extra_data(self):
         return {
             '_event_actor': self.request.user
         }
+
+    def perform_create(self, serializer):
+        parent = serializer.validated_data['parent']
+
+        if parent:
+            queryset = AccessControlList.objects.restrict_queryset(
+                permission=permission_cabinet_create,
+                queryset=self.get_queryset(), user=self.request.user
+            )
+            get_object_or_404(queryset=queryset, pk=parent.pk)
+
+        return super().perform_create(serializer)
 
 
 class APICabinetView(generics.RetrieveUpdateDestroyAPIView):

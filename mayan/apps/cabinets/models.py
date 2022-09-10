@@ -59,7 +59,13 @@ class Cabinet(ExtraDataModelMixin, MPTTModel):
     )
     def delete(self, *args, **kwargs):
         self._event_actor = getattr(self, '_event_actor', 'parent')
-        return super().delete(*args, **kwargs)
+
+        result = super().delete(*args, **kwargs)
+
+        if not self.parent:
+            self._event_ignore = True
+
+        return result
 
     @method_event(
         action_object='self',

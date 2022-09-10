@@ -53,7 +53,7 @@ class CabinetCreateView(SingleObjectCreateView):
 class CabinetChildAddView(ExternalObjectViewMixin, SingleObjectCreateView):
     fields = ('label',)
     external_object_class = Cabinet
-    external_object_permission = permission_cabinet_edit
+    external_object_permission = permission_cabinet_create
     external_object_pk_url_kwarg = 'cabinet_id'
     view_icon = icon_cabinet_child_add
 

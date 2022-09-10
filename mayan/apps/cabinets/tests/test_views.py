@@ -170,9 +170,7 @@ class CabinetViewTestCase(
 class CabinetChildViewTestCase(
     CabinetTestMixin, CabinetViewTestMixin, GenericViewTestCase
 ):
-    def setUp(self):
-        super().setUp()
-        self._create_test_cabinet()
+    auto_create_test_cabinet = True
 
     def test_cabinet_child_create_view_no_permission(self):
         cabinet_count = Cabinet.objects.count()
@@ -189,7 +187,7 @@ class CabinetChildViewTestCase(
 
     def test_cabinet_child_create_view_with_access(self):
         self.grant_access(
-            obj=self._test_cabinet, permission=permission_cabinet_edit
+            obj=self._test_cabinet, permission=permission_cabinet_create
         )
         cabinet_count = Cabinet.objects.count()
 
@@ -250,15 +248,16 @@ class CabinetChildViewTestCase(
         self.assertEqual(events[0].target, None)
         self.assertEqual(events[0].verb, event_cabinet_deleted.id)
 
+
 class CabinetDocumentViewTestCase(
     CabinetTestMixin, CabinetViewTestMixin, GenericDocumentViewTestCase
 ):
+    auto_create_test_cabinet = True
     auto_upload_test_document = False
 
     def setUp(self):
         super().setUp()
         self._create_test_document_stub()
-        self._create_test_cabinet()
 
     def test_cabinet_add_document_view_no_permission(self):
         self.grant_permission(permission=permission_cabinet_view)
@@ -605,12 +604,12 @@ class DocumentCabinetViewTestCase(
     CabinetTestMixin, DocumentCabinetViewTestMixin,
     GenericDocumentViewTestCase
 ):
+    auto_create_test_cabinet = True
     auto_upload_test_document = False
 
     def setUp(self):
         super().setUp()
         self._create_test_document_stub()
-        self._create_test_cabinet()
 
     def test_document_cabinet_list_view_no_permission(self):
         self._test_document.cabinets.add(self._test_cabinet)
