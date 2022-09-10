@@ -19,6 +19,8 @@
 - Fix the function interfaces when calling ``get_mayan_object_permissions``
   to ``get_mayan_view_permissions`` to override an API view permission
   layout.
+- Update navigation permission check to short circuit check when the
+  current user has not logged in yet.
 
 4.3.1 (2022-08-21)
 ==================

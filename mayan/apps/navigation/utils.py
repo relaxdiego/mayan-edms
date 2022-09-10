@@ -21,7 +21,7 @@ def factory_condition_queryset_access(
     This is used to avoid showing a link that ends up in a view with an
     empty results set.
     """
-    def condition(context, resolved_object):
+    def function_condition(context, resolved_object):
         AccessControlList = apps.get_model(
             app_label='acls', model_name='AccessControlList'
         )
@@ -43,36 +43,44 @@ def factory_condition_queryset_access(
                 )
                 return ()
 
+        user = request.user
+
         if view_permission:
-            try:
-                Permission.check_user_permissions(
-                    permissions=(view_permission,), user=request.user
-                )
-            except PermissionDenied:
-                """
-                Don't raise an error, just ignore and let
-                .restrict_queryset() perform a fine grained filtering.
-                """
-            else:
-                if callback:
-                    return callback(
-                        context=context, resolved_object=resolved_object
+            if user.is_authenticated:
+                try:
+                    Permission.check_user_permissions(
+                        permissions=(view_permission,), user=user
                     )
+                except PermissionDenied:
+                    """
+                    Don't raise an error, just ignore and let
+                    .restrict_queryset() perform a fine grained filtering.
+                    """
                 else:
-                    return True
+                    if callback:
+                        return callback(
+                            context=context, resolved_object=resolved_object
+                        )
+                    else:
+                        return True
+            else:
+                return False
 
-        queryset = AccessControlList.objects.restrict_queryset(
-            permission=object_permission, user=request.user,
-            queryset=Model.objects.all()
-        )
-        if callback:
-            return queryset.exists() and callback(
-                context=context, resolved_object=resolved_object
+        if user.is_authenticated:
+            queryset = AccessControlList.objects.restrict_queryset(
+                permission=object_permission, user=user,
+                queryset=Model.objects.all()
             )
-        else:
-            return queryset.exists()
+            if callback:
+                return queryset.exists() and callback(
+                    context=context, resolved_object=resolved_object
+                )
+            else:
+                return queryset.exists()
+        elif callback:
+            return False
 
-    return condition
+    return function_condition
 
 
 def get_content_type_kwargs_factory(
