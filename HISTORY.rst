@@ -16,6 +16,9 @@
 - Add the cabinet deleted event. This event is committed when a child cabinet
   is deleted. The parent cabinet is recorded as the action object for the
   event.
+- Fix the function interfaces when calling ``get_mayan_object_permissions``
+  to ``get_mayan_view_permissions`` to override an API view permission
+  layout.
 
 4.3.1 (2022-08-21)
 ==================
