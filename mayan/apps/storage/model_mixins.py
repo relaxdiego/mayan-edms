@@ -67,7 +67,7 @@ class DatabaseFileModelMixin(models.Model):
     def save(self, *args, **kwargs):
         if not self.file:
             self.file = ContentFile(
-                content='', name=self.filename or ugettext('Unnamed file')
+                content=b'', name=self.filename or ugettext('Unnamed file')
             )
 
         self.filename = self.filename or force_text(s=self.file)

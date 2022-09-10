@@ -4,7 +4,7 @@ from django.conf import settings
 
 TEST_DOWNLOAD_FILE_CONTENT_FILE_NAME = 'test content name'
 
-TEST_CONTENT = 'testcontent'
+TEST_BINARY_CONTENT = b'testcontent'
 TEST_FILE_NAME = 'test_file'
 
 # Filenames

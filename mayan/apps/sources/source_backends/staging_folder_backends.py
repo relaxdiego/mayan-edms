@@ -127,7 +127,7 @@ class StagingFolderFile:
             # Since open "wb+" doesn't create files, check if the file
             # exists, if not then create it.
             self.storage.save(
-                name=self.cache_filename, content=ContentFile(content='')
+                content=ContentFile(content=b''), name=self.cache_filename
             )
 
             with self.storage.open(name=self.cache_filename, mode='wb+') as file_object:

@@ -21,7 +21,7 @@ from django.http.response import FileResponse
 from django.template import Context, Template
 from django.test.utils import ContextList
 from django.urls import clear_url_caches, reverse
-from django.utils.encoding import DjangoUnicodeDecodeError, force_text
+from django.utils.encoding import force_bytes
 
 from stronghold.decorators import public
 
@@ -206,13 +206,9 @@ class DownloadTestCaseMixin:
             self.assertEqual(response.filename, filename)
 
         if content:
-            response_content = b''.join(list(response))
-
-            try:
-                response_content = force_text(s=response_content)
-            except DjangoUnicodeDecodeError:
-                """Leave as bytes"""
-
+            response_content = b''.join(
+                [force_bytes(s=block) for block in response]
+            )
             self.assertEqual(response_content, content)
 
         if is_attachment is not None:

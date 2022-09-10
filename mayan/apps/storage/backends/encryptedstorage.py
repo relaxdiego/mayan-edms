@@ -135,7 +135,7 @@ class EncryptedPassthroughStorage(PassthroughStorage):
             ):
                 name = self._call_backend_method(
                     method_name='save', kwargs={
-                        'content': ContentFile(content=''), 'name': name
+                        'content': ContentFile(content=b''), 'name': name
                     }
                 )
 

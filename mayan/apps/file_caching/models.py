@@ -251,7 +251,7 @@ class CachePartition(models.Model):
 
                 self.cache.storage.save(
                     name=self.get_full_filename(filename=filename),
-                    content=ContentFile(content='')
+                    content=ContentFile(content=b'')
                 )
 
                 partition_file = None

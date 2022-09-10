@@ -2,7 +2,6 @@ from pathlib import Path
 from unittest import skip
 
 from django.core.files.base import ContentFile
-from django.utils.encoding import force_bytes
 
 from mayan.apps.mime_types.tests.mixins import MIMETypeBackendMixin
 from mayan.apps.storage.utils import fs_cleanup, mkdtemp
@@ -11,7 +10,7 @@ from mayan.apps.testing.tests.base import BaseTestCase
 from ..backends.compressedstorage import ZipCompressedPassthroughStorage
 from ..backends.encryptedstorage import EncryptedPassthroughStorage
 
-from .literals import TEST_CONTENT, TEST_FILE_NAME
+from .literals import TEST_BINARY_CONTENT, TEST_FILE_NAME
 
 
 class EncryptedPassthroughStorageTestCase(MIMETypeBackendMixin, BaseTestCase):
@@ -33,7 +32,7 @@ class EncryptedPassthroughStorageTestCase(MIMETypeBackendMixin, BaseTestCase):
 
         test_file_name = storage.save(
             name=TEST_FILE_NAME, content=ContentFile(
-                content=force_bytes(s=TEST_CONTENT)
+                content=TEST_BINARY_CONTENT
             )
         )
 
@@ -45,14 +44,14 @@ class EncryptedPassthroughStorageTestCase(MIMETypeBackendMixin, BaseTestCase):
                 ('application/octet-stream', 'binary')
             )
 
-        with storage.open(name=TEST_FILE_NAME, mode='r') as file_object:
-            self.assertEqual(file_object.read(), TEST_CONTENT)
+        with storage.open(name=TEST_FILE_NAME, mode='rb') as file_object:
+            self.assertEqual(file_object.read(), TEST_BINARY_CONTENT)
 
-        with storage.open(name=TEST_FILE_NAME, mode='r') as file_object:
-            self.assertEqual(file_object.read(1), TEST_CONTENT[0:1])
+        with storage.open(name=TEST_FILE_NAME, mode='rb') as file_object:
+            self.assertEqual(file_object.read(1), TEST_BINARY_CONTENT[0:1])
 
-        with storage.open(name=TEST_FILE_NAME, mode='r') as file_object:
-            self.assertEqual(file_object.read(999), TEST_CONTENT)
+        with storage.open(name=TEST_FILE_NAME, mode='rb') as file_object:
+            self.assertEqual(file_object.read(999), TEST_BINARY_CONTENT)
 
 
 class ZipCompressedPassthroughStorageTestCase(
@@ -75,7 +74,7 @@ class ZipCompressedPassthroughStorageTestCase(
         )
 
         test_file_name = storage.save(
-            name=TEST_FILE_NAME, content=ContentFile(content=TEST_CONTENT)
+            name=TEST_FILE_NAME, content=ContentFile(content=TEST_BINARY_CONTENT)
         )
 
         path_file = Path(self.temporary_directory) / test_file_name
@@ -89,11 +88,11 @@ class ZipCompressedPassthroughStorageTestCase(
 
         with path_file.open(mode='rb') as file_object:
             self.assertNotEqual(
-                file_object.read(), force_bytes(s=TEST_CONTENT)
+                file_object.read(), TEST_BINARY_CONTENT
             )
 
-        with storage.open(name=TEST_FILE_NAME, mode='r') as file_object:
-            self.assertEqual(file_object.read(), TEST_CONTENT)
+        with storage.open(name=TEST_FILE_NAME, mode='rb') as file_object:
+            self.assertEqual(file_object.read(), TEST_BINARY_CONTENT)
 
 
 class CombinationPassthroughStorageTestCase(
@@ -119,7 +118,7 @@ class CombinationPassthroughStorageTestCase(
         )
 
         test_file_name = storage.save(
-            name=TEST_FILE_NAME, content=ContentFile(content=TEST_CONTENT)
+            name=TEST_FILE_NAME, content=ContentFile(content=TEST_BINARY_CONTENT)
         )
 
         path_file = Path(self.temporary_directory) / test_file_name
@@ -132,7 +131,8 @@ class CombinationPassthroughStorageTestCase(
 
         with path_file.open(mode='rb') as file_object:
             self.assertNotEqual(
-                file_object.read(), force_bytes(s=TEST_CONTENT)
+                file_object.read(), TEST_BINARY_CONTENT
             )
-        with storage.open(name=TEST_FILE_NAME, mode='r') as file_object:
-            self.assertEqual(file_object.read(), TEST_CONTENT)
+
+        with storage.open(name=TEST_FILE_NAME, mode='rb') as file_object:
+            self.assertEqual(file_object.read(), TEST_BINARY_CONTENT)

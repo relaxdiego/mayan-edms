@@ -130,6 +130,7 @@ class TarArchive(Archive):
 
     def create(self):
         self.string_buffer = BytesIO()
+        # Mode cannot be a binary mode.
         self._archive = tarfile.TarFile(fileobj=self.string_buffer, mode='w')
 
     def member_contents(self, filename):
@@ -154,6 +155,7 @@ class ZipArchive(Archive):
 
     def create(self):
         self.string_buffer = BytesIO()
+        # Mode cannot be a binary mode.
         self._archive = zipfile.ZipFile(file=self.string_buffer, mode='w')
 
     def member_contents(self, filename):
@@ -200,7 +202,7 @@ class ZipArchive(Archive):
         self.string_buffer.seek(0)
 
         if filename:
-            with open(file=filename, mode='w') as file_object:
+            with open(file=filename, mode='wb') as file_object:
                 file_object.write(self.string_buffer.read())
         else:
             return self.string_buffer

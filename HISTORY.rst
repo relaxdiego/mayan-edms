@@ -33,6 +33,9 @@
     cabinets. This change replaces requiring the edit permission to create
     child cabinets via the HTTP views.
 
+- Data from file and download content creation or examination now defaults
+  to byte format instead of unicode.
+
 4.3.1 (2022-08-21)
 ==================
 - Fixes and improvements merged from version 4.2.9 and 4.2.10.

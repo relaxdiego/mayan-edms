@@ -1,5 +1,3 @@
-from django.utils.encoding import force_text
-
 from mayan.apps.testing.tests.base import GenericViewTestCase
 
 from ..events import (
@@ -7,7 +5,7 @@ from ..events import (
 )
 from ..models import DownloadFile
 
-from .literals import TEST_CONTENT
+from .literals import TEST_BINARY_CONTENT
 from .mixins import DownloadFileTestMixin, DownloadFileViewTestMixin
 
 
@@ -109,17 +107,17 @@ class DownloadFileViewTestCase(
         # common.tests.mixins.ContentTypeCheckMixin
         self.expected_content_types = ('text/plain',)
 
-        self._create_test_download_file(content=TEST_CONTENT)
+        self._create_test_download_file(content=TEST_BINARY_CONTENT)
 
         self._clear_events()
 
         response = self._request_test_download_file_download_view()
         self.assertEqual(response.status_code, 200)
 
-        with self.test_download_file.open(mode='r') as file_object:
+        with self.test_download_file.open(mode='rb') as file_object:
             self.assert_download_response(
                 response=response, content=file_object.read(),
-                filename=force_text(s=self.test_download_file),
+                filename=str(self.test_download_file),
                 mime_type='text/plain'
             )
 
@@ -132,7 +130,7 @@ class DownloadFileViewTestCase(
         self.assertEqual(events[0].verb, event_download_file_downloaded.id)
 
     def test_download_file_with_permission_download_view_no_permission(self):
-        self._create_test_download_file_with_permission(content=TEST_CONTENT)
+        self._create_test_download_file_with_permission(content=TEST_BINARY_CONTENT)
 
         self._clear_events()
 
@@ -147,7 +145,7 @@ class DownloadFileViewTestCase(
         # common.tests.mixins.ContentTypeCheckMixin
         self.expected_content_types = ('text/plain',)
 
-        self._create_test_download_file_with_permission(content=TEST_CONTENT)
+        self._create_test_download_file_with_permission(content=TEST_BINARY_CONTENT)
 
         self.grant_access(
             obj=self.test_download_file,
@@ -159,10 +157,10 @@ class DownloadFileViewTestCase(
         response = self._request_test_download_file_download_view()
         self.assertEqual(response.status_code, 200)
 
-        with self.test_download_file.open(mode='r') as file_object:
+        with self.test_download_file.open(mode='rb') as file_object:
             self.assert_download_response(
                 response=response, content=file_object.read(),
-                filename=force_text(s=self.test_download_file),
+                filename=str(self.test_download_file),
                 mime_type='text/plain'
             )
 
