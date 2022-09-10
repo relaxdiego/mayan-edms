@@ -56,7 +56,7 @@ PythonDependency(
         Celery under the GPL license.  The BSD license, unlike the GPL,
         let you distribute a modified version without making your
         changes open source.
-    ''', module=__name__, name='celery', version_string='==5.2.3'
+    ''', module=__name__, name='celery', version_string='==5.2.7'
 )
 PythonDependency(
     copyright_text='''

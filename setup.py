@@ -67,7 +67,7 @@ PyPDF2==1.28.4
 PyYAML==6.0
 Whoosh==2.7.4
 bleach==4.1.0
-celery==5.2.3
+celery==5.2.7
 django-activity-stream==1.4.0
 django-auth-ldap==4.0.0
 django-celery-beat==2.2.1
