@@ -266,14 +266,14 @@ class MockPOP3Mailbox:
         for key, value in self.messages.items():
             message_size = 0
             for line in value:
-                message_size = message_size + len(line)
+                message_size += len(line)
 
-            messages_total_size = messages_total_size + message_size
+            messages_total_size += message_size
             message_list.append(
                 force_bytes(s='{} {}'.format(message_number, message_size))
             )
 
-            message_number = message_number + 1
+            message_number += 1
 
         # Sum the line sizes in bytes plus 2 (CR+LF)
         result_size = sum(

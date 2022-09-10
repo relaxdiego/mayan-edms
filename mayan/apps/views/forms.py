@@ -217,7 +217,7 @@ class DynamicFormMixin:
         Append the media of the dynamic fields to the normal fields' media.
         """
         media = super().media
-        media = media + django_forms.Media(**self.schema.get('media', {}))
+        media += django_forms.Media(**self.schema.get('media', {}))
         return media
 
 

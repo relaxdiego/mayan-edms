@@ -48,7 +48,7 @@ class NamedMultiWidget(forms.widgets.Widget):
         "Media for a multiwidget is the combination of all media of the subwidgets"
         media = forms.widgets.Media()
         for name, widget in self.widgets.items():
-            media = media + widget.media
+            media += widget.media
         return media
     media = property(_get_media)
 

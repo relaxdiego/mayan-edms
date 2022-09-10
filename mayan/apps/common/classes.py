@@ -187,7 +187,7 @@ class ModelCopy:
                 if not self.model._meta.default_manager.filter(**{field: value}).exists():
                     break
 
-                counter = counter + 1
+                counter += 1
 
             value = self._evaluate_field_get_for_field(
                 field=field, instance=instance, value=value, values=values
@@ -216,7 +216,7 @@ class ModelCopy:
                     if not self.model._meta.default_manager.filter(**{field: value}).exists():
                         break
 
-                    counter = counter + 1
+                    counter += 1
 
                 value = self._evaluate_field_get_for_field(
                     field=field, instance=instance, value=value, values=values

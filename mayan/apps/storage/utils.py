@@ -185,17 +185,17 @@ def patch_files(path=None, replace_list=None):
                                         temporary_file_object.seek(destination_position)
                                         if text == pattern['search']:
                                             text = pattern['replace']
-                                            source_position = source_position + len(pattern['search'])
-                                            destination_position = destination_position + len(pattern['replace'])
+                                            source_position += len(pattern['search'])
+                                            destination_position += len(pattern['replace'])
                                             temporary_file_object.write(text)
 
                                         else:
-                                            source_position = source_position + 1
-                                            destination_position = destination_position + 1
+                                            source_position += 1
+                                            destination_position += 1
                                             temporary_file_object.write(letter)
                                     else:
-                                        source_position = source_position + 1
-                                        destination_position = destination_position + 1
+                                        source_position += 1
+                                        destination_position += 1
                                         temporary_file_object.write(letter)
 
                             source_file_object.seek(0)

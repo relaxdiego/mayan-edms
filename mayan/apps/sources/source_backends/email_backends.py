@@ -242,7 +242,7 @@ class SourceBackendEmailMixin:
                     return shared_uploaded_files
 
                 label = message.detected_file_name or 'attachment-{}'.format(counter)
-                counter = counter + 1
+                counter += 1
 
                 with ContentFile(content=message.body, name=label) as file_object:
                     if label == self.kwargs['metadata_attachment_name']:

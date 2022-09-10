@@ -30,7 +30,7 @@ class FileMetadataDriver:
         driver_classes = cls._registry.get(document_file.mimetype, ())
         # Add wilcard drivers, drivers meant to be executed for all MIME
         # types.
-        driver_classes = driver_classes + tuple(cls._registry.get('*', ()))
+        driver_classes += tuple(cls._registry.get('*', ()))
 
         for driver_class in driver_classes:
             try:

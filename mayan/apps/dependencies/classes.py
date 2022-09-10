@@ -647,7 +647,7 @@ class JavaScriptDependency(Dependency):
 
     def get_url(self):
         url = furl(self.repository.url)
-        url.path.segments = url.path.segments + [self.name]
+        url.path.segments += [self.name]
         return url.tostr()
 
     def verify(self):

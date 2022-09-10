@@ -15,7 +15,7 @@ def code_rename_duplicates(apps, schema_editor):
                 if attempt not in slugs:
                     break
                 else:
-                    counter = counter + 1
+                    counter += 1
 
             entry.slug = attempt
             entry.save()

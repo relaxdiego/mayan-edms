@@ -39,7 +39,7 @@ class DependenciesLicensesForm(forms.Form):
                             line_length = 0
                         else:
                             new_line.append(word)
-                            line_length = line_length + len(word)
+                            line_length += len(word)
 
                     copyright_texts.append(' '.join(new_line))
 

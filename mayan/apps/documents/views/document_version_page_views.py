@@ -161,7 +161,7 @@ class DocumentVersionPageListRemapView(ExternalObjectViewMixin, FormView):
                     (page_index, page_index)
                 )
 
-                page_index = page_index + 1
+                page_index += 1
 
         return {
             'form_extra_kwargs': {

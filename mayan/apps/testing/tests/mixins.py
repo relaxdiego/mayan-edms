@@ -286,7 +286,7 @@ class RandomPrimaryKeyModelMonkeyPatchMixin:
             if not manager.filter(pk=primary_key).exists():
                 break
 
-            attempts = attempts + 1
+            attempts += 1
 
             if attempts > RandomPrimaryKeyModelMonkeyPatchMixin.random_primary_key_maximum_attempts:
                 raise ValueError(
