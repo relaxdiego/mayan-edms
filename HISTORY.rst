@@ -40,6 +40,17 @@
 - Moved the document version export code to its own app called
   ``document_exports``. Existing export events and permissions are
   migrated automatically.
+- Improved invalid permission error handling. Instead of returning an error
+  that stop execution when an invalid permission identifier is requested,
+  the permission model will return a one line text indicating that the
+  permission name is invalid. This error message will be displayed in place
+  of the intended permission label.
+
+  This behavior was also extended to cover invalid permission
+  namespace requests.
+
+  A troubleshooting section is added explaining the possible
+  reasons for the and the solution.
 
 4.3.1 (2022-08-21)
 ==================
