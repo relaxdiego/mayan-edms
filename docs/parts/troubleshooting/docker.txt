@@ -2,8 +2,8 @@
 Docker
 ======
 
-RabbitMQ is not being persisting messages despite using Docker Volumes
-======================================================================
+RabbitMQ is not persisting messages despite using Docker volumes
+================================================================
 
 Docker will create a randomly generated hostname for each container every
 time you deploy a new container instance.
