@@ -37,6 +37,9 @@
   to byte format instead of unicode.
 - Include Django Storages and boto3 Python libraries by default.
 - Use the optimized version (``+=``) of the ``+`` operator.
+- Moved the document version export code to its own app called
+  ``document_exports``. Existing export events and permissions are
+  migrated automatically.
 
 4.3.1 (2022-08-21)
 ==================

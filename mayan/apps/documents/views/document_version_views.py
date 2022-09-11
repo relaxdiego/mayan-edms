@@ -11,7 +11,6 @@ from mayan.apps.converter.permissions import (
     permission_transformation_delete, permission_transformation_edit
 )
 from mayan.apps.converter.transformations import TransformationResize
-from mayan.apps.organizations.utils import get_organization_installation_url
 from mayan.apps.views.generics import (
     ConfirmView, FormView, MultipleObjectConfirmActionView,
     MultipleObjectDeleteView, SingleObjectCreateView, SingleObjectDetailView,
@@ -29,9 +28,8 @@ from ..forms.misc_forms import PageNumberForm
 from ..icons import (
     icon_document_version_active, icon_document_version_create,
     icon_document_version_delete, icon_document_version_edit,
-    icon_document_version_export, icon_document_version_list,
-    icon_document_version_modification, icon_document_version_preview,
-    icon_document_version_print,
+    icon_document_version_list, icon_document_version_modification,
+    icon_document_version_preview, icon_document_version_print,
     icon_document_version_transformation_list_clear,
     icon_document_version_transformation_list_clone
 )
@@ -40,13 +38,11 @@ from ..models.document_models import Document
 from ..models.document_version_models import DocumentVersion
 from ..permissions import (
     permission_document_version_create, permission_document_version_delete,
-    permission_document_version_edit, permission_document_version_export,
-    permission_document_version_print, permission_document_version_view
+    permission_document_version_edit, permission_document_version_print,
+    permission_document_version_view
 )
 from ..settings import setting_preview_height, setting_preview_width
-from ..tasks import (
-    task_document_version_delete, task_document_version_export
-)
+from ..tasks import task_document_version_delete
 
 from .misc_views import PrintFormView, DocumentPrintBaseView
 from .mixins import RecentDocumentViewMixin
@@ -179,49 +175,6 @@ class DocumentVersionEditView(SingleObjectEditView):
         return reverse(
             viewname='documents:document_version_preview', kwargs={
                 'document_version_id': self.object.pk
-            }
-        )
-
-
-class DocumentVersionExportView(MultipleObjectConfirmActionView):
-    object_permission = permission_document_version_export
-    pk_url_kwarg = 'document_version_id'
-    source_queryset = DocumentVersion.valid.all()
-    success_message_single = _(
-        'Document version "%(object)s" export successfully queued.'
-    )
-    success_message_singular = _(
-        '%(count)d document version export successfully queued.'
-    )
-    success_message_plural = _(
-        '%(count)d document versions exports successfully queued.'
-    )
-    title_single = _('Export document version "%(object)s".')
-    title_singular = _('Export %(count)d document version.')
-    title_plural = _('Export %(count)d document versions.')
-    view_icon = icon_document_version_export
-
-    def get_extra_context(self):
-        context = {
-            'message': _(
-                'The process will be performed in the background. '
-                'The exported file will be available in the downloads area.'
-            ),
-        }
-
-        if self.object_list.count() == 1:
-            context['object'] = self.object_list.first()
-
-        return context
-
-    def object_action(self, form, instance):
-        task_document_version_export.apply_async(
-            kwargs={
-                'document_version_id': instance.pk,
-                'organization_installation_url': get_organization_installation_url(
-                    request=self.request
-                ),
-                'user_id': self.request.user.pk
             }
         )
 

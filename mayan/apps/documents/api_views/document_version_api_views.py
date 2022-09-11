@@ -8,14 +8,12 @@ from mayan.apps.rest_api import generics
 from ..classes import DocumentVersionModification
 from ..permissions import (
     permission_document_version_create, permission_document_version_delete,
-    permission_document_version_edit, permission_document_version_export,
-    permission_document_version_view
+    permission_document_version_edit, permission_document_version_view
 )
 from ..serializers.document_version_serializers import (
     DocumentVersionModificationSerializer, DocumentVersionModificationExecuteSerializer,
     DocumentVersionSerializer, DocumentVersionPageSerializer
 )
-from ..tasks import task_document_version_export
 
 from .mixins import (
     ParentObjectDocumentAPIViewMixin, ParentObjectDocumentVersionAPIViewMixin
@@ -49,30 +47,6 @@ class APIDocumentVersionDetailView(
 
     def get_queryset(self):
         return self.get_document().versions.all()
-
-
-class APIDocumentVersionExportView(
-    ParentObjectDocumentAPIViewMixin, generics.ObjectActionAPIView
-):
-    """
-    post: Exports the specified document version.
-    """
-    action_response_status = status.HTTP_202_ACCEPTED
-    lookup_url_kwarg = 'document_version_id'
-    mayan_object_permissions = {
-        'POST': (permission_document_version_export,),
-    }
-
-    def get_queryset(self):
-        return self.get_document().versions.all()
-
-    def object_action(self, request, serializer):
-        task_document_version_export.apply_async(
-            kwargs={
-                'document_version_id': self.object.pk,
-                'user_id': request.user.id
-            }
-        )
 
 
 class APIDocumentVersionListView(

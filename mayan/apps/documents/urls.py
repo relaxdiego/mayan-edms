@@ -15,8 +15,8 @@ from .api_views.document_type_api_views import (
     APIDocumentTypeQuickLabelDetailView, APIDocumentTypeQuickLabelListView
 )
 from .api_views.document_version_api_views import (
-    APIDocumentVersionDetailView, APIDocumentVersionExportView,
-    APIDocumentVersionListView, APIDocumentVersionModificationBackendListView,
+    APIDocumentVersionDetailView, APIDocumentVersionListView,
+    APIDocumentVersionModificationBackendListView,
     APIDocumentVersionModificationView, APIDocumentVersionPageDetailView,
     APIDocumentVersionPageImageView, APIDocumentVersionPageListView
 )
@@ -68,10 +68,9 @@ from .views.document_version_page_views import (
 from .views.document_version_views import (
     DocumentVersionActiveView, DocumentVersionCreateView,
     DocumentVersionDeleteView, DocumentVersionEditView,
-    DocumentVersionExportView, DocumentVersionListView,
-    DocumentVersionModifyView, DocumentVersionPreviewView,
-    DocumentVersionPrintFormView, DocumentVersionPrintView,
-    DocumentVersionTransformationsClearView,
+    DocumentVersionListView, DocumentVersionModifyView,
+    DocumentVersionPreviewView, DocumentVersionPrintFormView,
+    DocumentVersionPrintView, DocumentVersionTransformationsClearView,
     DocumentVersionTransformationsCloneView
 )
 from .views.document_views import (
@@ -289,11 +288,6 @@ urlpatterns_document_version = [
         regex=r'^documents/versions/(?P<document_version_id>\d+)/delete/$',
         name='document_version_single_delete',
         view=DocumentVersionDeleteView.as_view()
-    ),
-    url(
-        regex=r'^documents/versions/(?P<document_version_id>\d+)/export/$',
-        name='document_version_export',
-        view=DocumentVersionExportView.as_view()
     ),
     url(
         regex=r'^documents/versions/(?P<document_version_id>\d+)/edit/$',
@@ -631,11 +625,6 @@ api_urls_document_versions = [
         regex=r'^documents/(?P<document_id>[0-9]+)/versions/(?P<document_version_id>[0-9]+)/$',
         name='documentversion-detail',
         view=APIDocumentVersionDetailView.as_view()
-    ),
-    url(
-        regex=r'^documents/(?P<document_id>[0-9]+)/versions/(?P<document_version_id>[0-9]+)/export/$',
-        view=APIDocumentVersionExportView.as_view(),
-        name='documentversion-export'
     ),
     url(
         regex=r'^documents/(?P<document_id>[0-9]+)/versions/(?P<document_version_id>[0-9]+)/modify/$',

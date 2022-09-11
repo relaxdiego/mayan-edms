@@ -8,18 +8,16 @@ from mayan.apps.navigation.classes import Link
 from ..icons import (
     icon_document_version_active, icon_document_version_create,
     icon_document_version_delete, icon_document_version_edit,
-    icon_document_version_export, icon_document_version_list,
-    icon_document_version_modification, icon_document_version_print,
-    icon_document_version_return_document, icon_document_version_return_list,
-    icon_document_version_preview,
+    icon_document_version_list, icon_document_version_modification,
+    icon_document_version_print, icon_document_version_return_document,
+    icon_document_version_return_list, icon_document_version_preview,
     icon_document_version_transformation_list_clear,
     icon_document_version_transformation_list_clone
 )
 from ..permissions import (
     permission_document_version_create, permission_document_version_delete,
-    permission_document_version_edit, permission_document_version_export,
-    permission_document_version_print, permission_document_version_view,
-    permission_document_view
+    permission_document_version_edit, permission_document_version_print,
+    permission_document_version_view, permission_document_view
 )
 
 
@@ -49,11 +47,6 @@ link_document_version_edit = Link(
     args='resolved_object.pk', icon=icon_document_version_edit,
     permissions=(permission_document_version_edit,),
     text=_('Edit'), view='documents:document_version_edit'
-)
-link_document_version_export = Link(
-    args='resolved_object.pk', icon=icon_document_version_export,
-    permissions=(permission_document_version_export,),
-    text=_('Export'), view='documents:document_version_export'
 )
 link_document_version_list = Link(
     args='resolved_object.pk', icon=icon_document_version_list,

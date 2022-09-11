@@ -71,9 +71,8 @@ from .events import (
 
 from .events import (
     event_document_version_created, event_document_version_deleted,
-    event_document_version_edited, event_document_version_exported,
-    event_document_version_page_created, event_document_version_page_deleted,
-    event_document_version_page_edited,
+    event_document_version_edited, event_document_version_page_created,
+    event_document_version_page_deleted, event_document_version_page_edited,
 )
 
 from .handlers import (
@@ -124,8 +123,8 @@ from .links.document_version_links import (
     link_document_version_active, link_document_version_create,
     link_document_version_single_delete,
     link_document_version_multiple_delete, link_document_version_edit,
-    link_document_version_export, link_document_version_list,
-    link_document_version_modification, link_document_version_return_list,
+    link_document_version_list, link_document_version_modification,
+    link_document_version_return_list,
     link_document_version_return_to_document, link_document_version_preview,
     link_document_version_print_form,
     link_document_version_transformations_clear,
@@ -193,8 +192,8 @@ from .permissions import (
 
 from .permissions import (
     permission_document_version_create, permission_document_version_delete,
-    permission_document_version_edit, permission_document_version_export,
-    permission_document_version_print, permission_document_version_view
+    permission_document_version_edit, permission_document_version_print,
+    permission_document_version_view
 )
 
 # TrashedDocument
@@ -371,7 +370,6 @@ class DocumentsApp(MayanAppConfig):
         ModelEventType.register(
             model=DocumentVersion, event_types=(
                 event_document_version_edited,
-                event_document_version_exported,
                 event_document_version_page_created,
                 event_document_version_page_deleted
             )
@@ -475,7 +473,6 @@ class DocumentsApp(MayanAppConfig):
                 permission_cache_partition_purge,
                 permission_document_version_delete,
                 permission_document_version_edit,
-                permission_document_version_export,
                 permission_document_version_print,
                 permission_document_version_view,
                 permission_transformation_create,
@@ -929,7 +926,6 @@ class DocumentsApp(MayanAppConfig):
                 link_document_version_active,
                 link_cache_partition_purge,
                 link_document_version_single_delete, link_document_version_edit,
-                link_document_version_export,
                 link_document_version_modification,
                 link_document_version_page_list_remap,
                 link_document_version_print_form,

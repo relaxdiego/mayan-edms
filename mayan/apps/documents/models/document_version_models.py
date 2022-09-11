@@ -1,8 +1,6 @@
 import logging
 import os
 
-from furl import furl
-
 from django.apps import apps
 from django.contrib.contenttypes.models import ContentType
 from django.db import models, transaction
@@ -17,22 +15,17 @@ from mayan.apps.events.classes import (
     EventManagerMethodAfter, EventManagerSave
 )
 from mayan.apps.events.decorators import method_event
-from mayan.apps.locales.utils import to_language
-from mayan.apps.messaging.models import Message
-from mayan.apps.storage.models import DownloadFile
 from mayan.apps.templating.classes import Template
 
 from ..events import (
     event_document_version_created, event_document_version_deleted,
-    event_document_version_edited, event_document_version_exported
+    event_document_version_edited
 )
 from ..literals import (
-    DOCUMENT_VERSION_EXPORT_MESSAGE_BODY,
-    DOCUMENT_VERSION_EXPORT_MESSAGE_SUBJECT, IMAGE_ERROR_NO_VERSION_PAGES,
+    IMAGE_ERROR_NO_VERSION_PAGES,
     STORAGE_NAME_DOCUMENT_VERSION_PAGE_IMAGE_CACHE
 )
 from ..managers import ValidDocumentVersionManager
-from ..permissions import permission_document_version_export
 from ..signals import signal_post_document_version_remap
 
 from .document_file_page_models import DocumentFilePage
@@ -126,71 +119,6 @@ class DocumentVersion(ExtraDataModelMixin, models.Model):
         self.cache_partition.delete()
 
         return super().delete(*args, **kwargs)
-
-    def export(self, file_object):
-        pages_queryset = self.pages
-
-        if pages_queryset.exists():
-            # Only export the version if there is at least one page.
-            export_file_created = False
-            for page in pages_queryset:
-                if page.content_object:
-                    # Ensure only pages that point to actual content are
-                    # exported.
-                    if not export_file_created:
-                        page.export(file_object=file_object)
-                    else:
-                        page.export(append=True, file_object=file_object)
-
-    def export_to_download_file(
-        self, organization_installation_url='', user=None
-    ):
-        download_file = DownloadFile(
-            content_object=self, filename='{}.pdf'.format(self),
-            label=_('Document version export to PDF'),
-            permission=permission_document_version_export.stored_permission
-        )
-        download_file._event_actor = user
-        download_file.save()
-
-        with download_file.open(mode='wb+') as file_object:
-            self.export(file_object=file_object)
-
-        event_document_version_exported.commit(
-            action_object=download_file, actor=user,
-            target=self
-        )
-
-        if user:
-            download_list_url = furl(organization_installation_url).join(
-                reverse(
-                    viewname='storage:download_file_list'
-                )
-            ).tostr()
-
-            download_url = furl(organization_installation_url).join(
-                reverse(
-                    viewname='storage:download_file_download',
-                    kwargs={'download_file_id': download_file.pk}
-                )
-            ).tostr()
-
-            Message.objects.create(
-                sender_object=download_file,
-                user=user,
-                subject=to_language(
-                    language=user.locale_profile.language,
-                    promise=DOCUMENT_VERSION_EXPORT_MESSAGE_SUBJECT
-                ),
-                body=to_language(
-                    language=user.locale_profile.language,
-                    promise=DOCUMENT_VERSION_EXPORT_MESSAGE_BODY
-                ) % {
-                    'download_list_url': download_list_url,
-                    'download_url': download_url,
-                    'document_version': self,
-                }
-            )
 
     def get_absolute_url(self):
         return reverse(

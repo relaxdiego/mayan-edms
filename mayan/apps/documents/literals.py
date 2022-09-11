@@ -74,15 +74,6 @@ DEFAULT_LANGUAGE_CODES = (
 )
 DEFAULT_STUB_EXPIRATION_INTERVAL = 60 * 60 * 24  # 24 hours
 
-DOCUMENT_VERSION_EXPORT_MESSAGE_BODY = _(
-    'Document version "%(document_version)s" has been '
-    'exported and is available for download using the '
-    'link: %(download_url)s or from '
-    'the downloads area (%(download_list_url)s).'
-)
-DOCUMENT_VERSION_EXPORT_MESSAGE_SUBJECT = _('Document version exported.')
-DOCUMENT_VERSION_EXPORT_MIMETYPE = 'application/pdf'
-
 IMAGE_ERROR_NO_ACTIVE_VERSION = 'document_no_active_version'
 IMAGE_ERROR_NO_VERSION_PAGES = 'document_no_version_pages'
 IMAGE_ERROR_FILE_PAGE_TRANSFORMATION_ERROR = 'document_file_page_transformation_error'

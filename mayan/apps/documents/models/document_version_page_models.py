@@ -1,7 +1,6 @@
 import logging
 
 from furl import furl
-from PIL import Image
 
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -89,17 +88,6 @@ class DocumentVersionPage(
     def delete(self, *args, **kwargs):
         self.cache_partition.delete()
         super().delete(*args, **kwargs)
-
-    def export(self, file_object, append=False, resolution=None):
-        if not resolution:
-            resolution = 300.0
-
-        cache_filename = self.generate_image()
-        with self.cache_partition.get_file(filename=cache_filename).open() as image_file_object:
-            Image.open(fp=image_file_object).save(
-                append=append, format='PDF', fp=file_object,
-                resolution=resolution
-            )
 
     def generate_image(
         self, _acquire_lock=True, maximum_layer_order=None,

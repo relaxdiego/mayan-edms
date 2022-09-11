@@ -62,10 +62,10 @@ permission_document_version_edit = namespace.add_permission(
     label=_('Edit document versions'),
     name='document_version_edit'
 )
-permission_document_version_export = namespace.add_permission(
-    label=_('Export document versions'),
-    name='document_version_export'
-)
+#permission_document_version_export = namespace.add_permission(
+#    label=_('Export document versions'),
+#    name='document_version_export'
+#)
 permission_document_version_print = namespace.add_permission(
     label=_('Print document versions'), name='document_version_print'
 )

@@ -1,4 +1,5 @@
-from mayan.apps.documents.literals import DOCUMENT_VERSION_EXPORT_MIMETYPE
+from mayan.apps.document_exports.classes import DocumentVersionExporter
+from mayan.apps.document_exports.literals import DOCUMENT_VERSION_EXPORT_MIMETYPE
 from mayan.apps.storage.utils import NamedTemporaryFile
 
 from .literals import EMAIL_SEPARATORS
@@ -37,7 +38,8 @@ def get_document_version_content(obj):
 
         def __enter__(self):
             self.file_object = NamedTemporaryFile(delete=False)
-            obj.export(file_object=self.file_object)
+            document_version_exporter = DocumentVersionExporter(document_version=obj)
+            document_version_exporter.export(file_object=self.file_object)
             self.file_object.seek(0)
             return self.file_object
 
