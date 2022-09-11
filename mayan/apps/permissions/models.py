@@ -4,7 +4,6 @@ from django.apps import apps
 from django.contrib.auth.models import Group
 from django.db import models
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
@@ -13,7 +12,7 @@ from mayan.apps.events.classes import EventManagerSave
 from mayan.apps.events.decorators import method_event
 from mayan.apps.user_management.permissions import permission_group_view
 
-from .classes import Permission
+from .classes import Permission, PermissionNamespace
 from .events import event_role_created, event_role_edited
 from .managers import RoleManager, StoredPermissionManager
 
@@ -157,10 +156,7 @@ class StoredPermission(models.Model):
         verbose_name_plural = _('Permissions')
 
     def __str__(self):
-        try:
-            return force_text(s=self.volatile_permission)
-        except KeyError:
-            return self.name
+        return str(self.label)
 
     def get_absolute_url(self):
         return reverse(
@@ -169,23 +165,27 @@ class StoredPermission(models.Model):
             }
         )
 
-    @cached_property
-    def volatile_permission_id(self):
-        """
-        Return the identifier of the real permission class represented by
-        this model instance.
-        """
-        return '{}.{}'.format(self.namespace, self.name)
+    @property
+    def label(self):
+        try:
+            permission = self.volatile_permission
+        except KeyError:
+            return _('Unknown or obsolete permission: %s') % self.name
+        else:
+            return permission.label
 
-    @cached_property
-    def volatile_permission(self):
-        """
-        Returns the real class of the permission represented by this model
-        instance.
-        """
-        return Permission.get(
-            pk=self.volatile_permission_id, class_only=True
-        )
+    @property
+    def namespace_label(self):
+        try:
+            permission_namespace = PermissionNamespace.get(
+                name=self.namespace
+            )
+        except KeyError:
+            return _(
+                'Unknown or obsolete permission namespace: %s'
+            ) % self.namespace
+        else:
+            return permission_namespace.label
 
     def natural_key(self):
         return (self.namespace, self.name)
@@ -214,3 +214,19 @@ class StoredPermission(models.Model):
                 'Fallthru: Permission "%s" not granted to user "%s"', self, user
             )
             return False
+
+    @cached_property
+    def volatile_permission(self):
+        """
+        Returns the real class of the permission represented by this model
+        instance.
+        """
+        return Permission.get(pk=self.volatile_permission_id)
+
+    @cached_property
+    def volatile_permission_id(self):
+        """
+        Return the identifier of the real permission class represented by
+        this model instance.
+        """
+        return '{}.{}'.format(self.namespace, self.name)

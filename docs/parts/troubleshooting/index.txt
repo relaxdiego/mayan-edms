@@ -10,6 +10,7 @@ Troubleshooting
 - :doc:`ldap`
 - :doc:`ocr`
 - :doc:`passwords`
+- :doc:`permissions`
 - :doc:`python`
 - :doc:`static_files`
 - :doc:`text_encoding`

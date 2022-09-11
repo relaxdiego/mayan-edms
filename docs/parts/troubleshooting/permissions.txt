@@ -1,0 +1,35 @@
+===========
+Permissions
+===========
+
+Error message: ``Unknown or obsolete permission...``
+====================================================
+
+There are two possible causes for this error message.
+
+The first is that an upgrade did not complete successfully and previous
+permission identifiers were not updated.
+
+The second is that an upgrade did finish successfully but some permissions
+were made obsolete and removed.
+
+To fix the issue use the following management command:
+
+For Mayan EDMS version 4.2 or earlier:
+
+.. code-block:: console
+
+    docker-compose run app run_command purgepermissions
+
+For Mayan EDMS version 4.3 or later:
+
+.. code-block:: console
+
+    docker-compose run app run_command permissions_purge
+
+
+Error message: ``Unknown or obsolete permission namespace...``
+==============================================================
+
+This error shares the same root cause as the error above and the solution
+is the same too.

@@ -22,14 +22,7 @@ class PermissionNamespace:
 
     @classmethod
     def get(cls, name):
-        try:
-            return cls._registry[name]
-        except KeyError:
-            raise KeyError(
-                'Invalid namespace name. This is probably an obsolete '
-                'permission namespace, execute the management command '
-                '"purgepermissions" and try again.'
-            )
+        return cls._registry[name]
 
     def __init__(self, name, label):
         self.name = name
@@ -73,11 +66,8 @@ class Permission(AppsModuleLoaderMixin):
         raise PermissionDenied(_('Insufficient permissions.'))
 
     @classmethod
-    def get(cls, pk, class_only=False):
-        if class_only:
-            return cls._permissions[pk]
-        else:
-            return cls._permissions[pk].stored_permission
+    def get(cls, pk):
+        return cls._permissions[pk]
 
     @classmethod
     def get_choices(cls):

@@ -1,7 +1,6 @@
 from django.contrib.auth.models import Group
 from django.template import RequestContext
 from django.urls import reverse_lazy
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.user_management.permissions import permission_group_edit
@@ -159,18 +158,18 @@ class RolePermissionAddRemoveView(AddRemoveView):
         # Sort permissions by their translatable label.
         object_list = sorted(
             queryset,
-            key=lambda permission: permission.volatile_permission.label
+            key=lambda permission: str(permission)
         )
 
         # Group permissions by namespace.
         for permission in object_list:
             namespaces_dictionary.setdefault(
-                permission.volatile_permission.namespace.label, []
+                str(permission.namespace_label), []
             )
             namespaces_dictionary[
-                permission.volatile_permission.namespace.label
+                str(permission.namespace_label)
             ].append(
-                (permission.pk, force_text(s=permission))
+                (permission.pk, str(permission))
             )
 
         # Sort permissions by their translatable namespace label.
