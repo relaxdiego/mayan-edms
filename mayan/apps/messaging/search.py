@@ -1,4 +1,4 @@
-from mayan.apps.dynamic_search.classes import SearchModel
+from mayan.apps.dynamic_search.search_models import SearchModel
 
 from .permissions import permission_message_view
 

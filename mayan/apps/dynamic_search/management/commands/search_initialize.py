@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from ...classes import SearchBackend
+from ...search_backends import SearchBackend
 
 
 class Command(BaseCommand):

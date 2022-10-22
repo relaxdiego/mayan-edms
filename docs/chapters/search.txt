@@ -2,69 +2,481 @@
 Search
 ======
 
-Mayan EDMS provides a backend system that allow using different programs to
-power the search function. The default backend
-(``mayan.apps.dynamic_search.backends.django.DjangoSearchBackend``) uses the
-database manager to perform searches.
+Mayan EDMS search system works by providing backends for different search
+engines. Backend classes acts like brides between the specialized search
+engine functionality and the uniform code in Mayan EDMS. Query types,
+operators and data types are interpreted before passing them to the search
+engine to provide a similar experience regardless of the search engine.
+
 
 Search syntax
 =============
 
-Search syntax support will depend on the search backend being used. The
-``DjangoSearchBackend`` backend supports the following syntax.
 
-Text entered in the search bar are split into search terms. The blank space
-character is used as the term delimiter.
+Search types
+------------
 
-By default, search terms are routed to an ``AND`` query. That means
-that a search for:
+Three search types are provided by default. These are simple, advanced,
+and scoped.
 
-``Tag1 Tag2``
+When performing a simple search, only the search terms are required. These
+terms are then matched against all the fields.
 
-will only return documents with both tags attached. To offer the
-opposite choice we added an ``OR`` syntax. Searching for:
+The advanced search provides more control by allowing you to specify which
+terms are to be matched against which fields.
+
+The scoped search provides the most control by allowing you to perform
+logical grouping of search term to field matches.
+
+Terms
+-----
+
+Text used for search is split into search terms. The blank space
+character is used as the term delimiter. To use a phrase as the search term,
+enclose it using double quotes.
+
+
+Operators
+---------
+
+Operators allow combining the results of search terms. Three operators
+are supported: AND, OR, NOT.
+
+The following search terms:
+
+``Tag1 AND Tag2``
+
+will only return the results that match two terms.
+
+These next search terms:
 
 ``Tag1 OR Tag2``
 
-will return documents with either tag attached.
+will return results matching either term.
 
-Literals terms are also supported.
+Search exclusions are also supported via the ``NOT`` operator.
 
 Searching for:
 
+``Tag1 NOT Tag2``
+
+will return results matching ``Tag1`` and not matching ``Tag2``.
+
+Operators are processed in the same order as they are entered.
+
+If no operator is specified, the fallback operator will be used. By default
+this is the ``AND`` operator. This can be changed via the setting named
+``SEARCH_DEFAULT_OPERATOR``.
+
+
+Quoted terms
+------------
+
+Entering the search terms:
+
 ``blue car``
 
-will return documents with the words ``blue`` and ``car``, even if they are
-not together. That means getting documents with the phrases ``blue sky``
-and ``slow car``. To search for exact terms enclose them in quotes:
+will return results with the words ``blue`` and ``car``, even if they are
+not together or in a different order. That means getting results with the
+phrase ``blue sky`` and ``slow car``. To handle both words as a single term
+enclose them in quotes:
 
 ``"blue car"``
 
-This will return only documents with the exact phrase "blue car".
-
-Negative terms or exclusions is also support by adding a minus (``-``)
-character to the term to be excluded.
-
-The search terms:
-
-``Tag1 -Tag2``
-
-will return documents that have the ``Tag1`` attached and that do not have
-``Tag2`` attached.
+This will return only results with the phrase "blue car".
 
 
-Other backends
+Query types
+-----------
+
+.. versionadded:: 4.4
+
+Query types allow matching the search terms to the fields in different ways.
+
+The following query types are supported by the search preprocessor. These
+query types are then converted to the backend search engine specific queries.
+Not all query types might be supported by a specific search engine.
+
+Exact
+^^^^^
+
+Match the exact term.
+
+Alias: ``=``
+
+Example: ``=blue``
+
+
+Fuzzy
+^^^^^
+
+Match the variations of the term where a letter might be transposed.
+
+Alias: ``~``
+
+Example: ``~charactre``. This will match ``character``.
+
+
+Greater than
+^^^^^^^^^^^^
+
+Matches values greater than the term. Works for numbers, text, and dates.
+
+Alias: ``>``
+
+Example: ``>2022-10-15``
+
+
+Greater than or equal
+^^^^^^^^^^^^^^^^^^^^^
+
+Matches values greater than or equal to the term. Works for numbers, text,
+and dates.
+
+Alias: ``>=``
+
+Example: ``>50``
+
+
+Less than
+^^^^^^^^^
+
+Matches values less than to the term. Works for numbers, text, and dates.
+
+Alias: ``<``
+
+Example: ``<2023-01``
+
+
+Less than or equal
+^^^^^^^^^^^^^^^^^^
+
+Matches values greater than or equal to the term. Works for numbers, text,
+and dates.
+
+Alias: ``<=``
+
+Example: ``<=100``
+
+
+Partial
+^^^^^^^
+
+Matches the term as if it is a fragment.
+
+This is the default query type if no query type is specified.
+
+Alias: ``*``
+
+Example: ``*play``. This will match ``play``, ``played``, ``plays``,
+``playing``.
+
+
+Range (inclusive)
+^^^^^^^^^^^^^^^^^
+
+Matches values between the terms specified in the range, including the terms
+themselves. Works for numbers and dates.
+
+Alias: ``[]``
+
+Example: ``[]1..100``. This will match all numbers between 1 and 100.
+
+
+Range (exclusive)
+^^^^^^^^^^^^^^^^^
+
+Matches values between the terms specified in the range, not including the
+terms themselves. Works for numbers and dates.
+
+
+Alias: ``{}``
+
+Example: ``{}1..100``. This will match all numbers greater than 1 and less
+than 100.
+
+
+Regular expression
+^^^^^^^^^^^^^^^^^^
+
+Performs a match using a regular expression. The regular expression is passed
+directly to the search engine. Each search engine supports a different
+regular expression dialect. Consult the documentation of the search engine to
+learn more about their regular expression support and syntax.
+
+Alias: ``%``
+
+Example: ``%^abc[1-4]``. This will match all entries that start with ``abc``
+and are followed by a digit from 1 to 4.
+
+
+Data types
+----------
+
+.. versionadded:: 4.4
+
+The preprocessor will parse terms to a common data type before converting
+it further to the specific data type required by the search engine. This
+bridges the gap regarding which data types are support and homogenizes the
+format of each data type.
+
+
+Integers
+^^^^^^^^
+
+Example: ``1``, ``150``
+
+
+Boolean
+^^^^^^^
+
+Boolean values can be either the words ``true`` or ``false``. Casing is
+ignored.
+
+Example: ``true``, ``FALSE``, ``True``
+
+
+Date and time
+^^^^^^^^^^^^^
+
+To specify a date at least the year must be entered. Every other date and
+time element is optional. If the month is not specified it defaults to
+January. If the day is not specified it defaults to 1. If the hour, minute
+or second are not specified they each default to 0.
+
+Besides dates in electronic format, this data type also supports dates in
+human format.
+
+Example: ``2022``, ``2022-6``, ``2022-03-11T10:11:10``
+
+The following humanized dates are also supported:
+
+- ``today``
+- ``this month``
+- ``this year``
+- ``<number> month ago``
+
+Dates can be used in range queries:
+
+- ``"[]one month ago..today"``
+- ``[]2000-01-01..2020-12-31``
+- ``[]2020-01-01T1-10..today"``
+
+
+Raw terms
+---------
+
+.. versionadded:: 4.4
+
+Raw terms also useful when you want to access specific search engine
+features. Raw terms are passed as-is to the search engine. Enclose the term
+or phrase inside backticks to mark it as a raw term.
+
+In the search term:
+
+```blue AND car```
+
+The ``AND`` operator is not processed by Mayan EDMS. Instead the whole phrase
+is passed to the search engine. In this case, it will be up to the search
+engine how the operator (or any other syntax) is processed.
+
+
+Data normalization
+==================
+
+.. versionadded:: 4.4
+
+Data and user queries are normalized using a pipeline of value
+transformations. These value transformations vary by data type and by
+search backend.
+
+
+Text
+----
+
+Text is normalized using case folding which not only converts text to
+lowercase but also converts language specific letter to other aliases.
+
+For example the German letter ``ß`` is converted to ``ss``. Since this
+conversion happens during indexing and searching, this serves to provide
+search engine independent case insensitive searches.
+
+Hyphens are also normalized. The hyphen symbol usually has special
+meaning to search engines. To avoid contextual collisions, hyphens
+are converted to underscores. This causes all hyphenated words to
+be treated as a single word. Hyphens during search are also converted
+to underscores normalizing the search query with the indexed content.
+
+Accented words are normalized to their unaccented form.
+
+
+Dates
+-----
+
+
+Dates are normalized to the date specific format required by the
+search engine. This could be a Python datetime object, an
+ISO formatted date or a search engine specific date format.
+
+For maximum compatibility the microseconds part of the date time value is
+removed.
+
+
+Numbers
+-------
+
+Numbers are normalized to integers. Signs are not removed.
+
+
+UUID
+----
+
+UUID fields are normalized to text. The hyphen is stripped and the UUID is
+indexed as a single string.
+
+
+Empty values
+============
+
+To search for empty values use an empty quoted term.
+
+Example: ``""``
+
+
+Backends
+========
+
+Django
+------
+
+Path: ``mayan.apps.dynamic_search.backends.django.DjangoSearchBackend``
+
+This was the first backend supported. It uses the same database as the
+rest of the system to emulate a search engine.
+
+As it uses the database, external services or reindexing to update its
+content is not required.
+
+The downside to this backend is that it is slow and can overload the database
+affecting the entire performance of the deployment.
+
+Since version 4.2 it is no longer the default search backend.
+
+
+Unsupported features
+^^^^^^^^^^^^^^^^^^^^
+
+- Accent folding.
+- Case folding.
+- Fuzzy searches are emulated and might not return the same results as
+  a search engine that has native support for fuzzy searches.
+
+
+Whoosh
+------
+
+.. versionadded:: 3.5
+
+Path: ``mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend``
+
+This backend uses the Python Whoosh search library. Whoosh uses local files
+for indexing. Because of this, it runs in the same context as Mayan EDMS,
+no external services are required. Using and backing up Whoosh is very easy.
+
+The downside to this backend is that it can only be used when Mayan EDMS is
+configure to use block storage. Mayan EDMS implementation of Whoosh also
+uses a distributed lock to avoid concurrent writing and possible corruption.
+This slows down the update process of the search index.
+
+This backend provides search functionality that is simple to setup and
+will work well from small to intermediate installations.
+
+In version 4.2, the Whoosh backend was completed and became the default
+search backend.
+
+This engine support specialized date parsing. To use this feature, pass the
+date term as a raw term.
+
+Example: ``=`['last tuesday' to 'next friday']```
+
+More examples of date parsing can be found in
+https://whoosh.readthedocs.io/en/latest/dates.html#parsing-date-queries
+
+To pass reserved characters or symbols that have special meaning to the
+preprocessor or to the Whoosh parsers, pass them as a raw term and
+also enclose them in single quotes.
+
+Example: To search for the terms with the ``<`` symbol use ``=`'<'```
+
+More details can be found in
+https://whoosh.readthedocs.io/en/latest/querylang.html#making-a-term-from-literal-text
+
+
+ElasticSearch
+-------------
+
+.. versionadded:: 4.2
+
+Path: ``mayan.apps.dynamic_search.backends.elasticsearch.ElasticSearchBackend``
+
+This backend uses ElasticSearch via a local API client. ElasticSearch must
+be deployed as an external service, either manually or automatically using
+the official Docker Compose file.
+
+ElasticSearch can scale up very well and support millions of documents and
+many concurrent search requests. ElasticSearch can also be clustered to
+add more capabilities.
+
+The downside is that ElasicSearch has high resource requirements and has
+an extensive but complex search syntax.  Mayan EDMS only uses a subset of the
+search features provided by ElasticSearch.
+
+This backend is recommended for large installations having a high number of
+documents and concurrent users.
+
+
+Considerations
 ==============
 
-Besides the default Django search backend, a backend using the Whoosh search
-engine is included. The name of this backend is
-``mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend`` and can be
-enabled by changing the value of the setting ``SEARCH_BACKEND``. When changing
-the search backend, it is also necessary to launch the "Reindex search backend"
-action from the Tools menu to initialize the search engine index. Indexing the
-search engine is only required once, afterwards the search engine will be
-updated as documents are added or edited.
+When changing the search backend, it is also necessary to launch the
+"Reindex search backend" action from the Tools menu to initialize the
+search engine index.
+
+This action is only required once, afterwards the search engine will be
+updated as objects are added, removed, or edited.
 
 
-Refer to Whoosh's documentation for more information about the search syntax
-it supports: https://whoosh.readthedocs.io/en/latest/querylang.html
+Settings
+========
+
+- ``SEARCH_BACKEND``
+
+  Allows changing the search backend to use. The full dotted Python path to
+  the class must be specified. Defaults to
+  ``mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend``
+
+- ``SEARCH_BACKEND_ARGUMENTS``
+
+  Arguments to pass to the search backend. For example values to change the
+  behavior, host names, or authentication arguments.
+
+- ``SEARCH_DEFAULT_OPERATOR``
+
+  Allows changing the default search operator to be used if none is specified
+  in the search queries. Defaults to ``AND``.
+
+- ``SEARCH_DISABLE_SIMPLE_SEARCH``
+
+  Disables the single term bar search leaving only the advanced search button.
+
+- ``SEARCH_MATCH_ALL_DEFAULT_VALUE``
+
+  Sets the default state of the "Match all" checkbox.
+
+- ``SEARCH_INDEXING_CHUNK_SIZE``
+
+  Amount of objects to process when performing bulk indexing.
+
+- ``SEARCH_RESULTS_LIMIT``
+
+  Maximum number search results to fetch and display.

@@ -1,3 +1,4 @@
+import functools
 import logging
 from pathlib import Path
 
@@ -5,6 +6,10 @@ import whoosh
 from whoosh import qparser
 from whoosh.filedb.filestore import FileStorage
 from whoosh.index import EmptyIndexError
+from whoosh.qparser import (
+    GtLtPlugin, FuzzyTermPlugin, MultifieldParser, OrGroup, RegexPlugin
+)
+from whoosh.qparser.dateparse import DateParserPlugin
 from whoosh.query import Every
 from whoosh.writing import BufferedWriter
 
@@ -13,31 +18,174 @@ from django.conf import settings
 from mayan.apps.common.utils import any_to_bool
 from mayan.apps.lock_manager.backends.base import LockingBackend
 from mayan.apps.lock_manager.exceptions import LockError
+from mayan.apps.storage.utils import TemporaryDirectory
 
-from ..classes import SearchBackend, SearchModel
-from ..exceptions import DynamicSearchRetry
-from ..settings import setting_results_limit
+from ..exceptions import (
+    DynamicSearchBackendException, DynamicSearchRetry,
+    DynamicSearchValueTransformationError
+)
+from ..search_backends import SearchBackend
+from ..search_fields import SearchFieldVirtualAllFields
+from ..search_models import SearchModel
+from ..search_query_types import (
+    BackendQueryType, QueryTypeExact, QueryTypeFuzzy, QueryTypeGreaterThan,
+    QueryTypeGreaterThanOrEqual, QueryTypeLessThan, QueryTypeLessThanOrEqual,
+    QueryTypePartial, QueryTypeRange, QueryTypeRangeExclusive,
+    QueryTypeRegularExpression
+)
 
-from .literals import (
+from .literals.whoosh_literals import (
     DJANGO_TO_WHOOSH_FIELD_MAP, TEXT_LOCK_INSTANCE_DEINDEX,
     TEXT_LOCK_INSTANCE_INDEX, WHOOSH_INDEX_DIRECTORY_NAME,
 )
 logger = logging.getLogger(name=__name__)
 
 
+class BackendQueryTypeWhoosh(BackendQueryType):
+    def do_resolve(self):
+        if self.get_search_backend_field_type() == whoosh.fields.DATETIME:
+
+            self.extra_kwargs['parser'].add_plugin(DateParserPlugin())
+
+        return self._do_resolve()
+
+
+class BackendQueryTypeExact(BackendQueryTypeWhoosh):
+    query_type = QueryTypeExact
+
+    def _do_resolve(self):
+        if self.value is not None:
+            if not self.value and self.is_quoted_value:
+                return 'NOT *'
+            else:
+                if self.is_quoted_value:
+                    template = '{}:("{}")'
+                else:
+                    template = '{}:({})'
+
+                return template.format(
+                    self.search_field.field_name, self.value
+                )
+
+
+class BackendQueryTypeFuzzy(BackendQueryTypeWhoosh):
+    query_type = QueryTypeFuzzy
+
+    def _do_resolve(self):
+        self.extra_kwargs['parser'].add_plugin(FuzzyTermPlugin())
+
+        if self.value is not None:
+            if self.is_quoted_value:
+                template = '{}:"{}"~2'
+            else:
+                template = '{}:{}~2'
+
+            return template.format(
+                self.search_field.field_name, self.value
+            )
+
+
+class BackendQueryTypeComparison(BackendQueryTypeWhoosh):
+    def _do_resolve(self):
+        self.extra_kwargs['parser'].add_plugin(GtLtPlugin())
+
+        if self.value is not None:
+            return self.template.format(
+                self.search_field.field_name, self.value
+            )
+
+
+class BackendQueryTypeGreaterThan(BackendQueryTypeComparison):
+    query_type = QueryTypeGreaterThan
+    template = '{}:>{}'
+
+
+class BackendQueryTypeGreaterThanOrEqual(BackendQueryTypeComparison):
+    query_type = QueryTypeGreaterThanOrEqual
+    template = '{}:>={}'
+
+
+class BackendQueryTypeLessThan(BackendQueryTypeComparison):
+    query_type = QueryTypeLessThan
+    template = '{}:<{}'
+
+
+class BackendQueryTypeLessThanOrEqual(BackendQueryTypeComparison):
+    query_type = QueryTypeLessThanOrEqual
+    template = '{}:<={}'
+
+
+class BackendQueryTypePartial(BackendQueryTypeWhoosh):
+    query_type = QueryTypePartial
+
+    def _do_resolve(self):
+        if self.value is not None:
+            if self.is_quoted_value:
+                template = '{}:"{}"'
+            else:
+                template = '{}:(*{}*)'
+
+            if self.get_search_backend_field_type() == whoosh.fields.BOOLEAN:
+                template = '{}:({})'
+
+            if self.value is not None:
+                return template.format(
+                    self.search_field.field_name, self.value
+                )
+
+
+class BackendQueryTypeRange(BackendQueryTypeWhoosh):
+    query_type = QueryTypeRange
+
+    def _do_resolve(self):
+        if self.value is not None:
+            return '{}:[{} TO {}]'.format(
+                self.search_field.field_name, *self.value
+            )
+
+
+class BackendQueryTypeRangeExclusive(BackendQueryTypeWhoosh):
+    query_type = QueryTypeRangeExclusive
+
+    def _do_resolve(self):
+        if self.value is not None:
+            return '{}:{{{} TO {}}}'.format(
+                self.search_field.field_name, *self.value
+            )
+
+
+class BackendQueryTypeRegularExpression(BackendQueryTypeWhoosh):
+    query_type = QueryTypeRegularExpression
+
+    def _do_resolve(self):
+        self.extra_kwargs['parser'].add_plugin(RegexPlugin())
+
+        if self.value is not None:
+            return '{}:r"{}"'.format(
+                self.search_field.field_name, self.value
+            )
+
+
 class WhooshSearchBackend(SearchBackend):
-    field_map = DJANGO_TO_WHOOSH_FIELD_MAP
+    _local_attribute_backend_temporary_directory = None
+    feature_reindex = True
+    field_type_mapping = DJANGO_TO_WHOOSH_FIELD_MAP
 
-    def __init__(self, **kwargs):
-        index_path = kwargs.pop('index_path', None)
-        writer_limitmb = kwargs.pop('writer_limitmb', 128)
-        writer_multisegment = kwargs.pop('writer_multisegment', False)
-        writer_procs = kwargs.pop('writer_procs', 1)
-
+    def __init__(
+        self, index_path=None, writer_limitmb=128, writer_multisegment=False,
+        writer_procs=1, **kwargs
+    ):
         super().__init__(**kwargs)
 
+        if self._test_mode:
+            if not self.__class__._local_attribute_backend_temporary_directory:
+                self.__class__._local_attribute_backend_temporary_directory = TemporaryDirectory()
+            index_path = self._local_attribute_backend_temporary_directory.name
+
         self.index_path = Path(
-            index_path or Path(settings.MEDIA_ROOT, WHOOSH_INDEX_DIRECTORY_NAME)
+            index_path or Path(
+                settings.MEDIA_ROOT, WHOOSH_INDEX_DIRECTORY_NAME
+            )
         )
 
         if writer_limitmb:
@@ -54,6 +202,49 @@ class WhooshSearchBackend(SearchBackend):
             'procs': writer_procs
         }
 
+    def _clear_search_model_index(self, search_model):
+        schema = self._get_search_model_schema(search_model=search_model)
+
+        if not settings.COMMON_DISABLE_LOCAL_STORAGE:
+            # Clear the model index.
+            self._get_storage().create_index(
+                indexname=search_model.full_name, schema=schema
+            )
+
+    def _do_query_resolve(self, index, limit, query):
+        with index.searcher() as searcher:
+            results = searcher.search(q=query, limit=limit)
+            logger.debug('results: %s', results)
+            return [int(result['id']) for result in results]
+
+    def _get_or_create_index(self, search_model):
+        storage = self._get_storage()
+        schema = self._get_search_model_schema(search_model=search_model)
+
+        try:
+            # Explicitly specify the schema. Allows using existing index
+            # when the schema changes.
+            index = storage.open_index(
+                indexname=search_model.full_name, schema=schema
+            )
+        except EmptyIndexError:
+            index = storage.create_index(
+                indexname=search_model.full_name, schema=schema
+            )
+
+        return index
+
+    @functools.cache
+    def _get_search_model_schema(self, search_model):
+        field_map = self.get_resolved_field_type_map(
+            search_model=search_model
+        )
+        schema_kwargs = {
+            key: value['field'] for key, value in field_map.items()
+        }
+
+        return whoosh.fields.Schema(**schema_kwargs)
+
     def _get_status(self):
         result = []
 
@@ -62,8 +253,8 @@ class WhooshSearchBackend(SearchBackend):
         result.append(len(title) * '=')
 
         for search_model in SearchModel.all():
-            index = self.get_or_create_index(search_model=search_model)
-            search_results = index.searcher().search(Every('id'))
+            index = self._get_or_create_index(search_model=search_model)
+            search_results = index.searcher().search(q=Every('id'))
 
             result.append(
                 '{}: {}'.format(
@@ -73,62 +264,90 @@ class WhooshSearchBackend(SearchBackend):
 
         return '\n'.join(result)
 
+    def _get_storage(self):
+        return FileStorage(path=self.index_path)
+
     def _initialize(self):
         if not settings.COMMON_DISABLE_LOCAL_STORAGE:
             self.index_path.mkdir(exist_ok=True)
 
     def _search(
-        self, query, search_model, user, global_and_search=False,
-        ignore_limit=False
+        self, limit, search_field, query_type, value, is_quoted_value=False,
+        is_raw_value=False
     ):
+        self.do_query_type_verify(
+            query_type=query_type, search_field=search_field
+        )
+
         if not settings.COMMON_DISABLE_LOCAL_STORAGE:
-            index = self.get_or_create_index(search_model=search_model)
+            index = self._get_or_create_index(
+                search_model=search_field.search_model
+            )
 
-            id_list = []
-            with index.searcher() as searcher:
-                search_string = []
+            if isinstance(search_field, SearchFieldVirtualAllFields):
+                parser = MultifieldParser(
+                    [
+                        search_field.field_name for search_field in search_field.field_composition
+                    ], schema=index.schema, group=OrGroup
+                )
+                search_field_queries = []
 
-                for key, value in query.items():
-                    search_string.append(
-                        '{}:({})'.format(key, value)
+                for search_field in search_field.field_composition:
+                    try:
+                        search_string = query_type.resolve_for_backend(
+                            is_quoted_value=is_quoted_value,
+                            is_raw_value=is_raw_value, search_backend=self,
+                            search_field=search_field, value=value,
+                            extra_kwargs={
+                                'parser': parser
+                            }
+                        )
+                    except DynamicSearchValueTransformationError:
+                        """Skip the search field."""
+                    else:
+                        if search_string is not None:
+                            search_field_queries.append(search_string)
+
+                query = parser.parse(' '.join(search_field_queries))
+            else:
+                parser = qparser.QueryParser(
+                    fieldname=search_field.field_name, schema=index.schema
+                )
+
+                try:
+                    search_string = query_type.resolve_for_backend(
+                        is_quoted_value=is_quoted_value,
+                        is_raw_value=is_raw_value, search_backend=self,
+                        search_field=search_field, value=value,
+                        extra_kwargs={
+                            'parser': parser
+                        }
                     )
-
-                global_logic_string = ' AND ' if global_and_search else ' OR '
-                search_string = global_logic_string.join(search_string)
+                except DynamicSearchValueTransformationError:
+                    return ()
+                else:
+                    if search_string is None:
+                        return ()
 
                 logger.debug('search_string: %s', search_string)
 
-                parser = qparser.QueryParser(
-                    fieldname='_', schema=index.schema
-                )
-                parser.remove_plugin_class(cls=qparser.WildcardPlugin)
-                parser.add_plugin(pin=qparser.PrefixPlugin())
-                whoosh_query = parser.parse(text=search_string)
+                query = parser.parse(text=search_string)
 
-                if ignore_limit:
-                    limit = None
-                else:
-                    limit = setting_results_limit.value
+            return self._do_query_resolve(
+                index=index, limit=limit, query=query
+            )
+        else:
+            return ()
 
-                results = searcher.search(q=whoosh_query, limit=limit)
-
-                logger.debug('results: %s', results)
-
-                for result in results:
-                    id_list.append(result['id'])
-
-            return search_model.get_queryset().filter(
-                id__in=id_list
-            ).distinct()
-
-    def clear_search_model_index(self, search_model):
-        schema = self.get_search_model_schema(search_model=search_model)
+    def _update_mappings(self, search_model=None):
+        if search_model:
+            search_models = (search_model,)
+        else:
+            search_models = SearchModel.all()
 
         if not settings.COMMON_DISABLE_LOCAL_STORAGE:
-            # Clear the model index.
-            self.get_storage().create_index(
-                indexname=search_model.get_full_name(), schema=schema
-            )
+            for search_model in search_models:
+                self._get_or_create_index(search_model=search_model)
 
     def deindex_instance(self, instance):
         try:
@@ -140,7 +359,7 @@ class WhooshSearchBackend(SearchBackend):
         else:
             try:
                 search_model = SearchModel.get_for_model(instance=instance)
-                index = self.get_or_create_index(search_model=search_model)
+                index = self._get_or_create_index(search_model=search_model)
 
                 if not settings.COMMON_DISABLE_LOCAL_STORAGE:
                     with index.writer(**self.writer_kwargs) as writer:
@@ -148,31 +367,11 @@ class WhooshSearchBackend(SearchBackend):
             finally:
                 lock.release()
 
-    def get_or_create_index(self, search_model):
-        storage = self.get_storage()
-        schema = self.get_search_model_schema(search_model=search_model)
-
-        try:
-            # Explicitly specify the schema. Allows using existing index
-            # when the schema changes.
-            index = storage.open_index(
-                indexname=search_model.get_full_name(), schema=schema
-            )
-        except EmptyIndexError:
-            index = storage.create_index(
-                indexname=search_model.get_full_name(), schema=schema
-            )
-
-        return index
-
-    def get_search_model_schema(self, search_model):
-        field_map = self.get_resolved_field_map(search_model=search_model)
-        schema_kwargs = {key: value['field'] for key, value in field_map.items()}
-
-        return whoosh.fields.Schema(**schema_kwargs)
-
-    def get_storage(self):
-        return FileStorage(path=self.index_path)
+    def do_native_type_conversion(self, value):
+        if isinstance(value, (list, tuple)):
+            return ' '.join(value)
+        else:
+            return value
 
     def index_instance(self, instance, exclude_model=None, exclude_kwargs=None):
         try:
@@ -185,11 +384,11 @@ class WhooshSearchBackend(SearchBackend):
             try:
                 search_model = SearchModel.get_for_model(instance=instance)
                 if not settings.COMMON_DISABLE_LOCAL_STORAGE:
-                    index = self.get_or_create_index(search_model=search_model)
+                    index = self._get_or_create_index(search_model=search_model)
 
                     with index.writer(**self.writer_kwargs) as writer:
                         kwargs = search_model.populate(
-                            backend=self, instance=instance,
+                            search_backend=self, instance=instance,
                             exclude_model=exclude_model,
                             exclude_kwargs=exclude_kwargs
                         )
@@ -198,23 +397,30 @@ class WhooshSearchBackend(SearchBackend):
                             writer.delete_by_term('id', str(instance.pk))
                             writer.add_document(**kwargs)
                         except Exception as exception:
-                            logger.error(
-                                'Unexpected exception while indexing object '
-                                'id: %(id)s, search model: %(search_model)s, '
-                                'index data: %(index_data)s, raw data: '
-                                '%(raw_data)s, field map: %(field_map)s; '
-                                '%(exception)s' % {
-                                    'exception': exception,
-                                    'field_map': self.get_resolved_field_map(
-                                        search_model=search_model
-                                    ),
-                                    'id': instance.pk,
-                                    'index_data': kwargs,
-                                    'raw_data': instance.__dict__,
-                                    'search_model': search_model.get_full_name()
-                                }, exc_info=True
+                            # The parenthesis is used to defined a multi
+                            # line error message not a translatable string.
+                            error_text = (
+                                'Unexpected exception while '
+                                'indexing object id: {id}, '
+                                'search model: {search_model}, '
+                                'index data: {index_data}, '
+                                'raw data: {raw_data}, '
+                                'field map: {field_map}; '
+                                '{exception}'
+                            ).format(
+                                exception=exception,
+                                field_map=self.get_resolved_field_type_map(
+                                    search_model=search_model
+                                ), id=instance.pk, index_data=kwargs,
+                                raw_data=instance.__dict__,
+                                search_model=search_model.full_name
                             )
-                            raise
+
+                            logger.error(error_text, exc_info=True)
+                            raise DynamicSearchBackendException(
+                                error_text
+                            ) from exception
+
             except whoosh.index.LockError:
                 raise DynamicSearchRetry
             finally:
@@ -233,33 +439,40 @@ class WhooshSearchBackend(SearchBackend):
         else:
             try:
                 if not settings.COMMON_DISABLE_LOCAL_STORAGE:
-                    index = self.get_or_create_index(search_model=search_model)
+                    index = self._get_or_create_index(search_model=search_model)
 
                     writer = BufferedWriter(index=index)
                     for instance in queryset:
                         kwargs = search_model.populate(
-                            backend=self, instance=instance
+                            search_backend=self, instance=instance
                         )
+
                         try:
                             writer.update_document(**kwargs)
                         except Exception as exception:
-                            logger.error(
-                                'Unexpected exception while indexing search model '
-                                '%(search_model)s, id_list: %(id_list)s, '
-                                'index data: %(index_data)s, raw data: '
-                                '%(raw_data)s, field map: %(field_map)s; '
-                                '%(exception)s' % {
-                                    'exception': exception,
-                                    'field_map': self.get_resolved_field_map(
-                                        search_model=search_model
-                                    ),
-                                    'id_list': id_list,
-                                    'index_data': kwargs,
-                                    'raw_data': instance.__dict__,
-                                    'search_model': search_model.get_full_name()
-                                }, exc_info=True
+                            # The parenthesis is used to defined a multi
+                            # line error message not a translatable string.
+                            error_text = (
+                                'Unexpected exception while '
+                                'indexing search model: {search_model}, '
+                                'id_list: {id_list}',
+                                'index data: {index_data}, '
+                                'raw data: {raw_data}, '
+                                'field map: {field_map}; '
+                                '{exception}'
+                            ).format(
+                                exception=exception,
+                                field_map=self.get_resolved_field_type_map(
+                                    search_model=search_model
+                                ), id_list=id_list, index_data=kwargs,
+                                raw_data=instance.__dict__,
+                                search_model=search_model.full_name
                             )
-                            raise
+
+                            logger.error(error_text, exc_info=True)
+                            raise DynamicSearchBackendException(
+                                error_text
+                            ) from exception
                     writer.close()
             except whoosh.index.LockError:
                 raise DynamicSearchRetry
@@ -268,7 +481,7 @@ class WhooshSearchBackend(SearchBackend):
 
     def reset(self, search_model=None):
         self.tear_down(search_model=search_model)
-        self.update_mappings(search_model=search_model)
+        self._update_mappings(search_model=search_model)
 
     def tear_down(self, search_model=None):
         if search_model:
@@ -278,14 +491,41 @@ class WhooshSearchBackend(SearchBackend):
 
         if not settings.COMMON_DISABLE_LOCAL_STORAGE:
             for search_model in search_models:
-                self.clear_search_model_index(search_model=search_model)
+                self._clear_search_model_index(search_model=search_model)
 
-    def update_mappings(self, search_model=None):
-        if search_model:
-            search_models = (search_model,)
-        else:
-            search_models = SearchModel.all()
+    def test_mode_stop(self):
+        self.__class__._local_attribute_backend_temporary_directory.cleanup()
 
-        if not settings.COMMON_DISABLE_LOCAL_STORAGE:
-            for search_model in search_models:
-                self.get_or_create_index(search_model=search_model)
+
+BackendQueryType.register(
+    klass=BackendQueryTypeExact, search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeFuzzy, search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypePartial, search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeGreaterThan, search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeGreaterThanOrEqual,
+    search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeLessThan, search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeLessThanOrEqual, search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeRange, search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeRangeExclusive, search_backend=WhooshSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeRegularExpression,
+    search_backend=WhooshSearchBackend
+)

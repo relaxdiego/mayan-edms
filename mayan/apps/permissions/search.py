@@ -1,6 +1,6 @@
 from django.utils.translation import ugettext_lazy as _
 
-from mayan.apps.dynamic_search.classes import SearchModel
+from mayan.apps.dynamic_search.search_models import SearchModel
 
 from .permissions import permission_role_view
 

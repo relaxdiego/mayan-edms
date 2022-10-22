@@ -3,7 +3,7 @@ from mayan.apps.common.utils import (
     ResolverPipelineModelAttribute, flatten_list
 )
 
-from .classes import SearchBackend
+from .search_backends import SearchBackend
 from .tasks import (
     task_deindex_instance, task_index_instance,
     task_index_related_instance_m2m

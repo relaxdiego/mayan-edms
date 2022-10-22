@@ -5,7 +5,6 @@ from django.apps import apps
 from mayan.apps.lock_manager.exceptions import LockError
 from mayan.celery import app
 
-from .classes import SearchBackend, SearchModel
 from .exceptions import DynamicSearchException, DynamicSearchRetry
 from .literals import (
     TASK_DEINDEX_INSTANCE_MAX_RETRIES,
@@ -15,6 +14,8 @@ from .literals import (
     TASK_INDEX_RELATED_INSTANCE_M2M_MAX_RETRIES,
     TASK_INDEX_RELATED_INSTANCE_M2M_RETRY_BACKOFF_MAX
 )
+from .search_backends import SearchBackend
+from .search_models import SearchModel
 
 logger = logging.getLogger(name=__name__)
 
@@ -152,14 +153,14 @@ def task_index_related_instance_m2m(
 
 @app.task(ignore_result=True)
 def task_reindex_backend():
-    backend = SearchBackend.get_instance()
-    backend.reset()
+    search_backend = SearchBackend.get_instance()
+    search_backend.reset()
 
     for search_model in SearchModel.all():
         for id_list in search_model.get_id_groups():
             task_index_instances.apply_async(
                 kwargs={
                     'id_list': id_list,
-                    'search_model_full_name': search_model.get_full_name(),
+                    'search_model_full_name': search_model.full_name
                 }
             )

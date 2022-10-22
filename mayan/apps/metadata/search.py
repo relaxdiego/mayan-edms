@@ -4,7 +4,7 @@ from mayan.apps.documents.search import (
     search_model_document_file, search_model_document_file_page, search_model_document,
     search_model_document_version, search_model_document_version_page
 )
-from mayan.apps.dynamic_search.classes import SearchModel
+from mayan.apps.dynamic_search.search_models import SearchModel
 
 from .permissions import permission_metadata_type_view
 

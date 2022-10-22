@@ -19,7 +19,7 @@ from django.views.generic.edit import (
 from django.views.generic.list import ListView
 
 from mayan.apps.acls.models import AccessControlList
-from mayan.apps.dynamic_search.view_mixins import SearchEnabledListViewMixin
+from mayan.apps.dynamic_search.view_mixins import SearchFilterEnabledListViewMixin
 
 from .forms import ChoiceForm
 from .icons import (
@@ -876,7 +876,7 @@ class SingleObjectDynamicFormEditView(
 
 class SingleObjectListView(
     SortingViewMixin, ListModeViewMixin, ViewPermissionCheckViewMixin,
-    SearchEnabledListViewMixin, RestrictedQuerysetViewMixin,
+    SearchFilterEnabledListViewMixin, RestrictedQuerysetViewMixin,
     ExtraContextViewMixin, RedirectionViewMixin, ViewIconMixin, ListView
 ):
     """

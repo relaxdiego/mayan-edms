@@ -5,7 +5,7 @@ from rest_framework.settings import api_settings
 
 from django.core.exceptions import ImproperlyConfigured
 
-from mayan.apps.dynamic_search.filters import RESTAPISearchFilter
+from mayan.apps.dynamic_search.api_filters import RESTAPISearchFilter
 
 from .api_view_mixins import (
     CheckQuerysetAPIViewMixin, DynamicFieldListAPIViewMixin,

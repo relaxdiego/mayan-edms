@@ -1,52 +1,50 @@
-from unittest import skip
+from django.urls import reverse
 
-from mayan.apps.documents.models.document_models import DocumentSearchResult
 from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.documents.search import search_model_document
-from mayan.apps.documents.tests.mixins.document_mixins import DocumentTestMixin
+from mayan.apps.documents.tests.mixins.document_mixins import (
+    DocumentTestMixin, DocumentViewTestMixin
+)
 from mayan.apps.testing.tests.base import GenericViewTestCase
 
-from ..classes import SearchModel
 from ..literals import QUERY_PARAMETER_ANY_FIELD, SEARCH_MODEL_NAME_KWARG
 from ..permissions import permission_search_tools
 
-from .mixins import (
-    SearchTestMixin, SearchToolsViewTestMixin, SearchViewTestMixin
-)
+from .literals import TEST_SEARCH_OBJECT_TERM
+from .mixins.base import SearchTestMixin, TestSearchObjectSimpleTestMixin
+from .mixins.view_mixins import SearchToolsViewTestMixin, SearchViewTestMixin
 
 
-class AdvancedSearchViewTestCaseMixin(
-    DocumentTestMixin, SearchViewTestMixin
+class SearchAdvancedViewTestCase(
+    DocumentTestMixin, SearchTestMixin, SearchViewTestMixin,
+    TestSearchObjectSimpleTestMixin, GenericViewTestCase
 ):
+    auto_test_search_objects_create = False
     auto_upload_test_document = False
 
-    def setUp(self):
-        super().setUp()
-        self._test_document_count = 4
+    def test_advanced_search_past_first_page_view_with_access(self):
+        self._create_test_document_stubs(count=4)
 
-        # Upload many instances of the same test document.
-        for i in range(self._test_document_count):
-            self._upload_test_document()
+        for test_document in self._test_documents:
             self.grant_access(
-                obj=self._test_document, permission=permission_document_view
+                obj=test_document, permission=permission_document_view
             )
 
-    def test_advanced_search_past_first_page(self):
-        test_document_label = self._test_documents[0].label
-
-        # Make sure all documents are returned by the search
-        queryset = self.search_backend.search(
+        # Make sure all documents are returned by the search.
+        queryset = self._test_search_backend.search(
             search_model=search_model_document,
-            query={'label': test_document_label},
+            query={'label': TEST_SEARCH_OBJECT_TERM},
             user=self._test_case_user
         )
-        self.assertEqual(queryset.count(), self._test_document_count)
+        self.assertEqual(queryset.count(), 4)
+
+        self._clear_events()
 
         with self.settings(VIEWS_PAGINATE_BY=2):
-            # Functional test for the first page of advanced results
+            # Functional test for the first page of advanced results.
             response = self._request_search_results_view(
-                data={'label': test_document_label}, kwargs={
-                    SEARCH_MODEL_NAME_KWARG: search_model_document.get_full_name()
+                data={'label': TEST_SEARCH_OBJECT_TERM}, kwargs={
+                    SEARCH_MODEL_NAME_KWARG: search_model_document.full_name
                 }
             )
 
@@ -63,10 +61,15 @@ class AdvancedSearchViewTestCaseMixin(
                 response.context['page_obj'].object_list.count(), 2
             )
 
-            # Functional test for the second page of advanced results
+            events = self._get_test_events()
+            self.assertEqual(events.count(), 0)
+
+            self._clear_events()
+
+            # Functional test for the second page of advanced results.
             response = self._request_search_results_view(
-                data={'label': test_document_label, 'page': 2}, kwargs={
-                    SEARCH_MODEL_NAME_KWARG: search_model_document.get_full_name()
+                data={'label': TEST_SEARCH_OBJECT_TERM, 'page': 2}, kwargs={
+                    SEARCH_MODEL_NAME_KWARG: search_model_document.full_name
                 }
             )
             # Total (3 - 4 out of 4) (Page 2 of 2)
@@ -82,164 +85,337 @@ class AdvancedSearchViewTestCaseMixin(
                 response.context['page_obj'].object_list.count(), 2
             )
 
+            events = self._get_test_events()
+            self.assertEqual(events.count(), 0)
 
-class DjangoAdvancedSearchViewTestCase(
-    AdvancedSearchViewTestCaseMixin, GenericViewTestCase
+
+class FilterViewMixinTestCase(
+    DocumentTestMixin, DocumentViewTestMixin, SearchTestMixin,
+    SearchViewTestMixin, TestSearchObjectSimpleTestMixin, GenericViewTestCase
 ):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.django.DjangoSearchBackend'
-    """Test against Django backend."""
+    auto_test_search_objects_create = False
+    auto_upload_test_document = False
 
+    def test_document_list_filter_view_with_access(self):
+        self._create_test_document_stubs(count=4)
 
-@skip('Skip until a Mock ElasticSearch server class is added.')
-class ElasticSearchAdvancedSearchViewTestCase(
-    AdvancedSearchViewTestCaseMixin, GenericViewTestCase
-):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.elasticsearch.ElasticSearchBackend'
-    """Test against ElasticSearch backend."""
+        for test_document in self._test_documents:
+            self.grant_access(
+                obj=test_document, permission=permission_document_view
+            )
 
+        self._clear_events()
 
-class WhooshAdvancedSearchViewTestCase(
-    AdvancedSearchViewTestCaseMixin, GenericViewTestCase
-):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend'
-    """Test against Whoosh backend."""
-
-
-class SearchViewTestCaseMixin(DocumentTestMixin, SearchViewTestMixin):
-    def test_result_view_with_search_mode_in_data(self):
-        self.grant_access(
-            obj=self._test_document, permission=permission_document_view
+        response = self._request_test_document_list_view()
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_document.label
         )
 
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+        self._clear_events()
+
+        response = self._request_test_document_list_view()
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[0].label
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[1].label
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[2].label
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[3].label
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+        self._clear_events()
+
+        response = self._request_test_document_list_view(
+            data={'filter_q': 'stub_3'}
+        )
+        self.assertNotContains(
+            response=response, status_code=200,
+            text=self._test_documents[0].label
+        )
+        self.assertNotContains(
+            response=response, status_code=200,
+            text=self._test_documents[1].label
+        )
+        self.assertNotContains(
+            response=response, status_code=200,
+            text=self._test_documents[2].label
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[3].label
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+
+class SearchFilterViewTestCase(
+    DocumentTestMixin, SearchTestMixin, SearchViewTestMixin,
+    TestSearchObjectSimpleTestMixin, GenericViewTestCase
+):
+    auto_test_search_objects_create = False
+    auto_upload_test_document = False
+
+    def test_basic_search_filter_list_with_access(self):
+        self._create_test_document_stubs(count=4)
+
+        for test_document in self._test_documents:
+            self.grant_access(
+                obj=test_document, permission=permission_document_view
+            )
+
+        self._clear_events()
+
         response = self._request_search_results_view(
-            data={
-                'label': self._test_document.label,
-                '_{}'.format(SEARCH_MODEL_NAME_KWARG): search_model_document.get_full_name()
+            data={'q': TEST_SEARCH_OBJECT_TERM}, kwargs={
+                SEARCH_MODEL_NAME_KWARG: search_model_document.full_name
             }
         )
         self.assertContains(
-            response=response, status_code=200, text=self._test_document.label
+            response=response, status_code=200,
+            text=self._test_documents[0].label
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[1].label
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[2].label
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[3].label
         )
 
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
 
-class DjangoSearchViewTestCase(
-    SearchViewTestCaseMixin, GenericViewTestCase
-):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.django.DjangoSearchBackend'
-    """Test against Django backend."""
+        self._clear_events()
 
-
-@skip('Skip until a Mock ElasticSearch server class is added.')
-class ElasticSearchSearchViewTestCase(
-    SearchViewTestCaseMixin, GenericViewTestCase
-):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.elasticsearch.ElasticSearchBackend'
-    """Test against ElasticSearch backend."""
-
-
-class WhooshSearchViewTestCase(
-    SearchViewTestCaseMixin, GenericViewTestCase
-):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend'
-    """Test against Whoosh backend."""
-
-
-class SearchToolsViewTestCaseMixin(
-    DocumentTestMixin, SearchToolsViewTestMixin, SearchTestMixin
-):
-    def setUp(self):
-        super().setUp()
-
-        self.search_model_document_model = SearchModel.get_for_model(
-            instance=DocumentSearchResult
+        response = self._request_search_results_view(
+            data={
+                'q': TEST_SEARCH_OBJECT_TERM,
+                'filter_q': 'stub_3',
+            }, kwargs={
+                SEARCH_MODEL_NAME_KWARG: search_model_document.full_name
+            }
+        )
+        self.assertNotContains(
+            response=response, status_code=200,
+            text=self._test_documents[0].label
+        )
+        self.assertNotContains(
+            response=response, status_code=200,
+            text=self._test_documents[1].label
+        )
+        self.assertNotContains(
+            response=response, status_code=200,
+            text=self._test_documents[2].label
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text=self._test_documents[3].label
         )
 
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+
+class SearchViewTestCase(
+    SearchTestMixin, SearchViewTestMixin, TestSearchObjectSimpleTestMixin,
+    GenericViewTestCase
+):
+    auto_test_search_objects_create = False
+
+    def test_search_simple_get_view_no_permission(self):
+        self._clear_events()
+
+        response = self._request_search_simple_get_view()
+        self.assertEqual(response.status_code, 200)
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_search_advanced_get_view_no_permission(self):
+        self._clear_events()
+
+        response = self._request_search_advanced_get_view()
+        self.assertEqual(response.status_code, 200)
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_search_again_advanced_view_no_permission(self):
+        self._clear_events()
+
+        response = self._request_search_again_view(query={'label': 'test'})
+        self.assertRedirects(
+            response=response, expected_url=reverse(
+                viewname='search:search_advanced', kwargs={
+                    'search_model_pk': self._test_search_model.full_name
+                }
+            ), status_code=302, target_status_code=200
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_search_again_simple_view_no_permission(self):
+        self._clear_events()
+
+        response = self._request_search_again_view(query={'q': 'test'})
+        self.assertRedirects(
+            response=response, expected_url=reverse(
+                viewname='search:search_simple', kwargs={
+                    'search_model_pk': self._test_search_model.full_name
+                }
+            ), status_code=302, target_status_code=200
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+
+class SearchResultViewTestCase(
+    SearchTestMixin, SearchViewTestMixin, TestSearchObjectSimpleTestMixin,
+    GenericViewTestCase
+):
+    def test_result_view_any_field_no_value(self):
+        self._clear_events()
+
+        response = self._request_search_results_view(
+            data={
+                'q': '',
+                '_{}'.format(
+                    SEARCH_MODEL_NAME_KWARG
+                ): self._test_search_model.full_name
+            }
+        )
+        self.assertNotContains(
+            response=response, status_code=200,
+            text='Total: 1'
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_result_view_any_field_value(self):
+        self._clear_events()
+
+        response = self._request_search_results_view(
+            data={
+                'q': self._test_object.uuid,
+                '_{}'.format(
+                    SEARCH_MODEL_NAME_KWARG
+                ): self._test_search_model.full_name
+            }
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text='Total: 1'
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_result_advanced_view(self):
+        self._clear_events()
+
+        response = self._request_search_results_view(
+            data={
+                'uuid': self._test_object.uuid,
+                '_{}'.format(
+                    SEARCH_MODEL_NAME_KWARG
+                ): self._test_search_model.full_name
+            }
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text='Total: 1'
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_result_scoped_search_view(self):
+        self._clear_events()
+
+        response = self._request_search_results_view(
+            data={
+                '__0_uuid': self._test_object.uuid,
+                '__result': '0',
+                '_{}'.format(
+                    SEARCH_MODEL_NAME_KWARG
+                ): self._test_search_model.full_name
+            }
+        )
+        self.assertContains(
+            response=response, status_code=200,
+            text='Total: 1'
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+
+class SearchToolsViewTestCase(
+    SearchToolsViewTestMixin, SearchTestMixin,
+    TestSearchObjectSimpleTestMixin, GenericViewTestCase
+):
     def test_search_backend_reindex_view_no_permission(self):
-        self.search_backend.reset(
-            search_model=self.search_model_document_model
+        self._test_search_backend.reset(
+            search_model=self._test_search_model
         )
-        self.grant_access(
-            obj=self._test_document, permission=permission_document_view
-        )
+
+        self._clear_events()
 
         response = self._request_search_backend_reindex_view()
         self.assertEqual(response.status_code, 403)
 
-    def test_search_backend_reindex_view_artifacts_no_permission(self):
-        self.search_backend.reset(
-            search_model=self.search_model_document_model
-        )
-        self.grant_access(
-            obj=self._test_document, permission=permission_document_view
-        )
-
-        response = self._request_search_backend_reindex_view()
-        self.assertEqual(response.status_code, 403)
-
-        queryset = self.search_backend.search(
-            search_model=self.search_model_document_model,
-            query={QUERY_PARAMETER_ANY_FIELD: self._test_document.label},
+        queryset = self._test_search_backend.search(
+            search_model=self._test_search_model,
+            query={QUERY_PARAMETER_ANY_FIELD: str(self._test_object.uuid)},
             user=self._test_case_user
         )
         self.assertEqual(queryset.count(), 0)
 
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
     def test_search_backend_reindex_view_with_permission(self):
-        self.search_backend.reset(
-            search_model=self.search_model_document_model
+        self._test_search_backend.reset(
+            search_model=self._test_search_model
         )
-        self.grant_access(
-            obj=self._test_document, permission=permission_document_view
-        )
+
         self.grant_permission(permission=permission_search_tools)
+
+        self._clear_events()
 
         response = self._request_search_backend_reindex_view()
         self.assertEqual(response.status_code, 302)
 
-    def test_search_backend_reindex_view_artifacts_with_permission(self):
-        self.search_backend.reset(
-            search_model=self.search_model_document_model
-        )
-        self.grant_access(
-            obj=self._test_document, permission=permission_document_view
-        )
-        self.grant_permission(permission=permission_search_tools)
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
 
-        response = self._request_search_backend_reindex_view()
-        self.assertEqual(response.status_code, 302)
-
-        queryset = self.search_backend.search(
-            search_model=self.search_model_document_model,
-            query={QUERY_PARAMETER_ANY_FIELD: self._test_document.label},
+        queryset = self._test_search_backend.search(
+            search_model=self._test_search_model,
+            query={QUERY_PARAMETER_ANY_FIELD: str(self._test_object.uuid)},
             user=self._test_case_user
         )
         self.assertNotEqual(queryset.count(), 0)
-
-
-class DjangoSearchToolViewTestCase(
-    SearchToolsViewTestCaseMixin, GenericViewTestCase
-):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.django.DjangoSearchBackend'
-    """Test against Django backend."""
-
-    @skip('Backend does not support indexing.')
-    def test_search_backend_reindex_view_artifacts_no_permission(self):
-        """Backend does not support indexing."""
-
-    @skip('Backend does not support indexing.')
-    def test_search_backend_reindex_view_artifacts_with_permission(self):
-        """Backend does not support indexing."""
-
-
-@skip('Skip until a Mock ElasticSearch server class is added.')
-class ElasticSearchToolViewTestCase(
-    SearchToolsViewTestCaseMixin, GenericViewTestCase
-):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.elasticsearch.ElasticSearchBackend'
-    """Test against ElasticSearch backend."""
-
-
-class WhooshSearchToolViewTestCase(
-    SearchToolsViewTestCaseMixin, GenericViewTestCase
-):
-    _test_search_backend_path = 'mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend'
-    """Test against Whoosh backend."""

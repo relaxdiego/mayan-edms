@@ -1,18 +1,252 @@
-import logging
+import itertools
 
-from django.db.models import Q
-from django.utils.encoding import force_text
+from django.core.exceptions import ValidationError
+from django.db import connection, models
+from django.db.models import Q, Value
+from django.db.models.functions import Replace
 
-from ..classes import SearchBackend, SearchModel
-
-from .literals import (
-    QUERY_OPERATION_AND, QUERY_OPERATION_OR, TERM_NEGATION_CHARACTER,
-    TERM_OPERATION_OR, TERM_OPERATIONS, TERM_QUOTES, TERM_SPACE_CHARACTER
+from ..exceptions import DynamicSearchValueTransformationError
+from ..search_backends import SearchBackend
+from ..search_fields import SearchFieldVirtualAllFields
+from ..search_models import SearchModel
+from ..search_query_types import (
+    BackendQueryType, QueryTypeExact, QueryTypeFuzzy, QueryTypeGreaterThan,
+    QueryTypeGreaterThanOrEqual, QueryTypeLessThan, QueryTypeLessThanOrEqual,
+    QueryTypePartial, QueryTypeRange, QueryTypeRangeExclusive,
+    QueryTypeRegularExpression
 )
-logger = logging.getLogger(name=__name__)
+
+from .literals.django_literals import (
+    DEFAULT_FUZZY_SLOP, DJANGO_TO_DJANGO_FIELD_MAP, MAXIMUM_FUZZY_OPTIONS
+)
+
+
+class BackendQueryTypeExact(BackendQueryType):
+    query_type = QueryTypeExact
+
+    def do_resolve(self):
+        if self.value is not None:
+            if self.get_search_backend_field_type() == models.BooleanField:
+                lookup_template = '{field_name}__exact'
+                value_template = '{}'
+            elif self.get_search_backend_field_type() == models.DateTimeField:
+                backend_query_type = BackendQueryTypeRange(
+                    is_quoted_value=self.is_quoted_value,
+                    search_backend=self.search_backend,
+                    search_field=self.search_field, value=(
+                        self.value, self.value.replace(microsecond=999999)
+                    ), extra_kwargs=self.extra_kwargs
+                )
+                return backend_query_type.do_resolve()
+            elif self.get_search_backend_field_type() == models.UUIDField:
+                lookup_template = '{field_name}_clean__exact'
+                value_template = '{}'
+            elif self.get_search_backend_field_type() == models.IntegerField:
+                lookup_template = '{field_name}__exact'
+                value_template = '{}'
+            elif self.get_search_backend_field_type() == models.PositiveIntegerField:
+                lookup_template = '{field_name}__exact'
+                value_template = '{}'
+            else:
+                if self.is_quoted_value and self.value == '':
+                    lookup_template = '{field_name}__exact'
+                    value_template = '{}'
+                else:
+                    lookup_template = '{field_name}_clean__iregex'
+                    if connection.vendor == 'postgresql':
+                        value_template = r'\y{}\y'
+                    else:
+                        value_template = r'\b{}\b'
+
+            return Q(
+                **{
+                    lookup_template.format(
+                        field_name=self.search_field.field_name
+                    ): value_template.format(self.value)
+                }
+            )
+
+
+class BackendQueryFuzzy(BackendQueryType):
+    query_type = QueryTypeFuzzy
+
+    def do_resolve(self):
+        fuzzy_options = []
+
+        if self.value is not None:
+            permutation_list = list(
+                set(
+                    [
+                        ''.join(letters) for letters in itertools.permutations(self.value)
+                    ]
+                )
+            )
+
+            for permutation in permutation_list:
+                difference_count = sum(1 for a, b in zip(self.value, permutation) if a != b)
+
+                if difference_count <= DEFAULT_FUZZY_SLOP:
+                    fuzzy_options.append(permutation)
+
+            result = None
+            for entry in fuzzy_options[:MAXIMUM_FUZZY_OPTIONS]:
+                backend_query_type = BackendQueryTypeExact(
+                    is_quoted_value=self.is_quoted_value,
+                    search_backend=self.search_field,
+                    search_field=self.search_field, value=entry,
+                    extra_kwargs=self.extra_kwargs
+                )
+
+                query = backend_query_type.do_resolve()
+
+                if result is None:
+                    result = query
+                else:
+                    result |= query
+
+            return result
+
+
+class BackendQueryTypeGreaterThan(BackendQueryType):
+    query_type = QueryTypeGreaterThan
+
+    def do_resolve(self):
+        if self.value is not None:
+            return Q(
+                **{
+                    '{field_name}__gt'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value
+                }
+            )
+
+
+class BackendQueryTypeGreaterThanOrEqual(BackendQueryType):
+    query_type = QueryTypeGreaterThanOrEqual
+
+    def do_resolve(self):
+        if self.value is not None:
+            return Q(
+                **{
+                    '{field_name}__gte'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value
+                }
+            )
+
+
+class BackendQueryTypeLessThan(BackendQueryType):
+    query_type = QueryTypeLessThan
+
+    def do_resolve(self):
+        if self.value is not None:
+            return Q(
+                **{
+                    '{field_name}__lt'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value
+                }
+            )
+
+
+class BackendQueryTypeLessThanOrEqual(BackendQueryType):
+    query_type = QueryTypeLessThanOrEqual
+
+    def do_resolve(self):
+        if self.value is not None:
+            return Q(
+                **{
+                    '{field_name}__lte'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value
+                }
+            )
+
+
+class BackendQueryTypePartial(BackendQueryType):
+    query_type = QueryTypePartial
+
+    def do_resolve(self):
+        if self.value is not None:
+            return Q(
+                **{
+                    '{field_name}_clean__icontains'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value
+                }
+            )
+
+
+class BackendQueryTypeRange(BackendQueryType):
+    query_type = QueryTypeRange
+
+    def do_resolve(self):
+        if self.value is not None:
+            return Q(
+                **{
+                    '{field_name}__gte'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value[0], '{field_name}__lte'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value[1]
+                }
+            )
+
+
+class BackendQueryTypeRangeExclusive(BackendQueryType):
+    query_type = QueryTypeRangeExclusive
+
+    def do_resolve(self):
+        if self.value is not None:
+            return Q(
+                **{
+                    '{field_name}__gt'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value[0], '{field_name}__lt'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value[1]
+                }
+            )
+
+
+class BackendQueryTypeRegularExpression(BackendQueryType):
+    query_type = QueryTypeRegularExpression
+
+    def do_resolve(self):
+        if self.value is not None:
+            return Q(
+                **{
+                    '{field_name}_clean__regex'.format(
+                        field_name=self.search_field.field_name
+                    ): self.value
+                }
+            )
 
 
 class DjangoSearchBackend(SearchBackend):
+    field_type_mapping = DJANGO_TO_DJANGO_FIELD_MAP
+
+    def _do_search_model_filter(self, filter_kwargs, limit, search_field):
+        queryset = search_field.search_model.get_queryset().annotate(
+            **{
+                '{}_clean'.format(search_field.field_name): Replace(
+                    search_field.field_name, Value('-'),
+                    Value('_'), output_field=models.CharField()
+                )
+            }
+        )
+
+        try:
+            return tuple(
+                set(
+                    queryset.filter(
+                        filter_kwargs
+                    ).values_list('pk', flat=True)
+                )
+            )[0:limit]
+        except ValidationError:
+            return ()
+
     def _get_status(self):
         result = []
 
@@ -28,215 +262,86 @@ class DjangoSearchBackend(SearchBackend):
         return '\n'.join(result)
 
     def _search(
-        self, query, search_model, user, global_and_search=False,
-        ignore_limit=False
+        self, limit, search_field, query_type, value, is_quoted_value=False,
+        is_raw_value=False
     ):
-        search_query = self.get_search_query(
-            global_and_search=global_and_search, query=query,
-            search_model=search_model
+        self.do_query_type_verify(
+            query_type=query_type, search_field=search_field
         )
 
-        return search_model.get_queryset().filter(
-            search_query.django_query
-        ).distinct()
+        if isinstance(search_field, SearchFieldVirtualAllFields):
+            result = set()
 
-    def get_search_query(
-        self, query, search_model, global_and_search=False
-    ):
-        return SearchQuery(
-            global_and_search=global_and_search, query=query,
-            search_model=search_model
-        )
-
-
-class FieldQuery:
-    def __init__(self, search_field, search_term_collection):
-        query_operation = QUERY_OPERATION_AND
-        self.django_query = None
-        self.parts = []
-
-        for term in search_term_collection.terms:
-            if term.is_meta:
-                # It is a meta term, modifies the query operation
-                # and is not searched
-                if term.string == TERM_OPERATION_OR:
-                    query_operation = QUERY_OPERATION_OR
-            else:
-                if search_field.transformation_function:
-                    term_string = search_field.transformation_function(
-                        term_string=term.string
+            for search_field in search_field.field_composition:
+                try:
+                    search_field_query = query_type.resolve_for_backend(
+                        is_quoted_value=is_quoted_value,
+                        is_raw_value=is_raw_value, search_backend=self,
+                        search_field=search_field, value=value
                     )
+                except DynamicSearchValueTransformationError:
+                    """Skip the search field."""
                 else:
-                    term_string = term.string
+                    if search_field_query is not None:
+                        field_id_list = self._do_search_model_filter(
+                            filter_kwargs=search_field_query, limit=limit,
+                            search_field=search_field
+                        )
 
-                q_object = Q(
-                    **{'{}__{}'.format(search_field.field, 'icontains'): term_string}
-                )
-                if term.negated:
-                    q_object = ~q_object
+                        result.update(field_id_list)
 
-                if self.django_query is None:
-                    self.django_query = q_object
-                else:
-                    if query_operation == QUERY_OPERATION_AND:
-                        self.django_query &= q_object
-                    else:
-                        self.django_query |= q_object
-
-            if not term.is_meta:
-                self.parts.append(force_text(s=search_field.label))
-                self.parts.append(force_text(s=term))
-            else:
-                self.parts.append(term.string)
-
-    def __str__(self):
-        return ' '.join(self.parts)
-
-
-class SearchQuery:
-    def __init__(self, query, search_model, global_and_search=False):
-        self.django_query = None
-        self.text = []
-
-        for search_field in search_model.get_search_fields():
-            search_term_collection = SearchTermCollection(
-                text=query.get(search_field.field, '').strip()
-            )
-
-            field_query = FieldQuery(
-                search_field=search_field,
-                search_term_collection=search_term_collection
-            )
-
-            if field_query.django_query:
-                self.text.append('({})'.format(force_text(s=field_query)))
-
-                if global_and_search:
-                    self.text.append('AND')
-                else:
-                    self.text.append('OR')
-
-                if self.django_query is None:
-                    self.django_query = field_query.django_query
-                else:
-                    if global_and_search:
-                        self.django_query &= field_query.django_query
-                    else:
-                        self.django_query |= field_query.django_query
-
-        self.django_query = self.django_query or Q()
-
-    def __str__(self):
-        return ' '.join(self.text[:-1])
-
-
-class SearchTerm:
-    def __init__(self, negated, string, is_meta):
-        self.negated = negated
-        self.string = string
-        self.is_meta = is_meta
-
-    def __str__(self):
-        if self.is_meta:
-            return ''
+            return result
         else:
-            return '{}contains "{}"'.format(
-                'does not ' if self.negated else '', self.string
-            )
-
-
-class SearchTermCollection:
-    def __init__(self, text):
-        """
-        Takes a text string and returns a list of dictionaries.
-        Each dictionary has two key "negated" and "string"
-
-        String 'a "b c" d "e" \'f g\' h -i -"j k" l -\'m n\' o OR p'
-
-        Results in:
-        [
-            {'negated': False, 'string': 'a'}, {'negated': False, 'string': 'b c'},
-            {'negated': False, 'string': 'd'}, {'negated': False, 'string': 'e'},
-            {'negated': False, 'string': 'f g'}, {'negated': False, 'string': 'h'},
-            {'negated': True, 'string': 'i'}, {'negated': True, 'string': 'j k'},
-            {'negated': False, 'string': 'l'}, {'negated': True, 'string': 'm n'},
-            {'negated': False, 'string': 'o'}, {'negated': False, 'string': 'OR'},
-            {'negated': False, 'string': 'p'}
-        ]
-        """
-        inside_quotes = False
-        negated = False
-        term_letters = []
-        self.terms = []
-
-        for letter in text:
-            if letter in TERM_QUOTES:
-                if inside_quotes:
-                    if term_letters:
-                        term_string = ''.join(term_letters)
-                        negated = False
-                        if term_string.startswith(TERM_NEGATION_CHARACTER):
-                            term_string = term_string[1:]
-                            negated = True
-
-                        self.terms.append(
-                            SearchTerm(
-                                is_meta=False, negated=negated,
-                                string=term_string
-                            )
-                        )
-                        negated = False
-                        term_letters = []
-
-                inside_quotes = not inside_quotes
-            else:
-                if not inside_quotes and letter == TERM_SPACE_CHARACTER:
-                    if term_letters:
-                        term_string = ''.join(term_letters)
-                        if term_string in TERM_OPERATIONS:
-                            is_meta = True
-                        else:
-                            is_meta = False
-
-                        if is_meta:
-                            negated = False
-                        else:
-                            negated = False
-                            if term_string.startswith(TERM_NEGATION_CHARACTER):
-                                term_string = term_string[1:]
-                                negated = True
-
-                        self.terms.append(
-                            SearchTerm(
-                                is_meta=is_meta, negated=negated,
-                                string=term_string
-                            )
-                        )
-                        negated = False
-                        term_letters = []
-                else:
-                    term_letters.append(letter)
-
-        if term_letters:
-            term_string = ''.join(term_letters)
-            negated = False
-            if term_string.startswith(TERM_NEGATION_CHARACTER):
-                term_string = term_string[1:]
-                negated = True
-
-            self.terms.append(
-                SearchTerm(
-                    is_meta=False, negated=negated,
-                    string=term_string
+            try:
+                filter_kwargs = query_type.resolve_for_backend(
+                    is_quoted_value=is_quoted_value,
+                    is_raw_value=is_raw_value, search_backend=self,
+                    search_field=search_field, value=value
                 )
-            )
-
-    def __str__(self):
-        result = []
-        for term in self.terms:
-            if term.is_meta:
-                result.append(term.string)
+            except DynamicSearchValueTransformationError:
+                return ()
             else:
-                result.append(force_text(s=term))
+                if filter_kwargs is None:
+                    return ()
+                else:
+                    return self._do_search_model_filter(
+                        filter_kwargs=filter_kwargs, limit=limit,
+                        search_field=search_field
+                    )
 
-        return ' '.join(result)
+
+BackendQueryType.register(
+    klass=BackendQueryTypeExact, search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryFuzzy, search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeGreaterThan, search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeGreaterThanOrEqual,
+    search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeLessThan, search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeLessThanOrEqual,
+    search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypePartial, search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeRange,
+    search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeRangeExclusive,
+    search_backend=DjangoSearchBackend
+)
+BackendQueryType.register(
+    klass=BackendQueryTypeRegularExpression,
+    search_backend=DjangoSearchBackend
+)

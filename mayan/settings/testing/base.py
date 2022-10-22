@@ -42,7 +42,7 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.MD5PasswordHasher',
 )
 
-SEARCH_BACKEND = 'mayan.apps.dynamic_search.tests.backends.TestSearchBackend'
+SEARCH_BACKEND = 'mayan.apps.dynamic_search.tests.backends.TestSearchBackendProxy'
 
 STATICFILES_STORAGE = None
 

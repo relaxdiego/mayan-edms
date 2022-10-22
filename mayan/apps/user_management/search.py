@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-from mayan.apps.dynamic_search.classes import SearchModel
+from mayan.apps.dynamic_search.search_models import SearchModel
 
 from .permissions import permission_group_view, permission_user_view
 from .querysets import get_user_queryset

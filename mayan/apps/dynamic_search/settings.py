@@ -5,7 +5,9 @@ from mayan.apps.smart_settings.classes import SettingNamespace
 from .literals import (
     DEFAULT_SEARCH_BACKEND, DEFAULT_SEARCH_BACKEND_ARGUMENTS,
     DEFAULT_SEARCH_DISABLE_SIMPLE_SEARCH, DEFAULT_SEARCH_INDEXING_CHUNK_SIZE,
-    DEFAULT_SEARCH_MATCH_ALL_DEFAULT_VALUE, DEFAULT_SEARCH_RESULTS_LIMIT
+    DEFAULT_SEARCH_MATCH_ALL_DEFAULT_VALUE, DEFAULT_SEARCH_DEFAULT_OPERATOR,
+    DEFAULT_SEARCH_RESULTS_LIMIT, DEFAULT_SEARCH_RESULTS_LIMIT_HARD,
+    SCOPE_OPERATOR_CHOICES
 )
 
 namespace = SettingNamespace(label=_('Search'), name='search')
@@ -19,6 +21,14 @@ setting_backend = namespace.add_setting(
 setting_backend_arguments = namespace.add_setting(
     default=DEFAULT_SEARCH_BACKEND_ARGUMENTS,
     global_name='SEARCH_BACKEND_ARGUMENTS'
+)
+setting_default_operator = namespace.add_setting(
+    global_name='SEARCH_DEFAULT_OPERATOR',
+    default=DEFAULT_SEARCH_DEFAULT_OPERATOR,
+    help_text=_(
+        'The search operator to use when none is specified. '
+        'Options are: {}'.format(', '.join(SCOPE_OPERATOR_CHOICES.keys()))
+    )
 )
 setting_disable_simple_search = namespace.add_setting(
     default=DEFAULT_SEARCH_DISABLE_SIMPLE_SEARCH,
@@ -42,4 +52,11 @@ setting_match_all_default_value = namespace.add_setting(
 setting_results_limit = namespace.add_setting(
     default=DEFAULT_SEARCH_RESULTS_LIMIT, global_name='SEARCH_RESULTS_LIMIT',
     help_text=_('Maximum number search results to fetch and display.')
+)
+setting_results_limit_hard = namespace.add_setting(
+    default=DEFAULT_SEARCH_RESULTS_LIMIT_HARD,
+    global_name='SEARCH_RESULTS_LIMIT_HARD',
+    help_text=_(
+        'Hard limit of number search results to fetch and display.'
+    )
 )

@@ -43,8 +43,6 @@
         </div>
     </div>
 
-    {% include 'dynamic_search/search_box.html' %}
-
     {% smart_setting "COMMON_HOME_VIEW_DASHBOARD_NAME" as home_view_dashboard_name %}
 
     {% dashboards_render_dashboard name=home_view_dashboard_name %}

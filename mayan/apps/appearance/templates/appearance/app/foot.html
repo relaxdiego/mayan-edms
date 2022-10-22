@@ -25,6 +25,8 @@
 <script src="{% static 'appearance/js/partial_navigation.js' %}" type="text/javascript"></script>
 
 <script>
+    'use strict';
+
     {# Transfer variable from Django to javascript #}
     const djangoDEBUG = {% if debug %}true{% else %}false{% endif %};
 
@@ -108,4 +110,28 @@
         </style>\
     ');
     $('#div-javascript-dynamic-content').remove();
+
+    jQuery(document).ready(function() {
+        $('body').on('keyup', '.appearance-input-search-clearable input[type="search"]', function (event) {
+            const $this = $(this);
+            const $spanInputSearchClear = $this.next('.appearance-input-search-clear');
+
+            if ($this.val()) {
+                $spanInputSearchClear.show();
+
+            } else {
+                $spanInputSearchClear.hide();
+            }
+        });
+
+        $('body').on('click', '.appearance-input-search-clearable .appearance-input-search-clear', function (event) {
+            const $this = $(this);
+            const $inputSearch = $this.prev('input[type="search"]');
+
+            $inputSearch.val('').trigger('keyup').focus();
+            if ($inputSearch.data('submit-on-clear')) {
+                $(this).parents('form').submit();
+            }
+        });
+    });
 </script>

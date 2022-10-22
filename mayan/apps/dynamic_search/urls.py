@@ -1,11 +1,9 @@
 from django.conf.urls import url
 
-from .api_views import (
-    APIAdvancedSearchView, APISearchModelList, APISearchView
-)
+from .api_views import APISearchModelList, APISearchView
 from .views import (
-    AdvancedSearchView, ResultsView, SearchAgainView,
-    SearchBackendReindexView, SearchView
+    SearchAdvancedView, SearchAgainView, SearchBackendReindexView,
+    SearchResultsView, SearchSimpleView
 )
 
 urlpatterns_search = [
@@ -15,22 +13,23 @@ urlpatterns_search = [
     ),
     url(
         regex=r'^advanced/(?P<search_model_pk>[\.\w]+)/$',
-        name='search_advanced', view=AdvancedSearchView.as_view()
+        name='search_advanced', view=SearchAdvancedView.as_view()
     ),
     url(
         regex=r'^advanced/$', name='search_advanced',
-        view=AdvancedSearchView.as_view()
+        view=SearchAdvancedView.as_view()
     ),
     url(
-        regex=r'^results/$', name='results', view=ResultsView.as_view()
+        regex=r'^results/$', name='search_results',
+        view=SearchResultsView.as_view()
     ),
     url(
-        regex=r'^results/(?P<search_model_pk>[\.\w]+)/$', name='results',
-        view=ResultsView.as_view()
+        regex=r'^results/(?P<search_model_pk>[\.\w]+)/$',
+        name='search_results', view=SearchResultsView.as_view()
     ),
     url(
-        regex=r'^search/(?P<search_model_pk>[\.\w]+)/$', name='search',
-        view=SearchView.as_view()
+        regex=r'^simple/(?P<search_model_pk>[\.\w]+)/$',
+        name='search_simple', view=SearchSimpleView.as_view()
     )
 ]
 
@@ -52,7 +51,7 @@ api_urls = [
     ),
     url(
         regex=r'^search/advanced/(?P<search_model_pk>[\.\w]+)/$',
-        name='advanced-search-view', view=APIAdvancedSearchView.as_view()
+        name='advanced-search-view', view=APISearchView.as_view()
     ),
     url(
         regex=r'^search_models/$', name='searchmodel-list',

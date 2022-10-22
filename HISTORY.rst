@@ -51,6 +51,25 @@
 
   A troubleshooting section is added explaining the possible
   reasons for the and the solution.
+- Search refactor:
+
+  - Added search syntax pre processor and convert all backend to work with
+    it.
+  - Simplify scoped search syntax.
+  - Allow more than two operands per operator.
+  - Implement NOT operator.
+  - Improve AND and OR operators.
+  - Split search classes into separate modules.
+  - Add search field subclasses.
+  - Move instance value retrieval to search fields.
+  - Add virtual fields.
+  - Add an "ANY field" virtual field.
+  - All search is now conducted using an internal scope system.
+  - Move search syntax decoding to its own class and subclasses named
+    ``SearchInterpreter``.
+  - Move the search bar to the main menu top bar.
+  - Add support for data typing.
+  - Normalize data during index and search.
 
 4.3.1 (2022-08-21)
 ==================

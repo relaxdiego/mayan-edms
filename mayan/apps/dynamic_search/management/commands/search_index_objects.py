@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 
 from mayan.apps.common.utils import parse_range
 
-from ...classes import SearchModel
+from ...search_models import SearchModel
 from ...tasks import task_index_instances
 
 
@@ -43,7 +43,7 @@ class Command(BaseCommand):
             task_index_instances.apply_async(
                 kwargs={
                     'id_list': id_list,
-                    'search_model_full_name': search_model.get_full_name()
+                    'search_model_full_name': search_model.full_name
                 }
             )
 

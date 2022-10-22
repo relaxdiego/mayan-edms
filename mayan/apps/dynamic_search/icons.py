@@ -16,4 +16,7 @@ icon_search_backend_reindex = Icon(
         {'class': 'fas fa-hammer', 'transform': 'shrink-4 down-3 right-10'}
     ]
 )
+icon_search_form_clear = Icon(
+    driver_name='fontawesome', symbol='times-circle'
+)
 icon_search_submit = Icon(driver_name='fontawesome', symbol='search')

@@ -21,6 +21,9 @@ repository for electronic documents.
     parts/installation
     releases/index
     parts/getting_started
+    chapters/document_types
+    chapters/sources
+    chapters/search
     parts/access_control
     parts/categorization
     parts/collaboration

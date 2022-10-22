@@ -2,9 +2,11 @@ from django.db import models
 
 from mayan.apps.testing.tests.base import BaseTestCase
 
-from ..classes import SearchBackend, SearchModel
+from ..search_backends import SearchBackend
+from ..search_models import SearchModel
 
-from .mixins import SearchTaskTestMixin, SearchTestMixin
+from .mixins.base import SearchTestMixin
+from .mixins.task_mixins import SearchTaskTestMixin
 
 
 class SearchTaskTestCase(SearchTaskTestMixin, SearchTestMixin, BaseTestCase):
@@ -12,9 +14,10 @@ class SearchTaskTestCase(SearchTaskTestMixin, SearchTestMixin, BaseTestCase):
     auto_create_test_object_fields = {
         'test_field': models.CharField(max_length=8)
     }
+    auto_test_search_objects_create = False
 
     def _do_search(self, search_terms):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=self._test_model_search,
             query={
                 'test_field': search_terms
@@ -30,7 +33,9 @@ class SearchTaskTestCase(SearchTaskTestMixin, SearchTestMixin, BaseTestCase):
 
     def setUp(self):
         super().setUp()
-        self._create_test_object(instance_kwargs={'test_field': 'abc'})
+        self._create_test_object(
+            instance_kwargs={'test_field': 'abc'}
+        )
 
         backend = SearchBackend.get_instance()
         backend.reset()

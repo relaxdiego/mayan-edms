@@ -6,7 +6,6 @@ from mayan.apps.common.signals import (
     signal_post_initial_setup, signal_post_upgrade
 )
 
-from .classes import SearchBackend, SearchModel
 from .handlers import (
     handler_search_backend_initialize, handler_search_backend_upgrade
 )
@@ -14,6 +13,8 @@ from .links import (
     link_search, link_search_advanced, link_search_again,
     link_search_backend_reindex
 )
+from .search_backends import SearchBackend
+from .search_models import SearchModel
 
 
 class DynamicSearchApp(MayanAppConfig):
@@ -34,11 +35,12 @@ class DynamicSearchApp(MayanAppConfig):
         menu_facet.bind_links(
             links=(link_search, link_search_advanced),
             sources=(
-                'search:search', 'search:search_advanced', 'search:results'
+                'search:search_simple', 'search:search_advanced',
+                'search:search_results'
             )
         )
         menu_secondary.bind_links(
-            links=(link_search_again,), sources=('search:results',)
+            links=(link_search_again,), sources=('search:search_results',)
         )
         menu_tools.bind_links(
             links=(link_search_backend_reindex,),

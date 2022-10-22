@@ -16,7 +16,7 @@
                 <a class="navbar-brand" href="{% url home_view %}">{% smart_setting 'COMMON_PROJECT_TITLE' %}</a>
             </div>
 
-            <div id="navbar" class="navbar-collapse collapse">
+            <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     {% navigation_resolve_menu name='topbar' as topbar_menus_results %}
                     {% for tobpar_menu_result in topbar_menus_results %}
@@ -37,6 +37,9 @@
                         {% endfor %}
                     {% endfor %}
                 </ul>
+
+                {% include 'dynamic_search/search_box_toolbar.html' %}
+
             </div>
         </div>
     </nav>

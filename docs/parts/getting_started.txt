@@ -16,11 +16,3 @@ default document source (also named "Default") were created for you during the
 installation. So you don't need to do anything more to start adding documents
 right now, however take your time reading the information below to get a deeper
 understanding about how these concepts work.
-
-
-.. toctree::
-  :hidden:
-
-  ../chapters/document_types
-  ../chapters/sources
-  ../chapters/search
