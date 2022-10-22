@@ -29,6 +29,7 @@ Troubleshooting
     ldap
     ocr
     passwords
+    permissions
     python
     static_files
     text_encoding
