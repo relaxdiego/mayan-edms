@@ -179,7 +179,7 @@ COPY docker/rootfs /
 
 VOLUME ["/var/lib/mayan"]
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 EXPOSE 8000
 CMD ["run_all"]
