@@ -300,7 +300,7 @@ class PartialNavigation {
                 const uriFragment = uri.fragment();
                 const url = $form.attr('action') || uriFragment;
                 const formAction = new URI(url);
-                let finalUrl = new URI(formAction.path());
+                let finalUrl = new URI(formAction.path() + '?' + formAction.query());
                 const formQueryString = new URLSearchParams(
                     decodeURIComponent($form.serialize())
                 );
@@ -310,7 +310,7 @@ class PartialNavigation {
                 // Merge the URL and the form values in a smart way instead
                 // of just blindly adding a '?' between them.
                 formQueryString.forEach(function(value, key) {
-                    finalUrl.addQuery(key, value);
+                    finalUrl.setQuery(key, value);
                 });
 
                 lastAjaxFormData.url = finalUrl.toString();
@@ -328,7 +328,7 @@ class PartialNavigation {
                     // Merge the URL and the form values in a smart way instead
                     // of just blindly adding a '?' between them.
                     formQueryString.forEach(function(value, key) {
-                        finalUrl.addQuery(key, value);
+                        finalUrl.setQuery(key, value);
                     });
                     window.open(finalUrl.toString());
 
