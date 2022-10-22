@@ -10,8 +10,9 @@ from ...models import Document, DocumentType
 
 from ..literals import (
     DEFAULT_DOCUMENT_STUB_LABEL, TEST_DOCUMENT_DESCRIPTION,
-    TEST_DOCUMENT_DESCRIPTION_EDITED, TEST_DOCUMENT_TYPE_LABEL,
-    TEST_FILE_SMALL_FILENAME, TEST_FILE_SMALL_PATH
+    TEST_DOCUMENT_DESCRIPTION_EDITED, TEST_DOCUMENT_LABEL,
+    TEST_DOCUMENT_TYPE_LABEL, TEST_FILE_SMALL_FILENAME,
+    TEST_FILE_SMALL_PATH
 )
 
 
@@ -87,15 +88,16 @@ class DocumentAPIViewTestMixin:
 
 
 class DocumentTestMixin:
-    auto_create_test_document_stub = False
-    auto_create_test_document_type = True
-    auto_upload_test_document = True
+    _test_document_count = 1
     _test_document_file_filename = TEST_FILE_SMALL_FILENAME
     _test_document_file_path = None
     _test_document_filename = TEST_FILE_SMALL_FILENAME
     _test_document_language = None
     _test_document_path = None
+    auto_create_test_document_stub = False
+    auto_create_test_document_type = True
     auto_delete_test_document_type = True
+    auto_upload_test_document = True
 
     def setUp(self):
         super().setUp()
@@ -109,10 +111,16 @@ class DocumentTestMixin:
         if self.auto_create_test_document_type:
             self._create_test_document_type()
 
-            if self.auto_upload_test_document:
-                self._upload_test_document()
-            elif self.auto_create_test_document_stub:
-                self._create_test_document_stub()
+            if self._test_document_count > 1:
+                if self.auto_upload_test_document:
+                    self._upload_test_documents()
+                elif self.auto_create_test_document_stub:
+                    self._create_test_document_stubs()
+            else:
+                if self.auto_upload_test_document:
+                    self._upload_test_document()
+                elif self.auto_create_test_document_stub:
+                    self._create_test_document_stub()
 
     def tearDown(self):
         if self.auto_delete_test_document_type:
@@ -129,6 +137,10 @@ class DocumentTestMixin:
         )
         self._test_document = self._test_document_stub
         self._test_documents.append(self._test_document)
+
+    def _create_test_document_stubs(self, count=None):
+        for index in range(count or self._test_document_count):
+            self._create_test_document_stub()
 
     def _create_test_document_type(self, label=None):
         label = label or '{}_{}'.format(
@@ -197,10 +209,19 @@ class DocumentTestMixin:
 
             self._test_document_version.save()
 
+    def _create_test_documents(self, count=None):
+        for index in range(count or self._test_document_count):
+            self._upload_test_document(
+                label='{}_{}'.format(
+                    TEST_DOCUMENT_LABEL,
+                    len(self._test_documents)
+                )
+            )
+
 
 class DocumentViewTestMixin:
-    def _request_test_document_list_view(self):
-        return self.get(viewname='documents:document_list')
+    def _request_test_document_list_view(self, data=None):
+        return self.get(viewname='documents:document_list', data=data)
 
     def _request_test_document_preview_view(self):
         return self.get(
