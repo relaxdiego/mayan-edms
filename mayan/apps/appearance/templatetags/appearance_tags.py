@@ -67,8 +67,23 @@ def appearance_get_form_media_js(form):
 
 
 @register.simple_tag
-def appearance_get_icon(icon_path):
-    return import_string(dotted_path=icon_path).render()
+def appearance_get_icon(icon_path, **kwargs):
+    clean_kwargs = {}
+
+    for key, value in kwargs.items():
+        if '__' in key:
+            subdictionary = clean_kwargs
+            parts = key.split('__')
+            for part in parts:
+                subdictionary.setdefault(part, {})
+                dictionary_pointer = subdictionary
+                subdictionary = subdictionary[part]
+
+            dictionary_pointer[part] = value
+        else:
+            clean_kwargs[key] = value
+
+    return import_string(dotted_path=icon_path).render(**clean_kwargs)
 
 
 @register.simple_tag

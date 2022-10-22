@@ -1,8 +1,8 @@
 {% if enable_shadow %}
-    <span class="fa-layers fa-fw" >
+    <span class="fa-layers fa-fw {{ html_data.class }}" id="{{ html_data.id }}" style="{{ html_data.style }}">
         <i class="fa fa-{{ symbol }} fashadow"></i>
         <i class="fa fa-{{ symbol }}"></i>
     </span>
 {% else %}
-    <i class="fa fa-{{ symbol }}" style="padding-right: 5px; width: auto;"></i>
+    <i class="fa fa-{{ symbol }} {{ html_data.class }}" id="{{ html_data.id }}" style="padding-right: 5px; width: auto; {{ html_data.style }}"></i>
 {% endif %}
