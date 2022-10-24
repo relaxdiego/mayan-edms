@@ -13,6 +13,10 @@ from .links import (
     link_download_file_delete, link_download_file_download,
     link_download_file_list
 )
+from .permissions import (
+    permission_download_file_delete, permission_download_file_download,
+    permission_download_file_view
+)
 
 
 class StorageApp(MayanAppConfig):
@@ -38,7 +42,10 @@ class StorageApp(MayanAppConfig):
 
         ModelPermission.register(
             model=DownloadFile, permissions=(
-                permission_acl_edit, permission_acl_view
+                permission_acl_edit, permission_acl_view,
+                permission_download_file_delete,
+                permission_download_file_download,
+                permission_download_file_view
             )
         )
 
@@ -52,13 +59,16 @@ class StorageApp(MayanAppConfig):
             source=DownloadFile
         )
         SourceColumn(
-            attribute='content_object', include_label=True,
-            label=_('Source object'), source=DownloadFile,
-            is_attribute_absolute_url=True,
+            attribute='get_user_display', is_sortable=True,
+            include_label=True, sort_field='user', source=DownloadFile
         )
         SourceColumn(
             attribute='filename', include_label=True, is_sortable=True,
             source=DownloadFile
+        )
+        SourceColumn(
+            attribute='get_size_display', include_label=True,
+            is_sortable=False, source=DownloadFile
         )
 
         menu_object.bind_links(

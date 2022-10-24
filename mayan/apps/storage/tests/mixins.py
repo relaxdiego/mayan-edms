@@ -5,7 +5,6 @@ import shutil
 
 from django.core.files.base import ContentFile
 
-from mayan.apps.acls.classes import ModelPermission
 from mayan.apps.documents.literals import STORAGE_NAME_DOCUMENT_FILES
 from mayan.apps.permissions.tests.mixins import PermissionTestMixin
 from mayan.apps.smart_settings.classes import SettingNamespace
@@ -66,7 +65,7 @@ class ArchiveClassTestCaseMixin:
 
 
 class DownloadFileTestMixin(PermissionTestMixin):
-    def _create_test_download_file(self, content=None, content_object=None):
+    def _create_test_download_file(self, content=None, user=None):
         file_content = None
 
         if content:
@@ -75,28 +74,7 @@ class DownloadFileTestMixin(PermissionTestMixin):
             )
 
         self.test_download_file = DownloadFile.objects.create(
-            content_object=content_object, file=file_content
-        )
-
-    def _create_test_download_file_with_permission(self, content=None):
-        file_content = None
-
-        if content:
-            file_content = ContentFile(
-                content=content, name=TEST_DOWNLOAD_FILE_CONTENT_FILE_NAME
-            )
-
-        self._create_test_permission()
-
-        ModelPermission.register(
-            model=DownloadFile, permissions=(
-                self._test_permission,
-            )
-        )
-
-        self.test_download_file = DownloadFile.objects.create(
-            file=file_content,
-            permission=self._test_permission.stored_permission
+            file=file_content, user=user or self._test_case_user
         )
 
 

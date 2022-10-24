@@ -13,7 +13,8 @@ link_download_file_delete = Link(
 )
 link_download_file_download = Link(
     args='resolved_object.pk', icon=icon_download_file_download,
-    text=_('Download'), view='storage:download_file_download'
+    tags='new_window', text=_('Download'),
+    view='storage:download_file_download'
 )
 link_download_file_list = Link(
     icon=icon_download_file_list, text=_('Download files'),

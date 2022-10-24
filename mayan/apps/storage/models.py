@@ -1,15 +1,15 @@
 from pathlib import Path
 import uuid
 
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
+from django.conf import settings
 from django.db import models
+from django.template.defaultfilters import filesizeformat
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
 from mayan.apps.events.classes import EventManagerMethodAfter, EventManagerSave
 from mayan.apps.events.decorators import method_event
-from mayan.apps.permissions.models import StoredPermission
 
 from .classes import DefinedStorageLazy
 from .events import (
@@ -33,27 +33,22 @@ def upload_to(instance, filename):
 
 class DownloadFile(DatabaseFileModelMixin, ExtraDataModelMixin, models.Model):
     """
-    Keep a database link to a stored file. Used for generates files meant
+    Keep a database link to a stored file. Used for generated files meant
     to be downloaded at a later time.
     """
+
     file = models.FileField(
         storage=DefinedStorageLazy(
             name=STORAGE_NAME_DOWNLOAD_FILE
         ), upload_to=download_file_upload_to, verbose_name=_('File')
     )
-    content_type = models.ForeignKey(
-        blank=True, null=True, on_delete=models.CASCADE, to=ContentType
-    )
-    object_id = models.PositiveIntegerField(blank=True, null=True)
-    content_object = GenericForeignKey(
-        ct_field='content_type', fk_field='object_id'
-    )
     label = models.CharField(
         db_index=True, max_length=192, verbose_name=_('Label')
     )
-    permission = models.ForeignKey(
-        blank=True, null=True, on_delete=models.CASCADE,
-        to=StoredPermission, verbose_name=_('Permission')
+    user = models.ForeignKey(
+        editable=False, on_delete=models.CASCADE,
+        related_name='download_files', to=settings.AUTH_USER_MODEL,
+        verbose_name=_('User'),
     )
 
     objects = DownloadFileManager()
@@ -64,26 +59,17 @@ class DownloadFile(DatabaseFileModelMixin, ExtraDataModelMixin, models.Model):
         verbose_name_plural = _('Download files')
 
     def __str__(self):
-        if self.content_object:
-            return str(self.content_object)
-        else:
-            return self.filename or self.label
+        return self.filename or self.label
 
     @method_event(
         event_manager_class=EventManagerMethodAfter,
-        event=event_download_file_deleted,
-        target='content_object'
+        event=event_download_file_deleted
     )
     def delete(self, *args, **kwargs):
         return super().delete(*args, **kwargs)
 
     def get_absolute_url(self):
-        if self.content_object:
-            return self.content_object.get_absolute_url()
-
-    def get_absolute_api_url(self):
-        if self.content_object:
-            return self.content_object.get_absolute_api_url()
+        return reverse(viewname='storage:download_file_list')
 
     @method_event(
         event_manager_class=EventManagerMethodAfter,
@@ -93,10 +79,21 @@ class DownloadFile(DatabaseFileModelMixin, ExtraDataModelMixin, models.Model):
     def get_download_file_object(self):
         return self.open(mode='rb')
 
+    def get_size_display(self):
+        return filesizeformat(bytes_=self.file.size)
+
+    get_size_display.short_description = _('Size')
+
+    def get_user_display(self):
+        if self.user.get_full_name():
+            return self.user.get_full_name()
+        else:
+            return self.user.username
+    get_user_display.short_description = _('User')
+
     @method_event(
         event_manager_class=EventManagerSave,
         created={
-            'action_object': 'content_object',
             'event': event_download_file_created,
             'target': 'self'
         }
@@ -110,6 +107,7 @@ class SharedUploadedFile(DatabaseFileModelMixin, models.Model):
     Keep a database link to a stored file. Used to share files between code
     that runs out of process.
     """
+
     file = models.FileField(
         storage=DefinedStorageLazy(
             name=STORAGE_NAME_SHARED_UPLOADED_FILE

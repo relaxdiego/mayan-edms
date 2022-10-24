@@ -10,13 +10,18 @@ from .icons import (
     icon_download_file_list
 )
 from .models import DownloadFile
-from .view_mixins import RelatedObjectPermissionViewMixin
+from .permissions import (
+    permission_download_file_delete, permission_download_file_download,
+    permission_download_file_view
+)
+from .view_mixins import OwnerPlusFilteresQuerysetViewMixin
 
 
 class DownloadFileDeleteView(
-    RelatedObjectPermissionViewMixin, MultipleObjectDeleteView
+    OwnerPlusFilteresQuerysetViewMixin, MultipleObjectDeleteView
 ):
     model = DownloadFile
+    optional_object_permission = permission_download_file_delete
     pk_url_kwarg = 'download_file_id'
     post_action_redirect = reverse_lazy(
         viewname='storage:download_file_list'
@@ -30,9 +35,10 @@ class DownloadFileDeleteView(
 
 
 class DownloadFileDownloadViewView(
-    RelatedObjectPermissionViewMixin, SingleObjectDownloadView
+    OwnerPlusFilteresQuerysetViewMixin, SingleObjectDownloadView
 ):
     model = DownloadFile
+    optional_object_permission = permission_download_file_download
     pk_url_kwarg = 'download_file_id'
     view_icon = icon_download_file_download
 
@@ -46,9 +52,10 @@ class DownloadFileDownloadViewView(
 
 
 class DownloadFileListView(
-    RelatedObjectPermissionViewMixin, SingleObjectListView
+    OwnerPlusFilteresQuerysetViewMixin, SingleObjectListView
 ):
     model = DownloadFile
+    optional_object_permission = permission_download_file_view
     view_icon = icon_download_file_list
 
     def get_extra_context(self):
