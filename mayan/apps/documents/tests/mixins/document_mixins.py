@@ -106,6 +106,8 @@ class DocumentTestMixin:
         self._test_documents = []
         self._test_document_files = []
         self._test_document_file_pages = []
+        self._test_document_id_list = []
+        self._test_document_id_list_string = []
         self._test_document_types = []
 
         if self.auto_create_test_document_type:
@@ -137,6 +139,10 @@ class DocumentTestMixin:
         )
         self._test_document = self._test_document_stub
         self._test_documents.append(self._test_document)
+        self._test_document_id_list.append(self._test_document.pk)
+        self._test_document_id_list_string.append(
+            str(self._test_document.pk)
+        )
 
     def _create_test_document_stubs(self, count=None):
         for index in range(count or self._test_document_count):
@@ -188,13 +194,19 @@ class DocumentTestMixin:
             )
 
         self._test_document = document
-        self._test_documents.append(document)
+        self._test_documents.append(self._test_document)
+        self._test_document_id_list.append(self._test_document.pk)
+        self._test_document_id_list_string.append(
+            str(self._test_document.pk)
+        )
 
         self._test_document_file = document_file
-        self._test_document_files.append(document_file)
-        self._test_document_file_pages = list(document_file.file_pages.all())
-        self._test_document_file_page = document_file.file_pages.first()
+        self._test_document_files.append(self._test_document_file)
+        self._test_document_file_pages = list(self._test_document_file.file_pages.all())
+        self._test_document_file_page = self._test_document_file.file_pages.first()
+
         self._test_document_version = self._test_document.version_active
+        self._test_document_version_pages = list(self._test_document_version.version_pages.all())
         self._test_document_version_page = self._test_document_version.version_pages.first()
 
         if document_file_attributes:
