@@ -84,8 +84,7 @@ class ActionExporter:
 
         download_file = DownloadFile(
             filename=DEFAULT_EVENT_LIST_EXPORT_FILENAME,
-            label=_('Event list export to CSV'),
-            permission=permission_events_export.stored_permission
+            label=_('Event list export to CSV'), user=user
         )
         download_file._event_actor = user
         download_file.save()
