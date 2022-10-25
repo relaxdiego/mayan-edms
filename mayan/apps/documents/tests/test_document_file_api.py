@@ -4,12 +4,12 @@ from mayan.apps.rest_api.tests.base import BaseAPITestCase
 
 from ..events import (
     event_document_file_created, event_document_file_deleted,
-    event_document_file_edited, event_document_file_downloaded,
-    event_document_version_created, event_document_version_page_created
+    event_document_file_edited, event_document_version_created,
+    event_document_version_page_created
 )
 from ..permissions import (
-    permission_document_file_delete, permission_document_file_download,
-    permission_document_file_new, permission_document_file_view
+    permission_document_file_delete, permission_document_file_new,
+    permission_document_file_view
 )
 
 from .mixins.document_mixins import DocumentTestMixin

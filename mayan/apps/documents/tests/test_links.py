@@ -1,16 +1,14 @@
 from django.urls import reverse
 
-from ..links.document_file_links import (
-    link_document_file_delete, link_document_file_download_quick
-)
+from ..links.document_file_links import link_document_file_delete
 from ..links.favorite_links import (
     link_document_favorites_add, link_document_favorites_remove
 )
 from ..links.trashed_document_links import link_document_restore
 from ..models import TrashedDocument
 from ..permissions import (
-    permission_document_file_delete, permission_document_file_download,
-    permission_document_view, permission_trashed_document_restore
+    permission_document_file_delete, permission_document_view,
+    permission_trashed_document_restore
 )
 
 from .base import GenericDocumentViewTestCase
@@ -133,36 +131,6 @@ class DocumentsLinksTestCase(
             reverse(
                 viewname=link_document_file_delete.view,
                 args=(self._test_document.files.first().pk,)
-            )
-        )
-
-    def test_document_file_download_link_no_permission(self):
-        self.add_test_view(test_object=self._test_document.file_latest)
-        context = self.get_test_view()
-        resolved_link = link_document_file_download_quick.resolve(
-            context=context
-        )
-
-        self.assertEqual(resolved_link, None)
-
-    def test_document_file_download_link_with_permission(self):
-        self.grant_access(
-            obj=self._test_document,
-            permission=permission_document_file_download
-        )
-
-        self.add_test_view(test_object=self._test_document.file_latest)
-        context = self.get_test_view()
-        resolved_link = link_document_file_download_quick.resolve(
-            context=context
-        )
-
-        self.assertNotEqual(resolved_link, None)
-        self.assertEqual(
-            resolved_link.url,
-            reverse(
-                viewname=link_document_file_download_quick.view,
-                args=(self._test_document.file_latest.pk,)
             )
         )
 

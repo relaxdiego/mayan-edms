@@ -41,8 +41,8 @@ from ..settings import setting_preview_height, setting_preview_width
 from .misc_views import PrintFormView, DocumentPrintBaseView
 
 __all__ = (
-    'DocumentFileDeleteView', 'DocumentFileDownloadView',
-    'DocumentFileListView', 'DocumentFilePreviewView'
+    'DocumentFileDeleteView', 'DocumentFileListView',
+    'DocumentFilePreviewView'
 )
 logger = logging.getLogger(name=__name__)
 

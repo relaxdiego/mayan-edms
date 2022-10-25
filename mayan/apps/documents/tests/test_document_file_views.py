@@ -10,13 +10,11 @@ from mayan.apps.file_caching.permissions import permission_cache_partition_purge
 from mayan.apps.file_caching.tests.mixins import CachePartitionViewTestMixin
 
 from ..events import (
-    event_document_file_deleted, event_document_file_downloaded,
-    event_document_file_edited,
+    event_document_file_deleted, event_document_file_edited
 )
 from ..permissions import (
-    permission_document_file_delete, permission_document_file_download,
-    permission_document_file_edit, permission_document_file_print,
-    permission_document_file_view
+    permission_document_file_delete, permission_document_file_edit,
+    permission_document_file_print, permission_document_file_view
 )
 
 from .base import GenericDocumentViewTestCase
