@@ -696,6 +696,12 @@ class SourceColumn(TemplateObjectMixin):
 
     @classmethod
     def get_column_matches(cls, source):
+        if source == [] or source == ():
+            # There are no objects to match and the object type is not
+            # a queryset where the model can be obtained from empty values.
+            # Short circuit and return empty columns.
+            return ()
+
         columns = []
 
         try:
