@@ -89,7 +89,7 @@ class APIACLPermissionAddView(
 
         self.object.permissions_add(
             queryset=StoredPermission.objects.filter(
-                pk=serializer.validated_data['permission'].pk
+                pk=serializer.validated_data['permission'].stored_permission.pk
             )
         )
 
@@ -145,7 +145,7 @@ class APIACLPermissionRemoveView(
 
         self.object.permissions_remove(
             queryset=StoredPermission.objects.filter(
-                pk=serializer.validated_data['permission'].pk
+                pk=serializer.validated_data['permission'].stored_permission.pk
             )
         )
 

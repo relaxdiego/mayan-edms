@@ -120,7 +120,7 @@ class GrantAccessAction(WorkflowAction):
         self.roles = Role.objects.filter(pk__in=self.form_data['roles'])
         self.permissions = [
             Permission.get(
-                pk=permission, class_only=True
+                pk=permission
             ) for permission in self.form_data['permissions']
         ]
 
@@ -191,7 +191,7 @@ class GrantDocumentAccessAction(WorkflowAction):
         self.roles = Role.objects.filter(pk__in=self.form_data['roles'])
         self.permissions = [
             Permission.get(
-                pk=permission, class_only=True
+                pk=permission
             ) for permission in self.form_data['permissions']
         ]
 

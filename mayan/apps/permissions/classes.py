@@ -5,6 +5,7 @@ from django.apps import apps
 from django.core.exceptions import PermissionDenied
 from django.db.utils import OperationalError, ProgrammingError
 from django.utils.encoding import force_text
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.common.class_mixins import AppsModuleLoaderMixin
@@ -42,15 +43,14 @@ class PermissionNamespace:
 class Permission(AppsModuleLoaderMixin):
     _imported_app = []
     _loader_module_name = 'permissions'
-    _permissions = {}
-    _stored_permissions_cache = {}
+    _registry = {}
 
     @classmethod
     def all(cls):
         # Return sorted permissions by namespace.name
         return PermissionCollection(
             sorted(
-                cls._permissions.values(), key=lambda x: x.namespace.name
+                cls._registry.values(), key=lambda x: x.namespace.name
             )
         )
 
@@ -67,7 +67,7 @@ class Permission(AppsModuleLoaderMixin):
 
     @classmethod
     def get(cls, pk):
-        return cls._permissions[pk]
+        return cls._registry[pk]
 
     @classmethod
     def get_choices(cls):
@@ -87,24 +87,24 @@ class Permission(AppsModuleLoaderMixin):
     def load_modules(cls):
         super().load_modules()
 
-        # Invalidate cache always. This is for tests that build a new memory
-        # only database and cause all cache references built in the .ready()
-        # method to be invalid.
-        cls.invalidate_cache()
-
+        # Prime cache for all permissions.
         for permission in cls.all():
             permission.stored_permission
 
     @classmethod
     def invalidate_cache(cls):
-        cls._stored_permissions_cache = {}
+        for permission in cls.all():
+            try:
+                del permission.stored_permission
+            except AttributeError:
+                """Stored permission was not cached."""
 
     def __init__(self, namespace, name, label):
         self.namespace = namespace
         self.name = name
         self.label = label
         self.pk = self.get_pk()
-        self.__class__._permissions[self.pk] = self
+        self.__class__._registry[self.pk] = self
 
     def __repr__(self):
         return self.pk
@@ -115,29 +115,25 @@ class Permission(AppsModuleLoaderMixin):
     def get_pk(self):
         return '{}.{}'.format(self.namespace.name, self.name)
 
-    @property
+    @cached_property
     def stored_permission(self):
+        StoredPermission = apps.get_model(
+            app_label='permissions', model_name='StoredPermission'
+        )
+
         try:
-            return self.__class__._stored_permissions_cache[self.pk]
-        except KeyError:
-            StoredPermission = apps.get_model(
-                app_label='permissions', model_name='StoredPermission'
+            stored_permission, created = StoredPermission.objects.get_or_create(
+                namespace=self.namespace.name,
+                name=self.name,
             )
 
-            try:
-                stored_permission, created = StoredPermission.objects.get_or_create(
-                    namespace=self.namespace.name,
-                    name=self.name,
-                )
-
-                self.__class__._stored_permissions_cache[self.pk] = stored_permission
-                return stored_permission
-            except (OperationalError, ProgrammingError):
-                """
-                This error is expected when trying to initialize the
-                stored permissions during the initial creation of the
-                database. Can be safely ignore under that situation.
-                """
+            return stored_permission
+        except (OperationalError, ProgrammingError):
+            """
+            This error is expected when trying to initialize the
+            stored permissions during the initial creation of the
+            database. Can be safely ignore under that situation.
+            """
 
 
 class PermissionCollection(ClassCollection):

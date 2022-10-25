@@ -151,7 +151,7 @@ class APIRolePermissionAddView(generics.ObjectActionAPIView):
 
         self.object.permissions_add(
             queryset=StoredPermission.objects.filter(
-                pk=serializer.validated_data['permission'].pk
+                pk=serializer.validated_data['permission'].stored_permission.pk
             )
         )
 
@@ -172,6 +172,6 @@ class APIRolePermissionRemoveView(generics.ObjectActionAPIView):
 
         self.object.permissions_remove(
             queryset=StoredPermission.objects.filter(
-                pk=serializer.validated_data['permission'].pk
+                pk=serializer.validated_data['permission'].stored_permission.pk
             )
         )
