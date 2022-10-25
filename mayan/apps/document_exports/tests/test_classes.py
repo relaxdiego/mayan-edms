@@ -17,7 +17,7 @@ class DocumentVersionExporterClassTestCase(GenericDocumentTestCase):
 
         self._clear_events()
 
-        self._test_user.locale_profile.language = 'es'
+        self._test_user.locale_profile.language = 'en'
 
         document_version_exporter = DocumentVersionExporter(
             document_version=self._test_document_version
@@ -33,14 +33,14 @@ class DocumentVersionExporterClassTestCase(GenericDocumentTestCase):
         test_download_file = DownloadFile.objects.first()
         test_message = Message.objects.first()
 
-        self.assertNotEqual(
+        self.assertEqual(
             test_message.subject, DOCUMENT_VERSION_EXPORT_MESSAGE_SUBJECT
         )
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 3)
 
-        self.assertEqual(events[0].action_object, self._test_document_version)
+        self.assertEqual(events[0].action_object, None)
         self.assertEqual(events[0].actor, self._test_user)
         self.assertEqual(events[0].target, test_download_file)
         self.assertEqual(events[0].verb, event_download_file_created.id)
@@ -63,7 +63,7 @@ class DocumentVersionExporterClassTestCase(GenericDocumentTestCase):
 
         self._clear_events()
 
-        self._test_user.locale_profile.language = 'es'
+        self._test_user.locale_profile.language = 'en'
 
         document_version_exporter = DocumentVersionExporter(
             document_version=self._test_document_version
@@ -79,14 +79,14 @@ class DocumentVersionExporterClassTestCase(GenericDocumentTestCase):
         test_download_file = DownloadFile.objects.first()
         test_message = Message.objects.first()
 
-        self.assertNotEqual(
+        self.assertEqual(
             test_message.subject, DOCUMENT_VERSION_EXPORT_MESSAGE_SUBJECT
         )
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 3)
 
-        self.assertEqual(events[0].action_object, self._test_document_version)
+        self.assertEqual(events[0].action_object, None)
         self.assertEqual(events[0].actor, self._test_user)
         self.assertEqual(events[0].target, test_download_file)
         self.assertEqual(events[0].verb, event_download_file_created.id)

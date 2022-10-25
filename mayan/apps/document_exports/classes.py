@@ -56,10 +56,9 @@ class DocumentVersionExporter:
         )
 
         download_file = DownloadFile(
-            content_object=self.document_version,
             filename='{}.pdf'.format(self.document_version),
             label=_('Document version export to PDF'),
-            permission=permission_document_version_export.stored_permission
+            user=user
         )
         download_file._event_actor = user
         download_file.save()
