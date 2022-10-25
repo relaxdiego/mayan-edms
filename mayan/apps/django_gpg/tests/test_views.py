@@ -1,3 +1,5 @@
+from django.utils.encoding import force_bytes
+
 from mayan.apps.testing.tests.base import GenericViewTestCase
 
 from ..events import event_key_created, event_key_downloaded
@@ -6,7 +8,7 @@ from ..permissions import (
     permission_key_delete, permission_key_download, permission_key_upload
 )
 
-from .literals import TEST_KEY_PRIVATE_FINGERPRINT
+from .literals import TEST_KEY_PRIVATE_DATA, TEST_KEY_PRIVATE_FINGERPRINT
 from .mixins import KeyTestMixin, KeyViewTestMixin
 
 
@@ -57,7 +59,7 @@ class KeyViewTestCase(KeyTestMixin, KeyViewTestMixin, GenericViewTestCase):
         self.assertEqual(events.count(), 0)
 
     def test_key_download_view_with_access(self):
-        self.expected_content_types = ('application/octet-stream',)
+        self.expected_content_types = ('application/pgp-keys',)
 
         self._create_test_key_private()
 
@@ -69,8 +71,8 @@ class KeyViewTestCase(KeyTestMixin, KeyViewTestMixin, GenericViewTestCase):
 
         response = self._request_test_key_download_view()
         self.assert_download_response(
-            response=response, content=self._test_key_private.key_data,
-            filename=self._test_key_private.key_id,
+            content=force_bytes(s=TEST_KEY_PRIVATE_DATA),
+            filename=self._test_key_private.key_id, response=response
         )
 
         events = self._get_test_events()

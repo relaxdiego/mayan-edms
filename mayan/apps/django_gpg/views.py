@@ -73,7 +73,7 @@ class KeyDownloadView(SingleObjectDownloadView):
         target='object'
     )
     def get_download_file_object(self):
-        return self.object.key_data
+        return super().get_download_file_object()
 
     def get_download_filename(self):
         return self.object.key_id

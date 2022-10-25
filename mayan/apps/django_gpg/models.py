@@ -1,10 +1,11 @@
 from datetime import datetime
+from io import BytesIO
 import logging
 
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
-from django.utils.encoding import force_text
+from django.utils.encoding import force_bytes, force_text
 from django.utils.timezone import make_aware
 from django.utils.translation import ugettext_lazy as _
 
@@ -117,6 +118,10 @@ class Key(ExtraDataModelMixin, models.Model):
             self.key_type = KEY_TYPE_SECRET
         else:
             self.key_type = key_info['type']
+
+    def open(self):
+        output_buffer = BytesIO(initial_bytes=force_bytes(s=self.key_data))
+        return output_buffer
 
     @method_event(
         event_manager_class=EventManagerSave,
