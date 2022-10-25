@@ -768,7 +768,7 @@ class SingleObjectDownloadView(
     def get_download_file_object(self):
         return self.object.open()
 
-    def get_download_label(self):
+    def get_download_filename(self):
         return force_text(s=self.object)
 
 
