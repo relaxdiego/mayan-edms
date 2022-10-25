@@ -285,6 +285,35 @@ class ModelFormFieldsetsViewMixin(ModelFormMixin):
             return FormFieldsetForm
 
 
+class MultipleExternalObjectViewMixin(ExternalObjectBaseMixin):
+    def dispatch(self, request, *args, **kwargs):
+        self.external_object_list = self.get_external_object_list()
+        if self.view_mode_single:
+            self.external_object = self.external_object_list.first()
+
+        return super().dispatch(request=request, *args, **kwargs)
+
+    def get_external_object_list(self):
+        self.view_mode_single = False
+        self.view_mode_multiple = False
+
+        pk_url_kwarg = self.external_object_pk_url_kwarg
+        pk = self.kwargs.get(pk_url_kwarg)
+        pk_list = self.get_pk_list()
+
+        if pk is not None:
+            id_list = (pk,)
+            self.view_mode_single = True
+
+        if pk_list is not None:
+            id_list = pk_list
+            self.view_mode_multiple = True
+
+        return self.get_external_object_queryset_filtered().filter(
+            pk__in=id_list
+        )
+
+
 class MultipleObjectViewMixin(SingleObjectMixin):
     """
     Mixin that allows a view to work on a single or multiple objects. It can
