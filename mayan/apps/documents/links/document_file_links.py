@@ -6,17 +6,17 @@ from mayan.apps.converter.permissions import (
 from mayan.apps.navigation.classes import Link
 
 from ..icons import (
-    icon_document_file_delete, icon_document_file_download_quick,
-    icon_document_file_edit, icon_document_file_list,
-    icon_document_file_print, icon_document_file_properties_detail,
+    icon_document_file_delete, icon_document_file_edit,
+    icon_document_file_list, icon_document_file_print,
+    icon_document_file_properties_detail,
     icon_document_file_return_to_document, icon_document_file_return_list,
     icon_document_file_preview, icon_document_file_transformation_list_clear,
     icon_document_file_transformation_list_clone
 )
 from ..permissions import (
-    permission_document_file_delete, permission_document_file_download,
-    permission_document_file_edit, permission_document_file_print,
-    permission_document_file_view, permission_document_view
+    permission_document_file_delete, permission_document_file_edit,
+    permission_document_file_print, permission_document_file_view,
+    permission_document_view
 )
 
 link_document_file_delete = Link(
@@ -34,11 +34,6 @@ link_document_file_edit = Link(
     args='object.pk', icon=icon_document_file_edit,
     permissions=(permission_document_file_edit,),
     text=_('Edit'), view='documents:document_file_edit',
-)
-link_document_file_download_quick = Link(
-    args='resolved_object.id', icon=icon_document_file_download_quick,
-    permissions=(permission_document_file_download,),
-    text=_('Quick download'), view='documents:document_file_download'
 )
 link_document_file_list = Link(
     args='resolved_object.pk',

@@ -30,9 +30,6 @@ permission_document_file_delete = namespace.add_permission(
 permission_document_file_edit = namespace.add_permission(
     label=_('Edit document files'), name='document_file_edit'
 )
-permission_document_file_download = namespace.add_permission(
-    label=_('Download document files'), name='document_file_download'
-)
 permission_document_file_new = namespace.add_permission(
     label=_('Create new document files'), name='document_file_new'
 )

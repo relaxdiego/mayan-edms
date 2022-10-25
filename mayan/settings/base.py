@@ -112,6 +112,7 @@ INSTALLED_APPS = (
     'mayan.apps.cabinets',
     'mayan.apps.checkouts',
     'mayan.apps.document_comments',
+    'mayan.apps.document_downloads',
     'mayan.apps.document_exports',
     'mayan.apps.document_indexing',
     'mayan.apps.document_parsing',

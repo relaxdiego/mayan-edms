@@ -30,14 +30,6 @@ class DocumentFileAPIViewTestMixin:
             }
         )
 
-    def _request_test_document_file_download_api_view(self):
-        return self.get(
-            viewname='rest_api:documentfile-download', kwargs={
-                'document_id': self._test_document.pk,
-                'document_file_id': self._test_document.file_latest.pk,
-            }
-        )
-
     def _request_test_document_file_list_api_view(self):
         return self.get(
             viewname='rest_api:documentfile-list', kwargs={
@@ -109,14 +101,6 @@ class DocumentFileViewTestMixin:
             viewname='documents:document_file_multiple_delete', data={
                 'id_list': self._test_document_file.pk
             }
-        )
-
-    def _request_test_document_file_download_view(self, data=None):
-        data = data or {}
-        return self.get(
-            viewname='documents:document_file_download', kwargs={
-                'document_file_id': self._test_document.file_latest.pk
-            }, data=data
         )
 
     def _request_test_document_file_edit_view(self):

@@ -24,7 +24,7 @@ from mayan.apps.storage.classes import DefinedStorageLazy
 
 from ..events import (
     event_document_file_created, event_document_file_deleted,
-    event_document_file_downloaded, event_document_file_edited
+    event_document_file_edited
 )
 from ..literals import (
     STORAGE_NAME_DOCUMENT_FILE_PAGE_IMAGE_CACHE, STORAGE_NAME_DOCUMENT_FILES
@@ -282,16 +282,6 @@ class DocumentFile(
             result.append(page.cache_partition)
 
         return result
-
-    @method_event(
-        event_manager_class=EventManagerMethodAfter,
-        event=event_document_file_downloaded,
-        target='self',
-    )
-    def get_download_file_object(self):
-        # Thin wrapper to make sure the normal views and API views trigger
-        # then download event in the same way.
-        return self.open(raw=True)
 
     def get_intermediate_file(self):
         cache_filename = 'intermediate_file'

@@ -24,9 +24,6 @@ event_document_file_created = namespace.add_event_type(
 event_document_file_deleted = namespace.add_event_type(
     label=_('Document file deleted'), name='document_file_deleted'
 )
-event_document_file_downloaded = namespace.add_event_type(
-    label=_('Document file downloaded'), name='document_file_downloaded'
-)
 event_document_file_edited = namespace.add_event_type(
     label=_('Document file edited'), name='document_file_edited'
 )

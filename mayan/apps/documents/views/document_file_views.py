@@ -14,8 +14,7 @@ from mayan.apps.converter.transformations import TransformationResize
 from mayan.apps.sources.links import link_document_file_upload
 from mayan.apps.views.generics import (
     FormView, MultipleObjectConfirmActionView, MultipleObjectDeleteView,
-    SingleObjectDetailView, SingleObjectDownloadView, SingleObjectEditView,
-    SingleObjectListView
+    SingleObjectDetailView, SingleObjectEditView, SingleObjectListView
 )
 from mayan.apps.views.mixins import ExternalObjectViewMixin
 
@@ -25,18 +24,17 @@ from ..forms.document_file_forms import (
 )
 from ..forms.misc_forms import PageNumberForm
 from ..icons import (
-    icon_document_file_delete, icon_document_file_download_quick,
-    icon_document_file_edit, icon_document_file_list,
-    icon_document_file_preview, icon_document_file_properties_detail,
-    icon_document_file_print, icon_document_file_transformation_list_clear,
+    icon_document_file_delete, icon_document_file_edit,
+    icon_document_file_list, icon_document_file_preview,
+    icon_document_file_properties_detail, icon_document_file_print,
+    icon_document_file_transformation_list_clear,
     icon_document_file_transformation_list_clone
 )
 from ..models.document_models import Document
 from ..models.document_file_models import DocumentFile
 from ..permissions import (
-    permission_document_file_delete, permission_document_file_download,
-    permission_document_file_edit, permission_document_file_print,
-    permission_document_file_view
+    permission_document_file_delete, permission_document_file_edit,
+    permission_document_file_print, permission_document_file_view
 )
 from ..settings import setting_preview_height, setting_preview_width
 
@@ -100,25 +98,6 @@ class DocumentFileDeleteView(MultipleObjectDeleteView):
         )
 
 
-class DocumentFileDownloadView(SingleObjectDownloadView):
-    object_permission = permission_document_file_download
-    pk_url_kwarg = 'document_file_id'
-    source_queryset = DocumentFile.valid.all()
-    view_icon = icon_document_file_download_quick
-
-    def get_download_file_object(self):
-        instance = self.get_object()
-        instance._event_action_object = instance.document
-        instance._event_actor = self.request.user
-        return instance.get_download_file_object()
-
-    def get_download_filename(self):
-        return self.object.filename
-
-    def get_download_mime_type_and_encoding(self, file_object):
-        return self.object.mimetype, self.object.encoding
-
-
 class DocumentFileEditView(SingleObjectEditView):
     form_class = DocumentFileForm
     object_permission = permission_document_file_edit
@@ -150,6 +129,28 @@ class DocumentFileListView(ExternalObjectViewMixin, SingleObjectListView):
     external_object_queryset = Document.valid.all()
     view_icon = icon_document_file_list
 
+    @staticmethod
+    def get_no_results_context(document=None, request=None):
+        context = {
+            'no_results_icon': icon_document_file_list,
+            'no_results_text': _(
+                'File are the actual files that were uploaded for each '
+                'document. Their contents needs to be mapped to a version '
+                'before it can be used.'
+            ),
+            'no_results_title': _('No files available')
+        }
+
+        if document:
+            context['no_results_main_link'] = link_document_file_upload.resolve(
+                context=RequestContext(
+                    dict_={'object': document},
+                    request=request
+                )
+            )
+
+        return context
+
     def get_document(self):
         document = self.external_object
         document.add_as_recent_document_for_user(user=self.request.user)
@@ -157,26 +158,19 @@ class DocumentFileListView(ExternalObjectViewMixin, SingleObjectListView):
 
     def get_extra_context(self):
         document = self.get_document()
-        return {
+        context = {
             'hide_object': True,
             'list_as_items': True,
-            'no_results_icon': icon_document_file_list,
-            'no_results_main_link': link_document_file_upload.resolve(
-                context=RequestContext(
-                    dict_={'object': document},
-                    request=self.request
-                )
-            ),
-            'no_results_text': _(
-                'File are the actual files that were uploaded for each '
-                'document. Their contents needs to be mapped to a version '
-                'before it can be used.'
-            ),
-            'no_results_title': _('No files available'),
             'object': document,
             'table_cell_container_classes': 'td-container-thumbnail',
             'title': _('Files of document: %s') % document,
         }
+        context.update(
+            DocumentFileListView.get_no_results_context(
+                document=document, request=self.request
+            )
+        )
+        return context
 
     def get_source_queryset(self):
         return self.get_document().files.order_by('-timestamp')

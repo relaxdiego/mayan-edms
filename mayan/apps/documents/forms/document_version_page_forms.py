@@ -4,8 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from ..fields import DocumentVersionPageField, ThumbnailFormField
 
-__all__ = ('DocumentVersionPageForm',)
-
 
 class DocumentVersionPageForm(forms.Form):
     document_version_page = DocumentVersionPageField()

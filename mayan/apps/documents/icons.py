@@ -117,9 +117,6 @@ icon_document_type_change = icon_document_type
 icon_document_file_delete = Icon(
     driver_name='fontawesome', symbol='times'
 )
-icon_document_file_download_quick = Icon(
-    driver_name='fontawesome', symbol='download'
-)
 icon_document_file_edit = Icon(
     driver_name='fontawesome', symbol='pencil-alt'
 )

@@ -55,7 +55,7 @@ from .events import (
 
 from .events import (
     event_document_file_created, event_document_file_deleted,
-    event_document_file_downloaded, event_document_file_edited
+    event_document_file_edited
 )
 
 # Document types
@@ -89,11 +89,10 @@ from .links.document_links import (
 )
 from .links.document_file_links import (
     link_document_file_delete, link_document_file_multiple_delete,
-    link_document_file_download_quick, link_document_file_edit,
-    link_document_file_list, link_document_file_preview,
-    link_document_file_print_form, link_document_file_properties,
-    link_document_file_return_to_document, link_document_file_return_list,
-    link_document_file_transformations_clear,
+    link_document_file_edit, link_document_file_list,
+    link_document_file_preview, link_document_file_print_form,
+    link_document_file_properties, link_document_file_return_to_document,
+    link_document_file_return_list, link_document_file_transformations_clear,
     link_document_file_multiple_transformations_clear,
     link_document_file_transformations_clone
 )
@@ -175,10 +174,9 @@ from .permissions import (
 # DocumentFile
 
 from .permissions import (
-    permission_document_file_delete, permission_document_file_download,
-    permission_document_file_edit, permission_document_file_new,
-    permission_document_file_print, permission_document_file_tools,
-    permission_document_file_view
+    permission_document_file_delete, permission_document_file_edit,
+    permission_document_file_new, permission_document_file_print,
+    permission_document_file_tools, permission_document_file_view
 )
 
 # DocumentType
@@ -229,9 +227,6 @@ class DocumentsApp(MayanAppConfig):
         DocumentVersionPageSearchResult = self.get_model(
             model_name='DocumentVersionPageSearchResult'
         )
-        DownloadFile = apps.get_model(
-            app_label='storage', model_name='DownloadFile'
-        )
         FavoriteDocument = self.get_model(
             model_name='FavoriteDocument'
         )
@@ -278,8 +273,6 @@ class DocumentsApp(MayanAppConfig):
 
         DocumentFileAction.load_modules()
         DocumentVersionModification.load_modules()
-
-        DownloadFile.objects.register_content_object(model=DocumentVersion)
 
         DynamicSerializerField.add_serializer(
             klass=Document,
@@ -349,7 +342,6 @@ class DocumentsApp(MayanAppConfig):
         )
         ModelEventType.register(
             model=DocumentFile, event_types=(
-                event_document_file_downloaded,
                 event_document_file_edited,
             )
         )
@@ -449,7 +441,6 @@ class DocumentsApp(MayanAppConfig):
                 permission_acl_edit, permission_acl_view,
                 permission_cache_partition_purge,
                 permission_document_file_delete,
-                permission_document_file_download,
                 permission_document_file_edit,
                 permission_document_file_print,
                 permission_document_file_tools,
@@ -814,7 +805,6 @@ class DocumentsApp(MayanAppConfig):
             links=(
                 link_cache_partition_purge,
                 link_document_file_delete,
-                link_document_file_download_quick,
                 link_document_file_edit,
                 link_document_file_page_count_update,
                 link_document_file_print_form,

@@ -6,9 +6,9 @@ from .api_views.document_api_views import (
     APIDocumentUploadView
 )
 from .api_views.document_file_api_views import (
-    APIDocumentFileDetailView, APIDocumentFileDownloadView,
-    APIDocumentFileListView, APIDocumentFilePageImageView,
-    APIDocumentFilePageDetailView, APIDocumentFilePageListView
+    APIDocumentFileDetailView, APIDocumentFileListView,
+    APIDocumentFilePageImageView, APIDocumentFilePageDetailView,
+    APIDocumentFilePageListView
 )
 from .api_views.document_type_api_views import (
     APIDocumentTypeDetailView, APIDocumentTypeListView,
@@ -34,8 +34,8 @@ from .api_views.trashed_document_api_views import (
     APITrashedDocumentRestoreView, APITrashedDocumentImageView
 )
 from .views.document_file_views import (
-    DocumentFileDeleteView, DocumentFileDownloadView, DocumentFileEditView,
-    DocumentFileListView, DocumentFilePrintFormView, DocumentFilePrintView,
+    DocumentFileDeleteView, DocumentFileEditView, DocumentFileListView,
+    DocumentFilePrintFormView, DocumentFilePrintView,
     DocumentFilePropertiesView, DocumentFilePreviewView,
     DocumentFileTransformationsClearView,
     DocumentFileTransformationsCloneView
@@ -109,11 +109,6 @@ urlpatterns_document_files = [
         regex=r'^documents/files/multiple/delete/$',
         name='document_file_multiple_delete',
         view=DocumentFileDeleteView.as_view()
-    ),
-    url(
-        regex=r'^documents/files/(?P<document_file_id>\d+)/download/$',
-        name='document_file_download',
-        view=DocumentFileDownloadView.as_view()
     ),
     url(
         regex=r'^documents/files/(?P<document_file_id>\d+)/edit/$',
@@ -566,11 +561,6 @@ api_urls_document_files = [
     url(
         regex=r'^documents/(?P<document_id>[0-9]+)/files/(?P<document_file_id>[0-9]+)/$',
         name='documentfile-detail', view=APIDocumentFileDetailView.as_view()
-    ),
-    url(
-        regex=r'^documents/(?P<document_id>[0-9]+)/files/(?P<document_file_id>[0-9]+)/download/$',
-        name='documentfile-download',
-        view=APIDocumentFileDownloadView.as_view()
     ),
     url(
         regex=r'^documents/(?P<document_id>[0-9]+)/files/(?P<document_file_id>[0-9]+)/pages/$',
