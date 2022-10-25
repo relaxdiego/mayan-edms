@@ -56,7 +56,7 @@ class DocumentDownloadView(
         }
 
         if self.object_list.count() == 1:
-            document = self.object_list.first()
+            document = self.object_list.first().document
             context.update(
                 {
                     'object': document
