@@ -1,4 +1,4 @@
-from mayan.apps.dynamic_search.tests.mixins import SearchTestMixin
+from mayan.apps.dynamic_search.tests.mixins.base import SearchTestMixin
 
 from ..permissions import permission_document_view
 from ..search import search_model_document
@@ -14,7 +14,7 @@ class DocumentSearchTestCase(SearchTestMixin, GenericDocumentViewTestCase):
         self.assertTrue(terms is not None)
         self.assertTrue(terms != '')
 
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document, query=query,
             user=self._test_case_user
         )
@@ -291,7 +291,7 @@ class DocumentSearchTestCase(SearchTestMixin, GenericDocumentViewTestCase):
         self._clear_events()
 
         queryset = self._do_test_search(
-            query={'uuid': self._test_document.uuid}
+            query={'uuid': str(self._test_document.uuid)}
         )
         self.assertFalse(self._test_document in queryset)
 
@@ -306,7 +306,7 @@ class DocumentSearchTestCase(SearchTestMixin, GenericDocumentViewTestCase):
         self._clear_events()
 
         queryset = self._do_test_search(
-            query={'uuid': self._test_document.uuid}
+            query={'uuid': str(self._test_document.uuid)}
         )
         self.assertTrue(self._test_document in queryset)
 
@@ -323,7 +323,7 @@ class DocumentSearchTestCase(SearchTestMixin, GenericDocumentViewTestCase):
         self._clear_events()
 
         queryset = self._do_test_search(
-            query={'uuid': self._test_document.uuid}
+            query={'uuid': str(self._test_document.uuid)}
         )
         self.assertTrue(self._test_document not in queryset)
 

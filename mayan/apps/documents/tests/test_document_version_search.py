@@ -1,4 +1,4 @@
-from mayan.apps.dynamic_search.tests.mixins import SearchTestMixin
+from mayan.apps.dynamic_search.tests.mixins.base import SearchTestMixin
 
 from ..permissions import permission_document_version_view
 from ..search import search_model_document_version_page, search_model_document_version
@@ -17,7 +17,7 @@ class DocumentVersionSearchTestCase(
         self.assertTrue(terms is not None)
         self.assertTrue(terms != '')
 
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document_version, query=query,
             user=self._test_case_user
         )
@@ -182,7 +182,7 @@ class DocumentVersionSearchTestCase(
 
         queryset = self._do_test_search(
             query={
-                'document__uuid': self._test_document.uuid
+                'document__uuid': str(self._test_document.uuid)
             }
         )
         self.assertTrue(self._test_document_version not in queryset)
@@ -199,7 +199,7 @@ class DocumentVersionSearchTestCase(
 
         queryset = self._do_test_search(
             query={
-                'document__uuid': self._test_document.uuid
+                'document__uuid': str(self._test_document.uuid)
             }
         )
         self.assertTrue(self._test_document_version in queryset)
@@ -218,7 +218,7 @@ class DocumentVersionSearchTestCase(
 
         queryset = self._do_test_search(
             query={
-                'document__uuid': self._test_document.uuid
+                'document__uuid': str(self._test_document.uuid)
             }
         )
         self.assertTrue(self._test_document_version not in queryset)
@@ -286,7 +286,7 @@ class DocumentVersionPageSearchTestCase(
         self.assertTrue(terms is not None)
         self.assertTrue(terms != '')
 
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document_version_page, query=query,
             user=self._test_case_user
         )
@@ -402,7 +402,7 @@ class DocumentVersionPageSearchTestCase(
 
         queryset = self._do_test_search(
             query={
-                'document_version__document__uuid': self._test_document.uuid
+                'document_version__document__uuid': str(self._test_document.uuid)
             }
         )
         self.assertTrue(self._test_document_version_page not in queryset)
@@ -419,7 +419,7 @@ class DocumentVersionPageSearchTestCase(
 
         queryset = self._do_test_search(
             query={
-                'document_version__document__uuid': self._test_document.uuid
+                'document_version__document__uuid': str(self._test_document.uuid)
             }
         )
         self.assertTrue(self._test_document_version_page in queryset)
@@ -438,7 +438,7 @@ class DocumentVersionPageSearchTestCase(
 
         queryset = self._do_test_search(
             query={
-                'document_version__document__uuid': self._test_document.uuid
+                'document_version__document__uuid': str(self._test_document.uuid)
             }
         )
         self.assertTrue(self._test_document_version_page not in queryset)

@@ -1,4 +1,4 @@
-from mayan.apps.dynamic_search.tests.mixins import SearchTestMixin
+from mayan.apps.dynamic_search.tests.mixins.base import SearchTestMixin
 
 from ..permissions import permission_document_view
 

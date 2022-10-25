@@ -1,7 +1,7 @@
 from mayan.apps.documents.tests.base import GenericDocumentViewTestCase
 from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.documents.search import search_model_document
-from mayan.apps.dynamic_search.tests.mixins import SearchTestMixin
+from mayan.apps.dynamic_search.tests.mixins.base import SearchTestMixin
 
 from ..permissions import permission_signature_capture_view
 from ..search import search_model_signature_capture
@@ -17,7 +17,7 @@ class DocumentSignatureCaptureSearchTestCase(
     auto_create_test_signature_capture = True
 
     def _do_test_search(self, query):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document, query=query,
             user=self._test_case_user
         )
@@ -243,7 +243,7 @@ class SignatureCaptureSearchTestCase(
     auto_create_test_signature_capture = True
 
     def _do_test_search(self, query):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_signature_capture, query=query,
             user=self._test_case_user
         )

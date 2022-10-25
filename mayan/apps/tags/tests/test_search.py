@@ -1,7 +1,7 @@
 from mayan.apps.documents.tests.base import GenericDocumentViewTestCase
 from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.documents.search import search_model_document
-from mayan.apps.dynamic_search.tests.mixins import SearchTestMixin
+from mayan.apps.dynamic_search.tests.mixins.base import SearchTestMixin
 
 from .mixins import TagTestMixin
 
@@ -13,7 +13,7 @@ class DocumentTagSearchTestCase(
     auto_create_test_tag = True
 
     def _do_test_search(self):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document, query={
                 'tags__label': self._test_tag.label
             }, user=self._test_case_user

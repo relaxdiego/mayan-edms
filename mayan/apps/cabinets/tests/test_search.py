@@ -4,7 +4,7 @@ from mayan.apps.documents.models.document_models import Document
 from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.documents.search import search_model_document
 from mayan.apps.documents.tests.base import GenericDocumentViewTestCase
-from mayan.apps.dynamic_search.tests.mixins import SearchTestMixin
+from mayan.apps.dynamic_search.tests.mixins.base import SearchTestMixin
 
 from ..models import Cabinet
 from ..permissions import permission_cabinet_view
@@ -21,7 +21,7 @@ class CabinetSearchFieldSizeLimitTestCase(
     auto_upload_test_document = False
 
     def _do_test_search(self):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_cabinet, query={
                 'documents__uuid': str(self._test_document_stubs[0].uuid)
             }, user=self._test_case_user
@@ -58,7 +58,7 @@ class CabinetSearchFieldSizeLimitTestCase(
 
         ThroughModel.objects.bulk_create(cabinet_documents)
 
-        self.search_backend.index_instance(instance=self._test_cabinet)
+        self._test_search_backend.index_instance(instance=self._test_cabinet)
 
         queryset = self._do_test_search()
         self.assertTrue(self._test_cabinet in queryset)
@@ -74,7 +74,7 @@ class CabinetSearchTestCase(
     auto_create_test_cabinet = True
 
     def _do_test_search(self):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_cabinet, query={
                 'documents__label': self._test_document.label
             }, user=self._test_case_user
@@ -125,7 +125,7 @@ class DocumentCabinetSearchTestCase(
     auto_create_test_cabinet = True
 
     def _do_test_search(self):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document, query={
                 'cabinets__label': self._test_cabinet.label
             }, user=self._test_case_user

@@ -6,7 +6,7 @@ from mayan.apps.documents.search import (
     search_model_document, search_model_document_version,
     search_model_document_version_page
 )
-from mayan.apps.dynamic_search.tests.mixins import SearchTestMixin
+from mayan.apps.dynamic_search.tests.mixins.base import SearchTestMixin
 
 from .mixins import DocumentVersionOCRTestMixin
 
@@ -17,7 +17,7 @@ class DocumentOCRSearchTestCase(
     auto_create_test_document_version_ocr_content = True
 
     def _do_test_search(self):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document, query={
                 'versions__version_pages__ocr_content__content': self._test_document_version_page.ocr_content.content
             }, user=self._test_case_user
@@ -67,7 +67,7 @@ class DocumentVersionOCRSearchTestCase(
     auto_create_test_document_version_ocr_content = True
 
     def _do_test_search(self):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document_version, query={
                 'version_pages__ocr_content__content': self._test_document_version_page.ocr_content.content
             }, user=self._test_case_user
@@ -119,7 +119,7 @@ class DocumentVersionPageOCRSearchTestCase(
     auto_create_test_document_version_ocr_content = True
 
     def _do_test_search(self):
-        return self.search_backend.search(
+        return self._test_search_backend.search(
             search_model=search_model_document_version_page, query={
                 'ocr_content__content': self._test_document_version_page.ocr_content.content
             }, user=self._test_case_user
