@@ -556,16 +556,14 @@ class BackendSearchFieldRelatedObjectManyToManyFieldTestCaseMixin:
 
 
 class BackendSearchFieldTestCaseMixin(
-    BackendLimitTestCase,
-    BackendProxyObjectTestCaseMixin,
+    BackendLimitTestCase, BackendProxyObjectTestCaseMixin,
     BackendSearchFieldAnyFieldTestCaseMixin,
     BackendSearchFieldDirectFieldTestCaseMixin,
     BackendSearchFieldManyToManyFieldTestCaseMixin,
     BackendSearchFieldRelatedObjectDirectFieldTestCaseMixin,
     BackendSearchFieldRelatedObjectManyToManyFieldTestCaseMixin,
-    BackendSearchTestMixin,
-    SearchTestMixin,
-    TestSearchObjectHierarchyTestMixin
+    BackendSearchTestMixin, TestSearchObjectHierarchyTestMixin,
+    SearchTestMixin
 ):
     """
     Consolidated backend test case mixin.

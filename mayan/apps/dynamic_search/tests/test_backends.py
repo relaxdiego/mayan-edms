@@ -46,7 +46,7 @@ class DjangoSearchBackendFieldTypeQueryTypeTestCase(
 
 @skip('Skip until a Mock ElasticSearch server class is added.')
 class ElasticSearchBackendIndexingTestCase(
-    BackendSearchTestMixin, SearchTestMixin, TestSearchObjectSimpleTestMixin,
+    BackendSearchTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin,
     BaseTestCase
 ):
     _test_search_backend_path = 'mayan.apps.dynamic_search.backends.elasticsearch.ElasticSearchBackend'

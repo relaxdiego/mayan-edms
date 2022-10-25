@@ -197,11 +197,22 @@ class SearchTestMixin:
     auto_test_search_backend_initialize = True
     auto_test_search_objects_create = True
 
+    def _create_test_search_objects(self):
+        """
+        This method allows tests to add test objects.
+        """
+
     def _deindex_instance(self, instance):
         self._test_search_backend.deindex_instance(instance=instance)
 
     def _index_instance(self, instance):
         self._test_search_backend.index_instance(instance=instance)
+
+    def _setup_test_model_search(self):
+        """
+        This method allows tests to add model search configurations and
+        not have to import and initialize the SearchBackend.
+        """
 
     def setUp(self):
         self._existing_search_models = SearchModel._registry.copy()

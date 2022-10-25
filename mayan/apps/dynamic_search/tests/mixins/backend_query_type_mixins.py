@@ -1713,8 +1713,8 @@ class BackendFieldTypeQueryTypeTestCaseMixin(
     BackendFieldTypeQueryTypePositiveIntegerTestCaseMixin,
     BackendFieldTypeQueryTypeTextTestCaseMixin,
     BackendFieldTypeQueryTypeUUIDTestCaseMixin,
-    BackendSearchTestMixin, SearchTestMixin,
-    TestSearchObjectSimpleTestMixin
+    BackendSearchTestMixin, TestSearchObjectSimpleTestMixin,
+    SearchTestMixin
 ):
     """
     Consolidated backend test field type and query type case mixin.

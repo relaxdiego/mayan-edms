@@ -30,8 +30,8 @@ class SearchAPIViewBackwardCompatilityTestCase(
 
 
 class SearchAPIViewTestCase(
-    DocumentTestMixin, SearchAPIViewTestMixin, SearchTestMixin,
-    TestSearchObjectSimpleTestMixin, BaseAPITestCase
+    DocumentTestMixin, SearchAPIViewTestMixin,
+    TestSearchObjectSimpleTestMixin, SearchTestMixin, BaseAPITestCase
 ):
     def test_search_api_view_no_permission(self):
         self._clear_events()
@@ -130,8 +130,8 @@ class SearchAPIViewTestCase(
 
 
 class SearchFilterCombinatiomAPITestCase(
-    SearchAPIViewTestMixin, DocumentTestMixin, SearchTestMixin, TestSearchObjectSimpleTestMixin,
-    BaseAPITestCase
+    SearchAPIViewTestMixin, DocumentTestMixin,
+    TestSearchObjectSimpleTestMixin, SearchTestMixin, BaseAPITestCase
 ):
     auto_upload_test_document = False
 
@@ -175,7 +175,7 @@ class SearchFilterCombinatiomAPITestCase(
 
 
 class SearchModelAPIViewTestCase(
-    SearchTestMixin, TestSearchObjectSimpleTestMixin, BaseAPITestCase
+    TestSearchObjectSimpleTestMixin, SearchTestMixin, BaseAPITestCase
 ):
     def test_search_models_api_view(self):
         self._clear_events()
@@ -195,7 +195,7 @@ class SearchModelAPIViewTestCase(
 
 
 class RESTAPISearchFilterTestCase(
-    DocumentTestMixin, SearchTestMixin, TestSearchObjectSimpleTestMixin,
+    DocumentTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin,
     BaseAPITestCase
 ):
     auto_upload_test_document = False

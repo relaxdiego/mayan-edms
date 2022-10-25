@@ -9,7 +9,7 @@ from .mixins.base import SearchTestMixin, TestSearchObjectHierarchyTestMixin
 
 
 class SearchFieldDirectDectionTestCase(
-    SearchTestMixin, TestSearchObjectHierarchyTestMixin, BaseTestCase
+    TestSearchObjectHierarchyTestMixin, SearchTestMixin, BaseTestCase
 ):
     def test_detection(self):
         search_field = SearchField.init(
@@ -39,7 +39,7 @@ class SearchFieldDirectDectionTestCase(
 
 
 class SearchFieldRelatedDectionTestCase(
-    SearchTestMixin, TestSearchObjectHierarchyTestMixin, BaseTestCase
+    TestSearchObjectHierarchyTestMixin, SearchTestMixin, BaseTestCase
 ):
     def test_detection(self):
         search_field = SearchField.init(

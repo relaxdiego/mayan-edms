@@ -16,8 +16,8 @@ from .mixins.view_mixins import SearchToolsViewTestMixin, SearchViewTestMixin
 
 
 class SearchAdvancedViewTestCase(
-    DocumentTestMixin, SearchTestMixin, SearchViewTestMixin,
-    TestSearchObjectSimpleTestMixin, GenericViewTestCase
+    DocumentTestMixin, SearchViewTestMixin, TestSearchObjectSimpleTestMixin,
+    SearchTestMixin, GenericViewTestCase
 ):
     auto_test_search_objects_create = False
     auto_upload_test_document = False
@@ -238,7 +238,7 @@ class SearchFilterViewTestCase(
 
 
 class SearchViewTestCase(
-    SearchTestMixin, SearchViewTestMixin, TestSearchObjectSimpleTestMixin,
+    SearchViewTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin,
     GenericViewTestCase
 ):
     auto_test_search_objects_create = False
@@ -293,7 +293,7 @@ class SearchViewTestCase(
 
 
 class SearchResultViewTestCase(
-    SearchTestMixin, SearchViewTestMixin, TestSearchObjectSimpleTestMixin,
+    SearchViewTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin,
     GenericViewTestCase
 ):
     def test_result_view_any_field_no_value(self):
@@ -375,8 +375,8 @@ class SearchResultViewTestCase(
 
 
 class SearchToolsViewTestCase(
-    SearchToolsViewTestMixin, SearchTestMixin,
-    TestSearchObjectSimpleTestMixin, GenericViewTestCase
+    SearchToolsViewTestMixin, TestSearchObjectSimpleTestMixin,
+    SearchTestMixin, GenericViewTestCase
 ):
     def test_search_backend_reindex_view_no_permission(self):
         self._test_search_backend.reset(

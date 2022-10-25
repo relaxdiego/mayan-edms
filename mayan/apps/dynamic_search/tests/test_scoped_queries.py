@@ -21,8 +21,8 @@ from .mixins.scoped_query_mixins import ScopedQueryTestMixin
 
 
 class ScopedQueryEntryFieldTestCase(
-    ScopedQueryTestMixin, SearchTestMixin,
-    TestSearchObjectHierarchyTestMixin, BaseTestCase
+    ScopedQueryTestMixin, TestSearchObjectHierarchyTestMixin,
+    SearchTestMixin, BaseTestCase
 ):
     auto_test_search_objects_create = False
 
@@ -106,8 +106,8 @@ class ScopedQueryEntryFieldTestCase(
 
 
 class ScopedQueryEntryOperatorTestCase(
-    ScopedQueryTestMixin, SearchTestMixin, TestSearchObjectHierarchyTestMixin,
-    BaseTestCase
+    ScopedQueryTestMixin, TestSearchObjectHierarchyTestMixin,
+    SearchTestMixin, BaseTestCase
 ):
     auto_test_search_objects_create = False
 
@@ -207,8 +207,8 @@ class ScopedQueryEntryOperatorTestCase(
 
 
 class ScopedQueryEntryResultTestCase(
-    ScopedQueryTestMixin, SearchTestMixin,
-    TestSearchObjectHierarchyTestMixin, BaseTestCase
+    ScopedQueryTestMixin, TestSearchObjectHierarchyTestMixin,
+    SearchTestMixin, BaseTestCase
 ):
     auto_test_search_objects_create = False
 
@@ -266,8 +266,8 @@ class ScopedQueryEntryResultTestCase(
 
 
 class ScopedQueryTestCase(
-    ScopedQueryTestMixin, SearchTestMixin,
-    TestSearchObjectHierarchyTestMixin, BaseTestCase
+    ScopedQueryTestMixin, TestSearchObjectHierarchyTestMixin,
+    SearchTestMixin, BaseTestCase
 ):
     auto_test_search_objects_create = False
 
@@ -305,8 +305,8 @@ class ScopedQueryTestCase(
 
 
 class ScopedQueryDataFilterEntryQueryTypeTestCase(
-    ScopedQueryTestMixin, SearchTestMixin,
-    TestSearchObjectHierarchyTestMixin, BaseTestCase
+    ScopedQueryTestMixin, TestSearchObjectHierarchyTestMixin,
+    SearchTestMixin, BaseTestCase
 ):
     auto_test_search_objects_create = False
 

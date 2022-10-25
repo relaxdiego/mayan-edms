@@ -13,7 +13,7 @@ from .mixins.base import SearchTestMixin, TestSearchObjectSimpleTestMixin
 
 
 class SearchReindexManagementCommandTestCaseMixin(
-    BackendSearchTestMixin, SearchTestMixin, TestSearchObjectSimpleTestMixin
+    BackendSearchTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin
 ):
     def _call_command(self):
         with mute_stdout():
@@ -68,7 +68,7 @@ class WhooshSearchReindexManagementCommandTestCase(
 
 
 class SearchIndexObjectManagementCommandTestCaseMixin(
-    BackendSearchTestMixin, SearchTestMixin, TestSearchObjectSimpleTestMixin
+    BackendSearchTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin
 ):
     def _call_command(self, id_range_string):
         with mute_stdout():
@@ -160,7 +160,7 @@ class WhooshSearchIndexObjectManagementCommandTestCase(
 
 
 class SearchStatusManagementCommandTestCaseMixin(
-    SearchTestMixin, TestSearchObjectSimpleTestMixin
+    TestSearchObjectSimpleTestMixin, SearchTestMixin
 ):
     def _create_test_search_objects(self):
         self._create_test_object(instance_kwargs={'char': 'abc'})
