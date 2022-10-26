@@ -73,6 +73,10 @@ class KeyDownloadView(SingleObjectDownloadView):
         target='object'
     )
     def get_download_file_object(self):
+        """
+        Passthrough code to ensure the download event
+        is triggered.
+        """
         return super().get_download_file_object()
 
     def get_download_filename(self):
