@@ -124,8 +124,8 @@ def code_document_file_download_event_and_permission_update_reverse(apps, schema
 class Migration(migrations.Migration):
     dependencies = [
         ('acls', '0004_auto_20210130_0322'),
-        ('documents', '0080_populate_file_size'),
-        ('events', '0009_alter_objecteventsubscription_options'),
+        ('documents', '0077_favoritedocumentproxy'),
+        ('events', '0008_auto_20180315_0029'),
         ('permissions', '0004_auto_20191213_0044')
     ]
 
