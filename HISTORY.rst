@@ -71,6 +71,8 @@
   - Add support for data typing.
   - Normalize data during index and search.
 
+- Add Hebrew to the default list of document languages.
+
 4.3.1 (2022-08-21)
 ==================
 - Fixes and improvements merged from version 4.2.9 and 4.2.10.

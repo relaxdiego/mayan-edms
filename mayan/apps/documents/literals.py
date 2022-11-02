@@ -70,7 +70,7 @@ DEFAULT_LANGUAGE_CODES = (
     'ibo', 'aze', 'awa', 'gan', 'ceb', 'nld', 'kur', 'hbs', 'mlg', 'skr',
     'ctg', 'zha', 'tuk', 'asm', 'mad', 'som', 'mwr', 'mag', 'bgc', 'hun',
     'hne', 'dcc', 'aka', 'kaz', 'syl', 'zul', 'ces', 'kin', 'hat', 'que',
-    'swe', 'hmn', 'sna', 'mos', 'xho', 'bel'
+    'swe', 'hmn', 'sna', 'mos', 'xho', 'bel', 'heb'
 )
 DEFAULT_STUB_EXPIRATION_INTERVAL = 60 * 60 * 24  # 24 hours
 
