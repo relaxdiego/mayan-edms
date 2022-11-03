@@ -111,7 +111,7 @@
   the list template showing columns even on empty lists. Unlike models and
   queryset, empty lists of class instances won't display any columns.
 - Download GPG keys in binary mode.
-
+- Show more details when a bootstrap setting parsing error occurs.
 
 4.3.1 (2022-08-21)
 ==================

@@ -105,6 +105,12 @@ class SettingNamespaceSingleton:
                     Not critical, we just avoid adding it to the result
                     dictionary.
                     """
+                except Exception as exception:
+                    exit(
+                        'Unable to load bootstrap setting; {}'.format(
+                            exception
+                        )
+                    )
 
         return result
 
@@ -165,11 +171,12 @@ class BaseSetting:
             try:
                 return yaml_load(stream=value)
             except yaml.YAMLError as exception:
-                exit(
-                    'Error loading setting environment value: {}; {}'.format(
-                        self.name, exception
-                    )
-                )
+                raise ValueError(
+                    'Error loading setting environment variable "{}", '
+                    'value: "{}"; {}'.format(
+                        self.name, value, exception
+                     )
+                 )
         else:
             raise SettingNamespaceSingleton.SettingNotFound
 
