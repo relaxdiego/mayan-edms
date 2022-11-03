@@ -19,6 +19,28 @@ x-mayan-container:
     # - /opt/staging_folder:/staging_folder
     # - /opt/watch_folder:/watch_folder
 
+x-mayan-traefik-labels:
+  &mayan-traefik-labels
+  labels:
+    - "traefik.enable=${MAYAN_TRAEFIK_FRONTEND_ENABLE:-false}"
+    - "traefik.http.middlewares.mayan_frontend_http_redirect.redirectscheme.scheme=https"
+    - "traefik.http.middlewares.mayan_frontend_http_redirect.redirectscheme.permanent=false"
+    - "traefik.http.routers.mayan_frontend_http.entrypoints=http"
+    - "traefik.http.routers.mayan_frontend_http.middlewares=mayan_frontend_http_redirect"
+    - "traefik.http.routers.mayan_frontend_http.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
+    - "traefik.http.routers.mayan_frontend_https.entrypoints=https"
+    - "traefik.http.routers.mayan_frontend_https.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
+    - "traefik.http.routers.mayan_frontend_https.service=mayan_frontend_http"
+    - "traefik.http.routers.mayan_frontend_https.tls=true"
+    - "traefik.http.routers.mayan_frontend_https.tls.certresolver=letsencrypt"
+    - "traefik.http.services.mayan_frontend_http.loadbalancer.server.port=8000"
+
+x-mayan-frontend-ports:
+  &mayan-frontend-ports
+  # Disable ports if using Traefik.
+  # ports:
+    # - "${MAYAN_FRONTEND_HTTP_PORT:-80}:8000"
+
 networks:
   mayan:
     driver: bridge
@@ -29,11 +51,10 @@ networks:
 services:
   app:
     <<: *mayan-container
+    <<: *mayan-traefik-labels
+    <<: *mayan-frontend-ports
     profiles:
       - all_in_one
-    # Disable ports if using Traefik.
-    ports:
-      - "80:8000"
 
   elasticsearch:
     environment:
@@ -43,7 +64,7 @@ services:
       - xpack.security.enabled=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - ELASTIC_PASSWORD=${MAYAN_ELASTICSEARCH_PASSWORD:-mayanespassword}
-    image: ${MAYAN_DOCKER_ELASTICSEARCH_IMAGE:-docker.elastic.co/elasticsearch/elasticsearch}:${MAYAN_DOCKER_ELASTICSEARCH_TAG:-7.16.0}
+    image: ${MAYAN_DOCKER_ELASTICSEARCH_IMAGE:-elasticsearch}:${MAYAN_DOCKER_ELASTICSEARCH_TAG:-7.17.7}
     networks:
       - mayan
     # Enable to allow external access to the database.
@@ -78,7 +99,7 @@ services:
       POSTGRES_DB: ${MAYAN_DATABASE_NAME:-mayan}
       POSTGRES_PASSWORD: ${MAYAN_DATABASE_PASSWORD:-mayandbpass}
       POSTGRES_USER: ${MAYAN_DATABASE_USER:-mayan}
-    image: postgres:${MAYAN_DOCKER_POSTGRES_TAG:-12.10-alpine}
+    image: postgres:${MAYAN_DOCKER_POSTGRES_TAG:-13.8-alpine}
     networks:
       - mayan
     # Enable to allow external access to the database.
@@ -109,7 +130,7 @@ services:
       - "256"
       - --requirepass
       - "${MAYAN_REDIS_PASSWORD:-mayanredispassword}"
-    image: redis:${MAYAN_DOCKER_REDIS_TAG:-6.2-alpine}
+    image: redis:${MAYAN_DOCKER_REDIS_TAG:-7.0.5-alpine}
     networks:
       - mayan
     profiles:
@@ -121,23 +142,10 @@ services:
   # Run a frontend gunicorn container
   frontend:
     <<: *mayan-container
+    <<: *mayan-traefik-labels
+    <<: *mayan-frontend-ports
     command:
       - run_frontend
-    labels:
-      - "traefik.enable=${MAYAN_TRAEFIK_FRONTEND_ENABLE:-false}"
-      - "traefik.http.middlewares.mayan_redirect.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.mayan_redirect.redirectscheme.permanent=false"
-      - "traefik.http.routers.mayan_frontend.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
-      - "traefik.http.routers.mayan_frontend.entrypoints=http"
-      - "traefik.http.routers.mayan_frontend.middlewares=mayan_redirect"
-      - "traefik.http.routers.mayan_frontend_https.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
-      - "traefik.http.routers.mayan_frontend_https.entrypoints=https"
-      - "traefik.http.routers.mayan_frontend_https.tls=true"
-      - "traefik.http.routers.mayan_frontend_https.tls.certresolver=letsencrypt"
-      - "traefik.http.services.mayan_frontend.loadbalancer.server.port=8000"
-    # Disable ports if using Traefik.
-    ports:
-      - "80:8000"
     profiles:
       - extra_frontend
 
@@ -230,23 +238,24 @@ services:
     restart: "no"
 
   rabbitmq:
-    image: rabbitmq:${MAYAN_DOCKER_RABBITMQ_TAG:-3.10-management-alpine}
+    image: rabbitmq:${MAYAN_DOCKER_RABBITMQ_TAG:-3.11.2-management-alpine}
     environment:
       RABBITMQ_DEFAULT_USER: ${MAYAN_RABBITMQ_USER:-mayan}
       RABBITMQ_DEFAULT_PASS: ${MAYAN_RABBITMQ_PASSWORD:-mayanrabbitpass}
       RABBITMQ_DEFAULT_VHOST: ${MAYAN_RABBITMQ_VHOST:-mayan}
     labels:
       - "traefik.enable=${MAYAN_TRAEFIK_RABBITMQ_ENABLE:-false}"
-      - "traefik.http.routers.rabbitmq.entrypoints=rabbitmq"
-      - "traefik.http.routers.rabbitmq.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
-      - "traefik.http.routers.rabbitmq.tls=true"
-      - "traefik.http.routers.rabbitmq.tls.certresolver=letsencrypt"
-      - "traefik.http.services.rabbitmq.loadbalancer.server.port=15672"
+      - "traefik.http.routers.rabbitmq_admin_http.entrypoints=rabbitmq_admin_http"
+      - "traefik.http.routers.rabbitmq_admin_http.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
+      - "traefik.http.routers.rabbitmq_admin_http.service=rabbitmq_admin_http"
+      - "traefik.http.routers.rabbitmq_admin_http.tls=true"
+      - "traefik.http.routers.rabbitmq_admin_http.tls.certresolver=letsencrypt"
+      - "traefik.http.services.rabbitmq_admin_http.loadbalancer.server.port=15672"
     networks:
       - mayan
     # Enable to allow access to the administration interface.
     # ports:
-    #   - "15672:15672"
+    #   - "${MAYAN_RABBITMQ_ADMIN_PORT:-15672}:15672"
     profiles:
       - rabbitmq
     restart: unless-stopped
@@ -260,39 +269,43 @@ services:
       - "--api.dashboard=true"
       - "--api.insecure=${MAYAN_TRAEFIK_API_INSECURE:-false}"
       - "--certificatesresolvers.letsencrypt.acme.caserver=${MAYAN_TRAEFIK_LETS_ENCRYPT_SERVER:-https://acme-staging-v02.api.letsencrypt.org/directory}"
+      - "--certificatesresolvers.letsencrypt.acme.dnschallenge=${MAYAN_TRAEFIK_LETS_ENCRYPT_DNS_CHALLENGE:-false}"
+      - "--certificatesresolvers.letsencrypt.acme.dnschallenge.provider=${MAYAN_TRAEFIK_LETS_ENCRYPT_DNS_CHALLENGE_PROVIDER}"
       - "--certificatesresolvers.letsencrypt.acme.email=${MAYAN_TRAEFIK_LETS_ENCRYPT_EMAIL}"
       - "--certificatesresolvers.letsencrypt.acme.storage=/traefik-certificates-letsencrypt/acme.json"
       - "--certificatesresolvers.letsencrypt.acme.tlschallenge=${MAYAN_TRAEFIK_LETS_ENCRYPT_TLS_CHALLENGE:-false}"
       - "--entrypoints.http.address=:80"
       - "--entrypoints.https.address=:443"
-      - "--entrypoints.rabbitmq.address=:15672"
-      - "--entrypoints.traefik.address=:8080"
+      - "--entrypoints.rabbitmq_admin_http.address=:15672"
+      - "--entrypoints.traefik_dashboard_http.address=:8080"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
+    # - Add DNS provider variables (https://doc.traefik.io/traefik/https/acme/#providers)
+    # environment:
     image: traefik:${MAYAN_DOCKER_TRAEFIK_TAG:-v2.5}
     labels:
       - "traefik.enable=${MAYAN_TRAEFIK_DASHBOARD_ENABLE:-false}"
-      - "traefik.http.routers.traefik_https.entrypoints=traefik"
+      - "traefik.http.middlewares.basic-auth-global.basicauth.users=${MAYAN_TRAEFIK_DASHBOARD_AUTHENTICATION}"
+      - "traefik.http.routers.traefik_https.entrypoints=traefik_dashboard_http"
+      - "traefik.http.routers.traefik_https.middlewares=basic-auth-global"
       - "traefik.http.routers.traefik_https.rule=Host(`${MAYAN_TRAEFIK_EXTERNAL_DOMAIN}`)"
       - "traefik.http.routers.traefik_https.service=api@internal"
       - "traefik.http.routers.traefik_https.tls=true"
       - "traefik.http.routers.traefik_https.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.traefik_https.middlewares=basic-auth-global"
-      - "traefik.http.middlewares.basic-auth-global.basicauth.users=${MAYAN_TRAEFIK_DASHBOARD_AUTHENTICATION}"
     networks:
       - mayan
       - traefik
     ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
-      - "15672:15672"
+      - "${MAYAN_RABBITMQ_ADMIN_HTTP_PORT:-15672}:15672"
+      - "${MAYAN_TRAEFIK_DASHBOARD_HTTP_PORT:-8080}:8080"
+      - "${MAYAN_TRAEFIK_HTTP_PORT:-80}:80"
+      - "${MAYAN_TRAEFIK_HTTPS_PORT:-443}:443"
     profiles:
       - traefik
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - traefik-certificates-letsencrypt:/traefik-certificates-letsencrypt
+      - ${MAYAN_TRAEFIK_LETSENCRYPT_VOLUME:-traefik-certificates-letsencrypt}:/traefik-certificates-letsencrypt
 
 volumes:
   app:

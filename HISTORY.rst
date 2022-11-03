@@ -75,6 +75,15 @@
 - Add Hebrew to the default list of document languages.
 - Enable Docker BuildKit.
 - Add dedicated Docker build RUN cache.
+- Docker Compose file changes:
+
+  - Configurable frontend HTTP port via the .env file.
+  - Unify frontend and all_in_one profiles HTTP and Traefik configuration.
+  - Support Let's Entry TLS termination for all_in_one profile.
+  - Configurable RabbitMQ administration HTTP port via the .env file.
+  - Configurable Traefik dashboard, HTTP and HTTPS entrypoints ports via the .env file.
+  - Configurable Traefik Let's Encrypt certificate volume location.
+  - Support Let's Encrypt DNS challenge.
 
 4.3.1 (2022-08-21)
 ==================
