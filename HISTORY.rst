@@ -73,6 +73,7 @@
 
 - Add Hebrew to the default list of document languages.
 - Enable Docker BuildKit.
+- Add dedicated Docker build RUN cache.
 
 4.3.1 (2022-08-21)
 ==================
