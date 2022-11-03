@@ -32,27 +32,30 @@ def code_document_file_download_event_and_permission_update(apps, schema_editor)
         name='documents.document_file_downloaded'
     ).delete()
 
-    stored_permission = StoredPermission.objects.using(
-        alias=schema_editor.connection.alias
-    ).get(
-        namespace='document_downloads', name='document_file_download'
-    )
+    try:
+        stored_permission = StoredPermission.objects.using(
+            alias=schema_editor.connection.alias
+        ).get(
+            namespace='document_downloads', name='document_file_download'
+        )
+    except StoredPermission.DoestNotExist:
+        """Raised on initial migrations. Can be ignored."""
+    else:
+        AccessControlList.permissions.through.objects.using(
+            alias=schema_editor.connection.alias
+        ).filter(
+            storedpermission__namespace='documents',
+            storedpermission__name='document_file_download'
+        ).update(storedpermission_id=stored_permission.pk)
 
-    AccessControlList.permissions.through.objects.using(
-        alias=schema_editor.connection.alias
-    ).filter(
-        storedpermission__namespace='documents',
-        storedpermission__name='document_file_download'
-    ).update(storedpermission_id=stored_permission.pk)
-
-    Role.permissions.through.objects.using(
-        alias=schema_editor.connection.alias
-    ).filter(
-        storedpermission__namespace='documents',
-        storedpermission__name='document_file_download'
-    ).update(
-        storedpermission_id=stored_permission.pk
-    )
+        Role.permissions.through.objects.using(
+            alias=schema_editor.connection.alias
+        ).filter(
+            storedpermission__namespace='documents',
+            storedpermission__name='document_file_download'
+        ).update(
+            storedpermission_id=stored_permission.pk
+        )
 
     StoredPermission.objects.using(
         alias=schema_editor.connection.alias
