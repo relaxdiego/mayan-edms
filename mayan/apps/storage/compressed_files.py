@@ -37,12 +37,14 @@ class Archive:
         )[0]
 
         try:
-            for archive_class in cls._registry[mime_type]:
+            archives_classes = cls._registry[mime_type]
+        except KeyError:
+            raise NoMIMETypeMatch
+        else:
+            for archive_class in archives_classes:
                 instance = archive_class()
                 instance._open(file_object=file_object)
                 return instance
-        except KeyError:
-            raise NoMIMETypeMatch
 
     def _open(self, file_object):
         raise NotImplementedError

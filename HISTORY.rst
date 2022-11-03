@@ -85,6 +85,9 @@
   - Configurable Traefik Let's Encrypt certificate volume location.
   - Support Let's Encrypt DNS challenge.
 
+- Isolate compressed file MIME type matchin exception catching to the
+  pertinent code.
+
 4.3.1 (2022-08-21)
 ==================
 - Fixes and improvements merged from version 4.2.9 and 4.2.10.
