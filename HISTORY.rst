@@ -72,6 +72,9 @@
   - Add support for data typing.
   - Normalize data during index and search.
 
+- Testing improvement. Track test document IDs. Keep a list of the test
+  document IDs in number and string format.
+- New reusable view mixin, ``MultipleExternalObjectViewMixin``.
 - Add Hebrew to the default list of document languages.
 - Enable Docker BuildKit.
 - Add dedicated Docker build RUN cache.
@@ -87,6 +90,28 @@
 
 - Isolate compressed file MIME type matchin exception catching to the
   pertinent code.
+- Download file updates:
+
+  - Associate download files to a specific users.
+  - Add delete, download, and view permissions.
+  - Add download file size column.
+
+- Support bulk document file downloads.
+- Move document file download code to the new document downloads app. Migrate
+  existing document file download permission and events.
+
+- Permission updates:
+
+  - Improve permission caching. Remove custom caching code and
+    use upstream Django caching utilities.
+  - Rename variables for clarity.
+  - Update dependent code to match class interface changes.
+
+- Short circuit the source column source object resolution code to support
+  the list template showing columns even on empty lists. Unlike models and
+  queryset, empty lists of class instances won't display any columns.
+- Download GPG keys in binary mode.
+
 
 4.3.1 (2022-08-21)
 ==================
