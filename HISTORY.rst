@@ -2,10 +2,10 @@
 ================
 - Update Docker image tags:
 
-  - Docker from 20-dind to 20.10-dind
-  - ElasticSearch from 7.17.0 to 7.17.5
-  - PostgreSQL from 12.11-alpine to 13.7-alpine
-  - Redis from 6.2-alpine to 7.0-alpine
+  - Docker from 20-dind to 20.10.21-dind
+  - ElasticSearch from 7.17.0 to 7.17.7
+  - PostgreSQL from 12.11-alpine to 13.11.2-alpine
+  - Redis from 6.2-alpine to 7.0.5-alpine
 
 - Update dependencies versions:
 
