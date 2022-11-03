@@ -7,9 +7,10 @@
   - PostgreSQL from 12.11-alpine to 13.7-alpine
   - Redis from 6.2-alpine to 7.0-alpine
 
-- Update dependencies:
+- Update dependencies versions:
 
-  - Celery from version 5.1.2 to 5.2.7.
+  - Celery from 5.1.2 to 5.2.7.
+  - extract msg from 0.34.3 to 0.36.4.
 
 - Increase compatibility of the file caching storage usage with more S3
   object storage implementations.

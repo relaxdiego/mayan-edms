@@ -67,7 +67,9 @@ PyPDF2==1.28.4
 PyYAML==6.0
 Whoosh==2.7.4
 bleach==4.1.0
+boto3==1.24.70
 celery==5.2.7
+dateparser==1.1.1
 django-activity-stream==1.4.0
 django-auth-ldap==4.0.0
 django-celery-beat==2.2.1
@@ -78,6 +80,7 @@ django-model-utils==4.2.0
 django-mptt==0.13.4
 django-qsstats-magic==1.1.0
 django-solo==2.0.0
+django-storages==1.13.1
 django-stronghold==0.4.0
 django-widget-tweaks==1.4.12
 djangorestframework==3.13.1
@@ -85,7 +88,7 @@ djangorestframework-recursive==0.1.2
 drf-yasg==1.20.0
 elasticsearch==7.17.1
 elasticsearch-dsl==7.4.0
-extract-msg==0.34.3
+extract-msg==0.36.4
 flanker==0.9.11
 flex==6.14.1
 furl==2.1.3
