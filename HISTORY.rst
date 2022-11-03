@@ -72,6 +72,7 @@
   - Normalize data during index and search.
 
 - Add Hebrew to the default list of document languages.
+- Enable Docker BuildKit.
 
 4.3.1 (2022-08-21)
 ==================
