@@ -19,12 +19,12 @@ class EXIFToolDriver(FileMetadataDriver):
     label = _('EXIF Tool')
     internal_name = 'exiftool'
 
-    def __init__(self, *args, **kwargs):
-        auto_initialize = kwargs.pop('auto_initialize', True)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         self.read_settings()
 
-        if auto_initialize:
+        if self.auto_initialize:
             try:
                 self.command_exiftool = sh.Command(path=self.exiftool_path)
             except sh.CommandNotFound:

@@ -115,6 +115,7 @@
 - Add libfuse2, libsasl2-dev, and libldap2-dev to the development setup
   makefile target.
 - Convert pagination template into a partial.
+- Add .msg file metadata drivers.
 
 4.3.1 (2022-08-21)
 ==================

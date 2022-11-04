@@ -57,6 +57,9 @@ class FileMetadataDriver:
         for mimetype in mimetypes:
             cls._registry.setdefault(mimetype, []).append(cls)
 
+    def __init__(self, auto_initialize=True, **kwargs):
+        self.auto_initialize = auto_initialize
+
     def get_driver_path(self):
         return '.'.join([self.__module__, self.__class__.__name__])
 
