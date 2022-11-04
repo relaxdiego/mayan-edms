@@ -114,11 +114,11 @@ class MsgArchive(Archive):
 
     def open_member(self, filename):
         if filename == 'message.txt':
-            return BytesIO(force_bytes(s=self._archive.body))
+            return BytesIO(initial_bytes=force_bytes(s=self._archive.body))
 
         for member in self._archive.attachments:
             if member.longFilename == filename:
-                return BytesIO(force_bytes(s=member.data))
+                return BytesIO(initial_bytes=force_bytes(s=member.data))
 
 
 class TarArchive(Archive):

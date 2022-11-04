@@ -40,7 +40,9 @@ class LayerMaximumOrderAPIViewTestCase(
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        image_buffer = BytesIO(b''.join(response.streaming_content))
+        image_buffer = BytesIO(
+            initial_bytes=b''.join(response.streaming_content)
+        )
         image = Image.open(fp=image_buffer)
 
         self.assertEqual(image.getpixel(xy=(0, 0)), (254, 0, 0))
@@ -67,7 +69,9 @@ class LayerMaximumOrderAPIViewTestCase(
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        image_buffer = BytesIO(b''.join(response.streaming_content))
+        image_buffer = BytesIO(
+            initial_bytes=b''.join(response.streaming_content)
+        )
         image = Image.open(fp=image_buffer)
 
         self.assertEqual(image.getpixel(xy=(0, 0)), (0, 0, 0))
@@ -97,7 +101,9 @@ class LayerMaximumOrderAPIViewTestCase(
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        image_buffer = BytesIO(b''.join(response.streaming_content))
+        image_buffer = BytesIO(
+            initial_bytes=b''.join(response.streaming_content)
+        )
         image = Image.open(fp=image_buffer)
 
         self.assertEqual(image.getpixel(xy=(0, 0)), (254, 0, 0))

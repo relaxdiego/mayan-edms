@@ -158,7 +158,9 @@ class BatchRequest:
                 post_query_dict.update(rendered_content.body)
                 json_body = json.dumps(post_query_dict)
                 request_data = json_body.encode('utf-8')
-                environ['wsgi.input'] = io.BytesIO(request_data)
+                environ['wsgi.input'] = io.BytesIO(
+                    initial_bytes=request_data
+                )
                 environ['CONTENT_LENGTH'] = str(len(request_data))
 
                 if rendered_content.method == 'POST':

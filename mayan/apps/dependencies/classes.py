@@ -789,8 +789,9 @@ class GoogleFontDependency(Dependency):
                                 # content.
                                 # https://2.python-requests.org/en/master/user/quickstart/#binary-response-content
                                 shutil.copyfileobj(
-                                    fsrc=BytesIO(response.content),
-                                    fdst=font_file_object
+                                    fsrc=BytesIO(
+                                        initial_bytes=response.content
+                                    ), fdst=font_file_object
                                 )
 
                         line = line.replace(font_url, font_filename)

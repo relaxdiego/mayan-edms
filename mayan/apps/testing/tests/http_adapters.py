@@ -27,7 +27,7 @@ class TestClientAdapter(requests.adapters.BaseAdapter):
         response.encoding = requests.utils.get_encoding_from_headers(
             headers=response.headers
         )
-        response.raw = BytesIO(django_response.getvalue())
+        response.raw = BytesIO(initial_bytes=django_response.getvalue())
 
         response.reason = django_response.reason_phrase
 

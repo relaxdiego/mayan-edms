@@ -60,7 +60,7 @@ class KeyManager(models.Manager):
 
         file_object.close()
 
-        return io.BytesIO(decrypt_result.data)
+        return io.BytesIO(initial_bytes=decrypt_result.data)
 
     def private_keys(self):
         return self.filter(key_type=KEY_TYPE_SECRET)
