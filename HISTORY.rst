@@ -112,6 +112,8 @@
   queryset, empty lists of class instances won't display any columns.
 - Download GPG keys in binary mode.
 - Show more details when a bootstrap setting parsing error occurs.
+- Add libfuse2, libsasl2-dev, and libldap2-dev to the development setup
+  makefile target.
 
 4.3.1 (2022-08-21)
 ==================

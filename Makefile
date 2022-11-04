@@ -514,7 +514,7 @@ setup-dev-environment: setup-dev-operating-system-packages setup-dev-python-libr
 
 setup-dev-operating-system-packages:  ## Install the operating system packages needed for development.
 setup-dev-operating-system-packages:
-	sudo apt-get install --yes exiftool gcc gettext gnupg1 graphviz libcairo2 libffi-dev libjpeg-dev libpng-dev poppler-utils python3-dev sane-utils tesseract-ocr-deu
+	sudo apt-get install --yes exiftool gcc gettext gnupg1 graphviz libcairo2 libffi-dev libfuse2 libjpeg-dev libldap2-dev libpng-dev libsasl2-dev poppler-utils python3-dev sane-utils tesseract-ocr-deu
 
 setup-dev-python-libraries: ## Install the Python libraries needed for development.
 setup-dev-python-libraries:
