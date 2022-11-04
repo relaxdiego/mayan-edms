@@ -197,11 +197,11 @@ class DocumentMetadata(ExtraDataModelMixin, models.Model):
     metadata_type = models.ForeignKey(
         on_delete=models.CASCADE, to=MetadataType, verbose_name=_('Type')
     )
-    value = models.CharField(
-        blank=True, db_index=True, help_text=_(
+    value = models.TextField(
+        blank=True, help_text=_(
             'The actual value stored in the metadata type field for '
             'the document.'
-        ), max_length=255, null=True, verbose_name=_('Value')
+        ), verbose_name=_('Value')
     )
 
     class Meta:

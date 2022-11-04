@@ -116,6 +116,8 @@
   makefile target.
 - Convert pagination template into a partial.
 - Add .msg file metadata drivers.
+- Convert the metadata value and the file metadata value fields from
+  character fields with a maximum length of 255 characters to text fields.
 
 4.3.1 (2022-08-21)
 ==================

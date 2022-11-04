@@ -99,8 +99,8 @@ class FileMetadataEntry(models.Model):
         db_index=True, help_text=_('Name of the file metadata entry.'),
         max_length=255, verbose_name=_('Key')
     )
-    value = models.CharField(
-        db_index=True, help_text=_('Value of the file metadata entry.'),
+    value = models.TextField(
+        blank=True, help_text=_('Value of the file metadata entry.'),
         max_length=255, verbose_name=_('Value')
     )
 
