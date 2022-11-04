@@ -3,14 +3,13 @@ from unittest import skip
 
 from django.core.files.base import ContentFile
 
+from mayan.apps.common.tests.literals import TEST_BINARY_CONTENT, TEST_FILE_NAME
 from mayan.apps.mime_types.tests.mixins import MIMETypeBackendMixin
 from mayan.apps.storage.utils import fs_cleanup, mkdtemp
 from mayan.apps.testing.tests.base import BaseTestCase
 
 from ..backends.compressedstorage import ZipCompressedPassthroughStorage
 from ..backends.encryptedstorage import EncryptedPassthroughStorage
-
-from .literals import TEST_BINARY_CONTENT, TEST_FILE_NAME
 
 
 class EncryptedPassthroughStorageTestCase(MIMETypeBackendMixin, BaseTestCase):

@@ -1,3 +1,4 @@
+from mayan.apps.common.tests.literals import TEST_BINARY_CONTENT
 from mayan.apps.testing.tests.base import GenericViewTestCase
 
 from ..events import (
@@ -9,7 +10,6 @@ from ..permissions import (
     permission_download_file_view
 )
 
-from .literals import TEST_BINARY_CONTENT
 from .mixins import DownloadFileTestMixin, DownloadFileViewTestMixin
 
 

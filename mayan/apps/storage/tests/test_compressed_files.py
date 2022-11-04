@@ -1,15 +1,15 @@
 from django.utils.encoding import force_bytes
 
-from mayan.apps.testing.tests.base import BaseTestCase
-
-from ..compressed_files import Archive, MsgArchive, TarArchive, ZipArchive
-
-from .literals import (
+from mayan.apps.common.tests.literals import (
     TEST_ARCHIVE_MSG_STRANGE_DATE_PATH, TEST_ARCHIVE_ZIP_CP437_MEMBER_PATH,
     TEST_ARCHIVE_ZIP_SPECIAL_CHARACTERS_FILENAME_MEMBER_PATH,
     TEST_TAR_BZ2_FILE_PATH, TEST_TAR_FILE_PATH, TEST_TAR_GZ_FILE_PATH,
     TEST_ZIP_FILE_PATH
 )
+from mayan.apps.testing.tests.base import BaseTestCase
+
+from ..compressed_files import Archive, MsgArchive, TarArchive, ZipArchive
+
 from .mixins import ArchiveClassTestCaseMixin
 
 

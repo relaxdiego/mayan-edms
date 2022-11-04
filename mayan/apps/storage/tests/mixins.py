@@ -5,6 +5,10 @@ import shutil
 
 from django.core.files.base import ContentFile
 
+from mayan.apps.common.tests.literals import (
+    TEST_COMPRESSED_FILE_CONTENTS, TEST_FILE_CONTENTS_1, TEST_FILE3_PATH,
+    TEST_FILENAME1, TEST_FILENAME3
+)
 from mayan.apps.documents.literals import STORAGE_NAME_DOCUMENT_FILES
 from mayan.apps.permissions.tests.mixins import PermissionTestMixin
 from mayan.apps.smart_settings.classes import SettingNamespace
@@ -15,9 +19,7 @@ from ..models import DownloadFile, SharedUploadedFile
 from ..utils import mkdtemp
 
 from .literals import (
-    TEST_COMPRESSED_FILE_CONTENTS, TEST_DOWNLOAD_FILE_CONTENT_FILE_NAME,
-    TEST_FILE_CONTENTS_1, TEST_FILE3_PATH, TEST_FILENAME1, TEST_FILENAME3,
-    TEST_SHARED_UPLOADED_FILE_FILENAME
+    TEST_DOWNLOAD_FILE_CONTENT_FILE_NAME, TEST_SHARED_UPLOADED_FILE_FILENAME
 )
 
 
