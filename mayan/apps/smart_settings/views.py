@@ -29,10 +29,12 @@ class SettingEditView(FormView):
                 ), request=self.request
             )
 
+        self.object = self.get_object()
+
         return super().dispatch(request=request, *args, **kwargs)
 
     def form_valid(self, form):
-        self.get_object().value = form.cleaned_data['value']
+        self.object.value = form.cleaned_data['value']
         Setting.save_configuration()
         messages.success(
             message=_('Setting updated successfully.'),
@@ -43,20 +45,22 @@ class SettingEditView(FormView):
     def get_extra_context(self):
         return {
             'hide_link': True,
-            'object': self.get_object(),
-            'title': _('Edit setting: %s') % self.get_object(),
+            'navigation_object_list': ('object', 'setting_namespace'),
+            'object': self.object,
+            'setting_namespace': self.object.namespace,
+            'title': _('Edit setting: %s') % self.object
         }
 
     def get_initial(self):
-        return {'setting': self.get_object()}
+        return {'setting': self.object}
 
     def get_object(self):
-        return Setting.get(self.kwargs['setting_global_name'])
+        return Setting.get(global_name=self.kwargs['setting_global_name'])
 
     def get_post_action_redirect(self):
         return reverse(
             viewname='settings:setting_namespace_detail', kwargs={
-                'namespace_name': self.get_object().namespace.name
+                'namespace_name': self.object.namespace.name
             }
         )
 

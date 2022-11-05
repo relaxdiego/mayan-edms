@@ -110,6 +110,9 @@ class SettingNamespace(AppsModuleLoaderMixin):
         return sorted(self._settings, key=lambda x: x.global_name)
 
 
+SettingNamespace.verbose_name = _('Settings namespace')
+
+
 class SettingNamespaceMigration:
     @staticmethod
     def get_method_name(setting):
