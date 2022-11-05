@@ -124,6 +124,9 @@
   links.
 - Remove Docker mirror configuration from the GitLab CI file. This is up to
   the runner to configure.
+- Show cache partitions and partition file totals. This helps determine how
+  effective is a cache maximum size value by showing how many objects and
+  files the cache size limit is able to yield.
 
 4.3.1 (2022-08-21)
 ==================

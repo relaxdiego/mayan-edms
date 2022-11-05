@@ -60,6 +60,14 @@ class FileCachingConfig(MayanAppConfig):
             attribute='get_total_size_display', include_label=True,
             source=Cache
         )
+        SourceColumn(
+            attribute='get_partition_count', include_label=True,
+            source=Cache
+        )
+        SourceColumn(
+            attribute='get_partition_file_count', include_label=True,
+            source=Cache
+        )
 
         menu_object.bind_links(
             links=(link_cache_purge,),

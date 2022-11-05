@@ -81,6 +81,18 @@ class Cache(ValueChangeModelMixin, models.Model):
                 dotted_path='', label=_('Unknown'), name='unknown'
             )
 
+    def get_partition_count(self):
+        return CachePartition.objects.filter(cache=self).count()
+
+    get_partition_count.short_description = _('Partition count')
+    get_partition_count.help_text = _('Total cached objects.')
+
+    def get_partition_file_count(self):
+        return CachePartitionFile.objects.filter(partition__cache=self).count()
+
+    get_partition_file_count.short_description = _('Partition file count')
+    get_partition_file_count.help_text = _('Total cached files.')
+
     def get_total_size(self):
         """
         Return the actual usage of the cache.
