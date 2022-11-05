@@ -122,6 +122,8 @@
 - Collapse action menus by default.
 - Split links in the list items template into action links and view (facet)
   links.
+- Remove Docker mirror configuration from the GitLab CI file. This is up to
+  the runner to configure.
 
 4.3.1 (2022-08-21)
 ==================

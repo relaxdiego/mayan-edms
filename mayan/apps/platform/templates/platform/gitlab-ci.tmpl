@@ -34,8 +34,6 @@ job_docker_build:
     - tests/all
     - tests/docker
   script:
-    - mkdir -p /etc/docker
-    - if [ "${REGISTRY_MIRRORS}" ]; then echo "{\"registry-mirrors\":\[\"${REGISTRY_MIRRORS}\"\]}" > /etc/docker/daemon.json; fi
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
     - make docker-build
@@ -136,8 +134,6 @@ job_docker_nightly:
     - releases/nightly
     - releases/staging
   script:
-    - mkdir -p /etc/docker
-    - if [ "${REGISTRY_MIRRORS}" ]; then echo "{\"registry-mirrors\":\[\"${REGISTRY_MIRRORS}\"\]}" > /etc/docker/daemon.json; fi
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
     - make docker-build
@@ -170,8 +166,6 @@ job_docker_testing:
     - releases/testing
     - releases/testing_docker
   script:
-    - mkdir -p /etc/docker
-    - if [ "${REGISTRY_MIRRORS}" ]; then echo "{\"registry-mirrors\":\[\"${REGISTRY_MIRRORS}\"\]}" > /etc/docker/daemon.json; fi
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
     - make docker-build
