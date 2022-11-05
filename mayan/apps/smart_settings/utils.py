@@ -175,8 +175,8 @@ class BaseSetting:
                     'Error loading setting environment variable "{}", '
                     'value: "{}"; {}'.format(
                         self.name, value, exception
-                     )
-                 )
+                    )
+                )
         else:
             raise SettingNamespaceSingleton.SettingNotFound
 
