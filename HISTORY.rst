@@ -120,6 +120,8 @@
   character fields with a maximum length of 255 characters to text fields.
 - Improve the settings apps navigation.
 - Collapse action menus by default.
+- Split links in the list items template into action links and view (facet)
+  links.
 
 4.3.1 (2022-08-21)
 ==================

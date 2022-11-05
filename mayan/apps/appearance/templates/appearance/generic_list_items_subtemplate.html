@@ -61,7 +61,23 @@
 
                                     {% if not hide_links %}
                                         <hr/>
-                                        {% navigation_resolve_menus sort_results=True names='list facet,object' source=object as facet_menus_link_results %}
+                                        {% navigation_resolve_menus sort_results=True names='list facet' source=object as facet_menus_link_results %}
+                                        {% if facet_menus_link_results %}
+                                            {% trans "Views" as text_views %}
+                                            {% with facet_menus_link_results as action_menus_link_results %}
+                                            {% with text_views as action_dropdown_label %}
+                                            {% with "btn-primary" as action_dropdown_classes %}
+                                                <div class="dropdown text-center">
+                                                    {% with 'true' as action_menu_disable_labels %}
+                                                        {% include 'navigation/actions_dropdown.html' %}
+                                                    {% endwith %}
+                                                </div>
+                                            {% endwith %}
+                                            {% endwith %}
+                                            {% endwith %}
+                                        {% endif %}
+
+                                        {% navigation_resolve_menus sort_results=True names='object' source=object as facet_menus_link_results %}
                                         {% if facet_menus_link_results %}
                                             {% with facet_menus_link_results as action_menus_link_results %}
                                                 <div class="dropdown text-center">
