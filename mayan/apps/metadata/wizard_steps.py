@@ -1,11 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 
-from mayan.apps.metadata.api import (
-    decode_metadata_from_query_string, save_metadata_list
-)
-from mayan.apps.metadata.forms import DocumentMetadataFormSet
 from mayan.apps.sources.classes import DocumentCreateWizardStep
 from mayan.apps.sources.wizard_steps import DocumentCreateWizardStepDocumentType
+
+from .forms import DocumentMetadataFormSet
+from .utils import (
+    decode_metadata_from_query_string, save_metadata_list
+)
 
 
 class DocumentCreateWizardStepMetadata(DocumentCreateWizardStep):
