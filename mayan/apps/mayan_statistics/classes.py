@@ -39,6 +39,9 @@ class StatisticNamespace:
         return self._statistics
 
 
+StatisticNamespace.verbose_name = _('Statistics namespace')
+
+
 class Statistic:
     _registry = {}
     renderer = None
