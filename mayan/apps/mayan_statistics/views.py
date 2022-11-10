@@ -6,7 +6,7 @@ from mayan.apps.views.generics import (
     ConfirmView, SimpleView, SingleObjectListView
 )
 
-from .classes import Statistic, StatisticNamespace
+from .classes import StatisticNamespace, StatisticType
 from .icons import (
     icon_statistic_detail, icon_statistic_queue,
     icon_statistic_namespace_detail, icon_statistic_namespace_list
@@ -47,7 +47,7 @@ class StatisticNamespaceDetailView(SingleObjectListView):
         return self.get_namespace().statistics
 
 
-class StatisticDetailView(SimpleView):
+class StatisticTypeDetailView(SimpleView):
     view_icon = icon_statistic_detail
     view_permission = permission_statistics_view
 
@@ -65,7 +65,7 @@ class StatisticDetailView(SimpleView):
 
     def get_object(self):
         try:
-            return Statistic.get(self.kwargs['slug'])
+            return StatisticType.get(self.kwargs['slug'])
         except KeyError:
             raise Http404(_('Statistic "%s" not found.') % self.kwargs['slug'])
 
@@ -73,7 +73,7 @@ class StatisticDetailView(SimpleView):
         return (self.get_object().renderer.template_name,)
 
 
-class StatisticQueueView(ConfirmView):
+class StatisticTypeQueueView(ConfirmView):
     view_icon = icon_statistic_queue
     view_permission = permission_statistics_view
 
@@ -92,7 +92,7 @@ class StatisticQueueView(ConfirmView):
 
     def get_object(self):
         try:
-            return Statistic.get(slug=self.kwargs['slug'])
+            return StatisticType.get(slug=self.kwargs['slug'])
         except KeyError:
             raise Http404(_('Statistic "%s" not found.') % self.kwargs['slug'])
 

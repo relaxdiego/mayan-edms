@@ -127,7 +127,14 @@
 - Show cache partitions and partition file totals. This helps determine how
   effective is a cache maximum size value by showing how many objects and
   files the cache size limit is able to yield.
-- Improve statistics navigation.
+- Statistics updates:
+
+  - Improve statistics navigation.
+  - Add doughnut chart type statistic.
+  - Add pie chart type statistic.
+  - Add column displaying the chart type per statistic.
+  - Update chartjs from version 2.8.0 to 3.9.1.
+  - Unify chart templates.
 
 4.3.1 (2022-08-21)
 ==================

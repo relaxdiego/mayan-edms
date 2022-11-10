@@ -6,10 +6,10 @@ from mayan.apps.common.menus import (
 )
 from mayan.apps.navigation.classes import SourceColumn
 
-from .classes import StatisticLineChart, StatisticNamespace
+from .classes import StatisticType, StatisticNamespace
 from .links import (
     link_statistic_namespace_detail, link_statistic_namespace_list,
-    link_statistic_queue, link_statistic_detail, link_statistics
+    link_statistic_type_queue, link_statistic_type_detail, link_statistics
 )
 
 
@@ -32,16 +32,21 @@ class StatisticsApp(MayanAppConfig):
         super().ready()
 
         SourceColumn(
+            attribute='type_label', include_label=True,
+            label=_('Type'), source=StatisticType
+        )
+
+        SourceColumn(
             attribute='schedule',
             # Translators: Schedule here is a noun, the 'schedule' at
             # which the statistic will be updated
             include_label=True, label=_('Schedule'),
-            source=StatisticLineChart
+            source=StatisticType
         )
 
         SourceColumn(
             attribute='get_last_update', include_label=True,
-            label=_('Last update'), source=StatisticLineChart
+            label=_('Last update'), source=StatisticType
         )
 
         menu_list_facet.bind_links(
@@ -49,8 +54,8 @@ class StatisticsApp(MayanAppConfig):
             sources=(StatisticNamespace,)
         )
         menu_object.bind_links(
-            links=(link_statistic_detail, link_statistic_queue),
-            sources=(StatisticLineChart,)
+            links=(link_statistic_type_detail, link_statistic_type_queue),
+            sources=(StatisticType,)
         )
         menu_return.bind_links(
             links=(link_statistic_namespace_list,),

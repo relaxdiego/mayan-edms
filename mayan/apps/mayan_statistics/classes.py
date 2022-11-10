@@ -6,7 +6,9 @@ from celery.schedules import crontab
 
 from mayan.celery import app
 
-from .renderers import ChartJSLine
+from .renderers import (
+    RendererChartJSDoughnut, RendererChartJSLine, RendererChartJSPie
+)
 
 
 class StatisticNamespace:
@@ -42,7 +44,7 @@ class StatisticNamespace:
 StatisticNamespace.verbose_name = _('Statistics namespace')
 
 
-class Statistic:
+class StatisticType:
     _registry = {}
     renderer = None
 
@@ -50,7 +52,7 @@ class Statistic:
     def evaluate(data):
         try:
             for key, value in data.items():
-                return {key: Statistic.evaluate(data=value)}
+                return {key: StatisticType.evaluate(data=value)}
         except AttributeError:
             if type(data) == map:
                 data = list(data)
@@ -68,7 +70,7 @@ class Statistic:
 
         queryset = PeriodicTask.objects.filter(
             name__startswith='mayan_statistics.'
-        ).exclude(name__in=Statistic.get_task_names())
+        ).exclude(name__in=StatisticType.get_task_names())
 
         for periodic_task in queryset:
             crontab_instance = periodic_task.crontab
@@ -94,7 +96,11 @@ class Statistic:
     def get_task_names(cls):
         return [task.get_task_name() for task in cls.get_all()]
 
-    def __init__(self, slug, label, func, minute='*', hour='*', day_of_week='*', day_of_month='*', month_of_year='*'):
+    def __init__(
+        self, slug, label, func, minute='*', hour='*', day_of_week='*',
+        day_of_month='*', month_of_year='*'
+    ):
+        # Hidden import.
         from .queues import queue_statistics, task_execute_statistic
 
         self.slug = slug
@@ -131,10 +137,8 @@ class Statistic:
 
     def execute(self):
         results = self.func()
-        # Force evaluation of results to be able to store it serialized
-        # Needed for Python 3
-        # PY3
-        results = Statistic.evaluate(data=results)
+        # Force evaluation of results to be able to store it serialized.
+        results = StatisticType.evaluate(data=results)
         self.store_results(results=results)
 
     def get_chart_data(self):
@@ -187,5 +191,16 @@ class Statistic:
         statistic_result.store_data(data=results)
 
 
-class StatisticLineChart(Statistic):
-    renderer = ChartJSLine
+class StatisticTypeDoughnutChart(StatisticType):
+    renderer = RendererChartJSDoughnut
+    type_label = _('Doughnut chart')
+
+
+class StatisticTypeLineChart(StatisticType):
+    renderer = RendererChartJSLine
+    type_label = _('Line chart')
+
+
+class StatisticTypePieChart(StatisticType):
+    renderer = RendererChartJSPie
+    type_label = _('Pie chart')

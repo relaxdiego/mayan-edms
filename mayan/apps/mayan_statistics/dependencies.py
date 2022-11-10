@@ -4,7 +4,7 @@ from mayan.apps.dependencies.classes import (
 
 JavaScriptDependency(
     module=__name__, name='chart.js', static_folder='statistics',
-    version_string='=2.8.0'
+    version_string='=3.9.1'
 )
 
 PythonDependency(
