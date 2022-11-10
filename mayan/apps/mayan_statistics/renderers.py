@@ -5,11 +5,14 @@ class ChartRenderer:
     def __init__(self, data):
         self.data = data
 
-    def get_chart_data(self):
+    def _get_chart_data(self):
         raise NotImplementedError
 
+    def get_chart_data(self):
+        return json.dumps(obj=self._get_chart_data())
 
-class ChartJSLine(ChartRenderer):
+
+class RendererChartJSLine(ChartRenderer):
     template_name = 'statistics/renderers/chartjs/line.html'
 
     dataset_palette = (
@@ -20,11 +23,10 @@ class ChartJSLine(ChartRenderer):
             'pointHitRadius': 6,
             'pointHoverRadius': 7,
             'pointRadius': 6,
-
         },
     )
 
-    def get_chart_data(self):
+    def _get_chart_data(self):
         labels = []
         datasets = []
 
@@ -39,21 +41,67 @@ class ChartJSLine(ChartRenderer):
 
             labels = dataset_labels
             dataset = {
-                'label': series_name,
+                'cubicInterpolationMode': 'monotone',
                 'data': dataset_values,
+                'fill': True,
+                'label': series_name
             }
             dataset.update(
-                ChartJSLine.dataset_palette[
-                    count % len(ChartJSLine.dataset_palette)
+                RendererChartJSLine.dataset_palette[
+                    count % len(RendererChartJSLine.dataset_palette)
                 ]
             )
 
             datasets.append(dataset)
 
         data = {
-            'labels': labels,
             'datasets': datasets,
-
+            'labels': labels
         }
 
-        return json.dumps(obj=data)
+        return data
+
+
+class RendererChartJSDoughnut(ChartRenderer):
+    dataset_palette = (
+        {
+            'backgroundColor': (
+                'red', 'orange', 'yellow', 'green', 'blue', 'violet'
+            )
+        },
+    )
+    template_name = 'statistics/renderers/chartjs/doughnut.html'
+
+    def _get_chart_data(self):
+        labels = []
+        datasets = []
+
+        for count, serie in enumerate(iterable=self.data['series'].items()):
+            dataset = {
+                'data': []
+            }
+
+            series_name, series_data = serie
+
+            for entry in series_data:
+                labels.append(entry['label'])
+                dataset['data'].append(entry['value'])
+
+            dataset.update(
+                self.dataset_palette[
+                    count % len(self.dataset_palette)
+                ]
+            )
+
+            datasets.append(dataset)
+
+        data = {
+            'datasets': datasets,
+            'labels': labels
+        }
+
+        return data
+
+
+class RendererChartJSPie(RendererChartJSDoughnut):
+    template_name = 'statistics/renderers/chartjs/pie.html'

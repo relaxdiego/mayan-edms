@@ -17,7 +17,6 @@ from mayan.apps.views.generics import (
 from mayan.apps.views.mixins import ExternalObjectViewMixin
 from mayan.apps.views.utils import convert_to_id_list
 
-from ..api import save_metadata_list
 from ..forms import (
     DocumentMetadataAddForm, DocumentMetadataFormSet,
     DocumentMetadataRemoveFormSet
@@ -33,6 +32,7 @@ from ..permissions import (
     permission_document_metadata_add, permission_document_metadata_edit,
     permission_document_metadata_remove, permission_document_metadata_view
 )
+from ..utils import save_metadata_list
 
 
 class DocumentMetadataAddView(

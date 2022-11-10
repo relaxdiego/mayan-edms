@@ -1,8 +1,8 @@
 from django.conf.urls import url
 
 from .views import (
-    StatisticDetailView, StatisticQueueView, StatisticNamespaceDetailView,
-    StatisticNamespaceListView
+    StatisticNamespaceDetailView, StatisticNamespaceListView,
+    StatisticTypeDetailView, StatisticTypeQueueView
 )
 
 urlpatterns = [
@@ -17,10 +17,10 @@ urlpatterns = [
     ),
     url(
         regex=r'^statistics/(?P<slug>[\w-]+)/view/$',
-        view=StatisticDetailView.as_view(), name='statistic_detail'
+        view=StatisticTypeDetailView.as_view(), name='statistic_detail'
     ),
     url(
         regex=r'^statistics/(?P<slug>[\w-]+)/queue/$',
-        view=StatisticQueueView.as_view(), name='statistic_queue'
+        view=StatisticTypeQueueView.as_view(), name='statistic_queue'
     )
 ]

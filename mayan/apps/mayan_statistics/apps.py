@@ -1,16 +1,15 @@
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.common.apps import MayanAppConfig
-from mayan.apps.common.menus import menu_object, menu_secondary, menu_tools
+from mayan.apps.common.menus import (
+    menu_list_facet, menu_object, menu_return, menu_tools
+)
 from mayan.apps.navigation.classes import SourceColumn
 
-from .classes import StatisticLineChart, StatisticNamespace
+from .classes import StatisticType, StatisticNamespace
 from .links import (
-    link_statistic_namespace_detail,
-    link_statistic_namespace_list,
-    link_statistic_queue,
-    link_statistic_detail,
-    link_statistics
+    link_statistic_namespace_detail, link_statistic_namespace_list,
+    link_statistic_type_queue, link_statistic_type_detail, link_statistics
 )
 
 
@@ -33,30 +32,35 @@ class StatisticsApp(MayanAppConfig):
         super().ready()
 
         SourceColumn(
+            attribute='type_label', include_label=True,
+            label=_('Type'), source=StatisticType
+        )
+
+        SourceColumn(
             attribute='schedule',
             # Translators: Schedule here is a noun, the 'schedule' at
             # which the statistic will be updated
             include_label=True, label=_('Schedule'),
-            source=StatisticLineChart
+            source=StatisticType
         )
 
         SourceColumn(
             attribute='get_last_update', include_label=True,
-            label=_('Last update'), source=StatisticLineChart
+            label=_('Last update'), source=StatisticType
         )
 
-        menu_object.bind_links(
-            links=(link_statistic_detail, link_statistic_queue),
-            sources=(StatisticLineChart,)
-        )
-        menu_object.bind_links(
+        menu_list_facet.bind_links(
             links=(link_statistic_namespace_detail,),
             sources=(StatisticNamespace,)
         )
-        menu_secondary.bind_links(
-            links=(link_statistic_namespace_list,),
-            sources=(
-                StatisticNamespace, 'statistics:statistic_namespace_list'
-            )
+        menu_object.bind_links(
+            links=(link_statistic_type_detail, link_statistic_type_queue),
+            sources=(StatisticType,)
         )
-        menu_tools.bind_links(links=(link_statistics,))
+        menu_return.bind_links(
+            links=(link_statistic_namespace_list,),
+            sources=(StatisticNamespace,)
+        )
+        menu_tools.bind_links(
+            links=(link_statistics,)
+        )

@@ -2,7 +2,7 @@ import logging
 
 from mayan.celery import app
 
-from .classes import Statistic
+from .classes import StatisticType
 
 logger = logging.getLogger(name=__name__)
 
@@ -11,6 +11,6 @@ logger = logging.getLogger(name=__name__)
 def task_execute_statistic(slug):
     logger.info('Executing')
 
-    Statistic.get(slug=slug).execute()
+    StatisticType.get(slug=slug).execute()
 
     logger.info('Finshed')
