@@ -136,6 +136,10 @@
   - Update chartjs from version 2.8.0 to 3.9.1.
   - Unify chart templates.
 
+- Add three document pie chart statistics: document count per document type,
+  document file count per document type, document file page count per
+  document type.
+
 4.3.1 (2022-08-21)
 ==================
 - Fixes and improvements merged from version 4.2.9 and 4.2.10.
