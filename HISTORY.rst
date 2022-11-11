@@ -139,6 +139,8 @@
 - Add three document pie chart statistics: document count per document type,
   document file count per document type, document file page count per
   document type.
+- Add documentation directives to insert setting or setting namespace
+  instances.
 
 4.3.1 (2022-08-21)
 ==================

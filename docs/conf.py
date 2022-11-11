@@ -14,17 +14,19 @@
 import os
 import sys
 
-from docutils.parsers.rst import directives
+import docutils.parsers.rst
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mayan.settings')
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(1, os.path.abspath('.'))
 
 from contrib.scripts.version import Version
 
+import django
+
 import mayan
 
 import callbacks
+import directives
 import patches
 import utils
 
@@ -274,6 +276,9 @@ html_baseurl = 'https://docs.mayan-edms.com/'
 
 
 def setup(app):
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mayan.settings')
+    django.setup()
+
     environment_variables = utils.load_env_file()
 
     MAYAN_PYTHON_BIN_DIR = os.path.join(
@@ -313,7 +318,15 @@ def setup(app):
             substitutions=substitutions
         )
     )
-    directives.register_directive(
+    app.add_directive(
+        name='mayan_setting_namespace',
+        cls=directives.DirectiveMayanSettingNamespace
+    )
+    app.add_directive(
+        name='mayan_setting',
+        cls=directives.DirectiveMayanSetting
+    )
+    docutils.parsers.rst.directives.register_directive(
         name='include', directive=patches.monkey_patch_include(
             substitutions=substitutions
         )
