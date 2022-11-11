@@ -3,15 +3,19 @@ Object Storage
 ==============
 
 As introduced in :doc:`../chapters/file_storage`, Mayan EDMS takes
-ownership of document backing files and stores them using the
-configured storage backend. Another supported backend is the ``s3boto3``
-backend. Provided by the Django Storages project, this backend
-allows Mayan EDMS to use any S3 (Simple Storage Service) compatible
+ownership of document files and stores them using the configured storage
+backend.
+
+Besides the default filesystem storage backend, another supported one is
+the ``s3boto3`` backend provided by the Django Storages project. This
+backend allows Mayan EDMS to use any S3 (Simple Storage Service) compatible
 service as storage for documents, caches and tempoary files.
+
 This backend works not only with AWS, but any other S3-compatible
-API such as Minio (which can provide self-hosted S3 storage).
-Using S3 storage can help Mayan EDMS scale to millions of documents without
-the need to resize the document storage media.
+API such as Minio. IBM Cloud Object Storage and others.
+
+Using S3 storage it is possible to scale Mayan EDMS to millions of
+documents without the need to resize the document storage volume.
 
 The following steps will configure Mayan EDMS to use a S3 style storage
 for document file storage.
@@ -27,14 +31,13 @@ for document file storage.
 
    .. note::
 
-       The configuration below only updates the primary
-       ``DOCUMENTS_FILE_STORAGE_BACKEND`` location. You will need to add
-       additional variables if you also want to update the location
-       of the Caches, Temporary Location, Shared Folders, Etc.
-       Anything that is currently configured with
+       The configuration below only updates the document file storage.
+       You will need to add additional variables if you also want to
+       update the location of the Caches, Temporary location, Shared folders,
+       etc. Anything that is currently configured with
        the ``django.core.files.storage.FileSystemStorage`` backend
        can have its backend changed, but this is not advisable
-       for caches and tempoary files locations due to performance
+       for caches and temporary files locations due to performance
        reasons.
 
 
@@ -142,3 +145,10 @@ You may also need to add the variables ``region_name``
 and/or ``location`` depending on your S3 server configuration.
 
 endpoint_url: "https://<my internal NAS FQDN>:9000", verify: False
+
+
+Settings
+========
+
+- .. mayan_setting :: DOCUMENTS_FILE_STORAGE_BACKEND
+- .. mayan_setting :: DOCUMENTS_FILE_STORAGE_BACKEND_ARGUMENTS

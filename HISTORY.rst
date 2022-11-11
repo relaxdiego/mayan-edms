@@ -141,6 +141,8 @@
   document type.
 - Add documentation directives to insert setting or setting namespace
   instances.
+- Improve search and object storage documentation by adding automated
+  setting references.
 
 4.3.1 (2022-08-21)
 ==================

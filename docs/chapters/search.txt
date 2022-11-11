@@ -66,8 +66,7 @@ Operators are processed in the same order as they are entered.
 
 If no operator is specified, the fallback operator will be used. By default
 this is the ``AND`` operator. This can be changed via the setting named
-``SEARCH_DEFAULT_OPERATOR``.
-
+:ref:`settings-SEARCH-DEFAULT-OPERATOR`.
 
 Quoted terms
 ------------
@@ -449,34 +448,4 @@ updated as objects are added, removed, or edited.
 Settings
 ========
 
-- ``SEARCH_BACKEND``
-
-  Allows changing the search backend to use. The full dotted Python path to
-  the class must be specified. Defaults to
-  ``mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend``
-
-- ``SEARCH_BACKEND_ARGUMENTS``
-
-  Arguments to pass to the search backend. For example values to change the
-  behavior, host names, or authentication arguments.
-
-- ``SEARCH_DEFAULT_OPERATOR``
-
-  Allows changing the default search operator to be used if none is specified
-  in the search queries. Defaults to ``AND``.
-
-- ``SEARCH_DISABLE_SIMPLE_SEARCH``
-
-  Disables the single term bar search leaving only the advanced search button.
-
-- ``SEARCH_MATCH_ALL_DEFAULT_VALUE``
-
-  Sets the default state of the "Match all" checkbox.
-
-- ``SEARCH_INDEXING_CHUNK_SIZE``
-
-  Amount of objects to process when performing bulk indexing.
-
-- ``SEARCH_RESULTS_LIMIT``
-
-  Maximum number search results to fetch and display.
+.. mayan_setting_namespace :: search
