@@ -144,9 +144,19 @@
 - Improve search and object storage documentation by adding automated
   setting references.
 
+4.3.2 (unreleased)
+==================
+- Use the correct icon for the document type file metadata
+  setup link.
+- Merge bugfix version 4.2.11 and 4.2.12.
+- Update translation files.
+
 4.3.1 (2022-08-21)
 ==================
 - Fixes and improvements merged from version 4.2.9 and 4.2.10.
+- Fix the function interfaces when calling ``get_mayan_object_permissions``
+  to ``get_mayan_view_permissions`` to override an API view permission
+  layout.
 
 4.3 (2022-07-27)
 ================
@@ -585,6 +595,14 @@
 - Display a warning message in the setting edit view when local storage is
   disabled.
 
+4.2.12 (unreleased)
+===================
+- Fixes from version 4.1.10.
+
+4.2.11 (2022-11-05)
+===================
+- Update Django from version 3.2.14 to 3.2.16.
+
 4.2.10 (2022-08-20)
 ===================
 - Make file improvements. Don't require a local ``psql`` client to
@@ -1015,6 +1033,10 @@
   to be optional.
 - Redirect to current user to user detail view after password change.
 - Support two different ``psycopg2`` versions for upgrade testing.
+
+4.1.10 (unreleased)
+===================
+- Fixes from version 4.0.23.
 
 4.1.9 (2022-04-24)
 ==================
@@ -1720,6 +1742,12 @@
 - Add document template state action API endpoints. Closes GitLab issue #1043
   Thanks to Ludovic Anterieur (@lanterieur) for the request.
 - Pin jsonschema to version 3.2.0 to avoid errors with
+
+4.0.23 (unreleased)
+===================
+- Add help text to the `SEARCH_BACKEND_ARGUMENTS` setting.
+- Backport an object storage documentation chapter fix
+  from version 4.4dev0.
 
 4.0.22 (2022-04-22)
 ===================
