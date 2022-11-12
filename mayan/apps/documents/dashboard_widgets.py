@@ -23,7 +23,7 @@ from .permissions import (
     permission_document_view, permission_document_type_view
 )
 from .statistics import (
-    new_document_pages_this_month, new_documents_this_month,
+    new_document_pages_this_month, new_documents_this_month
 )
 
 

@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from celery.schedules import crontab
 
+from mayan.apps.common.class_mixins import AppsModuleLoaderMixin
 from mayan.celery import app
 
 from .renderers import (
@@ -11,7 +12,8 @@ from .renderers import (
 )
 
 
-class StatisticNamespace:
+class StatisticNamespace(AppsModuleLoaderMixin):
+    _loader_module_name = 'statistics'
     _registry = {}
 
     @classmethod
@@ -141,8 +143,10 @@ class StatisticType:
         results = StatisticType.evaluate(data=results)
         self.store_results(results=results)
 
-    def get_chart_data(self):
-        return self.renderer(data=self.get_results_data()).get_chart_data()
+    def get_chart_context(self):
+        return self.renderer(
+            data=self.get_results_data()
+        ).get_chart_context()
 
     def get_last_update(self):
         results = self.get_results()

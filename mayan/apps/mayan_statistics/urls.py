@@ -7,7 +7,7 @@ from .views import (
 
 urlpatterns = [
     url(
-        regex=r'^namespace/$', view=StatisticNamespaceListView.as_view(),
+        regex=r'^namespaces/$', view=StatisticNamespaceListView.as_view(),
         name='statistic_namespace_list'
     ),
     url(
@@ -16,11 +16,11 @@ urlpatterns = [
         name='statistic_namespace_detail'
     ),
     url(
-        regex=r'^statistics/(?P<slug>[\w-]+)/view/$',
+        regex=r'^namespaces/statistics/(?P<slug>[\w-]+)/view/$',
         view=StatisticTypeDetailView.as_view(), name='statistic_detail'
     ),
     url(
-        regex=r'^statistics/(?P<slug>[\w-]+)/queue/$',
+        regex=r'^namespaces/statistics/(?P<slug>[\w-]+)/queue/$',
         view=StatisticTypeQueueView.as_view(), name='statistic_queue'
     )
 ]

@@ -199,8 +199,6 @@ from .permissions import (
     permission_trashed_document_delete, permission_trashed_document_restore
 )
 
-from .statistics import *  # NOQA
-
 
 class DocumentsApp(MayanAppConfig):
     app_namespace = 'documents'

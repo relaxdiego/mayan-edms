@@ -135,6 +135,12 @@
   - Add column displaying the chart type per statistic.
   - Update chartjs from version 2.8.0 to 3.9.1.
   - Unify chart templates.
+  - Autoload statistics modules.
+  - Unify ChartJS templates.
+  - Support passing full chart context not just plot data.
+  - Fix app URL layout.
+  - Fix app URL typo.
+  - Fix statistic queue view navigation context.
 
 - Add three document pie chart statistics: document count per document type,
   document file count per document type, document file page count per

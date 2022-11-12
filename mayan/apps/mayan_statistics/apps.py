@@ -31,6 +31,8 @@ class StatisticsApp(MayanAppConfig):
     def ready(self):
         super().ready()
 
+        StatisticNamespace.load_modules()
+
         SourceColumn(
             attribute='type_label', include_label=True,
             label=_('Type'), source=StatisticType

@@ -1,12 +1,11 @@
 from django.contrib import messages
-from django.http import Http404
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.views.generics import (
     ConfirmView, SimpleView, SingleObjectListView
 )
 
-from .classes import StatisticNamespace, StatisticType
+from .classes import StatisticNamespace
 from .icons import (
     icon_statistic_detail, icon_statistic_queue,
     icon_statistic_namespace_detail, icon_statistic_namespace_list
@@ -14,12 +13,18 @@ from .icons import (
 
 from .permissions import permission_statistics_view
 from .tasks import task_execute_statistic
+from .view_mixins import StatisticTypeViewMixin
 
 
 class StatisticNamespaceListView(SingleObjectListView):
     extra_context = {
         'hide_link': True,
-        'title': _('Statistics namespaces'),
+        'no_results_icon': icon_statistic_namespace_list,
+        'no_results_text': _(
+            'Statistics namespaces group statistics into logical units. '
+        ),
+        'no_results_title': _('No statistic namespaces available'),
+        'title': _('Statistics namespaces')
     }
     template_name = 'appearance/generic_list.html'
     view_icon = icon_statistic_namespace_list
@@ -33,73 +38,69 @@ class StatisticNamespaceDetailView(SingleObjectListView):
     view_icon = icon_statistic_namespace_detail
     view_permission = permission_statistics_view
 
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().dispatch(request=request, *args, **kwargs)
+
     def get_extra_context(self):
         return {
             'hide_link': True,
-            'object': self.get_namespace(),
-            'title': _('Namespace details for: %s') % self.get_namespace(),
+            'no_results_icon': icon_statistic_namespace_detail,
+            'no_results_text': _(
+                'Statistics are metrics and chart representations of '
+                'existing data.'
+            ),
+            'no_results_title': _('No statistic available'),
+            'object': self.object,
+            'title': _('Namespace details for: %s') % self.object
         }
 
-    def get_namespace(self):
+    def get_object(self):
         return StatisticNamespace.get(slug=self.kwargs['slug'])
 
     def get_source_queryset(self):
-        return self.get_namespace().statistics
+        return self.object.statistics
 
 
-class StatisticTypeDetailView(SimpleView):
+class StatisticTypeDetailView(StatisticTypeViewMixin, SimpleView):
     view_icon = icon_statistic_detail
     view_permission = permission_statistics_view
 
     def get_extra_context(self):
-        obj = self.get_object()
-
         return {
-            'chart_data': obj.get_chart_data(),
-            'namespace': obj.namespace,
+            'chart_context': self.object.get_chart_context(),
+            'namespace': self.object.namespace,
             'navigation_object_list': ('namespace', 'object'),
-            'no_data': not obj.get_results_data()['series'],
-            'object': obj,
-            'title': _('Results for: %s') % obj,
+            'no_data': not self.object.get_results_data()['series'],
+            'object': self.object,
+            'title': _('Results for: %s') % self.object
         }
 
-    def get_object(self):
-        try:
-            return StatisticType.get(self.kwargs['slug'])
-        except KeyError:
-            raise Http404(_('Statistic "%s" not found.') % self.kwargs['slug'])
-
     def get_template_names(self):
-        return (self.get_object().renderer.template_name,)
+        return (self.object.renderer.template_name,)
 
 
-class StatisticTypeQueueView(ConfirmView):
+class StatisticTypeQueueView(StatisticTypeViewMixin, ConfirmView):
     view_icon = icon_statistic_queue
     view_permission = permission_statistics_view
 
     def get_extra_context(self):
-        obj = self.get_object()
         return {
-            'namespace': obj.namespace,
-            'object': obj,
+            'namespace': self.object.namespace,
+            'navigation_object_list': ('namespace', 'object'),
+            'object': self.object,
             # Translators: This text is asking users if they want to queue
             # (to send to the queue) a statistic for it to be update ahead
             # of schedule
             'title': _(
                 'Queue statistic "%s" to be updated?'
-            ) % obj,
+            ) % self.object
         }
 
-    def get_object(self):
-        try:
-            return StatisticType.get(slug=self.kwargs['slug'])
-        except KeyError:
-            raise Http404(_('Statistic "%s" not found.') % self.kwargs['slug'])
-
     def view_action(self):
-        task_execute_statistic.delay(slug=self.get_object().slug)
+        task_execute_statistic.delay(slug=self.object.slug)
         messages.success(
             message=_(
                 'Statistic "%s" queued successfully for update.'
-            ) % self.get_object().label, request=self.request
+            ) % self.object.label, request=self.request
         )

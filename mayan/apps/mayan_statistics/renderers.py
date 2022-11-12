@@ -5,16 +5,15 @@ class ChartRenderer:
     def __init__(self, data):
         self.data = data
 
-    def _get_chart_data(self):
+    def get_chart_context(self):
         raise NotImplementedError
 
-    def get_chart_data(self):
-        return json.dumps(obj=self._get_chart_data())
+
+class RendererChartJS(ChartRenderer):
+    template_name = 'statistics/renderers/chartjs/base.html'
 
 
-class RendererChartJSLine(ChartRenderer):
-    template_name = 'statistics/renderers/chartjs/line.html'
-
+class RendererChartJSLine(RendererChartJS):
     dataset_palette = (
         {
             'backgroundColor': 'rgba(24, 188, 156, 0.1)',
@@ -26,7 +25,7 @@ class RendererChartJSLine(ChartRenderer):
         },
     )
 
-    def _get_chart_data(self):
+    def get_chart_context(self):
         labels = []
         datasets = []
 
@@ -59,10 +58,11 @@ class RendererChartJSLine(ChartRenderer):
             'labels': labels
         }
 
-        return data
+        return {'data': json.dumps(obj=data), 'type': 'line'}
 
 
-class RendererChartJSDoughnut(ChartRenderer):
+class RendererChartJSDoughnut(RendererChartJS):
+    chart_type = 'doughnut'
     dataset_palette = (
         {
             'backgroundColor': (
@@ -70,9 +70,8 @@ class RendererChartJSDoughnut(ChartRenderer):
             )
         },
     )
-    template_name = 'statistics/renderers/chartjs/doughnut.html'
 
-    def _get_chart_data(self):
+    def get_chart_context(self):
         labels = []
         datasets = []
 
@@ -100,8 +99,8 @@ class RendererChartJSDoughnut(ChartRenderer):
             'labels': labels
         }
 
-        return data
+        return {'data': json.dumps(obj=data), 'type': self.chart_type}
 
 
 class RendererChartJSPie(RendererChartJSDoughnut):
-    template_name = 'statistics/renderers/chartjs/pie.html'
+    chart_type = 'pie'
