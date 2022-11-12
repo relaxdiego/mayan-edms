@@ -35,8 +35,8 @@ class AppearanceApp(MayanAppConfig):
     name = 'mayan.apps.appearance'
     static_media_ignore_patterns = (
         'AUTHORS*', 'CHANGE*', 'CONTRIBUT*', 'CODE_OF_CONDUCT*', 'Grunt*',
-        'LICENSE*', 'MAINTAIN*', 'README*', '*.less', '*.md', '*.nupkg',
-        '*.nuspec', '*.scss*', '*.sh', '*tests*', 'bower*', 'composer.json*',
+        'MAINTAIN*', 'README*', '*.less', '*.md', '*.nupkg', '*.nuspec',
+        '*.scss*', '*.sh', '*tests*', 'bower*', 'composer.json*',
         'demo*', 'grunt*', 'gulp*', 'install', 'less', 'package.json*',
         'package-lock*', 'test', 'tests', 'variable*',
         'appearance/node_modules/@fancyapps/fancybox/docs/*',
