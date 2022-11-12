@@ -6,7 +6,7 @@ from .literals import (
     DEFAULT_SEARCH_BACKEND, DEFAULT_SEARCH_BACKEND_ARGUMENTS,
     DEFAULT_SEARCH_DISABLE_SIMPLE_SEARCH, DEFAULT_SEARCH_INDEXING_CHUNK_SIZE,
     DEFAULT_SEARCH_MATCH_ALL_DEFAULT_VALUE, DEFAULT_SEARCH_DEFAULT_OPERATOR,
-    DEFAULT_SEARCH_RESULTS_LIMIT, DEFAULT_SEARCH_RESULTS_LIMIT_HARD,
+    DEFAULT_SEARCH_RESULTS_LIMIT, DEFAULT_SEARCH_QUERY_RESULTS_LIMIT,
     SCOPE_OPERATOR_CHOICES
 )
 
@@ -53,14 +53,14 @@ setting_match_all_default_value = namespace.add_setting(
     default=DEFAULT_SEARCH_MATCH_ALL_DEFAULT_VALUE,
     help_text=_('Sets the default state of the "Match all" checkbox.')
 )
-setting_results_limit = namespace.add_setting(
-    default=DEFAULT_SEARCH_RESULTS_LIMIT, global_name='SEARCH_RESULTS_LIMIT',
-    help_text=_('Maximum number search results to fetch and display.')
-)
-setting_results_limit_hard = namespace.add_setting(
-    default=DEFAULT_SEARCH_RESULTS_LIMIT_HARD,
-    global_name='SEARCH_RESULTS_LIMIT_HARD',
+setting_query_results_limit = namespace.add_setting(
+    default=DEFAULT_SEARCH_QUERY_RESULTS_LIMIT,
+    global_name='SEARCH_QUERY_RESULTS_LIMIT',
     help_text=_(
         'Hard limit of number search results to fetch and display.'
     )
+)
+setting_results_limit = namespace.add_setting(
+    default=DEFAULT_SEARCH_RESULTS_LIMIT, global_name='SEARCH_RESULTS_LIMIT',
+    help_text=_('Maximum number search results to fetch and display.')
 )

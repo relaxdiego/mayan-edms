@@ -13,7 +13,7 @@ from .literals import (
 )
 from .search_query_terms import QueryToken
 from .search_query_types import QueryType
-from .settings import setting_results_limit, setting_results_limit_hard
+from .settings import setting_query_results_limit, setting_results_limit
 
 logger = logging.getLogger(name=__name__)
 
@@ -326,7 +326,7 @@ class ScopedQueryEntryDataFilter(ScopedQueryEntryData):
                 )
             ]
         ) > 1:
-            limit = setting_results_limit_hard.value
+            limit = setting_query_results_limit.value
         else:
             limit = setting_results_limit.value
 
