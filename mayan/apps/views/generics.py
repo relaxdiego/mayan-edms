@@ -31,8 +31,8 @@ from .mixins import (
     ExternalObjectViewMixin, ExtraContextViewMixin, FormExtraKwargsViewMixin,
     ListModeViewMixin, ModelFormFieldsetsViewMixin, MultipleObjectViewMixin,
     ObjectActionViewMixin, ObjectNameViewMixin, RedirectionViewMixin,
-    RestrictedQuerysetViewMixin, SortingViewMixin,
-    ViewIconMixin, ViewPermissionCheckViewMixin
+    RestrictedQuerysetViewMixin, SortingViewMixin, ViewIconMixin,
+    ViewPermissionCheckViewMixin
 )
 
 from .settings import setting_paginate_by

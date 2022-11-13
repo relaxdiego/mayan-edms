@@ -622,7 +622,7 @@ class SortingViewMixin:
 
         context.update(
             {
-                TEXT_SORT_FIELD_VARIABLE_NAME: self.get_sort_fields(),
+                TEXT_SORT_FIELD_VARIABLE_NAME: self.get_sort_fields()
             }
         )
         return context
