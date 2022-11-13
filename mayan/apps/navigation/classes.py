@@ -908,19 +908,29 @@ class SourceColumn(TemplateObjectMixin):
     def get_sort_field_querystring(self, context):
         request = self.get_request(context=context)
 
-        # We do this to get an mutable copy we can modify.
+        # Get an mutable copy that can be modified.
         querystring = request.GET.copy()
 
-        previous_sort_fields = self.get_previous_sort_fields(context=context)
+        previous_sort_fields = list(
+            self.get_previous_sort_fields(context=context)
+        )
 
         sort_field = self.get_sort_field()
 
-        if sort_field in previous_sort_fields:
-            result = '-{}'.format(sort_field)
-        else:
-            result = '{}'.format(sort_field)
+        ascending = sort_field
+        descending = '-{}'.format(sort_field)
 
-        querystring[TEXT_SORT_FIELD_PARAMETER] = result
+        if ascending not in previous_sort_fields and descending not in previous_sort_fields:
+            previous_sort_fields.append(ascending)
+        elif descending in previous_sort_fields:
+            previous_sort_fields.remove(descending)
+        else:
+            previous_sort_fields.insert(
+                previous_sort_fields.index(ascending), descending
+            )
+            previous_sort_fields.remove(ascending)
+
+        querystring[TEXT_SORT_FIELD_PARAMETER] = ','.join(previous_sort_fields)
 
         return '?{}'.format(querystring.urlencode())
 

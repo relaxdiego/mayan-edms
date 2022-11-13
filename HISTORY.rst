@@ -149,6 +149,9 @@
   instances.
 - Improve search and object storage documentation by adding automated
   setting references.
+- Add third state to column sorting. The sorting states are now: ascending,
+  descending, none.
+- Support sorting multiple columns.
 
 4.3.2 (unreleased)
 ==================
