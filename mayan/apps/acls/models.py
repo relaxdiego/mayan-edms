@@ -85,6 +85,14 @@ class AccessControlList(ExtraDataModelMixin, models.Model):
             obj=self.content_object, role=self.role
         )
 
+    def get_permission_count(self):
+        """
+        Return the numeric count of permissions that have this role
+        has granted. The count is filtered by access.
+        """
+        return self.permissions.count()
+    get_permission_count.short_description = _('Permission count')
+
     def permissions_add(self, queryset, _event_actor=None):
         for obj in queryset:
             self.permissions.add(obj)

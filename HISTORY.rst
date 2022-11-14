@@ -152,6 +152,7 @@
 - Add third state to column sorting. The sorting states are now: ascending,
   descending, none.
 - Support sorting multiple columns.
+- Add a permission count column to ACLs.
 
 4.3.2 (unreleased)
 ==================

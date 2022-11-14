@@ -67,6 +67,11 @@ class ACLsApp(MayanAppConfig):
             widget=ObjectLinkWidget
         )
 
+        SourceColumn(
+            attribute='get_permission_count', include_label=True,
+            source=AccessControlList
+        )
+
         menu_list_facet.bind_links(
             links=(
                 link_acl_permissions,
