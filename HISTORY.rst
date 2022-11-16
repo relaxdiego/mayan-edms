@@ -156,6 +156,7 @@
 - Add support for setting choices.
 - Add an HTML to better format setting values.
 - Fix search again view redirect. Retain the query from the previous view.
+- Rename the "Search" facet link to "Basic search".
 
 4.3.2 (unreleased)
 ==================

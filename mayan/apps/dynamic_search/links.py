@@ -17,7 +17,7 @@ def condition_search_backend_supports_reindexing(context, resolved_object):
 
 link_search = Link(
     args='search_model.full_name', icon=icon_search,
-    text=_('Search'), view='search:search_simple'
+    text=_('Basic search'), view='search:search_simple'
 )
 link_search_advanced = Link(
     args='search_model.full_name', icon=icon_search_advanced,
