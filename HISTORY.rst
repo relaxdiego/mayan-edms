@@ -155,6 +155,7 @@
 - Add a permission count column to ACLs.
 - Add support for setting choices.
 - Add an HTML to better format setting values.
+- Fix search again view redirect. Retain the query from the previous view.
 
 4.3.2 (unreleased)
 ==================

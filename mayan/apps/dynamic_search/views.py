@@ -31,6 +31,8 @@ logger = logging.getLogger(name=__name__)
 
 
 class SearchAgainView(SearchQueryViewMixin, RedirectView):
+    query_string = True
+
     def get_redirect_url(self, *args, **kwargs):
         query_dict = self.get_search_query()
 
