@@ -17,6 +17,7 @@ namespace = SettingNamespace(
 )
 
 setting_collapse_list_menu_list_facet = namespace.add_setting(
+    choices=('false', 'true'),
     default=DEFAULT_COMMON_COLLAPSE_LIST_MENU_LIST_FACET,
     global_name='COMMON_COLLAPSE_LIST_MENU_LIST_FACET',
     help_text=_(
@@ -25,6 +26,7 @@ setting_collapse_list_menu_list_facet = namespace.add_setting(
     )
 )
 setting_collapse_list_menu_object = namespace.add_setting(
+    choices=('false', 'true'),
     default=DEFAULT_COMMON_COLLAPSE_LIST_MENU_OBJECT,
     global_name='COMMON_COLLAPSE_LIST_MENU_OBJECT',
     help_text=_(
@@ -33,6 +35,7 @@ setting_collapse_list_menu_object = namespace.add_setting(
     )
 )
 setting_disable_local_storage = namespace.add_setting(
+    choices=('false', 'true'),
     default=DEFAULT_COMMON_DISABLE_LOCAL_STORAGE,
     global_name='COMMON_DISABLE_LOCAL_STORAGE', help_text=_(
         'Disables the use of the local `media` folder. When using this '

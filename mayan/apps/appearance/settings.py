@@ -23,11 +23,12 @@ setting_max_title_length = namespace.add_setting(
     )
 )
 setting_message_position = namespace.add_setting(
-    default=DEFAULT_MESSAGE_POSITION,
+    choices=(
+        'top-left', 'top-center', 'top-right', 'bottom-left',
+        'bottom-center', 'bottom-right',
+    ), default=DEFAULT_MESSAGE_POSITION,
     global_name='APPEARANCE_MESSAGE_POSITION', help_text=_(
-        'Position where the system message will be displayed. Options are: '
-        'top-left, top-center, top-right, bottom-left, bottom-center, '
-        'bottom-right.'
+        'Position where the system messages will be displayed.'
     )
 )
 setting_menu_polling_interval = namespace.add_setting(

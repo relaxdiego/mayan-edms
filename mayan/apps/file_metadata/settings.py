@@ -13,6 +13,7 @@ namespace = SettingNamespace(
     name='file_metadata', version='0002'
 )
 setting_auto_process = namespace.add_setting(
+    choices=('false', 'true'),
     default=DEFAULT_FILE_METADATA_AUTO_PROCESS,
     global_name='FILE_METADATA_AUTO_PROCESS', help_text=_(
         'Set new document types to perform file metadata processing '

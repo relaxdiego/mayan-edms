@@ -8,6 +8,7 @@ from mayan.apps.navigation.classes import SourceColumn
 from mayan.apps.views.html_widgets import TwoStateWidget
 
 from .classes import SettingNamespace, Setting
+from .html_widgets import WidgetSettingValue
 from .links import (
     link_setting_namespace_detail, link_setting_namespace_list,
     link_namespace_root_list, link_setting_edit
@@ -38,7 +39,7 @@ class SmartSettingsApp(MayanAppConfig):
         )
         SourceColumn(
             attribute='serialized_value', include_label=True,
-            label=_('Value'), source=Setting
+            label=_('Value'), widget=WidgetSettingValue, source=Setting
         )
         SourceColumn(
             attribute='is_overridden', include_label=True, source=Setting,

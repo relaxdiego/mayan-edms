@@ -153,6 +153,8 @@
   descending, none.
 - Support sorting multiple columns.
 - Add a permission count column to ACLs.
+- Add support for setting choices.
+- Add an HTML to better format setting values.
 
 4.3.2 (unreleased)
 ==================

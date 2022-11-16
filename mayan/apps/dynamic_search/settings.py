@@ -27,14 +27,15 @@ setting_backend_arguments = namespace.add_setting(
     )
 )
 setting_default_operator = namespace.add_setting(
+    choices=SCOPE_OPERATOR_CHOICES.keys(),
     global_name='SEARCH_DEFAULT_OPERATOR',
     default=DEFAULT_SEARCH_DEFAULT_OPERATOR,
     help_text=_(
-        'The search operator to use when none is specified. '
-        'Options are: {}'.format(', '.join(SCOPE_OPERATOR_CHOICES.keys()))
+        'The search operator to use when none is specified.'
     )
 )
 setting_disable_simple_search = namespace.add_setting(
+    choices=('false', 'true'),
     default=DEFAULT_SEARCH_DISABLE_SIMPLE_SEARCH,
     global_name='SEARCH_DISABLE_SIMPLE_SEARCH', help_text=_(
         'Disables the single term bar search leaving only the advanced '

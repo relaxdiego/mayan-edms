@@ -10,14 +10,15 @@ from .literals import (
 namespace = SettingNamespace(label=_('Logging'), name='logging')
 
 setting_logging_enable = namespace.add_setting(
+    choices=('false', 'true'),
     default=DEFAULT_LOGGING_ENABLE, global_name='LOGGING_ENABLE', help_text=_(
         'Automatically enable logging to all apps.'
     )
 )
 setting_logging_handlers = namespace.add_setting(
+    choices=LOGGING_HANDLER_OPTIONS,
     default=DEFAULT_LOGGING_HANDLERS, global_name='LOGGING_HANDLERS', help_text=_(
-        'List of handlers to which logging messages will be sent. '
-        'Options are: {}'.format(', '.join(LOGGING_HANDLER_OPTIONS))
+        'List of handlers to which logging messages will be sent.'
     )
 )
 setting_logging_level = namespace.add_setting(

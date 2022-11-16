@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_AUTHENTICATION_DISABLE_PASSWORD_RESET
 )
 
-namespace = SettingNamespace(label=_('Authentication'), name='authentication')
+namespace = SettingNamespace(
+    label=_('Authentication'), name='authentication'
+)
 
 setting_disable_password_reset = namespace.add_setting(
     default=DEFAULT_AUTHENTICATION_DISABLE_PASSWORD_RESET,

@@ -13,7 +13,8 @@ namespace = SettingNamespace(
 )
 
 setting_auto_ocr = namespace.add_setting(
-    default=DEFAULT_OCR_AUTO_OCR, global_name='OCR_AUTO_OCR', help_text=_(
+    choices=('false', 'true'), default=DEFAULT_OCR_AUTO_OCR,
+    global_name='OCR_AUTO_OCR', help_text=_(
         'Set new document types to perform OCR automatically by default.'
     )
 )

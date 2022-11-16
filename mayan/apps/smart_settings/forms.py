@@ -8,15 +8,25 @@ from mayan.apps.common.serialization import yaml_load
 
 
 class SettingForm(forms.Form):
-    value = forms.CharField(
-        help_text=_('Enter the new setting value.'), required=False,
-        widget=forms.widgets.Textarea()
-    )
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setting = self.initial['setting']
-        self.fields['value'].help_text = self.setting.help_text
+
+        if self.setting.choices:
+            self.fields['value'] = forms.ChoiceField(
+                choices=list(
+                    zip(self.setting.choices, self.setting.choices)
+                ), required=True
+            )
+        else:
+            self.fields['value'] = forms.CharField(
+                required=False, widget=forms.widgets.Textarea()
+            )
+
+        self.fields['value'].label = _('Value')
+        self.fields['value'].help_text = self.setting.help_text or _(
+            'Enter the new setting value.'
+        )
         self.fields['value'].initial = self.setting.serialized_value
 
     def clean(self):

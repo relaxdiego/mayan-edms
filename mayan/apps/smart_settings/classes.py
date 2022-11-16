@@ -308,9 +308,10 @@ class Setting:
             )
 
     def __init__(
-        self, namespace, global_name, default, help_text=None, is_path=False,
-        post_edit_function=None, validation_function=None
+        self, namespace, global_name, default, choices=None, help_text=None,
+        is_path=False, post_edit_function=None, validation_function=None
     ):
+        self.choices = choices
         self.global_name = global_name
         self.default = default
         self.help_text = help_text
@@ -367,6 +368,19 @@ class Setting:
 
         self.yaml = Setting.serialize_value(self.raw_value)
         self.loaded = True
+
+    def get_choices(self):
+        return self.choices
+
+    get_choices.short_description = _('Choices')
+    get_choices.help_text = _(
+        'Possible values allowed for this setting.'
+    )
+
+    def get_default(self):
+        return Setting.serialize_value(value=self.default)
+
+    get_default.short_description = _('Default')
 
     def invalidate_cache(self):
         self.loaded = False

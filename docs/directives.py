@@ -34,6 +34,11 @@ class DirectiveMayanSettingBase(SphinxDirective):
         )
         setting_node += node
 
+        # Paragraph with a text to display the help text.
+        node = nodes.paragraph()
+        node += nodes.Text(data=setting.help_text, rawsource=setting.help_text)
+        setting_node += node
+
         # Line "Default:"
         node = nodes.paragraph()
         node += nodes.Text(data='Default:', rawsource='Default:')
@@ -41,16 +46,28 @@ class DirectiveMayanSettingBase(SphinxDirective):
 
         # Paragraph with a literal block to display the default value.
         node = nodes.paragraph()
-        default_value = '{}'.format(setting.default)
+        default_value = '{}'.format(
+            Setting.serialize_value(value=setting.default)
+        )
         node += nodes.doctest_block(
             rawsource=default_value, text=default_value, childre=['python']
         )
         setting_node += node
 
-        # Paragraph with a text to display the help text.
-        node = nodes.paragraph()
-        node += nodes.Text(data=setting.help_text, rawsource=setting.help_text)
-        setting_node += node
+        if setting.choices:
+            # Line "Choices:"
+            node = nodes.paragraph()
+            node += nodes.Text(data='Choices:', rawsource='Choices:')
+            setting_node += node
+
+            # Paragraph with a literal block to display the default value.
+            node = nodes.paragraph()
+            value_choices = ','.join(setting.choices)
+            node += nodes.doctest_block(
+                rawsource=value_choices, text=value_choices,
+                childre=['python']
+            )
+            setting_node += node
 
     def run(self):
         self.initialize()
