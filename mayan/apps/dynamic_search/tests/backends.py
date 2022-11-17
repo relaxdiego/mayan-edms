@@ -1,6 +1,6 @@
 from django.utils.module_loading import import_string
 
-from ..literals import DEFAULT_SEARCH_BACKEND, DEFAULT_TEST_SEARCH_BACKEND
+from ..literals import DEFAULT_TEST_SEARCH_BACKEND
 from ..search_backends import SearchBackend
 from ..settings import setting_backend_arguments
 

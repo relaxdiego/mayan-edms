@@ -2,7 +2,7 @@ from .exceptions import (
     DynamicSearchInterpreterError, DynamicSearchInterpreterUnknownSearchType,
     DynamicSearchScopedQueryError
 )
-from .literals import SCOPE_MARKER
+from .literals import MATCH_ALL_FIELD_NAME, SCOPE_MARKER
 from .scoped_queries import (
     ScopedQuery, ScopedQueryEntryControlResult, ScopedQueryEntryDataFilter,
     ScopedQueryEntryDataOperator
@@ -85,7 +85,6 @@ class SearchInterpreter:
         """
         Generate a human readable version of the query.
         """
-
         clean_query = self.do_query_cleanup()
 
         scoped_query = self.do_query_decode(query=clean_query)
@@ -114,10 +113,10 @@ class SearchInterpreterAdvanced(SearchInterpreter):
             return result
 
     def _do_query_decode(self, query=None):
-        query = query or self.query
+        query = query or self.query.copy()
 
         self.global_and_search = get_match_all_value(
-            value=query.pop('_match_all', 'no')
+            value=query.pop(MATCH_ALL_FIELD_NAME, 'no')
         )
 
         if self.global_and_search:
@@ -240,7 +239,7 @@ class SearchInterpreterAdvanced(SearchInterpreter):
         for key, value in self.query.items():
             key = self.do_prefix_remove(prefix=self.prefix, value=key)
 
-            if key in scoped_query.search_model.search_field_name_list:
+            if key in scoped_query.search_model.search_field_name_list or key == MATCH_ALL_FIELD_NAME:
                 result[key] = value
 
         return result

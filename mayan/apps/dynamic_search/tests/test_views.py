@@ -7,7 +7,9 @@ from mayan.apps.documents.tests.mixins.document_mixins import (
 )
 from mayan.apps.testing.tests.base import GenericViewTestCase
 
-from ..literals import QUERY_PARAMETER_ANY_FIELD, SEARCH_MODEL_NAME_KWARG
+from ..literals import (
+    MATCH_ALL_VALUES, QUERY_PARAMETER_ANY_FIELD, SEARCH_MODEL_NAME_KWARG
+)
 from ..permissions import permission_search_tools
 
 from .literals import TEST_SEARCH_OBJECT_TERM
@@ -265,12 +267,16 @@ class SearchViewTestCase(
         self._clear_events()
 
         response = self._request_search_again_view(query={'label': 'test'})
-        self.assertRedirects(
-            response=response, expected_url=reverse(
+        expected_url = '{}?{}'.format(
+            reverse(
                 viewname='search:search_advanced', kwargs={
                     'search_model_pk': self._test_search_model.full_name
                 }
-            ), status_code=302, target_status_code=200
+            ), 'label=test'
+        )
+        self.assertRedirects(
+            response=response, expected_url=expected_url, status_code=302,
+            target_status_code=200
         )
 
         events = self._get_test_events()
@@ -280,12 +286,33 @@ class SearchViewTestCase(
         self._clear_events()
 
         response = self._request_search_again_view(query={'q': 'test'})
-        self.assertRedirects(
-            response=response, expected_url=reverse(
+        expected_url = '{}?{}'.format(
+            reverse(
                 viewname='search:search_simple', kwargs={
                     'search_model_pk': self._test_search_model.full_name
                 }
-            ), status_code=302, target_status_code=200
+            ), 'q=test'
+        )
+        self.assertRedirects(
+            response=response, expected_url=expected_url, status_code=302,
+            target_status_code=200
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_search_again_advanced_match_all_view_no_permission(self):
+        self._clear_events()
+
+        response = self._request_search_again_view(
+            follow=True, query={
+                'label': 'test', '_match_all': MATCH_ALL_VALUES[0]
+            }
+        )
+
+        self.assertContains(
+            html=True, response=response, status_code=200,
+            text='<input checked="checked" name="_match_all" type="checkbox">'
         )
 
         events = self._get_test_events()

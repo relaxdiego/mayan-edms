@@ -1,23 +1,21 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from .settings import setting_match_all_default_value
+from .literals import MATCH_ALL_FIELD_CHOICES, MATCH_ALL_FIELD_NAME
 
 
 class AdvancedSearchForm(forms.Form):
-    _match_all = forms.BooleanField(
-        label=_('Match all'), help_text=_(
-            'When checked, only results that match all fields will be '
-            'returned. When unchecked results that match at least one field '
-            'will be returned.'
-        ), required=False
-    )
-
     def __init__(self, *args, **kwargs):
         kwargs['data'] = kwargs['data'].copy()
-        kwargs['data']['_match_all'] = setting_match_all_default_value.value
         self.search_model = kwargs.pop('search_model')
         super().__init__(*args, **kwargs)
+
+        self.fields[MATCH_ALL_FIELD_NAME] = forms.ChoiceField(
+            choices=MATCH_ALL_FIELD_CHOICES, widget=forms.RadioSelect,
+            label=_('Match all'), help_text=_(
+                'Return only results that match all fields.'
+            ), required=False
+        )
 
         for search_field in self.search_model.search_fields:
             if search_field.concrete:

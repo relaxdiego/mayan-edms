@@ -11,9 +11,9 @@ class SearchViewTestMixin:
             }
         )
 
-    def _request_search_again_view(self, query=None):
+    def _request_search_again_view(self, follow=False, query=None):
         return self.post(
-            viewname='search:search_again', kwargs={
+            follow=follow, viewname='search:search_again', kwargs={
                 'search_model_pk': self._test_search_model.full_name
             }, query=query
         )

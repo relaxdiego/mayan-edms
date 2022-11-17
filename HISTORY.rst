@@ -157,6 +157,10 @@
 - Add an HTML to better format setting values.
 - Fix search again view redirect. Retain the query from the previous view.
 - Rename the "Search" facet link to "Basic search".
+- Fix "Match All" behavior when using the "Search again" link.
+- Replace "Match All" field with a radio box to allow supporting search
+  again persistence and also the default state of the field.
+- Convert the "Match All" field name into a literal.
 
 4.3.2 (unreleased)
 ==================

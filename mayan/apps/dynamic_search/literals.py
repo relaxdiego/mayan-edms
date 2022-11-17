@@ -1,3 +1,5 @@
+from django.utils.translation import ugettext_lazy as _
+
 DEFAULT_SEARCH_BACKEND = 'mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend'
 DEFAULT_SEARCH_BACKEND_ARGUMENTS = {}
 DEFAULT_SEARCH_DISABLE_SIMPLE_SEARCH = False
@@ -11,6 +13,11 @@ ERROR_TEXT_NO_RESULT_SCOPE = 'No result scope has been specified.'
 
 FILTER_PREFIX = 'filter_'
 
+MATCH_ALL_FIELD_CHOICES = (
+    (True, _('Yes')),
+    (False, _('No'))
+)
+MATCH_ALL_FIELD_NAME = '_match_all'
 MATCH_ALL_VALUES = ('on', 'true', 'yes')
 MESSAGE_FEATURE_NO_STATUS = 'This backend does not provide status information.'
 

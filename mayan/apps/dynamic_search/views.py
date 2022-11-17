@@ -22,6 +22,7 @@ from .links import link_search_again
 from .literals import QUERY_PARAMETER_ANY_FIELD, SEARCH_MODEL_NAME_KWARG
 from .permissions import permission_search_tools
 from .search_backends import SearchBackend
+from .settings import setting_match_all_default_value
 from .tasks import task_reindex_backend
 from .view_mixins import (
     SearchModelViewMixin, SearchQueryViewMixin, SearchResultViewMixin
@@ -143,9 +144,13 @@ class SearchAdvancedView(SearchSimpleView):
         return context
 
     def get_form(self):
+        data = self.request.GET.dict()
+        data['_match_all'] = data.get(
+            '_match_all', setting_match_all_default_value.value
+        )
+
         return AdvancedSearchForm(
-            data=self.request.GET.dict(),
-            search_model=self.get_search_model()
+            data=data, search_model=self.get_search_model()
         )
 
 
