@@ -125,6 +125,10 @@ class ActionExporter:
 
 
 class EventManager:
+    """
+    keep_attributes - List of event related object attributes that should
+    not be removed after the event is committed.
+    """
     EVENT_ATTRIBUTES = ('ignore', 'keep_attributes', 'type')
     EVENT_ARGUMENTS = ('actor', 'action_object', 'target')
 
