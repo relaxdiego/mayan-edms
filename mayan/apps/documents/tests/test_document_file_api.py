@@ -254,18 +254,19 @@ class DocumentFileAPIViewTestCase(
         self.assertEqual(events[1].target, self._test_document_file)
         self.assertEqual(events[1].verb, event_document_file_edited.id)
 
-        self._test_document.refresh_from_db()
-        test_document_version = self._test_document.versions.last()
-
         self.assertEqual(events[2].action_object, self._test_document)
         self.assertEqual(events[2].actor, self._test_case_user)
-        self.assertEqual(events[2].target, test_document_version)
+        self.assertEqual(events[2].target, self._test_document_version)
         self.assertEqual(events[2].verb, event_document_version_created.id)
 
-        self.assertEqual(events[3].action_object, test_document_version)
+        self.assertEqual(
+            events[3].action_object, self._test_document_version
+        )
         self.assertEqual(events[3].actor, self._test_case_user)
-        self.assertEqual(events[3].target, test_document_version.pages.first())
-        self.assertEqual(events[3].verb, event_document_version_page_created.id)
+        self.assertEqual(events[3].target, self._test_document_version_page)
+        self.assertEqual(
+            events[3].verb, event_document_version_page_created.id
+        )
 
     def test_trashed_document_file_upload_api_view_with_access(self):
         self._upload_test_document()
