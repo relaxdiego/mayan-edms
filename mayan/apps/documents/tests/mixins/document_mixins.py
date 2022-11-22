@@ -109,6 +109,8 @@ class DocumentTestMixin:
         self._test_document_id_list = []
         self._test_document_id_list_string = []
         self._test_document_types = []
+        self._test_document_versions = []
+        self._test_document_version_pages = []
 
         if self.auto_create_test_document_type:
             self._create_test_document_type()
@@ -206,6 +208,7 @@ class DocumentTestMixin:
         self._test_document_file_page = self._test_document_file.file_pages.first()
 
         self._test_document_version = self._test_document.version_active
+        self._test_document_versions.append(self._test_document_version)
         self._test_document_version_pages = list(self._test_document_version.version_pages.all())
         self._test_document_version_page = self._test_document_version.version_pages.first()
 
