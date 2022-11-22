@@ -3,9 +3,8 @@ import logging
 import shutil
 
 from django.apps import apps
-from django.db import models, transaction
+from django.db import models
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
@@ -169,6 +168,115 @@ class DocumentFile(
     def __str__(self):
         return self.get_label()
 
+    @method_event(
+        action_object='document',
+        event_manager_class=EventManagerMethodAfter,
+        event=event_document_file_created,
+        target='self'
+    )
+    def _create(self, *args, **kwargs):
+        self._event_keep_attributes = ('_event_actor',)
+        user = getattr(self, '_event_actor', None)
+
+        logger.info('Creating new file for document: %s', self.document)
+        DocumentFile.execute_pre_create_hooks(
+            kwargs={
+                'document': self.document,
+                'file_object': self.file.open(mode='rb'),
+                'user': user
+            }
+        )
+
+        try:
+            self._event_ignore = True
+            result = self._save(*args, **kwargs)
+
+            logger.info(
+                'New document file "%s" created for document: %s',
+                self, self.document
+            )
+
+            self.document.is_stub = False
+            if not self.document.label:
+                self.document.label = str(self.file)
+
+            self.document._event_ignore = True
+            self.document.save(update_fields=('is_stub', 'label'))
+
+        except Exception as exception:
+            logger.error(
+                'Error creating new document file for document "%s"; %s',
+                self.document, exception, exc_info=True
+            )
+            raise
+        else:
+            return result
+
+    @method_event(
+        action_object='document',
+        event_manager_class=EventManagerMethodAfter,
+        event=event_document_file_edited,
+        target='self'
+    )
+    def _introspect(self):
+        try:
+            self.checksum_update(save=False)
+            super().save(update_fields=('checksum',))
+
+            self.mimetype_update(save=False)
+            super().save(update_fields=('encoding', 'mimetype',))
+
+            self.size_update(save=False)
+            super().save(update_fields=('size',))
+
+            self.page_count_update(save=False)
+        except Exception as exception:
+            logger.error(
+                'Error introspecting new document file for document "%s"; %s',
+                self.document, exception, exc_info=True
+            )
+            raise
+        else:
+            signal_post_document_file_upload.send(
+                sender=DocumentFile, instance=self
+            )
+
+            if tuple(self.document.files.all()) == (self,):
+                signal_post_document_created.send(
+                    instance=self.document, sender=Document
+                )
+
+    @method_event(
+        action_object='document',
+        event_manager_class=EventManagerMethodAfter,
+        event=event_document_file_edited,
+        target='self'
+    )
+    def _save(self, *args, **kwargs):
+        user = getattr(self, '_event_actor', None)
+
+        try:
+            self.execute_pre_save_hooks()
+
+            signal_mayan_pre_save.send(
+                instance=self, sender=DocumentFile, user=user
+            )
+
+            result = super().save(*args, **kwargs)
+
+            DocumentFile._execute_hooks(
+                hook_list=DocumentFile._post_save_hooks,
+                instance=self
+            )
+        except Exception as exception:
+            logger.error(
+                'Error saving document file for document "%s"; %s',
+                self.document, exception, exc_info=True
+            )
+            raise
+        else:
+            return result
+
     @cached_property
     def cache(self):
         Cache = apps.get_model(app_label='file_caching', model_name='Cache')
@@ -206,7 +314,7 @@ class DocumentFile(
 
                     hash_object.update(data)
 
-            self.checksum = force_text(s=hash_object.hexdigest())
+            self.checksum = str(hash_object.hexdigest())
             if save:
                 self.save(update_fields=('checksum',))
 
@@ -420,78 +528,15 @@ class DocumentFile(
         Overloaded save method that updates the document file's checksum,
         mimetype, and page count when created.
         """
-        user = kwargs.pop('_user', self.__dict__.pop('_event_actor', None))
+        self._event_keep_attributes = ('_event_actor',)
         new_document_file = not self.pk
 
         if new_document_file:
-            logger.info('Creating new file for document: %s', self.document)
-            DocumentFile.execute_pre_create_hooks(
-                kwargs={
-                    'document': self.document,
-                    'file_object': self.file.open(mode='rb'),
-                    'user': user
-                }
-            )
-
-        try:
-            self.execute_pre_save_hooks()
-
-            signal_mayan_pre_save.send(
-                instance=self, sender=DocumentFile, user=user
-            )
-
-            super().save(*args, **kwargs)
-
-            DocumentFile._execute_hooks(
-                hook_list=DocumentFile._post_save_hooks,
-                instance=self
-            )
-
-            if new_document_file:
-                # Only do this for new documents.
-                event_document_file_created.commit(
-                    actor=user, target=self, action_object=self.document
-                )
-
-                with transaction.atomic():
-                    self.checksum_update(save=False)
-                    self.mimetype_update(save=False)
-                    self.size_update(save=False)
-                    self._event_actor = user
-                    self.save()
-                    self.page_count_update(save=False)
-
-                    logger.info(
-                        'New document file "%s" created for document: %s',
-                        self, self.document
-                    )
-
-                    self.document.is_stub = False
-                    if not self.document.label:
-                        self.document.label = force_text(s=self.file)
-
-                    self.document._event_ignore = True
-                    self.document.save(update_fields=('is_stub', 'label'))
-        except Exception as exception:
-            logger.error(
-                'Error creating new document file for document "%s"; %s',
-                self.document, exception, exc_info=True
-            )
-            raise
+            result = self._create(*args, **kwargs)
+            self._introspect()
+            return result
         else:
-            if new_document_file:
-                signal_post_document_file_upload.send(
-                    sender=DocumentFile, instance=self
-                )
-
-                if tuple(self.document.files.all()) == (self,):
-                    signal_post_document_created.send(
-                        instance=self.document, sender=Document
-                    )
-            else:
-                event_document_file_edited.commit(
-                    actor=user, target=self, action_object=self.document
-                )
+            return self._save(*args, **kwargs)
 
     def save_to_file(self, file_object):
         """

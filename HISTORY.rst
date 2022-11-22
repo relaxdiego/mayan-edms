@@ -161,6 +161,10 @@
 - Replace "Match All" field with a radio box to allow supporting search
   again persistence and also the default state of the field.
 - Convert the "Match All" field name into a literal.
+- Split the document file creation method into smaller units. This reduces
+  the complexity of the several conditional statements.
+- Ensure the document file is created even if there are errors during the
+  uploaded file introspection.
 
 4.3.2 (unreleased)
 ==================
