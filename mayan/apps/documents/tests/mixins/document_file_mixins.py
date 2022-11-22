@@ -62,6 +62,10 @@ class DocumentFileAPIViewTestMixin:
             self._test_document_file = DocumentFile.objects.get(
                 ~Q(pk__in=pk_list)
             )
+            self._test_document.refresh_from_db()
+            self._test_document_version = self._test_document.versions.last()
+            self._test_document_version_pages = self._test_document_version.pages.all()
+            self._test_document_version_page = self._test_document_version_pages.first()
         except DocumentFile.DoesNotExist:
             self._test_document_file = None
 
@@ -94,6 +98,7 @@ class DocumentFileTestMixin:
         )
         self._test_document_files.append(self._test_document_file)
         self._test_document_version = self._test_document.version_active
+        self._test_document_versions.append(self._test_document_version)
 
 
 class DocumentFileViewTestMixin:
