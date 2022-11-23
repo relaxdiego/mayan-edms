@@ -168,6 +168,8 @@
 - Encapsulate mozilla-django-oidc settings as Mayan authentication backend
   arguments.
 - Add support for OpenID Connect Discovery (https://openid.net/specs/openid-connect-discovery-1_0.html).
+- Add Keycloak Docker Compose service.
+- Make Docker Compose service image name configurable.
 
 4.3.2 (unreleased)
 ==================
