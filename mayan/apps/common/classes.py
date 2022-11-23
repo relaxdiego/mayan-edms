@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import contenttypes
 from django.db import models
 from django.utils.encoding import force_text
@@ -339,3 +340,29 @@ class PropertyHelper:
         by each subclass.
         """
         raise NotImplementedError
+
+
+class UpstreamSetting:
+    def __init__(self, name, default):
+        self.default = default
+        self.name = name
+        self.upstream_setting_collection = None
+
+    def do_kwargs_capture(self, **kwargs):
+        value = kwargs.pop(self.name.lower(), self.default)
+        setattr(settings, self.name, value)
+
+
+class UpstreamSettingCollection:
+    def __init__(self, name):
+        self.name = name
+        self.setting_list = []
+
+    def do_setting_add(self, **kwargs):
+        setting = UpstreamSetting(**kwargs)
+        setting.upstream_setting_collection = self
+        self.setting_list.append(setting)
+
+    def do_kwargs_capture(self, **kwargs):
+        for setting in self.setting_list:
+            setting.do_kwargs_capture(**kwargs)
