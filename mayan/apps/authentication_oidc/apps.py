@@ -6,7 +6,6 @@ from mayan.apps.common.apps import MayanAppConfig
 from mayan.apps.common.menus import menu_user
 
 from .links import link_current_user_oidc_details, separator_oidc_user
-from .settings import setting_oidc_username_algo
 
 
 class AuthenticationOIDCApp(MayanAppConfig):
@@ -21,7 +20,6 @@ class AuthenticationOIDCApp(MayanAppConfig):
     def ready(self):
         super().ready()
 
-        settings.OIDC_USERNAME_ALGO = setting_oidc_username_algo.value
         settings.STRONGHOLD_PUBLIC_URLS += (r'^/oidc.*',)
 
         menu_user.bind_links(

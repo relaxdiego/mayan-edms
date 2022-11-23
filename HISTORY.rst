@@ -165,6 +165,9 @@
   the complexity of the several conditional statements.
 - Ensure the document file is created even if there are errors during the
   uploaded file introspection.
+- Encapsulate mozilla-django-oidc settings as Mayan authentication backend
+  arguments.
+- Add support for OpenID Connect Discovery (https://openid.net/specs/openid-connect-discovery-1_0.html).
 
 4.3.2 (unreleased)
 ==================
