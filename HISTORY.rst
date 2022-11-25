@@ -170,6 +170,22 @@
 - Add support for OpenID Connect Discovery (https://openid.net/specs/openid-connect-discovery-1_0.html).
 - Add Keycloak Docker Compose service.
 - Make Docker Compose service image name configurable.
+- User interface updates:
+
+  - Collapse views and actions by default.
+  - Add collapsed views and actions icons.
+  - Move views and actions markup to their own respective partial templates.
+    This reduces duplication and improves usability of the markup.
+  - Lower the z-index of the sidebar to avoid menus to display behing it.
+  - Add simulated horizontal rulers to the body of tables.
+  - Support slim dropdown menus.
+  - Move navigation to the card footer.
+  - Fix click events passing through views and action dropdown caret icons.
+  - Make the words "Actions" and "Views" translatable.
+  - Add two new table columns. One columns for views and another the actions.
+  - Unroll single action menus to a button.
+  - Reduce table padding to increase data area.
+  - Minor spacing and margin tweaks.
 
 4.3.2 (unreleased)
 ==================

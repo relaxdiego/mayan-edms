@@ -59,6 +59,14 @@ def navigation_resolve_menus(context, names, source=None, sort_results=None):
     return result
 
 
+@register.simple_tag
+def navigation_resolved_menus_is_single_link(resolved_menus):
+    if len(resolved_menus) == 1:
+        if len(resolved_menus[0]['link_groups']) == 1:
+            if len(resolved_menus[0]['link_groups'][0]['links']) == 1:
+                return True
+
+
 @register.simple_tag(takes_context=True)
 def navigation_source_column_get_sort_icon(context, column):
     if column:

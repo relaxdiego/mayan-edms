@@ -6,6 +6,12 @@
 {% load navigation_tags %}
 {% load smart_settings_tags %}
 
+{% appearance_get_icon 'mayan.apps.appearance.icons.icon_menu_actions' extra_context__html_data__style='pointer-events: none;' extra_context__icon_css_classes_extra='appearance-icon-padding-none' as icon_menu_actions %}
+{% appearance_get_icon 'mayan.apps.appearance.icons.icon_menu_views' extra_context__html_data__style='pointer-events: none;' extra_context__icon_css_classes_extra='appearance-icon-padding-none' as icon_menu_views %}
+
+{% smart_setting "COMMON_COLLAPSE_LIST_MENU_LIST_FACET" as setting_common_collapse_list_menu_list_facet %}
+{% smart_setting "COMMON_COLLAPSE_LIST_MENU_OBJECT" as setting_common_collapse_list_menu_object %}
+
 <div class="row">
     <div class="col-xs-12">
         {% include 'appearance/partials/list_header.html' %}
@@ -17,7 +23,7 @@
 
         <div class="well center-block">
             <div class="table-responsive">
-                <table class="table table-condensed table-striped">
+                <table class="table table-condensed table-striped appearance-table-condensed">
                     <thead>
                         {% if not hide_header %}
                             <tr>
@@ -74,10 +80,26 @@
                                 {% endfor %}
 
                                 {% if not hide_links %}
-                                    <th class="">&nbsp;</th>
+                                    {% navigation_resolve_menu name='list facet' sort_results=True source=object_list.0 as facet_menus_results %}
+                                    {% if facet_menus_results %}
+                                        <th class="text-center">{% trans 'Views' %}</th>
+                                    {% endif %}
+
+
+                                    {% navigation_resolve_menu name='object' source=object_list.0 sort_results=True as object_menus_results %}
+                                    {% if object_menus_results %}
+                                        <th class="text-center">{% trans 'Actions' %}</th>
+                                    {% endif %}
                                 {% endif %}
                             </tr>
                         {% endif %}
+                        <tr class="appearance-table-thead-tr-spacer">
+                            <th></th>
+                        </tr>
+
+                        <tr class="appearance-table-thead-tr-ruler">
+                            <th></th>
+                        </tr>
                     </thead>
                     <tbody>
                         {% for object in object_list %}
@@ -115,70 +137,38 @@
                                 {% endfor %}
 
                                 {% if not hide_links %}
-                                    <td class="last">
-                                       <div class="btn-list">
-                                            {% smart_setting "COMMON_COLLAPSE_LIST_MENU_LIST_FACET" as setting_common_collapse_list_menu_list_facet %}
-                                            {% navigation_resolve_menu name='list facet' sort_results=True source=object as facet_menus_results %}
-                                            {% if setting_common_collapse_list_menu_list_facet %}
-                                                {% if facet_menus_results %}
-                                                    {% with facet_menus_results as action_menus_link_results %}
-                                                        <div class="btn btn-xs dropdown">
-                                                            {% with 'btn btn-default btn-outline btn-xs' as action_dropdown_classes %}
-                                                            {% with 'true' as action_menu_disable_labels %}
-                                                            {% trans 'Facets' as action_dropdown_label %}
-                                                                {% include 'navigation/actions_dropdown.html' %}
-                                                            {% endwith %}
-                                                            {% endwith %}
-                                                        </div>
-                                                    {% endwith %}
-                                                {% endif %}
-                                            {% else %}
-                                                {% for facet_menu_results in facet_menus_results %}
-                                                    {% for link_group in facet_menu_results.link_groups %}
-                                                        {% with link_group.links as object_navigation_links %}
-                                                        {% with 'btn btn-default btn-outline btn-xs' as link_classes %}
-                                                            {% include 'navigation/generic_navigation.html' %}
-                                                        {% endwith %}
-                                                        {% endwith %}
-                                                    {% endfor %}
-                                                {% endfor %}
-                                            {% endif %}
+                                    {% navigation_resolve_menu name='list facet' sort_results=True source=object as facet_menus_link_results %}
+                                    {% if facet_menus_results %}
+                                        <td class="text-center">
+                                            <div class="btn-list {% if setting_common_collapse_list_menu_list_facet %}text-center{% else %}text-left{% endif %}">
+                                                {% include 'appearance/partials/list_object_facet_links_column.html' %}
+                                            </div>
+                                        </td>
+                                    {% endif %}
 
-                                            {% navigation_resolve_menu name='object' source=object sort_results=True as object_menus_results %}
-                                            {% smart_setting "COMMON_COLLAPSE_LIST_MENU_OBJECT" as setting_common_collapse_list_menu_object %}
-                                            {% if setting_common_collapse_list_menu_object %}
-                                                {% if object_menus_results %}
-                                                    {% with object_menus_results as action_menus_link_results %}
-                                                        <div class="btn btn-xs dropdown">
-                                                            {% with 'btn btn-default btn-xs btn-danger' as action_dropdown_classes %}
-                                                            {% with 'true' as action_menu_disable_labels %}
-                                                                {% include 'navigation/actions_dropdown.html' %}
-                                                            {% endwith %}
-                                                            {% endwith %}
-                                                        </div>
-                                                    {% endwith %}
-                                                {% endif %}
-                                            {% else %}
-                                                {% for object_menu_results in object_menus_results %}
-                                                    {% for link_group in object_menu_results.link_groups %}
-                                                        {% with link_group.links as object_navigation_links %}
-                                                            {% include 'navigation/generic_navigation.html' %}
-                                                        {% endwith %}
-                                                    {% endfor %}
-                                                {% endfor %}
-                                            {% endif %}
-                                        </div>
-                                    </td>
+                                    {% navigation_resolve_menu name='object' source=object sort_results=True as object_menus_link_results %}
+                                    {% if object_menus_results %}
+                                        <td class="last">
+                                            <div class="btn-list {% if setting_common_collapse_list_menu_object %}text-center{% else %}text-left{% endif %}">
+                                               {% include 'appearance/partials/list_object_links_column.html' %}
+                                            </div>
+                                        </td>
+                                    {% endif %}
                                 {% endif %}
                             </tr>
                         {% endfor %}
+                        {% if object_list %}
+                            <tr class="appearance-table-tbody-tr-ruler">
+                                <td></td>
+                            </tr>
+                        {% endif %}
                     </tbody>
                 </table>
-                    {% if not object_list %}
-                        <div class="well center-block">
-                            {% include 'appearance/partials/no_results.html' %}
-                        </div>
-                    {% endif %}
+                {% if not object_list %}
+                    <div class="well center-block">
+                        {% include 'appearance/partials/no_results.html' %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

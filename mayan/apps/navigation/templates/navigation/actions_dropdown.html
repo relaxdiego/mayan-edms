@@ -2,16 +2,22 @@
 
 {% load common_tags %}
 
-<button aria-expanded="false" aria-haspopup="true" class="{{ action_dropdown_classes|default:"btn btn-default btn-danger"}} btn-sm dropdown-toggle" data-toggle="dropdown" type="button">
-    {% if action_dropdown_label %}
-        {{ action_dropdown_label }}
+{% trans 'Actions' as text_actions %}
+
+<button aria-expanded="false" aria-haspopup="true" class="{{ action_dropdown_classes|default:"btn btn-default btn-danger"}} btn-sm dropdown-toggle" data-toggle="dropdown" title="{{ action_dropdown_label|default:text_actions }}" type="button">
+    {% if action_dropdown_icon %}
+        {{ action_dropdown_icon }}
     {% else %}
-        {% trans 'Actions' %}
+        {% if action_dropdown_label %}
+            {{ action_dropdown_label }}
+        {% else %}
+            {{ text_actions }}
+        {% endif %}
+        <span class="caret"></span>
     {% endif %}
-    <span class="caret"></span>
     <span class="sr-only">{% trans 'Toggle Dropdown' %}</span>
 </button>
-<ul class="dropdown-menu" role="menu">
+<ul class="dropdown-menu {{ navigation_action_dropdown_menu_css_classes_extra }}" role="menu">
     {% for menus_link_result in action_menus_link_results %}
         {% if not action_menu_disable_labels and action_menus_link_results|length > 1 %}
             <li class="dropdown-header"><strong>{{ menus_link_result.menu.label }}</strong></li>

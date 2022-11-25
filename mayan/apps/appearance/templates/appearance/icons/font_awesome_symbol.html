@@ -4,5 +4,5 @@
         <i class="fa fa-{{ symbol }}"></i>
     </span>
 {% else %}
-    <i class="fa fa-{{ symbol }} {{ html_data.class }}" id="{{ html_data.id }}" style="padding-right: 5px; width: auto; {{ html_data.style }}"></i>
+    <i class="fa fa-{{ symbol }} {{ html_data.class }} appearance-icon {{ icon_css_classes_extra }}" id="{{ html_data.id }}" style="{{ html_data.style }}"></i>
 {% endif %}

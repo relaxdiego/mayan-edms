@@ -8,6 +8,10 @@ icon_user_theme_settings_edit = Icon(
     secondary_symbol='pencil-alt'
 )
 
+
+icon_menu_actions = Icon(driver_name='fontawesome', symbol='ellipsis-v')
+icon_menu_views = Icon(driver_name='fontawesome', symbol='eye')
+
 icon_theme = Icon(driver_name='fontawesome', symbol='palette')
 icon_theme_create = Icon(
     driver_name='fontawesome-dual', primary_symbol='palette',

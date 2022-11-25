@@ -1,8 +1,13 @@
 {% load i18n %}
 {% load static %}
 
+{% load appearance_tags %}
 {% load common_tags %}
 {% load navigation_tags %}
+{% load smart_settings_tags %}
+
+{% smart_setting "COMMON_COLLAPSE_LIST_MENU_LIST_FACET" as setting_common_collapse_list_menu_list_facet %}
+{% smart_setting "COMMON_COLLAPSE_LIST_MENU_OBJECT" as setting_common_collapse_list_menu_object %}
 
 <div class="row">
     <div class="col-xs-12">
@@ -58,37 +63,32 @@
                                     {% for column in extra_columns %}
                                         <div class="text-center"><span class="list-extra-column-label">{{ column.name }}</span>: {{ object|common_object_property:column.attribute }}</div>
                                     {% endfor %}
-
-                                    {% if not hide_links %}
-                                        <hr/>
-                                        {% navigation_resolve_menus sort_results=True names='list facet' source=object as facet_menus_link_results %}
-                                        {% if facet_menus_link_results %}
-                                            {% trans "Views" as text_views %}
-                                            {% with facet_menus_link_results as action_menus_link_results %}
-                                            {% with text_views as action_dropdown_label %}
-                                            {% with "btn-primary" as action_dropdown_classes %}
-                                                <div class="dropdown text-center">
-                                                    {% with 'true' as action_menu_disable_labels %}
-                                                        {% include 'navigation/actions_dropdown.html' %}
-                                                    {% endwith %}
-                                                </div>
-                                            {% endwith %}
-                                            {% endwith %}
-                                            {% endwith %}
-                                        {% endif %}
-
-                                        {% navigation_resolve_menus sort_results=True names='object' source=object as facet_menus_link_results %}
-                                        {% if facet_menus_link_results %}
-                                            {% with facet_menus_link_results as action_menus_link_results %}
-                                                <div class="dropdown text-center">
-                                                    {% with 'true' as action_menu_disable_labels %}
-                                                        {% include 'navigation/actions_dropdown.html' %}
-                                                    {% endwith %}
-                                                </div>
-                                            {% endwith %}
-                                        {% endif %}
-                                    {% endif %}
                                 </div>
+
+                                {% if not hide_links %}
+                                    {% navigation_resolve_menus sort_results=True names='list facet' source=object as facet_menus_link_results %}
+                                    {% navigation_resolve_menus sort_results=True names='object' source=object as object_menus_link_results %}
+
+                                    {% if facet_menus_link_results or object_menus_link_results %}
+                                        <div class="panel-footer">
+                                            <div class="text-center">
+                                                {% if facet_menus_link_results %}
+                                                    {% include 'appearance/partials/list_object_facet_links_column.html' %}
+                                                {% endif %}
+
+                                                {% if facet_menus_link_results and object_menus_link_results %}
+                                                    {% if not setting_common_collapse_list_menu_list_facet or not setting_common_collapse_list_menu_object %}
+                                                    <hr />
+                                                    {% else %}
+                                                    <span style="margin-left: 20px;"></span>
+                                                    {% endif %}
+
+                                                    {% include 'appearance/partials/list_object_links_column.html' %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
