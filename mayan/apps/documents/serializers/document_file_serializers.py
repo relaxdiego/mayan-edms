@@ -10,51 +10,48 @@ from ..models.document_file_page_models import DocumentFilePage
 
 class DocumentFilePageSerializer(serializers.HyperlinkedModelSerializer):
     document_file_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Document file URL'), view_kwargs=(
             {
                 'lookup_field': 'document_file.document.pk',
-                'lookup_url_kwarg': 'document_id',
+                'lookup_url_kwarg': 'document_id'
             },
             {
                 'lookup_field': 'document_file_id',
-                'lookup_url_kwarg': 'document_file_id',
+                'lookup_url_kwarg': 'document_file_id'
             }
-        ),
-        view_name='rest_api:documentfile-detail'
+        ), view_name='rest_api:documentfile-detail'
     )
     image_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Image URL'), view_kwargs=(
             {
                 'lookup_field': 'document_file.document.pk',
-                'lookup_url_kwarg': 'document_id',
+                'lookup_url_kwarg': 'document_id'
             },
             {
                 'lookup_field': 'document_file_id',
-                'lookup_url_kwarg': 'document_file_id',
+                'lookup_url_kwarg': 'document_file_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'document_file_page_id',
+                'lookup_url_kwarg': 'document_file_page_id'
             }
-        ),
-        view_name='rest_api:documentfilepage-image'
+        ), view_name='rest_api:documentfilepage-image'
     )
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'document_file.document.pk',
-                'lookup_url_kwarg': 'document_id',
+                'lookup_url_kwarg': 'document_id'
             },
             {
                 'lookup_field': 'document_file_id',
-                'lookup_url_kwarg': 'document_file_id',
+                'lookup_url_kwarg': 'document_file_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'document_file_page_id',
+                'lookup_url_kwarg': 'document_file_page_id'
             }
-        ),
-        view_name='rest_api:documentfilepage-detail'
+        ), view_name='rest_api:documentfilepage-detail'
     )
 
     class Meta:
@@ -70,54 +67,54 @@ class DocumentFilePageSerializer(serializers.HyperlinkedModelSerializer):
 
 class DocumentFileSerializer(serializers.HyperlinkedModelSerializer):
     action = serializers.ChoiceField(
-        choices=DocumentFileAction.get_choices(), write_only=True
+        choices=DocumentFileAction.get_choices(), label=_('Action'),
+        write_only=True
     )
     document_url = serializers.HyperlinkedIdentityField(
-        lookup_field='document_id',
-        lookup_url_kwarg='document_id',
-        view_name='rest_api:document-detail'
+        label=_('Document URL'), lookup_field='document_id',
+        lookup_url_kwarg='document_id', view_name='rest_api:document-detail'
     )
     download_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Download URL'), view_kwargs=(
             {
                 'lookup_field': 'document_id',
-                'lookup_url_kwarg': 'document_id',
+                'lookup_url_kwarg': 'document_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'document_file_id',
-            },
-        ),
-        view_name='rest_api:documentfile-download'
+                'lookup_url_kwarg': 'document_file_id'
+            }
+        ), view_name='rest_api:documentfile-download'
     )
     file_new = serializers.FileField(
         help_text=_('Binary content for the new file.'),
-        use_url=False, write_only=True
+        label=_('File new'), use_url=False, write_only=True
     )
     page_list_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Page list URL'), view_kwargs=(
             {
                 'lookup_field': 'document_id',
-                'lookup_url_kwarg': 'document_id',
+                'lookup_url_kwarg': 'document_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'document_file_id',
-            },
-        ),
-        view_name='rest_api:documentfilepage-list'
+                'lookup_url_kwarg': 'document_file_id'
+            }
+        ), view_name='rest_api:documentfilepage-list'
     )
-    pages_first = DocumentFilePageSerializer(many=False, read_only=True)
+    pages_first = DocumentFilePageSerializer(
+        label=_('Pages first'), many=False, read_only=True
+    )
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'document_id',
-                'lookup_url_kwarg': 'document_id',
+                'lookup_url_kwarg': 'document_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'document_file_id',
-            },
+                'lookup_url_kwarg': 'document_file_id'
+            }
         ),
         view_name='rest_api:documentfile-detail'
     )

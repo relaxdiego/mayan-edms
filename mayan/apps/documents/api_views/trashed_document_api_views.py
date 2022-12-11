@@ -1,6 +1,7 @@
 import logging
 
 from rest_framework import status
+from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
 from mayan.apps.converter.api_view_mixins import APIImageViewMixin
@@ -48,7 +49,9 @@ class APITrashedDocumentListView(generics.ListAPIView):
     """
     get: Returns a list of all the trashed documents.
     """
-    mayan_object_permissions = {'GET': (permission_document_view,)}
+    mayan_object_permissions = {
+        'GET': (permission_document_view,)
+    }
     ordering_fields = ('id', 'label')
     queryset = TrashedDocument.objects.all()
     serializer_class = TrashedDocumentSerializer
@@ -64,13 +67,13 @@ class APITrashedDocumentRestoreView(generics.ObjectActionAPIView):
     }
     queryset = TrashedDocument.objects.all()
 
-    def get_instance_extra_data(self):
-        return {
-            '_event_actor': self.request.user
-        }
+    # ~ def get_instance_extra_data(self):
+        # ~ return {
+            # ~ '_event_actor': self.request.user
+        # ~ }
 
-    def object_action(self, request, serializer):
-        self.object.restore()
+    def object_action(self, obj, request, serializer):
+        obj.restore(user=self.request.user)
 
 
 class APITrashedDocumentImageView(
@@ -81,15 +84,10 @@ class APITrashedDocumentImageView(
     """
     lookup_url_kwarg = 'document_id'
     mayan_object_permissions = {
-        'GET': (permission_document_version_view,),
+        'GET': (permission_document_version_view,)
     }
 
-    def get_queryset(self):
-        return TrashedDocument.objects.all()
-
     def get_object(self):
-        from rest_framework.generics import get_object_or_404
-
         obj = super().get_object()
 
         # Return a 404 if the document doesn't have any pages.
@@ -101,3 +99,6 @@ class APITrashedDocumentImageView(
             first_page_id = None
 
         return get_object_or_404(queryset=obj.pages, pk=first_page_id)
+
+    def get_queryset(self):
+        return TrashedDocument.objects.all()

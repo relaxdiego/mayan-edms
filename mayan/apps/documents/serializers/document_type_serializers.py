@@ -1,3 +1,5 @@
+from django.utils.translation import ugettext_lazy as _
+
 from mayan.apps.rest_api import serializers
 from mayan.apps.rest_api.relations import MultiKwargHyperlinkedIdentityField
 
@@ -6,21 +8,20 @@ from ..models.document_type_models import DocumentType, DocumentTypeFilename
 
 class DocumentTypeQuickLabelSerializer(serializers.ModelSerializer):
     document_type_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='document_type_id',
+        label=_('Document type URL'), lookup_url_kwarg='document_type_id',
         view_name='rest_api:documenttype-detail'
     )
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'document_type_id',
-                'lookup_url_kwarg': 'document_type_id',
+                'lookup_url_kwarg': 'document_type_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'document_type_quick_label_id',
-            },
-        ),
-        view_name='rest_api:documenttype-quicklabel-detail'
+                'lookup_url_kwarg': 'document_type_quick_label_id'
+            }
+        ), view_name='rest_api:documenttype-quicklabel-detail'
     )
 
     class Meta:
@@ -31,7 +32,7 @@ class DocumentTypeQuickLabelSerializer(serializers.ModelSerializer):
 
 class DocumentTypeSerializer(serializers.HyperlinkedModelSerializer):
     quick_label_list_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='document_type_id',
+        label=_('Quick label list URL'), lookup_url_kwarg='document_type_id',
         view_name='rest_api:documenttype-quicklabel-list'
     )
 
@@ -40,7 +41,7 @@ class DocumentTypeSerializer(serializers.HyperlinkedModelSerializer):
             'url': {
                 'lookup_url_kwarg': 'document_type_id',
                 'view_name': 'rest_api:documenttype-detail'
-            },
+            }
         }
         fields = (
             'delete_time_period', 'delete_time_unit',

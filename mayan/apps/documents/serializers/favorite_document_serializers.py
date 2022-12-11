@@ -9,19 +9,23 @@ from .document_serializers import DocumentSerializer
 
 
 class FavoriteDocumentSerializer(serializers.HyperlinkedModelSerializer):
-    document = DocumentSerializer(read_only=True)
+    document = DocumentSerializer(
+        label=_('Document'), read_only=True
+    )
     document_id = serializers.IntegerField(
         help_text=_('Document ID for the new favorite document.'),
-        write_only=True
+        label=_('Document ID'), write_only=True
     )
-    user = UserSerializer(read_only=True)
+    user = UserSerializer(
+        label=_('User'), read_only=True
+    )
 
     class Meta:
         extra_kwargs = {
             'url': {
                 'lookup_url_kwarg': 'favorite_document_id',
                 'view_name': 'rest_api:favoritedocument-detail'
-            },
+            }
         }
         fields = (
             'document', 'document_id', 'datetime_added', 'id', 'user', 'url'

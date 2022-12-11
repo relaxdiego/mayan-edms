@@ -20,16 +20,14 @@ from ..icons import (
     icon_document_type_change
 )
 from ..models.document_models import Document
+from ..models.document_type_models import DocumentType
 from ..permissions import (
-    permission_document_properties_edit, permission_document_view
+    permission_document_change_type, permission_document_properties_edit,
+    permission_document_view
 )
 
 from .document_version_views import DocumentVersionPreviewView
 
-__all__ = (
-    'DocumentListView', 'DocumentTypeChangeView',
-    'DocumentPropertiesEditView', 'DocumentPreviewView'
-)
 logger = logging.getLogger(name=__name__)
 
 
@@ -70,7 +68,7 @@ class DocumentListView(SingleObjectListView):
                 'permission for any document or document type.'
             ),
             'no_results_title': _('No documents available'),
-            'title': _('All documents'),
+            'title': _('All documents')
         }
 
     def get_source_queryset(self):
@@ -80,7 +78,7 @@ class DocumentListView(SingleObjectListView):
 
 class DocumentTypeChangeView(MultipleObjectFormActionView):
     form_class = DocumentTypeFilteredSelectForm
-    object_permission = permission_document_properties_edit
+    object_permission = permission_document_change_type
     pk_url_kwarg = 'document_id'
     source_queryset = Document.valid.all()
     success_message = _(
@@ -92,23 +90,21 @@ class DocumentTypeChangeView(MultipleObjectFormActionView):
     view_icon = icon_document_type_change
 
     def get_extra_context(self):
-        queryset = self.object_list
-
         result = {
             'title': ungettext(
                 singular='Change the type of the selected document',
                 plural='Change the type of the selected documents',
-                number=queryset.count()
+                number=self.object_list.count()
             )
         }
 
-        if queryset.count() == 1:
+        if self.object_list.count() == 1:
             result.update(
                 {
-                    'object': queryset.first(),
+                    'object': self.object_list.first(),
                     'title': _(
                         'Change the type of the document: %s'
-                    ) % queryset.first()
+                    ) % self.object_list.first()
                 }
             )
 
@@ -116,15 +112,21 @@ class DocumentTypeChangeView(MultipleObjectFormActionView):
 
     def get_form_extra_kwargs(self):
         result = {
+            'permission': permission_document_change_type,
             'user': self.request.user
         }
+
+        if self.object_list.count() == 1:
+            result['queryset'] = DocumentType.objects.exclude(
+                pk=self.object_list.first().document_type.pk
+            )
 
         return result
 
     def object_action(self, form, instance):
         instance.document_type_change(
             document_type=form.cleaned_data['document_type'],
-            _user=self.request.user
+            user=self.request.user
         )
 
         messages.success(
@@ -155,7 +157,7 @@ class DocumentPreviewView(DocumentVersionPreviewView):
         return {
             'hide_labels': True,
             'object': self.object,
-            'title': _('Preview of document: %s') % self.object,
+            'title': _('Preview of document: %s') % self.object
         }
 
 
@@ -174,7 +176,7 @@ class DocumentPropertiesEditView(SingleObjectEditView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Edit properties of document: %s') % self.object,
+            'title': _('Edit properties of document: %s') % self.object
         }
 
     def get_instance_extra_data(self):
@@ -206,5 +208,5 @@ class DocumentPropertiesView(SingleObjectDetailView):
         return {
             'document': self.object,
             'object': self.object,
-            'title': _('Properties of document: %s') % self.object,
+            'title': _('Properties of document: %s') % self.object
         }

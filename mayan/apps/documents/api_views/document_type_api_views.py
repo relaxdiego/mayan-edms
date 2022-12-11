@@ -11,7 +11,7 @@ from ..serializers.document_type_serializers import (
     DocumentTypeQuickLabelSerializer, DocumentTypeSerializer,
 )
 
-from .mixins import ParentObjectDocumentTypeAPIViewMixin
+from .api_view_mixins import ParentObjectDocumentTypeAPIViewMixin
 
 logger = logging.getLogger(name=__name__)
 
@@ -57,7 +57,8 @@ class APIDocumentTypeDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class APIDocumentTypeQuickLabelDetailView(
-    ParentObjectDocumentTypeAPIViewMixin, generics.RetrieveUpdateDestroyAPIView
+    ParentObjectDocumentTypeAPIViewMixin,
+    generics.RetrieveUpdateDestroyAPIView
 ):
     """
     delete: Delete the selected quick label.

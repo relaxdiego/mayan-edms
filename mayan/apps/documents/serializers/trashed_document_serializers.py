@@ -1,3 +1,5 @@
+from django.utils.translation import ugettext_lazy as _
+
 from mayan.apps.rest_api import serializers
 
 from ..models.trashed_document_models import TrashedDocument
@@ -7,11 +9,11 @@ from .document_serializers import DocumentSerializer
 
 class TrashedDocumentSerializer(DocumentSerializer):
     image_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='document_id',
+        label=_('Image URL'), lookup_url_kwarg='document_id',
         view_name='rest_api:trasheddocument-image'
     )
     restore_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='document_id',
+        label=_('Restore URL'), lookup_url_kwarg='document_id',
         view_name='rest_api:trasheddocument-restore'
     )
 

@@ -6,6 +6,9 @@ namespace = PermissionNamespace(label=_('Documents'), name='documents')
 
 # Document
 
+permission_document_change_type = namespace.add_permission(
+    label=_('Change type of documents'), name='document_change_type'
+)
 permission_document_create = namespace.add_permission(
     label=_('Create documents'), name='document_create'
 )

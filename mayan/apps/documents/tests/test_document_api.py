@@ -10,8 +10,8 @@ from ..events import (
 )
 from ..models.document_models import Document
 from ..permissions import (
-    permission_document_create, permission_document_properties_edit,
-    permission_document_view
+    permission_document_change_type, permission_document_create,
+    permission_document_properties_edit, permission_document_view
 )
 
 from .mixins.document_mixins import (
@@ -63,77 +63,6 @@ class DocumentAPIViewTestCase(
         self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self._test_document)
         self.assertEqual(events[0].verb, event_document_created.id)
-
-    def test_document_change_type_api_view_no_permission(self):
-        self._create_test_document_stub()
-
-        self._create_test_document_type()
-
-        document_type = self._test_document.document_type
-
-        self._clear_events()
-
-        response = self._request_test_document_change_type_api_view()
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-
-        self._test_document.refresh_from_db()
-        self.assertEqual(self._test_document.document_type, document_type)
-
-        events = self._get_test_events()
-        self.assertEqual(events.count(), 0)
-
-    def test_document_change_type_api_view_with_access(self):
-        self._create_test_document_stub()
-
-        self.grant_access(
-            obj=self._test_document,
-            permission=permission_document_properties_edit
-        )
-        self._create_test_document_type()
-
-        document_type = self._test_document.document_type
-
-        self._clear_events()
-
-        response = self._request_test_document_change_type_api_view()
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        self._test_document.refresh_from_db()
-        self.assertNotEqual(self._test_document.document_type, document_type)
-
-        events = self._get_test_events()
-        # Only the change event, should not have an event for the first
-        # .save() method call.
-        self.assertEqual(events.count(), 1)
-
-        self.assertEqual(events[0].action_object, self._test_document_types[1])
-        self.assertEqual(events[0].actor, self._test_case_user)
-        self.assertEqual(events[0].target, self._test_document)
-        self.assertEqual(events[0].verb, event_document_type_changed.id)
-
-    def test_trashed_document_change_type_api_view_with_access(self):
-        self._create_test_document_stub()
-
-        self.grant_access(
-            obj=self._test_document,
-            permission=permission_document_properties_edit
-        )
-        self._create_test_document_type()
-
-        document_type = self._test_document.document_type
-
-        self._test_document.delete()
-
-        self._clear_events()
-
-        response = self._request_test_document_change_type_api_view()
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-
-        self._test_document.refresh_from_db()
-        self.assertEqual(self._test_document.document_type, document_type)
-
-        events = self._get_test_events()
-        self.assertEqual(events.count(), 0)
 
     def test_document_detail_api_view_no_permission(self):
         self._create_test_document_stub()
@@ -470,3 +399,133 @@ class DocumentAPIViewTestCase(
         self.assertEqual(
             events[4].verb, event_document_version_page_created.id
         )
+
+
+class DocumentChangeTypeAPIViewTestCase(
+    DocumentAPIViewTestMixin, DocumentTestMixin, BaseAPITestCase
+):
+    auto_create_test_document_stub = True
+
+    def setUp(self):
+        super().setUp()
+        self._create_test_document_type()
+
+    def test_document_change_type_api_view_no_permission(self):
+        test_document_type = self._test_document.document_type
+
+        self._clear_events()
+
+        response = self._request_test_document_change_type_api_view()
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        self._test_document.refresh_from_db()
+        self.assertEqual(
+            self._test_document.document_type, test_document_type
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_document_change_type_api_view_with_document_access(self):
+        self.grant_access(
+            obj=self._test_document,
+            permission=permission_document_change_type
+        )
+
+        test_document_type = self._test_document.document_type
+
+        self._clear_events()
+
+        response = self._request_test_document_change_type_api_view()
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        error_dict = response.json()
+        self.assertTrue('document_type_id' in error_dict)
+        self.assertTrue(
+            'object does not exist' in error_dict['document_type_id'][0]
+        )
+
+        self._test_document.refresh_from_db()
+        self.assertEqual(
+            self._test_document.document_type, test_document_type
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_document_change_type_api_view_with_document_type_access(self):
+        self.grant_access(
+            obj=self._test_document_type,
+            permission=permission_document_change_type
+        )
+
+        test_document_type = self._test_document.document_type
+
+        self._clear_events()
+
+        response = self._request_test_document_change_type_api_view()
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        self._test_document.refresh_from_db()
+        self.assertEqual(
+            self._test_document.document_type, test_document_type
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_document_change_type_api_view_with_full_access(self):
+        self.grant_access(
+            obj=self._test_document,
+            permission=permission_document_change_type
+        )
+        self.grant_access(
+            obj=self._test_document_type,
+            permission=permission_document_change_type
+        )
+
+        test_document_type = self._test_document.document_type
+
+        self._clear_events()
+
+        response = self._request_test_document_change_type_api_view()
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        self._test_document.refresh_from_db()
+        self.assertNotEqual(
+            self._test_document.document_type, test_document_type
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 1)
+
+        self.assertEqual(events[0].action_object, self._test_document_types[1])
+        self.assertEqual(events[0].actor, self._test_case_user)
+        self.assertEqual(events[0].target, self._test_document)
+        self.assertEqual(events[0].verb, event_document_type_changed.id)
+
+    def test_trashed_document_change_type_api_view_with_access(self):
+        self.grant_access(
+            obj=self._test_document,
+            permission=permission_document_change_type
+        )
+        self.grant_access(
+            obj=self._test_document_type,
+            permission=permission_document_change_type
+        )
+
+        test_document_type = self._test_document.document_type
+
+        self._test_document.delete()
+
+        self._clear_events()
+
+        response = self._request_test_document_change_type_api_view()
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        self._test_document.refresh_from_db()
+        self.assertEqual(
+            self._test_document.document_type, test_document_type
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)

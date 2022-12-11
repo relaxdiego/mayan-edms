@@ -33,14 +33,16 @@ class DocumentVersionPageMappingForm(forms.Form):
     )
     source_label = forms.CharField(
         label=_('Source'), required=False,
-        widget=forms.TextInput(attrs={'readonly': 'readonly'})
+        widget=forms.TextInput(
+            attrs={'readonly': 'readonly'}
+        )
     )
     source_thumbnail = ThumbnailFormField(required=False)
     target_page_number = forms.ChoiceField(
         choices=(), label=_('Destination page number'), required=False,
         widget=forms.widgets.Select(
             attrs={'size': 1, 'class': 'select2'}
-        ),
+        )
     )
 
     def __init__(self, *args, **kwargs):
@@ -67,8 +69,8 @@ class DocumentVersionPageMappingFormSet(
             if target_page_number != '0':
                 if target_page_number in set_of_target_page_numbers:
                     form.add_error(
-                        field='target_page_number',
-                        error=_('Target page number can\'t be repeated.')
+                        error=_('Target page number can\'t be repeated.'),
+                        field='target_page_number'
                     )
                 else:
                     set_of_target_page_numbers.add(target_page_number)

@@ -84,7 +84,8 @@
   - Unify frontend and all_in_one profiles HTTP and Traefik configuration.
   - Support Let's Entry TLS termination for all_in_one profile.
   - Configurable RabbitMQ administration HTTP port via the .env file.
-  - Configurable Traefik dashboard, HTTP and HTTPS entrypoints ports via the .env file.
+  - Configurable Traefik dashboard, HTTP and HTTPS entrypoints ports via
+    the .env file.
   - Configurable Traefik Let's Encrypt certificate volume location.
   - Support Let's Encrypt DNS challenge.
 
@@ -214,6 +215,20 @@
     mirror how upstream DRF works.
   - Pass the view object to the action object API view.
   - Add labels to serializer fields.
+
+- Track the user when purging caches and cache partitions.
+- Create a new permission to change the type of a document.
+  When support for changing the type of a document was added, it was
+  considered a property and controlled via the document property edit
+  permission.
+
+  Since changing the type of a documents now causes a cascade of other
+  changes, it was isolated as an individual class of event along
+  with its own permission.
+
+  The new document change type permission is required for the document being
+  changed and for the document type to which the document will be changed
+  into.
 
 4.3.2 (unreleased)
 ==================

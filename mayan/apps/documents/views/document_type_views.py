@@ -8,7 +8,7 @@ from mayan.apps.views.generics import (
     SingleObjectCreateView, SingleObjectDeleteView, SingleObjectEditView,
     SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..forms.document_type_forms import (
     DocumentTypeFilenameGeneratorForm, DocumentTypeFilenameForm_create
@@ -33,17 +33,12 @@ from ..permissions import (
 
 from .document_views import DocumentListView
 
-__all__ = (
-    'DocumentTypeDocumentListView', 'DocumentTypeListView',
-    'DocumentTypeCreateView', 'DocumentTypeDeleteView',
-    'DocumentTypeEditView', 'DocumentTypeFilenameCreateView',
-    'DocumentTypeFilenameEditView', 'DocumentTypeFilenameDeleteView',
-    'DocumentTypeFilenameListView'
-)
 logger = logging.getLogger(name=__name__)
 
 
-class DocumentTypeDocumentListView(ExternalObjectViewMixin, DocumentListView):
+class DocumentTypeDocumentListView(
+    ExternalObjectViewMixin, DocumentListView
+):
     external_object_class = DocumentType
     external_object_permission = permission_document_type_view
     external_object_pk_url_kwarg = 'document_type_id'
@@ -84,7 +79,7 @@ class DocumentTypeListView(SingleObjectListView):
                 'invoice, receipt, manual, prescription, balance sheet.'
             ),
             'no_results_title': _('No document types available'),
-            'title': _('Document types'),
+            'title': _('Document types')
         }
 
 
@@ -99,12 +94,12 @@ class DocumentTypeCreateView(SingleObjectCreateView):
 
     def get_extra_context(self):
         return {
-            'title': _('Create document type'),
+            'title': _('Create document type')
         }
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
 
@@ -121,7 +116,7 @@ class DocumentTypeDeleteView(SingleObjectDeleteView):
         return {
             'message': _('All documents of this type will be deleted too.'),
             'object': self.object,
-            'title': _('Delete the document type: %s?') % self.object,
+            'title': _('Delete the document type: %s?') % self.object
         }
 
 
@@ -138,12 +133,12 @@ class DocumentTypeEditView(SingleObjectEditView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Edit document type: %s') % self.object,
+            'title': _('Edit document type: %s') % self.object
         }
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
 
@@ -160,13 +155,15 @@ class DocumentTypeDeletionPoliciesEditView(SingleObjectEditView):
         ), (
             _('Delete'), {
                 'fields': ('delete_time_unit', 'delete_time_period')
-            },
+            }
         )
     )
     model = DocumentType
     object_permission = permission_document_type_edit
     pk_url_kwarg = 'document_type_id'
-    post_action_redirect = reverse_lazy(viewname='documents:document_type_list')
+    post_action_redirect = reverse_lazy(
+        viewname='documents:document_type_list'
+    )
     view_icon = icon_document_type_policies
 
     def get_extra_context(self):
@@ -174,12 +171,12 @@ class DocumentTypeDeletionPoliciesEditView(SingleObjectEditView):
             'object': self.object,
             'title': _(
                 'Deletion policies for document type: %s'
-            ) % self.object,
+            ) % self.object
         }
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
 
@@ -198,7 +195,7 @@ class DocumentTypeFilenameCreateView(
             'navigation_object_list': ('document_type',),
             'title': _(
                 'Create quick label for document type: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_instance_extra_data(self):
@@ -222,7 +219,7 @@ class DocumentTypeFilenameDeleteView(SingleObjectDeleteView):
             ) % {
                 'document_type': self.object.document_type,
                 'label': self.object
-            },
+            }
         }
 
     def get_post_action_redirect(self):
@@ -251,7 +248,7 @@ class DocumentTypeFilenameEditView(SingleObjectEditView):
             ) % {
                 'document_type': self.object.document_type,
                 'filename': self.object
-            },
+            }
         }
 
     def get_post_action_redirect(self):
@@ -279,9 +276,9 @@ class DocumentTypeFilenameListView(
             'no_results_icon': icon_document_type_filename,
             'no_results_main_link': link_document_type_filename_create.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={
+                    dict_={
                         'document_type': self.external_object
-                    }
+                    }, request=self.request
                 )
             ),
             'no_results_text': _(
@@ -295,7 +292,7 @@ class DocumentTypeFilenameListView(
             ),
             'title': _(
                 'Quick labels for document type: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_source_queryset(self):
@@ -317,10 +314,10 @@ class DocumentTypeFilenameGeneratorEditView(SingleObjectEditView):
             'object': self.object,
             'title': _(
                 'Filename generation setup for document type: %s'
-            ) % self.object,
+            ) % self.object
         }
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }

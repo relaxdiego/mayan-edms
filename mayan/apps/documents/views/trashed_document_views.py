@@ -26,10 +26,6 @@ from ..tasks import task_trashed_document_delete, task_trash_can_empty
 
 from .document_views import DocumentListView
 
-__all__ = (
-    'DocumentTrashView', 'EmptyTrashCanView', 'TrashedDocumentDeleteView',
-    'TrashedDocumentListView', 'TrashedDocumentRestoreView'
-)
 logger = logging.getLogger(name=__name__)
 
 
@@ -70,7 +66,8 @@ class DocumentTrashView(MultipleObjectConfirmActionView):
             return None
 
     def object_action(self, form, instance):
-        instance.delete(_user=self.request.user)
+        instance._event_actor = self.request.user
+        instance.delete()
 
 
 class EmptyTrashCanView(ConfirmView):
@@ -100,18 +97,18 @@ class TrashedDocumentDeleteView(MultipleObjectConfirmActionView):
     model = TrashedDocument
     object_permission = permission_trashed_document_delete
     pk_url_kwarg = 'document_id'
+    success_message_plural = _(
+        '%(count)d trashed documents submitted for deletion.'
+    )
     success_message_single = _(
         'Trash document "%(object)s" submitted for deletion.'
     )
     success_message_singular = _(
         '%(count)d trashed document submitted for deletion.'
     )
-    success_message_plural = _(
-        '%(count)d trashed documents submitted for deletion.'
-    )
+    title_plural = _('Delete the %(count)d selected trashed documents?')
     title_single = _('Delete the trashed document "%(object)s"?')
     title_singular = _('Delete the selected trashed document?')
-    title_plural = _('Delete the %(count)d selected trashed documents?')
     view_icon = icon_trashed_document_delete
 
     def get_extra_context(self):
@@ -156,7 +153,7 @@ class TrashedDocumentListView(DocumentListView):
                 'no_results_title': _(
                     'There are no documents in the trash can'
                 ),
-                'title': _('Documents in trash'),
+                'title': _('Documents in trash')
             }
         )
         return context
@@ -166,18 +163,18 @@ class TrashedDocumentRestoreView(MultipleObjectConfirmActionView):
     model = TrashedDocument
     object_permission = permission_trashed_document_restore
     pk_url_kwarg = 'document_id'
+    success_message_plural = _(
+        '%(count)d trashed documents restored.'
+    )
     success_message_single = _(
         'Trashed document "%(object)s" restored.'
     )
     success_message_singular = _(
         '%(count)d trashed document restored.'
     )
-    success_message_plural = _(
-        '%(count)d trashed documents restored.'
-    )
+    title_plural = _('Restore the %(count)d selected trashed documents?')
     title_single = _('Restore the trashed document: %(object)s')
     title_singular = _('Restore the selected trashed document?')
-    title_plural = _('Restore the %(count)d selected trashed documents?')
     view_icon = icon_trashed_document_restore
 
     def get_extra_context(self):
@@ -189,5 +186,4 @@ class TrashedDocumentRestoreView(MultipleObjectConfirmActionView):
         return context
 
     def object_action(self, form, instance):
-        instance._event_actor = self.request.user
-        instance.restore()
+        instance.restore(user=self.request.user)

@@ -1,14 +1,10 @@
-import logging
-
 from django.apps import apps
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from mayan.apps.acls.models import AccessControlList
 from mayan.apps.common.literals import TIME_DELTA_UNIT_CHOICES
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
-from mayan.apps.common.serialization import yaml_load
 from mayan.apps.common.validators import YAMLValidator
 from mayan.apps.events.classes import (
     EventManagerMethodAfter, EventManagerSave
@@ -24,14 +20,15 @@ from ..events import (
 )
 from ..literals import DEFAULT_DELETE_PERIOD, DEFAULT_DELETE_TIME_UNIT
 from ..managers import DocumentTypeManager
-from ..permissions import permission_document_view
-from ..settings import setting_language
+
+from .document_type_model_mixins import DocumentTypeBusinessLogicMixin
 
 __all__ = ('DocumentType', 'DocumentTypeFilename')
-logger = logging.getLogger(name=__name__)
 
 
-class DocumentType(ExtraDataModelMixin, models.Model):
+class DocumentType(
+    DocumentTypeBusinessLogicMixin, ExtraDataModelMixin, models.Model
+):
     """
     Define document types or classes to which a specific set of
     properties can be attached.
@@ -96,14 +93,6 @@ class DocumentType(ExtraDataModelMixin, models.Model):
 
         return super().delete(*args, **kwargs)
 
-    @property
-    def trashed_documents(self):
-        TrashedDocument = apps.get_model(
-            app_label='documents', model_name='TrashedDocument'
-        )
-
-        return TrashedDocument.objects.filter(document_type=self)
-
     def get_absolute_url(self):
         return reverse(
             viewname='documents:document_type_document_list', kwargs={
@@ -111,69 +100,8 @@ class DocumentType(ExtraDataModelMixin, models.Model):
             }
         )
 
-    def get_document_count(self, user):
-        queryset = AccessControlList.objects.restrict_queryset(
-            permission=permission_document_view, queryset=self.documents,
-            user=user
-        )
-
-        return queryset.count()
-
-    def get_upload_filename(self, instance, filename):
-        generator_klass = BaseDocumentFilenameGenerator.get(
-            name=self.filename_generator_backend
-        )
-        generator_instance = generator_klass(
-            **yaml_load(
-                stream=self.filename_generator_backend_arguments or '{}'
-            )
-        )
-        return generator_instance.upload_to(
-            instance=instance, filename=filename
-        )
-
     def natural_key(self):
         return (self.label,)
-
-    def new_document(
-        self, file_object, label=None, description=None, language=None,
-        _user=None
-    ):
-        Document = apps.get_model(
-            app_label='documents', model_name='Document'
-        )
-
-        try:
-            document = Document(
-                description=description or '', document_type=self,
-                label=label or file_object.name,
-                language=language or setting_language.value
-            )
-            document._event_keep_attributes = ('_event_actor',)
-            document._event_actor = _user
-            document.save()
-        except Exception as exception:
-            logger.critical(
-                'Unexpected exception while trying to create new document '
-                '"%s" from document type "%s"; %s',
-                label or file_object.name, self, exception
-            )
-            raise
-        else:
-            try:
-                document_file = document.file_new(
-                    file_object=file_object, filename=label, _user=_user
-                )
-            except Exception as exception:
-                logger.critical(
-                    'Unexpected exception while trying to create initial '
-                    'file for document %s; %s',
-                    label or file_object.name, exception
-                )
-                document.delete(to_trash=False)
-                raise
-            else:
-                return document, document_file
 
     @method_event(
         event_manager_class=EventManagerSave,

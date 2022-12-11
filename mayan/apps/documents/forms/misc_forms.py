@@ -7,9 +7,11 @@ from ..literals import PAGE_RANGE_ALL, PAGE_RANGE_CHOICES
 class PrintForm(forms.Form):
     page_group = forms.ChoiceField(
         choices=PAGE_RANGE_CHOICES, initial=PAGE_RANGE_ALL,
-        widget=forms.RadioSelect
+        label=_('Page group'), widget=forms.RadioSelect
     )
-    page_range = forms.CharField(label=_('Page range'), required=False)
+    page_range = forms.CharField(
+        label=_('Page range'), required=False
+    )
 
 
 class PageNumberForm(forms.Form):

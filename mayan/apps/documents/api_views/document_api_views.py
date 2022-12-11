@@ -9,8 +9,9 @@ from ..classes import DocumentFileAction
 from ..models.document_models import Document
 from ..models.document_type_models import DocumentType
 from ..permissions import (
-    permission_document_create, permission_document_properties_edit,
-    permission_document_trash, permission_document_view
+    permission_document_change_type, permission_document_create,
+    permission_document_properties_edit, permission_document_trash,
+    permission_document_view
 )
 from ..serializers.document_serializers import (
     DocumentFileActionSerializer, DocumentSerializer,
@@ -82,7 +83,8 @@ class APIDocumentListView(generics.ListCreateAPIView):
         )
 
         serializer.validated_data['document_type'] = get_object_or_404(
-            queryset=queryset, pk=serializer.validated_data['document_type_id']
+            pk=serializer.validated_data['document_type_id'],
+            queryset=queryset
         )
         super().perform_create(serializer=serializer)
 
@@ -98,15 +100,15 @@ class APIDocumentChangeTypeView(generics.ObjectActionAPIView):
     """
     lookup_url_kwarg = 'document_id'
     mayan_object_permissions = {
-        'POST': (permission_document_properties_edit,)
+        'POST': (permission_document_change_type,)
     }
     serializer_class = DocumentChangeTypeSerializer
     queryset = Document.valid.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         document_type_id = serializer.validated_data['document_type_id']
-        self.object.document_type_change(
-            document_type=document_type_id, _user=self.request.user
+        obj.document_type_change(
+            document_type=document_type_id, user=self.request.user
         )
 
 
@@ -125,7 +127,8 @@ class APIDocumentUploadView(generics.CreateAPIView):
         )
 
         serializer.validated_data['document_type'] = get_object_or_404(
-            queryset=queryset, pk=serializer.validated_data['document_type_id']
+            pk=serializer.validated_data['document_type_id'],
+            queryset=queryset
         )
         super().perform_create(serializer=serializer)
 

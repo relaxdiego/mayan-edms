@@ -6,11 +6,6 @@ from mayan.apps.views.forms import FilteredSelectionForm
 from ..classes import BaseDocumentFilenameGenerator
 from ..models import DocumentType, DocumentTypeFilename
 
-__all__ = (
-    'DocumentTypeFilenameGeneratorForm', 'DocumentTypeFilteredSelectForm',
-    'DocumentTypeFilenameForm_create'
-)
-
 
 class DocumentTypeFilenameGeneratorForm(forms.ModelForm):
     class Meta:

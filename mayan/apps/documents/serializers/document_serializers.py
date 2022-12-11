@@ -1,11 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.rest_api import serializers
+from mayan.apps.rest_api.relations import FilteredPrimaryKeyRelatedField
 from mayan.apps.storage.models import SharedUploadedFile
 
 from ..models.document_models import Document
 from ..models.document_type_models import DocumentType
-
+from ..permissions import permission_document_change_type
 from ..tasks import task_document_file_upload
 
 from .document_file_serializers import DocumentFileSerializer
@@ -17,26 +18,35 @@ class DocumentFileActionSerializer(serializers.Serializer):
     id = serializers.CharField(
         label=_('ID'), read_only=True, source='backend_id'
     )
-    label = serializers.CharField(label=_('Label'), read_only=True)
+    label = serializers.CharField(
+        label=_('Label'), read_only=True
+    )
 
 
 class DocumentSerializer(serializers.HyperlinkedModelSerializer):
-    document_type = DocumentTypeSerializer(read_only=True)
+    document_type = DocumentTypeSerializer(
+        label=_('Document type'), read_only=True
+    )
     document_type_id = serializers.IntegerField(
-        help_text=_('Document type ID for the new document.'), write_only=True
+        help_text=_('Document type ID for the new document.'),
+        label=_('Document type ID'), write_only=True
     )
     document_change_type_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='document_id',
+        label=_('Document change type URL'), lookup_url_kwarg='document_id',
         view_name='rest_api:document-change-type'
     )
-    file_latest = DocumentFileSerializer(many=False, read_only=True)
+    file_latest = DocumentFileSerializer(
+        label=_('File latest'), many=False, read_only=True
+    )
     file_list_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='document_id',
+        label=_('File list URL'), lookup_url_kwarg='document_id',
         view_name='rest_api:documentfile-list'
     )
-    version_active = DocumentVersionSerializer(many=False, read_only=True)
+    version_active = DocumentVersionSerializer(
+        label=_('Version active'), many=False, read_only=True
+    )
     version_list_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='document_id',
+        label=_('Version list URL'), lookup_url_kwarg='document_id',
         view_name='rest_api:documentversion-list'
     )
 
@@ -63,13 +73,24 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class DocumentChangeTypeSerializer(serializers.Serializer):
-    document_type_id = serializers.PrimaryKeyRelatedField(
-        queryset=DocumentType.objects.all(), write_only=True
+    document_type_id = FilteredPrimaryKeyRelatedField(
+        label=_('Document type ID'), help_text=_(
+            'Primary key of the document type into which the document '
+            'will be changed.'
+        ), source_permission=permission_document_change_type,
+        source_queryset_method='get_document_type_queryset', write_only=True
     )
+
+    def get_document_type_queryset(self):
+        return DocumentType.objects.exclude(
+            pk=self.context['object'].document_type.pk
+        )
 
 
 class DocumentUploadSerializer(DocumentSerializer):
-    file = serializers.FileField(write_only=True)
+    file = serializers.FileField(
+        label=_('File'), write_only=True
+    )
 
     def create(self, validated_data):
         file = validated_data.pop('file')

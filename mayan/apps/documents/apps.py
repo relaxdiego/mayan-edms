@@ -165,9 +165,10 @@ from .menus import menu_documents
 # Documents
 
 from .permissions import (
-    permission_document_create, permission_document_edit,
-    permission_document_properties_edit, permission_document_tools,
-    permission_document_trash, permission_document_view
+    permission_document_change_type, permission_document_create,
+    permission_document_edit, permission_document_properties_edit,
+    permission_document_tools, permission_document_trash,
+    permission_document_view
 )
 
 # DocumentFile
@@ -424,11 +425,11 @@ class DocumentsApp(MayanAppConfig):
         ModelPermission.register(
             model=Document, permissions=(
                 permission_acl_edit, permission_acl_view,
-                permission_document_edit, permission_document_file_new,
+                permission_document_change_type, permission_document_edit,
+                permission_document_file_new,
                 permission_document_properties_edit,
-                permission_document_tools,
-                permission_document_trash, permission_document_view,
-                permission_document_version_create,
+                permission_document_tools, permission_document_trash,
+                permission_document_view, permission_document_version_create,
                 permission_trashed_document_delete,
                 permission_trashed_document_restore
             )

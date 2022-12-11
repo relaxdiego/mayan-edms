@@ -175,7 +175,7 @@ class DocumentTestMixin:
     def _upload_test_document(
         self, description=None, document_file_attributes=None,
         document_type=None, document_version_attributes=None, label=None,
-        _user=None
+        user=None
     ):
         self._calculate_test_document_path()
 
@@ -192,7 +192,7 @@ class DocumentTestMixin:
             document, document_file = document_type.new_document(
                 description=test_document_description,
                 file_object=file_object, label=label,
-                language=self._test_document_language, _user=_user
+                language=self._test_document_language, user=user
             )
 
         self._test_document = document
@@ -204,12 +204,16 @@ class DocumentTestMixin:
 
         self._test_document_file = document_file
         self._test_document_files.append(self._test_document_file)
-        self._test_document_file_pages = list(self._test_document_file.file_pages.all())
+        self._test_document_file_pages = list(
+            self._test_document_file.file_pages.all()
+        )
         self._test_document_file_page = self._test_document_file.file_pages.first()
 
         self._test_document_version = self._test_document.version_active
         self._test_document_versions.append(self._test_document_version)
-        self._test_document_version_pages = list(self._test_document_version.version_pages.all())
+        self._test_document_version_pages = list(
+            self._test_document_version.version_pages.all()
+        )
         self._test_document_version_page = self._test_document_version.version_pages.first()
 
         if document_file_attributes:

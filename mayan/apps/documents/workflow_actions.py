@@ -10,8 +10,9 @@ class DocumentTypeChangeAction(WorkflowAction):
         'document_type': {
             'label': _('Document type'),
             'class': 'django.forms.ModelChoiceField', 'kwargs': {
-                'help_text': _('New document type for the workflow document.'),
-                'queryset': DocumentType.objects.all(), 'required': True
+                'help_text': _(
+                    'New document type for the workflow document.'
+                ), 'queryset': DocumentType.objects.all(), 'required': True
             }
         }
     }
@@ -19,18 +20,20 @@ class DocumentTypeChangeAction(WorkflowAction):
     widgets = {
         'workflows': {
             'class': 'django.forms.widgets.Select', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         }
     }
 
     def execute(self, context):
-        context['document'].document_type_change(
+        context['document']._document_type_change(
             document_type=self.get_document_type()
         )
 
     def get_document_type(self):
-        return DocumentType.objects.get(pk=self.form_data.get('document_type'))
+        return DocumentType.objects.get(
+            pk=self.form_data.get('document_type')
+        )
 
 
 class TrashDocumentAction(WorkflowAction):
