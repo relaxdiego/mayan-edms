@@ -53,7 +53,9 @@ class CacheTestMixin:
             name=TEST_CACHE_PARTITION_NAME
         )
 
-    def _create_test_cache_partition_file(self, filename=None, file_size=None):
+    def _create_test_cache_partition_file(
+        self, filename=None, file_size=None
+    ):
         cache_partition_file_total = len(self._test_cache_partition_files)
 
         file_size = file_size or TEST_CACHE_PARTITION_FILE_SIZE
@@ -70,7 +72,9 @@ class CacheTestMixin:
             filename=filename
         )
 
-        self._test_cache_partition_files.append(self._test_cache_partition_file)
+        self._test_cache_partition_files.append(
+            self._test_cache_partition_file
+        )
 
 
 class CacheViewTestMixin:

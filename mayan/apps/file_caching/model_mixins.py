@@ -80,8 +80,9 @@ class CacheBusinessLogicMixin:
 
     def get_total_size_display(self):
         return format_lazy(
-            '{} ({:0.1f}%)', filesizeformat(bytes_=self.get_total_size()),
-            self.get_total_size() / self.maximum_size * 100
+            '{} ({:0.1f}%)', filesizeformat(
+                bytes_=self.get_total_size()
+            ), self.get_total_size() / self.maximum_size * 100
         )
 
     get_total_size_display.short_description = _('Current size')
@@ -149,10 +150,12 @@ class CacheBusinessLogicMixin:
         event_manager_class=EventManagerMethodAfter,
         target='self'
     )
-    def purge(self):
+    def purge(self, user):
         """
         Deletes the entire cache.
         """
+        self._event_actor = user
+
         try:
             DefinedStorage.get(name=self.defined_storage_name)
         except KeyError:
@@ -163,8 +166,8 @@ class CacheBusinessLogicMixin:
             """
         else:
             for partition in self.partitions.all():
-                partition._event_actor = getattr(self, '_event_actor', None)
-                partition.purge()
+                partition._event_action_object = self
+                partition.purge(user=user)
 
     @cached_property
     def storage(self):
@@ -278,7 +281,8 @@ class CachePartitionBusinessLogicMixin:
         event_manager_class=EventManagerMethodAfter,
         target='self'
     )
-    def purge(self):
+    def purge(self, user):
+        self._event_actor = user
         for parition_file in self.files.all():
             parition_file.delete()
 

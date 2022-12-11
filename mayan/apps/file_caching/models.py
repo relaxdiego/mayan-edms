@@ -83,16 +83,16 @@ class CachePartition(CachePartitionBusinessLogicMixin, models.Model):
     def __str__(self):
         return '{} ({})'.format(self.cache, self.name)
 
+    def delete(self, *args, **kwargs):
+        self.purge(user=self)
+        return super().delete(*args, **kwargs)
+
     def get_absolute_url(self):
         return reverse(
             viewname='file_caching:cache_partition_detail', kwargs={
                 'cache_partition_id': self.pk
             }
         )
-
-    def delete(self, *args, **kwargs):
-        self.purge()
-        return super().delete(*args, **kwargs)
 
 
 class CachePartitionFile(CachePartitionFileBusinessLogicMixin, models.Model):
@@ -105,7 +105,9 @@ class CachePartitionFile(CachePartitionFileBusinessLogicMixin, models.Model):
     datetime = models.DateTimeField(
         auto_now_add=True, db_index=True, verbose_name=_('Date time')
     )
-    filename = models.CharField(max_length=255, verbose_name=_('Filename'))
+    filename = models.CharField(
+        max_length=255, verbose_name=_('Filename')
+    )
     file_size = models.PositiveIntegerField(
         default=0, verbose_name=_('File size')
     )
