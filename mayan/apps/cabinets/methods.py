@@ -11,8 +11,9 @@ def method_document_get_cabinets(self, permission, user):
     )
 
     return AccessControlList.objects.restrict_queryset(
-        permission=permission,
-        queryset=DocumentCabinet.objects.filter(documents=self), user=user
+        permission=permission, queryset=DocumentCabinet.objects.filter(
+            documents=self
+        ), user=user
     )
 
 

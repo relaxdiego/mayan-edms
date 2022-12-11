@@ -12,7 +12,7 @@ from mayan.apps.testing.tests.base import BaseTestCase
 from .literals import MAXIMUM_HEAP_MEMORY
 
 
-@unittest.skip('This test should be used only in development.')
+@unittest.skip(reason='This test should be used only in development.')
 @tag('memory', EXCLUDE_TEST_TAG)
 class MIMETypeTestCase(DocumentTestMixin, BaseTestCase):
     auto_upload_test_document = False

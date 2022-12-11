@@ -52,7 +52,7 @@ class MessageSearchTestCase(
         queryset = self._do_test_search(
             query={
                 'date_time': '>{}'.format(
-                    self._test_message.date_time.year-1
+                    self._test_message.date_time.year - 1
                 )
             }
         )
@@ -71,7 +71,7 @@ class MessageSearchTestCase(
         queryset = self._do_test_search(
             query={
                 'date_time': '>{}'.format(
-                    self._test_message.date_time.year-1
+                    self._test_message.date_time.year - 1
                 )
             }
         )

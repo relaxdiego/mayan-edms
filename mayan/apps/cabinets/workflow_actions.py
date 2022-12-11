@@ -38,7 +38,7 @@ class CabinetAddAction(WorkflowAction):
 
     def execute(self, context):
         for cabinet in self.get_cabinets():
-            cabinet.document_add(document=context['document'])
+            cabinet._document_add(document=context['document'])
 
     def get_cabinets(self):
         return Cabinet.objects.filter(
@@ -74,4 +74,4 @@ class CabinetRemoveAction(CabinetAddAction):
 
     def execute(self, context):
         for cabinet in self.get_cabinets():
-            cabinet.document_remove(document=context['document'])
+            cabinet._document_remove(document=context['document'])

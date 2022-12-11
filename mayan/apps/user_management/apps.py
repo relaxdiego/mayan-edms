@@ -88,7 +88,7 @@ class UserManagementApp(MayanAppConfig):
         Group._meta.ordering = ('name',)
         Group._meta.verbose_name = _('Group')
         Group._meta.verbose_name_plural = _('Groups')
-        Group._meta.get_field('name').verbose_name = _('Name')
+        Group._meta.get_field(field_name='name').verbose_name = _('Name')
 
         Group.add_to_class(
             name='__init__', value=get_method_group_init()
@@ -112,14 +112,26 @@ class UserManagementApp(MayanAppConfig):
         User._meta.verbose_name_plural = _('Users')
         User._meta.ordering = ('last_name', 'first_name')
 
-        User._meta.get_field('email').verbose_name = _('Email')
-        User._meta.get_field('first_name').verbose_name = _('First name')
-        User._meta.get_field('groups').verbose_name = _('Groups')
-        User._meta.get_field('is_active').verbose_name = _('Is active?')
-        User._meta.get_field('last_name').verbose_name = _('Last name')
-        User._meta.get_field('password').verbose_name = _('Password')
-        User._meta.get_field('username').verbose_name = _('Username')
-        User._meta.get_field('last_login').verbose_name = _('Last login')
+        User._meta.get_field(field_name='email').verbose_name = _('Email')
+        User._meta.get_field(
+            field_name='first_name'
+        ).verbose_name = _('First name')
+        User._meta.get_field(field_name='groups').verbose_name = _('Groups')
+        User._meta.get_field(
+            field_name='is_active'
+        ).verbose_name = _('Is active?')
+        User._meta.get_field(
+            field_name='last_name'
+        ).verbose_name = _('Last name')
+        User._meta.get_field(
+            field_name='password'
+        ).verbose_name = _('Password')
+        User._meta.get_field(
+            field_name='username'
+        ).verbose_name = _('Username')
+        User._meta.get_field(
+            field_name='last_login'
+        ).verbose_name = _('Last login')
 
         User.add_to_class(
             name='__init__', value=get_method_user_init()

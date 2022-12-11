@@ -1,18 +1,14 @@
 import hashlib
 import json
-import logging
 
-from django.apps import apps
 from django.conf import settings
 from django.core import serializers
 from django.db import models
-from django.db.models import F, Max, Q
 from django.utils.module_loading import import_string
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.acls.models import AccessControlList
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
-from mayan.apps.documents.models import Document
 from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.events.classes import (
     EventManagerMethodAfter, EventManagerSave
@@ -22,20 +18,19 @@ from mayan.apps.events.decorators import method_event
 from mayan.apps.templating.classes import Template
 
 from ..events import event_workflow_template_edited
-from ..literals import (
-    WORKFLOW_ACTION_WHEN_CHOICES, WORKFLOW_ACTION_ON_ENTRY,
-    WORKFLOW_ACTION_ON_EXIT
-)
+from ..literals import WORKFLOW_ACTION_WHEN_CHOICES, WORKFLOW_ACTION_ON_ENTRY
 
 from .workflow_models import Workflow
+from .workflow_state_model_mixins import WorkflowStateBusinessLogicMixin
 
 __all__ = (
     'WorkflowState', 'WorkflowStateAction', 'WorkflowStateRuntimeProxy'
 )
-logger = logging.getLogger(name=__name__)
 
 
-class WorkflowState(ExtraDataModelMixin, models.Model):
+class WorkflowState(
+    ExtraDataModelMixin, WorkflowStateBusinessLogicMixin, models.Model
+):
     """
     Fields:
     * completion - Completion Amount - A user defined numerical value to help
@@ -81,77 +76,22 @@ class WorkflowState(ExtraDataModelMixin, models.Model):
         action_object='self',
         event_manager_class=EventManagerMethodAfter,
         event=event_workflow_template_edited,
-        target='workflow',
+        target='workflow'
     )
     def delete(self, *args, **kwargs):
         return super().delete(*args, **kwargs)
-
-    @property
-    def entry_actions(self):
-        return self.actions.filter(when=WORKFLOW_ACTION_ON_ENTRY)
-
-    @property
-    def exit_actions(self):
-        return self.actions.filter(when=WORKFLOW_ACTION_ON_EXIT)
-
-    def get_actions_display(self):
-        field_list = [str(field) for field in self.actions.all()]
-        field_list.sort()
-
-        return ', '.join(field_list)
-
-    get_actions_display.short_description = _('Actions')
-
-    def get_documents(self):
-        WorkflowInstanceLogEntry = apps.get_model(
-            app_label='document_states',
-            model_name='WorkflowInstanceLogEntry'
-        )
-
-        latest_entries = WorkflowInstanceLogEntry.objects.annotate(
-            max_datetime=Max(
-                'workflow_instance__log_entries__datetime'
-            )
-        ).filter(
-            datetime=F('max_datetime')
-        )
-
-        state_latest_entries = latest_entries.filter(
-            transition__destination_state=self
-        )
-
-        return Document.valid.filter(
-            Q(
-                workflows__pk__in=state_latest_entries.values_list(
-                    'workflow_instance', flat=True
-                )
-            ) | Q(
-                workflows__log_entries__isnull=True,
-                workflows__workflow__states=self,
-                workflows__workflow__states__initial=True
-            )
-        ).distinct()
-
-    def get_hash(self):
-        result = hashlib.sha256(
-            serializers.serialize(format='json', queryset=(self,)).encode()
-        )
-        for action in self.actions.all():
-            result.update(action.get_hash().encode())
-
-        return result.hexdigest()
 
     @method_event(
         event_manager_class=EventManagerSave,
         created={
             'action_object': 'self',
             'event': event_workflow_template_edited,
-            'target': 'workflow',
+            'target': 'workflow'
         },
         edited={
             'action_object': 'self',
             'event': event_workflow_template_edited,
-            'target': 'workflow',
+            'target': 'workflow'
         }
     )
     def save(self, *args, **kwargs):
@@ -229,7 +169,9 @@ class WorkflowStateAction(ExtraDataModelMixin, models.Model):
 
     def get_hash(self):
         return hashlib.sha256(
-            serializers.serialize(format='json', queryset=(self,)).encode()
+            string=serializers.serialize(
+                format='json', queryset=(self,)
+            ).encode()
         ).hexdigest()
 
     def evaluate_condition(self, workflow_instance):
@@ -260,7 +202,9 @@ class WorkflowStateAction(ExtraDataModelMixin, models.Model):
         return import_string(dotted_path=self.action_path)
 
     def get_class_instance(self):
-        return self.get_class()(form_data=self.loads())
+        return self.get_class()(
+            form_data=self.loads()
+        )
 
     def get_class_label(self):
         try:
@@ -284,12 +228,12 @@ class WorkflowStateAction(ExtraDataModelMixin, models.Model):
         created={
             'action_object': 'self',
             'event': event_workflow_template_edited,
-            'target': 'state.workflow',
+            'target': 'state.workflow'
         },
         edited={
             'action_object': 'self',
             'event': event_workflow_template_edited,
-            'target': 'state.workflow',
+            'target': 'state.workflow'
         }
     )
     def save(self, *args, **kwargs):

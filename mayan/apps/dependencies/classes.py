@@ -13,7 +13,6 @@ import requests
 from semver import max_satisfying
 
 from django.apps import apps
-from django.utils.encoding import force_text
 from django.utils.functional import cached_property
 from django.utils.module_loading import import_string
 from django.utils.termcolors import colorize
@@ -77,7 +76,7 @@ class DependencyGroup:
         self.__class__._registry[name] = self
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     @staticmethod
     def get_options_for_dependency_group(dependency_group):
@@ -112,7 +111,8 @@ class DependencyGroup:
             if dependency_group.allow_multiple:
                 for entry_index, entry in enumerate(value):
                     dictionary = {
-                        'label': label[entry_index], 'help_text': help_text[entry_index], 'value': entry
+                        'label': label[entry_index],
+                        'help_text': help_text[entry_index], 'value': entry
                     }
                     if dictionary not in result:
                         result.append(dictionary)
@@ -159,7 +159,7 @@ class DependencyGroupEntry:
         self.name = name
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def get_dependencies(self):
         dependencies = Dependency.get_for_attribute(
@@ -222,12 +222,12 @@ class Dependency(AppsModuleLoaderMixin):
                 print(
                     template.format(
                         dependency.name,
-                        force_text(s=dependency.class_name_verbose_name),
-                        force_text(s=dependency.get_version_string()),
-                        force_text(s=dependency.app_label_verbose_name()),
-                        force_text(s=dependency.get_environments_verbose_name()),
-                        force_text(s=dependency.get_other_data()),
-                        force_text(s=result['check'])
+                        str(dependency.class_name_verbose_name),
+                        str(dependency.get_version_string()),
+                        str(dependency.app_label_verbose_name()),
+                        str(dependency.get_environments_verbose_name()),
+                        str(dependency.get_other_data()),
+                        str(result['check'])
                     )
                 )
         else:
@@ -277,7 +277,9 @@ class Dependency(AppsModuleLoaderMixin):
         return result
 
     @classmethod
-    def install_multiple(cls, app_label=None, force=False, subclass_only=False):
+    def install_multiple(
+        cls, app_label=None, force=False, subclass_only=False
+    ):
         for dependency in cls.get_all(subclass_only=subclass_only):
             if app_label:
                 if app_label == dependency.app_label:
@@ -286,9 +288,9 @@ class Dependency(AppsModuleLoaderMixin):
                 dependency.install(force=force)
 
     def __init__(
-        self, name, environment=environment_production, app_label=None, copyright_text=None,
-        environments=None, help_text=None, label=None, module=None, replace_list=None,
-        version_string=None
+        self, name, environment=environment_production, app_label=None,
+        copyright_text=None, environments=None, help_text=None, label=None,
+        module=None, replace_list=None, version_string=None
     ):
         self._app_label = app_label
         self.copyright_text = copyright_text
@@ -336,7 +338,9 @@ class Dependency(AppsModuleLoaderMixin):
         return self.copyright_text or ''
 
     def install(self, force=False):
-        print(_('Installing package: %s... ') % self.get_label_full(), end='')
+        print(
+            _('Installing package: %s... ') % self.get_label_full(), end=''
+        )
         sys.stdout.flush()
 
         if not force:
@@ -529,7 +533,7 @@ class JavaScriptDependency(Dependency):
         with TemporaryDirectory() as temporary_directory:
             path_compressed_file = self.get_tar_file_path()
 
-            with tarfile.open(name=force_text(s=path_compressed_file), mode='r') as file_object:
+            with tarfile.open(name=str(path_compressed_file), mode='r') as file_object:
                 file_object.extractall(path=temporary_directory)
 
             self.patch_files(path=temporary_directory, replace_list=replace_list)
@@ -537,7 +541,7 @@ class JavaScriptDependency(Dependency):
             path_install = self.get_install_path()
 
             # Clear the installation path of previous content
-            shutil.rmtree(path=force_text(s=path_install), ignore_errors=True)
+            shutil.rmtree(path=str(path_install), ignore_errors=True)
 
             # Scoped packages are nested under a parent directory
             # create it to avoid rename errors.
@@ -548,10 +552,10 @@ class JavaScriptDependency(Dependency):
             # We do a copy and delete instead of move because os.rename doesn't
             # support renames across filesystems.
             path_uncompressed_package = Path(temporary_directory, 'package')
-            shutil.rmtree(path=force_text(s=path_install))
+            shutil.rmtree(path=str(path_install))
             shutil.copytree(
-                src=force_text(s=path_uncompressed_package),
-                dst=force_text(s=path_install)
+                src=str(path_uncompressed_package),
+                dst=str(path_install)
             )
 
             # Clean up temporary directory used for download
@@ -578,7 +582,7 @@ class JavaScriptDependency(Dependency):
 
         for entry in path_install_path.glob(pattern='LICENSE*'):
             with entry.open(mode='rb') as file_object:
-                return force_text(s=file_object.read())
+                return str(file_object.read())
 
         copyright_text = []
 
@@ -724,7 +728,9 @@ class PythonDependency(Dependency):
         return versions[-1]
 
     def is_latest_version(self):
-        return self.version_string == '=={}'.format(self.get_latest_version())
+        return self.version_string == '=={}'.format(
+            self.get_latest_version()
+        )
 
 
 class GoogleFontDependency(Dependency):
@@ -737,7 +743,7 @@ class GoogleFontDependency(Dependency):
     user_agents = {
         'woff2': 'Mozilla/5.0 (Windows NT 6.1; rv:60.0) Gecko/20100101 Firefox/60.0',
         'woff': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101 Safari/537.36',
-        'ttf': 'Mozilla/5.0 (Linux; U; Android 2.2; en-us; DROID2 GLOBAL Build/S273) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1',
+        'ttf': 'Mozilla/5.0 (Linux; U; Android 2.2; en-us; DROID2 GLOBAL Build/S273) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'
     }
 
     def __init__(self, *args, **kwargs):
@@ -767,8 +773,8 @@ class GoogleFontDependency(Dependency):
 
         with self.path_import_file.open(mode='w') as file_object:
             for agent_name, agent_string in self.user_agents.items():
-                import_file = force_text(
-                    s=requests.get(
+                import_file = str(
+                    requests.get(
                         self.url, headers={
                             'User-Agent': agent_string
                         }
@@ -778,7 +784,7 @@ class GoogleFontDependency(Dependency):
                 for line in import_file.split('\n'):
                     if 'url' in line:
                         font_url = line.split(' ')[-2][4:-1]
-                        url = furl(force_text(s=font_url))
+                        url = furl(str(font_url))
                         font_filename = url.path.segments[-1]
 
                         path_font_filename = self.path_cache / font_filename
@@ -802,12 +808,12 @@ class GoogleFontDependency(Dependency):
         path_install = self.get_install_path()
 
         # Clear the installation path of previous content
-        shutil.rmtree(path=force_text(s=path_install), ignore_errors=True)
+        shutil.rmtree(path=str(path_install), ignore_errors=True)
 
         shutil.copytree(
-            src=force_text(s=self.path_cache), dst=force_text(s=path_install)
+            src=str(self.path_cache), dst=str(path_install)
         )
-        shutil.rmtree(path=force_text(s=self.path_cache), ignore_errors=True)
+        shutil.rmtree(path=str(self.path_cache), ignore_errors=True)
 
     def get_install_path(self):
         app = apps.get_app_config(app_label=self.app_label)

@@ -134,7 +134,9 @@ class ModelAttribute:
     def get_choices_for(cls, model):
         return sorted(
             (
-                (entry.name, entry.get_display()) for entry in cls.get_for(model=model)
+                (
+                    entry.name, entry.get_display()
+                ) for entry in cls.get_for(model=model)
             ), key=lambda x: x[1]
         )
 
@@ -161,8 +163,12 @@ class ModelAttribute:
         self.label = label
         self.name = name
         self.description = description
-        self._model_registry.setdefault(self.class_name, {})
-        self._model_registry[self.class_name].setdefault(model, [])
+        self._model_registry.setdefault(
+            self.class_name, {}
+        )
+        self._model_registry[self.class_name].setdefault(
+            model, []
+        )
         self._model_registry[self.class_name][model].append(self)
 
     def get_display(self, show_name=False):
@@ -227,8 +233,13 @@ class ModelField(ModelAttribute):
         parts = field_name.split('__')
         if len(parts) > 1:
             return self.get_field_attribute(
-                model=model._meta.get_field(parts[0]).related_model,
-                field_name='__'.join(parts[1:]), attribute=attribute
+                attribute=attribute,
+                field_name='__'.join(
+                    parts[1:]
+                ),
+                model=model._meta.get_field(
+                    field_name=parts[0]
+                ).related_model
             )
         else:
             self._final_model_verbose_name = model._meta.verbose_name
@@ -377,7 +388,9 @@ class QuerysetParametersSerializer:
             pk=decomposed_queryset['model_content_type_id']
         ).model_class()
 
-        queryset = getattr(model, decomposed_queryset['manager_name'])
+        queryset = getattr(
+            model, decomposed_queryset['manager_name']
+        )
 
         kwargs = {}
 
@@ -392,7 +405,9 @@ class QuerysetParametersSerializer:
             else:
                 value = parameter['value']
 
-            kwargs[parameter['name']] = value
+            kwargs[
+                parameter['name']
+            ] = value
 
         return getattr(
             queryset, decomposed_queryset['method_name']

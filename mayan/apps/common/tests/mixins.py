@@ -53,7 +53,9 @@ class ObjectCopyTestMixin:
                             getattr(test_object_copy, field).all()
                         )
                         exclude_fields += (
-                            test_object._meta.get_field(field).remote_field.name,
+                            test_object._meta.get_field(
+                                field_name=field
+                            ).remote_field.name,
                         )
 
                         for related_test_object, related_test_object_copy in related_test_objects:
@@ -70,7 +72,9 @@ class ObjectCopyTestMixin:
                             ),
                         )
                         exclude_fields += (
-                            test_object._meta.get_field(field).remote_field.name,
+                            test_object._meta.get_field(
+                                field_name=field
+                            ).remote_field.name,
                         )
 
                         for related_test_object, related_test_object_copy in related_test_objects:
@@ -87,7 +91,9 @@ class ObjectCopyTestMixin:
                             ),
                         )
                         exclude_fields += (
-                            test_object._meta.get_field(field).remote_field.name,
+                            test_object._meta.get_field(
+                                field_name=field
+                            ).remote_field.name,
                         )
 
                         for related_test_object, related_test_object_copy in related_test_objects:

@@ -1,3 +1,5 @@
+import uuid
+
 from .literals import TRANSFORMATION_MARKER, TRANSFORMATION_SEPARATOR
 from .transformations import BaseTransformation
 
@@ -90,3 +92,7 @@ class IndexedDictionary:
             )
 
         return result_list
+
+
+def model_upload_to(instance, filename):
+    return 'converter-asset-{}'.format(uuid.uuid4().hex)

@@ -1,9 +1,6 @@
-import shlex
-
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.module_loading import import_string
 from django.utils.translation import ugettext_lazy as _
 
@@ -11,20 +8,25 @@ from mayan.apps.common.validators import YAMLValidator
 from mayan.apps.common.serialization import yaml_load
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
 from mayan.apps.documents.models import Document, DocumentType
-from mayan.apps.events.classes import EventManagerMethodAfter, EventManagerSave
+from mayan.apps.events.classes import (
+    EventManagerMethodAfter, EventManagerSave
+)
 from mayan.apps.events.decorators import method_event
-from mayan.apps.templating.classes import Template
 
-from .classes import MetadataLookup
 from .events import (
     event_document_metadata_added, event_document_metadata_edited,
     event_document_metadata_removed, event_metadata_type_created,
     event_metadata_type_edited, event_metadata_type_relationship_updated
 )
 from .managers import DocumentTypeMetadataTypeManager, MetadataTypeManager
+from .model_mixins import (
+    DocumentMetadataBusinessLogicMixin, MetadataTypeBusinessLogicMixin
+)
 
 
-class MetadataType(ExtraDataModelMixin, models.Model):
+class MetadataType(
+    ExtraDataModelMixin, MetadataTypeBusinessLogicMixin, models.Model
+):
     """
     Model to store a type of metadata. Metadata are user defined properties
     that can be assigned a value for each document. Metadata types need
@@ -90,39 +92,12 @@ class MetadataType(ExtraDataModelMixin, models.Model):
     def __str__(self):
         return self.label
 
-    @staticmethod
-    def comma_splitter(string):
-        splitter = shlex.shlex(string, posix=True)
-        splitter.whitespace = ','
-        splitter.whitespace_split = True
-        splitter.commenters = ''
-        return [force_text(s=e) for e in splitter]
-
     def get_absolute_url(self):
         return reverse(
             viewname='metadata:metadata_type_edit', kwargs={
                 'metadata_type_id': self.pk
             }
         )
-
-    def get_default_value(self):
-        template = Template(template_string=self.default)
-        return template.render()
-
-    def get_lookup_values(self):
-        template = Template(template_string=self.lookup)
-        return MetadataType.comma_splitter(
-            template.render(context=MetadataLookup.get_as_context())
-        )
-
-    def get_required_for(self, document_type):
-        """
-        Return a queryset of metadata types that are required for the
-        specified document type.
-        """
-        return document_type.metadata.filter(
-            required=True, metadata_type=self
-        ).exists()
 
     def natural_key(self):
         return (self.name,)
@@ -148,7 +123,9 @@ class MetadataType(ExtraDataModelMixin, models.Model):
 
         if not value and self.get_required_for(document_type=document_type):
             raise ValidationError(
-                _('"%s" is required for this document type.') % self.label
+                message=_(
+                    '"%s" is required for this document type.'
+                ) % self.label
             )
 
         if self.lookup:
@@ -156,7 +133,7 @@ class MetadataType(ExtraDataModelMixin, models.Model):
 
             if value and value not in lookup_options:
                 raise ValidationError(
-                    _('Value is not one of the provided options.')
+                    message=_('Value is not one of the provided options.')
                 )
 
         if self.validation:
@@ -169,7 +146,7 @@ class MetadataType(ExtraDataModelMixin, models.Model):
                 validator.validate(value)
             except ValidationError as exception:
                 raise ValidationError(
-                    _(
+                    message=_(
                         'Metadata type validation error; %(exception)s'
                     ) % {'exception': ','.join(exception)}
                 ) from exception
@@ -185,7 +162,9 @@ class MetadataType(ExtraDataModelMixin, models.Model):
         return value
 
 
-class DocumentMetadata(ExtraDataModelMixin, models.Model):
+class DocumentMetadata(
+    DocumentMetadataBusinessLogicMixin, ExtraDataModelMixin, models.Model
+):
     """
     Model used to link an instance of a metadata type with a value to a
     document.
@@ -211,7 +190,7 @@ class DocumentMetadata(ExtraDataModelMixin, models.Model):
         verbose_name_plural = _('Document metadata')
 
     def __str__(self):
-        return force_text(s=self.metadata_type)
+        return str(self.metadata_type)
 
     def clean_fields(self, *args, **kwargs):
         super().clean_fields(*args, **kwargs)
@@ -233,26 +212,24 @@ class DocumentMetadata(ExtraDataModelMixin, models.Model):
         It used set to False when deleting document metadata on document
         type change.
         """
-        if enforce_required and self.document.document_type.metadata.filter(required=True).filter(metadata_type=self.metadata_type).exists():
+        is_required_for_document_type = enforce_required and self.document.document_type.metadata.filter(
+            required=True
+        ).filter(metadata_type=self.metadata_type).exists()
+
+        if is_required_for_document_type:
             raise ValidationError(
-                _('Metadata type is required for this document type.')
+                message=_(
+                    'Metadata type is required for this document type.'
+                )
             )
 
         return super().delete(*args, **kwargs)
 
     def natural_key(self):
         return self.document.natural_key() + self.metadata_type.natural_key()
-    natural_key.dependencies = ['documents.Document', 'metadata.MetadataType']
-
-    @property
-    def is_required(self):
-        """
-        Return a boolean value of True of this metadata instance's parent type
-        is required for the stored document type.
-        """
-        return self.metadata_type.get_required_for(
-            document_type=self.document.document_type
-        )
+    natural_key.dependencies = [
+        'documents.Document', 'metadata.MetadataType'
+    ]
 
     @method_event(
         event_manager_class=EventManagerSave,
@@ -268,9 +245,15 @@ class DocumentMetadata(ExtraDataModelMixin, models.Model):
         }
     )
     def save(self, *args, **kwargs):
-        if not self.document.document_type.metadata.filter(metadata_type=self.metadata_type).exists():
+        is_not_valid_for_document_type = not self.document.document_type.metadata.filter(
+            metadata_type=self.metadata_type
+        ).exists()
+
+        if is_not_valid_for_document_type:
             raise ValidationError(
-                _('Metadata type is not valid for this document type.')
+                message=_(
+                    'Metadata type is not valid for this document type.'
+                )
             )
 
         return super().save(*args, **kwargs)
@@ -286,8 +269,8 @@ class DocumentTypeMetadataType(ExtraDataModelMixin, models.Model):
         verbose_name=_('Document type')
     )
     metadata_type = models.ForeignKey(
-        on_delete=models.CASCADE, related_name='document_types', to=MetadataType,
-        verbose_name=_('Metadata type')
+        on_delete=models.CASCADE, related_name='document_types',
+        to=MetadataType, verbose_name=_('Metadata type')
     )
     required = models.BooleanField(default=False, verbose_name=_('Required'))
 
@@ -300,7 +283,7 @@ class DocumentTypeMetadataType(ExtraDataModelMixin, models.Model):
         verbose_name_plural = _('Document type metadata types options')
 
     def __str__(self):
-        return force_text(s=self.metadata_type)
+        return str(self.metadata_type)
 
     @method_event(
         event_manager_class=EventManagerMethodAfter,

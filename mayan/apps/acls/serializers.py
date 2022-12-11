@@ -12,8 +12,11 @@ from .models import AccessControlList
 
 
 class ACLSerializer(serializers.ModelSerializer):
-    content_type = ContentTypeSerializer(read_only=True)
+    content_type = ContentTypeSerializer(
+        label=_('Content type'), read_only=True
+    )
     permissions_add_url = MultiKwargHyperlinkedIdentityField(
+        label=_('Permissions add URL'),
         view_name='rest_api:accesscontrollist-permission-add',
         view_kwargs=(
             {
@@ -32,9 +35,10 @@ class ACLSerializer(serializers.ModelSerializer):
                 'lookup_field': 'pk',
                 'lookup_url_kwarg': 'acl_id',
             }
-        ),
+        )
     )
     permissions_remove_url = MultiKwargHyperlinkedIdentityField(
+        label=_('Permissions remove URL'),
         view_name='rest_api:accesscontrollist-permission-remove',
         view_kwargs=(
             {
@@ -53,9 +57,10 @@ class ACLSerializer(serializers.ModelSerializer):
                 'lookup_field': 'pk',
                 'lookup_url_kwarg': 'acl_id',
             }
-        ),
+        )
     )
     permissions_url = MultiKwargHyperlinkedIdentityField(
+        label=_('Permissions URL'),
         view_name='rest_api:accesscontrollist-permission-list',
         view_kwargs=(
             {
@@ -74,12 +79,16 @@ class ACLSerializer(serializers.ModelSerializer):
                 'lookup_field': 'pk',
                 'lookup_url_kwarg': 'acl_id',
             }
-        ),
+        )
     )
-    role = RoleSerializer(read_only=True)
-    role_id = serializers.IntegerField(write_only=True)
+    role = RoleSerializer(
+        label=_('Role'), read_only=True
+    )
+    role_id = serializers.IntegerField(
+        label=_('Role ID'), write_only=True
+    )
     url = MultiKwargHyperlinkedIdentityField(
-        view_name='rest_api:accesscontrollist-detail',
+        label=_('URL'), view_name='rest_api:accesscontrollist-detail',
         view_kwargs=(
             {
                 'lookup_field': 'content_type.app_label',
@@ -97,7 +106,7 @@ class ACLSerializer(serializers.ModelSerializer):
                 'lookup_field': 'pk',
                 'lookup_url_kwarg': 'acl_id',
             }
-        ),
+        )
     )
 
     class Meta:
@@ -114,12 +123,12 @@ class ACLSerializer(serializers.ModelSerializer):
 class ACLPermissionAddSerializer(serializers.Serializer):
     permission = FilteredPrimaryKeyRelatedField(
         help_text=_('Primary key of the permission to add to the ACL.'),
-        source_queryset=Permission.all()
+        label=_('Permission ID'), source_queryset=Permission.all()
     )
 
 
 class ACLPermissionRemoveSerializer(serializers.Serializer):
     permission = FilteredPrimaryKeyRelatedField(
         help_text=_('Primary key of the permission to remove from the ACL.'),
-        source_queryset=Permission.all()
+        label=_('Permission ID'), source_queryset=Permission.all()
     )

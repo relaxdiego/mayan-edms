@@ -2,21 +2,20 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.utils.encoding import force_text
-from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
 from actstream.models import Action
 
-from .classes import EventType
-from .literals import TEXT_UNKNOWN_EVENT_ID
 from .managers import (
     EventSubscriptionManager, NotificationManager,
     ObjectEventSubscriptionManager
 )
+from .model_mixins import (
+    NotificationBusinessLogicMixin, StoredEventTypeBusinessLogicMixin
+)
 
 
-class StoredEventType(models.Model):
+class StoredEventType(StoredEventTypeBusinessLogicMixin, models.Model):
     """
     Model to mirror the real event classes as database objects.
     """
@@ -30,23 +29,6 @@ class StoredEventType(models.Model):
 
     def __str__(self):
         return str(self.label)
-
-    @cached_property
-    def event_type(self):
-        return EventType.get(id=self.name)
-
-    @property
-    def label(self):
-        try:
-            event_type = self.event_type
-        except KeyError:
-            return TEXT_UNKNOWN_EVENT_ID % self.name
-        else:
-            return event_type.label
-
-    @property
-    def namespace(self):
-        return self.event_type.namespace
 
 
 class EventSubscription(models.Model):
@@ -71,10 +53,10 @@ class EventSubscription(models.Model):
         verbose_name_plural = _('Event subscriptions')
 
     def __str__(self):
-        return force_text(s=self.stored_event_type)
+        return str(self.stored_event_type)
 
 
-class Notification(models.Model):
+class Notification(NotificationBusinessLogicMixin, models.Model):
     """
     This model keeps track of the notifications for a user. Notifications are
     created when an event to which this user has been subscribed, are
@@ -99,13 +81,7 @@ class Notification(models.Model):
         verbose_name_plural = _('Notifications')
 
     def __str__(self):
-        return force_text(s=self.action)
-
-    def get_event_type(self):
-        try:
-            return EventType.get(id=self.action.verb)
-        except KeyError:
-            return None
+        return str(self.action)
 
 
 class ObjectEventSubscription(models.Model):
@@ -135,4 +111,4 @@ class ObjectEventSubscription(models.Model):
         verbose_name_plural = _('Object event subscriptions')
 
     def __str__(self):
-        return force_text(s=self.stored_event_type)
+        return str(self.stored_event_type)

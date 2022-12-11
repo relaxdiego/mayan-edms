@@ -44,7 +44,9 @@ class DocumentCreateWizardStep(AppsModuleLoaderMixin):
     @classmethod
     def get_choices(cls, attribute_name):
         return [
-            (step.name, getattr(step, attribute_name)) for step in cls.get_all()
+            (
+                step.name, getattr(step, attribute_name)
+            ) for step in cls.get_all()
         ]
 
     @classmethod
@@ -56,19 +58,27 @@ class DocumentCreateWizardStep(AppsModuleLoaderMixin):
         return {}
 
     @classmethod
-    def post_upload_process(cls, document, query_string=None):
+    def post_upload_process(
+        cls, document, source_id, user_id, extra_data=None, query_string=None
+    ):
         for step in cls.get_all():
             step.step_post_upload_process(
-                document=document, query_string=query_string
+                document=document, extra_data=extra_data,
+                query_string=query_string, source_id=source_id,
+                user_id=user_id
             )
 
     @classmethod
     def register(cls, step):
         if step.name in cls._registry:
-            raise Exception('A step with this name already exists: %s' % step.name)
+            raise Exception(
+                'A step with this name already exists: %s' % step.name
+            )
 
         if step.number in [reigstered_step.number for reigstered_step in cls.get_all()]:
-            raise Exception('A step with this number already exists: %s' % step.name)
+            raise Exception(
+                'A step with this number already exists: %s' % step.name
+            )
 
         cls._registry[step.name] = step
 
@@ -81,7 +91,9 @@ class DocumentCreateWizardStep(AppsModuleLoaderMixin):
         cls._deregistry = {}
 
     @classmethod
-    def step_post_upload_process(cls, document, query_string=None):
+    def step_post_upload_process(
+        cls, document, source_id, user_id, extra_data=None, query_string=None
+    ):
         """
         Optional method executed when the wizard ends to allow the step to
         perform its action.
@@ -97,7 +109,8 @@ SourceBackendActionNamedTuple = collections.namedtuple(
 
 class SourceBackendAction(SourceBackendActionNamedTuple):
     def __new__(
-        cls, name, accept_files=False, arguments=None, confirmation=True, method=None
+        cls, name, accept_files=False, arguments=None, confirmation=True,
+        method=None
     ):
         if not method:
             method = 'action_{}'.format(name)
@@ -135,15 +148,21 @@ class SourceBackend(ModelBaseBackend):
             if action.name == name:
                 return action
 
-        raise KeyError('Unknown source action `{}`.'.format(name))
+        raise KeyError(
+            'Unknown source action `{}`.'.format(name)
+        )
 
     @classmethod
     def get_actions(cls):
-        return getattr(cls, 'actions', ())
+        return getattr(
+            cls, 'actions', ()
+        )
 
     @classmethod
     def get_fields(cls):
-        return getattr(cls, 'fields', {})
+        return getattr(
+            cls, 'fields', {}
+        )
 
     @classmethod
     def get_upload_form_class(cls):
@@ -153,7 +172,7 @@ class SourceBackend(ModelBaseBackend):
     def get_setup_form_schema(cls):
         result = {
             'fields': cls.get_fields(),
-            'widgets': cls.get_widgets(),
+            'widgets': cls.get_widgets()
         }
         if hasattr(cls, 'field_order'):
             result['field_order'] = cls.field_order
@@ -164,7 +183,9 @@ class SourceBackend(ModelBaseBackend):
 
     @classmethod
     def get_widgets(cls):
-        return getattr(cls, 'widgets', {})
+        return getattr(
+            cls, 'widgets', {}
+        )
 
     @classmethod
     def intialize(cls):

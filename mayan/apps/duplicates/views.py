@@ -9,7 +9,7 @@ from mayan.apps.documents.permissions import (
 )
 from mayan.apps.documents.views.document_views import DocumentListView
 from mayan.apps.views.generics import ConfirmView
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from .icons import (
     icon_document_duplicates_list, icon_duplicated_document_list,
@@ -42,7 +42,7 @@ class DocumentDuplicatesListView(ExternalObjectViewMixin, DocumentListView):
                 'object': self.external_object,
                 'title': _(
                     'Duplicates for document: %s'
-                ) % self.external_object,
+                ) % self.external_object
             }
         )
         return context

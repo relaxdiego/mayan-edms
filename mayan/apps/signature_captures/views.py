@@ -10,7 +10,7 @@ from mayan.apps.views.generics import (
     SingleObjectCreateView, SingleObjectDeleteView, SingleObjectDetailView,
     SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from .forms import SignatureCaptureForm, SignatureCaptureDetailForm
 from .icons import (
@@ -137,7 +137,8 @@ class SignatureCaptureListView(
             'no_results_icon': icon_signature_captures,
             'no_results_main_link': link_signature_capture_create.resolve(
                 context=RequestContext(
-                    self.request, {'object': self.external_object}
+                    dict_={'object': self.external_object},
+                    request=self.request
                 )
             ),
             'no_results_text': _(

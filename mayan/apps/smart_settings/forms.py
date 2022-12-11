@@ -34,9 +34,11 @@ class SettingForm(forms.Form):
             yaml_load(stream=self.cleaned_data['value'])
         except yaml.YAMLError:
             raise ValidationError(
-                _(
+                message=_(
                     '"%s" not a valid entry.'
                 ) % self.cleaned_data['value']
             )
         else:
-            self.setting.validate(raw_value=self.cleaned_data['value'])
+            self.setting.validate(
+                raw_value=self.cleaned_data['value']
+            )

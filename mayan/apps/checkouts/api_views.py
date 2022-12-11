@@ -38,7 +38,7 @@ class APICheckedoutDocumentListView(generics.ListCreateAPIView):
         queryset = AccessControlList.objects.restrict_queryset(
             permission=permission_document_check_out_detail_view,
             queryset=DocumentCheckout.objects.all(),
-            user=self.request.user,
+            user=self.request.user
         )
 
         return queryset.filter(document_id__in=valid_document_queryset)
@@ -47,7 +47,7 @@ class APICheckedoutDocumentListView(generics.ListCreateAPIView):
 class APICheckedoutDocumentView(generics.RetrieveDestroyAPIView):
     """
     get: Retrieve the details of the selected checked out document entry.
-    delete: Checkin a document.
+    delete: Check in a document.
     """
     lookup_url_kwarg = 'checkout_id'
     serializer_class = DocumentCheckoutSerializer
@@ -79,8 +79,7 @@ class APICheckedoutDocumentView(generics.RetrieveDestroyAPIView):
                 permission=permission_document_check_in_override,
                 queryset=DocumentCheckout.objects.exclude(
                     user_id=self.request.user.pk
-                ),
-                user=self.request.user
+                ), user=self.request.user
             )
 
             return (check_in_queryset | check_in_override_queryset).filter(
@@ -93,7 +92,7 @@ class APIDocumentCheckoutView(
 ):
     """
     get: Retrieve the checkout details of the selected document entry.
-    delete: Checkin the selected document.
+    delete: Check in the selected document.
     """
     external_object_queryset = Document.valid.all()
     external_object_pk_url_kwarg = 'document_id'
@@ -111,7 +110,7 @@ class APIDocumentCheckoutView(
     def get_mayan_object_permissions(self):
         if self.request.method == 'DELETE':
             try:
-                checkout = self.external_object.checkout
+                checkout = self.get_external_object().checkout
             except DocumentCheckout.DoesNotExist:
                 return
             else:
@@ -136,4 +135,6 @@ class APIDocumentCheckoutView(
         return get_object_or_404(queryset, pk=pk)
 
     def get_queryset(self):
-        return DocumentCheckout.objects.filter(document=self.external_object)
+        return DocumentCheckout.objects.filter(
+            document=self.get_external_object()
+        )

@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.views.generics import FormView, SingleObjectListView
-from mayan.apps.views.mixins import ExternalContentTypeObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalContentTypeObjectViewMixin
 
 from ..classes import EventType, ModelEventType
 from ..forms import (

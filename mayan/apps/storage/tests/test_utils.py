@@ -1,8 +1,6 @@
 from pathlib import Path
 import shutil
 
-from django.utils.encoding import force_text
-
 from mayan.apps.documents.storages import storage_document_files
 from mayan.apps.documents.tests.base import GenericDocumentTestCase
 from mayan.apps.mime_types.tests.mixins import MIMETypeBackendMixin
@@ -92,7 +90,7 @@ class StorageProcessorTestCase(
         storage_processor = PassthroughStorageProcessor(
             app_label='documents',
             defined_storage_name=storage_document_files.name,
-            log_file=force_text(s=self.path_test_file),
+            log_file=str(self.path_test_file),
             model_name='DocumentFile'
         )
         storage_processor.execute(reverse=reverse)
@@ -120,8 +118,9 @@ class StorageProcessorTestCase(
 
         with open(file=self._test_document.file_latest.file.path, mode='rb') as file_object:
             self.assertEqual(
-                self.mime_type_backend.get_mime_type(file_object=file_object),
-                ('application/zip', 'binary')
+                self.mime_type_backend.get_mime_type(
+                    file_object=file_object
+                ), ('application/zip', 'binary')
             )
 
         self.assertEqual(
@@ -141,8 +140,9 @@ class StorageProcessorTestCase(
 
         with open(file=self._test_document.file_latest.file.path, mode='rb') as file_object:
             self.assertNotEqual(
-                self.mime_type_backend.get_mime_type(file_object=file_object),
-                ('application/zip', 'binary')
+                self.mime_type_backend.get_mime_type(
+                    file_object=file_object
+                ), ('application/zip', 'binary')
             )
 
         self.assertEqual(

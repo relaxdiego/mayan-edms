@@ -43,8 +43,8 @@ class SourceBackendSANEScanner(
                 'for the list of supported arguments.'
             ),
             'label': _('Arguments'),
-            'required': False,
-        },
+            'required': False
+        }
     }
     label = _('SANE Scanner')
     widgets = {
@@ -91,7 +91,9 @@ class SourceBackendSANEScanner(
 
                 return (
                     SharedUploadedFile.objects.create(
-                        file=File(file=file_object), filename='scan {}'.format(
+                        file=File(
+                            file=file_object
+                        ), filename='scan {}'.format(
                             now()
                         )
                     ),
@@ -106,8 +108,8 @@ class SourceBackendSANEScanner(
                         'forms': context['forms'],
                         'is_multipart': True,
                         'title': _('Document properties'),
-                        'submit_label': _('Scan'),
-                    },
+                        'submit_label': _('Scan')
+                    }
                 }
             ]
         }

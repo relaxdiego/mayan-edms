@@ -22,21 +22,21 @@ class DjangoSearchBackendFieldTypeQueryTypeTestCase(
 ):
     _test_search_backend_path = 'mayan.apps.dynamic_search.backends.django.DjangoSearchBackend'
 
-    @skip('Backend does not support the feature.')
+    @skip(reason='Backend does not support the feature.')
     def test_search_field_type_char_search_exact_accent(self):
         """
         This backend does not require indexing which is required
         for this feature to work.
         """
 
-    @skip('Backend does not support the feature.')
+    @skip(reason='Backend does not support the feature.')
     def test_search_field_type_char_search_fuzzy(self):
         """
         This query type is emulated and does not return the same results
         as backends support this natively.
         """
 
-    @skip('Backend does not support the feature.')
+    @skip(reason='Backend does not support the feature.')
     def test_search_field_type_text_search_fuzzy(self):
         """
         This query type is emulated and does not return the same results
@@ -44,7 +44,7 @@ class DjangoSearchBackendFieldTypeQueryTypeTestCase(
         """
 
 
-@skip('Skip until a Mock ElasticSearch server class is added.')
+@skip(reason='Skip until a Mock ElasticSearch server class is added.')
 class ElasticSearchBackendIndexingTestCase(
     BackendSearchTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin,
     BaseTestCase
@@ -63,14 +63,14 @@ class ElasticSearchBackendIndexingTestCase(
             )
 
 
-@skip('Skip until a Mock ElasticSearch server class is added.')
+@skip(reason='Skip until a Mock ElasticSearch server class is added.')
 class ElasticSearchBackendSearchFieldTestCase(
     BackendSearchFieldTestCaseMixin, BaseTestCase
 ):
     _test_search_backend_path = 'mayan.apps.dynamic_search.backends.elasticsearch.ElasticSearchBackend'
 
 
-@skip('Skip until a Mock ElasticSearch server class is added.')
+@skip(reason='Skip until a Mock ElasticSearch server class is added.')
 class ElasticSearchBackendFieldTypeQueryTypeTestCase(
     BackendFieldTypeQueryTypeTestCaseMixin, BaseTestCase
 ):

@@ -1,4 +1,3 @@
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -10,7 +9,7 @@ class DependencyEnvironment:
         self.mark_missing = mark_missing
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
 
 environment_build = DependencyEnvironment(

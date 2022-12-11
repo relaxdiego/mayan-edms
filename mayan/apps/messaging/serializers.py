@@ -11,13 +11,19 @@ from .models import Message
 
 
 class MessageSerializer(serializers.HyperlinkedModelSerializer):
-    sender_app_label = serializers.SerializerMethodField()
-    sender_model_name = serializers.SerializerMethodField()
-    sender_url = serializers.SerializerMethodField()
+    sender_app_label = serializers.SerializerMethodField(
+        label=_('Sender app label')
+    )
+    sender_model_name = serializers.SerializerMethodField(
+        label=_('Sender model name')
+    )
+    sender_url = serializers.SerializerMethodField(
+        label=_('Sender URL')
+    )
     user = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the recipient user of this message.'
-        ), source_queryset=get_user_queryset(),
+        ), label=_('User ID'), source_queryset=get_user_queryset()
     )
 
     class Meta:
@@ -77,6 +83,7 @@ class MessageSerializer(serializers.HyperlinkedModelSerializer):
 
                     return reverse(
                         viewname=resolved_match.view_name,
-                        kwargs=resolved_match.kwargs, request=self.context['request'],
+                        kwargs=resolved_match.kwargs,
+                        request=self.context['request'],
                         format=self.context['format']
                     )

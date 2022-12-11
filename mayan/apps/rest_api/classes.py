@@ -30,7 +30,8 @@ class BatchResponse:
 
 class NestableLazyIterator:
     def __init__(
-        self, iterable_string, context, context_list_index, parent_iterator=None
+        self, iterable_string, context, context_list_index,
+        parent_iterator=None
     ):
         self.iterable_string = iterable_string
         self.context = context
@@ -67,7 +68,9 @@ class NestableLazyIterator:
         return value
 
     def update_iterable_object(self):
-        self.items = Variable(var=self.iterable_string).resolve(context=self.context)
+        self.items = Variable(
+            var=self.iterable_string
+        ).resolve(context=self.context)
 
 
 RenderedContent = namedtuple(
@@ -111,7 +114,9 @@ class BatchRequest:
                     break
                 except VariableDoesNotExist as exception:
                     self.collection.responses[self.name] = {
-                        'data': {'error': str(exception)},
+                        'data': {
+                            'error': str(exception)
+                        },
                         'include': 'true',
                         'is_response': True
                     }
@@ -138,7 +143,9 @@ class BatchRequest:
             except Resolver404 as exception:
                 self.collection.responses[rendered_content.name] = {
                     'data': {
-                        'error': '"{}" not found'.format(exception.args[0]['path'])
+                        'error': '"{}" not found'.format(
+                            exception.args[0]['path']
+                        )
                     },
                     'include': 'true',
                     'is_response': True,
@@ -161,7 +168,9 @@ class BatchRequest:
                 environ['wsgi.input'] = io.BytesIO(
                     initial_bytes=request_data
                 )
-                environ['CONTENT_LENGTH'] = str(len(request_data))
+                environ['CONTENT_LENGTH'] = str(
+                    len(request_data)
+                )
 
                 if rendered_content.method == 'POST':
                     environ['CONTENT_TYPE'] = MULTIPART_CONTENT
@@ -190,7 +199,9 @@ class BatchRequest:
                 )
 
                 result = {
-                    'headers': {key: value for key, value in response.items()},
+                    'headers': {
+                        key: value for key, value in response.items()
+                    },
                     'include': rendered_content.include,
                     'is_response': True,
                     'status_code': response.status_code
@@ -214,7 +225,9 @@ class BatchRequest:
                 self.collection.responses[rendered_content.name] = result
 
             if self.group_name:
-                self.collection.context.setdefault('groups', {})
+                self.collection.context.setdefault(
+                    'groups', {}
+                )
                 self.collection.context['groups'].setdefault(
                     self.group_name, []
                 )

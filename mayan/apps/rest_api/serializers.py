@@ -19,7 +19,9 @@ from rest_framework.relations import (  # NOQA
 from rest_framework.reverse import reverse
 
 from .classes import BatchRequestCollection
-from .serializer_mixins import CreateOnlyFieldSerializerMixin, DynamicFieldListSerializerMixin
+from .serializer_mixins import (
+    CreateOnlyFieldSerializerMixin, DynamicFieldListSerializerMixin
+)
 
 
 class Serializer(
@@ -82,14 +84,14 @@ class ModelSerializer(
 
 
 class ProjectInformationSerializer(Serializer):
-    __title__ = CharField(read_only=True)
-    __version__ = CharField(read_only=True)
-    __build__ = CharField(read_only=True)
-    __build_string__ = CharField(read_only=True)
-    __django_version__ = CharField(read_only=True)
     __author__ = CharField(read_only=True)
     __author_email__ = CharField(read_only=True)
-    __description__ = CharField(read_only=True)
-    __license__ = CharField(read_only=True)
+    __build__ = CharField(read_only=True)
+    __build_string__ = CharField(read_only=True)
     __copyright__ = CharField(read_only=True)
+    __description__ = CharField(read_only=True)
+    __django_version__ = CharField(read_only=True)
+    __license__ = CharField(read_only=True)
+    __title__ = CharField(read_only=True)
+    __version__ = CharField(read_only=True)
     __website__ = CharField(read_only=True)

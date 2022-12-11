@@ -12,7 +12,6 @@ from .literals import (
     DOCUMENT_VERSION_EXPORT_MESSAGE_BODY,
     DOCUMENT_VERSION_EXPORT_MESSAGE_SUBJECT
 )
-from .permissions import permission_document_version_export
 
 
 class DocumentVersionExporter:

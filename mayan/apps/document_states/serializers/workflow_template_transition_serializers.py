@@ -22,7 +22,7 @@ class WorkflowTransitionFieldSerializer(
     serializers.HyperlinkedModelSerializer
 ):
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'transition.workflow_id',
                 'lookup_url_kwarg': 'workflow_template_id',
@@ -35,23 +35,22 @@ class WorkflowTransitionFieldSerializer(
                 'lookup_field': 'pk',
                 'lookup_url_kwarg': 'workflow_template_transition_field_id',
             }
-        ),
-        view_name='rest_api:workflow-template-transition-field-detail'
+        ), view_name='rest_api:workflow-template-transition-field-detail'
     )
     workflow_template_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Workflow template URL'), view_kwargs=(
             {
                 'lookup_field': 'transition__workflow_id',
                 'lookup_url_kwarg': 'workflow_template_id',
             },
-        ),
-        view_name='rest_api:workflow-template-detail'
+        ), view_name='rest_api:workflow-template-detail'
     )
     workflow_transition_id = serializers.IntegerField(
-        read_only=True, source='transition_id'
+        label=_('Workflow transition ID'), read_only=True,
+        source='transition_id'
     )
     workflow_transition_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Workflow transition URL'), view_kwargs=(
             {
                 'lookup_field': 'transition.workflow_id',
                 'lookup_url_kwarg': 'workflow_template_id',
@@ -60,8 +59,7 @@ class WorkflowTransitionFieldSerializer(
                 'lookup_field': 'transition_id',
                 'lookup_url_kwarg': 'workflow_template_transition_id',
             },
-        ),
-        view_name='rest_api:workflow-template-transition-detail'
+        ), view_name='rest_api:workflow-template-transition-detail'
     )
 
     class Meta:
@@ -80,27 +78,41 @@ class WorkflowTransitionFieldSerializer(
 class WorkflowTemplateTransitionSerializer(
     serializers.HyperlinkedModelSerializer
 ):
-    destination_state = WorkflowTemplateStateSerializer(read_only=True)
+    destination_state = WorkflowTemplateStateSerializer(
+        label=_('Destination state'), read_only=True
+    )
     destination_state_id = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the destination state to be added.'
-        ), source_queryset_method='get_workflow_template_state_queryset',
+        ), label=_('Destination state ID'),
+        source_queryset_method='get_workflow_template_state_queryset',
         write_only=True
     )
-    field_list_url = serializers.SerializerMethodField()
-    origin_state = WorkflowTemplateStateSerializer(read_only=True)
+    field_list_url = serializers.SerializerMethodField(
+        label=_('Field list URL')
+    )
+    origin_state = WorkflowTemplateStateSerializer(
+        label=_('Origin state'), read_only=True
+    )
     origin_state_id = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the origin state to be added.'
-        ), source_queryset_method='get_workflow_template_state_queryset',
+        ), label=_('Origin state ID'),
+        source_queryset_method='get_workflow_template_state_queryset',
         write_only=True
     )
-    trigger_list_url = serializers.SerializerMethodField()
-    url = serializers.SerializerMethodField()
-    workflow_template_id = serializers.IntegerField(
-        read_only=True, source='workflow_id'
+    trigger_list_url = serializers.SerializerMethodField(
+        label=_('Trigger list URL')
     )
-    workflow_template_url = serializers.SerializerMethodField()
+    url = serializers.SerializerMethodField(
+        label=_('URL')
+    )
+    workflow_template_id = serializers.IntegerField(
+        label=_('Workflow template ID'), read_only=True, source='workflow_id'
+    )
+    workflow_template_url = serializers.SerializerMethodField(
+        label=_('Workflow template URL')
+    )
 
     class Meta:
         fields = (
@@ -179,13 +191,15 @@ class WorkflowTemplateTransitionSerializer(
 class WorkflowTemplateTransitionTriggerSerializer(
     serializers.HyperlinkedModelSerializer
 ):
-    event_type = EventTypeSerializer(read_only=True)
+    event_type = EventTypeSerializer(
+        label=_('Event type'), read_only=True
+    )
     event_type_id = serializers.CharField(
         label=_('Event Type ID'), source='event_type.event_type.id',
         write_only=True
     )
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'transition.workflow_id',
                 'lookup_url_kwarg': 'workflow_template_id',
@@ -198,23 +212,22 @@ class WorkflowTemplateTransitionTriggerSerializer(
                 'lookup_field': 'pk',
                 'lookup_url_kwarg': 'workflow_template_transition_trigger_id',
             }
-        ),
-        view_name='rest_api:workflow-template-transition-trigger-detail'
+        ), view_name='rest_api:workflow-template-transition-trigger-detail'
     )
     workflow_template_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Workflow template URL'), view_kwargs=(
             {
                 'lookup_field': 'transition__workflow_id',
                 'lookup_url_kwarg': 'workflow_template_id',
             },
-        ),
-        view_name='rest_api:workflow-template-detail'
+        ), view_name='rest_api:workflow-template-detail'
     )
     workflow_transition_id = serializers.IntegerField(
-        read_only=True, source='transition_id'
+        label=_('Workflow transition ID'), read_only=True,
+        source='transition_id'
     )
     workflow_transition_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Workflow transition URL'), view_kwargs=(
             {
                 'lookup_field': 'transition.workflow_id',
                 'lookup_url_kwarg': 'workflow_template_id',
@@ -223,8 +236,7 @@ class WorkflowTemplateTransitionTriggerSerializer(
                 'lookup_field': 'transition_id',
                 'lookup_url_kwarg': 'workflow_template_transition_id',
             },
-        ),
-        view_name='rest_api:workflow-template-transition-detail'
+        ), view_name='rest_api:workflow-template-transition-detail'
     )
 
     class Meta:
@@ -271,7 +283,7 @@ class WorkflowTemplateTransitionTriggerSerializer(
             EventType.get(id=data)
         except KeyError:
             raise ValidationError(
-                _('Unknown or invalid event type ID `%s`') % data
+                message=_('Unknown or invalid event type ID `%s`') % data
             )
         else:
             return data

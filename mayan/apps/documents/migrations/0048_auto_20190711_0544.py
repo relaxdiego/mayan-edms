@@ -1,13 +1,14 @@
 import uuid
 
 from django.db import migrations, models
-from django.utils.encoding import force_text
 
 import mayan.apps.storage.classes
 
 
 def UUID_FUNCTION(*args, **kwargs):
-    return force_text(s=uuid.uuid4())
+    return str(
+        uuid.uuid4()
+    )
 
 
 class Migration(migrations.Migration):

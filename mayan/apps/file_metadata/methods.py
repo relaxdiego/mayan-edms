@@ -4,20 +4,20 @@ from .events import event_file_metadata_document_file_submitted
 from .tasks import task_process_document_file
 
 
-def method_document_file_metadata_submit(self, _user=None):
+def method_document_file_metadata_submit(self, user=None):
     latest_file = self.file_latest
     # Don't error out if document has no file.
     if latest_file:
-        latest_file.submit_for_file_metadata_processing(_user=_user)
+        latest_file.submit_for_file_metadata_processing(user=user)
 
 
-def method_document_file_metadata_submit_single(self, _user=None):
+def method_document_file_metadata_submit_single(self, user=None):
     event_file_metadata_document_file_submitted.commit(
-        action_object=self.document, actor=_user, target=self
+        action_object=self.document, actor=user, target=self
     )
 
-    if _user:
-        user_id = _user.pk
+    if user:
+        user_id = user.pk
     else:
         user_id = None
 

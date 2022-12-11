@@ -37,7 +37,7 @@ class LockingBackend:
             cls._initialize()
             cls._is_initialized = True
 
-        logger.debug('purging locks')
+        logger.debug(msg='purging locks')
         return cls._purge_locks()
 
     def __init__(self, *args, **kwargs):

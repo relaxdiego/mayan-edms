@@ -1,5 +1,5 @@
 from django.apps import apps
-from django.utils.encoding import force_text
+from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.sources.classes import DocumentCreateWizardStep
@@ -35,21 +35,34 @@ class DocumentCreateWizardStepCabinets(DocumentCreateWizardStep):
     @classmethod
     def done(cls, wizard):
         result = {}
-        cleaned_data = wizard.get_cleaned_data_for_step(cls.name)
+        cleaned_data = wizard.get_cleaned_data_for_step(step=cls.name)
         if cleaned_data:
             result['cabinets'] = [
-                force_text(s=cabinet.pk) for cabinet in cleaned_data['cabinets']
+                str(cabinet.pk) for cabinet in cleaned_data['cabinets']
             ]
 
         return result
 
     @classmethod
-    def step_post_upload_process(cls, document, query_string=None):
+    def step_post_upload_process(
+        cls, document, source_id, user_id, extra_data=None, query_string=None
+    ):
         Cabinet = apps.get_model(app_label='cabinets', model_name='Cabinet')
-        cabinet_id_list = URL(query_string=query_string).args.getlist('cabinets')
+        User = get_user_model()
+
+        cabinet_id_list = URL(
+            query_string=query_string
+        ).args.getlist('cabinets')
+        try:
+            user = User.objects.get(pk=user_id)
+        except User.DoesNotExist:
+            user = None
 
         for cabinet in Cabinet.objects.filter(pk__in=cabinet_id_list):
-            cabinet.document_add(document=document)
+            if user:
+                cabinet.document_add(document=document, user=user)
+            else:
+                cabinet._document_add(document=document)
 
 
 DocumentCreateWizardStep.register(DocumentCreateWizardStepCabinets)

@@ -5,8 +5,6 @@ from ..models.recently_accessed_document_models import RecentlyAccessedDocument
 
 from .document_views import DocumentListView
 
-__all__ = ('RecentlyAccessedDocumentListView',)
-
 
 class RecentlyAccessedDocumentListView(DocumentListView):
     view_icon = icon_document_recently_accessed_list
@@ -28,7 +26,7 @@ class RecentlyAccessedDocumentListView(DocumentListView):
                 'no_results_title': _(
                     'There are no recently accessed documents'
                 ),
-                'title': _('Recently accessed'),
+                'title': _('Recently accessed')
             }
         )
         return context

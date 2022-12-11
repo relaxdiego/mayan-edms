@@ -29,12 +29,12 @@ class APIACLListView(
 
     def get_instance_extra_data(self):
         return {
-            'content_object': self.external_object,
-            '_event_actor': self.request.user
+            '_event_actor': self.request.user,
+            'content_object': self.get_external_object()
         }
 
     def get_queryset(self):
-        return self.external_object.acls.all()
+        return self.get_external_object().acls.all()
 
 
 class APIACLDetailView(
@@ -57,7 +57,7 @@ class APIACLDetailView(
         }
 
     def get_queryset(self):
-        return self.external_object.acls.all()
+        return self.get_external_object().acls.all()
 
 
 class APIACLPermissionAddView(
@@ -66,31 +66,20 @@ class APIACLPermissionAddView(
     """
     post: Add a permission to an ACL.
     """
+    lookup_url_kwarg = 'acl_id'
     mayan_external_object_permissions = {
         'POST': (permission_acl_edit,)
     }
     serializer_class = ACLPermissionAddSerializer
 
-    def get_object(self):
-        return get_object_or_404(
-            klass=self.external_object.acls, pk=self.kwargs['acl_id']
-        )
-
-    def get_instance_extra_data(self):
-        return {
-            '_event_actor': self.request.user
-        }
-
     def get_queryset(self):
-        return self.object.permissions.all()
+        return self.get_external_object().acls
 
-    def object_action(self, request, serializer):
-        self.object._event_actor = self.request.user
-
-        self.object.permissions_add(
+    def object_action(self, obj, request, serializer):
+        obj.permissions_add(
             queryset=StoredPermission.objects.filter(
                 pk=serializer.validated_data['permission'].stored_permission.pk
-            )
+            ), user=self.request.user
         )
 
 
@@ -109,7 +98,7 @@ class APIACLPermissionListView(
 
     def get_acl(self):
         return get_object_or_404(
-            klass=self.external_object.acls, pk=self.kwargs['acl_id']
+            klass=self.get_external_object().acls, pk=self.kwargs['acl_id']
         )
 
     def get_queryset(self):
@@ -122,31 +111,20 @@ class APIACLPermissionRemoveView(
     """
     post: Remove a permission from an ACL.
     """
+    lookup_url_kwarg = 'acl_id'
     mayan_external_object_permissions = {
         'POST': (permission_acl_edit,)
     }
     serializer_class = ACLPermissionRemoveSerializer
 
-    def get_object(self):
-        return get_object_or_404(
-            klass=self.external_object.acls, pk=self.kwargs['acl_id']
-        )
-
-    def get_instance_extra_data(self):
-        return {
-            '_event_actor': self.request.user
-        }
-
     def get_queryset(self):
-        return self.object.permissions.all()
+        return self.get_external_object().acls
 
-    def object_action(self, request, serializer):
-        self.object._event_actor = self.request.user
-
-        self.object.permissions_remove(
+    def object_action(self, obj, request, serializer):
+        obj.permissions_remove(
             queryset=StoredPermission.objects.filter(
                 pk=serializer.validated_data['permission'].stored_permission.pk
-            )
+            ), user=self.request.user
         )
 
 

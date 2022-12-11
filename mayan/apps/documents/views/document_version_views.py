@@ -16,7 +16,7 @@ from mayan.apps.views.generics import (
     MultipleObjectDeleteView, SingleObjectCreateView, SingleObjectDetailView,
     SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..classes import DocumentVersionModification
 from ..events import event_document_viewed
@@ -45,12 +45,8 @@ from ..settings import setting_preview_height, setting_preview_width
 from ..tasks import task_document_version_delete
 
 from .misc_views import PrintFormView, DocumentPrintBaseView
-from .mixins import RecentDocumentViewMixin
+from .view_mixins import RecentDocumentViewMixin
 
-__all__ = (
-    'DocumentVersionCreateView', 'DocumentVersionListView',
-    'DocumentVersionPreviewView'
-)
 logger = logging.getLogger(name=__name__)
 
 
@@ -65,7 +61,7 @@ class DocumentVersionActiveView(ExternalObjectViewMixin, ConfirmView):
             'object': self.external_object,
             'title': _(
                 'Make the document version "%s" the active version?'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def view_action(self, form=None):
@@ -90,7 +86,7 @@ class DocumentVersionCreateView(ExternalObjectViewMixin, SingleObjectCreateView)
             'object': self.external_object,
             'title': _(
                 'Create a document version for document: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_instance_extra_data(self):
@@ -131,7 +127,7 @@ class DocumentVersionDeleteView(MultipleObjectDeleteView):
         if self.object_list.count() > 1:
             context.update(
                 {
-                    'object': self.object_list.first().document,
+                    'object': self.object_list.first().document
                 }
             )
 
@@ -163,12 +159,12 @@ class DocumentVersionEditView(SingleObjectEditView):
 
     def get_extra_context(self):
         return {
-            'title': _('Edit document version: %s') % self.object,
+            'title': _('Edit document version: %s') % self.object
         }
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
     def get_post_action_redirect(self):
@@ -233,7 +229,7 @@ class DocumentVersionModifyView(ExternalObjectViewMixin, FormView):
             name=form.cleaned_data['backend']
         ).execute(
             document_version=self.external_object,
-            _user=self.request.user
+            user=self.request.user
         )
 
         messages.success(
@@ -248,7 +244,8 @@ class DocumentVersionModifyView(ExternalObjectViewMixin, FormView):
         context = {
             'object': self.external_object,
             'title': _(
-                'Execute version modification action for document version: %s'
+                'Execute version modification action for document '
+                'version: %s'
             ) % self.external_object
         }
 
@@ -278,7 +275,7 @@ class DocumentVersionPreviewView(SingleObjectDetailView):
         return {
             'hide_labels': True,
             'object': self.object,
-            'title': _('Preview of document version: %s') % self.object,
+            'title': _('Preview of document version: %s') % self.object
         }
 
     def get_form_extra_kwargs(self):
@@ -325,10 +322,12 @@ class DocumentVersionTransformationsClearView(MultipleObjectConfirmActionView):
     pk_url_kwarg = 'document_version_id'
     source_queryset = DocumentVersion.valid.all()
     success_message = _(
-        'Transformation clear request processed for %(count)d document version.'
+        'Transformation clear request processed for %(count)d document '
+        'version.'
     )
     success_message_plural = _(
-        'Transformation clear request processed for %(count)d document versions.'
+        'Transformation clear request processed for %(count)d document '
+        'versions.'
     )
     view_icon = icon_document_version_transformation_list_clear
 

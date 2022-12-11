@@ -180,16 +180,24 @@ class SourceBackendCompressedMixin:
                 return False
 
     def get_task_extra_kwargs(self):
-        return {'expand': self.get_expand()}
+        return {
+            'expand': self.get_expand()
+        }
 
 
 class SourceBackendInteractiveMixin:
     is_interactive = True
 
-    def callback(self, document_file, **kwargs):
+    def callback(
+        self, document_file, source_id, user_id, query_string=None,
+        extra_data=None
+    ):
         DocumentCreateWizardStep.post_upload_process(
             document=document_file.document,
-            query_string=kwargs.get('query_string', '')
+            extra_data=extra_data,
+            query_string=query_string,
+            source_id=source_id,
+            user_id=user_id
         )
 
     def get_callback_kwargs(self):
@@ -214,7 +222,9 @@ class SourceBackendInteractiveMixin:
         return self.process_kwargs['forms']['document_form'].cleaned_data.get('description')
 
     def get_document_file_action(self):
-        return int(self.process_kwargs['forms']['document_form'].cleaned_data.get('action'))
+        return int(
+            self.process_kwargs['forms']['document_form'].cleaned_data.get('action')
+        )
 
     def get_document_file_comment(self):
         return self.process_kwargs['forms']['document_form'].cleaned_data.get('comment')
@@ -252,7 +262,9 @@ class SourceBackendPeriodicMixin:
                         'source.'
                     ),
                     'kwargs': {
-                        'choices': [(document_type.id, document_type) for document_type in DocumentType.objects.all()],
+                        'choices': [
+                            (document_type.id, document_type) for document_type in DocumentType.objects.all()
+                        ],
                     },
                     'label': _('Document type'),
                     'required': True
@@ -269,7 +281,7 @@ class SourceBackendPeriodicMixin:
                     },
                     'label': _('Interval'),
                     'required': True
-                },
+                }
             }
         )
         result['field_order'] = ('document_type_id', 'interval',) + result['field_order']
@@ -300,17 +312,21 @@ class SourceBackendPeriodicMixin:
         )
 
         PeriodicTask.objects.create(
-            name=self.get_periodic_task_name(),
             interval=interval_instance,
-            task='mayan.apps.sources.tasks.task_source_process_document',
-            kwargs=json.dumps(obj={'source_id': self.model_instance_id})
+            kwargs=json.dumps(
+                obj={'source_id': self.model_instance_id}
+            ),
+            name=self.get_periodic_task_name(),
+            task='mayan.apps.sources.tasks.task_source_process_document'
         )
 
     def delete(self):
         self.delete_periodic_task(pk=self.model_instance_id)
 
     def get_document_type(self):
-        return DocumentType.objects.get(pk=self.kwargs['document_type_id'])
+        return DocumentType.objects.get(
+            pk=self.kwargs['document_type_id']
+        )
 
     def delete_periodic_task(self, pk=None):
         PeriodicTask = apps.get_model(
@@ -336,7 +352,9 @@ class SourceBackendPeriodicMixin:
             )
 
     def get_periodic_task_name(self, pk=None):
-        return 'check_interval_source-{}'.format(pk or self.model_instance_id)
+        return 'check_interval_source-{}'.format(
+            pk or self.model_instance_id
+        )
 
     def save(self):
         self.delete_periodic_task()

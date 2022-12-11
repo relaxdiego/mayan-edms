@@ -14,7 +14,7 @@ class WebLinkDocumentTypeAddSerializer(serializers.Serializer):
     document_type = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the document type to add to the web link.'
-        ), source_model=DocumentType,
+        ), label=_('Document type ID'), source_model=DocumentType,
         source_permission=permission_document_type_edit
     )
 
@@ -23,22 +23,22 @@ class WebLinkDocumentTypeRemoveSerializer(serializers.Serializer):
     document_type = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the document type to remove from the web link.'
-        ), source_model=DocumentType,
+        ), label=_('Document type ID'), source_model=DocumentType,
         source_permission=permission_document_type_edit
     )
 
 
 class WebLinkSerializer(serializers.HyperlinkedModelSerializer):
     document_types_add_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='web_link_id',
+        label=_('Document types add URL'), lookup_url_kwarg='web_link_id',
         view_name='rest_api:web_link-document_type-add'
     )
     document_types_remove_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='web_link_id',
+        label=_('Document types remove URL'), lookup_url_kwarg='web_link_id',
         view_name='rest_api:web_link-document_type-remove'
     )
     document_types_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='web_link_id',
+        label=_('Document types URL'), lookup_url_kwarg='web_link_id',
         view_name='rest_api:web_link-document_type-list'
     )
 
@@ -58,8 +58,12 @@ class WebLinkSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ResolvedWebLinkSerializer(serializers.HyperlinkedModelSerializer):
-    url = serializers.SerializerMethodField()
-    navigation_url = serializers.SerializerMethodField()
+    url = serializers.SerializerMethodField(
+        label=_('URL')
+    )
+    navigation_url = serializers.SerializerMethodField(
+        label=_('Navigation URL')
+    )
 
     class Meta:
         fields = ('id', 'navigation_url', 'url')

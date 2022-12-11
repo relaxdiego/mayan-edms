@@ -1,8 +1,6 @@
 from contextlib import contextmanager
 import sys
 
-from django.utils.encoding import force_text
-
 
 class NullFile:
     def flush(self):
@@ -14,7 +12,9 @@ class NullFile:
 
 def as_id_list(items):
     return ','.join(
-        [force_text(s=item.pk) for item in items]
+        [
+            str(item.pk) for item in items
+        ]
     )
 
 

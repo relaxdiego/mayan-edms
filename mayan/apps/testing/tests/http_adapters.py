@@ -20,14 +20,18 @@ class TestClientAdapter(requests.adapters.BaseAdapter):
 
         # Make headers case-insensitive.
         response.headers = requests.structures.CaseInsensitiveDict(
-            getattr(django_response, 'headers', {})
+            getattr(
+                django_response, 'headers', {}
+            )
         )
 
         # Set encoding.
         response.encoding = requests.utils.get_encoding_from_headers(
             headers=response.headers
         )
-        response.raw = BytesIO(initial_bytes=django_response.getvalue())
+        response.raw = BytesIO(
+            initial_bytes=django_response.getvalue()
+        )
 
         response.reason = django_response.reason_phrase
 
@@ -55,20 +59,24 @@ class TestClientAdapter(requests.adapters.BaseAdapter):
         """
 
     def send(
-        self, request=None, stream=False, timeout=None, verify=True,
-        cert=None, proxies=None
+        self, request=None, cert=None, proxies=None, stream=False,
+        timeout=None, verify=True
     ):
-        """Craft a Django request based on the attribute of
-        requests' request object.
+        """
+        Craft a Django request based on the attribute of requests'
+        request object.
+        The `request` needs to go first because upstream
+        `requests.sessions` calls this method using positional arguments
+        which breaks the interface.
         """
         # Expose the timeout value so that the test case can assert it.
         self.test_case.timeout = timeout
 
         return self.build_response(
-            request=request, django_response=self.test_case.generic(
+            django_response=self.test_case.generic(
                 data=request.body,
                 headers=request.headers,
                 method=request.method,
-                viewname=self.test_case._test_view_name,
-            )
+                viewname=self.test_case._test_view_name
+            ), request=request
         )

@@ -4,7 +4,6 @@ import logging
 from django.apps import apps
 from django.core.exceptions import PermissionDenied
 from django.db.utils import OperationalError, ProgrammingError
-from django.utils.encoding import force_text
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
@@ -32,7 +31,7 @@ class PermissionNamespace:
         self.__class__._registry[name] = self
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def add_permission(self, name, label):
         permission = Permission(namespace=self, name=name, label=label)
@@ -63,7 +62,9 @@ class Permission(AppsModuleLoaderMixin):
         logger.debug(
             'User "%s" does not have permissions "%s"', user, permissions
         )
-        raise PermissionDenied(_('Insufficient permissions.'))
+        raise PermissionDenied(
+            _('Insufficient permissions.')
+        )
 
     @classmethod
     def get(cls, pk):
@@ -110,7 +111,7 @@ class Permission(AppsModuleLoaderMixin):
         return self.pk
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def get_pk(self):
         return '{}.{}'.format(self.namespace.name, self.name)
@@ -123,8 +124,7 @@ class Permission(AppsModuleLoaderMixin):
 
         try:
             stored_permission, created = StoredPermission.objects.get_or_create(
-                namespace=self.namespace.name,
-                name=self.name,
+                name=self.name, namespace=self.namespace.name
             )
 
             return stored_permission

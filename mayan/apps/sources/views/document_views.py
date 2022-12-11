@@ -3,13 +3,12 @@ import logging
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.acls.models import AccessControlList
 from mayan.apps.documents.models.document_type_models import DocumentType
 from mayan.apps.documents.permissions import permission_document_create
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..forms import NewDocumentForm
 from ..icons import icon_document_create_multiple
@@ -41,12 +40,14 @@ class DocumentUploadInteractiveView(ExternalObjectViewMixin, UploadBaseView):
                 'Error processing source document upload; '
                 '%(exception)s'
             ) % {
-                'exception': exception,
+                'exception': exception
             }
             logger.critical(msg=message, exc_info=True)
             if self.request.is_ajax():
                 return JsonResponse(
-                    data={'error': force_text(s=message)}, status=500
+                    data={
+                        'error': str(s=message)
+                    }, status=500
                 )
             else:
                 messages.error(
@@ -68,7 +69,7 @@ class DocumentUploadInteractiveView(ExternalObjectViewMixin, UploadBaseView):
                     viewname=self.request.resolver_match.view_name,
                     kwargs=self.request.resolver_match.kwargs
                 ), self.request.META['QUERY_STRING']
-            ),
+            )
         )
 
     def get_active_tab_links(self):

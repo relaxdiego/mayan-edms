@@ -16,9 +16,6 @@ from ..settings import setting_favorite_count
 
 from .document_views import DocumentListView
 
-__all__ = (
-    'FavoriteDocumentListView', 'FavoriteAddView', 'FavoriteRemoveView'
-)
 logger = logging.getLogger(name=__name__)
 
 
@@ -38,7 +35,7 @@ class FavoriteDocumentListView(DocumentListView):
                     'Up to %(count)d documents can be favorited per user. '
                 ) % {'count': setting_favorite_count.value},
                 'no_results_title': _('There are no favorited documents.'),
-                'title': _('Favorites'),
+                'title': _('Favorites')
             }
         )
         return context

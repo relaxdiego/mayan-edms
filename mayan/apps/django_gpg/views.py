@@ -38,7 +38,9 @@ class KeyDeleteView(SingleObjectDeleteView):
     view_icon = icon_key_delete
 
     def get_extra_context(self):
-        return {'title': _('Delete key: %s') % self.object}
+        return {
+            'title': _('Delete key: %s') % self.object
+        }
 
     def get_post_action_redirect(self):
         if self.object.key_type == KEY_TYPE_PUBLIC:
@@ -56,7 +58,7 @@ class KeyDetailView(SingleObjectDetailView):
 
     def get_extra_context(self):
         return {
-            'title': _('Details for key: %s') % self.object,
+            'title': _('Details for key: %s') % self.object
         }
 
 
@@ -84,19 +86,23 @@ class KeyDownloadView(SingleObjectDownloadView):
 
 
 class KeyReceive(ConfirmView):
-    post_action_redirect = reverse_lazy(viewname='django_gpg:key_public_list')
+    post_action_redirect = reverse_lazy(
+        viewname='django_gpg:key_public_list'
+    )
     view_icon = icon_key_upload
     view_permission = permission_key_receive
 
     def get_extra_context(self):
         return {
             'message': _('Import key ID: %s?') % self.kwargs['key_id'],
-            'title': _('Import key'),
+            'title': _('Import key')
         }
 
     def view_action(self):
         try:
-            Key.objects.receive_key(key_id=self.kwargs['key_id'])
+            Key.objects.receive_key(
+                key_id=self.kwargs['key_id']
+            )
         except Exception as exception:
             messages.error(
                 message=_(
@@ -132,7 +138,7 @@ class KeyQueryResultView(SingleObjectListView):
             'no_results_title': _(
                 'No results returned'
             ),
-            'title': _('Key query results'),
+            'title': _('Key query results')
         }
 
     def get_source_queryset(self):
@@ -153,13 +159,15 @@ class KeyQueryView(SimpleView):
             'form': self.get_form(),
             'form_action': reverse(viewname='django_gpg:key_query_results'),
             'submit_method': 'GET',
-            'title': _('Query key server'),
+            'title': _('Query key server')
         }
 
     def get_form(self):
         if ('term' in self.request.GET) and self.request.GET['term'].strip():
             term = self.request.GET['term']
-            return KeySearchForm(initial={'term': term})
+            return KeySearchForm(
+                initial={'term': term}
+            )
         else:
             return KeySearchForm()
 
@@ -167,13 +175,15 @@ class KeyQueryView(SimpleView):
 class KeyUploadView(SingleObjectCreateView):
     fields = ('key_data',)
     model = Key
-    post_action_redirect = reverse_lazy(viewname='django_gpg:key_public_list')
+    post_action_redirect = reverse_lazy(
+        viewname='django_gpg:key_public_list'
+    )
     view_icon = icon_key_upload
     view_permission = permission_key_upload
 
     def get_extra_context(self):
         return {
-            'title': _('Upload new key'),
+            'title': _('Upload new key')
         }
 
     def get_instance_extra_data(self):

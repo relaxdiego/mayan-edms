@@ -6,7 +6,6 @@ from django.conf.urls import include, url
 from django.template import loader
 from django.template.base import Template
 from django.template.context import Context
-from django.utils.encoding import force_text
 from django.utils.html import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
@@ -35,7 +34,9 @@ class ClientBackend(BaseBackend):
     @classmethod
     def get_backend_instance(cls, name):
         backend_class = cls.get(name=name)
-        kwargs = setting_client_backend_arguments.value.get(name, {})
+        kwargs = setting_client_backend_arguments.value.get(
+            name, {}
+        )
         return backend_class(**kwargs)
 
     @classmethod
@@ -57,7 +58,10 @@ class ClientBackend(BaseBackend):
             backend_instance = cls.get_backend_instance(name=backend_name)
 
             top_url = '{}/'.format(
-                getattr(backend_instance, '_url_namespace', backend_instance.__class__.__name__)
+                getattr(
+                    backend_instance, '_url_namespace',
+                    backend_instance.__class__.__name__
+                )
             )
 
             urlpatterns += (
@@ -82,7 +86,9 @@ class Variable:
         return os.environ.get(self.environment_name, self.default)
 
     def get_value(self):
-        return mark_safe(self._get_value())
+        return mark_safe(
+            self._get_value()
+        )
 
 
 class YAMLVariable(Variable):
@@ -94,7 +100,8 @@ class YAMLVariable(Variable):
             value = self.default
 
         return yaml_dump(
-            data=value, allow_unicode=True, default_flow_style=True, width=999
+            data=value, allow_unicode=True, default_flow_style=True,
+            width=999
         ).replace('...\n', '').replace('\n', '')
 
 
@@ -122,7 +129,9 @@ class PlatformTemplate:
         cls._registry[klass.name] = klass
 
     def __str__(self):
-        return force_text(s=self.get_label())
+        return str(
+            self.get_label()
+        )
 
     def get_context(self):
         return self.context
@@ -158,11 +167,19 @@ class PlatformTemplate:
         """
         context = {}
 
-        context.update(self.get_context_defaults())
-        context.update(self.get_settings_context())
-        context.update(self.get_variables_context())
+        context.update(
+            self.get_context_defaults()
+        )
+        context.update(
+            self.get_settings_context()
+        )
+        context.update(
+            self.get_variables_context()
+        )
         # get_context goes last to server as the override
-        context.update(self.get_context())
+        context.update(
+            self.get_context()
+        )
 
         if context_string:
             context.update(
@@ -171,11 +188,12 @@ class PlatformTemplate:
 
         if self.template_string:
             template = Template(template_string=self.template_string)
-            return template.render(context=Context(dict_=context))
+            return template.render(
+                context=Context(dict_=context)
+            )
         else:
             return loader.render_to_string(
-                template_name=self.get_template_name(),
-                context=context
+                context=context, template_name=self.get_template_name()
             )
 
 
@@ -186,7 +204,11 @@ class PlatformTemplateDockerEntrypoint(PlatformTemplate):
 
     def get_context(self):
         context = load_env_file()
-        context.update({'workers': Worker.all()})
+        context.update(
+            {
+                'workers': Worker.all()
+            }
+        )
         return context
 
 

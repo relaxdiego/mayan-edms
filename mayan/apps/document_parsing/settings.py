@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_DOCUMENT_PARSING_PDFTOTEXT_PATH
 )
 
-namespace = SettingNamespace(label=_('Document parsing'), name='document_parsing')
+namespace = SettingNamespace(
+    label=_('Document parsing'), name='document_parsing'
+)
 
 setting_auto_parsing = namespace.add_setting(
     choices=('false', 'true'),

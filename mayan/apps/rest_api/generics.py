@@ -24,6 +24,13 @@ class GenericAPIView(
     filter_backends = (MayanObjectPermissionsFilter,)
     permission_classes = (MayanPermission,)
 
+    def initial(self, *args, **kwargs):
+        # DRF modified the value of the request.method attribute.
+        # Preserve the real request method for individual subclass usage.
+        self.request_method_real = self.request.method.upper()
+        result = super().initial(*args, **kwargs)
+        return result
+
 
 class CreateAPIView(
     CheckQuerysetAPIViewMixin, InstanceExtraDataAPIViewMixin,
@@ -72,37 +79,61 @@ class ListCreateAPIView(
     permission_classes = (MayanPermission,)
 
 
-class ObjectActionAPIView(SerializerExtraContextAPIViewMixin, GenericAPIView):
+class ObjectActionAPIView(
+    SerializerExtraContextAPIViewMixin, GenericAPIView
+):
     action_response_status = None
     serializer_class = BlankSerializer
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+
+        # When rendering the exception handler, DRF calls this class
+        # method via .override_method() hiding the real request method.
+        # Use the real request method instead which saved during the view
+        # initialization for correct behavior.
+        if self.request_method_real == 'POST':
+            context.update(
+                {
+                    'object': self.get_object()
+                }
+            )
+        return context
+
     def get_success_headers(self, data):
         try:
-            return {'Location': str(data[api_settings.URL_FIELD_NAME])}
+            return {
+                'Location': str(
+                    data[api_settings.URL_FIELD_NAME]
+                )
+            }
         except (TypeError, KeyError):
             return {}
 
     def object_action(self, serializer):
         raise ImproperlyConfigured(
-            '{cls} class needs to specify the `.perform_action()` method.'.format(
+            '{cls} class needs to specify the `.perform_action()` '
+            'method.'.format(
                 cls=self.__class__.__name__
             )
         )
 
     def post(self, request, *args, **kwargs):
-        return self.view_action(request, *args, **kwargs)
+        return self.view_action(request=request, *args, **kwargs)
 
     def view_action(self, request, *args, **kwargs):
-        self.object = self.get_object()
+        obj = self.get_object()
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
         if hasattr(self, 'get_instance_extra_data'):
             for key, value in self.get_instance_extra_data().items():
-                setattr(self.object, key, value)
+                setattr(obj, key, value)
 
-        result = self.object_action(request=request, serializer=serializer)
+        result = self.object_action(
+            obj=obj, request=request, serializer=serializer
+        )
 
         if result:
             # If object action returned serializer.data.

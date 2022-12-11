@@ -6,7 +6,7 @@ from mayan.apps.common.settings import setting_home_view
 from mayan.apps.user_management.querysets import get_user_queryset
 from mayan.apps.views.http import URL
 from mayan.apps.views.generics import FormView
-from mayan.apps.views.mixins import (
+from mayan.apps.views.view_mixins import (
     ExternalObjectViewMixin, RedirectionViewMixin
 )
 

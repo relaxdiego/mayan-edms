@@ -1,5 +1,3 @@
-from django.utils.encoding import force_text
-
 from rest_framework import status
 
 from mayan.apps.documents.tests.mixins.document_mixins import DocumentTestMixin
@@ -56,8 +54,8 @@ class CheckoutsAPITestCase(
         events = self._get_test_events()
         self.assertEqual(events.count(), 1)
 
-        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].action_object, None)
+        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self._test_document)
         self.assertEqual(events[0].verb, event_document_checked_out.id)
 
@@ -108,8 +106,8 @@ class CheckoutsAPITestCase(
         events = self._get_test_events()
         self.assertEqual(events.count(), 1)
 
-        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].action_object, None)
+        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self._test_document)
         self.assertEqual(
             events[0].verb, event_document_checked_in.id
@@ -171,8 +169,8 @@ class CheckoutsAPITestCase(
         events = self._get_test_events()
         self.assertEqual(events.count(), 1)
 
-        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].action_object, None)
+        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self._test_document)
         self.assertEqual(
             events[0].verb, event_document_forcefully_checked_in.id
@@ -224,7 +222,7 @@ class CheckoutsAPITestCase(
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
             response.data['document']['uuid'],
-            force_text(s=self._test_document.uuid)
+            str(self._test_document.uuid)
         )
 
         events = self._get_test_events()
@@ -338,7 +336,7 @@ class DocumentCheckoutAPITestCase(
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
             response.data['document']['uuid'],
-            force_text(s=self._test_document.uuid)
+            str(self._test_document.uuid)
         )
 
         events = self._get_test_events()
@@ -392,8 +390,8 @@ class DocumentCheckoutAPITestCase(
         events = self._get_test_events()
         self.assertEqual(events.count(), 1)
 
-        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].action_object, None)
+        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self._test_document)
         self.assertEqual(
             events[0].verb, event_document_checked_in.id
@@ -455,8 +453,8 @@ class DocumentCheckoutAPITestCase(
         events = self._get_test_events()
         self.assertEqual(events.count(), 1)
 
-        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].action_object, None)
+        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self._test_document)
         self.assertEqual(
             events[0].verb, event_document_forcefully_checked_in.id

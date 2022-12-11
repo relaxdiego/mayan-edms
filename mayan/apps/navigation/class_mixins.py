@@ -28,7 +28,9 @@ class TemplateObjectMixin:
                 # Simple request extraction failed. Might not be a view
                 # context. Try alternate method.
                 try:
-                    request = Variable(var='request').resolve(context=context)
+                    request = Variable(
+                        var='request'
+                    ).resolve(context=context)
                 except VariableDoesNotExist:
                     # There is no request variable, most probable a 500 in
                     # a test view. Don't return any resolved links then.

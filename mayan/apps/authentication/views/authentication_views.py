@@ -32,7 +32,7 @@ from mayan.apps.common.settings import (
 from mayan.apps.user_management.permissions import permission_user_edit
 from mayan.apps.user_management.querysets import get_user_queryset
 from mayan.apps.views.generics import MultipleObjectFormActionView
-from mayan.apps.views.mixins import ViewIconMixin
+from mayan.apps.views.view_mixins import ViewIconMixin
 from mayan.apps.views.http import URL
 
 from ..classes import AuthenticationBackend
@@ -132,17 +132,17 @@ class MultiFactorAuthenticationView(
         """
         kwargs = self.get_all_cleaned_data()
         self.authentication_backend.process(
-            form_list=form_list, request=self.request,
-            kwargs=kwargs
+            form_list=form_list, kwargs=kwargs, request=self.request
         )
         user = self.authentication_backend.get_user(
-            form_list=form_list, request=self.request,
-            kwargs=kwargs
+            form_list=form_list, kwargs=kwargs, request=self.request
         )
 
         django_auth_login(request=self.request, user=user)
 
-        return HttpResponseRedirect(redirect_to=self.get_success_url())
+        return HttpResponseRedirect(
+            redirect_to=self.get_success_url()
+        )
 
     def get_context_data(self, form, **kwargs):
         context = super().get_context_data(form=form, **kwargs)
@@ -164,8 +164,9 @@ class MultiFactorAuthenticationView(
                 'step_title': _(
                     'Step %(step)d of %(total_steps)d: %(step_label)s'
                 ) % {
-                    'step': self.steps.step1, 'total_steps': len(self.form_list),
-                    'step_label': wizard_step._label
+                    'step': self.steps.step1,
+                    'step_label': wizard_step._label,
+                    'total_steps': len(self.form_list)
                 },
                 'wizard_step': wizard_step,
                 'wizard_steps': self.form_list
@@ -200,7 +201,7 @@ class MayanLoginView(StrongholdPublicMixin, LoginView):
     def form_valid(self, form):
         if not AuthenticationBackend.cls_get_instance().form_list:
             AuthenticationBackend.cls_get_instance().process(
-                request=self.request, kwargs=form.cleaned_data
+                kwargs=form.cleaned_data, request=self.request
 
             )
             return super().form_valid(form=form)
@@ -234,12 +235,18 @@ class MayanPasswordChangeDoneView(PasswordChangeDoneView):
             message=_('Your password has been successfully changed.'),
             request=self.request
         )
-        return redirect(to=self.request.user.get_absolute_url())
+        return redirect(
+            to=self.request.user.get_absolute_url()
+        )
 
 
 class MayanPasswordChangeView(ViewIconMixin, PasswordChangeView):
-    extra_context = {'title': _('Current user password change')}
-    success_url = reverse_lazy(viewname='authentication:password_change_done')
+    extra_context = {
+        'title': _('Current user password change')
+    }
+    success_url = reverse_lazy(
+        viewname='authentication:password_change_done'
+    )
     template_name = 'appearance/generic_form.html'
     view_icon = icon_password_change
 
@@ -360,7 +367,9 @@ class UserSetPasswordView(MultipleObjectFormActionView):
 
     def object_action(self, form, instance):
         try:
-            instance.set_password(form.cleaned_data['new_password1'])
+            instance.set_password(
+                raw_password=form.cleaned_data['new_password1']
+            )
             instance.save()
             messages.success(
                 message=_(
@@ -372,6 +381,6 @@ class UserSetPasswordView(MultipleObjectFormActionView):
                 message=_(
                     'Error reseting password for user "%(user)s": %(error)s'
                 ) % {
-                    'user': instance, 'error': exception
+                    'error': exception, 'user': instance
                 }, request=self.request
             )

@@ -9,19 +9,31 @@ from mayan.apps.permissions import Permission
 class MayanPermission(BasePermission):
     def get_mayan_object_permissions(self, request, view):
         try:
-            return getattr(view, 'get_mayan_object_permissions')(request=request, view=view)
+            method_get_mayan_object_permissions = getattr(
+                view, 'get_mayan_object_permissions'
+            )
         except AttributeError:
             return getattr(
                 view, 'mayan_object_permissions', {}
             ).get(request.method, None)
+        else:
+            return method_get_mayan_object_permissions(
+                request=request, view=view
+            )
 
     def get_mayan_view_permissions(self, request, view):
         try:
-            return getattr(view, 'get_mayan_view_permissions')(request=request, view=view)
+            method_get_mayan_view_permissions = getattr(
+                view, 'get_mayan_view_permissions'
+            )
         except AttributeError:
             return getattr(
                 view, 'mayan_view_permissions', {}
             ).get(request.method, None)
+        else:
+            return method_get_mayan_view_permissions(
+                request=request, view=view
+            )
 
     def has_object_permission(self, request, view, obj):
         permissions = self.get_mayan_object_permissions(

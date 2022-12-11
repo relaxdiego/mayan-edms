@@ -9,11 +9,12 @@ from mayan.apps.acls.models import AccessControlList
 from mayan.apps.databases.classes import ModelQueryFields
 from mayan.apps.documents.models import Document
 from mayan.apps.documents.views.document_views import DocumentListView
+from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.views.generics import (
     MultipleObjectFormActionView, MultipleObjectDeleteView,
     SingleObjectCreateView, SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from .forms import TagForm, TagMultipleSelectionForm
 from .icons import (
@@ -38,18 +39,18 @@ class TagAttachActionView(MultipleObjectFormActionView):
     object_permission = permission_tag_attach
     pk_url_kwarg = 'document_id'
     source_queryset = Document.valid.all()
+    success_message_plural = _(
+        'Tags attached to %(count)d documents successfully.'
+    )
     success_message_single = _(
         'Tags attached to document "%(object)s" successfully.'
     )
     success_message_singular = _(
         'Tags attached to %(count)d document successfully.'
     )
-    success_message_plural = _(
-        'Tags attached to %(count)d documents successfully.'
-    )
+    title_plural = _('Attach tags to %(count)d documents.')
     title_single = _('Attach tags to document: %(object)s')
     title_singular = _('Attach tags to %(count)d document.')
-    title_plural = _('Attach tags to %(count)d documents.')
     view_icon = icon_document_tag_multiple_attach
 
     def get_extra_context(self):
@@ -58,7 +59,7 @@ class TagAttachActionView(MultipleObjectFormActionView):
         if self.object_list.count() == 1:
             context.update(
                 {
-                    'object': self.object_list.first(),
+                    'object': self.object_list.first()
                 }
             )
 
@@ -100,8 +101,7 @@ class TagAttachActionView(MultipleObjectFormActionView):
                 user=self.request.user
             )
 
-            tag._event_actor = self.request.user
-            tag.attach_to(document=instance)
+            tag.attach_to(document=instance, user=self.request.user)
 
 
 class TagCreateView(SingleObjectCreateView):
@@ -123,18 +123,18 @@ class TagDeleteView(MultipleObjectDeleteView):
     object_permission = permission_tag_delete
     pk_url_kwarg = 'tag_id'
     post_action_redirect = reverse_lazy(viewname='tags:tag_list')
+    success_message_plural = _('%(count)d tags deleted successfully.')
     success_message_single = _('Tag "%(object)s" deleted successfully.')
     success_message_singular = _('%(count)d tag deleted successfully.')
-    success_message_plural = _('%(count)d tags deleted successfully.')
+    title_plural = _('Delete the %(count)d selected tags')
     title_single = _('Delete tag: %(object)s')
     title_singular = _('Delete the %(count)d selected tag')
-    title_plural = _('Delete the %(count)d selected tags')
     view_icon = icon_tag_single_delete
 
     def get_extra_context(self):
         context = super().get_extra_context()
         context = {
-            'message': _('Will be removed from all documents.'),
+            'message': _('Will be removed from all documents.')
         }
 
         return context
@@ -150,7 +150,7 @@ class TagEditView(SingleObjectEditView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Edit tag: %s') % self.object,
+            'title': _('Edit tag: %s') % self.object
         }
 
     def get_instance_extra_data(self):
@@ -197,7 +197,8 @@ class TagDocumentListView(ExternalObjectViewMixin, DocumentListView):
     def get_document_queryset(self):
         return Document.valid.filter(
             pk__in=self.get_tag().get_documents(
-                permission=permission_tag_view, user=self.request.user
+                permission=permission_document_view,
+                user=self.request.user
             ).values('pk')
         )
 
@@ -206,7 +207,7 @@ class TagDocumentListView(ExternalObjectViewMixin, DocumentListView):
         context.update(
             {
                 'object': self.get_tag(),
-                'title': _('Documents with the tag: %s') % self.get_tag(),
+                'title': _('Documents with the tag: %s') % self.get_tag()
             }
         )
         return context
@@ -229,14 +230,15 @@ class DocumentTagListView(ExternalObjectViewMixin, TagListView):
                 'hide_link': True,
                 'no_results_main_link': link_document_tag_multiple_attach.resolve(
                     context=RequestContext(
-                        self.request, {'object': self.external_object}
+                        dict_={'object': self.external_object},
+                        request=self.request
                     )
                 ),
                 'no_results_title': _('Document has no tags attached'),
                 'object': self.external_object,
                 'title': _(
                     'Tags for document: %s'
-                ) % self.external_object,
+                ) % self.external_object
             }
         )
         return context
@@ -252,18 +254,18 @@ class TagRemoveActionView(MultipleObjectFormActionView):
     object_permission = permission_tag_remove
     pk_url_kwarg = 'document_id'
     source_queryset = Document.valid.all()
+    success_message_plural = _(
+        'Tags removed from %(count)d documents successfully.'
+    )
     success_message_single = _(
         'Tags removed from document "%(object)s" successfully.'
     )
     success_message_singular = _(
         'Tags removed from %(count)d document successfully.'
     )
-    success_message_plural = _(
-        'Tags removed from %(count)d documents successfully.'
-    )
+    title_plural = _('Remove tags from %(count)d documents.')
     title_single = _('Remove tags from document: %(object)s')
     title_singular = _('Remove tags from %(count)d document.')
-    title_plural = _('Remove tags from %(count)d documents.')
     view_icon = icon_document_tag_multiple_remove
 
     def get_extra_context(self):
@@ -272,7 +274,7 @@ class TagRemoveActionView(MultipleObjectFormActionView):
         if self.object_list.count() == 1:
             context.update(
                 {
-                    'object': self.object_list.first(),
+                    'object': self.object_list.first()
                 }
             )
 
@@ -312,5 +314,4 @@ class TagRemoveActionView(MultipleObjectFormActionView):
                 user=self.request.user
             )
 
-            tag._event_actor = self.request.user
-            tag.remove_from(document=instance)
+            tag.remove_from(document=instance, user=self.request.user)

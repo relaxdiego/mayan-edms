@@ -10,13 +10,14 @@ from .managers import AutoAdminSingletonManager
 class AutoAdminSingleton(SingletonModel):
     account = models.ForeignKey(
         blank=True, null=True, on_delete=models.CASCADE,
-        to=settings.AUTH_USER_MODEL, verbose_name=_('Account'),
+        to=settings.AUTH_USER_MODEL, verbose_name=_('Account')
     )
     password = models.CharField(
         blank=True, max_length=128, null=True, verbose_name=_('Password')
     )
     password_hash = models.CharField(
-        blank=True, max_length=128, null=True, verbose_name=_('Password hash')
+        blank=True, max_length=128, null=True,
+        verbose_name=_('Password hash')
     )
 
     objects = AutoAdminSingletonManager()

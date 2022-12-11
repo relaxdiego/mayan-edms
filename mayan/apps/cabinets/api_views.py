@@ -27,12 +27,16 @@ class APIDocumentCabinetListView(
     """
     external_object_queryset = Document.valid.all()
     external_object_pk_url_kwarg = 'document_id'
-    mayan_external_object_permissions = {'GET': (permission_cabinet_view,)}
-    mayan_object_permissions = {'GET': (permission_cabinet_view,)}
+    mayan_external_object_permissions = {
+        'GET': (permission_cabinet_view,)
+    }
+    mayan_object_permissions = {
+        'GET': (permission_cabinet_view,)
+    }
     serializer_class = CabinetSerializer
 
     def get_queryset(self):
-        return self.external_object.cabinets.all()
+        return self.get_external_object().cabinets.all()
 
 
 class APICabinetListView(generics.ListCreateAPIView):
@@ -40,11 +44,20 @@ class APICabinetListView(generics.ListCreateAPIView):
     get: Returns a list of all the cabinets.
     post: Create a new cabinet.
     """
-    mayan_object_permissions = {'GET': (permission_cabinet_view,)}
-    mayan_view_permissions = {'POST': (permission_cabinet_create,)}
+    mayan_object_permissions = {
+        'GET': (permission_cabinet_view,)
+    }
+    mayan_view_permissions = {
+        'POST': (permission_cabinet_create,)
+    }
     ordering_fields = ('id', 'label')
     queryset = Cabinet.objects.all()
     serializer_class = CabinetSerializer
+
+    def get_instance_extra_data(self):
+        return {
+            '_event_actor': self.request.user
+        }
 
     def get_mayan_view_permissions(self, request, view):
         if request.method == 'POST':
@@ -52,20 +65,11 @@ class APICabinetListView(generics.ListCreateAPIView):
             serializer.is_valid(raise_exception=True)
 
             if serializer.validated_data['parent']:
-                return {}
+                return ()
             else:
-                return super().get_mayan_view_permissions(
-                    request=request, view=view
-                )
+                return self.mayan_view_permissions.get(request.method, None)
         else:
-            return super().get_mayan_view_permissions(
-                request=request, view=view
-            )
-
-    def get_instance_extra_data(self):
-        return {
-            '_event_actor': self.request.user
-        }
+            return self.mayan_view_permissions.get(request.method, None)
 
     def perform_create(self, serializer):
         parent = serializer.validated_data['parent']
@@ -114,10 +118,9 @@ class APICabinetDocumentAddView(generics.ObjectActionAPIView):
     serializer_class = CabinetDocumentAddSerializer
     queryset = Cabinet.objects.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         document = serializer.validated_data['document']
-        self.object._event_actor = self.request.user
-        self.object.document_add(document=document)
+        obj.document_add(document=document, user=self.request.user)
 
 
 class APICabinetDocumentRemoveView(generics.ObjectActionAPIView):
@@ -131,10 +134,9 @@ class APICabinetDocumentRemoveView(generics.ObjectActionAPIView):
     serializer_class = CabinetDocumentRemoveSerializer
     queryset = Cabinet.objects.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         document = serializer.validated_data['document']
-        self.object._event_actor = self.request.user
-        self.object.document_remove(document=document)
+        obj.document_remove(document=document, user=self.request.user)
 
 
 class APICabinetDocumentListView(
@@ -145,7 +147,9 @@ class APICabinetDocumentListView(
     """
     external_object_class = Cabinet
     external_object_pk_url_kwarg = 'cabinet_id'
-    mayan_external_object_permissions = {'GET': (permission_cabinet_view,)}
+    mayan_external_object_permissions = {
+        'GET': (permission_cabinet_view,)
+    }
     mayan_object_permissions = {
         'GET': (permission_document_view,),
     }
@@ -153,5 +157,5 @@ class APICabinetDocumentListView(
 
     def get_queryset(self):
         return Document.valid.filter(
-            pk__in=self.external_object.documents.only('pk')
+            pk__in=self.get_external_object().documents.only('pk')
         )

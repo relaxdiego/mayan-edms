@@ -39,9 +39,11 @@ class WorkflowActionMessageSendTestCase(
         events = self._get_test_events()
         self.assertEqual(events.count(), 1)
 
+        _test_message = Message.objects.first()
+
         self.assertEqual(events[0].action_object, None)
-        self.assertEqual(events[0].actor, Message.objects.first())
-        self.assertEqual(events[0].target, Message.objects.first())
+        self.assertEqual(events[0].actor, _test_message)
+        self.assertEqual(events[0].target, _test_message)
         self.assertEqual(events[0].verb, event_message_created.id)
 
 
@@ -84,9 +86,11 @@ class WorkflowActionMessageSendViewTestCase(
         events = self._get_test_events()
         self.assertEqual(events.count(), 2)
 
+        _test_message = Message.objects.first()
+
         self.assertEqual(events[0].action_object, None)
-        self.assertEqual(events[0].actor, Message.objects.first())
-        self.assertEqual(events[0].target, Message.objects.first())
+        self.assertEqual(events[0].actor, _test_message)
+        self.assertEqual(events[0].target, _test_message)
         self.assertEqual(events[0].verb, event_message_created.id)
 
         self.assertEqual(events[1].action_object, self._test_document)

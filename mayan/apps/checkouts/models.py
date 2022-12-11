@@ -4,7 +4,6 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 
@@ -21,6 +20,7 @@ from .exceptions import DocumentAlreadyCheckedOut
 from .managers import (
     DocumentCheckoutBusinessLogicManager, DocumentCheckoutManager
 )
+from .model_mixins import CheckedOutDocumentBusinessLogicMixin
 
 logger = logging.getLogger(name=__name__)
 
@@ -39,8 +39,7 @@ class DocumentCheckout(ExtraDataModelMixin, models.Model):
     expiration_datetime = models.DateTimeField(
         help_text=_(
             'Amount of time to hold the document checked out in minutes.'
-        ),
-        verbose_name=_('Check out expiration date and time')
+        ), verbose_name=_('Check out expiration date and time')
     )
     user = models.ForeignKey(
         on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL,
@@ -50,8 +49,7 @@ class DocumentCheckout(ExtraDataModelMixin, models.Model):
         default=True,
         help_text=_(
             'Do not allow new file of this document to be uploaded.'
-        ),
-        verbose_name=_('Block new file upload')
+        ), verbose_name=_('Block new file upload')
     )
 
     objects = DocumentCheckoutManager()
@@ -63,12 +61,15 @@ class DocumentCheckout(ExtraDataModelMixin, models.Model):
         verbose_name_plural = _('Document checkouts')
 
     def __str__(self):
-        return force_text(s=self.document)
+        return str(self.document)
 
     def clean(self):
         if self.expiration_datetime < now():
             raise ValidationError(
-                _('Check out expiration date and time must be in the future.')
+                message=_(
+                    'Check out expiration date and time must be in '
+                    'the future.'
+                )
             )
 
     @method_event(event_manager_class=EventManagerMethodAfter)
@@ -116,22 +117,6 @@ class DocumentCheckout(ExtraDataModelMixin, models.Model):
         return result
 
 
-class CheckedOutDocument(Document):
+class CheckedOutDocument(CheckedOutDocumentBusinessLogicMixin, Document):
     class Meta:
         proxy = True
-
-    def get_user_display(self):
-        check_out_info = self.get_check_out_info()
-        return check_out_info.user.get_full_name() or check_out_info.user
-
-    get_user_display.short_description = _('User')
-
-    def get_checkout_datetime(self):
-        return self.get_check_out_info().checkout_datetime
-
-    get_checkout_datetime.short_description = _('Checkout time and date')
-
-    def get_checkout_expiration(self):
-        return self.get_check_out_info().expiration_datetime
-
-    get_checkout_expiration.short_description = _('Checkout expiration')

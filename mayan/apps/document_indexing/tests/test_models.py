@@ -27,7 +27,13 @@ class IndexTemplateTestCase(IndexTemplateTestMixin, GenericDocumentTestCase):
 
     def test_method_get_absolute_url(self):
         self._create_test_index_template()
+
+        self._clear_events()
+
         self.assertTrue(self._test_index_template.get_absolute_url())
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
 
 
 class IndexInstanceBasicTestCase(
@@ -54,7 +60,9 @@ class IndexInstanceBasicTestCase(
             ).exists()
         )
 
-        TrashedDocument.objects.get(pk=self._test_document.pk).restore()
+        TrashedDocument.objects.get(
+            pk=self._test_document.pk
+        ).restore(user=self._test_case_user)
         self._test_document.refresh_from_db()
 
         self.assertTrue(
@@ -226,7 +234,7 @@ class IndexInstanceTestCase(IndexTemplateTestMixin, GenericDocumentTestCase):
         self._create_test_document_type()
         self._test_index_template.document_types.add(self._test_document_type)
 
-        self._test_document.document_type_change(
+        self._test_document._document_type_change(
             document_type=self._test_document_type
         )
 
@@ -315,8 +323,8 @@ class IndexIntegrityTestCase(
 
         with self.assertRaises(expected_exception=IntegrityError):
             IndexInstanceNode.objects.create(
-                parent=index_instance_node.parent,
                 index_template_node=index_instance_node.index_template_node,
+                parent=index_instance_node.parent,
                 value=index_instance_node.value
             )
 

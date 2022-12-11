@@ -54,7 +54,9 @@ class DocumentSignatureDetachedAction(WorkflowAction):
 
         return {
             'document_file': latest_file,
-            'key': Key.objects.get(pk=self.form_data['key']),
+            'key': Key.objects.get(
+                pk=self.form_data['key']
+            ),
             'passphrase': self.form_data.get('passphrase')
         }
 

@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from formtools.wizard.views import SessionWizardView
 
-from mayan.apps.views.mixins import ViewIconMixin
+from mayan.apps.views.view_mixins import ViewIconMixin
 
 from .classes import DocumentCreateWizardStep
 from .icons import (
@@ -76,12 +76,13 @@ class DocumentCreateWizard(ViewIconMixin, SessionWizardView):
                 'step_title': _(
                     'Step %(step)d of %(total_steps)d: %(step_label)s'
                 ) % {
-                    'step': self.steps.step1, 'total_steps': len(self.form_list),
+                    'step': self.steps.step1,
                     'step_label': wizard_step.label,
+                    'total_steps': len(self.form_list)
                 },
                 'title': _('Document upload wizard'),
                 'wizard_step': wizard_step,
-                'wizard_steps': DocumentCreateWizardStep.get_all(),
+                'wizard_steps': DocumentCreateWizardStep.get_all()
             }
         )
 
@@ -114,20 +115,30 @@ class DocumentCreateWizard(ViewIconMixin, SessionWizardView):
         return context
 
     def get_form_initial(self, step):
-        return DocumentCreateWizardStep.get(name=step).get_form_initial(wizard=self) or {}
+        return DocumentCreateWizardStep.get(
+            name=step
+        ).get_form_initial(wizard=self) or {}
 
     def get_form_kwargs(self, step):
-        return DocumentCreateWizardStep.get(name=step).get_form_kwargs(wizard=self) or {}
+        return DocumentCreateWizardStep.get(
+            name=step
+        ).get_form_kwargs(wizard=self) or {}
 
     def done(self, form_list, **kwargs):
         query_dict = {}
 
         for step in DocumentCreateWizardStep.get_all():
-            query_dict.update(step.done(wizard=self) or {})
+            query_dict.update(
+                step.done(wizard=self) or {}
+            )
 
-        url = furl(reverse(viewname='sources:document_upload_interactive'))
+        url = furl(
+            reverse(viewname='sources:document_upload_interactive')
+        )
         # Use equal and not .update() to get the same result as using
         # urlencode(doseq=True)
         url.args = query_dict
 
-        return HttpResponseRedirect(redirect_to=url.tostr())
+        return HttpResponseRedirect(
+            redirect_to=url.tostr()
+        )

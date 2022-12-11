@@ -23,7 +23,7 @@ class ModelLockBackendManagementCommandTestCase(
     _test_locking_backend_string = 'mayan.apps.lock_manager.backends.model_lock.ModelLock'
 
 
-@skip('Skip until a Mock Redis server class is added.')
+@skip(reason='Skip until a Mock Redis server class is added.')
 @override_settings(
     LOCK_MANAGER_BACKEND_ARGUMENTS={'redis_url': 'redis://127.0.0.1:6379/0'}
 )

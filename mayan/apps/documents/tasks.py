@@ -85,7 +85,7 @@ def task_document_file_upload(
                 action=action, comment=comment, expand=expand,
                 file_object=file_object,
                 filename=filename or shared_uploaded_file.filename,
-                _user=user
+                user=user
             )
         except Warning as warning:
             # New document file are blocked
@@ -167,7 +167,7 @@ def task_document_upload(
                 file_object=file_object,
                 label=label or shared_uploaded_file.filename,
                 description=description, language=language,
-                _user=user
+                user=user
             )
     except Exception as exception:
         logger.critical(
@@ -230,7 +230,7 @@ def task_document_version_page_list_append(document_version_id, user_id=None):
     document_version = DocumentVersion.objects.get(
         pk=document_version_id
     )
-    document_version.pages_append_all(_user=user)
+    document_version.pages_append_all(user=user)
 
 
 @app.task(ignore_result=True)
@@ -248,7 +248,7 @@ def task_document_version_page_list_reset(document_version_id, user_id=None):
     document_version = DocumentVersion.objects.get(
         pk=document_version_id
     )
-    document_version.pages_reset(_user=user)
+    document_version.pages_reset(user=user)
 
 
 @app.task(ignore_result=True)

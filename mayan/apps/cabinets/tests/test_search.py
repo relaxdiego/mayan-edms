@@ -13,7 +13,7 @@ from ..search import search_model_cabinet
 from .mixins import CabinetTestMixin
 
 
-@skip('Slow test needs to be enabled manually.')
+@skip(reason='Slow test needs to be enabled manually.')
 class CabinetSearchFieldSizeLimitTestCase(
     CabinetTestMixin, SearchTestMixin, GenericDocumentViewTestCase
 ):

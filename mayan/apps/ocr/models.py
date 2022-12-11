@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
@@ -23,8 +22,9 @@ class DocumentTypeOCRSettings(ExtraDataModelMixin, models.Model):
         to=DocumentType, unique=True, verbose_name=_('Document type')
     )
     auto_ocr = models.BooleanField(
-        default=True,
-        verbose_name=_('Automatically queue newly created documents for OCR.')
+        default=True, verbose_name=_(
+            'Automatically queue newly created documents for OCR.'
+        )
     )
 
     objects = DocumentTypeSettingsManager()
@@ -59,7 +59,7 @@ class DocumentVersionPageOCRContent(models.Model):
         verbose_name_plural = _('Document version pages OCR contents')
 
     def __str__(self):
-        return force_text(s=self.document_version_page)
+        return str(self.document_version_page)
 
     @method_event(
         event_manager_class=EventManagerSave,

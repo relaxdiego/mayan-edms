@@ -22,9 +22,9 @@ class DocumentVersionExportView(MultipleObjectConfirmActionView):
     success_message_plural = _(
         '%(count)d document versions exports successfully queued.'
     )
+    title_plural = _('Export %(count)d document versions.')
     title_single = _('Export document version "%(object)s".')
     title_singular = _('Export %(count)d document version.')
-    title_plural = _('Export %(count)d document versions.')
     view_icon = icon_document_version_export
 
     def get_extra_context(self):

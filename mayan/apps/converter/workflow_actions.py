@@ -52,7 +52,7 @@ class TransformationAddAction(WorkflowAction):
     widgets = {
         'transformation_class': {
             'class': 'django.forms.widgets.Select', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         },
         'transformation_arguments': {
@@ -70,7 +70,7 @@ class TransformationAddAction(WorkflowAction):
             )
         except yaml.YAMLError:
             raise ValidationError(
-                _(
+                message=_(
                     '"%s" not a valid entry.'
                 ) % form_data['action_data']['transformation_arguments']
             )
@@ -79,21 +79,25 @@ class TransformationAddAction(WorkflowAction):
 
     def execute(self, context):
         if self.form_data['pages']:
-            page_range = parse_range(range_string=self.form_data['pages'])
+            page_range = parse_range(
+                range_string=self.form_data['pages']
+            )
             queryset = context['document'].pages.filter(
                 page_number__in=page_range
             )
         else:
             queryset = context['document'].pages.all()
 
-        transformation_class = BaseTransformation.get(name=self.form_data['transformation_class'])
+        transformation_class = BaseTransformation.get(
+            name=self.form_data['transformation_class']
+        )
         layer = transformation_class.get_assigned_layer()
 
         for document_page in queryset.all():
             object_layer, created = ObjectLayer.objects.get_for(
-                obj=document_page, layer=layer
+                layer=layer, obj=document_page
             )
             object_layer.transformations.create(
-                name=transformation_class.name,
-                arguments=self.form_data['transformation_arguments']
+                arguments=self.form_data['transformation_arguments'],
+                name=transformation_class.name
             )

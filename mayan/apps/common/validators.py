@@ -37,8 +37,8 @@ class JSONValidator:
             json.loads(s=value)
         except ValueError:
             raise ValidationError(
-                _('Enter a valid JSON value.'),
-                code='invalid'
+                code='invalid',
+                message=_('Enter a valid JSON value.')
             )
 
     def __eq__(self, other):
@@ -61,8 +61,8 @@ class YAMLValidator:
             yaml.load(stream=value, Loader=SafeLoader)
         except yaml.error.YAMLError:
             raise ValidationError(
-                _('Enter a valid YAML value.'),
-                code='invalid'
+                code='invalid',
+                message=_('Enter a valid YAML value.')
             )
 
     def __eq__(self, other):

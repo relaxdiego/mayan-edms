@@ -12,7 +12,7 @@ from mayan.apps.views.generics import (
     SingleObjectDeleteView, SingleObjectDynamicFormCreateView,
     SingleObjectDynamicFormEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..classes import SourceBackend
 from ..forms import SourceBackendSelectionForm, SourceBackendDynamicForm
@@ -47,9 +47,9 @@ class SourceBackendSelectionView(FormView):
         backend = form.cleaned_data['backend']
         return HttpResponseRedirect(
             redirect_to=reverse(
-                viewname='sources:source_create', kwargs={
+                kwargs={
                     'backend_path': backend
-                }
+                }, viewname='sources:source_create'
             )
         )
 
@@ -87,17 +87,21 @@ class SourceCreateView(SingleObjectDynamicFormCreateView):
 
     def get_backend(self):
         try:
-            return SourceBackend.get(name=self.kwargs['backend_path'])
+            return SourceBackend.get(
+                name=self.kwargs['backend_path']
+            )
         except KeyError:
             raise Http404(
-                '{} class not found'.format(self.kwargs['backend_path'])
+                '{} class not found'.format(
+                    self.kwargs['backend_path']
+                )
             )
 
     def get_extra_context(self):
         return {
             'title': _(
                 'Create a "%s" source'
-            ) % self.get_backend().label,
+            ) % self.get_backend().label
         }
 
     def get_form_schema(self):
@@ -122,7 +126,7 @@ class SourceDeleteView(SingleObjectDeleteView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Delete the source: %s?') % self.object,
+            'title': _('Delete the source: %s?') % self.object
         }
 
 
@@ -138,7 +142,7 @@ class SourceEditView(SingleObjectDynamicFormEditView):
 
     def get_extra_context(self):
         return {
-            'title': _('Edit source: %s') % self.object,
+            'title': _('Edit source: %s') % self.object
         }
 
     def get_form_schema(self):
@@ -170,7 +174,7 @@ class SourceListView(SingleObjectListView):
                 'without user intervention.'
             ),
             'no_results_title': _('No sources available'),
-            'title': _('Sources'),
+            'title': _('Sources')
         }
 
 
@@ -195,7 +199,7 @@ class SourceTestView(ExternalObjectViewMixin, ConfirmView):
                 'successful test will clear the error log.'
             ), 'title': _(
                 'Trigger check for source "%s"?'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def view_action(self):

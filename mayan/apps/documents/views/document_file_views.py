@@ -16,7 +16,7 @@ from mayan.apps.views.generics import (
     FormView, MultipleObjectConfirmActionView, MultipleObjectDeleteView,
     SingleObjectDetailView, SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..events import event_document_viewed
 from ..forms.document_file_forms import (
@@ -40,10 +40,6 @@ from ..settings import setting_preview_height, setting_preview_width
 
 from .misc_views import PrintFormView, DocumentPrintBaseView
 
-__all__ = (
-    'DocumentFileDeleteView', 'DocumentFileListView',
-    'DocumentFilePreviewView'
-)
 logger = logging.getLogger(name=__name__)
 
 
@@ -107,12 +103,12 @@ class DocumentFileEditView(SingleObjectEditView):
 
     def get_extra_context(self):
         return {
-            'title': _('Edit document file: %s') % self.object,
+            'title': _('Edit document file: %s') % self.object
         }
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
     def get_post_action_redirect(self):
@@ -163,7 +159,7 @@ class DocumentFileListView(ExternalObjectViewMixin, SingleObjectListView):
             'list_as_items': True,
             'object': document,
             'table_cell_container_classes': 'td-container-thumbnail',
-            'title': _('Files of document: %s') % document,
+            'title': _('Files of document: %s') % document
         }
         context.update(
             DocumentFileListView.get_no_results_context(
@@ -199,7 +195,7 @@ class DocumentFilePreviewView(SingleObjectDetailView):
         return {
             'hide_labels': True,
             'object': self.object,
-            'title': _('Preview of document file: %s') % self.object,
+            'title': _('Preview of document file: %s') % self.object
         }
 
     def get_form_extra_kwargs(self):
@@ -259,7 +255,7 @@ class DocumentFilePropertiesView(SingleObjectDetailView):
         return {
             'document_file': self.object,
             'object': self.object,
-            'title': _('Properties of document file: %s') % self.object,
+            'title': _('Properties of document file: %s') % self.object
         }
 
 

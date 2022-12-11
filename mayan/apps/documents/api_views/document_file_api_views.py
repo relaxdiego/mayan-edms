@@ -1,5 +1,3 @@
-import logging
-
 from rest_framework import status
 from rest_framework.response import Response
 
@@ -16,11 +14,9 @@ from ..serializers.document_file_serializers import (
 )
 from ..tasks import task_document_file_upload
 
-from .mixins import (
+from .api_view_mixins import (
     ParentObjectDocumentAPIViewMixin, ParentObjectDocumentFileAPIViewMixin
 )
-
-logger = logging.getLogger(name=__name__)
 
 
 class APIDocumentFileListView(

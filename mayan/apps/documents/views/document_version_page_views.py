@@ -5,12 +5,13 @@ from furl import furl
 from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import RedirectView
 
 from mayan.apps.common.settings import setting_home_view
-from mayan.apps.converter.literals import DEFAULT_ROTATION, DEFAULT_ZOOM_LEVEL
+from mayan.apps.converter.literals import (
+    DEFAULT_ROTATION, DEFAULT_ZOOM_LEVEL
+)
 from mayan.apps.converter.transformations import (
     TransformationResize, TransformationRotate, TransformationZoom
 )
@@ -18,7 +19,7 @@ from mayan.apps.databases.classes import ModelQueryFields
 from mayan.apps.views.generics import (
     FormView, SingleObjectDeleteView, SingleObjectListView, SimpleView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 from mayan.apps.views.utils import resolve
 
 from ..forms.document_version_page_forms import (
@@ -41,15 +42,6 @@ from ..settings import (
     setting_zoom_min_level
 )
 
-__all__ = (
-    'DocumentVersionPageListView',
-    'DocumentVersionPageNavigationFirst', 'DocumentVersionPageNavigationLast',
-    'DocumentVersionPageNavigationNext', 'DocumentVersionPageNavigationPrevious',
-    'DocumentVersionPageView', 'DocumentVersionPageViewResetView',
-    'DocumentVersionPageInteractiveTransformation', 'DocumentVersionPageZoomInView',
-    'DocumentVersionPageZoomOutView', 'DocumentVersionPageRotateLeftView',
-    'DocumentVersionPageRotateRightView'
-)
 logger = logging.getLogger(name=__name__)
 
 
@@ -67,7 +59,7 @@ class DocumentVersionPageDeleteView(SingleObjectDeleteView):
                 'page remap action instead.'
             ),
             'object': self.object,
-            'title': _('Delete document version page %s ?') % self.object,
+            'title': _('Delete document version page %s ?') % self.object
         }
 
     def get_instance_extra_data(self):
@@ -83,7 +75,9 @@ class DocumentVersionPageDeleteView(SingleObjectDeleteView):
         )
 
 
-class DocumentVersionPageListView(ExternalObjectViewMixin, SingleObjectListView):
+class DocumentVersionPageListView(
+    ExternalObjectViewMixin, SingleObjectListView
+):
     external_object_permission = permission_document_version_view
     external_object_pk_url_kwarg = 'document_version_id'
     external_object_queryset = DocumentVersion.valid.all()
@@ -97,11 +91,12 @@ class DocumentVersionPageListView(ExternalObjectViewMixin, SingleObjectListView)
             'no_results_main_link': link_document_version_modification.resolve(
                 request=self.request, resolved_object=self.external_object
             ),
-            'no_results_secondary_links': [
+            'no_results_secondary_links': (
                 link_document_version_page_list_remap.resolve(
-                    request=self.request, resolved_object=self.external_object
+                    request=self.request,
+                    resolved_object=self.external_object
                 ),
-            ],
+            ),
             'no_results_text': _(
                 'Document version pages are links to actual content pages. '
                 'Create them using the page remap actions or the version '
@@ -109,12 +104,19 @@ class DocumentVersionPageListView(ExternalObjectViewMixin, SingleObjectListView)
             ),
             'no_results_title': _('No document version pages available'),
             'object': self.external_object,
-            'title': _('Pages of document version: %s') % self.external_object,
+            'title': _(
+                'Pages of document version: %s'
+            ) % self.external_object
         }
 
     def get_source_queryset(self):
-        queryset = ModelQueryFields.get(model=DocumentVersionPage).get_queryset()
-        return queryset.filter(pk__in=self.external_object.pages.all())
+        queryset = ModelQueryFields.get(
+            model=DocumentVersionPage
+        ).get_queryset()
+
+        return queryset.filter(
+            pk__in=self.external_object.pages.all()
+        )
 
 
 class DocumentVersionPageListRemapView(ExternalObjectViewMixin, FormView):
@@ -128,7 +130,9 @@ class DocumentVersionPageListRemapView(ExternalObjectViewMixin, FormView):
         annotated_content_object_list = []
 
         for row in form.forms:
-            page_number = int(row.cleaned_data['target_page_number'])
+            page_number = int(
+                row.cleaned_data['target_page_number']
+            )
             if page_number:
                 content_type = ContentType.objects.get(
                     pk=row.cleaned_data['source_content_type']
@@ -139,14 +143,14 @@ class DocumentVersionPageListRemapView(ExternalObjectViewMixin, FormView):
 
                 annotated_content_object_list.append(
                     {
-                        'page_number': page_number,
-                        'content_object': content_object
+                        'content_object': content_object,
+                        'page_number': page_number
                     }
                 )
 
         self.external_object.pages_remap(
             annotated_content_object_list=annotated_content_object_list,
-            _user=self.request.user
+            user=self.request.user
         )
         return super().form_valid(form=form)
 
@@ -183,7 +187,7 @@ class DocumentVersionPageListRemapView(ExternalObjectViewMixin, FormView):
             'object': self.external_object,
             'title': _(
                 'Remap pages of document version: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_initial(self):
@@ -210,12 +214,12 @@ class DocumentVersionPageListRemapView(ExternalObjectViewMixin, FormView):
 
             row = {
                 'source_content_type': content_object_dictionary['content_type'].pk,
-                'source_object_id': content_object_dictionary['object_id'],
-                'source_thumbnail': content_object,
                 'source_label': '{}: {}'.format(
                     content_object_dictionary['content_type'].name,
                     content_object
                 ),
+                'source_object_id': content_object_dictionary['object_id'],
+                'source_thumbnail': content_object,
                 'target_page_number': document_version_page_page_number
             }
 
@@ -255,7 +259,9 @@ class DocumentVersionPageNavigationBase(
 
         # Obtain the view name to be able to resolve it back with new keyword
         # arguments.
-        resolver_match = resolve(path=force_text(s=parsed_url.path))
+        resolver_match = resolve(
+            path=str(parsed_url.path)
+        )
 
         new_kwargs = self.get_new_kwargs()
 
@@ -329,8 +335,12 @@ class DocumentVersionPageView(ExternalObjectViewMixin, SimpleView):
     view_icon = icon_document_version_page_detail
 
     def get_extra_context(self):
-        zoom = int(self.request.GET.get('zoom', DEFAULT_ZOOM_LEVEL))
-        rotation = int(self.request.GET.get('rotation', DEFAULT_ROTATION))
+        zoom = int(
+            self.request.GET.get('zoom', DEFAULT_ZOOM_LEVEL)
+        )
+        rotation = int(
+            self.request.GET.get('rotation', DEFAULT_ROTATION)
+        )
 
         transformation_instance_list = (
             TransformationResize(
@@ -361,11 +371,11 @@ class DocumentVersionPageView(ExternalObjectViewMixin, SimpleView):
             'form': document_version_page_form,
             'hide_labels': True,
             'object': self.external_object,
+            'read_only': True,
             'rotation': rotation,
             'title': ' '.join((base_title, zoom_text)),
-            'read_only': True,
-            'zoom': zoom,
-            'transformation_instance_list': transformation_instance_list
+            'transformation_instance_list': transformation_instance_list,
+            'zoom': zoom
         }
 
 

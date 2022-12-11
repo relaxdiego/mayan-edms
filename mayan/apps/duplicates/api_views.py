@@ -1,4 +1,4 @@
-from mayan.apps.documents.api_views.mixins import (
+from mayan.apps.documents.api_views.api_view_mixins import (
     ParentObjectDocumentAPIViewMixin
 )
 from mayan.apps.documents.permissions import permission_document_view

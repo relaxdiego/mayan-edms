@@ -1,7 +1,5 @@
 import redis
 
-from django.utils.encoding import force_text
-
 from mayan.apps.dependencies.exceptions import DependenciesException
 
 from ..exceptions import LockError
@@ -58,7 +56,9 @@ class RedisLock(LockingBackend):
             raise DependenciesException(
                 'The Redis lock backend requires the Redis Python client '
                 'version {} or later.'.format(
-                    '.'.join(map(force_text, REDIS_LOCK_VERSION_REQUIRED))
+                    '.'.join(
+                        map(str, REDIS_LOCK_VERSION_REQUIRED)
+                    )
                 )
             )
 

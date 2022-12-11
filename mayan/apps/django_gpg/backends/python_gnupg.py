@@ -16,12 +16,13 @@ logger = logging.getLogger(name=__name__)
 
 class PythonGNUPGBackend(GPGBackend):
     @staticmethod
-    def _import_key(gpg, **kwargs):
-        return gpg.import_keys(**kwargs)
+    def _decrypt_file(gpg, file_object, keys):
+        for key in keys:
+            gpg.import_keys(
+                key_data=key['key_data']
+            )
 
-    @staticmethod
-    def _list_keys(gpg, **kwargs):
-        return gpg.list_keys(**kwargs)
+        return gpg.decrypt_file(file=file_object)
 
     @staticmethod
     def _import_and_list_keys(gpg, **kwargs):
@@ -31,56 +32,71 @@ class PythonGNUPGBackend(GPGBackend):
         )[0]
 
     @staticmethod
-    def _sign_file(
-        gpg, file_object, key_data, passphrase, clearsign, detached, binary,
-        output
-    ):
-        import_results = gpg.import_keys(key_data=key_data)
-
-        return gpg.sign_file(
-            file=file_object, keyid=import_results.fingerprints[0],
-            passphrase=passphrase, clearsign=clearsign, detach=detached,
-            binary=binary, output=output
-        )
+    def _import_key(gpg, **kwargs):
+        return gpg.import_keys(**kwargs)
 
     @staticmethod
-    def _decrypt_file(gpg, file_object, keys):
-        for key in keys:
-            gpg.import_keys(key_data=key['key_data'])
-
-        return gpg.decrypt_file(file=file_object)
-
-    @staticmethod
-    def _verify_file(gpg, file_object, keys, data_filename=None):
-        for key in keys:
-            gpg.import_keys(key_data=key['key_data'])
-
-        return gpg.verify_file(
-            file=file_object, data_filename=data_filename
-        )
+    def _list_keys(gpg, **kwargs):
+        return gpg.list_keys(**kwargs)
 
     @staticmethod
     def _recv_keys(gpg, keyserver, key_id):
         import_results = gpg.recv_keys(keyserver, key_id)
         if import_results.count:
-            key_data = gpg.export_keys(import_results.fingerprints[0])
+            key_data = gpg.export_keys(
+                import_results.fingerprints[0]
+            )
         else:
             key_data = None
         return key_data
 
     @staticmethod
     def _search_keys(gpg, keyserver, query):
-        return gpg.search_keys(
-            keyserver=keyserver, query=query
+        return gpg.search_keys(keyserver=keyserver, query=query)
+
+    @staticmethod
+    def _sign_file(
+        binary, clearsign, detached, file_object, gpg, key_data, output,
+        passphrase
+    ):
+        import_results = gpg.import_keys(key_data=key_data)
+
+        return gpg.sign_file(
+            binary=binary, clearsign=clearsign, detach=detached,
+            file=file_object, keyid=import_results.fingerprints[0],
+            output=output, passphrase=passphrase
+        )
+
+    @staticmethod
+    def _verify_file(gpg, file_object, keys, data_filename=None):
+        for key in keys:
+            gpg.import_keys(
+                key_data=key['key_data']
+            )
+
+        return gpg.verify_file(
+            file=file_object, data_filename=data_filename
+        )
+
+    def decrypt_file(self, file_object, keys):
+        return self.gpg_command(
+            file_object=file_object,
+            function=PythonGNUPGBackend._decrypt_file, keys=keys
         )
 
     def gpg_command(self, function, **kwargs):
         with TemporaryDirectory() as temporary_directory:
             gpg = gnupg.GPG(
-                gnupghome=temporary_directory,
-                gpgbinary=self.kwargs['gpg_path']
+                gpgbinary=self.kwargs['gpg_path'],
+                gnupghome=temporary_directory
             )
             return function(gpg=gpg, **kwargs)
+
+    def import_and_list_keys(self, key_data):
+        return self.gpg_command(
+            function=PythonGNUPGBackend._import_and_list_keys,
+            key_data=key_data
+        )
 
     def import_key(self, key_data):
         return self.gpg_command(
@@ -92,42 +108,30 @@ class PythonGNUPGBackend(GPGBackend):
             function=PythonGNUPGBackend._list_keys, keys=keys
         )
 
-    def import_and_list_keys(self, key_data):
-        return self.gpg_command(
-            function=PythonGNUPGBackend._import_and_list_keys,
-            key_data=key_data
-        )
-
-    def sign_file(
-        self, file_object, key_data, passphrase, clearsign, detached, binary,
-        output
-    ):
-        return self.gpg_command(
-            function=PythonGNUPGBackend._sign_file, file_object=file_object,
-            key_data=key_data, passphrase=passphrase, clearsign=clearsign,
-            detached=detached, binary=binary, output=output
-        )
-
-    def decrypt_file(self, file_object, keys):
-        return self.gpg_command(
-            function=PythonGNUPGBackend._decrypt_file, file_object=file_object,
-            keys=keys
-        )
-
-    def verify_file(self, file_object, keys, data_filename=None):
-        return self.gpg_command(
-            function=PythonGNUPGBackend._verify_file, file_object=file_object,
-            keys=keys, data_filename=data_filename
-        )
-
     def recv_keys(self, keyserver, key_id):
         return self.gpg_command(
-            function=PythonGNUPGBackend._recv_keys, keyserver=keyserver,
-            key_id=key_id
+            function=PythonGNUPGBackend._recv_keys, key_id=key_id,
+            keyserver=keyserver
         )
 
     def search_keys(self, keyserver, query):
         return self.gpg_command(
             function=PythonGNUPGBackend._search_keys, keyserver=keyserver,
             query=query
+        )
+
+    def sign_file(
+        self, binary, clearsign, detached, file_object, key_data, output,
+        passphrase
+    ):
+        return self.gpg_command(
+            binary=binary, clearsign=clearsign, detached=detached,
+            file_object=file_object, function=PythonGNUPGBackend._sign_file,
+            key_data=key_data, output=output, passphrase=passphrase
+        )
+
+    def verify_file(self, file_object, keys, data_filename=None):
+        return self.gpg_command(
+            data_filename=data_filename, file_object=file_object,
+            function=PythonGNUPGBackend._verify_file, keys=keys
         )

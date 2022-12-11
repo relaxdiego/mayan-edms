@@ -30,7 +30,9 @@ class PagedModelMixin:
     @property
     def siblings(self):
         filter_kwargs = {
-            self._paged_model_parent_field: getattr(self, self._paged_model_parent_field)
+            self._paged_model_parent_field: getattr(
+                self, self._paged_model_parent_field
+            )
         }
 
         return self._meta.default_manager.filter(**filter_kwargs)

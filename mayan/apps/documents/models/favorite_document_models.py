@@ -2,7 +2,6 @@ import logging
 
 from django.conf import settings
 from django.db import models
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
@@ -43,11 +42,15 @@ class FavoriteDocument(ExtraDataModelMixin, models.Model):
         verbose_name_plural = _('Favorite documents')
 
     def __str__(self):
-        return force_text(s=self.document)
+        return str(self.document)
 
     def natural_key(self):
-        return (self.document.natural_key(), self.user.natural_key())
-    natural_key.dependencies = ['documents.Document', settings.AUTH_USER_MODEL]
+        return (
+            self.document.natural_key(), self.user.natural_key()
+        )
+    natural_key.dependencies = [
+        'documents.Document', settings.AUTH_USER_MODEL
+    ]
 
 
 class FavoriteDocumentProxy(Document):

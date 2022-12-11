@@ -6,11 +6,15 @@ class TagFormWidget(forms.SelectMultiple):
     def __init__(self, *args, **kwargs):
         return super().__init__(*args, **kwargs)
 
-    def create_option(self, name, value, label, selected, index, subindex=None, attrs=None):
+    def create_option(
+        self, name, value, label, selected, index, subindex=None, attrs=None
+    ):
         result = super().create_option(
             attrs=attrs, index=index,
-            label='{}'.format(conditional_escape(label)), name=name,
-            selected=selected, subindex=subindex, value=value
+            label='{}'.format(
+                conditional_escape(label)
+            ), name=name, selected=selected, subindex=subindex,
+            value=value
         )
 
         result['attrs']['data-color'] = value.instance.color

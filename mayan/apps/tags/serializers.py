@@ -9,7 +9,7 @@ from .permissions import permission_tag_attach, permission_tag_remove
 
 class TagSerializer(serializers.HyperlinkedModelSerializer):
     documents_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='tag_id',
+        label=_('Documents URL'), lookup_url_kwarg='tag_id',
         view_name='rest_api:tag-document-list'
     )
 
@@ -30,7 +30,8 @@ class DocumentTagAttachSerializer(serializers.Serializer):
     tag = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the tag to add to the document.'
-        ), source_model=Tag, source_permission=permission_tag_attach
+        ), label=_('Tag ID'), source_model=Tag,
+        source_permission=permission_tag_attach
     )
 
 
@@ -38,5 +39,6 @@ class DocumentTagRemoveSerializer(serializers.Serializer):
     tag = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the tag to remove from the document.'
-        ), source_model=Tag, source_permission=permission_tag_remove
+        ), label=_('Tag ID'), source_model=Tag,
+        source_permission=permission_tag_remove
     )

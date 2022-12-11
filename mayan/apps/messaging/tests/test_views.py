@@ -217,7 +217,7 @@ class MessageViewTestCase(
     def test_message_mark_unread_view_no_permission(self):
         self._create_test_message()
 
-        self._test_message.mark_read()
+        self._test_message.mark_read(user=self._test_case_user)
 
         self._clear_events()
 
@@ -237,7 +237,7 @@ class MessageViewTestCase(
             obj=self._test_message, permission=permission_message_edit
         )
 
-        self._test_message.mark_read()
+        self._test_message.mark_read(user=self._test_case_user)
 
         self._clear_events()
 

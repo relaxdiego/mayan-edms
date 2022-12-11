@@ -1,7 +1,6 @@
 from django.apps import apps
 from django.db.models import Count
 from django.utils import timezone
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 import qsstats
@@ -16,7 +15,9 @@ from .literals import MONTH_NAMES
 
 
 def get_month_name(month_number):
-    return force_text(s=MONTH_NAMES[month_number - 1])
+    return str(
+        MONTH_NAMES[month_number - 1]
+    )
 
 
 def new_documents_per_month():

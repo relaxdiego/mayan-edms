@@ -72,7 +72,7 @@ class TaggedDocumentUploadViewTestCase(
         )
 
         self.assertEqual(events[5].action_object, self._test_tag)
-        self.assertEqual(events[5].actor, test_document)
+        self.assertEqual(events[5].actor, self._test_case_user)
         self.assertEqual(events[5].target, test_document)
         self.assertEqual(events[5].verb, event_tag_attached.id)
 
@@ -135,11 +135,11 @@ class TaggedDocumentUploadViewTestCase(
         )
 
         self.assertEqual(events[5].action_object, self._test_tags[0])
-        self.assertEqual(events[5].actor, test_document)
+        self.assertEqual(events[5].actor, self._test_case_user)
         self.assertEqual(events[5].target, test_document)
         self.assertEqual(events[5].verb, event_tag_attached.id)
 
         self.assertEqual(events[6].action_object, self._test_tags[1])
-        self.assertEqual(events[6].actor, test_document)
+        self.assertEqual(events[6].actor, self._test_case_user)
         self.assertEqual(events[6].target, test_document)
         self.assertEqual(events[6].verb, event_tag_attached.id)

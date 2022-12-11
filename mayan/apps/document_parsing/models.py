@@ -5,7 +5,9 @@ from django.utils.translation import ugettext_lazy as _
 from mayan.apps.documents.models.document_file_page_models import DocumentFilePage
 from mayan.apps.documents.models.document_type_models import DocumentType
 
-from .managers import DocumentFilePageContentManager, DocumentTypeSettingsManager
+from .managers import (
+    DocumentFilePageContentManager, DocumentTypeSettingsManager
+)
 
 
 class DocumentFilePageContent(models.Model):

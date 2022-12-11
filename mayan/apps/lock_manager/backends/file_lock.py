@@ -8,7 +8,7 @@ import uuid
 
 from django.conf import settings
 from django.core.files import locks
-from django.utils.encoding import force_bytes, force_text
+from django.utils.encoding import force_bytes
 
 from mayan.apps.storage.settings import setting_temporary_directory
 
@@ -30,7 +30,7 @@ class FileLock(LockingBackend):
     def _initialize(cls):
         cls.lock_file = os.path.join(
             setting_temporary_directory.value, hashlib.sha256(
-                force_bytes(s=settings.SECRET_KEY)
+                string=force_bytes(s=settings.SECRET_KEY)
             ).hexdigest()
         )
         open(file=cls.lock_file, mode='a').close()
@@ -62,7 +62,9 @@ class FileLock(LockingBackend):
     def _init(self, name, timeout):
         self.name = name
         self.timeout = timeout
-        self.uuid = force_text(s=uuid.uuid4())
+        self.uuid = str(
+            uuid.uuid4()
+        )
 
         lock.acquire()
         with open(file=self.__class__.lock_file, mode='r+') as file_object:
@@ -88,7 +90,9 @@ class FileLock(LockingBackend):
 
             file_object.seek(0)
             file_object.truncate()
-            file_object.write(json.dumps(obj=file_locks))
+            file_object.write(
+                json.dumps(obj=file_locks)
+            )
             lock.release()
 
     def _release(self):
@@ -96,7 +100,9 @@ class FileLock(LockingBackend):
         with open(file=self.__class__.lock_file, mode='r+') as file_object:
             locks.lock(f=file_object, flags=locks.LOCK_EX)
             try:
-                file_locks = json.loads(s=file_object.read())
+                file_locks = json.loads(
+                    s=file_object.read()
+                )
             except EOFError:
                 file_locks = {}
 
@@ -112,5 +118,7 @@ class FileLock(LockingBackend):
 
             file_object.seek(0)
             file_object.truncate()
-            file_object.write(json.dumps(obj=file_locks))
+            file_object.write(
+                json.dumps(obj=file_locks)
+            )
             lock.release()

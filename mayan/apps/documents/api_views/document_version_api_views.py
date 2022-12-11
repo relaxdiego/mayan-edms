@@ -11,11 +11,12 @@ from ..permissions import (
     permission_document_version_edit, permission_document_version_view
 )
 from ..serializers.document_version_serializers import (
-    DocumentVersionModificationSerializer, DocumentVersionModificationExecuteSerializer,
-    DocumentVersionSerializer, DocumentVersionPageSerializer
+    DocumentVersionModificationSerializer,
+    DocumentVersionModificationExecuteSerializer, DocumentVersionSerializer,
+    DocumentVersionPageSerializer
 )
 
-from .mixins import (
+from .api_view_mixins import (
     ParentObjectDocumentAPIViewMixin, ParentObjectDocumentVersionAPIViewMixin
 )
 
@@ -42,7 +43,7 @@ class APIDocumentVersionDetailView(
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
     def get_queryset(self):
@@ -93,12 +94,11 @@ class APIDocumentVersionModificationView(
     def get_queryset(self):
         return self.get_document().versions.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         DocumentVersionModification.get(
             name=serializer.validated_data['backend_id']
         ).execute(
-            document_version=self.object,
-            _user=request.user
+            document_version=obj, user=request.user
         )
 
 
@@ -156,7 +156,7 @@ class APIDocumentVersionPageImageView(
     """
     lookup_url_kwarg = 'document_version_page_id'
     mayan_object_permissions = {
-        'GET': (permission_document_version_view,),
+        'GET': (permission_document_version_view,)
     }
 
     def get_queryset(self):

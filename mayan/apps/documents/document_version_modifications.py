@@ -16,11 +16,11 @@ class DocumentVersionModificationPagesAppend(DocumentVersionModification):
     )
 
     @staticmethod
-    def execute(document_version, _user):
+    def execute(document_version, user):
         task_document_version_page_list_append.apply_async(
             kwargs={
                 'document_version_id': document_version.pk,
-                'user_id': _user.pk
+                'user_id': user.pk
             }
         )
 
@@ -30,10 +30,10 @@ class DocumentVersionModificationPagesReset(DocumentVersionModification):
     description = _('Match all pages to that of the latest document file.')
 
     @staticmethod
-    def execute(document_version, _user):
+    def execute(document_version, user):
         task_document_version_page_list_reset.apply_async(
             kwargs={
                 'document_version_id': document_version.pk,
-                'user_id': _user.pk
+                'user_id': user.pk
             }
         )

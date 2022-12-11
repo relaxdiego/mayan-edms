@@ -59,15 +59,14 @@ class BaseSignSerializer(serializers.HyperlinkedModelSerializer):
         help_text=_(
             'Primary key of the secret key used to sign the document '
             'file.'
-        ), source_queryset=Key.objects.private_keys(),
+        ), label=_('Key ID'), source_queryset=Key.objects.private_keys(),
         source_permission=permission_key_sign
     )
     passphrase = serializers.CharField(
         help_text=_(
             'The passphrase to unlock the key and allow it to be used to '
             'sign the document file.'
-        ),
-        required=False, write_only=True
+        ), label=_('Passphrase'), required=False, write_only=True
     )
 
     class Meta:
@@ -99,7 +98,9 @@ class DetachedSignatureSerializer(BaseSignatureSerializer):
 
 class DetachedSignatureUploadSerializer(DetachedSignatureSerializer):
     class Meta(DetachedSignatureSerializer.Meta):
-        fields = DetachedSignatureSerializer.Meta.fields + ('signature_file',)
+        fields = DetachedSignatureSerializer.Meta.fields + (
+            'signature_file',
+        )
         model = DetachedSignature
 
 

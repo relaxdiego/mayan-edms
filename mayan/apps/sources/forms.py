@@ -48,8 +48,9 @@ class UploadBaseForm(forms.Form):
 
 class SourceBackendSelectionForm(forms.Form):
     backend = forms.ChoiceField(
-        choices=(), help_text=_('The backend used to create the new source.'),
-        label=_('Backend')
+        choices=(), help_text=_(
+            'The backend used to create the new source.'
+        ), label=_('Backend')
     )
 
     def __init__(self, *args, **kwargs):

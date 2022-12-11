@@ -38,6 +38,10 @@ from .links import (
     link_index_template_node_create, link_index_template_node_delete,
     link_index_template_node_edit
 )
+from .methods import (
+    method_document_type_index_template_add,
+    method_document_type_index_template_remove
+)
 from .permissions import (
     permission_index_template_delete, permission_index_template_edit,
     permission_index_instance_view,
@@ -78,6 +82,15 @@ class DocumentIndexingApp(MayanAppConfig):
         IndexTemplate = self.get_model(model_name='IndexTemplate')
         IndexTemplateNode = self.get_model(model_name='IndexTemplateNode')
 
+        DocumentType.add_to_class(
+            name='index_template_add',
+            value=method_document_type_index_template_add
+        )
+        DocumentType.add_to_class(
+            name='index_template_remove',
+            value=method_document_type_index_template_remove
+        )
+
         DynamicSerializerField.add_serializer(
             klass=IndexTemplate,
             serializer_class='mayan.apps.document_indexing.serializers.IndexTemplateSerializer'
@@ -91,7 +104,7 @@ class DocumentIndexingApp(MayanAppConfig):
         ).add_fields(
             field_names=(
                 'index', 'expression', 'enabled', 'link_documents'
-            ),
+            )
         )
         ModelCopy(
             model=IndexTemplate, bind_link=True, register_permission=True
@@ -99,7 +112,7 @@ class DocumentIndexingApp(MayanAppConfig):
             field_names=(
                 'label', 'slug', 'enabled', 'document_types',
                 'index_template_nodes'
-            ),
+            )
         )
 
         ModelEventType.register(
@@ -120,7 +133,7 @@ class DocumentIndexingApp(MayanAppConfig):
                 permission_index_template_edit,
                 permission_index_instance_view,
                 permission_index_template_rebuild,
-                permission_index_template_view,
+                permission_index_template_view
             )
         )
         ModelPermission.register_inheritance(

@@ -358,7 +358,9 @@ class EmbeddedSignaturesTestCase(
             file_object.seek(0, 2)
             original_size = file_object.tell()
             file_object.seek(0)
-            original_hash = hashlib.sha256(file_object.read()).hexdigest()
+            original_hash = hashlib.sha256(
+                string=file_object.read()
+            ).hexdigest()
 
         signature = EmbeddedSignature.objects.sign_document_file(
             document_file=self._test_document.file_latest,
@@ -372,7 +374,9 @@ class EmbeddedSignaturesTestCase(
             file_object.seek(0, 2)
             new_size = file_object.tell()
             file_object.seek(0)
-            new_hash = hashlib.sha256(file_object.read()).hexdigest()
+            new_hash = hashlib.sha256(
+                string=file_object.read()
+            ).hexdigest()
 
         self.assertEqual(original_size, new_size)
         self.assertEqual(original_hash, new_hash)
@@ -400,7 +404,7 @@ class EmbeddedSignaturesTestCase(
 
         with test_document_file_signed.get_download_file_object() as file_object:
             test_document_file_signed_download_file_checksum = hashlib.sha256(
-                file_object.read()
+                string=file_object.read()
             ).hexdigest()
 
         self.assertEqual(

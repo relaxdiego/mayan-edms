@@ -15,7 +15,9 @@ class APITemplateDetailView(generics.RetrieveAPIView):
     permission_classes = (IsAuthenticated,)
 
     def get_object(self):
-        return AJAXTemplate.get(self.kwargs['name']).render(
+        return AJAXTemplate.get(
+            name=self.kwargs['name']
+        ).render(
             request=self.request
         )
 
@@ -28,4 +30,6 @@ class APITemplateListView(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        return AJAXTemplate.all(rendered=True, request=self.request)
+        return AJAXTemplate.all(
+            rendered=True, request=self.request
+        )

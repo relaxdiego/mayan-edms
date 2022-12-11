@@ -26,6 +26,10 @@ from .links import (
     link_document_smart_link_instance_list, link_smart_link_list,
     link_smart_link_setup
 )
+from .methods import (
+    method_document_type_smart_links_add,
+    method_document_type_smart_links_remove
+)
 from .permissions import (
     permission_resolved_smart_link_view, permission_smart_link_delete,
     permission_smart_link_edit, permission_smart_link_view
@@ -53,6 +57,15 @@ class LinkingApp(MayanAppConfig):
         ResolvedSmartLink = self.get_model(model_name='ResolvedSmartLink')
         SmartLink = self.get_model(model_name='SmartLink')
         SmartLinkCondition = self.get_model(model_name='SmartLinkCondition')
+
+        DocumentType.add_to_class(
+            name='smart_links_add',
+            value=method_document_type_smart_links_add
+        )
+        DocumentType.add_to_class(
+            name='smart_links_remove',
+            value=method_document_type_smart_links_remove
+        )
 
         DynamicSerializerField.add_serializer(
             klass=SmartLink,

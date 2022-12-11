@@ -13,11 +13,11 @@ def method_document_content(self):
         return []
 
 
-def method_document_parsing_submit(self, _user=None):
+def method_document_parsing_submit(self, user=None):
     latest_file = self.file_latest
     # Don't error out if document has no file.
     if latest_file:
-        latest_file.submit_for_parsing(_user=_user)
+        latest_file.submit_for_parsing(user=user)
 
 
 def method_document_file_content(document_file):
@@ -34,15 +34,15 @@ def method_document_file_content(document_file):
             yield conditional_escape(text=str(page_content))
 
 
-def method_document_file_parsing_submit(self, _user=None):
-    event_parsing_document_file_submitted.commit(
-        action_object=self.document, actor=_user, target=self
-    )
-
-    if _user:
-        user_id = _user.pk
+def method_document_file_parsing_submit(self, user=None):
+    if user:
+        user_id = user.pk
     else:
         user_id = None
+
+    event_parsing_document_file_submitted.commit(
+        action_object=self.document, actor=user, target=self
+    )
 
     task_parse_document_file.apply_async(
         kwargs={'document_file_pk': self.pk, 'user_id': user_id}

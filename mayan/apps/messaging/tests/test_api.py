@@ -10,7 +10,7 @@ from ..permissions import (
 )
 
 from .mixins import MessageAPIViewTestMixin, MessageTestMixin
-
+#TODO: test mark read / unread
 
 class MessageAPIViewTestCase(
     MessageAPIViewTestMixin, MessageTestMixin, BaseAPITestCase

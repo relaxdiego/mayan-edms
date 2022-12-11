@@ -1,16 +1,6 @@
-import hashlib
-import io
-import logging
-
-import cairosvg
-from furl import furl
-from PIL import Image
-
 from django.conf import settings
 from django.db import models
 from django.shortcuts import reverse
-from django.utils.encoding import force_bytes
-from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.common.validators import validate_internal_name
@@ -20,20 +10,18 @@ from mayan.apps.events.classes import (
     EventManagerMethodAfter, EventManagerSave
 )
 from mayan.apps.events.decorators import method_event
-from mayan.apps.file_caching.models import Cache, CachePartitionFile
-from mayan.apps.templating.classes import Template
 
 from .events import (
     event_signature_capture_created, event_signature_capture_deleted,
-    event_signature_capture_edited,
+    event_signature_capture_edited
 )
-from .literals import STORAGE_NAME_SIGNATURE_CAPTURES_CACHE
 from .managers import ValidSignatureCaptureManager
+from .model_mixins import SignatureCaptureBusinessLogicMixin
 
-logger = logging.getLogger(name=__name__)
 
-
-class SignatureCapture(ExtraDataModelMixin, models.Model):
+class SignatureCapture(
+    ExtraDataModelMixin, SignatureCaptureBusinessLogicMixin, models.Model
+):
     document = models.ForeignKey(
         on_delete=models.CASCADE, related_name='signature_captures',
         to=Document, verbose_name=_('Document')
@@ -85,19 +73,6 @@ class SignatureCapture(ExtraDataModelMixin, models.Model):
     def __str__(self):
         return '{} - {}'.format(self.text, self.get_date_time_created())
 
-    @cached_property
-    def cache(self):
-        return Cache.objects.get(
-            defined_storage_name=STORAGE_NAME_SIGNATURE_CAPTURES_CACHE
-        )
-
-    @cached_property
-    def cache_partition(self):
-        partition, created = self.cache.partitions.get_or_create(
-            name='{}'.format(self.pk)
-        )
-        return partition
-
     @method_event(
         action_object='self',
         event=event_signature_capture_deleted,
@@ -108,73 +83,12 @@ class SignatureCapture(ExtraDataModelMixin, models.Model):
         self.cache_partition.delete()
         return super().delete(*args, **kwargs)
 
-    def generate_image(
-        self, maximum_layer_order=None, transformation_instance_list=None,
-        user=None
-    ):
-        # The parameters 'maximum_layer_order',
-        # `transformation_instance_list`, `user` are not used, but added
-        # to retain interface compatibility.
-        cache_filename = '{}'.format(self.get_hash())
-
-        try:
-            self.cache_partition.get_file(filename=cache_filename)
-        except CachePartitionFile.DoesNotExist:
-            logger.debug(
-                'signature capture cache file "%s" not found', cache_filename
-            )
-
-            image = self.get_image()
-            with io.BytesIO() as image_buffer:
-                image.save(image_buffer, format='PNG')
-
-                with self.cache_partition.create_file(filename=cache_filename) as file_object:
-                    file_object.write(image_buffer.getvalue())
-        else:
-            logger.debug(
-                'signature_capture cache file "%s" found', cache_filename
-            )
-
-        return cache_filename
-
     def get_absolute_url(self):
         return reverse(
             viewname='signature_captures:signature_capture_detail', kwargs={
                 'signature_capture_id': self.pk
             }
         )
-
-    def get_api_image_url(self, *args, **kwargs):
-        final_url = furl()
-        final_url.args = kwargs
-        final_url.path = reverse(
-            viewname='rest_api:signature_capture-image',
-            kwargs={
-                'document_id': self.document.pk,
-                'signature_capture_id': self.pk
-            }
-        )
-        final_url.args['_hash'] = self.get_hash()
-
-        return final_url.tostr()
-
-    def get_date_time_created(self):
-        return Template(
-            template_string='{{ instance.date_time_created }}'
-        ).render(
-            context={'instance': self}
-        )
-    get_date_time_created.short_description = _('Creation date and time')
-
-    def get_hash(self):
-        return hashlib.sha256(force_bytes(self.svg)).hexdigest()
-
-    def get_image(self):
-        stream = io.BytesIO()
-        cairosvg.svg2png(url=self.svg, write_to=stream)
-        image = Image.open(stream)
-
-        return image
 
     @method_event(
         event_manager_class=EventManagerSave,

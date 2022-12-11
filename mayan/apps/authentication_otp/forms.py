@@ -54,7 +54,9 @@ class AuthenticationFormTOTP(AuthenticationFormBase):
             return False
 
     def clean(self):
-        user_id = self.request.session.get(SESSION_MULTI_FACTOR_USER_ID_KEY, None)
+        user_id = self.request.session.get(
+            SESSION_MULTI_FACTOR_USER_ID_KEY, None
+        )
 
         if user_id:
             user = get_user_model().objects.get(pk=user_id)
@@ -65,8 +67,8 @@ class AuthenticationFormTOTP(AuthenticationFormBase):
             )
             if self.user_cache is None:
                 raise forms.ValidationError(
-                    self.error_messages['invalid_token'],
                     code='invalid_token',
+                    message=self.error_messages['invalid_token']
                 )
 
         return self.cleaned_data
@@ -149,8 +151,8 @@ class FormUserOTPDataEdit(forms.Form):
 
         if token.strip() != totp.now():
             raise ValidationError(
-                _('Token is incorrect for the specified secret.'),
-                code='token_invalid'
+                code='token_invalid',
+                message=_('Token is incorrect for the specified secret.')
             )
 
         return token

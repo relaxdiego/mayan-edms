@@ -6,7 +6,6 @@ from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 from django.template import RequestContext
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _, ungettext
 
 from mayan.apps.acls.models import AccessControlList
@@ -14,7 +13,7 @@ from mayan.apps.documents.models import Document
 from mayan.apps.views.generics import (
     MultipleObjectFormActionView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 from mayan.apps.views.utils import convert_to_id_list
 
 from ..forms import (
@@ -42,7 +41,9 @@ class DocumentMetadataAddView(
     object_permission = permission_document_metadata_add
     pk_url_kwarg = 'document_id'
     source_queryset = Document.valid.all()
-    success_message = _('Metadata add request performed on %(count)d document')
+    success_message = _(
+        'Metadata add request performed on %(count)d document'
+    )
     success_message_plural = _(
         'Metadata add request performed on %(count)d documents'
     )
@@ -79,7 +80,7 @@ class DocumentMetadataAddView(
         if queryset.count():
             result.update(
                 {
-                    'document_type': queryset.first().document_type,
+                    'document_type': queryset.first().document_type
                 }
             )
 
@@ -129,12 +130,12 @@ class DocumentMetadataAddView(
                 try:
                     DocumentMetadata.objects.get(
                         document=instance,
-                        metadata_type=metadata_type,
+                        metadata_type=metadata_type
                     )
                 except DocumentMetadata.DoesNotExist:
                     document_metadata = DocumentMetadata(
                         document=instance,
-                        metadata_type=metadata_type,
+                        metadata_type=metadata_type
                     )
                     document_metadata._event_actor = self.request.user
                     document_metadata.save()
@@ -196,14 +197,15 @@ class DocumentMetadataEditView(
 
         id_list = ','.join(
             map(
-                force_text, queryset.values_list('pk', flat=True)
+                str, queryset.values_list('pk', flat=True)
             )
         )
 
         if queryset.count() == 1:
             no_results_main_link = link_metadata_add.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={'object': queryset.first()}
+                    dict_={'object': queryset.first()},
+                    request=self.request
                 )
             )
         else:
@@ -306,8 +308,9 @@ class DocumentMetadataEditView(
                 if document_metadata_queryset.filter(metadata_type=form.cleaned_data['metadata_type_id']).exists():
                     try:
                         save_metadata_list(
-                            metadata_list=[form.cleaned_data], document=instance,
-                            _user=self.request.user
+                            document=instance,
+                            metadata_list=[form.cleaned_data],
+                            user=self.request.user
                         )
                     except Exception as exception:
                         errors.append(exception)
@@ -319,7 +322,7 @@ class DocumentMetadataEditView(
             if isinstance(error, ValidationError):
                 exception_message = ', '.join(error.messages)
             else:
-                exception_message = force_text(s=error)
+                exception_message = str(error)
 
             messages.error(
                 message=_(
@@ -356,9 +359,9 @@ class DocumentMetadataListView(ExternalObjectViewMixin, SingleObjectListView):
             'no_results_icon': icon_metadata,
             'no_results_main_link': link_metadata_add.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={
+                    dict_={
                         'object': self.external_object
-                    }
+                    }, request=self.request
                 )
             ),
             'no_results_text': _(
@@ -367,8 +370,10 @@ class DocumentMetadataListView(ExternalObjectViewMixin, SingleObjectListView):
                 'Once added to individual document, you can then edit their '
                 'values.'
             ),
-            'no_results_title': _('This document doesn\'t have any metadata'),
-            'title': _('Metadata for document: %s') % self.external_object,
+            'no_results_title': _(
+                'This document doesn\'t have any metadata'
+            ),
+            'title': _('Metadata for document: %s') % self.external_object
         }
 
     def get_source_queryset(self):

@@ -17,7 +17,9 @@ class AJAXTemplate:
         else:
             result = []
             for template in cls._registry.values():
-                result.append(template.render(request=request))
+                result.append(
+                    template.render(request=request)
+                )
             return result
 
     @classmethod
@@ -47,7 +49,7 @@ class AJAXTemplate:
         # Calculate the hash of the bytes version but return the unicode
         # version
         self.html = result.rendered_content.replace('\n', '')
-        self.hex_hash = hashlib.sha256(result.content).hexdigest()
+        self.hex_hash = hashlib.sha256(string=result.content).hexdigest()
         return self
 
 
@@ -65,6 +67,8 @@ class Template:
         )
 
     def render(self, context=None):
-        context_object = Context(dict_=context or {})
+        context_object = Context(
+            dict_=context or {}
+        )
 
         return self._template.render(context=context_object)

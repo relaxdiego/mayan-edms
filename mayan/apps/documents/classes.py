@@ -1,6 +1,5 @@
 import uuid
 
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import format_lazy
 
@@ -81,7 +80,9 @@ class UUIDDocumentFilenameGenerator(BaseDocumentFilenameGenerator):
     )
 
     def upload_to(self, instance, filename):
-        return force_text(s=uuid.uuid4())
+        return str(
+            uuid.uuid4()
+        )
 
 
 class UUIDPlusOriginalFilename(BaseDocumentFilenameGenerator):
@@ -93,7 +94,9 @@ class UUIDPlusOriginalFilename(BaseDocumentFilenameGenerator):
     )
 
     def upload_to(self, instance, filename):
-        return '{}_{}'.format(uuid.uuid4(), instance.document.label)
+        return '{}_{}'.format(
+            uuid.uuid4(), instance.document.label
+        )
 
 
 BaseDocumentFilenameGenerator.register(

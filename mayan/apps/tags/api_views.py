@@ -45,8 +45,12 @@ class APITagListView(generics.ListCreateAPIView):
     get: Returns a list of all the tags.
     post: Create a new tag.
     """
-    mayan_object_permissions = {'GET': (permission_tag_view,)}
-    mayan_view_permissions = {'POST': (permission_tag_create,)}
+    mayan_object_permissions = {
+        'GET': (permission_tag_view,)
+    }
+    mayan_view_permissions = {
+        'POST': (permission_tag_create,)
+    }
     ordering_fields = ('id', 'label')
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
@@ -65,13 +69,17 @@ class APITagDocumentListView(
     """
     external_object_class = Tag
     external_object_pk_url_kwarg = 'tag_id'
-    mayan_external_object_permissions = {'GET': (permission_tag_view,)}
-    mayan_object_permissions = {'GET': (permission_document_view,)}
+    mayan_external_object_permissions = {
+        'GET': (permission_tag_view,)
+    }
+    mayan_object_permissions = {
+        'GET': (permission_document_view,)
+    }
     serializer_class = DocumentSerializer
 
     def get_queryset(self):
         return Document.valid.filter(
-            pk__in=self.external_object.documents.only('pk')
+            pk__in=self.get_external_object().documents.only('pk')
         )
 
 
@@ -86,10 +94,9 @@ class APIDocumentTagAttachView(generics.ObjectActionAPIView):
     serializer_class = DocumentTagAttachSerializer
     queryset = Document.valid.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         tag = serializer.validated_data['tag']
-        tag._event_actor = self.request.user
-        tag.attach_to(document=self.object)
+        tag.attach_to(document=obj, user=self.request.user)
 
 
 class APIDocumentTagRemoveView(generics.ObjectActionAPIView):
@@ -103,10 +110,9 @@ class APIDocumentTagRemoveView(generics.ObjectActionAPIView):
     serializer_class = DocumentTagRemoveSerializer
     queryset = Document.valid.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         tag = serializer.validated_data['tag']
-        tag._event_actor = self.request.user
-        tag.remove_from(document=self.object)
+        tag.remove_from(document=obj, user=self.request.user)
 
 
 class APIDocumentTagListView(
@@ -121,9 +127,9 @@ class APIDocumentTagListView(
         'GET': (permission_tag_view,)
     }
     mayan_object_permissions = {
-        'GET': (permission_tag_view,),
+        'GET': (permission_tag_view,)
     }
     serializer_class = TagSerializer
 
     def get_queryset(self):
-        return self.external_object.tags.all()
+        return self.get_external_object().tags.all()

@@ -47,12 +47,10 @@ class SourceBackendWebForm(
         )
 
         document_type = rest_get_object_or_404(
-            queryset=queryset, pk=document_type_id
+            pk=document_type_id, queryset=queryset
         )
 
-        self.process_kwargs = {
-            'request': request
-        }
+        self.process_kwargs = {'request': request}
 
         shared_uploaded_file = SharedUploadedFile.objects.create(
             file=file
@@ -69,7 +67,9 @@ class SourceBackendWebForm(
 
         task_process_document_upload.apply_async(kwargs=kwargs)
 
-        return None, Response(status=status.HTTP_202_ACCEPTED)
+        return (
+            None, Response(status=status.HTTP_202_ACCEPTED)
+        )
 
     def get_shared_uploaded_files(self):
         return (
@@ -85,7 +85,6 @@ class SourceBackendWebForm(
                     'name': 'appearance/generic_multiform_subtemplate.html',
                     'context': {
                         'forms': context['forms'],
-                        'is_multipart': True,
                         'form_action': '{}?{}'.format(
                             reverse(
                                 viewname=request.resolver_match.view_name,
@@ -95,7 +94,8 @@ class SourceBackendWebForm(
                         'form_css_classes': 'dropzone',
                         'form_disable_submit': True,
                         'form_id': 'html5upload',
-                    },
+                        'is_multipart': True
+                    }
                 }
             ]
         }

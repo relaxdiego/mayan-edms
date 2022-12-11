@@ -8,7 +8,7 @@ from mayan.apps.views.generics import (
     SingleObjectCreateView, SingleObjectDeleteView, SingleObjectEditView,
     SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..forms import SmartLinkConditionForm
 from ..icons import (
@@ -23,7 +23,9 @@ from ..permissions import permission_smart_link_edit
 logger = logging.getLogger(name=__name__)
 
 
-class SmartLinkConditionListView(ExternalObjectViewMixin, SingleObjectListView):
+class SmartLinkConditionListView(
+    ExternalObjectViewMixin, SingleObjectListView
+):
     external_object_class = SmartLink
     external_object_permission = permission_smart_link_edit
     external_object_pk_url_kwarg = 'smart_link_id'
@@ -36,9 +38,9 @@ class SmartLinkConditionListView(ExternalObjectViewMixin, SingleObjectListView):
             'no_results_icon': icon_smart_link_condition,
             'no_results_main_link': link_smart_link_condition_create.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={
+                    dict_={
                         'object': self.external_object
-                    }
+                    }, request=self.request
                 )
             ),
             'no_results_text': _(
@@ -51,7 +53,7 @@ class SmartLinkConditionListView(ExternalObjectViewMixin, SingleObjectListView):
             'object': self.external_object,
             'title': _(
                 'Conditions for smart link: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_source_queryset(self):
@@ -72,7 +74,7 @@ class SmartLinkConditionCreateView(
             'title': _(
                 'Add new conditions to smart link: "%s"'
             ) % self.external_object,
-            'object': self.external_object,
+            'object': self.external_object
         }
 
     def get_instance_extra_data(self):
@@ -83,9 +85,9 @@ class SmartLinkConditionCreateView(
 
     def get_post_action_redirect(self):
         return reverse(
-            viewname='linking:smart_link_condition_list', kwargs={
+            kwargs={
                 'smart_link_id': self.external_object.pk
-            }
+            }, viewname='linking:smart_link_condition_list'
         )
 
     def get_queryset(self):
@@ -105,7 +107,7 @@ class SmartLinkConditionDeleteView(SingleObjectDeleteView):
             'object': self.object.smart_link,
             'title': _(
                 'Delete smart link condition: "%s"?'
-            ) % self.object,
+            ) % self.object
         }
 
     def get_instance_extra_data(self):
@@ -113,9 +115,9 @@ class SmartLinkConditionDeleteView(SingleObjectDeleteView):
 
     def get_post_action_redirect(self):
         return reverse(
-            viewname='linking:smart_link_condition_list', kwargs={
+            kwargs={
                 'smart_link_id': self.object.smart_link.pk
-            }
+            }, viewname='linking:smart_link_condition_list'
         )
 
 
@@ -131,7 +133,7 @@ class SmartLinkConditionEditView(SingleObjectEditView):
             'condition': self.object,
             'navigation_object_list': ('object', 'condition'),
             'object': self.object.smart_link,
-            'title': _('Edit smart link condition'),
+            'title': _('Edit smart link condition')
         }
 
     def get_instance_extra_data(self):
@@ -139,7 +141,7 @@ class SmartLinkConditionEditView(SingleObjectEditView):
 
     def get_post_action_redirect(self):
         return reverse(
-            viewname='linking:smart_link_condition_list', kwargs={
+            kwargs={
                 'smart_link_id': self.object.smart_link.pk
-            }
+            }, viewname='linking:smart_link_condition_list'
         )

@@ -41,7 +41,9 @@ class CabinetWorkflowActionTestCase(CabinetTestMixin, ActionTestCase):
         self.assertEqual(events[0].verb, event_cabinet_document_added.id)
 
     def test_cabinet_document_remove_action(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         action = CabinetRemoveAction(
             form_data={'cabinets': Cabinet.objects.all()}

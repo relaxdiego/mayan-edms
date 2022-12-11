@@ -14,9 +14,8 @@ from mayan.apps.views.generics import (
     AddRemoveView, ConfirmView, FormView, SingleObjectCreateView,
     SingleObjectDeleteView, SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
-from ..events import event_index_template_edited
 from ..forms import (
     IndexTemplateEventTriggerRelationshipFormSet, IndexTemplateFilteredForm,
     IndexTemplateNodeForm
@@ -42,18 +41,10 @@ from ..permissions import (
 )
 from ..tasks import task_index_template_rebuild
 
-__all__ = (
-    'DocumentTypeIndexTemplateAddRemoveView', 'IndexTemplateListView',
-    'IndexTemplateCreateView', 'IndexTemplateDeleteView',
-    'IndexTemplateDocumentTypeAddRemoveView', 'IndexTemplateEditView',
-    'IndexTemplateNodeListView', 'IndexTemplateNodeCreateView',
-    'IndexTemplateNodeDeleteView', 'IndexTemplateNodeEditView',
-    'IndexTemplateAllRebuildView', 'IndexTemplateRebuildView',
-    'IndexTemplateResetView'
-)
-
 
 class DocumentTypeIndexTemplateAddRemoveView(AddRemoveView):
+    main_object_method_add_name = 'index_template_add'
+    main_object_method_remove_name = 'index_template_remove'
     main_object_permission = permission_document_type_edit
     main_object_model = DocumentType
     main_object_pk_url_kwarg = 'document_type_id'
@@ -64,32 +55,20 @@ class DocumentTypeIndexTemplateAddRemoveView(AddRemoveView):
     related_field = 'index_templates'
     view_icon = icon_document_type_index_templates
 
-    def action_add(self, queryset, _event_actor):
-        for obj in queryset:
-            self.main_object.index_templates.add(obj)
-            event_index_template_edited.commit(
-                action_object=self.main_object, actor=_event_actor, target=obj
-            )
-
-    def action_remove(self, queryset, _event_actor):
-        for obj in queryset:
-            self.main_object.index_templates.remove(obj)
-            event_index_template_edited.commit(
-                action_object=self.main_object, actor=_event_actor, target=obj
-            )
-
     def get_actions_extra_kwargs(self):
-        return {'_event_actor': self.request.user}
+        return {'user': self.request.user}
 
     def get_extra_context(self):
         return {
             'object': self.main_object,
             'subtitle': _(
                 'Documents of this type will appear in the indexes linked '
-                'when these are updated. Events of the documents of this type '
-                'will trigger updates in the linked indexes.'
+                'when these are updated. Events of the documents of this '
+                'type will trigger updates in the linked indexes.'
             ),
-            'title': _('Indexes linked to document type: %s') % self.main_object,
+            'title': _(
+                'Indexes linked to document type: %s'
+            ) % self.main_object
         }
 
 
@@ -106,13 +85,14 @@ class IndexTemplateListView(SingleObjectListView):
                 context=RequestContext(request=self.request)
             ),
             'no_results_text': _(
-                'Indexes group document automatically into levels. Indexes are '
-                'defined using template whose markers are replaced with '
-                'direct properties of documents like label or description, or '
-                'that of extended properties like metadata.'
+                'Indexes group document automatically into levels. '
+                'Indexes are defined using template whose markers are '
+                'replaced with direct properties of documents like label '
+                'or description, or that of extended properties like '
+                'metadata.'
             ),
             'no_results_title': _('There are no index templates.'),
-            'title': _('Index templates'),
+            'title': _('Index templates')
         }
 
 
@@ -142,7 +122,7 @@ class IndexTemplateDeleteView(SingleObjectDeleteView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Delete the index: %s?') % self.object,
+            'title': _('Delete the index: %s?') % self.object
         }
 
 
@@ -160,7 +140,7 @@ class IndexTemplateDocumentTypeAddRemoveView(AddRemoveView):
     view_icon = icon_index_template_document_types
 
     def get_actions_extra_kwargs(self):
-        return {'_event_actor': self.request.user}
+        return {'user': self.request.user}
 
     def get_extra_context(self):
         return {
@@ -170,7 +150,9 @@ class IndexTemplateDocumentTypeAddRemoveView(AddRemoveView):
                 'in the index when built. Only the events of the documents '
                 'of the types select will trigger updates in the index.'
             ),
-            'title': _('Document types linked to index: %s') % self.main_object,
+            'title': _(
+                'Document types linked to index: %s'
+            ) % self.main_object
         }
 
 
@@ -187,7 +169,7 @@ class IndexTemplateEditView(SingleObjectEditView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Edit index: %s') % self.object,
+            'title': _('Edit index: %s') % self.object
         }
 
     def get_instance_extra_data(self):
@@ -301,7 +283,7 @@ class IndexTemplateNodeListView(
             'object': self.external_object,
             'title': _(
                 'Tree template nodes for index: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_source_queryset(self):
@@ -317,8 +299,9 @@ class IndexTemplateNodeCreateView(SingleObjectCreateView):
 
     def dispatch(self, request, *args, **kwargs):
         AccessControlList.objects.check_access(
-            obj=self.get_parent_node().index,
-            permissions=(permission_index_template_edit,), user=request.user
+            obj=self.get_parent_node().index, permissions=(
+                permission_index_template_edit,
+            ), user=request.user
         )
 
         return super().dispatch(request, *args, **kwargs)
@@ -326,7 +309,7 @@ class IndexTemplateNodeCreateView(SingleObjectCreateView):
     def get_extra_context(self):
         return {
             'object': self.get_parent_node().index,
-            'title': _('Create child node of: %s') % self.get_parent_node(),
+            'title': _('Create child node of: %s') % self.get_parent_node()
         }
 
     def get_initial(self):
@@ -354,7 +337,7 @@ class IndexTemplateNodeDeleteView(SingleObjectDeleteView):
             'node': self.object,
             'title': _(
                 'Delete the index template node: %s?'
-            ) % self.object,
+            ) % self.object
         }
 
     def get_post_action_redirect(self):
@@ -379,7 +362,7 @@ class IndexTemplateNodeEditView(SingleObjectEditView):
             'node': self.object,
             'title': _(
                 'Edit the index template node: %s'
-            ) % self.object,
+            ) % self.object
         }
 
     def get_post_action_redirect(self):

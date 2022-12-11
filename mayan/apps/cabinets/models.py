@@ -6,10 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
-from mayan.apps.acls.models import AccessControlList
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
 from mayan.apps.documents.models.document_models import Document
-from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.events.classes import EventManagerMethodAfter, EventManagerSave
 from mayan.apps.events.decorators import method_event
 
@@ -17,9 +15,10 @@ from .events import (
     event_cabinet_created, event_cabinet_deleted, event_cabinet_edited,
     event_cabinet_document_added, event_cabinet_document_removed
 )
+from .model_mixins import CabinetBusinessLogicMixin
 
 
-class Cabinet(ExtraDataModelMixin, MPTTModel):
+class Cabinet(CabinetBusinessLogicMixin, ExtraDataModelMixin, MPTTModel):
     """
     Model to store a hierarchical tree of document containers. Each container
     can store an unlimited number of documents using an M2M field. Only
@@ -53,6 +52,26 @@ class Cabinet(ExtraDataModelMixin, MPTTModel):
         return self.get_full_path()
 
     @method_event(
+        action_object='self',
+        event=event_cabinet_document_added,
+        event_manager_class=EventManagerMethodAfter
+    )
+    def _document_add(self, document, user=None):
+        self._event_actor = user
+        self._event_target = document
+        self.documents.add(document)
+
+    @method_event(
+        action_object='self',
+        event=event_cabinet_document_removed,
+        event_manager_class=EventManagerMethodAfter
+    )
+    def _document_remove(self, document, user=None):
+        self._event_actor = user
+        self._event_target = document
+        self.documents.remove(document)
+
+    @method_event(
         action_object='parent',
         event=event_cabinet_deleted,
         event_manager_class=EventManagerMethodAfter
@@ -67,69 +86,12 @@ class Cabinet(ExtraDataModelMixin, MPTTModel):
 
         return result
 
-    @method_event(
-        action_object='self',
-        event=event_cabinet_document_added,
-        event_manager_class=EventManagerMethodAfter
-    )
-    def document_add(self, document):
-        self._event_target = document
-        self.documents.add(document)
-
-    @method_event(
-        action_object='self',
-        event=event_cabinet_document_removed,
-        event_manager_class=EventManagerMethodAfter
-    )
-    def document_remove(self, document):
-        self._event_target = document
-        self.documents.remove(document)
-
     def get_absolute_url(self):
         return reverse(
             viewname='cabinets:cabinet_view', kwargs={
                 'cabinet_id': self.pk
             }
         )
-
-    def get_documents(self, permission=None, user=None):
-        """
-        Provide a queryset of the documents in a cabinet. The queryset is
-        filtered by access.
-        """
-        queryset = Document.valid.filter(pk__in=self.documents.all())
-
-        if permission and user:
-            queryset = AccessControlList.objects.restrict_queryset(
-                permission=permission, queryset=queryset,
-                user=user
-            )
-
-        return queryset
-
-    def get_document_count(self, user):
-        """
-        Return numeric count of the total documents in a cabinet. The count
-        is filtered by access.
-        """
-        return self.get_documents(
-            permission=permission_document_view, user=user
-        ).count()
-
-    def get_full_path(self):
-        """
-        Returns a string that represents the path to the cabinet. The
-        path string starts from the root cabinet.
-        """
-        result = []
-        for node in self.get_ancestors(include_self=True):
-            result.append(node.label)
-
-        return ' / '.join(result)
-    get_full_path.help_text = _(
-        'The path to the cabinet including all ancestors.'
-    )
-    get_full_path.short_description = _('Full path')
 
     @method_event(
         event_manager_class=EventManagerSave,
@@ -155,9 +117,13 @@ class Cabinet(ExtraDataModelMixin, MPTTModel):
         """
         with transaction.atomic():
             if connection.vendor == 'oracle':
-                queryset = Cabinet.objects.filter(parent=self.parent, label=self.label)
+                queryset = Cabinet.objects.filter(
+                    parent=self.parent, label=self.label
+                )
             else:
-                queryset = Cabinet.objects.select_for_update().filter(parent=self.parent, label=self.label)
+                queryset = Cabinet.objects.select_for_update().filter(
+                    parent=self.parent, label=self.label
+                )
 
             if queryset.exists():
                 params = {
@@ -165,16 +131,16 @@ class Cabinet(ExtraDataModelMixin, MPTTModel):
                     'field_labels': _('Parent and Label')
                 }
                 raise ValidationError(
-                    {
+                    message={
                         NON_FIELD_ERRORS: [
                             ValidationError(
                                 message=_(
                                     '%(model_name)s with this %(field_labels)s already '
                                     'exists.'
-                                ), code='unique_together', params=params,
+                                ), code='unique_together', params=params
                             )
-                        ],
-                    },
+                        ]
+                    }
                 )
 
 

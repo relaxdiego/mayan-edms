@@ -37,9 +37,9 @@ class DocumentCheckInView(MultipleObjectConfirmActionView):
     success_message_plural = _(
         '%(count)d documents checked in successfully.'
     )
+    title_plural = _('Check in %(count)d documents.')
     title_single = _('Check in document "%(object)s".')
     title_singular = _('Check in %(count)d document.')
-    title_plural = _('Check in %(count)d documents.')
     view_icon = icon_check_in_document
 
     def get_extra_context(self):
@@ -98,18 +98,18 @@ class DocumentCheckOutView(MultipleObjectFormActionView):
     object_permission = permission_document_check_out
     pk_url_kwarg = 'document_id'
     source_queryset = Document.valid.all()
+    success_message_plural = _(
+        '%(count)d documents checked out successfully.'
+    )
     success_message_single = _(
         'Document "%(object)s" checked out successfully.'
     )
     success_message_singular = _(
         '%(count)d document checked out successfully.'
     )
-    success_message_plural = _(
-        '%(count)d documents checked out successfully.'
-    )
+    title_plural = _('Checkout %(count)d documents.')
     title_single = _('Checkout document "%(object)s".')
     title_singular = _('Checkout %(count)d document.')
-    title_plural = _('Checkout %(count)d documents.')
     view_icon = icon_check_out_document
 
     def get_extra_context(self):
@@ -118,7 +118,7 @@ class DocumentCheckOutView(MultipleObjectFormActionView):
         if self.object_list.count() == 1:
             context.update(
                 {
-                    'object': self.object_list.first(),
+                    'object': self.object_list.first()
                 }
             )
 
@@ -140,7 +140,7 @@ class DocumentCheckOutView(MultipleObjectFormActionView):
                 block_new_file=form.cleaned_data['block_new_file'],
                 document=instance,
                 expiration_datetime=form.cleaned_data['expiration_datetime'],
-                user=self.request.user,
+                user=self.request.user
             )
         except DocumentAlreadyCheckedOut as exception:
             raise ActionError(exception)
@@ -180,7 +180,7 @@ class DocumentCheckOutListView(DocumentListView):
                     'for a predetermined amount of time.'
                 ),
                 'no_results_title': _('No documents have been checked out'),
-                'title': _('Checked out documents'),
+                'title': _('Checked out documents')
             }
         )
         return context

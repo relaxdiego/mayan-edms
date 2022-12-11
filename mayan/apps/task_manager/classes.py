@@ -3,7 +3,6 @@ import logging
 from kombu import Exchange, Queue
 
 from django.core.exceptions import ImproperlyConfigured
-from django.utils.encoding import force_text
 from django.utils.module_loading import import_string
 
 from mayan.apps.common.class_mixins import AppsModuleLoaderMixin
@@ -27,15 +26,15 @@ class TaskType:
         return cls._registry[name]
 
     def __init__(self, dotted_path, label, name=None, schedule=None):
-        self.name = name or dotted_path.split('.')[-1]
-        self.label = label
         self.dotted_path = dotted_path
+        self.label = label
+        self.name = name or dotted_path.split('.')[-1]
         self.schedule = schedule
         self.__class__._registry[name] = self
         self.validate()
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def validate(self):
         try:
@@ -54,7 +53,7 @@ class Task:
         self.kwargs = kwargs
 
     def __str__(self):
-        return force_text(s=self.task_type)
+        return str(self.task_type)
 
 
 class CeleryQueue(AppsModuleLoaderMixin):
@@ -90,10 +89,12 @@ class CeleryQueue(AppsModuleLoaderMixin):
         for instance in cls.all():
             instance._update_celery()
 
-    def __init__(self, name, label, worker, default_queue=False, transient=False):
-        self.name = name
-        self.label = label
+    def __init__(
+        self, name, label, worker, default_queue=False, transient=False
+    ):
         self.default_queue = default_queue
+        self.label = label
+        self.name = name
         self.transient = transient
         self.task_types = []
         self.worker = worker
@@ -107,7 +108,7 @@ class CeleryQueue(AppsModuleLoaderMixin):
         worker._queues.append(self)
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def _update_celery(self):
         kwargs = {
@@ -196,10 +197,10 @@ class Worker:
         nice_level=0
     ):
         self.concurrency = concurrency or WORKER_DEFAULT_CONCURRENCY
-        self.name = name
         self.label = label
         self.maximum_memory_per_child = maximum_memory_per_child
         self.maximum_tasks_per_child = maximum_tasks_per_child
+        self.name = name
         self.nice_level = nice_level
         self._queues = []
         self.__class__._registry[name] = self

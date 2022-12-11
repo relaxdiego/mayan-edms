@@ -1,5 +1,4 @@
 from django.apps import apps
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from celery.schedules import crontab
@@ -31,7 +30,7 @@ class StatisticNamespace(AppsModuleLoaderMixin):
         self.__class__._registry[slug] = self
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def add_statistic(self, klass, *args, **kwargs):
         statistic = klass(*args, **kwargs)
@@ -135,7 +134,7 @@ class StatisticType:
         self.__class__._registry[slug] = self
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def execute(self):
         results = self.func()

@@ -16,11 +16,11 @@ def method_document_ocr_content(self):
         return ()
 
 
-def method_document_ocr_submit(self, _user=None):
+def method_document_ocr_submit(self, user=None):
     version_active = self.version_active
     # Don't error out if document has no version.
     if version_active:
-        version_active.submit_for_ocr(_user=_user)
+        version_active.submit_for_ocr(user=user)
 
 
 def method_document_version_ocr_content(self):
@@ -37,13 +37,9 @@ def method_document_version_ocr_content(self):
             yield page_content
 
 
-def method_document_version_ocr_submit(self, _user=None):
-    event_ocr_document_version_submitted.commit(
-        action_object=self.document, actor=_user, target=self
-    )
-
-    if _user:
-        user_id = _user.pk
+def method_document_version_ocr_submit(self, user=None):
+    if user:
+        user_id = user.pk
     else:
         user_id = None
 
@@ -53,6 +49,10 @@ def method_document_version_ocr_submit(self, _user=None):
     # timeout x the total version pages. This decreases the probability of
     # the OCR task getting killed before the document file and version page
     # rendering finishes.
+
+    event_ocr_document_version_submitted.commit(
+        action_object=self.document, actor=user, target=self
+    )
 
     task_document_version_ocr_process.apply_async(
         kwargs={

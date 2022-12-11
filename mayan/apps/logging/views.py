@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from mayan.apps.views.generics import (
     ConfirmView, SingleObjectDeleteView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalContentTypeObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalContentTypeObjectViewMixin
 
 from .icons import (
     icon_global_error_log_entry_list, icon_object_errors,
@@ -48,11 +48,11 @@ class ObjectErrorLogEntryListClearView(
             'object': self.external_object,
             'title': _(
                 'Clear error log entries for: %s' % self.external_object
-            ),
+            )
         }
 
     def view_action(self):
-        self.external_object.error_log.clear(_user=self.request.user)
+        self.external_object.error_log.clear(user=self.request.user)
         messages.success(
             message=_('Object error log cleared successfully'),
             request=self.request
@@ -101,7 +101,7 @@ class ObjectErrorLogEntryListView(
                 'There are no error log entries'
             ),
             'object': self.external_object,
-            'title': _('Error log entries for: %s' % self.external_object),
+            'title': _('Error log entries for: %s' % self.external_object)
         }
 
     def get_source_queryset(self):

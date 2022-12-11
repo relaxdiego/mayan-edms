@@ -32,7 +32,9 @@ class LayerTransformationSelectForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.fields[
             'transformation'
-        ].choices = BaseTransformation.get_transformation_choices(layer=layer)
+        ].choices = BaseTransformation.get_transformation_choices(
+            layer=layer
+        )
 
     transformation = forms.ChoiceField(
         choices=(), help_text=_('Available transformations for this layer.'),
@@ -77,10 +79,12 @@ class LayerTransformationForm(ModelForm):
             # Allows compatibility with the redaction template and
             # JavaScript.
             try:
-                yaml_load(stream=self.cleaned_data['arguments'])
+                yaml_load(
+                    stream=self.cleaned_data['arguments']
+                )
             except yaml.YAMLError:
                 raise ValidationError(
-                    _(
+                    message=_(
                         '"%s" not a valid entry.'
                     ) % self.cleaned_data['arguments']
                 )

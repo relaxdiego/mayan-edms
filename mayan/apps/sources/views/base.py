@@ -5,13 +5,12 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.acls.models import AccessControlList
 from mayan.apps.navigation.classes import Link
 from mayan.apps.views.generics import MultiFormView
-from mayan.apps.views.mixins import ViewIconMixin
+from mayan.apps.views.view_mixins import ViewIconMixin
 
 from ..icons import icon_upload_view_link
 from ..links import factory_conditional_active_by_source
@@ -29,7 +28,9 @@ class UploadBaseView(ViewIconMixin, MultiFormView):
     @staticmethod
     def get_tab_link_for_source(source, document=None):
         if document:
-            args = ('"{}"'.format(document.pk), '"{}"'.format(source.pk),)
+            args = (
+                '"{}"'.format(document.pk), '"{}"'.format(source.pk),
+            )
             view = 'sources:document_file_upload'
         else:
             args = ('"{}"'.format(source.pk),)
@@ -68,7 +69,9 @@ class UploadBaseView(ViewIconMixin, MultiFormView):
                 raise
             elif request.is_ajax():
                 return JsonResponse(
-                    data={'error': force_text(s=exception)}, status=500
+                    data={
+                        'error': str(exception)
+                    }, status=500
                 )
             else:
                 raise

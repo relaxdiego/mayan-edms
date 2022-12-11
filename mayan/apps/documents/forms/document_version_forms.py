@@ -5,8 +5,6 @@ from ..classes import DocumentVersionModification
 from ..fields import DocumentVersionField
 from ..models.document_version_models import DocumentVersion
 
-__all__ = ('DocumentVersionForm', 'DocumentVersionPreviewForm',)
-
 
 class DocumentVersionForm(forms.ModelForm):
     class Meta:

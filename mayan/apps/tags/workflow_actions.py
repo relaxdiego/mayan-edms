@@ -37,7 +37,9 @@ class AttachTagAction(WorkflowAction):
 
     def execute(self, context):
         for tag in self.get_tags():
-            tag.attach_to(document=context['document'])
+            tag._attach_to(
+                document=context['document']
+            )
 
     def get_form_schema(self, **kwargs):
         result = super().get_form_schema(**kwargs)
@@ -70,4 +72,6 @@ class RemoveTagAction(AttachTagAction):
 
     def execute(self, context):
         for tag in self.get_tags():
-            tag.remove_from(document=context['document'])
+            tag._remove_from(
+                document=context['document']
+            )

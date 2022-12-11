@@ -62,12 +62,12 @@ class SignatureCaptureAPIViewTestMixin:
         if extra_data:
             data.update(extra_data)
 
-        return getattr(self, verb)(
+        verb = getattr(self, verb)
+        return verb(
             viewname='rest_api:signature_capture-detail', kwargs={
                 'document_id': self._test_document.pk,
                 'signature_capture_id': self._test_signature_capture.pk
-            },
-            data=data
+            }, data=data
         )
 
     def _request_test_signature_capture_list_api_view(self):

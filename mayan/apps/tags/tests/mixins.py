@@ -162,7 +162,9 @@ class TagTestMixin:
         self._test_tags.append(self._test_tag)
 
         if add_test_document:
-            self._test_tag.attach_to(document=self._test_document)
+            self._test_tag.attach_to(
+                document=self._test_document, user=self._test_case_user
+            )
 
 
 class TagViewTestMixin:
@@ -204,7 +206,8 @@ class TagViewTestMixin:
             viewname='tags:tag_edit', kwargs={
                 'tag_id': self._test_tag.pk
             }, data={
-                'label': TEST_TAG_LABEL_EDITED, 'color': TEST_TAG_COLOR_EDITED
+                'color': TEST_TAG_COLOR_EDITED,
+                'label': TEST_TAG_LABEL_EDITED
             }
         )
 

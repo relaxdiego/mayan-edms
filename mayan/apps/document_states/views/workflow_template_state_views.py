@@ -8,7 +8,7 @@ from mayan.apps.views.generics import (
     SingleObjectDynamicFormCreateView, SingleObjectDynamicFormEditView,
     SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..classes import WorkflowAction
 from ..forms import (
@@ -46,10 +46,14 @@ class WorkflowTemplateStateActionCreateView(
 
     def get_class(self):
         try:
-            return WorkflowAction.get(name=self.kwargs['class_path'])
+            return WorkflowAction.get(
+                name=self.kwargs['class_path']
+            )
         except KeyError:
             raise Http404(
-                '{} class not found'.format(self.kwargs['class_path'])
+                '{} class not found'.format(
+                    self.kwargs['class_path']
+                )
             )
 
     def get_extra_context(self):
@@ -61,13 +65,14 @@ class WorkflowTemplateStateActionCreateView(
             ) % {
                 'action_class': self.get_class().label,
                 'workflow_state': self.external_object
-            }, 'workflow': self.external_object.workflow
+            },
+            'workflow': self.external_object.workflow
         }
 
     def get_form_extra_kwargs(self):
         return {
-            'request': self.request,
-            'action_path': self.kwargs['class_path']
+            'action_path': self.kwargs['class_path'],
+            'request': self.request
         }
 
     def get_form_schema(self):
@@ -142,8 +147,8 @@ class WorkflowTemplateStateActionEditView(SingleObjectDynamicFormEditView):
 
     def get_form_extra_kwargs(self):
         return {
-            'request': self.request,
             'action_path': self.object.action_path,
+            'request': self.request
         }
 
     def get_form_schema(self):
@@ -180,9 +185,9 @@ class WorkflowTemplateStateActionListView(
             'no_results_icon': icon_workflow_template_state_action,
             'no_results_main_link': link_workflow_template_state_action_selection.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={
+                    dict_={
                         'object': self.external_object
-                    }
+                    }, request=self.request
                 )
             ),
             'no_results_text': _(
@@ -196,7 +201,7 @@ class WorkflowTemplateStateActionListView(
             'title': _(
                 'Actions for workflow state: %s'
             ) % self.external_object,
-            'workflow': self.external_object.workflow,
+            'workflow': self.external_object.workflow
         }
 
     def get_source_queryset(self):
@@ -219,7 +224,7 @@ class WorkflowTemplateStateActionSelectionView(
             ),
             'object': self.external_object,
             'title': _('New workflow state action selection for: %s') % self.external_object,
-            'workflow': self.external_object.workflow,
+            'workflow': self.external_object.workflow
         }
 
     def form_valid(self, form):
@@ -284,7 +289,7 @@ class WorkflowTemplateStateDeleteView(SingleObjectDeleteView):
             'title': _(
                 'Delete workflow state: %s?'
             ) % self.object,
-            'workflow': self.object.workflow,
+            'workflow': self.object.workflow
         }
 
     def get_instance_extra_data(self):
@@ -315,7 +320,7 @@ class WorkflowTemplateStateEditView(SingleObjectEditView):
             'title': _(
                 'Edit workflow state: %s'
             ) % self.object,
-            'workflow': self.object.workflow,
+            'workflow': self.object.workflow
         }
 
     def get_instance_extra_data(self):
@@ -344,7 +349,8 @@ class WorkflowTemplateStateListView(
             'no_results_icon': icon_workflow_template_state,
             'no_results_main_link': link_workflow_template_state_create.resolve(
                 context=RequestContext(
-                    self.request, {'workflow': self.external_object}
+                    dict_={'workflow': self.external_object},
+                    request=self.request
                 )
             ),
             'no_results_text': _(

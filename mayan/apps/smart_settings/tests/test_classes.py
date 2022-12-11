@@ -3,7 +3,6 @@ from pathlib import Path
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.utils import translation
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.storage.utils import fs_cleanup
@@ -127,20 +126,28 @@ class SettingTestCase(
 
     def test_config_backup_creation(self):
         path_config_backup = Path(settings.CONFIGURATION_LAST_GOOD_FILEPATH)
-        fs_cleanup(filename=force_text(s=path_config_backup))
+        fs_cleanup(
+            filename=str(path_config_backup)
+        )
 
         Setting.save_last_known_good()
         self.assertTrue(path_config_backup.exists())
 
     def test_config_backup_creation_no_tags(self):
         path_config_backup = Path(settings.CONFIGURATION_LAST_GOOD_FILEPATH)
-        fs_cleanup(filename=force_text(s=path_config_backup))
+        fs_cleanup(
+            filename=str(path_config_backup)
+        )
 
         Setting.save_last_known_good()
-        self.assertTrue(path_config_backup.exists())
+        self.assertTrue(
+            path_config_backup.exists()
+        )
 
         with path_config_backup.open(mode='r') as file_object:
-            self.assertFalse('!!python/' in file_object.read())
+            self.assertFalse(
+                '!!python/' in file_object.read()
+            )
 
     def test_setting_check_changed(self):
         self._create_test_settings_namespace()
@@ -151,9 +158,13 @@ class SettingTestCase(
         # Initialize hash cache.
         Setting._cache_hash = None
         Setting.check_changed()
-        self.assertFalse(Setting.check_changed())
+        self.assertFalse(
+            Setting.check_changed()
+        )
         test_setting.value = 'test value edited'
-        self.assertTrue(Setting.check_changed())
+        self.assertTrue(
+            Setting.check_changed()
+        )
 
     def test_setting_check_changed_for_translations(self):
         self._create_test_settings_namespace()
@@ -164,10 +175,14 @@ class SettingTestCase(
         # Initialize hash cache.
         Setting._cache_hash = None
         Setting.check_changed()
-        self.assertFalse(Setting.check_changed())
+        self.assertFalse(
+            Setting.check_changed()
+        )
 
         translation.activate(language='es')
-        self.assertFalse(Setting.check_changed())
+        self.assertFalse(
+            Setting.check_changed()
+        )
         translation.activate(language='en')
 
     def test_setting_validation_call(self):

@@ -1,6 +1,5 @@
 from django.shortcuts import get_object_or_404
 
-from mayan.apps.acls.models import AccessControlList
 from mayan.apps.documents.models import Document
 from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.documents.serializers.document_serializers import DocumentSerializer
@@ -12,6 +11,8 @@ from ..permissions import permission_index_instance_view
 from ..serializers import (
     IndexInstanceNodeSerializer, IndexInstanceSerializer
 )
+
+from .index_instance_api_view_mixins import APIIndexInstanceNodeViewMixin
 
 
 class APIDocumentIndexInstanceNodeListView(
@@ -32,7 +33,7 @@ class APIDocumentIndexInstanceNodeListView(
     serializer_class = IndexInstanceNodeSerializer
 
     def get_queryset(self):
-        return self.external_object.index_instance_nodes.all()
+        return self.get_external_object().index_instance_nodes.all()
 
 
 class APIIndexInstanceDetailView(generics.RetrieveAPIView):
@@ -52,20 +53,6 @@ class APIIndexInstanceListView(generics.ListAPIView):
     mayan_object_permissions = {'GET': (permission_index_instance_view,)}
     queryset = IndexInstance.objects.all()
     serializer_class = IndexInstanceSerializer
-
-
-class APIIndexInstanceNodeViewMixin:
-    serializer_class = IndexInstanceNodeSerializer
-
-    def get_index_instance(self):
-        queryset = AccessControlList.objects.restrict_queryset(
-            permission=permission_index_instance_view,
-            queryset=IndexInstance.objects.all(), user=self.request.user
-        )
-
-        return get_object_or_404(
-            klass=queryset, pk=self.kwargs['index_instance_id']
-        )
 
 
 class APIIndexInstanceNodeListView(

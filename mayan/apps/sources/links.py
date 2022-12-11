@@ -79,15 +79,17 @@ def condition_document_new_files_allowed(context, resolved_object):
             )
         except Exception as exception:
             logger.warning(
-                'execute_pre_create_hooks raised and exception: %s', exception
+                'execute_pre_create_hooks raised and exception: %s',
+                exception
             )
         else:
             new_document_files_allowed = True
 
         document_access = AccessControlList.objects.restrict_queryset(
             permission=permission_document_file_new,
-            queryset=Document.valid.filter(pk__in=(resolved_object.pk,)),
-            user=context.request.user
+            queryset=Document.valid.filter(
+                pk__in=(resolved_object.pk,)
+            ), user=context.request.user
         ).exists()
 
         source_access = AccessControlList.objects.restrict_queryset(
@@ -101,7 +103,9 @@ def condition_document_new_files_allowed(context, resolved_object):
 def condition_source_is_not_interactive(context, resolved_object):
     source = context.get('resolved_object', None)
     if source:
-        return not getattr(source.get_backend(), 'is_interactive', False)
+        return not getattr(
+            source.get_backend(), 'is_interactive', False
+        )
 
 
 # Document
@@ -115,7 +119,7 @@ link_document_file_upload = Link(
     condition=condition_document_new_files_allowed,
     kwargs={'document_id': 'resolved_object.pk'},
     icon=icon_document_file_upload,
-    text=_('Upload new file'), view='sources:document_file_upload',
+    text=_('Upload new file'), view='sources:document_file_upload'
 )
 
 # Source
@@ -123,18 +127,17 @@ link_document_file_upload = Link(
 link_source_backend_selection = Link(
     icon=icon_source_backend_selection,
     permissions=(permission_sources_create,),
-    text=_('Create source'),
-    view='sources:source_backend_selection'
+    text=_('Create source'), view='sources:source_backend_selection'
 )
 link_source_delete = Link(
     args=('resolved_object.pk',), icon=icon_source_delete,
     permissions=(permission_sources_delete,), tags='dangerous',
-    text=_('Delete'), view='sources:source_delete',
+    text=_('Delete'), view='sources:source_delete'
 )
 link_source_edit = Link(
     args=('resolved_object.pk',), icon=icon_source_edit,
     permissions=(permission_sources_edit,), text=_('Edit'),
-    view='sources:source_edit',
+    view='sources:source_edit'
 )
 link_source_list = Link(
     icon=icon_source_list,
@@ -146,5 +149,5 @@ link_source_test = Link(
     condition=condition_source_is_not_interactive,
     icon=icon_source_test,
     permissions=(permission_sources_view,), text=_('Test'),
-    view='sources:source_test',
+    view='sources:source_test'
 )

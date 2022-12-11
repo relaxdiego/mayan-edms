@@ -3,7 +3,9 @@ from django.apps import apps
 from .settings import setting_auto_process
 
 
-def handler_initialize_new_document_type_file_metadata_settings(sender, instance, **kwargs):
+def handler_initialize_new_document_type_file_metadata_settings(
+    sender, instance, **kwargs
+):
     DocumentTypeSettings = apps.get_model(
         app_label='file_metadata', model_name='DocumentTypeSettings'
     )

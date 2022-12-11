@@ -156,7 +156,9 @@ class CabinetDocumentTestCase(
 
         self._clear_events()
 
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.assertEqual(
             self._test_cabinet.documents.count(),
@@ -170,18 +172,22 @@ class CabinetDocumentTestCase(
         self.assertEqual(events.count(), 1)
 
         self.assertEqual(events[0].action_object, self._test_cabinet)
-        self.assertEqual(events[0].actor, self._test_document)
+        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self._test_document)
         self.assertEqual(events[0].verb, event_cabinet_document_added.id)
 
     def test_addition_and_deletion_of_documents(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
 
         self._clear_events()
 
-        self._test_cabinet.document_remove(document=self._test_document)
+        self._test_cabinet.document_remove(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.assertEqual(
             self._test_cabinet.documents.count(),
@@ -193,12 +199,14 @@ class CabinetDocumentTestCase(
         self.assertEqual(events.count(), 1)
 
         self.assertEqual(events[0].action_object, self._test_cabinet)
-        self.assertEqual(events[0].actor, self._test_document)
+        self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self._test_document)
         self.assertEqual(events[0].verb, event_cabinet_document_removed.id)
 
     def test_cabinet_get_document_count_method(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
 
@@ -217,7 +225,9 @@ class CabinetDocumentTestCase(
         self.assertEqual(events.count(), 0)
 
     def test_trashed_document_cabinet_document_count_method(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
 

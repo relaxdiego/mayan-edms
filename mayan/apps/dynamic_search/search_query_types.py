@@ -76,10 +76,10 @@ class QueryType(metaclass=QueryTypeMetaclass):
         for klass in cls.all():
             text = klass.check(value=value)
             if text is not None:
-                return klass, text
+                return (klass, text)
 
         if cls._default_klass:
-            return cls._default_klass, value
+            return (cls._default_klass, value)
         else:
             raise DynamicSearchQueryError(
                 'Query alias does not match any know query type class.'

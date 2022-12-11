@@ -109,7 +109,7 @@ class DocumentMetadataForm(forms.Form):
             if required and not self.initial.get('value_existing'):
                 if not self.cleaned_data.get('update') or not self.cleaned_data.get('value'):
                     raise ValidationError(
-                        {
+                        message={
                             'value': _(
                                 '"%s" is required for this document type.'
                             ) % metadata_type.label
@@ -133,7 +133,7 @@ class DocumentMetadataAddForm(forms.Form):
         help_text=_('Metadata types to be added to the selected documents.'),
         label=_('Metadata type'), queryset=MetadataType.objects.all(),
         widget=forms.SelectMultiple(
-            attrs={'class': 'select2'},
+            attrs={'class': 'select2'}
         )
     )
 
@@ -176,27 +176,28 @@ class MetadataTypeForm(ModelForm):
     fieldsets = (
         (
             _('Basic'), {
-                'fields': ('name', 'label'),
+                'fields': ('name', 'label')
             }
         ), (
             _('Values'), {
-                'fields': ('default', 'lookup'),
+                'fields': ('default', 'lookup')
             }
         ), (
             _('Validation'), {
-                'fields': ('validation', 'validation_arguments'),
+                'fields': ('validation', 'validation_arguments')
             }
         ), (
             _('Parsing'), {
-                'fields': ('parser', 'parser_arguments'),
+                'fields': ('parser', 'parser_arguments')
             }
-        ),
+        )
     )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['default'] = TemplateField(
-            initial_help_text=self.fields['default'].help_text, required=False
+            initial_help_text=self.fields['default'].help_text,
+            required=False
         )
         self.fields['lookup'] = TemplateField(
             initial_help_text=format_lazy(
@@ -265,7 +266,9 @@ DocumentTypeMetadataTypeRelationshipFormSetBase = formset_factory(
 )
 
 
-class DocumentTypeMetadataTypeRelationshipFormSet(DocumentTypeMetadataTypeRelationshipFormSetBase):
+class DocumentTypeMetadataTypeRelationshipFormSet(
+    DocumentTypeMetadataTypeRelationshipFormSetBase
+):
     def __init__(self, *args, **kwargs):
         _event_actor = kwargs.pop('_event_actor')
         super().__init__(*args, **kwargs)

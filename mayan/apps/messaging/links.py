@@ -16,11 +16,11 @@ from .permissions import (
 
 
 def condition_is_read(context):
-    return context['object'].read
+    return context['resolved_object'].read
 
 
 def condition_is_unread(context):
-    return not context['object'].read
+    return not context['resolved_object'].read
 
 
 def get_unread_message_count(context):

@@ -7,7 +7,6 @@ from PIL import Image
 import PyPDF2
 import sh
 
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.storage.utils import NamedTemporaryFile
@@ -68,7 +67,9 @@ class Python(ConverterBase):
         if self.mime_type == 'application/pdf' and pdftoppm:
             with NamedTemporaryFile() as new_file_object:
                 self.file_object.seek(0)
-                shutil.copyfileobj(fsrc=self.file_object, fdst=new_file_object)
+                shutil.copyfileobj(
+                    fsrc=self.file_object, fdst=new_file_object
+                )
                 self.file_object.seek(0)
                 new_file_object.seek(0)
 
@@ -98,7 +99,7 @@ class Python(ConverterBase):
                 )
                 page_count = pdf_reader.getNumPages()
             except Exception as exception:
-                if force_text(s=exception) == 'File has not been decrypted':
+                if str(exception) == 'File has not been decrypted':
                     # File is encrypted, try to decrypt using a blank
                     # password.
                     file_object.seek(0)
@@ -110,7 +111,7 @@ class Python(ConverterBase):
                         page_count = pdf_reader.getNumPages()
                     except Exception as exception:
                         file_object.seek(0)
-                        if force_text(s=exception) == 'only algorithm code 1 and 2 are supported':
+                        if str(exception) == 'only algorithm code 1 and 2 are supported':
                             # PDF uses an unsupported encryption
                             # Try poppler-util's pdfinfo
                             page_count = self.get_pdfinfo_page_count(
@@ -123,10 +124,12 @@ class Python(ConverterBase):
                             ) % exception
                             logger.error(error_message, exc_info=True)
                             raise PageCountError(error_message)
-                elif force_text(s=exception) == 'EOF marker not found':
+                elif str(exception) == 'EOF marker not found':
                     # PyPDF2 issue: https://github.com/mstamy2/PyPDF2/issues/177
                     # Try poppler-util's pdfinfo
-                    logger.debug('PyPDF2 GitHub issue #177 : EOF marker not found')
+                    logger.debug(
+                        msg='PyPDF2 GitHub issue #177 : EOF marker not found'
+                    )
                     file_object.seek(0)
                     page_count = self.get_pdfinfo_page_count(file_object)
                     return page_count
@@ -169,7 +172,7 @@ class Python(ConverterBase):
                     buffer of at least 2 bytes"
                     """
                     logger.debug(
-                        'image page count detection raised struct.error'
+                        msg='image page count detection raised struct.error'
                     )
                     break
                 else:
@@ -195,11 +198,9 @@ class Python(ConverterBase):
         page_count = int(
             list(filter(
                 lambda line: line.startswith('Pages:'),
-                force_text(s=process.stdout).split('\n')
+                str(process.stdout).split('\n')
             ))[0].replace('Pages:', '')
         )
         file_object.seek(0)
-        logger.debug(
-            'Document contains %d pages', page_count
-        )
+        logger.debug('Document contains %d pages', page_count)
         return page_count

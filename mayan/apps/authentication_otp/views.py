@@ -53,7 +53,7 @@ class UserOTPDataDisableView(OTPBackendEnabledViewMixin, ConfirmView):
         self.request.user.otp_data.disable()
 
         messages.success(
-            request=self.request, message=_('OTP disable successfully.')
+            message=_('OTP disable successfully.'), request=self.request
         )
 
 
@@ -75,7 +75,7 @@ class UserOTPDataVerifyTokenView(OTPBackendEnabledViewMixin, FormView):
 
         if request.user.otp_data.is_enabled():
             messages.info(
-                request=self.request, message=_('OTP is already enabled.')
+                message=_('OTP is already enabled.'), request=self.request
             )
             return HttpResponseRedirect(
                 redirect_to=reverse(
@@ -91,7 +91,7 @@ class UserOTPDataVerifyTokenView(OTPBackendEnabledViewMixin, FormView):
         self.request.user.otp_data.enable(secret=secret, token=token)
 
         messages.success(
-            request=self.request, message=_('OTP enabled successfully.')
+            message=_('OTP enabled successfully.'), request=self.request
         )
 
         return super().form_valid(form=form)
@@ -111,9 +111,9 @@ class UserOTPDataVerifyTokenView(OTPBackendEnabledViewMixin, FormView):
             secret = loads(s=signed_secret)
         except BadSignature:
             messages.error(
-                request=self.request, message=_(
+                message=_(
                     'OTP secret validation error.'
-                )
+                ), request=self.request
             )
             secret = None
 

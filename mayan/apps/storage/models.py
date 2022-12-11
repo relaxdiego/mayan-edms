@@ -1,37 +1,34 @@
 from pathlib import Path
-import uuid
 
 from django.conf import settings
 from django.db import models
-from django.template.defaultfilters import filesizeformat
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
-from mayan.apps.events.classes import EventManagerMethodAfter, EventManagerSave
+from mayan.apps.events.classes import (
+    EventManagerMethodAfter, EventManagerSave
+)
 from mayan.apps.events.decorators import method_event
 
 from .classes import DefinedStorageLazy
 from .events import (
-    event_download_file_created, event_download_file_deleted,
-    event_download_file_downloaded
+    event_download_file_created, event_download_file_deleted
 )
 from .literals import (
     STORAGE_NAME_DOWNLOAD_FILE, STORAGE_NAME_SHARED_UPLOADED_FILE
 )
 from .managers import DownloadFileManager, SharedUploadedFileManager
-from .model_mixins import DatabaseFileModelMixin
+from .model_mixins import (
+    DatabaseFileModelMixin, DownloadFileBusinessLogicMixin
+)
+from .utils import download_file_upload_to, shared_uploaded_file_upload_to
 
 
-def download_file_upload_to(instance, filename):
-    return 'download-file-{}'.format(uuid.uuid4().hex)
-
-
-def upload_to(instance, filename):
-    return 'shared-file-{}'.format(uuid.uuid4().hex)
-
-
-class DownloadFile(DatabaseFileModelMixin, ExtraDataModelMixin, models.Model):
+class DownloadFile(
+    DatabaseFileModelMixin, DownloadFileBusinessLogicMixin,
+    ExtraDataModelMixin, models.Model
+):
     """
     Keep a database link to a stored file. Used for generated files meant
     to be downloaded at a later time.
@@ -72,26 +69,6 @@ class DownloadFile(DatabaseFileModelMixin, ExtraDataModelMixin, models.Model):
         return reverse(viewname='storage:download_file_list')
 
     @method_event(
-        event_manager_class=EventManagerMethodAfter,
-        event=event_download_file_downloaded,
-        target='self'
-    )
-    def get_download_file_object(self):
-        return self.open(mode='rb')
-
-    def get_size_display(self):
-        return filesizeformat(bytes_=self.file.size)
-
-    get_size_display.short_description = _('Size')
-
-    def get_user_display(self):
-        if self.user.get_full_name():
-            return self.user.get_full_name()
-        else:
-            return self.user.username
-    get_user_display.short_description = _('User')
-
-    @method_event(
         event_manager_class=EventManagerSave,
         created={
             'event': event_download_file_created,
@@ -111,7 +88,7 @@ class SharedUploadedFile(DatabaseFileModelMixin, models.Model):
     file = models.FileField(
         storage=DefinedStorageLazy(
             name=STORAGE_NAME_SHARED_UPLOADED_FILE
-        ), upload_to=upload_to, verbose_name=_('File')
+        ), upload_to=shared_uploaded_file_upload_to, verbose_name=_('File')
     )
     filename = models.CharField(
         blank=True, max_length=255, verbose_name=_('Filename')

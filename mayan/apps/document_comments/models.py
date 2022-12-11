@@ -1,5 +1,3 @@
-import logging
-
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
@@ -7,18 +5,19 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
 from mayan.apps.documents.models import Document
-from mayan.apps.events.classes import EventManagerMethodAfter, EventManagerSave
+from mayan.apps.events.classes import (
+    EventManagerMethodAfter, EventManagerSave
+)
 from mayan.apps.events.decorators import method_event
 
 from .events import (
     event_document_comment_created, event_document_comment_deleted,
     event_document_comment_edited
 )
+from .model_mixins import CommentBusinessLogicMixin
 
-logger = logging.getLogger(name=__name__)
 
-
-class Comment(ExtraDataModelMixin, models.Model):
+class Comment(CommentBusinessLogicMixin, ExtraDataModelMixin, models.Model):
     """
     Model to store one comment per document per user per date & time.
     """
@@ -31,7 +30,7 @@ class Comment(ExtraDataModelMixin, models.Model):
     )
     user = models.ForeignKey(
         editable=False, on_delete=models.CASCADE, related_name='comments',
-        to=settings.AUTH_USER_MODEL, verbose_name=_('User'),
+        to=settings.AUTH_USER_MODEL, verbose_name=_('User')
     )
     text = models.TextField(verbose_name=_('Text'))
     submit_date = models.DateTimeField(
@@ -51,7 +50,7 @@ class Comment(ExtraDataModelMixin, models.Model):
     @method_event(
         event_manager_class=EventManagerMethodAfter,
         event=event_document_comment_deleted,
-        target='document',
+        target='document'
     )
     def delete(self, *args, **kwargs):
         return super().delete(*args, **kwargs)
@@ -63,25 +62,18 @@ class Comment(ExtraDataModelMixin, models.Model):
             }
         )
 
-    def get_user_label(self):
-        if self.user.get_full_name():
-            return self.user.get_full_name()
-        else:
-            return self.user.username
-    get_user_label.short_description = _('User')
-
     @method_event(
         event_manager_class=EventManagerSave,
         created={
             'event': event_document_comment_created,
             'actor': 'user',
             'action_object': 'document',
-            'target': 'self',
+            'target': 'self'
         },
         edited={
             'event': event_document_comment_edited,
             'action_object': 'document',
-            'target': 'self',
+            'target': 'self'
         }
     )
     def save(self, *args, **kwargs):

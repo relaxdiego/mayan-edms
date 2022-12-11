@@ -24,10 +24,6 @@ class APISourceActionDetailView(generics.ObjectActionAPIView):
     }
     serializer_class = SourceBackendActionSerializer
 
-    def dispatch(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        return super().dispatch(request=request, *args, **kwargs)
-
     def get(self, request, *args, **kwargs):
         if self.get_action().confirmation:
             handler = self.http_method_not_allowed
@@ -40,15 +36,20 @@ class APISourceActionDetailView(generics.ObjectActionAPIView):
             return self.view_action(request, *args, **kwargs)
 
     def get_action(self):
-        return self.object.get_action(name=self.kwargs['action_name'])
-
-    def get_serializer_extra_context(self):
-        return {'action': self.get_action()}
+        obj = self.get_object()
+        return obj.get_action(
+            name=self.kwargs['action_name']
+        )
 
     def get_queryset(self):
         return Source.objects.filter(enabled=True)
 
-    def object_action(self, request, serializer):
+    def get_serializer_extra_context(self):
+        return {
+            'action': self.get_action()
+        }
+
+    def object_action(self, obj, request, serializer):
         query_dict = request.GET
 
         arguments = serializer.validated_data.get('arguments', {}) or {}
@@ -57,7 +58,7 @@ class APISourceActionDetailView(generics.ObjectActionAPIView):
         if self.get_action().accept_files:
             arguments['file'] = serializer.validated_data['file']
 
-        return self.object.execute_action(
+        return obj.execute_action(
             name=self.kwargs['action_name'], request=request, **arguments
         ) or (None, None)
 
@@ -76,12 +77,14 @@ class APISourceActionDetailView(generics.ObjectActionAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
+        obj = self.get_object()
+
         if hasattr(self, 'get_instance_extra_data'):
             for key, value in self.get_instance_extra_data().items():
-                setattr(self.object, key, value)
+                setattr(obj, key, value)
 
         data, response = self.object_action(
-            request=request, serializer=serializer
+            obj=obj, request=request, serializer=serializer
         )
 
         if response:

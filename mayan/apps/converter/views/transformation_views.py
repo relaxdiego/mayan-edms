@@ -10,7 +10,7 @@ from mayan.apps.views.generics import (
     FormView, SingleObjectCreateView, SingleObjectDeleteView,
     SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalContentTypeObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalContentTypeObjectViewMixin
 
 from ..forms import LayerTransformationSelectForm
 from ..icons import (
@@ -71,7 +71,7 @@ class TransformationCreateView(
             ) % {
                 'layer': self.layer,
                 'transformation': self.get_transformation_class(),
-                'object': self.external_object,
+                'object': self.external_object
             }
         }
 
@@ -108,7 +108,9 @@ class TransformationCreateView(
         ]
 
     def get_transformation_class(self):
-        return BaseTransformation.get(name=self.kwargs['transformation_name'])
+        return BaseTransformation.get(
+            name=self.kwargs['transformation_name']
+        )
 
 
 class TransformationDeleteView(LayerViewMixin, SingleObjectDeleteView):
@@ -129,7 +131,7 @@ class TransformationDeleteView(LayerViewMixin, SingleObjectDeleteView):
                 'transformation': self.object,
                 'content_object': self.object.object_layer.content_object
             },
-            'transformation': self.object,
+            'transformation': self.object
         }
 
     def get_object_permission(self):
@@ -180,7 +182,7 @@ class TransformationEditView(
                 'transformation': self.object,
                 'content_object': self.object.object_layer.content_object
             },
-            'transformation': self.object,
+            'transformation': self.object
         }
 
     def get_object_permission(self):
@@ -225,10 +227,10 @@ class TransformationListView(
             'no_results_icon': self.layer.get_icon(),
             'no_results_main_link': link_transformation_select.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={
+                    dict_={
                         'resolved_object': self.external_object,
                         'layer_name': self.kwargs['layer_name'],
-                    }
+                    }, request=self.request
                 )
             ),
             'no_results_text': self.layer.get_empty_results_text(),
@@ -239,7 +241,7 @@ class TransformationListView(
                 'Layer "%(layer)s" transformations for: %(object)s'
             ) % {
                 'layer': self.layer,
-                'object': self.external_object,
+                'object': self.external_object
             }
         }
 
@@ -312,7 +314,7 @@ class TransformationSelectView(
                 'for: %(object)s'
             ) % {
                 'layer': self.layer,
-                'object': self.external_object,
+                'object': self.external_object
             }
         }
 

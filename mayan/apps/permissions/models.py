@@ -1,25 +1,20 @@
-import logging
-
-from django.apps import apps
 from django.contrib.auth.models import Group
 from django.db import models
 from django.urls import reverse
-from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
 from mayan.apps.events.classes import EventManagerSave
 from mayan.apps.events.decorators import method_event
-from mayan.apps.user_management.permissions import permission_group_view
 
-from .classes import Permission, PermissionNamespace
 from .events import event_role_created, event_role_edited
 from .managers import RoleManager, StoredPermissionManager
+from .model_mixins import (
+    RoleBusinessLogicMixin, StoredPermissionBusinessLogicMixin
+)
 
-logger = logging.getLogger(name=__name__)
 
-
-class Role(ExtraDataModelMixin, models.Model):
+class Role(ExtraDataModelMixin, RoleBusinessLogicMixin, models.Model):
     """
     This model represents a Role. Roles are permission units. They are the
     only object to which permissions can be granted. They are themselves
@@ -52,76 +47,9 @@ class Role(ExtraDataModelMixin, models.Model):
     def get_absolute_url(self):
         return reverse(viewname='permissions:role_list')
 
-    def get_group_count(self, user):
-        """
-        Return the numeric count of groups that have this role contains.
-        The count is filtered by access.
-        """
-        return self.get_groups(user=user).count()
-
-    def get_groups(self, user):
-        """
-        Return a filtered queryset groups that have this role contains.
-        """
-        AccessControlList = apps.get_model(
-            app_label='acls', model_name='AccessControlList'
-        )
-
-        return AccessControlList.objects.restrict_queryset(
-            permission=permission_group_view, queryset=self.groups.all(),
-            user=user
-        )
-    get_group_count.short_description = _('Group count')
-
-    def get_permission_count(self):
-        """
-        Return the numeric count of permissions that have this role
-        has granted. The count is filtered by access.
-        """
-        return self.permissions.count()
-    get_permission_count.short_description = _('Permission count')
-
-    def grant(self, permission):
-        self.permissions.add(permission.stored_permission)
-
-    def groups_add(self, queryset, _event_actor=None):
-        for obj in queryset:
-            self.groups.add(obj)
-            event_role_edited.commit(
-                action_object=obj, actor=_event_actor or self._event_actor,
-                target=self
-            )
-
-    def groups_remove(self, queryset, _event_actor=None):
-        for obj in queryset:
-            self.groups.remove(obj)
-            event_role_edited.commit(
-                action_object=obj, actor=_event_actor or self._event_actor,
-                target=self
-            )
-
     def natural_key(self):
         return (self.label,)
     natural_key.dependencies = ['auth.Group', 'permissions.StoredPermission']
-
-    def permissions_add(self, queryset, _event_actor=None):
-        for obj in queryset:
-            self.permissions.add(obj)
-            event_role_edited.commit(
-                action_object=obj, actor=_event_actor or self._event_actor,
-                target=self
-            )
-
-    def permissions_remove(self, queryset, _event_actor=None):
-        for obj in queryset:
-            self.permissions.remove(obj)
-            event_role_edited.commit(
-                action_object=obj, actor=_event_actor or self._event_actor,
-                target=self
-            )
-
-    def revoke(self, permission):
-        self.permissions.remove(permission.stored_permission)
 
     @method_event(
         event_manager_class=EventManagerSave,
@@ -138,7 +66,7 @@ class Role(ExtraDataModelMixin, models.Model):
         return super().save(*args, **kwargs)
 
 
-class StoredPermission(models.Model):
+class StoredPermission(StoredPermissionBusinessLogicMixin, models.Model):
     """
     This model is the counterpart of the permissions.classes.Permission
     class. Allows storing a database counterpart of a permission class.
@@ -165,68 +93,5 @@ class StoredPermission(models.Model):
             }
         )
 
-    @property
-    def label(self):
-        try:
-            permission = self.volatile_permission
-        except KeyError:
-            return _('Unknown or obsolete permission: %s') % self.name
-        else:
-            return permission.label
-
-    @property
-    def namespace_label(self):
-        try:
-            permission_namespace = PermissionNamespace.get(
-                name=self.namespace
-            )
-        except KeyError:
-            return _(
-                'Unknown or obsolete permission namespace: %s'
-            ) % self.namespace
-        else:
-            return permission_namespace.label
-
     def natural_key(self):
         return (self.namespace, self.name)
-
-    def user_has_this(self, user):
-        """
-        Helper method to check if a user has been granted this permission.
-        The check is done sequentially over all of the user's groups and
-        roles. The check is interrupted at the first positive result.
-        The check always returns True for superusers or staff users.
-        """
-        if user.is_superuser or user.is_staff:
-            logger.debug(
-                'Permission "%s" granted to user "%s" as superuser or staff',
-                self, user
-            )
-            return True
-
-        if not user.is_authenticated:
-            return False
-
-        if Role.objects.filter(groups__user=user, permissions=self).exists():
-            return True
-        else:
-            logger.debug(
-                'Fallthru: Permission "%s" not granted to user "%s"', self, user
-            )
-            return False
-
-    @cached_property
-    def volatile_permission(self):
-        """
-        Returns the real class of the permission represented by this model
-        instance.
-        """
-        return Permission.get(pk=self.volatile_permission_id)
-
-    @cached_property
-    def volatile_permission_id(self):
-        """
-        Return the identifier of the real permission class represented by
-        this model instance.
-        """
-        return '{}.{}'.format(self.namespace, self.name)

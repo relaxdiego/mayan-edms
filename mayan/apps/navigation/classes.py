@@ -13,7 +13,7 @@ from django.db.models.constants import LOOKUP_SEP
 from django.template import RequestContext, Variable, VariableDoesNotExist
 from django.template.defaulttags import URLNode
 from django.urls import resolve, reverse
-from django.utils.encoding import force_str, force_text
+from django.utils.encoding import force_str
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.common.settings import setting_home_view
@@ -47,11 +47,12 @@ class Link(TemplateObjectMixin):
         del cls._registry[name]
 
     def __init__(
-        self, text=None, view=None, args=None, badge_text=None, condition=None,
-        conditional_active=None, conditional_disable=None, description=None,
-        html_data=None, html_extra_attributes=None, html_extra_classes=None,
-        icon=None, keep_query=False, kwargs=None, name=None, permissions=None,
-        query=None, remove_from_query=None, tags=None, url=None
+        self, text=None, view=None, args=None, badge_text=None,
+        condition=None, conditional_active=None, conditional_disable=None,
+        description=None, html_data=None, html_extra_attributes=None,
+        html_extra_classes=None, icon=None, keep_query=False, kwargs=None,
+        name=None, permissions=None, query=None, remove_from_query=None,
+        tags=None, url=None
     ):
         self.args = args or []
         self.badge_text = badge_text
@@ -101,7 +102,9 @@ class Link(TemplateObjectMixin):
         # if not.
         if not resolved_object:
             try:
-                resolved_object = Variable(var='object').resolve(context=context)
+                resolved_object = Variable(
+                    var='object'
+                ).resolve(context=context)
             except VariableDoesNotExist:
                 """No object variable in the context"""
 
@@ -141,11 +144,17 @@ class Link(TemplateObjectMixin):
         )
 
         if self.view:
-            view_name = Variable(var='"{}"'.format(self.view))
+            view_name = Variable(
+                var='"{}"'.format(self.view)
+            )
             if isinstance(self.args, list) or isinstance(self.args, tuple):
-                args = [Variable(var=arg) for arg in self.args]
+                args = [
+                    Variable(var=arg) for arg in self.args
+                ]
             else:
-                args = [Variable(var=self.args)]
+                args = [
+                    Variable(var=self.args)
+                ]
 
             try:
                 kwargs = self.kwargs(context)
@@ -153,7 +162,9 @@ class Link(TemplateObjectMixin):
                 # Is not a callable.
                 kwargs = self.kwargs
 
-            kwargs = {key: Variable(var=value) for key, value in kwargs.items()}
+            kwargs = {
+                key: Variable(var=value) for key, value in kwargs.items()
+            }
 
             # Use Django's exact {% url %} code to resolve the link.
             node = URLNode(
@@ -164,13 +175,13 @@ class Link(TemplateObjectMixin):
             except VariableDoesNotExist as exception:
                 """Not critical, ignore"""
                 logger.debug(
-                    'VariableDoesNotExist when resolving link "%s" URL; %s',
-                    self.text, exception
+                    'VariableDoesNotExist when resolving link "%s" '
+                    'URL; %s', self.text, exception
                 )
             except Exception as exception:
                 logger.error(
-                    'Error resolving link "%s" URL; %s', self.text, exception,
-                    exc_info=True
+                    'Error resolving link "%s" URL; %s', self.text,
+                    exception, exc_info=True
                 )
         elif self.url is not None:
             resolved_link.url = self.url
@@ -179,7 +190,9 @@ class Link(TemplateObjectMixin):
             result = {}
             for key, value in self.html_data.items():
                 try:
-                    resolved_value = Variable(var=value).resolve(context=context)
+                    resolved_value = Variable(
+                        var=value
+                    ).resolve(context=context)
                 except VariableDoesNotExist:
                     """No object variable in the context"""
                     resolved_value = value
@@ -191,13 +204,15 @@ class Link(TemplateObjectMixin):
         # This is for links that should be displayed but that are not
         # clickable.
         if self.conditional_disable:
-            resolved_link.disabled = self.conditional_disable(context=context)
+            resolved_link.disabled = self.conditional_disable(
+                context=context
+            )
         else:
             resolved_link.disabled = False
 
         # Lets a new link keep the same URL query string of the current URL.
         if self.keep_query:
-            # Sometimes we are required to remove a key from the URL QS.
+            # Sometimes we are required to remove a key from the URL query.
             parsed_url = furl(
                 force_str(
                     request.get_full_path() or request.META.get(
@@ -221,7 +236,9 @@ class Link(TemplateObjectMixin):
             new_url = furl(url=resolved_link.url)
             for key, value in self.query.items():
                 try:
-                    value = Variable(var=value).resolve(context=context)
+                    resolved_variable = Variable(
+                        var=value
+                    ).resolve(context=context)
                 except VariableDoesNotExist:
                     """
                     Not fatal. Variable resolution here is perform as if
@@ -229,7 +246,7 @@ class Link(TemplateObjectMixin):
                     are not updated.
                     """
                 else:
-                    new_url.args[key] = value
+                    new_url.args[key] = resolved_variable
 
             resolved_link.url = new_url.url
 
@@ -282,8 +299,12 @@ class Menu(TemplateObjectMixin):
     def __repr__(self):
         return '<Menu: {}>'.format(self.name)
 
-    def _map_links_to_source(self, links, source, map_variable, position=None):
-        source_links = getattr(self, map_variable).setdefault(source, [])
+    def _map_links_to_source(
+        self, links, source, map_variable, position=None
+    ):
+        source_links = getattr(self, map_variable).setdefault(
+            source, []
+        )
 
         position = position or len(source_links)
 
@@ -329,20 +350,27 @@ class Menu(TemplateObjectMixin):
                 'navigation_object_list', ('object',)
             )
 
-            logger.debug('navigation_object_list: %s', navigation_object_list)
+            logger.debug(
+                'navigation_object_list: %s', navigation_object_list
+            )
 
             # Multiple objects
             for navigation_object in navigation_object_list:
                 try:
-                    resolved_navigation_object_list.append(
-                        Variable(var=navigation_object).resolve(context=context)
-                    )
+                    resolved_variable = Variable(
+                        var=navigation_object
+                    ).resolve(context=context)
                 except VariableDoesNotExist:
-                    pass
+                    """Non fatal. Proceed with next variable name in list."""
+                else:
+                    resolved_navigation_object_list.append(
+                        resolved_variable
+                    )
 
         logger.debug(
-            'resolved_navigation_object_list: %s',
-            force_text(s=resolved_navigation_object_list)
+            'resolved_navigation_object_list: %s', str(
+                resolved_navigation_object_list
+            )
         )
         return resolved_navigation_object_list
 
@@ -369,9 +397,13 @@ class Menu(TemplateObjectMixin):
                         set(
                             self.bound_links[resolved_navigation_object]
                         ) - set(
-                            self.unbound_links.get(resolved_navigation_object, ())
+                            self.unbound_links.get(
+                                resolved_navigation_object, ()
+                            )
                         ) - set(
-                            self.excluded_links.get(resolved_navigation_object, ())
+                            self.excluded_links.get(
+                                resolved_navigation_object, ()
+                            )
                         )
                     )
                 except KeyError:
@@ -403,11 +435,17 @@ class Menu(TemplateObjectMixin):
                             for super_class in resolved_navigation_object.__class__.__mro__[:-1]:
                                 matched_links.update(
                                     set(
-                                        self.bound_links.get(super_class, ())
+                                        self.bound_links.get(
+                                            super_class, ()
+                                        )
                                     ) - set(
-                                        self.unbound_links.get(super_class, ())
+                                        self.unbound_links.get(
+                                            super_class, ()
+                                        )
                                     ) - set(
-                                        self.excluded_links.get(resolved_navigation_object, ())
+                                        self.excluded_links.get(
+                                            resolved_navigation_object, ()
+                                        )
                                     )
                                 )
                         else:
@@ -429,9 +467,13 @@ class Menu(TemplateObjectMixin):
                             if model._meta.proxy_for_model and model not in self.proxy_exclusions:
                                 matched_links.update(
                                     set(
-                                        self.bound_links.get(model._meta.proxy_for_model, ())
+                                        self.bound_links.get(
+                                            model._meta.proxy_for_model, ()
+                                        )
                                     ) - set(
-                                        self.unbound_links.get(model._meta.proxy_for_model, ())
+                                        self.unbound_links.get(
+                                            model._meta.proxy_for_model, ()
+                                        )
                                     ) - set(
                                         self.excluded_links.get(model, ())
                                     )
@@ -681,13 +723,13 @@ class SourceColumn(TemplateObjectMixin):
         for part in attribute.split(LOOKUP_SEP):
             last_model = model
             try:
-                field = model._meta.get_field(part)
+                field = model._meta.get_field(field_name=part)
             except FieldDoesNotExist:
                 break
             else:
                 model = field.related_model or field.model
 
-        return part, last_model
+        return (part, last_model)
 
     @staticmethod
     def sort(columns):
@@ -721,7 +763,11 @@ class SourceColumn(TemplateObjectMixin):
 
                     # Try as subclass instance, check the class hierarchy.
                     for super_class in source.__class__.__mro__[:-1]:
-                        columns.extend(cls._registry.get(super_class, ()))
+                        columns.extend(
+                            cls._registry.get(
+                                super_class, ()
+                            )
+                        )
 
                     return columns
                 else:
@@ -734,7 +780,10 @@ class SourceColumn(TemplateObjectMixin):
                     # Remove the columns explicitly excluded.
                     # Execute after the root model columns to allow a proxy
                     # to override an existing column.
-                    for proxy_column in cls._registry.get(model._meta.proxy_for_model, ()):
+                    proxy_columns = cls._registry.get(
+                        model._meta.proxy_for_model, ()
+                    )
+                    for proxy_column in proxy_columns:
                         if model not in proxy_column.excludes:
                             columns.append(proxy_column)
 
@@ -756,7 +805,9 @@ class SourceColumn(TemplateObjectMixin):
         columns = cls.get_column_matches(source=source)
 
         if exclude_identifier:
-            columns = [column for column in columns if not column.is_identifier]
+            columns = [
+                column for column in columns if not column.is_identifier
+            ]
         else:
             # exclude_identifier and only_identifier and mutually exclusive.
             if only_identifier:
@@ -772,7 +823,9 @@ class SourceColumn(TemplateObjectMixin):
                 column.name: column for column in columns
             }
 
-            return [indexed_columns[name] for name in names]
+            return [
+                indexed_columns[name] for name in names
+            ]
 
         columns = SourceColumn.sort(columns=columns)
 
@@ -812,7 +865,9 @@ class SourceColumn(TemplateObjectMixin):
             if not self.widget:
                 self.widget = SourceColumnLinkWidget
 
-        self.__class__._registry.setdefault(source, [])
+        self.__class__._registry.setdefault(
+            source, []
+        )
         self.__class__._registry[source].append(self)
 
         self._calculate_label()
@@ -840,10 +895,11 @@ class SourceColumn(TemplateObjectMixin):
                 except AttributeError:
                     try:
                         name, model = SourceColumn.get_attribute_recursive(
-                            attribute=self.attribute, model=self.source._meta.model
+                            attribute=self.attribute,
+                            model=self.source._meta.model
                         )
                         self._help_text = help_text_for_field(
-                            name=name, model=model
+                            model=model, name=name
                         )
                     except AttributeError:
                         self._help_text = None
@@ -855,16 +911,17 @@ class SourceColumn(TemplateObjectMixin):
             if self.attribute:
                 try:
                     attribute = resolve_attribute(
-                        obj=self.source, attribute=self.attribute
+                        attribute=self.attribute, obj=self.source
                     )
                     self._label = getattr(attribute, 'short_description')
                 except AttributeError:
                     try:
                         name, model = SourceColumn.get_attribute_recursive(
-                            attribute=self.attribute, model=self.source._meta.model
+                            attribute=self.attribute,
+                            model=self.source._meta.model
                         )
                         self._label = label_for_field(
-                            name=name, model=model
+                            model=model, name=name
                         )
                     except AttributeError:
                         self._label = self.attribute
@@ -890,7 +947,9 @@ class SourceColumn(TemplateObjectMixin):
                 return result.get_absolute_url()
 
     def get_previous_sort_fields(self, context):
-        previous_sort_fields = context.get(TEXT_SORT_FIELD_VARIABLE_NAME, None)
+        previous_sort_fields = context.get(
+            TEXT_SORT_FIELD_VARIABLE_NAME, None
+        )
 
         if previous_sort_fields:
             previous_sort_fields = previous_sort_fields.split(',')
@@ -932,7 +991,9 @@ class SourceColumn(TemplateObjectMixin):
 
         querystring[TEXT_SORT_FIELD_PARAMETER] = ','.join(previous_sort_fields)
 
-        return '?{}'.format(querystring.urlencode())
+        return '?{}'.format(
+            querystring.urlencode()
+        )
 
     def get_sort_icon(self, context):
         previous_sort_fields = self.get_previous_sort_fields(context=context)
@@ -954,7 +1015,9 @@ class SourceColumn(TemplateObjectMixin):
         else:
             result = context['object']
 
-        self.absolute_url = self.get_absolute_url(obj=context['object'])
+        self.absolute_url = self.get_absolute_url(
+            obj=context['object']
+        )
         if self.widget:
             try:
                 request = self.get_request(context=context)

@@ -4,6 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from ..fields import DocumentVersionPageField, ThumbnailFormField
 
+from .document_version_page_form_mixins import FormSetExtraFormKwargsMixin
+
 
 class DocumentVersionPageForm(forms.Form):
     document_version_page = DocumentVersionPageField()
@@ -47,19 +49,6 @@ class DocumentVersionPageMappingForm(forms.Form):
         )
         super().__init__(*args, **kwargs)
         self.fields['target_page_number'].choices = target_page_number_choices
-
-
-class FormSetExtraFormKwargsMixin:
-    def __init__(self, *args, **kwargs):
-        self.form_extra_kwargs = kwargs.pop(
-            'form_extra_kwargs', {}
-        )
-        super().__init__(*args, **kwargs)
-
-    def get_form_kwargs(self, index):
-        form_kwargs = super().get_form_kwargs(index=index)
-        form_kwargs.update(self.form_extra_kwargs)
-        return form_kwargs
 
 
 class DocumentVersionPageMappingFormSet(

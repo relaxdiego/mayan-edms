@@ -27,7 +27,7 @@ class QuotaHooksTestCase(
         super().setUp()
         # Increase the initial usage count to 1 by uploading a document
         # as the test case user.
-        self._upload_test_document(_user=self._test_case_user)
+        self._upload_test_document(user=self._test_case_user)
         self.test_case_silenced_logger_new_level = logging.CRITICAL + 10
         self._silence_logger(name='mayan.apps.navigation.classes')
         self._silence_logger(name='mayan.apps.documents.models')
@@ -83,7 +83,7 @@ class QuotaHooksTestCase(
             document_type_ids=(),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
 
         self._test_quota_backend.signal.disconnect(
@@ -116,7 +116,7 @@ class QuotaHooksTestCase(
             document_type_ids=(),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
 
         self._test_quota_backend.signal.disconnect(

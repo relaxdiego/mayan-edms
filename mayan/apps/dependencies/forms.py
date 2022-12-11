@@ -11,7 +11,7 @@ class DependenciesLicensesForm(forms.Form):
         widget=TextAreaDiv(
             attrs={
                 'class': 'full-height scrollable',
-                'data-height-difference': 270,
+                'data-height-difference': 270
             }
         )
     )
@@ -23,9 +23,19 @@ class DependenciesLicensesForm(forms.Form):
         for dependency in Dependency.get_all():
             copyright_text = dependency.get_copyright()
             if copyright_text:
-                copyright_texts.append('-' * len(dependency.get_label()))
-                copyright_texts.append(dependency.get_label().strip())
-                copyright_texts.append('-' * len(dependency.get_label()))
+                copyright_texts.append(
+                    '-' * len(
+                        dependency.get_label()
+                    )
+                )
+                copyright_texts.append(
+                    dependency.get_label().strip()
+                )
+                copyright_texts.append(
+                    '-' * len(
+                        dependency.get_label()
+                    )
+                )
 
                 # Implement word wrapping at 79 columns.
                 for line in copyright_text.split('\n'):
@@ -34,14 +44,18 @@ class DependenciesLicensesForm(forms.Form):
 
                     for word in line.strip().split():
                         if line_length + len(word) > 79:
-                            copyright_texts.append(' '.join(new_line))
+                            copyright_texts.append(
+                                ' '.join(new_line)
+                            )
                             new_line = [word]
                             line_length = 0
                         else:
                             new_line.append(word)
                             line_length += len(word)
 
-                    copyright_texts.append(' '.join(new_line))
+                    copyright_texts.append(
+                        ' '.join(new_line)
+                    )
 
                 copyright_texts.append('\n')
 

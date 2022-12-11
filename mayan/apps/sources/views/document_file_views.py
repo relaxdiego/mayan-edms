@@ -3,7 +3,6 @@ import logging
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.acls.models import AccessControlList
@@ -11,7 +10,7 @@ from mayan.apps.documents.document_file_actions import DocumentFileActionUseNewP
 from mayan.apps.documents.models.document_models import Document
 from mayan.apps.documents.models.document_file_models import DocumentFile
 from mayan.apps.documents.permissions import permission_document_file_new
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..forms import NewDocumentFileForm
 from ..icons import icon_document_file_upload
@@ -51,8 +50,9 @@ class DocumentFileUploadInteractiveView(
                 message=_(
                     'Unable to upload new files for document '
                     '"%(document)s". %(exception)s'
-                ) % {'document': self.external_object, 'exception': exception},
-                request=self.request
+                ) % {
+                    'document': self.external_object, 'exception': exception
+                }, request=self.request
             )
             return HttpResponseRedirect(
                 redirect_to=reverse(
@@ -76,12 +76,14 @@ class DocumentFileUploadInteractiveView(
                 'Error executing document file upload task; '
                 '%(exception)s'
             ) % {
-                'exception': exception,
+                'exception': exception
             }
             logger.critical(msg=message, exc_info=True)
             if self.request.is_ajax():
                 return JsonResponse(
-                    data={'error': force_text(s=message)}, status=500
+                    data={
+                        'error': str(message)
+                    }, status=500
                 )
             else:
                 messages.error(
@@ -99,7 +101,8 @@ class DocumentFileUploadInteractiveView(
 
         return HttpResponseRedirect(
             redirect_to=reverse(
-                viewname='documents:document_file_list', kwargs={
+                viewname='documents:document_file_list',
+                kwargs={
                     'document_id': self.external_object.pk
                 }
             )
@@ -149,7 +152,7 @@ class DocumentFileUploadInteractiveView(
 
     def get_form_extra_kwargs__source_form(self, **kwargs):
         return {
-            'source': self.source,
+            'source': self.source
         }
 
     def get_initial__document_form(self):

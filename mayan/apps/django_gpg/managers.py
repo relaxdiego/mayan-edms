@@ -17,7 +17,9 @@ logger = logging.getLogger(name=__name__)
 
 
 class KeyManager(models.Manager):
-    def _preload_keys(self, all_keys=False, key_fingerprint=None, key_id=None):
+    def _preload_keys(
+        self, all_keys=False, key_fingerprint=None, key_id=None
+    ):
         # Preload keys.
         if all_keys:
             logger.debug(msg='preloading all keys')
@@ -26,7 +28,9 @@ class KeyManager(models.Manager):
             logger.debug('preloading key fingerprint: %s', key_fingerprint)
             keys = self.filter(fingerprint=key_fingerprint).values()
             if not keys:
-                logger.debug('key fingerprint %s not found', key_fingerprint)
+                logger.debug(
+                    'key fingerprint %s not found', key_fingerprint
+                )
                 raise KeyDoesNotExist(
                     'Specified key for verification not found'
                 )
@@ -70,7 +74,7 @@ class KeyManager(models.Manager):
 
     def receive_key(self, key_id):
         key_data = GPGBackend.get_instance().recv_keys(
-            keyserver=setting_keyserver.value, key_id=key_id
+            key_id=key_id, keyserver=setting_keyserver.value
         )
 
         if not key_data:
@@ -114,8 +118,9 @@ class KeyManager(models.Manager):
                     temporary_signature_file_object.seek(0)
                     signature_file.seek(0)
                     verify_result = GPGBackend.get_instance().verify_file(
+                        data_filename=temporary_file_object.name,
                         file_object=temporary_signature_file_object,
-                        data_filename=temporary_file_object.name, keys=keys
+                        keys=keys
                     )
         else:
             verify_result = GPGBackend.get_instance().verify_file(

@@ -14,13 +14,13 @@ class APIErrorLogPartitionEntryListView(
     get: Returns a list of all the object's error log entries
     """
     mayan_external_object_permissions = {
-        'GET': (permission_error_log_entry_view,),
+        'GET': (permission_error_log_entry_view,)
     }
     ordering_fields = ('id', 'datetime')
     serializer_class = ErrorLogPartitionEntrySerializer
 
     def get_queryset(self):
-        return self.external_object.error_log.all()
+        return self.get_external_object().error_log.all()
 
 
 class APIErrorLogPartitionEntryDetailView(
@@ -43,4 +43,4 @@ class APIErrorLogPartitionEntryDetailView(
         }
 
     def get_queryset(self):
-        return self.external_object.error_log.all()
+        return self.get_external_object().error_log.all()

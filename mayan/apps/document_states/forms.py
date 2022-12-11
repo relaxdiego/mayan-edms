@@ -21,7 +21,9 @@ from .models import (
 class WorkflowActionSelectionForm(forms.Form):
     klass = forms.ChoiceField(
         choices=(), help_text=_('The action type for this action entry.'),
-        label=_('Action'), widget=forms.Select(attrs={'class': 'select2'})
+        label=_('Action'), widget=forms.Select(
+            attrs={'class': 'select2'}
+        )
     )
 
     def __init__(self, *args, **kwargs):
@@ -152,11 +154,15 @@ class WorkflowTransitionForm(forms.ModelForm):
 class WorkflowTransitionTriggerEventRelationshipForm(forms.Form):
     namespace = forms.CharField(
         label=_('Namespace'), required=False,
-        widget=forms.TextInput(attrs={'readonly': 'readonly'})
+        widget=forms.TextInput(
+            attrs={'readonly': 'readonly'}
+        )
     )
     label = forms.CharField(
         label=_('Label'), required=False,
-        widget=forms.TextInput(attrs={'readonly': 'readonly'})
+        widget=forms.TextInput(
+            attrs={'readonly': 'readonly'}
+        )
     )
     relationship = forms.ChoiceField(
         choices=(
@@ -206,7 +212,7 @@ class WorkflowInstanceTransitionSelectForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.fields[
             'transition'
-        ].queryset = workflow_instance.get_transition_choices(_user=user)
+        ].queryset = workflow_instance.get_transition_choices(user=user)
 
     transition = forms.ModelChoiceField(
         help_text=_('Select a transition to execute in the next step.'),

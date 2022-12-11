@@ -13,9 +13,8 @@ from mayan.apps.views.generics import (
     AddRemoveView, SingleObjectCreateView, SingleObjectDeleteView,
     SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
-from .events import event_web_link_edited
 from .forms import WebLinkForm
 from .icons import icon_web_link_setup
 from .links import link_web_link_create
@@ -30,38 +29,26 @@ logger = logging.getLogger(name=__name__)
 
 
 class DocumentTypeWebLinksView(AddRemoveView):
-    main_object_permission = permission_document_type_edit
+    list_added_title = _('Web links enabled')
+    list_available_title = _('Available web links')
+    main_object_method_add_name = 'web_links_add'
+    main_object_method_remove_name = 'web_links_remove'
     main_object_model = DocumentType
+    main_object_permission = permission_document_type_edit
     main_object_pk_url_kwarg = 'document_type_id'
+    related_field = 'web_links'
     secondary_object_model = WebLink
     secondary_object_permission = permission_web_link_edit
-    list_available_title = _('Available web links')
-    list_added_title = _('Web links enabled')
-    related_field = 'web_links'
-
-    def action_add(self, queryset, _event_actor):
-        for obj in queryset:
-            self.main_object.web_links.add(obj)
-            event_web_link_edited.commit(
-                actor=_event_actor, action_object=self.main_object, target=obj
-            )
-
-    def action_remove(self, queryset, _event_actor):
-        for obj in queryset:
-            self.main_object.web_links.remove(obj)
-            event_web_link_edited.commit(
-                actor=_event_actor, action_object=self.main_object, target=obj
-            )
 
     def get_actions_extra_kwargs(self):
-        return {'_event_actor': self.request.user}
+        return {'user': self.request.user}
 
     def get_extra_context(self):
         return {
             'object': self.main_object,
             'title': _(
                 'Web links to enable for document type: %s'
-            ) % self.main_object,
+            ) % self.main_object
         }
 
 
@@ -118,26 +105,26 @@ class WebLinkDeleteView(SingleObjectDeleteView):
 
 
 class WebLinkDocumentTypesView(AddRemoveView):
+    list_added_title = _('Document types enabled')
+    list_available_title = _('Available document types')
     main_object_method_add_name = 'document_types_add'
     main_object_method_remove_name = 'document_types_remove'
-    main_object_permission = permission_web_link_edit
     main_object_model = WebLink
+    main_object_permission = permission_web_link_edit
     main_object_pk_url_kwarg = 'web_link_id'
+    related_field = 'document_types'
     secondary_object_model = DocumentType
     secondary_object_permission = permission_document_type_edit
-    list_available_title = _('Available document types')
-    list_added_title = _('Document types enabled')
-    related_field = 'document_types'
 
     def get_actions_extra_kwargs(self):
-        return {'_event_actor': self.request.user}
+        return {'user': self.request.user}
 
     def get_extra_context(self):
         return {
             'object': self.main_object,
             'title': _(
                 'Document type for which to enable web link: %s'
-            ) % self.main_object,
+            ) % self.main_object
         }
 
 
@@ -179,7 +166,7 @@ class WebLinkListView(SingleObjectListView):
             'no_results_title': _(
                 'There are no web links'
             ),
-            'title': _('Web links'),
+            'title': _('Web links')
         }
 
     def get_source_queryset(self):
@@ -210,7 +197,7 @@ class DocumentWebLinkListView(ExternalObjectViewMixin, WebLinkListView):
                 'There are no web links for this document'
             ),
             'object': self.external_object,
-            'title': _('Web links for document: %s') % self.external_object,
+            'title': _('Web links for document: %s') % self.external_object
         }
 
     def get_web_link_queryset(self):

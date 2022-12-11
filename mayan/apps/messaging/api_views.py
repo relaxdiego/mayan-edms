@@ -37,8 +37,12 @@ class APIMessageListView(generics.ListCreateAPIView):
     get: Returns a list of all the messages.
     post: Create a new message.
     """
-    mayan_object_permissions = {'GET': (permission_message_view,)}
-    mayan_view_permissions = {'POST': (permission_message_create,)}
+    mayan_object_permissions = {
+        'GET': (permission_message_view,)
+    }
+    mayan_view_permissions = {
+        'POST': (permission_message_create,)
+    }
     ordering_fields = ('date_time', 'id')
     serializer_class = MessageSerializer
 

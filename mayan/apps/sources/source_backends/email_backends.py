@@ -105,8 +105,12 @@ class SourceBackendEmailMixin:
                     ),
                     'kwargs': {
                         'choices': itertools.chain(
-                            [(None, '---------')],
-                            [(instance.id, instance) for instance in MetadataType.objects.all()],
+                            [
+                                (None, '---------')]
+                            ,
+                            [
+                                (instance.id, instance) for instance in MetadataType.objects.all()
+                            ]
                         )
                     },
                     'label': _('From metadata type'),
@@ -123,8 +127,12 @@ class SourceBackendEmailMixin:
                     ),
                     'kwargs': {
                         'choices': itertools.chain(
-                            [(None, '---------')],
-                            [(instance.id, instance) for instance in MetadataType.objects.all()],
+                            [
+                                (None, '---------')
+                            ],
+                            [
+                                (instance.id, instance) for instance in MetadataType.objects.all()
+                            ]
                         )
                     },
                     'label': _('Subject metadata type'),
@@ -141,8 +149,12 @@ class SourceBackendEmailMixin:
                     ),
                     'kwargs': {
                         'choices': itertools.chain(
-                            [(None, '---------')],
-                            [(instance.id, instance) for instance in MetadataType.objects.all()],
+                            [
+                                (None, '---------')
+                            ],
+                            [
+                                (instance.id, instance) for instance in MetadataType.objects.all()
+                            ]
                         )
                     },
                     'label': _('Message ID metadata type'),
@@ -170,7 +182,8 @@ class SourceBackendEmailMixin:
         result['widgets'].update(
             {
                 'password': {
-                    'class': 'django.forms.widgets.PasswordInput', 'kwargs': {
+                    'class': 'django.forms.widgets.PasswordInput',
+                    'kwargs': {
                         'render_value': True
                     }
                 },
@@ -199,7 +212,9 @@ class SourceBackendEmailMixin:
         self.document_metadata = {}
 
     def process_message(self, message):
-        message = mime.from_string(string=force_bytes(s=message))
+        message = mime.from_string(
+            string=force_bytes(s=message)
+        )
 
         shared_uploaded_files = self._process_message(message=message)
 
@@ -241,7 +256,9 @@ class SourceBackendEmailMixin:
                 if len(message.body) == 0:
                     return shared_uploaded_files
 
-                label = message.detected_file_name or 'attachment-{}'.format(counter)
+                label = message.detected_file_name or 'attachment-{}'.format(
+                    counter
+                )
                 counter += 1
 
                 with ContentFile(content=message.body, name=label) as file_object:
@@ -254,7 +271,9 @@ class SourceBackendEmailMixin:
                             metadata_dictionary
                         )
                         for metadata_name, value in metadata_dictionary.items():
-                            metadata = MetadataType.objects.get(name=metadata_name)
+                            metadata = MetadataType.objects.get(
+                                name=metadata_name
+                            )
                             self.document_metadata[metadata.pk] = value
                     else:
                         shared_uploaded_files.append(
@@ -298,10 +317,11 @@ class SourceBackendEmailMixin:
         if form_metadata_type:
             if not document_type.metadata.filter(metadata_type=form_metadata_type).exists():
                 raise ValidationError(
-                    {
+                    message={
                         'from_metadata_type': _(
-                            '"From" metadata type "%(metadata_type)s" is not '
-                            'valid for the document type: %(document_type)s'
+                            '"From" metadata type "%(metadata_type)s" is '
+                            'not valid for the document '
+                            'type: %(document_type)s'
                         ) % {
                             'metadata_type': form_metadata_type,
                             'document_type': document_type
@@ -312,10 +332,11 @@ class SourceBackendEmailMixin:
         if subject_metadata_type:
             if not document_type.metadata.filter(metadata_type=subject_metadata_type).exists():
                 raise ValidationError(
-                    {
+                    message={
                         'subject_metadata_type': _(
-                            'Subject metadata type "%(metadata_type)s" is not '
-                            'valid for the document type: %(document_type)s'
+                            'Subject metadata type "%(metadata_type)s" '
+                            'is not valid for the document '
+                            'type: %(document_type)s'
                         ) % {
                             'metadata_type': subject_metadata_type,
                             'document_type': document_type
@@ -326,10 +347,11 @@ class SourceBackendEmailMixin:
         if message_id_metadata_type:
             if not document_type.metadata.filter(metadata_type=message_id_metadata_type).exists():
                 raise ValidationError(
-                    {
+                    message={
                         'message_id_metadata_type': _(
-                            'Message ID metadata type "%(metadata_type)s" is not '
-                            'valid for the document type: %(document_type)s'
+                            'Message ID metadata type "%(metadata_type)s" '
+                            'is not valid for the document type: '
+                            '%(document_type)s'
                         ) % {
                             'metadata_type': subject_metadata_type,
                             'document_type': document_type
@@ -444,8 +466,12 @@ class SourceBackendIMAPEmail(
         dry_run = self.process_kwargs.get('dry_run', False)
 
         logger.debug(msg='Starting IMAP email fetch')
-        logger.debug('host: %s', self.kwargs['host'])
-        logger.debug('ssl: %s', self.kwargs['ssl'])
+        logger.debug(
+            'host: %s', self.kwargs['host']
+        )
+        logger.debug(
+            'ssl: %s', self.kwargs['ssl']
+        )
 
         if self.kwargs['ssl']:
             imap_module_name = 'IMAP4_SSL'
@@ -464,7 +490,9 @@ class SourceBackendIMAPEmail(
             )
 
             try:
-                server.select(mailbox=self.kwargs['mailbox'])
+                server.select(
+                    mailbox=self.kwargs['mailbox']
+                )
             except Exception as exception:
                 raise SourceException(
                     'Error selecting mailbox: {}; {}'.format(
@@ -478,20 +506,26 @@ class SourceBackendIMAPEmail(
                     )
                 except Exception as exception:
                     raise SourceException(
-                        'Error executing search command; {}'.format(exception)
+                        'Error executing search command; {}'.format(
+                            exception
+                        )
                     )
                 else:
                     if data:
                         # data is a space separated sequence of message uids.
                         uids = data[0].split()
-                        logger.debug('messages count: %s', len(uids))
+                        logger.debug(
+                            'messages count: %s', len(uids)
+                        )
                         logger.debug('message uids: %s', uids)
 
                         for uid in uids:
                             logger.debug('message uid: %s', uid)
 
                             try:
-                                status, data = server.uid('FETCH', uid, '(RFC822)')
+                                status, data = server.uid(
+                                    'FETCH', uid, '(RFC822)'
+                                )
                             except Exception as exception:
                                 raise SourceException(
                                     'Error fetching message uid: {}; {}'.format(
@@ -515,7 +549,9 @@ class SourceBackendIMAPEmail(
                                             for command in self.kwargs['store_commands'].split('\n'):
                                                 try:
                                                     args = [uid]
-                                                    args.extend(command.strip().split(' '))
+                                                    args.extend(
+                                                        command.strip().split(' ')
+                                                    )
                                                     server.uid('STORE', *args)
                                                 except Exception as exception:
                                                     raise SourceException(
@@ -528,13 +564,18 @@ class SourceBackendIMAPEmail(
                                         if self.kwargs['mailbox_destination']:
                                             try:
                                                 server.uid(
-                                                    'COPY', uid, self.kwargs['mailbox_destination']
+                                                    'COPY', uid,
+                                                    self.kwargs[
+                                                        'mailbox_destination'
+                                                    ]
                                                 )
                                             except Exception as exception:
                                                 raise SourceException(
                                                     'Error copying message uid {} to mailbox {}; '
                                                     '{}'.format(
-                                                        uid, self.kwargs['mailbox_destination'], exception
+                                                        uid, self.kwargs[
+                                                            'mailbox_destination'
+                                                        ], exception
                                                     )
                                                 )
 
@@ -565,8 +606,12 @@ class SourceBackendPOP3Email(
         dry_run = self.process_kwargs.get('dry_run', False)
 
         logger.debug(msg='Starting POP3 email fetch')
-        logger.debug('host: %s', self.kwargs['host'])
-        logger.debug('ssl: %s', self.kwargs['ssl'])
+        logger.debug(
+            'host: %s', self.kwargs['host']
+        )
+        logger.debug(
+            'ssl: %s', self.kwargs['ssl']
+        )
 
         if self.kwargs['ssl']:
             pop3_module_name = 'POP3_SSL'
@@ -583,14 +628,22 @@ class SourceBackendPOP3Email(
         server = pop3_module(**kwargs)
         try:
             server.getwelcome()
-            server.user(self.kwargs['username'])
-            server.pass_(self.kwargs['password'])
+            server.user(
+                self.kwargs['username']
+            )
+            server.pass_(
+                self.kwargs['password']
+            )
 
             messages_info = server.list()
 
             logger.debug(msg='messages_info:')
             logger.debug(msg=messages_info)
-            logger.debug('messages count: %s', len(messages_info[1]))
+            logger.debug(
+                'messages count: %s', len(
+                    messages_info[1]
+                )
+            )
 
             for message_info in messages_info[1]:
                 message_number, message_size = message_info.split()
@@ -600,7 +653,9 @@ class SourceBackendPOP3Email(
                 logger.debug('message_size: %s', message_size)
 
                 message_lines = server.retr(which=message_number)[1]
-                message_complete = force_text(s=b'\n'.join(message_lines))
+                message_complete = force_text(
+                    s=b'\n'.join(message_lines)
+                )
 
                 shared_uploaded_files = self.process_message(
                     message=message_complete

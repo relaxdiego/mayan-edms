@@ -87,7 +87,9 @@ class CheckoutsApp(MayanAppConfig):
         )
 
         model_query_fields_document = ModelQueryFields(model=Document)
-        model_query_fields_document.add_select_related_field(field_name='documentcheckout')
+        model_query_fields_document.add_select_related_field(
+            field_name='documentcheckout'
+        )
 
         SourceColumn(
             attribute='get_user_display', include_label=True, order=99,
@@ -98,8 +100,8 @@ class CheckoutsApp(MayanAppConfig):
             source=CheckedOutDocument
         )
         SourceColumn(
-            attribute='get_checkout_expiration', include_label=True, order=99,
-            source=CheckedOutDocument
+            attribute='get_checkout_expiration', include_label=True,
+            order=99, source=CheckedOutDocument
         )
 
         dashboard_administrator.add_widget(

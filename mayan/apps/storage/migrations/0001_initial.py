@@ -24,7 +24,8 @@ class Migration(migrations.Migration):
                     'file', models.FileField(
                         storage=mayan.apps.storage.classes.DefinedStorageLazy(
                             name='storage__shareduploadedfile'
-                        ), upload_to=mayan.apps.storage.models.upload_to,
+                        ),
+                        upload_to=mayan.apps.storage.utils.shared_uploaded_file_upload_to,
                         verbose_name='File'
                     )
                 ),

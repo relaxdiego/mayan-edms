@@ -1,6 +1,7 @@
 from mayan.apps.documents.events import (
     event_document_created, event_document_type_changed
 )
+from mayan.apps.documents.permissions import permission_document_change_type
 from mayan.apps.documents.tests.base import GenericDocumentTestCase
 
 from ..events import event_workflow_instance_created
@@ -25,13 +26,22 @@ class WorkflowInstanceModelTestCase(
 
         self._create_test_document_stub()
 
+        self.grant_access(
+            obj=self._test_document,
+            permission=permission_document_change_type
+        )
+        self.grant_access(
+            obj=self._test_document_types[0],
+            permission=permission_document_change_type
+        )
+
         self._clear_events()
 
         self.assertEqual(self._test_document.workflows.count(), 0)
 
         self._test_document.document_type_change(
             document_type=self._test_document_types[0],
-            _user=self._test_case_user
+            user=self._test_case_user
         )
 
         self.assertEqual(self._test_document.workflows.count(), 1)

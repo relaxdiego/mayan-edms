@@ -126,11 +126,10 @@ class FileMetadataApp(MayanAppConfig):
         )
 
         ModelProperty(
-            model=Document,
-            name='file_metadata_value_of.< underscore separated driver name and property name >',
             description=_(
                 'Return the value of a specific file metadata.'
-            ), label=_('File metadata value of')
+            ), label=_('File metadata value of'), model=Document,
+            name='file_metadata_value_of.< underscore separated driver name and property name >'
         )
 
         SourceColumn(

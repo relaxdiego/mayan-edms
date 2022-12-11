@@ -1,9 +1,10 @@
-from mayan.apps.documents.api_views.mixins import ParentObjectDocumentFilePageAPIViewMixin
+from mayan.apps.documents.api_views.api_view_mixins import ParentObjectDocumentFilePageAPIViewMixin
 from mayan.apps.rest_api import generics
 
 from .models import DocumentFilePageContent, DocumentTypeSettings
 from .permissions import (
-    permission_document_file_content_view, permission_document_type_parsing_setup
+    permission_document_file_content_view,
+    permission_document_type_parsing_setup
 )
 from .serializers import (
     DocumentFilePageContentSerializer, DocumentTypeParsingSettingsSerializer

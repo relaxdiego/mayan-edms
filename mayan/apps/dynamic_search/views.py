@@ -107,7 +107,7 @@ class SearchSimpleView(SearchModelViewMixin, SearchQueryViewMixin, FormView):
             'submit_icon': icon_search_submit,
             'submit_label': _('Search'),
             'submit_method': 'GET',
-            'title': _('Search for: %s') % self.search_model.label,
+            'title': _('Search for: %s') % self.search_model.label
         }
 
     def get_form(self):
@@ -165,9 +165,9 @@ class SearchResultsView(
             'no_results_icon': icon_search_submit,
             'no_results_main_link': link_search_again.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={
+                    dict_={
                         'search_model': self.search_model
-                    }
+                    }, request=self.request
                 )
             ),
             'no_results_text': _(

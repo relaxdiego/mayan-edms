@@ -36,18 +36,18 @@ def decode_metadata_from_query_string(query_string=None):
     return metadata_list
 
 
-def save_metadata_list(metadata_list, document, create=False, _user=None):
+def save_metadata_list(metadata_list, document, create=False, user=None):
     """
     Take a list of metadata dictionaries and associate them to a
     document
     """
     for item in metadata_list:
         save_metadata(
-            metadata_dict=item, document=document, create=create, _user=_user
+            metadata_dict=item, document=document, create=create, user=user
         )
 
 
-def save_metadata(metadata_dict, document, create=False, _user=None):
+def save_metadata(metadata_dict, document, create=False, user=None):
     """
     Take a dictionary of metadata type & value and associate it to a
     document
@@ -65,7 +65,7 @@ def save_metadata(metadata_dict, document, create=False, _user=None):
             DocumentMetadata.objects.get(**parameters)
         except DocumentMetadata.DoesNotExist:
             document_metadata = DocumentMetadata(**parameters)
-            document_metadata._event_actior = _user
+            document_metadata._event_actor = user
             document_metadata.save()
     else:
         try:
@@ -80,19 +80,5 @@ def save_metadata(metadata_dict, document, create=False, _user=None):
 
     if document_metadata:
         document_metadata.value = metadata_dict['value']
-        document_metadata._event_actor = _user
+        document_metadata._event_actor = user
         document_metadata.save()
-
-
-def set_bulk_metadata(document, metadata_dictionary):
-    document_type_metadata_types = document.document_type.metadata.values_list(
-        'metadata_type', flat=True
-    )
-
-    for metadata_type_name, value in metadata_dictionary.items():
-        metadata_type = MetadataType.objects.get(name=metadata_type_name)
-
-        if document_type_metadata_types.filter(metadata_type=metadata_type).exists():
-            DocumentMetadata.objects.get_or_create(
-                document=document, metadata_type=metadata_type, value=value
-            )

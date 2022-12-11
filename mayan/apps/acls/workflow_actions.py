@@ -95,7 +95,7 @@ class GrantAccessAction(WorkflowAction):
                 obj=obj, permissions=(permission_acl_edit,), user=request.user
             )
         except Exception as exception:
-            raise ValidationError(exception)
+            raise ValidationError(message=exception)
         else:
             return form_data
 

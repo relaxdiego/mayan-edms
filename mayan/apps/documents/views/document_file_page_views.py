@@ -4,7 +4,6 @@ from furl import furl
 
 from django.contrib import messages
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _, ungettext
 from django.views.generic import RedirectView
 
@@ -17,7 +16,7 @@ from mayan.apps.databases.classes import ModelQueryFields
 from mayan.apps.views.generics import (
     MultipleObjectConfirmActionView, SimpleView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 from mayan.apps.views.utils import resolve
 
 from ..forms.document_file_page_forms import DocumentFilePageForm
@@ -38,15 +37,6 @@ from ..settings import (
 )
 from ..tasks import task_document_file_page_count_update
 
-__all__ = (
-    'DocumentFilePageListView',
-    'DocumentFilePageNavigationFirst', 'DocumentFilePageNavigationLast',
-    'DocumentFilePageNavigationNext', 'DocumentFilePageNavigationPrevious',
-    'DocumentFilePageView', 'DocumentFilePageViewResetView',
-    'DocumentFilePageInteractiveTransformation', 'DocumentFilePageZoomInView',
-    'DocumentFilePageZoomOutView', 'DocumentFilePageRotateLeftView',
-    'DocumentFilePageRotateRightView'
-)
 logger = logging.getLogger(name=__name__)
 
 
@@ -94,7 +84,9 @@ class DocumentFilePageCountUpdateView(MultipleObjectConfirmActionView):
         )
 
 
-class DocumentFilePageListView(ExternalObjectViewMixin, SingleObjectListView):
+class DocumentFilePageListView(
+    ExternalObjectViewMixin, SingleObjectListView
+):
     external_object_permission = permission_document_file_view
     external_object_pk_url_kwarg = 'document_file_id'
     external_object_queryset = DocumentFile.valid.all()
@@ -117,12 +109,17 @@ class DocumentFilePageListView(ExternalObjectViewMixin, SingleObjectListView):
             ),
             'no_results_title': _('No document file pages available'),
             'object': self.external_object,
-            'title': _('Pages of document file: %s') % self.external_object,
+            'title': _('Pages of document file: %s') % self.external_object
         }
 
     def get_source_queryset(self):
-        queryset = ModelQueryFields.get(model=DocumentFilePage).get_queryset()
-        return queryset.filter(pk__in=self.external_object.pages.all())
+        queryset = ModelQueryFields.get(
+            model=DocumentFilePage
+        ).get_queryset()
+
+        return queryset.filter(
+            pk__in=self.external_object.pages.all()
+        )
 
 
 class DocumentFilePageNavigationBase(ExternalObjectViewMixin, RedirectView):
@@ -147,7 +144,9 @@ class DocumentFilePageNavigationBase(ExternalObjectViewMixin, RedirectView):
 
         # Obtain the view name to be able to resolve it back with new keyword
         # arguments.
-        resolver_match = resolve(path=force_text(s=parsed_url.path))
+        resolver_match = resolve(
+            path=str(parsed_url.path)
+        )
 
         new_kwargs = self.get_new_kwargs()
 
@@ -221,20 +220,20 @@ class DocumentFilePageView(ExternalObjectViewMixin, SimpleView):
     view_icon = icon_document_file_page_detail
 
     def get_extra_context(self):
-        zoom = int(self.request.GET.get('zoom', DEFAULT_ZOOM_LEVEL))
-        rotation = int(self.request.GET.get('rotation', DEFAULT_ROTATION))
+        zoom = int(
+            self.request.GET.get('zoom', DEFAULT_ZOOM_LEVEL)
+        )
+        rotation = int(
+            self.request.GET.get('rotation', DEFAULT_ROTATION)
+        )
 
         transformation_instance_list = (
             TransformationResize(
                 height=setting_display_height.value,
                 width=setting_display_width.value
             ),
-            TransformationRotate(
-                degrees=rotation,
-            ),
-            TransformationZoom(
-                percent=zoom,
-            )
+            TransformationRotate(degrees=rotation),
+            TransformationZoom(percent=zoom)
         )
 
         document_file_page_form = DocumentFilePageForm(
@@ -253,10 +252,12 @@ class DocumentFilePageView(ExternalObjectViewMixin, SimpleView):
             'form': document_file_page_form,
             'hide_labels': True,
             'object': self.external_object,
-            'rotation': rotation,
-            'title': ' '.join((base_title, zoom_text)),
             'read_only': True,
-            'zoom': zoom,
+            'rotation': rotation,
+            'title': ' '.join(
+                (base_title, zoom_text)
+            ),
+            'zoom': zoom
         }
 
 
@@ -298,7 +299,9 @@ class DocumentFilePageInteractiveTransformation(
 
 class DocumentFilePageZoomInView(DocumentFilePageInteractiveTransformation):
     def transformation_function(self, query_dict):
-        zoom = int(query_dict['zoom']) + setting_zoom_percent_step.value
+        zoom = int(
+            query_dict['zoom']
+        ) + setting_zoom_percent_step.value
 
         if zoom > setting_zoom_max_level.value:
             zoom = setting_zoom_max_level.value
@@ -308,7 +311,9 @@ class DocumentFilePageZoomInView(DocumentFilePageInteractiveTransformation):
 
 class DocumentFilePageZoomOutView(DocumentFilePageInteractiveTransformation):
     def transformation_function(self, query_dict):
-        zoom = int(query_dict['zoom']) - setting_zoom_percent_step.value
+        zoom = int(
+            query_dict['zoom']
+        ) - setting_zoom_percent_step.value
 
         if zoom < setting_zoom_min_level.value:
             zoom = setting_zoom_min_level.value
@@ -316,15 +321,23 @@ class DocumentFilePageZoomOutView(DocumentFilePageInteractiveTransformation):
         query_dict['zoom'] = zoom
 
 
-class DocumentFilePageRotateLeftView(DocumentFilePageInteractiveTransformation):
+class DocumentFilePageRotateLeftView(
+    DocumentFilePageInteractiveTransformation
+):
     def transformation_function(self, query_dict):
         query_dict['rotation'] = (
-            int(query_dict['rotation']) - setting_rotation_step.value
+            int(
+                query_dict['rotation']
+            ) - setting_rotation_step.value
         ) % 360
 
 
-class DocumentFilePageRotateRightView(DocumentFilePageInteractiveTransformation):
+class DocumentFilePageRotateRightView(
+    DocumentFilePageInteractiveTransformation
+):
     def transformation_function(self, query_dict):
         query_dict['rotation'] = (
-            int(query_dict['rotation']) + setting_rotation_step.value
+            int(
+                query_dict['rotation']
+            ) + setting_rotation_step.value
         ) % 360

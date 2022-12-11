@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 from mayan.apps.documents.models import Document
 from mayan.apps.views.generics import FormView
 from mayan.apps.views.http import URL
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from .classes import Template
 from .forms import DocumentTemplateSandboxForm
@@ -29,10 +29,14 @@ class DocumentTemplateSandboxView(ExternalObjectViewMixin, FormView):
             kwargs={'document_id': self.external_object.pk}
         )
         url = URL(
-            path=path, query={'template': form.cleaned_data['template']}
+            path=path, query={
+                'template': form.cleaned_data['template']
+            }
         )
 
-        return HttpResponseRedirect(redirect_to=url.to_string())
+        return HttpResponseRedirect(
+            redirect_to=url.to_string()
+        )
 
     def get_extra_context(self):
         return {
@@ -62,8 +66,8 @@ class DocumentTemplateSandboxView(ExternalObjectViewMixin, FormView):
             ) % {
                 'exception': exception
             }
-            messages.error(request=self.request, message=error_message)
+            messages.error(message=error_message, request=self.request)
 
         return {
-            'template': template_string, 'result': result
+            'result': result, 'template': template_string
         }

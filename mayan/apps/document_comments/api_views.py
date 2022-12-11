@@ -25,15 +25,15 @@ class APICommentListView(
     ordering_fields = ('id', 'submit_date')
     serializer_class = CommentSerializer
 
-    def get_queryset(self):
-        return self.external_object.comments.all()
-
     def get_instance_extra_data(self):
         return {
             '_event_actor': self.request.user,
-            'user': self.request.user,
-            'document': self.external_object
+            'document': self.get_external_object(),
+            'user': self.request.user
         }
+
+    def get_queryset(self):
+        return self.get_external_object().comments.all()
 
 
 class APICommentView(
@@ -54,11 +54,11 @@ class APICommentView(
     lookup_url_kwarg = 'comment_id'
     serializer_class = CommentSerializer
 
-    def get_queryset(self):
-        return self.external_object.comments.all()
-
     def get_instance_extra_data(self):
         return {
             '_event_actor': self.request.user,
-            'document': self.external_object
+            'document': self.get_external_object()
         }
+
+    def get_queryset(self):
+        return self.get_external_object().comments.all()

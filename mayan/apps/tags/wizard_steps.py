@@ -1,5 +1,5 @@
 from django.apps import apps
-from django.utils.encoding import force_text
+from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.sources.classes import DocumentCreateWizardStep
@@ -19,6 +19,7 @@ class DocumentCreateWizardStepTags(DocumentCreateWizardStep):
     @classmethod
     def condition(cls, wizard):
         Tag = apps.get_model(app_label='tags', model_name='Tag')
+
         return Tag.objects.exists()
 
     @classmethod
@@ -36,19 +37,30 @@ class DocumentCreateWizardStepTags(DocumentCreateWizardStep):
         cleaned_data = wizard.get_cleaned_data_for_step(cls.name)
         if cleaned_data:
             result['tags'] = [
-                force_text(s=tag.pk) for tag in cleaned_data['tags']
+                str(tag.pk) for tag in cleaned_data['tags']
             ]
 
         return result
 
     @classmethod
-    def step_post_upload_process(cls, document, query_string=None):
+    def step_post_upload_process(
+        cls, document, source_id, user_id, extra_data=None, query_string=None
+    ):
         Tag = apps.get_model(app_label='tags', model_name='Tag')
+        User = get_user_model()
+
+        try:
+            user = User.objects.get(pk=user_id)
+        except User.DoesNotExist:
+            user = None
 
         tag_id_list = URL(query_string=query_string).args.getlist('tags')
 
         for tag in Tag.objects.filter(pk__in=tag_id_list):
-            tag.attach_to(document=document)
+            if user:
+                tag.attach_to(document=document, user=user)
+            else:
+                tag._attach_to(document=document)
 
 
 DocumentCreateWizardStep.register(step=DocumentCreateWizardStepTags)

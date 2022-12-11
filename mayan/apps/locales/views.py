@@ -10,7 +10,7 @@ from mayan.apps.user_management.views.view_mixins import DynamicExternalUserView
 from mayan.apps.views.generics import (
     SingleObjectDetailView, SingleObjectEditView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from .forms import LocaleProfileForm, LocaleProfileForm_view
 from .icons import (
@@ -83,10 +83,10 @@ class UserLocaleProfileEditView(
 
     def get_extra_context(self):
         return {
+            'object': self.external_object,
             'title': _(
                 'Edit locale profile for user: %s'
-            ) % self.external_object,
-            'object': self.external_object
+            ) % self.external_object
         }
 
     def get_instance_extra_data(self):

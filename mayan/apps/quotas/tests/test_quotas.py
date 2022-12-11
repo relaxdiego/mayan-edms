@@ -24,7 +24,7 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
         # Increase the initial usage count to 1 by uploading a document
         # as the test case user.
         self._clear_events()
-        self._upload_test_document(_user=self._test_case_user)
+        self._upload_test_document(user=self._test_case_user)
         self.test_case_silenced_logger_new_level = logging.FATAL + 10
         self._silence_logger(name='mayan.apps.documents.models')
 
@@ -35,7 +35,7 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
 
         with self.assertRaises(expected_exception=QuotaExceeded):
@@ -85,12 +85,12 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
         self._create_test_user()
 
         with self.assertRaises(expected_exception=QuotaExceeded):
-            self._upload_test_document(_user=self._test_user)
+            self._upload_test_document(user=self._test_user)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 7)
@@ -141,7 +141,7 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(self._test_document_type.pk,),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
 
         with self.assertRaises(expected_exception=QuotaExceeded):
@@ -191,11 +191,11 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(),
             user_all=False,
-            user_ids=(self._test_case_user.pk,),
+            user_ids=(self._test_case_user.pk,)
         )
 
         with self.assertRaises(expected_exception=QuotaExceeded):
-            self._upload_test_document(_user=self._test_case_user)
+            self._upload_test_document(user=self._test_case_user)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 6)
@@ -244,11 +244,11 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(self._test_group.pk,),
             user_all=False,
-            user_ids=(),
+            user_ids=()
         )
 
         with self.assertRaises(expected_exception=QuotaExceeded):
-            self._upload_test_document(_user=self._test_case_user)
+            self._upload_test_document(user=self._test_case_user)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 7)
@@ -299,10 +299,10 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(),
             user_all=False,
-            user_ids=(),
+            user_ids=()
         )
 
-        self._upload_test_document(_user=self._test_case_user)
+        self._upload_test_document(user=self._test_case_user)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 11)
@@ -381,10 +381,10 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
 
-        self._upload_test_document(_user=self._test_superuser)
+        self._upload_test_document(user=self._test_superuser)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 12)
@@ -475,7 +475,7 @@ class DocumentSizeQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
 
         self._clear_events()
@@ -498,7 +498,7 @@ class DocumentSizeQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(self._test_document_type.pk,),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
 
         self._clear_events()
@@ -521,13 +521,13 @@ class DocumentSizeQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(self._test_document_type.pk,),
             group_ids=(),
             user_all=False,
-            user_ids=(self._test_case_user.pk,),
+            user_ids=(self._test_case_user.pk,)
         )
 
         self._clear_events()
 
         with self.assertRaises(expected_exception=QuotaExceeded):
-            self._upload_test_document(_user=self._test_case_user)
+            self._upload_test_document(user=self._test_case_user)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 1)
@@ -547,13 +547,13 @@ class DocumentSizeQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(self._test_document_type.pk,),
             group_ids=(self._test_group.pk,),
             user_all=False,
-            user_ids=(),
+            user_ids=()
         )
 
         self._clear_events()
 
         with self.assertRaises(expected_exception=QuotaExceeded):
-            self._upload_test_document(_user=self._test_case_user)
+            self._upload_test_document(user=self._test_case_user)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 1)
@@ -570,12 +570,12 @@ class DocumentSizeQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(),
             user_all=False,
-            user_ids=(),
+            user_ids=()
         )
 
         self._clear_events()
 
-        self._upload_test_document(_user=self._test_case_user)
+        self._upload_test_document(user=self._test_case_user)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 5)
@@ -618,12 +618,12 @@ class DocumentSizeQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
             document_type_ids=(),
             group_ids=(),
             user_all=True,
-            user_ids=(),
+            user_ids=()
         )
 
         self._clear_events()
 
-        self._upload_test_document(_user=self._test_superuser)
+        self._upload_test_document(user=self._test_superuser)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 5)

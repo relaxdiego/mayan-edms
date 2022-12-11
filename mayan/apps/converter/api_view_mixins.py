@@ -67,7 +67,9 @@ class APIImageViewMixin:
 
         cache_filename = task.get(**kwargs)
 
-        self.cache_file = self.obj.cache_partition.get_file(filename=cache_filename)
+        self.cache_file = self.obj.cache_partition.get_file(
+            filename=cache_filename
+        )
 
         def file_generator():
             with self.cache_file.open() as file_object:

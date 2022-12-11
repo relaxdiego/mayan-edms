@@ -21,5 +21,6 @@ link_document_download_single = Link(
 link_document_file_download_quick = Link(
     args='resolved_object.id', icon=icon_document_file_download_quick,
     permissions=(permission_document_file_download,), tags='new_window',
-    text=_('Quick download'), view='document_downloads:document_file_download'
+    text=_('Quick download'),
+    view='document_downloads:document_file_download'
 )

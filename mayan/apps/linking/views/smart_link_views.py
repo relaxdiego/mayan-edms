@@ -15,9 +15,8 @@ from mayan.apps.views.generics import (
     AddRemoveView, SingleObjectCreateView, SingleObjectDeleteView,
     SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
-from ..events import event_smart_link_edited
 from ..forms import SmartLinkForm
 from ..icons import (
     icon_document_smart_link_instance_list, icon_document_type_smart_links,
@@ -114,7 +113,7 @@ class DocumentResolvedSmartLinkDocumentListView(
         context.update(
             {
                 'object': self.external_object,
-                'title': title,
+                'title': title
             }
         )
         return context
@@ -154,7 +153,7 @@ class SmartLinkListView(SingleObjectListView):
             'no_results_title': _(
                 'There are no smart links'
             ),
-            'title': _('Smart links'),
+            'title': _('Smart links')
         }
 
 
@@ -184,7 +183,7 @@ class DocumentResolvedSmartLinkListView(
             'object': self.external_object,
             'title': _(
                 'Resolved smart links for document: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_source_queryset(self):
@@ -194,8 +193,10 @@ class DocumentResolvedSmartLinkListView(
 
 
 class DocumentTypeSmartLinkAddRemoveView(AddRemoveView):
-    main_object_permission = permission_document_type_edit
+    main_object_method_add_name = 'smart_links_add'
+    main_object_method_remove_name = 'smart_links_remove'
     main_object_model = DocumentType
+    main_object_permission = permission_document_type_edit
     main_object_pk_url_kwarg = 'document_type_id'
     secondary_object_model = SmartLink
     secondary_object_permission = permission_smart_link_edit
@@ -204,31 +205,15 @@ class DocumentTypeSmartLinkAddRemoveView(AddRemoveView):
     related_field = 'smart_links'
     view_icon = icon_document_type_smart_links
 
-    def action_add(self, queryset, _event_actor):
-        for obj in queryset:
-            self.main_object.smart_links.add(obj)
-            event_smart_link_edited.commit(
-                actor=_event_actor or self._event_actor,
-                action_object=self.main_object, target=obj
-            )
-
-    def action_remove(self, queryset, _event_actor):
-        for obj in queryset:
-            self.main_object.smart_links.remove(obj)
-            event_smart_link_edited.commit(
-                actor=_event_actor or self._event_actor,
-                action_object=self.main_object, target=obj
-            )
-
     def get_actions_extra_kwargs(self):
-        return {'_event_actor': self.request.user}
+        return {'user': self.request.user}
 
     def get_extra_context(self):
         return {
             'object': self.main_object,
             'title': _(
                 'Smart links to enable for document type: %s'
-            ) % self.main_object,
+            ) % self.main_object
         }
 
 
@@ -246,14 +231,14 @@ class SmartLinkDocumentTypeAddRemoveView(AddRemoveView):
     view_icon = icon_smart_link_document_type_list
 
     def get_actions_extra_kwargs(self):
-        return {'_event_actor': self.request.user}
+        return {'user': self.request.user}
 
     def get_extra_context(self):
         return {
             'object': self.main_object,
             'title': _(
                 'Document type for which to enable smart link: %s'
-            ) % self.main_object,
+            ) % self.main_object
         }
 
 

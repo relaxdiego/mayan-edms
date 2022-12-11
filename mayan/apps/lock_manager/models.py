@@ -3,10 +3,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from .literals import DEFAULT_LOCK_MANAGER_DEFAULT_LOCK_TIMEOUT
 from .managers import LockManager
+from .model_mixins import LockBusinessLogicMixin
 from .settings import setting_default_lock_timeout
 
 
-class Lock(models.Model):
+class Lock(LockBusinessLogicMixin, models.Model):
     """
     Model to provide distributed resource locking using the database.
     """
@@ -29,21 +30,6 @@ class Lock(models.Model):
 
     def __str__(self):
         return self.name
-
-    def release(self):
-        """
-        Release a previously held lock.
-        """
-        try:
-            lock = Lock.objects.get(
-                name=self.name, creation_datetime=self.creation_datetime
-            )
-        except Lock.DoesNotExist:
-            """
-            Our lock has expired and was reassigned.
-            """
-        else:
-            lock.delete()
 
     def save(self, *args, **kwargs):
         if not self.timeout and not kwargs.get('timeout'):

@@ -1,3 +1,5 @@
+from django.utils.translation import ugettext_lazy as _
+
 from mayan.apps.rest_api import serializers
 from mayan.apps.rest_api.relations import MultiKwargHyperlinkedIdentityField
 
@@ -6,49 +8,47 @@ from ..models import WorkflowState, WorkflowStateAction
 
 class WorkflowTemplateStateSerializer(serializers.HyperlinkedModelSerializer):
     actions_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Actions URL'), view_kwargs=(
             {
                 'lookup_field': 'workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'workflow_template_state_id',
+                'lookup_url_kwarg': 'workflow_template_state_id'
             }
-        ),
-        view_name='rest_api:workflow-template-state-action-list'
+        ), view_name='rest_api:workflow-template-state-action-list'
     )
     escalations_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Escalations URL'), view_kwargs=(
             {
                 'lookup_field': 'workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'workflow_template_state_id',
+                'lookup_url_kwarg': 'workflow_template_state_id'
             }
-        ),
-        view_name='rest_api:workflow-template-state-escalation-list'
+        ), view_name='rest_api:workflow-template-state-escalation-list'
     )
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'workflow_template_state_id',
+                'lookup_url_kwarg': 'workflow_template_state_id'
             }
-        ),
-        view_name='rest_api:workflow-template-state-detail'
+        ), view_name='rest_api:workflow-template-state-detail'
     )
     workflow_template_id = serializers.IntegerField(
-        read_only=True, source='workflow_id'
+        label=_('Workflow template ID'), read_only=True, source='workflow_id'
     )
     workflow_template_url = serializers.HyperlinkedIdentityField(
-        lookup_field='workflow_id', lookup_url_kwarg='workflow_template_id',
+        label=_('Workflow template URL'), lookup_field='workflow_id',
+        lookup_url_kwarg='workflow_template_id',
         view_name='rest_api:workflow-template-detail'
     )
 
@@ -65,39 +65,40 @@ class WorkflowTemplateStateSerializer(serializers.HyperlinkedModelSerializer):
         )
 
 
-class WorkflowTemplateStateActionSerializer(serializers.HyperlinkedModelSerializer):
+class WorkflowTemplateStateActionSerializer(
+    serializers.HyperlinkedModelSerializer
+):
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'state__workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
             {
                 'lookup_field': 'state_id',
-                'lookup_url_kwarg': 'workflow_template_state_id',
+                'lookup_url_kwarg': 'workflow_template_state_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'workflow_template_state_action_id',
+                'lookup_url_kwarg': 'workflow_template_state_action_id'
             }
-        ),
-        view_name='rest_api:workflow-template-state-action-detail'
+        ), view_name='rest_api:workflow-template-state-action-detail'
     )
     workflow_template_state_id = serializers.IntegerField(
-        read_only=True, source='state_id'
+        label=_('Workflow template state ID'), read_only=True,
+        source='state_id'
     )
     workflow_template_state_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Workflow template state URL'), view_kwargs=(
             {
                 'lookup_field': 'state__workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
             {
                 'lookup_field': 'state_id',
-                'lookup_url_kwarg': 'workflow_template_state_id',
+                'lookup_url_kwarg': 'workflow_template_state_id'
             }
-        ),
-        view_name='rest_api:workflow-template-state-detail'
+        ), view_name='rest_api:workflow-template-state-detail'
     )
 
     class Meta:

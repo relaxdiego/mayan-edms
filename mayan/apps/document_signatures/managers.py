@@ -92,7 +92,7 @@ class EmbeddedSignatureManager(models.Manager):
                     file_object=temporary_file_object,
                     filename='{}_{}'.format(
                         str(document_file), _('signed')
-                    ), _user=user
+                    ), user=user
                 )
                 instance = self.get(signature_id=result.signature_id)
                 event_embedded_signature_created.commit(

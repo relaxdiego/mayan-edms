@@ -32,7 +32,7 @@ class RegularExpressionValidator(MetadataValidator):
         )
         if not result:
             raise ValidationError(
-                _('The input string does not match the pattern.')
+                message=_('The input string does not match the pattern.')
             )
 
 

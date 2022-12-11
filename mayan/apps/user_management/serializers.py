@@ -15,15 +15,15 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         help_text=_(
             'URL of the API endpoint showing the list users of this '
             'group.'
-        ), lookup_url_kwarg='group_id',
+        ), label=_('Users URL'), lookup_url_kwarg='group_id',
         view_name='rest_api:group-user-list'
     )
     users_add_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='group_id',
+        label=_('Users add URL'), lookup_url_kwarg='group_id',
         view_name='rest_api:group-user-add'
     )
     users_remove_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='group_id',
+        label=_('Users remove URL'), lookup_url_kwarg='group_id',
         view_name='rest_api:group-user-remove'
     )
 
@@ -45,7 +45,7 @@ class GroupUserAddSerializer(serializers.Serializer):
     user = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the user to add to the group.'
-        ), source_permission=permission_user_edit,
+        ), label=_('User ID'), source_permission=permission_user_edit,
         source_queryset=get_user_queryset()
     )
 
@@ -54,7 +54,7 @@ class GroupUserRemoveSerializer(serializers.Serializer):
     user = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the user to remove from the group.'
-        ), source_permission=permission_user_edit,
+        ), label=_('User ID'), source_permission=permission_user_edit,
         source_queryset=get_user_queryset()
     )
 
@@ -64,11 +64,13 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         help_text=_(
             'URL of the API endpoint showing the list groups this '
             'user belongs to.'
-        ), lookup_url_kwarg='user_id',
+        ), label=_('Groups URL'), lookup_url_kwarg='user_id',
         view_name='rest_api:user-group-list'
     )
     password = serializers.CharField(
-        required=False, style={'input_type': 'password'}, write_only=True
+        label=_('Password'), required=False, style={
+            'input_type': 'password'
+        }, write_only=True
     )
 
     class Meta:

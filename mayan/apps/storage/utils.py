@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import shutil
 import tempfile
+import uuid
 
 from django.apps import apps
 from django.utils.module_loading import import_string
@@ -90,6 +91,10 @@ def TemporaryDirectory(*args, **kwargs):
 def TemporaryFile(*args, **kwargs):
     kwargs.update({'dir': setting_temporary_directory.value})
     return tempfile.TemporaryFile(*args, **kwargs)
+
+
+def download_file_upload_to(instance, filename):
+    return 'download-file-{}'.format(uuid.uuid4().hex)
 
 
 def fs_cleanup(filename, suppress_exceptions=True):
@@ -205,6 +210,10 @@ def patch_files(path=None, replace_list=None):
                                 fsrc=temporary_file_object,
                                 fdst=source_file_object
                             )
+
+
+def shared_uploaded_file_upload_to(instance, filename):
+    return 'shared-file-{}'.format(uuid.uuid4().hex)
 
 
 def touch(filename, times=None):

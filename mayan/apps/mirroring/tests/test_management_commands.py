@@ -19,7 +19,9 @@ class MountCabinetManagementCommandTestCase(CabinetTestMixin, BaseTestCase):
             'mirroring_mount_cabinet', label, mount_point, stderr=stderr,
             stdout=stdout
         )
-        return stderr.getvalue(), stdout.getvalue()
+        return (
+            stderr.getvalue(), stdout.getvalue()
+        )
 
     @mock.patch('fuse.FUSE', autospec=True)
     def test_cabinet_mount_basic(self, FUSE):
@@ -51,7 +53,9 @@ class MountIndexManagementCommandTestCase(
             'mirroring_mount_index', slug, mount_point, stderr=stderr,
             stdout=stdout
         )
-        return stderr.getvalue(), stdout.getvalue()
+        return (
+            stderr.getvalue(), stdout.getvalue()
+        )
 
     def setUp(self):
         super().setUp()

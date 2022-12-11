@@ -77,7 +77,8 @@ class MessagingApp(MayanAppConfig):
 
         menu_multi_item.bind_links(
             links=(
-                link_message_multiple_delete, link_message_multiple_mark_read,
+                link_message_multiple_delete,
+                link_message_multiple_mark_read,
                 link_message_multiple_mark_unread
             ), sources=(Message,)
         )

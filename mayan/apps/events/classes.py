@@ -6,7 +6,6 @@ from furl import furl
 from django.apps import apps
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from actstream import action
@@ -55,9 +54,14 @@ class ActionExporter:
             )
 
         writer = csv.writer(
-            file_object, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL
+            file_object, delimiter=',', quotechar='"',
+            quoting=csv.QUOTE_MINIMAL
         )
-        file_object.write(','.join(self.field_names + ('\n',)))
+        file_object.write(
+            ','.join(
+                self.field_names + ('\n',)
+            )
+        )
 
         for entry in self.queryset.iterator():
             row = [
@@ -119,7 +123,7 @@ class ActionExporter:
                     'the downloads area (%(download_list_url)s).'
                 ) % {
                     'download_list_url': download_list_url,
-                    'download_url': download_url,
+                    'download_url': download_url
                 }
             )
 
@@ -140,6 +144,13 @@ class EventManager:
     def commit(self):
         if not self.instance_event_attributes['ignore']:
             self._commit()
+        #TODO:Add test and test all instances where an even is ignored.
+        #else:
+        #    for key, value in self.instance_event_attributes.items():
+        #        if key not in ('ignore', 'type'):
+        #            setattr(
+        #                self.instance, '_event_{}'.format(key), value
+        #            )
 
     def get_event_arguments(self, argument_map):
         result = {}
@@ -155,7 +166,9 @@ class EventManager:
             if value == 'self':
                 result[argument] = self.instance
             elif isinstance(value, str):
-                result[argument] = return_attrib(obj=self.instance, attrib=value)
+                result[argument] = return_attrib(
+                    attrib=value, obj=self.instance
+                )
             else:
                 result[argument] = value
 
@@ -206,12 +219,16 @@ class EventManagerSave(EventManager):
         if self.created:
             if 'created' in self.kwargs:
                 self.kwargs['created']['event'].commit(
-                    **self.get_event_arguments(argument_map=self.kwargs['created'])
+                    **self.get_event_arguments(
+                        argument_map=self.kwargs['created']
+                    )
                 )
         else:
             if 'edited' in self.kwargs:
                 self.kwargs['edited']['event'].commit(
-                    **self.get_event_arguments(argument_map=self.kwargs['edited'])
+                    **self.get_event_arguments(
+                        argument_map=self.kwargs['edited']
+                    )
                 )
 
     def prepare(self):
@@ -309,7 +326,7 @@ class EventTypeNamespace(AppsModuleLoaderMixin):
         return self.label < other.label
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def add_event_type(self, name, label):
         event_type = EventType(namespace=self, name=name, label=label)
@@ -317,7 +334,9 @@ class EventTypeNamespace(AppsModuleLoaderMixin):
         return event_type
 
     def get_event(self, name):
-        return EventType.get(id='{}.{}'.format(self.name, name))
+        return EventType.get(
+            id='{}.{}'.format(self.name, name)
+        )
 
     def get_event_types(self):
         return EventType.sort(event_type_list=self.event_types)
@@ -329,13 +348,17 @@ class EventType:
     @staticmethod
     def sort(event_type_list):
         return sorted(
-            event_type_list, key=lambda event_type: (event_type.namespace.label, event_type.label)
+            event_type_list, key=lambda event_type: (
+                event_type.namespace.label, event_type.label
+            )
         )
 
     @classmethod
     def all(cls):
-        # Return sorted permisions by namespace.name
-        return EventType.sort(event_type_list=cls._registry.values())
+        # Return sorted permisions by namespace.name.
+        return EventType.sort(
+            event_type_list=cls._registry.values()
+        )
 
     @classmethod
     def get(cls, id):
@@ -457,7 +480,9 @@ class ModelEventType:
 
     @classmethod
     def get_for_class(cls, klass):
-        result = cls._registry.get(klass, ())
+        result = cls._registry.get(
+            klass, ()
+        )
         return EventType.sort(event_type_list=result)
 
     @classmethod
@@ -487,7 +512,9 @@ class ModelEventType:
 
     @classmethod
     def register(cls, model, event_types):
-        cls._registry.setdefault(model, [])
+        cls._registry.setdefault(
+            model, []
+        )
         for event_type in event_types:
             cls._registry[model].append(event_type)
 

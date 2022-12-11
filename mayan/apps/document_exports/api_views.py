@@ -1,7 +1,7 @@
 from rest_framework import status
 
 from mayan.apps.rest_api import generics
-from mayan.apps.documents.api_views.mixins import (
+from mayan.apps.documents.api_views.api_view_mixins import (
     ParentObjectDocumentAPIViewMixin
 )
 
@@ -24,10 +24,10 @@ class APIDocumentVersionExportView(
     def get_queryset(self):
         return self.get_document().versions.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         task_document_version_export.apply_async(
             kwargs={
-                'document_version_id': self.object.pk,
+                'document_version_id': obj.pk,
                 'user_id': request.user.id
             }
         )

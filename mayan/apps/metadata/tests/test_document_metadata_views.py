@@ -540,7 +540,7 @@ class DocumentMetadataViewTestCase(
             metadata_type=self._test_metadata_types[1], required=True
         )
 
-        self._test_document.document_type_change(
+        self._test_document._document_type_change(
             document_type=self._test_document_types[1]
         )
 

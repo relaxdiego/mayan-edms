@@ -12,11 +12,10 @@ def handler_create_default_document_source(sender, **kwargs):
 
     if not Source.objects.filter(backend_path=SourceBackendWebForm.get_class_path()).count():
         Source.objects.create_backend(
-            label=_('Default'),
             backend_path=SourceBackendWebForm.get_class_path(),
             backend_data={
                 'uncompress': SOURCE_UNCOMPRESS_CHOICE_ASK
-            }
+            }, label=_('Default')
         )
 
 

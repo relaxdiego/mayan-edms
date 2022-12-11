@@ -50,9 +50,8 @@ class DocumentFileCompressor:
 
             with download_file.open(mode='wb+') as file_object:
                 self.compress(
-                    file_object=file_object,
                     _event_action_object=download_file,
-                    _event_actor=user
+                    _event_actor=user, file_object=file_object
                 )
 
             if user:
@@ -64,8 +63,8 @@ class DocumentFileCompressor:
 
                 download_url = furl(organization_installation_url).join(
                     reverse(
-                        viewname='storage:download_file_download',
-                        kwargs={'download_file_id': download_file.pk}
+                        kwargs={'download_file_id': download_file.pk},
+                        viewname='storage:download_file_download'
                     )
                 ).tostr()
 

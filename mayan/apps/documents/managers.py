@@ -4,7 +4,6 @@ import logging
 from django.apps import apps
 from django.contrib.auth import get_user_model
 from django.db import models
-from django.utils.encoding import force_text
 from django.utils.timezone import now
 
 from mayan.apps.databases.classes import ModelQueryFields
@@ -28,7 +27,9 @@ class DocumentManager(models.Manager):
             stale_stub_document.delete(to_trash=False)
 
     def get_by_natural_key(self, uuid):
-        return self.get(uuid=force_text(s=uuid))
+        return self.get(
+            uuid=str(uuid)
+        )
 
 
 class DocumentFileManager(models.Manager):
@@ -65,7 +66,8 @@ class DocumentTypeManager(models.Manager):
 
         for document_type in self.all():
             logger.info(
-                'Checking deletion period of document type: %s', document_type
+                'Checking deletion period of document type: %s',
+                document_type
             )
             if document_type.delete_time_period and document_type.delete_time_unit:
                 delta = timedelta(
@@ -86,7 +88,8 @@ class DocumentTypeManager(models.Manager):
                     document.delete()
             else:
                 logger.info(
-                    'Document type: %s, has a no retention delta', document_type
+                    'Document type: %s, has a no retention delta',
+                    document_type
                 )
 
         logger.info(msg='Finished')
@@ -117,7 +120,8 @@ class DocumentTypeManager(models.Manager):
                     document.delete()
             else:
                 logger.info(
-                    'Document type: %s, has a no retention delta', document_type
+                    'Document type: %s, has a no retention delta',
+                    document_type
                 )
 
         logger.info(msg='Finished')
@@ -275,7 +279,9 @@ class ValidRecentlyAccessedDocumentManager(models.Manager):
             if not created:
                 # Document already in the recent list, just save to force
                 # accessed date and time update.
-                new_recent.save(update_fields=('datetime_accessed',))
+                new_recent.save(
+                    update_fields=('datetime_accessed',)
+                )
 
             recent_to_delete = self.filter(user=user).values_list(
                 'pk', flat=True
@@ -283,7 +289,9 @@ class ValidRecentlyAccessedDocumentManager(models.Manager):
                 setting_recently_accessed_document_count.value:
             ]
 
-            self.filter(pk__in=list(recent_to_delete)).delete()
+            self.filter(
+                pk__in=list(recent_to_delete)
+            ).delete()
         return new_recent
 
     def get_for_user(self, user):

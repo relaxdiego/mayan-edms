@@ -13,7 +13,7 @@ from mayan.apps.views.generics import (
     FormView, MultipleObjectConfirmActionView, SingleObjectEditView,
     SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from .icons import (
     icon_document_file_metadata_single_submit,
@@ -61,7 +61,7 @@ class DocumentFileDriverListView(
             'object': self.external_object,
             'title': _(
                 'File metadata drivers for: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_source_queryset(self):
@@ -100,7 +100,7 @@ class DocumentFileDriverAttributeListView(
             ) % {
                 'document_file': self.external_object.document_file,
                 'driver': self.external_object.driver
-            },
+            }
         }
 
     def get_external_object_queryset(self):
@@ -117,11 +117,11 @@ class DocumentFileSubmitView(MultipleObjectConfirmActionView):
     object_permission = permission_file_metadata_submit
     pk_url_kwarg = 'document_file_id'
     source_queryset = DocumentFile.valid.all()
-    success_message_singular = _(
-        '%(count)d document file submitted to the file metadata queue.'
-    )
     success_message_plural = _(
         '%(count)d documents files submitted to the file metadata queue.'
+    )
+    success_message_singular = _(
+        '%(count)d document file submitted to the file metadata queue.'
     )
     view_icon = icon_document_file_metadata_single_submit
 
@@ -142,7 +142,7 @@ class DocumentFileSubmitView(MultipleObjectConfirmActionView):
         return result
 
     def object_action(self, form, instance):
-        instance.submit_for_file_metadata_processing(_user=self.request.user)
+        instance.submit_for_file_metadata_processing(user=self.request.user)
 
 
 class DocumentTypeFileMetadataSettingsEditView(
@@ -193,7 +193,7 @@ class DocumentTypeFileMetadataSubmitView(FormView):
         for document_type in form.cleaned_data['document_type']:
             for document in document_type.documents.filter(pk__in=document_queryset.values('pk')):
                 document.submit_for_file_metadata_processing(
-                    _user=self.request.user
+                    user=self.request.user
                 )
                 count += 1
 
@@ -206,4 +206,6 @@ class DocumentTypeFileMetadataSubmitView(FormView):
             }, request=self.request
         )
 
-        return HttpResponseRedirect(redirect_to=self.get_success_url())
+        return HttpResponseRedirect(
+            redirect_to=self.get_success_url()
+        )

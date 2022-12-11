@@ -77,12 +77,14 @@ class SettingNamespaceDetailView(SingleObjectListView):
                 'Settings inherited from an environment variable take '
                 'precedence and cannot be changed in this view. '
             ),
-            'title': _('Settings in namespace: %s') % self.get_namespace(),
+            'title': _('Settings in namespace: %s') % self.get_namespace()
         }
 
     def get_namespace(self):
         try:
-            return SettingNamespace.get(name=self.kwargs['namespace_name'])
+            return SettingNamespace.get(
+                name=self.kwargs['namespace_name']
+            )
         except KeyError:
             raise Http404(
                 _('Namespace: %s, not found') % self.kwargs['namespace_name']
@@ -95,7 +97,7 @@ class SettingNamespaceDetailView(SingleObjectListView):
 class SettingNamespaceListView(SingleObjectListView):
     extra_context = {
         'hide_link': True,
-        'title': _('Setting namespaces'),
+        'title': _('Setting namespaces')
     }
     view_icon = icon_setting_namespace_list
     view_permission = permission_settings_view

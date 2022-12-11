@@ -1,5 +1,3 @@
-from django.utils.encoding import force_text
-
 from mayan.apps.documents.permissions import (
     permission_document_file_view, permission_document_version_view,
     permission_document_view
@@ -197,7 +195,9 @@ class DocumentFilePageSearchResultWidgetViewTestCase(
 ):
     def setUp(self):
         super().setUp()
-        self._test_object_text = force_text(s=self._test_document_file.pages.first())
+        self._test_object_text = str(
+            self._test_document_file.pages.first()
+        )
         self._test_object_permission = permission_document_file_view
         self._test_search_model = search_model_document_file_page
         self._test_search_term_data = {
@@ -210,7 +210,7 @@ class DocumentVersionSearchResultWidgetViewTestCase(
 ):
     def setUp(self):
         super().setUp()
-        self._test_object_text = force_text(s=self._test_document_version)
+        self._test_object_text = str(self._test_document_version)
         self._test_object_permission = permission_document_version_view
         self._test_search_model = search_model_document_version
         self._test_search_term_data = {
@@ -223,7 +223,9 @@ class DocumentVersionPageSearchResultWidgetViewTestCase(
 ):
     def setUp(self):
         super().setUp()
-        self._test_object_text = force_text(s=self._test_document_version.pages.first())
+        self._test_object_text = str(
+            self._test_document_version.pages.first()
+        )
         self._test_object_permission = permission_document_version_view
         self._test_search_model = search_model_document_version_page
         self._test_search_term_data = {

@@ -5,7 +5,6 @@ import traceback
 from django import apps
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.utils.encoding import force_text
 from django.utils.module_loading import import_string
 from django.utils.translation import ugettext_lazy as _
 
@@ -40,8 +39,8 @@ class MayanAppConfig(apps.AppConfig):
 
         if self.app_url:
             top_url = '{installation_base_url}{app_urls}/'.format(
-                installation_base_url=installation_base_url,
-                app_urls=self.app_url
+                app_urls=self.app_url,
+                installation_base_url=installation_base_url
             )
         elif self.app_url is not None:
             # When using app_url as '' to register a top of URL view.
@@ -49,8 +48,8 @@ class MayanAppConfig(apps.AppConfig):
         else:
             # If app_url is None, use the app's name for the URL base.
             top_url = '{installation_base_url}{app_name}/'.format(
-                installation_base_url=installation_base_url,
-                app_name=self.name
+                app_name=self.name,
+                installation_base_url=installation_base_url
             )
 
         try:
@@ -61,9 +60,9 @@ class MayanAppConfig(apps.AppConfig):
             non_critical_error_list = (
                 'No module named urls',
                 'No module named \'{}.urls\''.format(self.name),
-                'Module "{}.urls" does not define a "urlpatterns" attribute/class'.format(self.name),
+                'Module "{}.urls" does not define a "urlpatterns" attribute/class'.format(self.name)
             )
-            if force_text(s=exception) not in non_critical_error_list:
+            if str(exception) not in non_critical_error_list:
                 logger.exception(
                     'Import time error when running AppConfig.ready() of app '
                     '"%s".', self.name
@@ -96,9 +95,9 @@ class MayanAppConfig(apps.AppConfig):
             non_critical_error_list = (
                 'No module named urls',
                 'No module named \'{}.urls\''.format(self.name),
-                'Module "{}.urls" does not define a "passthru_urlpatterns" attribute/class'.format(self.name),
+                'Module "{}.urls" does not define a "passthru_urlpatterns" attribute/class'.format(self.name)
             )
-            if force_text(s=exception) not in non_critical_error_list:
+            if str(exception) not in non_critical_error_list:
                 logger.exception(
                     'Import time error when running AppConfig.ready() of app '
                     '"%s".', self.name
@@ -140,7 +139,8 @@ class CommonApp(MayanAppConfig):
             name='menu_main', template_name='appearance/menus/menu_main.html'
         )
         AJAXTemplate(
-            name='menu_topbar', template_name='appearance/menus/menu_topbar.html'
+            name='menu_topbar',
+            template_name='appearance/menus/menu_topbar.html'
         )
 
         menu_about.bind_links(

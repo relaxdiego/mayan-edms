@@ -1,8 +1,5 @@
-import logging
-
 from django.conf import settings
 from django.db import models
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from ..managers import (
@@ -12,7 +9,6 @@ from ..managers import (
 from .document_models import Document
 
 __all__ = ('RecentlyAccessedDocument',)
-logger = logging.getLogger(name=__name__)
 
 
 class RecentlyAccessedDocument(models.Model):
@@ -41,11 +37,16 @@ class RecentlyAccessedDocument(models.Model):
         verbose_name_plural = _('Recent documents')
 
     def __str__(self):
-        return force_text(s=self.document)
+        return str(self.document)
 
     def natural_key(self):
-        return (self.datetime_accessed, self.document.natural_key(), self.user.natural_key())
-    natural_key.dependencies = ['documents.Document', settings.AUTH_USER_MODEL]
+        return (
+            self.datetime_accessed, self.document.natural_key(),
+            self.user.natural_key()
+        )
+    natural_key.dependencies = [
+        'documents.Document', settings.AUTH_USER_MODEL
+    ]
 
 
 class RecentlyAccessedDocumentProxy(Document):

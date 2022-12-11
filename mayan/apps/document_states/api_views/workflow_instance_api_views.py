@@ -32,9 +32,9 @@ class APIWorkflowInstanceLaunchActionView(generics.ObjectActionAPIView):
             'document': obj, 'document_type': obj.document_type
         }
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         workflow_template = serializer.validated_data['workflow_template_id']
-        workflow_template.launch_for(document=self.object)
+        workflow_template.launch_for(document=obj)
 
 
 class APIWorkflowInstanceListView(
@@ -54,7 +54,7 @@ class APIWorkflowInstanceListView(
     serializer_class = WorkflowInstanceSerializer
 
     def get_queryset(self):
-        return self.external_object.workflows.all()
+        return self.get_external_object().workflows.all()
 
 
 class APIWorkflowInstanceDetailView(
@@ -75,7 +75,7 @@ class APIWorkflowInstanceDetailView(
     serializer_class = WorkflowInstanceSerializer
 
     def get_queryset(self):
-        return self.external_object.workflows.all()
+        return self.get_external_object().workflows.all()
 
 
 class APIWorkflowInstanceLogEntryDetailView(
@@ -97,7 +97,7 @@ class APIWorkflowInstanceLogEntryDetailView(
 
     def get_workflow_instance(self):
         workflow = get_object_or_404(
-            klass=self.external_object.workflows,
+            klass=self.get_external_object().workflows,
             pk=self.kwargs['workflow_instance_id']
         )
 
@@ -126,23 +126,20 @@ class APIWorkflowInstanceLogEntryListView(
     )
     serializer_class = WorkflowInstanceLogEntrySerializer
 
-    def get_serializer_context(self):
-        context = super().get_serializer_context()
+    def get_serializer_extra_context(self):
         if self.kwargs:
-            context.update(
-                {
-                    'workflow_instance': self.get_workflow_instance(),
-                }
-            )
-
-        return context
+            return {
+                'workflow_instance': self.get_workflow_instance()
+            }
+        else:
+            return {}
 
     def get_queryset(self):
         return self.get_workflow_instance().log_entries.all()
 
     def get_workflow_instance(self):
         workflow = get_object_or_404(
-            klass=self.external_object.workflows,
+            klass=self.get_external_object().workflows,
             pk=self.kwargs['workflow_instance_id']
         )
 
@@ -179,12 +176,12 @@ class APIWorkflowInstanceLogEntryTransitionListView(
 
     def get_queryset(self):
         return self.get_workflow_instance().get_transition_choices(
-            _user=self.request.user
+            user=self.request.user
         )
 
     def get_workflow_instance(self):
         workflow = get_object_or_404(
-            klass=self.external_object.workflows,
+            klass=self.get_external_object().workflows,
             pk=self.kwargs['workflow_instance_id']
         )
 

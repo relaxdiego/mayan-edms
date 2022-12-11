@@ -52,15 +52,17 @@ class DocumentPropertiesEditAction(WorkflowAction):
                 'model': WorkflowInstance,
                 'model_variable': 'workflow_instance',
                 'required': False
-            },
-        },
+            }
+        }
     }
     field_order = ('document_label', 'document_description')
     label = _('Modify document properties')
 
     def execute(self, context):
         self.document_label = self.form_data.get('document_label')
-        self.document_description = self.form_data.get('document_description')
+        self.document_description = self.form_data.get(
+            'document_description'
+        )
         new_label = None
         new_description = None
 
@@ -280,10 +282,14 @@ class HTTPAction(WorkflowAction):
         return load_result
 
     def execute(self, context):
-        headers = self.render_field_load(field_name='headers', context=context)
+        headers = self.render_field_load(
+            field_name='headers', context=context
+        )
         method = self.render_field(field_name='method', context=context)
         password = self.render_field(field_name='password', context=context)
-        payload = self.render_field_load(field_name='payload', context=context)
+        payload = self.render_field_load(
+            field_name='payload', context=context
+        )
         timeout = self.render_field(field_name='timeout', context=context)
         url = self.render_field(field_name='url', context=context)
         username = self.render_field(field_name='username', context=context)
@@ -298,10 +304,10 @@ class HTTPAction(WorkflowAction):
         authentication = None
         if username or password:
             authentication = requests.auth.HTTPBasicAuth(
-                username=username, password=password
+                password=password, username=username
             )
 
         requests.request(
-            method=method, url=url, json=payload, timeout=timeout,
-            auth=authentication, headers=headers
+            auth=authentication, headers=headers, json=payload,
+            method=method, timeout=timeout, url=url
         )

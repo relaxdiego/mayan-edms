@@ -30,11 +30,11 @@ class APIWorkflowTemplateStateListView(
     def get_instance_extra_data(self):
         return {
             '_event_actor': self.request.user,
-            'workflow': self.workflow_template
+            'workflow': self.get_workflow_template()
         }
 
     def get_queryset(self):
-        return self.workflow_template.states.all()
+        return self.get_workflow_template().states.all()
 
 
 class APIWorkflowTemplateStateView(
@@ -58,11 +58,11 @@ class APIWorkflowTemplateStateView(
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
     def get_queryset(self):
-        return self.workflow_template.states.all()
+        return self.get_workflow_template().states.all()
 
 
 class APIWorkflowTemplateStateActionListView(
@@ -74,7 +74,7 @@ class APIWorkflowTemplateStateActionListView(
     """
     mayan_external_object_permissions = {
         'GET': (permission_workflow_template_view,),
-        'POST': (permission_workflow_template_edit,),
+        'POST': (permission_workflow_template_edit,)
     }
     ordering_fields = ('label', 'enabled', 'id')
     serializer_class = WorkflowTemplateStateActionSerializer
@@ -82,11 +82,11 @@ class APIWorkflowTemplateStateActionListView(
     def get_instance_extra_data(self):
         return {
             '_event_actor': self.request.user,
-            'state': self.workflow_template_state
+            'state': self.get_workflow_template_state()
         }
 
     def get_queryset(self):
-        return self.workflow_template_state.actions.all()
+        return self.get_workflow_template_state().actions.all()
 
 
 class APIWorkflowTemplateStateActionDetailView(
@@ -103,15 +103,15 @@ class APIWorkflowTemplateStateActionDetailView(
         'DELETE': (permission_workflow_template_edit,),
         'GET': (permission_workflow_template_view,),
         'PATCH': (permission_workflow_template_edit,),
-        'PUT': (permission_workflow_template_edit,),
+        'PUT': (permission_workflow_template_edit,)
     }
     lookup_url_kwarg = 'workflow_template_state_action_id'
     serializer_class = WorkflowTemplateStateActionSerializer
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
     def get_queryset(self):
-        return self.workflow_template_state.actions.all()
+        return self.get_workflow_template_state().actions.all()

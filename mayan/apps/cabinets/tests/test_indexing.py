@@ -17,7 +17,9 @@ class CabinetIndexingTestCase(
     auto_upload_test_document = False
 
     def test_indexing_cabinet_add(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.assertTrue(
             IndexInstanceNode.objects.filter(
@@ -27,7 +29,9 @@ class CabinetIndexingTestCase(
         )
 
     def test_indexing_cabinet_delete(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
         self._test_cabinet.delete()
 
         self.assertFalse(
@@ -38,7 +42,9 @@ class CabinetIndexingTestCase(
         )
 
     def test_indexing_cabinet_edit(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
         self._test_cabinet.label = TEST_CABINET_LABEL_EDITED
         self._test_cabinet.save()
 
@@ -56,8 +62,12 @@ class CabinetIndexingTestCase(
         )
 
     def test_indexing_cabinet_remove(self):
-        self._test_cabinet.document_add(document=self._test_document)
-        self._test_cabinet.document_remove(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
+        self._test_cabinet.document_remove(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.assertFalse(
             IndexInstanceNode.objects.filter(

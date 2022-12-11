@@ -20,7 +20,10 @@ from .literals import (
 
 
 @tag('mirroring')
-@unittest.skipIf(connection.vendor == 'mysql', 'Known to fail due to unsupported feature of database manager.')
+@unittest.skipIf(
+    condition=connection.vendor == 'mysql',
+    reason='Known to fail due to unsupported feature of database manager.'
+)
 class CabinetMirroringTestCase(
     CabinetTestMixin, GenericDocumentTestCase
 ):
@@ -126,7 +129,7 @@ class CabinetMirroringTestCase(
 
         self.assertEqual(
             hashlib.sha256(
-                test_filesystem.read(
+                string=test_filesystem.read(
                     fh=file_handle, offset=0, path=None,
                     size=self._test_document.file_latest.size
                 )

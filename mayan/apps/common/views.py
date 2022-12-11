@@ -6,7 +6,7 @@ from django.views.generic import RedirectView
 from stronghold.views import StrongholdPublicMixin
 
 from mayan.apps.views.generics import ConfirmView, SimpleView
-from mayan.apps.views.mixins import (
+from mayan.apps.views.view_mixins import (
     ExternalContentTypeObjectViewMixin, ObjectNameViewMixin
 )
 

@@ -6,7 +6,7 @@ from mayan.apps.views.generics import (
     SingleObjectCreateView, SingleObjectDeleteView, SingleObjectEditView,
     SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..forms import WorkflowStateEscalationForm
 from ..icons import (
@@ -83,7 +83,7 @@ class WorkflowTemplateStateEscalationDeleteView(SingleObjectDeleteView):
             'object': self.object,
             'title': _('Delete workflow state escalation: %s') % self.object,
             'workflow_template': self.object.state.workflow,
-            'workflow_template_state': self.object.state,
+            'workflow_template_state': self.object.state
         }
 
     def get_instance_extra_data(self):
@@ -115,7 +115,7 @@ class WorkflowTemplateStateEscalationEditView(SingleObjectEditView):
             'object': self.object,
             'title': _('Edit workflow state escalation: %s') % self.object,
             'workflow_template': self.object.state.workflow,
-            'workflow_template_state': self.object.state,
+            'workflow_template_state': self.object.state
         }
 
     def get_form_extra_kwargs(self):
@@ -146,9 +146,9 @@ class WorkflowTemplateStateEscalationListView(
             'no_results_icon': icon_workflow_template_state_escalation,
             'no_results_main_link': link_workflow_template_state_escalation_create.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={
+                    dict_={
                         'object': self.external_object
-                    }
+                    }, request=self.request
                 )
             ),
             'no_results_text': _(

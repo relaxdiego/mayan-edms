@@ -72,7 +72,7 @@ class DocumentFileLinkTestMixin:
 
 
 class DocumentFileTestMixin:
-    def _upload_test_document_file(self, action=None, _user=None):
+    def _upload_test_document_file(self, action=None, user=None):
         self._calculate_test_document_file_path()
 
         if not action:
@@ -81,7 +81,7 @@ class DocumentFileTestMixin:
         with open(file=self._test_document_path, mode='rb') as file_object:
             self._test_document_file = self._test_document.file_new(
                 action=action, comment=TEST_DOCUMENT_FILE_COMMENT,
-                file_object=file_object, _user=_user
+                file_object=file_object, user=user
             )
 
         self._test_document_file_page = self._test_document_file.pages.first()

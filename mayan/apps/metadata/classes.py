@@ -87,7 +87,9 @@ class MetadataTypeModuleMixin(AppsModuleLoaderMixin):
     @classmethod
     def get_choices(cls, add_blank=False):
         choices = [
-            (entry.get_import_path(), entry.get_full_label()) for entry in cls.get_all()
+            (
+                entry.get_import_path(), entry.get_full_label()
+            ) for entry in cls.get_all()
         ]
         choices.sort(key=lambda x: x[1])
 
@@ -110,7 +112,7 @@ class MetadataTypeModuleMixin(AppsModuleLoaderMixin):
 
         return format_lazy(
             '{label} {arguments_template}'.format(
-                label=cls.label, arguments_template=arguments_template
+                arguments_template=arguments_template, label=cls.label
             )
         )
 
@@ -121,21 +123,25 @@ class MetadataTypeModuleMixin(AppsModuleLoaderMixin):
         raise NotImplementedError
 
 
-class MetadataParser(MetadataTypeModuleMixin, metaclass=MetadataTypeParserMetaclass):
+class MetadataParser(
+    MetadataTypeModuleMixin, metaclass=MetadataTypeParserMetaclass
+):
     _loader_module_name = 'metadata_parsers'
 
     def parse(self, input_data):
         try:
             return self.execute(input_data)
         except Exception as exception:
-            raise ValidationError(exception)
+            raise ValidationError(message=exception)
 
 
-class MetadataValidator(MetadataTypeModuleMixin, metaclass=MetadataTypeValidatorMetaclass):
+class MetadataValidator(
+    MetadataTypeModuleMixin, metaclass=MetadataTypeValidatorMetaclass
+):
     _loader_module_name = 'metadata_validators'
 
     def validate(self, input_data):
         try:
             self.execute(input_data)
         except Exception as exception:
-            raise ValidationError(exception)
+            raise ValidationError(message=exception)

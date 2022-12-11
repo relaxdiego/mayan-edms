@@ -1,35 +1,34 @@
-import hashlib
-import logging
-
-from django.core import serializers
 from django.db import models
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
-from mayan.apps.common.serialization import yaml_load
 from mayan.apps.common.validators import YAMLValidator
 from mayan.apps.events.classes import (
     EventManagerMethodAfter, EventManagerSave
 )
 from mayan.apps.events.decorators import method_event
 from mayan.apps.events.models import StoredEventType
-from mayan.apps.templating.classes import Template
 
 from ..events import event_workflow_template_edited
 from ..literals import FIELD_TYPE_CHOICES, WIDGET_CLASS_CHOICES
 
 from .workflow_models import Workflow
 from .workflow_state_models import WorkflowState
+from .workflow_transition_model_mixins import (
+    WorkflowTransitionBusinessLogicMixin,
+    WorkflowTransitionFieldBusinessLogicMixin,
+    WorkflowTransitionTriggerEventBusinessLogicMixin
+)
 
 __all__ = (
     'WorkflowTransition', 'WorkflowTransitionField',
     'WorkflowTransitionTriggerEvent'
 )
-logger = logging.getLogger(name=__name__)
 
 
-class WorkflowTransition(ExtraDataModelMixin, models.Model):
+class WorkflowTransition(
+    ExtraDataModelMixin, WorkflowTransitionBusinessLogicMixin, models.Model
+):
     workflow = models.ForeignKey(
         on_delete=models.CASCADE, related_name='transitions', to=Workflow,
         verbose_name=_('Workflow')
@@ -77,42 +76,6 @@ class WorkflowTransition(ExtraDataModelMixin, models.Model):
     def delete(self, *args, **kwargs):
         return super().delete(*args, **kwargs)
 
-    def evaluate_condition(self, workflow_instance):
-        if self.has_condition():
-            return Template(template_string=self.condition).render(
-                context={'workflow_instance': workflow_instance}
-            ).strip()
-        else:
-            return True
-
-    def get_field_display(self):
-        field_list = [str(field) for field in self.fields.all()]
-        field_list.sort()
-
-        return ', '.join(field_list)
-
-    get_field_display.short_description = _('Fields')
-
-    def get_hash(self):
-        result = hashlib.sha256(
-            serializers.serialize(format='json', queryset=(self,)).encode()
-        )
-        for trigger_event in self.trigger_events.all():
-            result.update(trigger_event.get_hash().encode())
-
-        for field in self.fields.all():
-            result.update(field.get_hash().encode())
-
-        return result.hexdigest()
-
-    def has_condition(self):
-        return self.condition.strip()
-    has_condition.help_text = _(
-        'The transition will be available, depending on the condition '
-        'return value.'
-    )
-    has_condition.short_description = _('Has a condition?')
-
     @method_event(
         event_manager_class=EventManagerSave,
         created={
@@ -130,7 +93,10 @@ class WorkflowTransition(ExtraDataModelMixin, models.Model):
         return super().save(*args, **kwargs)
 
 
-class WorkflowTransitionField(ExtraDataModelMixin, models.Model):
+class WorkflowTransitionField(
+    ExtraDataModelMixin, WorkflowTransitionFieldBusinessLogicMixin,
+    models.Model
+):
     transition = models.ForeignKey(
         on_delete=models.CASCADE, related_name='fields',
         to=WorkflowTransition, verbose_name=_('Transition')
@@ -189,14 +155,6 @@ class WorkflowTransitionField(ExtraDataModelMixin, models.Model):
     def delete(self, *args, **kwargs):
         return super().delete(*args, **kwargs)
 
-    def get_hash(self):
-        return hashlib.sha256(
-            serializers.serialize(format='json', queryset=(self,)).encode()
-        ).hexdigest()
-
-    def get_widget_kwargs(self):
-        return yaml_load(stream=self.widget_kwargs or '{}')
-
     @method_event(
         event_manager_class=EventManagerSave,
         created={
@@ -214,7 +172,10 @@ class WorkflowTransitionField(ExtraDataModelMixin, models.Model):
         return super().save(*args, **kwargs)
 
 
-class WorkflowTransitionTriggerEvent(ExtraDataModelMixin, models.Model):
+class WorkflowTransitionTriggerEvent(
+    ExtraDataModelMixin, WorkflowTransitionTriggerEventBusinessLogicMixin,
+    models.Model
+):
     transition = models.ForeignKey(
         on_delete=models.CASCADE, related_name='trigger_events',
         to=WorkflowTransition, verbose_name=_('Transition')
@@ -231,7 +192,7 @@ class WorkflowTransitionTriggerEvent(ExtraDataModelMixin, models.Model):
         verbose_name_plural = _('Workflow transitions trigger events')
 
     def __str__(self):
-        return force_text(s=self.transition)
+        return str(self.transition)
 
     @method_event(
         action_object='self',
@@ -241,11 +202,6 @@ class WorkflowTransitionTriggerEvent(ExtraDataModelMixin, models.Model):
     )
     def delete(self, *args, **kwargs):
         return super().delete(*args, **kwargs)
-
-    def get_hash(self):
-        return hashlib.sha256(
-            serializers.serialize(format='json', queryset=(self,)).encode()
-        ).hexdigest()
 
     @method_event(
         event_manager_class=EventManagerSave,

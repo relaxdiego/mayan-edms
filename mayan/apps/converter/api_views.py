@@ -22,8 +22,12 @@ class APIAssetListView(generics.ListCreateAPIView):
     get: Returns a list of all the assets.
     post: Create a new asset.
     """
-    mayan_object_permissions = {'GET': (permission_asset_view,)}
-    mayan_view_permissions = {'POST': (permission_asset_create,)}
+    mayan_object_permissions = {
+        'GET': (permission_asset_view,)
+    }
+    mayan_view_permissions = {
+        'POST': (permission_asset_create,)
+    }
     ordering_fields = ('id', 'internal_name', 'label')
     queryset = Asset.objects.all()
     serializer_class = AssetSerializer
@@ -87,7 +91,9 @@ class APIAppImageErrorImageView(generics.RetrieveAPIView):
 
     def retrieve(self, request, *args, **kwargs):
         with self.get_object().open() as file_object:
-            response = HttpResponse(content=file_object.read(), content_type='image')
+            response = HttpResponse(
+                content=file_object.read(), content_type='image'
+            )
             return response
 
 
@@ -102,4 +108,4 @@ class APIContentObjectImageView(
         return self.content_type
 
     def set_object(self):
-        self.obj = self.external_object
+        self.obj = self.get_external_object()

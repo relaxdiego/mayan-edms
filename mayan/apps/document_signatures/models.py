@@ -1,9 +1,7 @@
 import logging
-import uuid
 
 from django.db import models
 from django.urls import reverse
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from model_utils.managers import InheritanceManager
@@ -23,15 +21,13 @@ from .events import (
 )
 from .literals import STORAGE_NAME_DOCUMENT_SIGNATURES_DETACHED_SIGNATURE
 from .managers import DetachedSignatureManager, EmbeddedSignatureManager
+from .model_mixins import SignatureBaseModelBusinessLogicMixin
+from .utils import upload_to
 
 logger = logging.getLogger(name=__name__)
 
 
-def upload_to(*args, **kwargs):
-    return force_text(s=uuid.uuid4())
-
-
-class SignatureBaseModel(models.Model):
+class SignatureBaseModel(SignatureBaseModelBusinessLogicMixin, models.Model):
     """
     Fields:
     * key_id - Key Identifier - This is what identifies uniquely a key. Not
@@ -73,84 +69,15 @@ class SignatureBaseModel(models.Model):
         verbose_name_plural = _('Document file signatures')
 
     def __str__(self):
-        return self.signature_id or '{} - {}'.format(self.date_time, self.key_id)
+        return self.signature_id or '{} - {}'.format(
+            self.date_time, self.key_id
+        )
 
     def get_absolute_url(self):
         return reverse(
             viewname='signatures:document_file_signature_detail',
             kwargs={'signature_id': self.pk}
         )
-
-    def get_key_id(self):
-        if self.public_key_fingerprint:
-            return self.public_key_fingerprint[-16:]
-        else:
-            return self.key_id
-
-    def get_signature_type_display(self):
-        if self.is_detached:
-            return _('Detached')
-        else:
-            return _('Embedded')
-
-    @property
-    def is_detached(self):
-        return hasattr(self, 'signature_file')
-
-    @property
-    def is_embedded(self):
-        return not hasattr(self, 'signature_file')
-
-    @property
-    def key(self):
-        try:
-            return Key.objects.get(
-                fingerprint=self.public_key_fingerprint
-            )
-        except Key.DoesNotExist:
-            return None
-
-    @property
-    def key_algorithm(self):
-        key = self.key
-
-        if key:
-            return key.algorithm
-
-    @property
-    def key_creation_date(self):
-        key = self.key
-
-        if key:
-            return key.creation_date
-
-    @property
-    def key_expiration_date(self):
-        key = self.key
-
-        if key:
-            return key.expiration_date
-
-    @property
-    def key_length(self):
-        key = self.key
-
-        if key:
-            return key.length
-
-    @property
-    def key_type(self):
-        key = self.key
-
-        if key:
-            return key.get_key_type_display()
-
-    @property
-    def key_user_id(self):
-        key = self.key
-
-        if key:
-            return key.user_id
 
 
 class DetachedSignature(ExtraDataModelMixin, SignatureBaseModel):
@@ -169,7 +96,9 @@ class DetachedSignature(ExtraDataModelMixin, SignatureBaseModel):
         verbose_name_plural = _('Document file detached signatures')
 
     def __str__(self):
-        return '{}-{}'.format(self.document_file, _('signature'))
+        return '{}-{}'.format(
+            self.document_file, _('signature')
+        )
 
     @method_event(
         event_manager_class=EventManagerMethodAfter,

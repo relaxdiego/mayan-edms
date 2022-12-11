@@ -64,7 +64,9 @@ class SettingNamespace(AppsModuleLoaderMixin):
 
     @classmethod
     def get_namespaces_config(cls):
-        return Setting.get_config_file_content().get(SMART_SETTINGS_NAMESPACES_NAME, {})
+        return Setting.get_config_file_content().get(
+            SMART_SETTINGS_NAMESPACES_NAME, {}
+        )
 
     @classmethod
     def invalidate_cache_all(cls):
@@ -136,7 +138,9 @@ class SettingNamespaceMigration:
             # Get methods for this setting
             pattern = r'{}_\d{{4}}'.format(setting_method_name)
             setting_methods = re.findall(
-                pattern=pattern, string='\n'.join(dir(self))
+                pattern=pattern, string='\n'.join(
+                    dir(self)
+                )
             )
 
             # Get order of execution of setting methods
@@ -146,7 +150,9 @@ class SettingNamespaceMigration:
                 ) for method in setting_methods
             ]
             try:
-                start = versions.index(self.namespace.get_config_version())
+                start = versions.index(
+                    self.namespace.get_config_version()
+                )
             except ValueError:
                 start = 0
 
@@ -183,7 +189,9 @@ class Setting:
         Walk all the elements of a value and force promises to text
         """
         if isinstance(value, (list, tuple)):
-            return [Setting.express_promises(item) for item in value]
+            return [
+                Setting.express_promises(item) for item in value
+            ]
         elif isinstance(value, Promise):
             return value._proxy____args[0]
         else:
@@ -192,8 +200,8 @@ class Setting:
     @staticmethod
     def serialize_value(value):
         result = yaml_dump(
-            data=Setting.express_promises(value=value), allow_unicode=True,
-            default_flow_style=False,
+            allow_unicode=True, data=Setting.express_promises(value=value),
+            default_flow_style=False
         )
         # safe_dump returns bytestrings
         # Disregard the last 3 dots that mark the end of the YAML document
@@ -239,7 +247,9 @@ class Setting:
 
     @classmethod
     def get_all(cls):
-        return sorted(cls._registry.values(), key=lambda x: x.global_name)
+        return sorted(
+            cls._registry.values(), key=lambda x: x.global_name
+        )
 
     @classmethod
     def get_config_file_content(cls):
@@ -253,7 +263,11 @@ class Setting:
     @classmethod
     def get_hash(cls):
         return force_text(
-            s=hashlib.sha256(force_bytes(s=cls.dump_data())).hexdigest()
+            s=hashlib.sha256(
+                string=force_bytes(
+                    s=cls.dump_data()
+                )
+            ).hexdigest()
         )
 
     @classmethod
@@ -264,7 +278,9 @@ class Setting:
 
             try:
                 with open(file=path, mode='w') as file_object:
-                    file_object.write(cls.dump_data())
+                    file_object.write(
+                        cls.dump_data()
+                    )
             except IOError as exception:
                 if exception.errno == errno.ENOENT:
                     logger.warning(
@@ -329,7 +345,9 @@ class Setting:
     def cache_value(self, global_name=None, default_override=None):
         global_name = global_name or self.global_name
 
-        environment_value = os.environ.get('MAYAN_{}'.format(global_name))
+        environment_value = os.environ.get(
+            'MAYAN_{}'.format(global_name)
+        )
         if environment_value:
             self.environment_variable = True
             try:
@@ -414,7 +432,7 @@ class Setting:
     def validate(self, raw_value):
         if self.validation_function:
             return self.validation_function(
-                setting=self, raw_value=raw_value
+                raw_value=raw_value, setting=self
             )
 
     @property

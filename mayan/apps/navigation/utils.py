@@ -68,8 +68,8 @@ def factory_condition_queryset_access(
 
         if user.is_authenticated:
             queryset = AccessControlList.objects.restrict_queryset(
-                permission=object_permission, user=user,
-                queryset=Model.objects.all()
+                permission=object_permission, queryset=Model.objects.all(),
+                user=user
             )
             if callback:
                 return queryset.exists() and callback(

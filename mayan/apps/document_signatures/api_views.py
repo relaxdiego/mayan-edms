@@ -1,4 +1,4 @@
-from mayan.apps.documents.api_views.mixins import ParentObjectDocumentFileAPIViewMixin
+from mayan.apps.documents.api_views.api_view_mixins import ParentObjectDocumentFileAPIViewMixin
 from mayan.apps.rest_api import generics
 
 from .models import DetachedSignature, EmbeddedSignature
@@ -31,7 +31,7 @@ class APIDocumentFileSignDetachedView(
     def get_queryset(self):
         return self.get_document_file_queryset()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
@@ -58,7 +58,7 @@ class APIDocumentFileSignEmbeddedView(
     def get_queryset(self):
         return self.get_document_file_queryset()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
@@ -121,14 +121,14 @@ class APIDocumentFileDetachedSignatureUploadView(
     lookup_url_kwarg = 'document_file_id'
     serializer_class = DetachedSignatureUploadSerializer
 
-    def get_queryset(self):
-        return self.get_document_file_queryset()
-
     def get_instance_extra_data(self):
         return {
             '_event_actor': self.request.user,
             'document_file': self.get_document_file()
         }
+
+    def get_queryset(self):
+        return self.get_document_file_queryset()
 
 
 class APIDocumentFileEmbeddedSignatureListView(

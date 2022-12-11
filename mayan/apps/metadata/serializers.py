@@ -27,7 +27,7 @@ class MetadataTypeSerializer(serializers.HyperlinkedModelSerializer):
             'url': {
                 'lookup_field': 'pk', 'lookup_url_kwarg': 'metadata_type_id',
                 'view_name': 'rest_api:metadatatype-detail'
-            },
+            }
         }
         fields = (
             'default', 'id', 'label', 'lookup', 'name', 'parser',
@@ -40,15 +40,21 @@ class MetadataTypeSerializer(serializers.HyperlinkedModelSerializer):
 class DocumentTypeMetadataTypeSerializer(
     serializers.HyperlinkedModelSerializer
 ):
-    document_type = DocumentTypeSerializer(read_only=True)
-    metadata_type = MetadataTypeSerializer(read_only=True)
+    document_type = DocumentTypeSerializer(
+        label=_('Document type'), read_only=True
+    )
+    metadata_type = MetadataTypeSerializer(
+        label=_('Metadata type'), read_only=True
+    )
     metadata_type_id = FilteredSimplePrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the metadata type to be added.'
         ), label=_('Metadata type ID'), source_model=MetadataType,
         source_permission=permission_metadata_type_edit, write_only=True
     )
-    url = serializers.SerializerMethodField()
+    url = serializers.SerializerMethodField(
+        label=_('URL')
+    )
 
     class Meta:
         create_only_fields = ('metadata_type_id',)
@@ -80,7 +86,7 @@ class DocumentTypeMetadataTypeSerializer(
         try:
             instance.full_clean()
         except DjangoValidationError as exception:
-            raise ValidationError(exception)
+            raise ValidationError(detail=exception)
 
         return attrs
 
@@ -91,12 +97,18 @@ class DocumentMetadataSerializer(
     metadata_type_id = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the metadata type to be added to the document.'
-        ), source_model=MetadataType,
+        ), label=_('Metadata type ID'), source_model=MetadataType,
         source_permission=permission_document_metadata_add, write_only=True
     )
-    document = DocumentSerializer(read_only=True)
-    metadata_type = MetadataTypeSerializer(read_only=True)
-    url = serializers.SerializerMethodField()
+    document = DocumentSerializer(
+        label=_('Document'), read_only=True
+    )
+    metadata_type = MetadataTypeSerializer(
+        label=_('Metadata type'), read_only=True
+    )
+    url = serializers.SerializerMethodField(
+        label=_('URL')
+    )
 
     class Meta:
         create_only_fields = ('metadata_type_id',)
@@ -122,7 +134,7 @@ class DocumentMetadataSerializer(
             try:
                 self.instance.full_clean()
             except DjangoValidationError as exception:
-                raise ValidationError(exception)
+                raise ValidationError(detail=exception)
 
             attrs['value'] = self.instance.value
 
@@ -137,7 +149,7 @@ class DocumentMetadataSerializer(
             try:
                 instance.full_clean()
             except DjangoValidationError as exception:
-                raise ValidationError(exception)
+                raise ValidationError(detail=exception)
 
             attrs['value'] = instance.value
 

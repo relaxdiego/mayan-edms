@@ -187,6 +187,34 @@
   - Reduce table padding to increase data area.
   - Minor spacing and margin tweaks.
 
+- Code style refactor and cleanup:
+
+  - Strip trailing commas.
+  - Sort arguments, dictionary keys and class methods.
+  - Unroll nested contexts.
+  - Separate model data and business logic code.
+  - Move add or remove code to models. Directly and as added methods to
+    external models.
+  - Pass the user to action methods instead of injecting the user as the
+    event actor. Injecting the user as the event actor will be done only
+    on immediate methods that do not allow arguments or data layer model
+    methods with well defined upstream arguments.
+  - Add keyword arguments.
+  - Rename mixins modules to be more explicit.
+  - Normalize the ``UploadWizard`` class ``step_post_upload_process`` method
+    arguments.
+  - Remove many instances of ``force_text``.
+  - Move several ``upload_to`` functions to their corresponding app's
+    ``utils`` module.
+  - Promote private ``_user`` argument to official argument.
+
+- API views refactor.
+  - Remove injected objects on API views. Each API view needs to query the
+    object explicitly. This is change is less efficient but was made to
+    mirror how upstream DRF works.
+  - Pass the view object to the action object API view.
+  - Add labels to serializer fields.
+
 4.3.2 (unreleased)
 ==================
 - Use the correct icon for the document type file metadata

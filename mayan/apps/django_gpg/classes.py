@@ -24,14 +24,24 @@ class KeyStub:
         self.fingerprint = raw['keyid']
         self.key_type = raw['type']
         self.date = make_aware(
-            value=datetime.fromtimestamp(int(raw['date']))
+            value=datetime.fromtimestamp(
+                int(
+                    raw['date']
+                )
+            )
         )
+
         if raw['expires']:
             self.expires = make_aware(
-                value=datetime.fromtimestamp(int(raw['expires']))
+                value=datetime.fromtimestamp(
+                    int(
+                        raw['expires']
+                    )
+                )
             )
         else:
             self.expires = None
+
         self.length = raw['length']
         self.user_id = raw['uids']
 
@@ -47,21 +57,30 @@ class SignatureVerification:
         self.key_id = raw['key_id']
         self.pubkey_fingerprint = raw['pubkey_fingerprint']
 
-        # Invalid signatures do not have a timestamp attribute
+        # Invalid signatures do not have a timestamp attribute.
         if raw['timestamp']:
             self.date_time = make_aware(
-                value=datetime.fromtimestamp(int(raw['timestamp']))
+                value=datetime.fromtimestamp(
+                    int(
+                        raw['timestamp']
+                    )
+                )
             )
 
         if raw['expire_timestamp']:
             self.expires = make_aware(
-                value=datetime.fromtimestamp(int(raw['expire_timestamp']))
+                value=datetime.fromtimestamp(
+                    int(
+                        raw['expire_timestamp']
+                    )
+                )
             )
         else:
             self.expires = None
-        self.trust_text = raw['trust_text']
-        self.valid = raw['valid']
-        self.stderr = raw['stderr']
+
         self.fingerprint = raw['fingerprint']
         self.signature_id = raw['signature_id']
+        self.stderr = raw['stderr']
         self.trust_level = raw['trust_level']
+        self.trust_text = raw['trust_text']
+        self.valid = raw['valid']

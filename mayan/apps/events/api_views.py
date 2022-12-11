@@ -27,7 +27,7 @@ class APIObjectEventListView(
     serializer_class = EventSerializer
 
     def get_queryset(self):
-        return any_stream(obj=self.external_object)
+        return any_stream(obj=self.get_external_object())
 
 
 class APIEventTypeNamespaceDetailView(generics.RetrieveAPIView):

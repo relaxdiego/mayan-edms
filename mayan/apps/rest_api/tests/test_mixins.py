@@ -16,6 +16,17 @@ class ExternalObjectAPIViewMixinTestCase(
     auto_login_user = False
     test_view_url = r'^test-view-url/(?P<test_object_id>\d+)/$'
 
+    def _request_test_api_view(self):
+        return self.get(
+            headers={
+                'HTTP_AUTHORIZATION': 'Token {}'.format(
+                    self._test_case_user_token
+                )
+            }, viewname='rest_api:{}'.format(self._test_view_name), kwargs={
+                'test_object_id': self._test_object.pk
+            }
+        )
+
     def _test_view_factory(self, test_object=None):
         class TestModelSerializer(serializers.Serializer):
             """Empty serializer."""
@@ -32,17 +43,6 @@ class ExternalObjectAPIViewMixinTestCase(
                 return None
 
         return TestView.as_view()
-
-    def _request_test_api_view(self):
-        return self.get(
-            headers={
-                'HTTP_AUTHORIZATION': 'Token {}'.format(
-                    self._test_case_user_token
-                )
-            }, viewname='rest_api:{}'.format(self._test_view_name), kwargs={
-                'test_object_id': self._test_object.pk,
-            },
-        )
 
     def test_mixin_using_token_authentication_with_access(self):
         self.grant_access(
@@ -65,6 +65,13 @@ class ChildExternalObjectAPIViewMixinTestCase(
     auto_create_test_object = True
     test_view_url = r'^test-view-url/(?P<test_object_id>\d+)/$'
 
+    def _request_test_api_view(self):
+        return self.get(
+            viewname='rest_api:{}'.format(self._test_view_name), kwargs={
+                'test_object_id': self._test_object.pk + 1
+            }, query={'format': 'api'}
+        )
+
     def _test_view_factory(self, test_object=None):
         TestModel = self.TestModel
 
@@ -76,14 +83,13 @@ class ChildExternalObjectAPIViewMixinTestCase(
             external_object_pk_url_kwarg = 'test_object_id'
             serializer_class = TestModelSerializer
 
-        return TestView.as_view()
+            def get_queryset(self):
+                # Normally this would return a queryset based on the
+                # external object. This incomplete method is good enought for
+                # the test.
+                return self.get_external_object()
 
-    def _request_test_api_view(self):
-        return self.get(
-            viewname='rest_api:{}'.format(self._test_view_name), kwargs={
-                'test_object_id': self._test_object.pk + 1,
-            }, query={'format': 'api'}
-        )
+        return TestView.as_view()
 
     def test_mixin_with_non_existent_object_and_browseable_view(self):
         response = self._request_test_api_view()

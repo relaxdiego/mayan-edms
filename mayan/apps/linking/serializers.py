@@ -17,21 +17,20 @@ from .models import ResolvedSmartLink, SmartLink, SmartLinkCondition
 
 class SmartLinkConditionSerializer(serializers.HyperlinkedModelSerializer):
     smart_link_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='smart_link_id',
+        label=_('Smart link URL'), lookup_url_kwarg='smart_link_id',
         view_name='rest_api:smartlink-detail'
     )
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'smart_link_id',
-                'lookup_url_kwarg': 'smart_link_id',
+                'lookup_url_kwarg': 'smart_link_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'smart_link_condition_id',
+                'lookup_url_kwarg': 'smart_link_condition_id'
             }
-        ),
-        view_name='rest_api:smartlinkcondition-detail'
+        ), view_name='rest_api:smartlinkcondition-detail'
     )
 
     class Meta:
@@ -48,7 +47,7 @@ class SmartLinkDocumentTypeAddSerializer(serializers.Serializer):
     document_type = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the document type to add to the smart link.'
-        ), source_model=DocumentType,
+        ), label=_('Document type ID'), source_model=DocumentType,
         source_permission=permission_document_type_edit
     )
 
@@ -57,25 +56,26 @@ class SmartLinkDocumentTypeRemoveSerializer(serializers.Serializer):
     document_type = FilteredPrimaryKeyRelatedField(
         help_text=_(
             'Primary key of the document type to remove from the smart link.'
-        ), source_model=DocumentType,
+        ), label=_('Document type ID'), source_model=DocumentType,
         source_permission=permission_document_type_edit
     )
 
 
 class SmartLinkSerializer(serializers.HyperlinkedModelSerializer):
     conditions_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='smart_link_id',
+        label=_('Conditions URL'), lookup_url_kwarg='smart_link_id',
         view_name='rest_api:smartlinkcondition-list'
     )
     document_types_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='smart_link_id',
+        label=_('Document types URL'), lookup_url_kwarg='smart_link_id',
         view_name='rest_api:smartlink-document_type-list'
     )
     document_types_add_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='smart_link_id',
+        label=_('Document types add URL'), lookup_url_kwarg='smart_link_id',
         view_name='rest_api:smartlink-document_type-add'
     )
     document_types_remove_url = serializers.HyperlinkedIdentityField(
+        label=_('Document types remove URL'),
         lookup_url_kwarg='smart_link_id',
         view_name='rest_api:smartlink-document_type-remove'
     )
@@ -100,7 +100,9 @@ class SmartLinkSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ResolvedSmartLinkDocumentSerializer(DocumentSerializer):
-    resolved_smart_link_url = serializers.SerializerMethodField()
+    resolved_smart_link_url = serializers.SerializerMethodField(
+        label=_('Resolved smart link URL')
+    )
 
     class Meta(DocumentSerializer.Meta):
         fields = DocumentSerializer.Meta.fields + (
@@ -119,10 +121,18 @@ class ResolvedSmartLinkDocumentSerializer(DocumentSerializer):
 
 
 class ResolvedSmartLinkSerializer(serializers.HyperlinkedModelSerializer):
-    documents_url = serializers.SerializerMethodField()
-    label = serializers.SerializerMethodField()
-    smart_link_url = serializers.SerializerMethodField()
-    url = serializers.SerializerMethodField()
+    documents_url = serializers.SerializerMethodField(
+        label=_('Documents URL')
+    )
+    label = serializers.SerializerMethodField(
+        label=_('Label')
+    )
+    smart_link_url = serializers.SerializerMethodField(
+        label=_('Smart link URL')
+    )
+    url = serializers.SerializerMethodField(
+        label=_('URL')
+    )
 
     class Meta:
         fields = (

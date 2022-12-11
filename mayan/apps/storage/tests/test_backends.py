@@ -64,7 +64,9 @@ class ZipCompressedPassthroughStorageTestCase(
         fs_cleanup(filename=self.temporary_directory)
         super().tearDown()
 
-    @skip('get_mime_type() is not recognizing deflated Zips some times.')
+    @skip(
+        reason='get_mime_type() is not recognizing deflated Zips some times.'
+    )
     def test_file_save_and_load(self):
         storage = ZipCompressedPassthroughStorage(
             next_storage_backend_arguments={

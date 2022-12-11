@@ -37,7 +37,9 @@ class TagWorkflowActionTestCase(TagTestMixin, ActionTestCase):
         self.assertEqual(events[0].verb, event_tag_attached.id)
 
     def test_tag_remove_action(self):
-        self._test_tag.attach_to(document=self._test_document)
+        self._test_tag.attach_to(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self._clear_events()
 

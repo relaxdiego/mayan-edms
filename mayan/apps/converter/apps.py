@@ -1,5 +1,4 @@
 from django.db.models.signals import post_migrate
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.acls.classes import ModelPermission
@@ -61,7 +60,7 @@ class ConverterApp(MayanAppConfig):
 
         ModelPermission.register_inheritance(
             model=LayerTransformation,
-            related='object_layer__content_object',
+            related='object_layer__content_object'
         )
 
         SourceColumn(
@@ -78,8 +77,9 @@ class ConverterApp(MayanAppConfig):
             source=LayerTransformation
         )
         SourceColumn(
-            func=lambda context: force_text(s=context['object']),
-            include_label=True, label=_('Transformation'),
+            func=lambda context: str(
+                context['object']
+            ), include_label=True, label=_('Transformation'),
             source=LayerTransformation
         )
         SourceColumn(
@@ -99,7 +99,7 @@ class ConverterApp(MayanAppConfig):
             links=(link_asset_list, link_asset_create,),
             sources=(
                 Asset, 'converter:asset_list', 'converter:asset_create',
-                'converter:asset_multiple_delete',
+                'converter:asset_multiple_delete'
             )
         )
         menu_setup.bind_links(
@@ -124,5 +124,5 @@ class ConverterApp(MayanAppConfig):
 
         post_migrate.connect(
             dispatch_uid='converter_handler_create_asset_cache',
-            receiver=handler_create_asset_cache,
+            receiver=handler_create_asset_cache
         )

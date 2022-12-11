@@ -2,8 +2,6 @@ from django import forms
 
 from ..fields import DocumentFilePageField
 
-__all__ = ('DocumentFilePageForm',)
-
 
 class DocumentFilePageForm(forms.Form):
     document_file_page = DocumentFilePageField()

@@ -13,13 +13,16 @@ from mayan.apps.events.classes import (
 from mayan.apps.events.decorators import method_event
 from mayan.apps.permissions.models import Role, StoredPermission
 
-from .events import event_acl_created, event_acl_deleted, event_acl_edited
+from .events import event_acl_created, event_acl_deleted
 from .managers import AccessControlListManager
+from .model_mixins import AccessControlListBusinessLogicMixin
 
 logger = logging.getLogger(name=__name__)
 
 
-class AccessControlList(ExtraDataModelMixin, models.Model):
+class AccessControlList(
+    AccessControlListBusinessLogicMixin, ExtraDataModelMixin, models.Model
+):
     """
     ACL means Access Control List it is a more fine-grained method of
     granting access to objects. In the case of ACLs, they grant access using
@@ -78,37 +81,6 @@ class AccessControlList(ExtraDataModelMixin, models.Model):
     def get_absolute_url(self):
         return reverse(
             viewname='acls:acl_permissions', kwargs={'acl_id': self.pk}
-        )
-
-    def get_inherited_permissions(self):
-        return AccessControlList.objects.get_inherited_permissions(
-            obj=self.content_object, role=self.role
-        )
-
-    def get_permission_count(self):
-        """
-        Return the numeric count of permissions that have this role
-        has granted. The count is filtered by access.
-        """
-        return self.permissions.count()
-    get_permission_count.short_description = _('Permission count')
-
-    def permissions_add(self, queryset, _event_actor=None):
-        for obj in queryset:
-            self.permissions.add(obj)
-
-        event_acl_edited.commit(
-            action_object=self.content_object,
-            actor=_event_actor or self._event_actor, target=self
-        )
-
-    def permissions_remove(self, queryset, _event_actor=None):
-        for obj in queryset:
-            self.permissions.remove(obj)
-
-        event_acl_edited.commit(
-            action_object=self.content_object,
-            actor=_event_actor or self._event_actor, target=self
         )
 
     @method_event(

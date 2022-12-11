@@ -39,7 +39,7 @@ class MetadataTypeCreateView(SingleObjectCreateView):
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
 
@@ -81,12 +81,12 @@ class MetadataTypeEditView(SingleObjectEditView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Edit metadata type: %s') % self.object,
+            'title': _('Edit metadata type: %s') % self.object
         }
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
 
@@ -149,7 +149,7 @@ class DocumentTypeMetadataTypeRelationshipView(RelationshipView):
 
     def get_form_extra_kwargs(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
     def get_initial(self):
@@ -162,7 +162,7 @@ class DocumentTypeMetadataTypeRelationshipView(RelationshipView):
                     'object': obj,
                     'relationship_related_field': self.relationship_related_field,
                     'relationship_related_query_field': self.relationship_related_query_field,
-                    'sub_object': element,
+                    'sub_object': element
                 }
             )
         return initial
@@ -202,7 +202,7 @@ class MetadataTypesDocumentTypeRelationshipView(
                     'object': obj,
                     'relationship_related_field': self.relationship_related_field,
                     'relationship_related_query_field': self.relationship_related_query_field,
-                    'sub_object': element,
+                    'sub_object': element
                 }
             )
         return initial

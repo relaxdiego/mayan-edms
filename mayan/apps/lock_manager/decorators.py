@@ -24,10 +24,12 @@ def locked_class_method(func):
         try:
             if _acquire_lock:
                 logger.debug('trying to acquire lock: %s', lock_name)
-                lock = LockingBackend.get_backend().acquire_lock(name=lock_name)
+                lock = LockingBackend.get_backend().acquire_lock(
+                    name=lock_name
+                )
                 logger.debug('acquired lock: %s', lock_name)
         except LockError:
-            logger.debug('unable to obtain lock: %s' % lock_name)
+            logger.debug('unable to obtain lock: %s', lock_name)
             raise
         else:
             try:
@@ -52,10 +54,12 @@ def acquire_lock_class_method(func):
         try:
             if _acquire_lock:
                 logger.debug('trying to acquire lock: %s', lock_name)
-                self._lock = LockingBackend.get_backend().acquire_lock(name=lock_name)
+                self._lock = LockingBackend.get_backend().acquire_lock(
+                    name=lock_name
+                )
                 logger.debug('acquired lock: %s', lock_name)
         except LockError:
-            logger.debug('unable to obtain lock: %s' % lock_name)
+            logger.debug('unable to obtain lock: %s', lock_name)
             raise
         else:
             return func(self, *args, **kwargs)

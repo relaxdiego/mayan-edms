@@ -22,7 +22,7 @@ from .forms import DynamicForm, FormFieldsetMixin
 from .literals import (
     PK_LIST_SEPARATOR, TEXT_CHOICE_ITEMS, TEXT_CHOICE_LIST,
     TEXT_LIST_AS_ITEMS_PARAMETER, TEXT_LIST_AS_ITEMS_VARIABLE_NAME,
-    TEXT_SORT_FIELD_PARAMETER, TEXT_SORT_FIELD_VARIABLE_NAME,
+    TEXT_SORT_FIELD_PARAMETER, TEXT_SORT_FIELD_VARIABLE_NAME
 )
 
 
@@ -88,7 +88,7 @@ class DownloadViewMixin:
             file_object=file_object, mime_type_only=True
         )
 
-        return mime_type, encoding
+        return (mime_type, encoding)
 
     def render_to_response(self, **response_kwargs):
         response = FileResponse(
@@ -425,14 +425,16 @@ class ObjectActionViewMixin:
     """
     Mixin that performs a user action to a queryset
     """
-    error_message = _('Unable to perform operation on object %(instance)s; %(exception)s.')
+    error_message = _(
+        'Unable to perform operation on object %(instance)s; %(exception)s.'
+    )
     post_object_action_url = None
+    success_message_plural = _('Operation performed on %(count)d objects.')
     success_message_single = _('Operation performed on %(object)s.')
     success_message_singular = _('Operation performed on %(count)d object.')
-    success_message_plural = _('Operation performed on %(count)d objects.')
+    title_plural = _('Perform operation on %(count)d objects.')
     title_single = _('Perform operation on %(object)s.')
     title_singular = _('Perform operation on %(count)d object.')
-    title_plural = _('Perform operation on %(count)d objects.')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -446,7 +448,7 @@ class ObjectActionViewMixin:
                 plural=self.title_plural,
                 number=self.object_list.count()
             ) % {
-                'count': self.object_list.count(),
+                'count': self.object_list.count()
             }
 
         context['title'] = title
@@ -466,7 +468,7 @@ class ObjectActionViewMixin:
                 plural=self.success_message_plural,
                 number=count
             ) % {
-                'count': count,
+                'count': count
             }
 
     def object_action(self, instance, form=None):

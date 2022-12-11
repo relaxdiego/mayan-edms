@@ -21,7 +21,10 @@ from .literals import (
 
 
 @tag('mirroring')
-@unittest.skipIf(connection.vendor == 'mysql', 'Known to fail due to unsupported feature of database manager.')
+@unittest.skipIf(
+    condition=connection.vendor == 'mysql',
+    reason='Known to fail due to unsupported feature of database manager.'
+)
 class IndexInstanceNodeMirroringTestCase(
     IndexTemplateTestMixin, GenericDocumentTestCase
 ):

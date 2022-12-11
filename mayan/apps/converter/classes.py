@@ -12,7 +12,6 @@ from django.apps import apps
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.exceptions import ImproperlyConfigured
 from django.db import transaction
-from django.utils.encoding import force_text
 from django.utils.functional import cached_property
 from django.utils.module_loading import import_string
 from django.utils.translation import ugettext_lazy as _
@@ -139,10 +138,10 @@ class ConverterBase:
             self.image = self.convert(page_number=page_number)
         except PIL.Image.DecompressionBombError as exception:
             logger.error(
-                'Unable to seek document page. Increase the value of '
+                msg='Unable to seek document page. Increase the value of '
                 'the argument "pillow_maximum_image_pixels" in the '
                 'CONVERTER_GRAPHICS_BACKEND_ARGUMENTS setting; %s',
-                exception
+                args=(exception,)
             )
             raise
         else:
@@ -174,12 +173,15 @@ class ConverterBase:
                     temporary_file_object.name, '--outdir', setting_temporary_directory.value,
                     '-env:UserInstallation=file://{}'.format(
                         os.path.join(
-                            libreoffice_home_directory, 'LibreOffice_Conversion'
+                            libreoffice_home_directory,
+                            'LibreOffice_Conversion'
                         )
                     ),
                 )
 
-                kwargs = {'_env': {'HOME': libreoffice_home_directory}}
+                kwargs = {
+                    '_env': {'HOME': libreoffice_home_directory}
+                }
 
                 if self.mime_type == 'text/plain':
                     kwargs.update(
@@ -228,7 +230,8 @@ class ConverterBase:
         # and delete the converted file.
         with open(file=converted_file_path, mode='rb') as converted_file_object:
             shutil.copyfileobj(
-                fsrc=converted_file_object, fdst=temporary_converted_file_object
+                fsrc=converted_file_object,
+                fdst=temporary_converted_file_object
             )
         fs_cleanup(filename=converted_file_path)
         temporary_converted_file_object.seek(0)
@@ -256,7 +259,9 @@ class ConverterBase:
         if self.mime_type in CONVERTER_OFFICE_FILE_MIMETYPES:
             return self.soffice()
         else:
-            raise InvalidOfficeFormat(_('Not an office file format.'))
+            raise InvalidOfficeFormat(
+                _('Not an office file format.')
+            )
 
     def transform(self, transformation):
         if not self.image:
@@ -301,7 +306,7 @@ class Layer:
 
     def __init__(
         self, label, name, order, permissions, default=False,
-        empty_results_text=None, symbol=None,
+        empty_results_text=None, symbol=None
     ):
         self.default = default
         self.empty_results_text = empty_results_text
@@ -316,7 +321,8 @@ class Layer:
 
         if layer:
             raise ImproperlyConfigured(
-                'Layer "{}" already has order "{}" requested by layer "{}"'.format(
+                'Layer "{}" already has order "{}" requested by '
+                'layer "{}"'.format(
                     layer.name, order, self.name
                 )
             )
@@ -334,7 +340,7 @@ class Layer:
         self.__class__._registry[name] = self
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def add_transformation_to(
         self, obj, transformation_class, arguments=None, order=None
@@ -382,7 +388,7 @@ class Layer:
                     object_layer.transformations.create(
                         order=transformation.order,
                         name=transformation.name,
-                        arguments=transformation.arguments,
+                        arguments=transformation.arguments
                     )
 
     def get_empty_results_text(self):
@@ -421,7 +427,7 @@ class Layer:
         )
 
         return LayerTransformation.objects.get_for_object(
-            obj=obj, as_classes=as_classes,
+            as_classes=as_classes, obj=obj,
             only_stored_layer=self.stored_layer
         )
 

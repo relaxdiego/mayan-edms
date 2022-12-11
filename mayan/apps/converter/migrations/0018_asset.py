@@ -46,7 +46,8 @@ class Migration(migrations.Migration):
                     'file', models.FileField(
                         storage=mayan.apps.storage.classes.DefinedStorageLazy(
                             name='converter__assets'
-                        ), upload_to=mayan.apps.converter.models.upload_to,
+                        ),
+                        upload_to=mayan.apps.converter.utils.model_upload_to,
                         verbose_name='File'
                     )
                 ),

@@ -10,9 +10,15 @@ from .models import Role, StoredPermission
 
 
 class PermissionSerializer(serializers.Serializer):
-    namespace = serializers.CharField(read_only=True)
-    pk = serializers.CharField(read_only=True)
-    label = serializers.CharField(read_only=True)
+    namespace = serializers.CharField(
+        label=_('Namespace'), read_only=True
+    )
+    pk = serializers.CharField(
+        label=_('Primary key'), read_only=True
+    )
+    label = serializers.CharField(
+        label=_('Label'), read_only=True
+    )
 
     def to_representation(self, instance):
         if isinstance(instance, StoredPermission):
@@ -28,7 +34,7 @@ class PermissionSerializer(serializers.Serializer):
 class RoleGroupAddSerializer(serializers.Serializer):
     group = FilteredPrimaryKeyRelatedField(
         help_text=_('Primary key of the group to add to the role.'),
-        source_queryset=Group.objects.all(),
+        label=_('Group ID'), source_queryset=Group.objects.all(),
         source_permission=permission_group_edit
     )
 
@@ -36,7 +42,7 @@ class RoleGroupAddSerializer(serializers.Serializer):
 class RoleGroupRemoveSerializer(serializers.Serializer):
     group = FilteredPrimaryKeyRelatedField(
         help_text=_('Primary key of the group to remove from the role.'),
-        source_queryset=Group.objects.all(),
+        label=_('Group ID'), source_queryset=Group.objects.all(),
         source_permission=permission_group_edit
     )
 
@@ -44,40 +50,41 @@ class RoleGroupRemoveSerializer(serializers.Serializer):
 class RolePermissionAddSerializer(serializers.Serializer):
     permission = FilteredPrimaryKeyRelatedField(
         help_text=_('Primary key of the permission to add to the role.'),
-        source_queryset=Permission.all()
+        label=_('Permission ID'), source_queryset=Permission.all()
     )
 
 
 class RolePermissionRemoveSerializer(serializers.Serializer):
     permission = FilteredPrimaryKeyRelatedField(
-        help_text=_('Primary key of the permission to remove from the role.'),
-        source_queryset=Permission.all()
+        help_text=_(
+            'Primary key of the permission to remove from the role.'
+        ), label=_('Permission ID'), source_queryset=Permission.all()
     )
 
 
 class RoleSerializer(serializers.HyperlinkedModelSerializer):
     groups_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='role_id',
+        label=_('Groups URL'), lookup_url_kwarg='role_id',
         view_name='rest_api:role-group-list'
     )
     groups_add_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='role_id',
+        label=_('Groups add URL'), lookup_url_kwarg='role_id',
         view_name='rest_api:role-group-add'
     )
     groups_remove_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='role_id',
+        label=_('Groups remove URL'), lookup_url_kwarg='role_id',
         view_name='rest_api:role-group-remove'
     )
     permissions_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='role_id',
+        label=_('Permissions URL'), lookup_url_kwarg='role_id',
         view_name='rest_api:role-permission-list'
     )
     permissions_add_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='role_id',
+        label=_('Permissions add URL'), lookup_url_kwarg='role_id',
         view_name='rest_api:role-permission-add'
     )
     permissions_remove_url = serializers.HyperlinkedIdentityField(
-        lookup_url_kwarg='role_id',
+        label=_('Permissions remove URL'), lookup_url_kwarg='role_id',
         view_name='rest_api:role-permission-remove'
     )
 

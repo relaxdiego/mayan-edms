@@ -7,11 +7,6 @@ from mayan.apps.views.forms import DetailForm
 from ..fields import DocumentFileField
 from ..models.document_file_models import DocumentFile
 
-__all__ = (
-    'DocumentFileForm', 'DocumentFilePreviewForm',
-    'DocumentFilePropertiesForm'
-)
-
 
 class DocumentFileForm(forms.ModelForm):
     class Meta:
@@ -78,7 +73,7 @@ class DocumentFilePropertiesForm(DetailForm):
             {
                 'label': _('Size'),
                 'func': lambda document_file: filesizeformat(
-                    document_file.size
+                    btyes_=document_file.size
                 ) if document_file.size else '-', 'field': 'size'
             },
             {'label': _('Exists in storage'), 'field': 'exists'},

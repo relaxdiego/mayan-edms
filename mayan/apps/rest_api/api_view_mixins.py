@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.settings import api_settings
 
 from mayan.apps.databases.utils import check_queryset
-from mayan.apps.views.mixins import ExternalObjectBaseMixin
+from mayan.apps.views.view_mixins import ExternalObjectBaseMixin
 
 from .literals import (
     QUERY_FIELD_EXCLUDE_PARAMETER, QUERY_FIELD_ONLY_PARAMETER
@@ -112,7 +112,9 @@ class ExternalObjectAPIViewMixin(ExternalObjectBaseMixin):
     def get_external_object_permission(self):
         return getattr(
             self, 'mayan_external_object_permissions', {}
-        ).get(self.request.method, (None,))[0]
+        ).get(
+            self.request.method, (None,)
+        )[0]
 
     def get_serializer_extra_context(self):
         """
@@ -121,19 +123,9 @@ class ExternalObjectAPIViewMixin(ExternalObjectBaseMixin):
         """
         context = super().get_serializer_extra_context()
         if self.kwargs:
-            context['external_object'] = self.external_object
+            context['external_object'] = self.get_external_object()
 
         return context
-
-    def initial(self, *args, **kwargs):
-        result = super().initial(*args, **kwargs)
-        # Ensure self.external_object is initialized to allow the browseable
-        # API view to display when attempting to introspect the serializer
-        # and the parent object is not found.
-        self.external_object = None
-
-        self.external_object = self.get_external_object()
-        return result
 
 
 class ExternalContentTypeObjectAPIViewMixin(

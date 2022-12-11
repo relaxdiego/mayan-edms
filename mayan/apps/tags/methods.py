@@ -9,8 +9,9 @@ def method_document_get_tags(self, permission, user):
     DocumentTag = apps.get_model(app_label='tags', model_name='DocumentTag')
 
     return AccessControlList.objects.restrict_queryset(
-        permission=permission,
-        queryset=DocumentTag.objects.filter(documents=self), user=user
+        permission=permission, queryset=DocumentTag.objects.filter(
+            documents=self
+        ), user=user
     )
 
 

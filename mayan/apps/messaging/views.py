@@ -40,8 +40,8 @@ class MessageCreateView(SingleObjectCreateView):
 
     def get_instance_extra_data(self):
         return {
-            'sender_object': self.request.user,
-            '_event_actor': self.request.user
+            '_event_actor': self.request.user,
+            'sender_object': self.request.user
         }
 
 
@@ -50,12 +50,12 @@ class MessageDeleteView(MultipleObjectConfirmActionView):
     object_permission = permission_message_delete
     pk_url_kwarg = 'message_id'
     post_action_redirect = reverse_lazy(viewname='messaging:message_list')
+    success_message_plural = _('%(count)d messages deleted successfully.')
     success_message_single = _('Message "%(object)s" deleted successfully.')
     success_message_singular = _('%(count)d message deleted successfully.')
-    success_message_plural = _('%(count)d messages deleted successfully.')
+    title_plural = _('Delete the %(count)d selected messages.')
     title_single = _('Delete message: %(object)s.')
     title_singular = _('Delete the %(count)d selected message.')
-    title_plural = _('Delete the %(count)d selected messages.')
     view_icon = icon_message_delete
 
     def get_extra_context(self):
@@ -76,6 +76,7 @@ class MessageDeleteView(MultipleObjectConfirmActionView):
         return self.request.user.messages.all()
 
     def object_action(self, instance, form=None):
+        instance._event_actor = self.request.user
         instance.delete()
 
 
@@ -88,7 +89,7 @@ class MessageDetailView(SingleObjectDetailView):
     def dispatch(self, request, *args, **kwargs):
         result = super().dispatch(request=request, *args, **kwargs)
         self.object._event_actor = self.request.user
-        self.object.mark_read()
+        self.object.mark_read(user=self.request.user)
         return result
 
     def get_extra_context(self):
@@ -96,7 +97,7 @@ class MessageDetailView(SingleObjectDetailView):
             'form_hide_help_text': True,
             'hide_labels': True,
             'object': self.object,
-            'title': _('Details of message: %s') % self.object,
+            'title': _('Details of message: %s') % self.object
         }
 
     def get_initial(self):
@@ -124,7 +125,7 @@ class MessageListView(SingleObjectListView):
                 'the system.'
             ),
             'no_results_title': _('There are no messages'),
-            'title': _('Messages'),
+            'title': _('Messages')
         }
 
     def get_source_queryset(self):
@@ -138,18 +139,18 @@ class MessageMarkReadView(MultipleObjectConfirmActionView):
     object_permission = permission_message_edit
     pk_url_kwarg = 'message_id'
     post_action_redirect = reverse_lazy(viewname='messaging:message_list')
+    success_message_plural = _(
+        '%(count)d messages marked as read successfully.'
+    )
     success_message_single = _(
         'Message "%(object)s" marked as read successfully.'
     )
     success_message_singular = _(
         '%(count)d message marked as read successfully.'
     )
-    success_message_plural = _(
-        '%(count)d messages marked as read successfully.'
-    )
+    title_plural = _('Mark the %(count)d selected messages as read.')
     title_single = _('Mark the message "%(object)s" as read.')
     title_singular = _('Mark the %(count)d selected message as read.')
-    title_plural = _('Mark the %(count)d selected messages as read.')
     view_icon = icon_message_mark_read
 
     def get_extra_context(self):
@@ -168,8 +169,7 @@ class MessageMarkReadView(MultipleObjectConfirmActionView):
         return self.request.user.messages.all()
 
     def object_action(self, instance, form=None):
-        instance._event_actor = self.request.user
-        instance.mark_read()
+        instance.mark_read(user=self.request.user)
 
 
 class MessageMarkReadAllView(ConfirmView):
@@ -191,8 +191,7 @@ class MessageMarkReadAllView(ConfirmView):
         )
 
         for message in queryset.all():
-            message._event_actor = self.request.user
-            message.mark_read()
+            message.mark_read(user=self.request.user)
 
         messages.success(
             message=_('All messages marked as read.'),
@@ -207,18 +206,18 @@ class MessageMarkUnReadView(MultipleObjectConfirmActionView):
     object_permission = permission_message_edit
     pk_url_kwarg = 'message_id'
     post_action_redirect = reverse_lazy(viewname='messaging:message_list')
+    success_message_plural = _(
+        '%(count)d messages marked as unread successfully.'
+    )
     success_message_single = _(
         'Message "%(object)s" marked as unread successfully.'
     )
     success_message_singular = _(
         '%(count)d message marked as unread successfully.'
     )
-    success_message_plural = _(
-        '%(count)d messages marked as unread successfully.'
-    )
+    title_plural = _('Mark the %(count)d selected messages as unread.')
     title_single = _('Mark the message "%(object)s" as unread.')
     title_singular = _('Mark the %(count)d selected message as unread.')
-    title_plural = _('Mark the %(count)d selected messages as unread.')
     view_icon = icon_message_mark_unread
 
     def get_extra_context(self):
@@ -237,5 +236,4 @@ class MessageMarkUnReadView(MultipleObjectConfirmActionView):
         return self.request.user.messages.all()
 
     def object_action(self, instance, form=None):
-        instance._event_actor = self.request.user
-        instance.mark_unread()
+        instance.mark_unread(user=self.request.user)

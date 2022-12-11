@@ -1,5 +1,3 @@
-from django.utils.encoding import force_text
-
 from mayan.apps.documents.permissions import (
     permission_document_view, permission_document_file_view,
     permission_document_version_view
@@ -50,10 +48,11 @@ class DocumentTagHTMLWidgetTestCase(
 
         response = self._request_test_document_list_view()
         self.assertContains(
-            response=response, text=self._test_document.label, status_code=200
+            response=response, text=self._test_document.label,
+            status_code=200
         )
         self.assertNotContains(
-            response=response, text=force_text(s=self._test_tag), status_code=200
+            response=response, text=str(self._test_tag), status_code=200
         )
 
     def test_document_tags_widget_with_document_tag_view_access(self):
@@ -65,10 +64,11 @@ class DocumentTagHTMLWidgetTestCase(
 
         response = self._request_test_document_list_view()
         self.assertNotContains(
-            response=response, text=self._test_document.label, status_code=200
+            response=response, text=self._test_document.label,
+            status_code=200
         )
         self.assertNotContains(
-            response=response, text=force_text(s=self._test_tag), status_code=200
+            response=response, text=str(self._test_tag), status_code=200
         )
 
     def test_document_tags_widget_with_document_full_access(self):
@@ -83,10 +83,11 @@ class DocumentTagHTMLWidgetTestCase(
 
         response = self._request_test_document_list_view()
         self.assertContains(
-            response=response, text=self._test_document.label, status_code=200
+            response=response, text=self._test_document.label,
+            status_code=200
         )
         self.assertNotContains(
-            response=response, text=force_text(s=self._test_tag), status_code=200
+            response=response, text=str(self._test_tag), status_code=200
         )
 
     def test_document_tags_widget_with_document_view_and_tag_view_access(self):
@@ -101,10 +102,11 @@ class DocumentTagHTMLWidgetTestCase(
 
         response = self._request_test_document_list_view()
         self.assertContains(
-            response=response, text=self._test_document.label, status_code=200
+            response=response, text=self._test_document.label,
+            status_code=200
         )
         self.assertNotContains(
-            response=response, text=force_text(s=self._test_tag), status_code=200
+            response=response, text=str(self._test_tag), status_code=200
         )
 
     def test_document_tags_widget_with_tag_access(self):
@@ -116,7 +118,8 @@ class DocumentTagHTMLWidgetTestCase(
 
         response = self._request_test_document_list_view()
         self.assertNotContains(
-            response=response, text=self._test_document.label, status_code=200
+            response=response, text=self._test_document.label,
+            status_code=200
         )
         self.assertNotContains(
             response=response, text=self._test_tag.label, status_code=200
@@ -137,7 +140,8 @@ class DocumentTagHTMLWidgetTestCase(
 
         response = self._request_test_document_list_view()
         self.assertContains(
-            response=response, text=self._test_document.label, status_code=200
+            response=response, text=self._test_document.label,
+            status_code=200
         )
         self.assertContains(
             response=response, text=self._test_tag.label, status_code=200
@@ -157,7 +161,9 @@ class DocumentSearchResultWidgetViewTestCase(
         self._test_object_permission = permission_document_view
         self._test_object_text = self._test_document.label
         self._test_search_model = search_model_document
-        self._test_search_term_data = {'uuid': str(self._test_document.uuid)}
+        self._test_search_term_data = {
+            'uuid': str(self._test_document.uuid)
+        }
 
     def test_document_tag_widget_no_permission(self):
         response = self._request_search_results_view(
@@ -306,7 +312,9 @@ class DocumentFilePageSearchResultWidgetViewTestCase(
 ):
     def setUp(self):
         super().setUp()
-        self._test_object_text = force_text(s=self._test_document_file.pages.first())
+        self._test_object_text = str(
+            self._test_document_file.pages.first()
+        )
         self._test_object_permission = permission_document_file_view
         self._test_search_model = search_model_document_file_page
         self._test_search_term_data = {
@@ -319,7 +327,7 @@ class DocumentVersionSearchResultWidgetViewTestCase(
 ):
     def setUp(self):
         super().setUp()
-        self._test_object_text = force_text(s=self._test_document_version)
+        self._test_object_text = str(self._test_document_version)
         self._test_object_permission = permission_document_version_view
         self._test_search_model = search_model_document_version
         self._test_search_term_data = {
@@ -332,7 +340,9 @@ class DocumentVersionPageSearchResultWidgetViewTestCase(
 ):
     def setUp(self):
         super().setUp()
-        self._test_object_text = force_text(s=self._test_document_version.pages.first())
+        self._test_object_text = str(
+            self._test_document_version.pages.first()
+        )
         self._test_object_permission = permission_document_version_view
         self._test_search_model = search_model_document_version_page
         self._test_search_term_data = {

@@ -71,6 +71,10 @@ from .links import (
     link_workflow_template_transition_field_edit,
     link_workflow_template_transition_field_list
 )
+from .methods import (
+    method_document_type_workflow_templates_add,
+    method_document_type_workflow_templates_remove
+)
 from .permissions import (
     permission_workflow_template_delete, permission_workflow_template_edit,
     permission_workflow_tools, permission_workflow_instance_transition,
@@ -115,6 +119,15 @@ class DocumentStatesApp(MayanAppConfig):
 
         Document.add_to_class(
             name='workflow', value=DocumentStateHelper.constructor
+        )
+
+        DocumentType.add_to_class(
+            name='workflow_templates_add',
+            value=method_document_type_workflow_templates_add
+        )
+        DocumentType.add_to_class(
+            name='workflow_templates_remove',
+            value=method_document_type_workflow_templates_remove
         )
 
         DynamicSerializerField.add_serializer(

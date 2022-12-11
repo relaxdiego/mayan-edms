@@ -69,5 +69,5 @@ class DownloadFileListView(
                 'a span of time and then removed automatically.'
             ),
             'no_results_title': _('There are no files to download.'),
-            'title': _('Downloads'),
+            'title': _('Downloads')
         }

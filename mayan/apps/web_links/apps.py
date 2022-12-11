@@ -25,6 +25,9 @@ from .links import (
     link_web_link_edit, link_web_link_instance_view,
     link_web_link_list, link_web_link_setup
 )
+from .methods import (
+    method_document_type_web_links_add, method_document_type_web_links_remove
+)
 from .permissions import (
     permission_web_link_delete, permission_web_link_edit,
     permission_web_link_instance_view, permission_web_link_view
@@ -51,6 +54,15 @@ class WebLinksApp(MayanAppConfig):
 
         ResolvedWebLink = self.get_model(model_name='ResolvedWebLink')
         WebLink = self.get_model(model_name='WebLink')
+
+        DocumentType.add_to_class(
+            name='web_links_add',
+            value=method_document_type_web_links_add
+        )
+        DocumentType.add_to_class(
+            name='web_links_remove',
+            value=method_document_type_web_links_remove
+        )
 
         DynamicSerializerField.add_serializer(
             klass=WebLink,

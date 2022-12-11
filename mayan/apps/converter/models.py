@@ -1,44 +1,34 @@
-import hashlib
-import io
 import logging
-import uuid
 
-from PIL import Image
-from furl import furl
-
-from django.apps import apps
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
-from django.db.models import Max
 from django.urls import reverse
-from django.utils.functional import cached_property
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 from mayan.apps.databases.model_mixins import ExtraDataModelMixin
-from mayan.apps.common.serialization import yaml_load
 from mayan.apps.common.validators import (
     YAMLValidator, validate_internal_name
 )
 from mayan.apps.events.classes import EventManagerSave
 from mayan.apps.events.decorators import method_event
-from mayan.apps.file_caching.models import CachePartitionFile
 from mayan.apps.storage.classes import DefinedStorageLazy
 
 from .classes import Layer
 from .events import event_asset_created, event_asset_edited
-from .literals import STORAGE_NAME_ASSETS, STORAGE_NAME_ASSETS_CACHE
+from .literals import STORAGE_NAME_ASSETS
 from .managers import LayerTransformationManager, ObjectLayerManager
+from .model_mixins import (
+    AssetBusinessLogicMixin, ObjectLayerBusinessLogicMixin,
+    LayerTransformationBusinessLogicMixin
+)
 from .transformations import BaseTransformation
+from .utils import model_upload_to
 
 logger = logging.getLogger(name=__name__)
 
 
-def upload_to(instance, filename):
-    return 'converter-asset-{}'.format(uuid.uuid4().hex)
-
-
-class Asset(ExtraDataModelMixin, models.Model):
+class Asset(AssetBusinessLogicMixin, ExtraDataModelMixin, models.Model):
     """
     This model keeps track of files that will be available for use with
     transformations.
@@ -55,7 +45,7 @@ class Asset(ExtraDataModelMixin, models.Model):
     )
     file = models.FileField(
         storage=DefinedStorageLazy(name=STORAGE_NAME_ASSETS),
-        upload_to=upload_to, verbose_name=_('File')
+        upload_to=model_upload_to, verbose_name=_('File')
     )
 
     class Meta:
@@ -66,20 +56,6 @@ class Asset(ExtraDataModelMixin, models.Model):
     def __str__(self):
         return self.label
 
-    @cached_property
-    def cache(self):
-        Cache = apps.get_model(app_label='file_caching', model_name='Cache')
-        return Cache.objects.get(
-            defined_storage_name=STORAGE_NAME_ASSETS_CACHE
-        )
-
-    @cached_property
-    def cache_partition(self):
-        partition, created = self.cache.partitions.get_or_create(
-            name='{}'.format(self.pk)
-        )
-        return partition
-
     def delete(self, *args, **kwargs):
         self.cache_partition.delete()
         name = self.file.name
@@ -87,71 +63,12 @@ class Asset(ExtraDataModelMixin, models.Model):
         self.file.storage.delete(name=name)
         return super().delete(*args, **kwargs)
 
-    def generate_image(
-        self, maximum_layer_order=None, transformation_instance_list=None,
-        user=None
-    ):
-        # The parameters 'maximum_layer_order',
-        # `transformation_instance_list`, `user` are not used, but added
-        # to retain interface compatibility.
-        cache_filename = '{}'.format(self.get_hash())
-
-        try:
-            self.cache_partition.get_file(filename=cache_filename)
-        except CachePartitionFile.DoesNotExist:
-            logger.debug(
-                'asset cache file "%s" not found', cache_filename
-            )
-
-            image = self.get_image()
-            with io.BytesIO() as image_buffer:
-                image.save(image_buffer, format='PNG')
-
-                with self.cache_partition.create_file(filename=cache_filename) as file_object:
-                    file_object.write(image_buffer.getvalue())
-        else:
-            logger.debug(
-                'asset cache file "%s" found', cache_filename
-            )
-
-        return cache_filename
-
     def get_absolute_url(self):
         return reverse(
             viewname='converter:asset_detail', kwargs={
                 'asset_id': self.pk
             }
         )
-
-    def get_api_image_url(self, *args, **kwargs):
-        final_url = furl()
-        final_url.args = kwargs
-        final_url.path = reverse(
-            viewname='rest_api:asset-image',
-            kwargs={'asset_id': self.pk}
-        )
-        final_url.args['_hash'] = self.get_hash()
-
-        return final_url.tostr()
-
-    def get_hash(self):
-        with self.open() as file_object:
-            return hashlib.sha256(file_object.read()).hexdigest()
-
-    def get_image(self):
-        with self.open() as file_object:
-            image = Image.open(fp=file_object)
-            image.load()
-
-            if image.mode != 'RGBA':
-                image.putalpha(alpha=255)
-
-        return image
-
-    def open(self):
-        name = self.file.name
-        self.file.close()
-        return self.file.storage.open(name=name)
 
     @method_event(
         event_manager_class=EventManagerSave,
@@ -188,7 +105,7 @@ class StoredLayer(models.Model):
         return Layer.get(name=self.name)
 
 
-class ObjectLayer(models.Model):
+class ObjectLayer(ObjectLayerBusinessLogicMixin, models.Model):
     content_type = models.ForeignKey(on_delete=models.CASCADE, to=ContentType)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey(
@@ -208,18 +125,10 @@ class ObjectLayer(models.Model):
         verbose_name = _('Object layer')
         verbose_name_plural = _('Object layers')
 
-    def get_next_order(self):
-        last_order = self.transformations.aggregate(
-            Max('order')
-        )['order__max']
 
-        if last_order is not None:
-            return last_order + 1
-        else:
-            return 0
-
-
-class LayerTransformation(models.Model):
+class LayerTransformation(
+    LayerTransformationBusinessLogicMixin, models.Model
+):
     """
     Model that stores the transformation and transformation arguments
     for a given object
@@ -260,22 +169,11 @@ class LayerTransformation(models.Model):
 
     def __str__(self):
         try:
-            return str(BaseTransformation.get(name=self.name))
+            return str(
+                BaseTransformation.get(name=self.name)
+            )
         except KeyError:
             return ugettext('Unknown transformation class')
-
-    def get_arguments_column(self):
-        arguments = yaml_load(stream=self.arguments or '{}')
-        result = []
-        for key, value in arguments.items():
-            result.append('{}: {}'.format(key, value))
-
-        return ', '.join(result)
-
-    get_arguments_column.short_description = _('Arguments')
-
-    def get_transformation_class(self):
-        return BaseTransformation.get(name=self.name)
 
     def save(self, *args, **kwargs):
         if not self.order:

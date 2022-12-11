@@ -4,7 +4,6 @@ import shutil
 
 import sh
 
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.storage.utils import TemporaryFile
@@ -12,7 +11,9 @@ from mayan.apps.storage.utils import TemporaryFile
 from ..classes import OCRBackendBase
 from ..exceptions import OCRError
 
-from .literals import DEFAULT_TESSERACT_BINARY_PATH, DEFAULT_TESSERACT_TIMEOUT
+from .literals import (
+    DEFAULT_TESSERACT_BINARY_PATH, DEFAULT_TESSERACT_TIMEOUT
+)
 
 logger = logging.getLogger(name=__name__)
 
@@ -56,7 +57,7 @@ class Tesseract(OCRBackendBase):
                     result = self.command_tesseract(
                         *arguments, **keyword_arguments
                     )
-                    return force_text(s=result.stdout)
+                    return str(result.stdout)
                 except Exception as exception:
                     error_message = (
                         'Exception calling Tesseract with language option: {}; {}'
@@ -79,7 +80,9 @@ class Tesseract(OCRBackendBase):
         self.languages = ()
 
         try:
-            self.command_tesseract = sh.Command(path=self.tesseract_binary_path)
+            self.command_tesseract = sh.Command(
+                path=self.tesseract_binary_path
+            )
         except sh.CommandNotFound:
             self.command_tesseract = None
             raise OCRError(
@@ -101,15 +104,19 @@ class Tesseract(OCRBackendBase):
 
             # Extaction: strip last line, split by newline, discard the first
             # line.
-            self.languages = force_text(s=result.stdout).strip().split('\n')[1:]
+            self.languages = str(result.stdout).strip().split('\n')[1:]
 
-            logger.debug('Available languages: %s', ', '.join(self.languages))
+            logger.debug(
+                'Available languages: %s', ', '.join(self.languages)
+            )
 
     def read_settings(self):
         self.command_timeout = self.kwargs.get(
             'timeout', DEFAULT_TESSERACT_TIMEOUT
         )
-        self.environment = self.kwargs.get('environment', {})
+        self.environment = self.kwargs.get(
+            'environment', {}
+        )
         self.tesseract_binary_path = self.kwargs.get(
             'tesseract_path', DEFAULT_TESSERACT_BINARY_PATH
         )

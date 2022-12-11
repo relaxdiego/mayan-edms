@@ -47,12 +47,12 @@ class DjangoSearchReindexManagementCommandTestCase(
     _test_search_backend_path = 'mayan.apps.dynamic_search.backends.django.DjangoSearchBackend'
     """Test against Django backend."""
 
-    @skip('Backend does not support reindexing.')
+    @skip(reason='Backend does not support reindexing.')
     def test_artifacts(self):
         """Backend does not support indexing."""
 
 
-@skip('Skip until a Mock ElasticSearch server class is added.')
+@skip(reason='Skip until a Mock ElasticSearch server class is added.')
 class ElasticSearchReindexManagementCommandTestCase(
     SearchReindexManagementCommandTestCaseMixin, BaseTestCase
 ):
@@ -139,12 +139,12 @@ class DjangoSearchIndexObjectManagementCommandTestCase(
     _test_search_backend_path = 'mayan.apps.dynamic_search.backends.django.DjangoSearchBackend'
     """Test against Django backend."""
 
-    @skip('Backend does not support indexing.')
+    @skip(reason='Backend does not support indexing.')
     def test_artifacts(self):
         """Backend does not support indexing."""
 
 
-@skip('Skip until a Mock ElasticSearch server class is added.')
+@skip(reason='Skip until a Mock ElasticSearch server class is added.')
 class ElasticSearchIndexObjectManagementCommandTestCase(
     SearchIndexObjectManagementCommandTestCaseMixin, BaseTestCase
 ):
@@ -193,7 +193,7 @@ class DjangoSearchStatusManagementCommandTestCase(
     """Test against DjangoSearch backend."""
 
 
-@skip('Skip until a Mock ElasticSearch server class is added.')
+@skip(reason='Skip until a Mock ElasticSearch server class is added.')
 class ElasticSearchStatusManagementCommandTestCase(
     SearchStatusManagementCommandTestCaseMixin, BaseTestCase
 ):

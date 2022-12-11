@@ -5,7 +5,7 @@ from actstream.models import Action
 
 from mayan.apps.databases.classes import QuerysetParametersSerializer
 from mayan.apps.views.generics import ConfirmView
-from mayan.apps.views.mixins import ExternalContentTypeObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalContentTypeObjectViewMixin
 
 from ..icons import (
     icon_event_list_clear, icon_object_event_list_clear,
@@ -14,7 +14,7 @@ from ..icons import (
 from ..permissions import permission_events_clear
 from ..tasks import task_event_queryset_clear
 
-from .mixins import VerbEventViewMixin
+from .view_mixins import VerbEventViewMixin
 
 
 class EventClearBaseView(ConfirmView):
@@ -24,8 +24,8 @@ class EventClearBaseView(ConfirmView):
     def get_extra_context(self):
         return {
             'message': _(
-                'This action is not reversible. The process will be performed '
-                'in the background. '
+                'This action is not reversible. The process will be '
+                'performed in the background. '
             )
         }
 
@@ -47,9 +47,9 @@ class EventClearBaseView(ConfirmView):
         task_event_queryset_clear.apply_async(kwargs=task_kwargs)
 
         messages.success(
-            request=self.request, message=_(
+            message=_(
                 'Event list clear task queued successfully.'
-            )
+            ), request=self.request
         )
 
 
@@ -60,7 +60,7 @@ class EventListClearView(EventClearBaseView):
         context = super().get_extra_context()
         context.update(
             {
-                'title': _('Clear events'),
+                'title': _('Clear events')
             }
         )
         return context
@@ -81,7 +81,7 @@ class ObjectEventClearView(
         context.update(
             {
                 'object': self.external_object,
-                'title': _('Clear events of: %s') % self.external_object,
+                'title': _('Clear events of: %s') % self.external_object
             }
         )
         return context

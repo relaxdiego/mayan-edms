@@ -9,8 +9,8 @@ def task_send_object(
     content_type_id, body, object_id, sender, subject, recipient,
     user_mailer_id, as_attachment=False,
     content_function_dotted_path=None,
-    mime_type_function_dotted_path=None,
-    object_name=None, organization_installation_url=None, user_id=None
+    mime_type_function_dotted_path=None, object_name=None,
+    organization_installation_url=None, user_id=None
 ):
     ContentType = apps.get_model(
         app_label='contenttypes', model_name='ContentType'
@@ -36,5 +36,5 @@ def task_send_object(
         mime_type_function_dotted_path=mime_type_function_dotted_path,
         obj=obj, object_name=object_name,
         organization_installation_url=organization_installation_url,
-        subject=subject, to=recipient, _user=user
+        subject=subject, to=recipient, user=user
     )

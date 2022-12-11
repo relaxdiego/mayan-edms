@@ -44,4 +44,4 @@ class MIMETypeBackendPythonMagic(MIMETypeBackend):
                     filename=temporary_file_object.name
                 ).split('; charset=')
 
-        return file_mime_type, file_mime_encoding
+        return (file_mime_type, file_mime_encoding)

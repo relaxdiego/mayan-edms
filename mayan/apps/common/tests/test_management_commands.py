@@ -12,7 +12,10 @@ from mayan.settings.literals import (
 )
 
 
-@skip('Skip until existing database persistence with transaction handling is achieve.')
+@skip(
+    reason='Skip until existing database persistence with transaction '
+    'handling is achieve.'
+)
 class CommonAppManagementCommandTestCase(BaseTransactionTestCase):
     def _call_command_initial_setup(self):
         options = {

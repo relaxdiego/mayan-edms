@@ -9,7 +9,7 @@ from mayan.apps.acls.models import AccessControlList
 from mayan.apps.documents.models import Document
 from mayan.apps.views.forms import DynamicForm
 from mayan.apps.views.generics import FormView, SingleObjectListView
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..forms import WorkflowInstanceTransitionSelectForm
 from ..icons import (
@@ -122,6 +122,18 @@ class WorkflowInstanceTransitionExecuteView(ExternalObjectViewMixin, FormView):
         )
         return HttpResponseRedirect(redirect_to=self.get_success_url())
 
+    def get_external_object_queryset_filtered(self):
+        queryset = super().get_external_object_queryset_filtered()
+
+        # Filter further down by document access.
+        document_queryset = AccessControlList.objects.restrict_queryset(
+            permission=permission_workflow_instance_transition,
+            queryset=Document.valid.all(),
+            user=self.request.user
+        )
+
+        return queryset.filter(document__in=document_queryset)
+
     def get_extra_context(self):
         return {
             'navigation_object_list': ('object', 'workflow_instance'),
@@ -178,22 +190,10 @@ class WorkflowInstanceTransitionExecuteView(ExternalObjectViewMixin, FormView):
     def get_success_url(self):
         return self.external_object.get_absolute_url()
 
-    def get_external_object_queryset_filtered(self):
-        queryset = super().get_external_object_queryset_filtered()
-
-        # Filter further down by document access.
-        document_queryset = AccessControlList.objects.restrict_queryset(
-            permission=permission_workflow_instance_transition,
-            queryset=Document.valid.all(),
-            user=self.request.user
-        )
-
-        return queryset.filter(document__in=document_queryset)
-
     def get_workflow_template_transition(self):
         return get_object_or_404(
             klass=self.external_object.get_transition_choices(
-                _user=self.request.user
+                user=self.request.user
             ), pk=self.kwargs['workflow_template_transition_id']
         )
 

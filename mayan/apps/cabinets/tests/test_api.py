@@ -306,7 +306,8 @@ class CabinetDocumentAPITestCase(
 
     def test_cabinet_document_add_api_view_no_permission(self):
         self.grant_access(
-            obj=self._test_document, permission=permission_cabinet_add_document
+            obj=self._test_document,
+            permission=permission_cabinet_add_document
         )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
@@ -325,7 +326,8 @@ class CabinetDocumentAPITestCase(
 
     def test_cabinet_document_add_api_view_with_cabinet_access(self):
         self.grant_access(
-            obj=self._test_cabinet, permission=permission_cabinet_add_document
+            obj=self._test_cabinet,
+            permission=permission_cabinet_add_document
         )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
@@ -344,7 +346,8 @@ class CabinetDocumentAPITestCase(
 
     def test_cabinet_document_add_api_view_with_document_access(self):
         self.grant_access(
-            obj=self._test_document, permission=permission_cabinet_add_document
+            obj=self._test_document,
+            permission=permission_cabinet_add_document
         )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
@@ -363,10 +366,12 @@ class CabinetDocumentAPITestCase(
 
     def test_cabinet_document_add_api_view_with_full_access(self):
         self.grant_access(
-            obj=self._test_cabinet, permission=permission_cabinet_add_document
+            obj=self._test_cabinet,
+            permission=permission_cabinet_add_document
         )
         self.grant_access(
-            obj=self._test_document, permission=permission_cabinet_add_document
+            obj=self._test_document,
+            permission=permission_cabinet_add_document
         )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
@@ -391,10 +396,12 @@ class CabinetDocumentAPITestCase(
 
     def test_cabinet_trashed_document_add_api_view_with_full_access(self):
         self.grant_access(
-            obj=self._test_cabinet, permission=permission_cabinet_add_document
+            obj=self._test_cabinet,
+            permission=permission_cabinet_add_document
         )
         self.grant_access(
-            obj=self._test_document, permission=permission_cabinet_add_document
+            obj=self._test_document,
+            permission=permission_cabinet_add_document
         )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
@@ -415,7 +422,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_document_list_api_view_no_permission(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self._clear_events()
 
@@ -426,7 +435,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_document_list_api_view_with_cabinet_access(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.grant_access(
             obj=self._test_cabinet, permission=permission_cabinet_view
@@ -442,7 +453,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_document_list_api_view_with_document_access(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.grant_access(
             obj=self._test_document, permission=permission_cabinet_view
@@ -457,7 +470,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_document_list_api_view_with_full_access(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.grant_access(
             obj=self._test_cabinet, permission=permission_cabinet_view
@@ -480,7 +495,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_trashed_document_list_api_view_with_full_access(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.grant_access(
             obj=self._test_cabinet, permission=permission_cabinet_view
@@ -501,7 +518,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_document_remove_api_view_no_permission(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         test_cabinet_document_count = self._test_cabinet.documents.count()
 
@@ -518,7 +537,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_document_remove_api_view_with_cabinet_access(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.grant_access(
             obj=self._test_cabinet,
@@ -540,7 +561,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_document_remove_api_view_with_document_access(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.grant_access(
             obj=self._test_document,
@@ -562,7 +585,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events.count(), 0)
 
     def test_cabinet_document_remove_api_view_with_full_access(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.grant_access(
             obj=self._test_cabinet,
@@ -594,7 +619,9 @@ class CabinetDocumentAPITestCase(
         self.assertEqual(events[0].verb, event_cabinet_document_removed.id)
 
     def test_cabinet_trashed_document_remove_api_view_with_full_access(self):
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
         self.grant_access(
             obj=self._test_cabinet,
@@ -632,7 +659,9 @@ class DocumentCabinetAPITestCase(
     def setUp(self):
         super().setUp()
         self._create_test_document_stub()
-        self._test_cabinet.document_add(document=self._test_document)
+        self._test_cabinet.document_add(
+            document=self._test_document, user=self._test_case_user
+        )
 
     def test_document_cabinet_list_api_view_no_permission(self):
         self._clear_events()

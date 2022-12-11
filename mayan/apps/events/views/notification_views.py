@@ -12,7 +12,7 @@ from ..icons import (
 )
 from ..links import link_event_type_subscription_list
 
-from .mixins import NotificationViewMixin
+from .view_mixins import NotificationViewMixin
 
 
 class NotificationListView(NotificationViewMixin, SingleObjectListView):

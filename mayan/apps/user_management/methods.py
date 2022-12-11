@@ -67,21 +67,19 @@ def method_group_get_users(self, user, permission=permission_user_view):
     )
 
 
-def method_group_users_add(self, queryset, _event_actor=None):
-    for user in queryset:
-        self.user_set.add(user)
+def method_group_users_add(self, queryset, user=None):
+    for model_instance in queryset:
+        self.user_set.add(model_instance)
         event_group_edited.commit(
-            action_object=user, actor=_event_actor or self._event_actor,
-            target=self
+            action_object=model_instance, actor=user, target=self
         )
 
 
-def method_group_users_remove(self, queryset, _event_actor=None):
-    for user in queryset:
-        self.user_set.remove(user)
+def method_group_users_remove(self, queryset, user=None):
+    for model_instance in queryset:
+        self.user_set.remove(model_instance)
         event_group_edited.commit(
-            action_object=user, actor=_event_actor or self._event_actor,
-            target=self
+            action_object=model_instance, actor=user, target=self
         )
 
 
@@ -122,21 +120,19 @@ def method_user_get_groups(self, user, permission=permission_group_view):
     )
 
 
-def method_user_groups_add(self, queryset, _event_actor=None):
-    for group in queryset:
-        self.groups.add(group)
+def method_user_groups_add(self, queryset, user=None):
+    for model_instance in queryset:
+        self.groups.add(model_instance)
         event_user_edited.commit(
-            action_object=group, actor=_event_actor or self._event_actor,
-            target=self
+            action_object=model_instance, actor=user, target=self
         )
 
 
-def method_user_groups_remove(self, queryset, _event_actor=None):
-    for group in queryset:
-        self.groups.remove(group)
+def method_user_groups_remove(self, queryset, user=None):
+    for model_instance in queryset:
+        self.groups.remove(model_instance)
         event_user_edited.commit(
-            action_object=group, actor=_event_actor or self._event_actor,
-            target=self
+            action_object=model_instance, actor=user, target=self
         )
 
 

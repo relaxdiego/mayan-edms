@@ -36,7 +36,7 @@ class APIWorkflowTemplateDocumentTypeListView(
         """
         This view returns a list of document types that belong to a workflow template.
         """
-        return self.external_object.document_types.all()
+        return self.get_external_object().document_types.all()
 
 
 class APIWorkflowTemplateDocumentTypeAddView(generics.ObjectActionAPIView):
@@ -50,11 +50,11 @@ class APIWorkflowTemplateDocumentTypeAddView(generics.ObjectActionAPIView):
     serializer_class = WorkflowTemplateDocumentTypeAddSerializer
     queryset = Workflow.objects.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         document_type = serializer.validated_data['document_type_id']
-        self.object._event_actor = self.request.user
-        self.object.document_types_add(
-            queryset=DocumentType.objects.filter(pk=document_type.id)
+        obj.document_types_add(
+            queryset=DocumentType.objects.filter(pk=document_type.id),
+            user=self.request.user
         )
 
 
@@ -69,11 +69,11 @@ class APIWorkflowTemplateDocumentTypeRemoveView(generics.ObjectActionAPIView):
     serializer_class = WorkflowTemplateDocumentTypeRemoveSerializer
     queryset = Workflow.objects.all()
 
-    def object_action(self, request, serializer):
+    def object_action(self, obj, request, serializer):
         document_type = serializer.validated_data['document_type_id']
-        self.object._event_actor = self.request.user
-        self.object.document_types_remove(
-            queryset=DocumentType.objects.filter(pk=document_type.id)
+        obj.document_types_remove(
+            queryset=DocumentType.objects.filter(pk=document_type.id),
+            user=self.request.user
         )
 
 

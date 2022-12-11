@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.contrib import contenttypes
 from django.db import models
-from django.utils.encoding import force_text
 
 import mptt
 
@@ -32,7 +31,7 @@ class ModelCopy:
 
     def __init__(
         self, model, acl_bind_link=True, condition=None, bind_link=False,
-        excludes=None, register_permission=False, extra_kwargs=None
+        excludes=None, extra_kwargs=None, register_permission=False
     ):
         self.condition = condition
         self.excludes = excludes or {}
@@ -59,8 +58,8 @@ class ModelCopy:
 
         if register_permission:
             ModelPermission.register(
-                model=model, permissions=(permission_object_copy,),
-                bind_link=acl_bind_link
+                bind_link=acl_bind_link, model=model,
+                permissions=(permission_object_copy,)
             )
 
         for entry in self.__class__._lazy.get(model, ()):
@@ -68,7 +67,7 @@ class ModelCopy:
             self.__class__._lazy.get(model).pop()
 
     def __str__(self):
-        return force_text(s=self.label)
+        return str(self.label)
 
     def _evaluate_field_get_for_field(self, field, instance, value, values):
         context = {'instance': instance}
@@ -76,7 +75,11 @@ class ModelCopy:
 
         field_value_gets = self.field_value_gets.get(field, None)
         if field_value_gets:
-            related_model = self.model._meta.get_field(field).related_model or self.model._meta.get_field(field).model
+            related_model = self.model._meta.get_field(
+                field_name=field
+            ).related_model or self.model._meta.get_field(
+                field_name=field
+            ).model
             final_filter = {}
             for key, value in field_value_gets.items():
                 final_filter[key] = value.format(**context)

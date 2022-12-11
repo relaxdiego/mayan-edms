@@ -11,14 +11,14 @@ class DocumentTypeAddRemoveWebLinkViewTestMixin:
     def _request_test_document_type_web_link_add_remove_get_view(self):
         return self.get(
             viewname='web_links:document_type_web_links', kwargs={
-                'document_type_id': self._test_document_type.pk,
+                'document_type_id': self._test_document_type.pk
             }
         )
 
     def _request_test_document_type_web_link_add_view(self):
         return self.post(
             viewname='web_links:document_type_web_links', kwargs={
-                'document_type_id': self._test_document_type.pk,
+                'document_type_id': self._test_document_type.pk
             }, data={
                 'available-submit': 'true',
                 'available-selection': self._test_web_link.pk
@@ -28,7 +28,7 @@ class DocumentTypeAddRemoveWebLinkViewTestMixin:
     def _request_test_document_type_web_link_remove_view(self):
         return self.post(
             viewname='web_links:document_type_web_links', kwargs={
-                'document_type_id': self._test_document_type.pk,
+                'document_type_id': self._test_document_type.pk
             }, data={
                 'added-submit': 'true',
                 'added-selection': self._test_web_link.pk
@@ -102,7 +102,7 @@ class WebLinkAPIViewTestMixin:
         return self.patch(
             viewname='rest_api:web_link-detail',
             kwargs={'web_link_id': self._test_web_link.pk}, data={
-                'label': TEST_WEB_LINK_LABEL_EDITED,
+                'label': TEST_WEB_LINK_LABEL_EDITED
             }
         )
 
@@ -128,7 +128,7 @@ class WebLinkDocumentTypeAPIViewMixin:
     def _request_test_web_link_document_type_list_api_view(self):
         return self.get(
             viewname='rest_api:web_link-document_type-list', kwargs={
-                'web_link_id': self._test_web_link.pk,
+                'web_link_id': self._test_web_link.pk
             }
         )
 
@@ -161,20 +161,20 @@ class WebLinkDocumentTypeViewTestMixin:
     def _request_test_web_link_document_type_add_view(self):
         return self.post(
             viewname='web_links:web_link_document_types', kwargs={
-                'web_link_id': self._test_web_link.pk,
+                'web_link_id': self._test_web_link.pk
             }, data={
-                'available-submit': 'true',
-                'available-selection': self._test_document_type.pk
+                'available-selection': self._test_document_type.pk,
+                'available-submit': 'true'
             }
         )
 
     def _request_test_web_link_document_type_remove_view(self):
         return self.post(
             viewname='web_links:web_link_document_types', kwargs={
-                'web_link_id': self._test_web_link.pk,
+                'web_link_id': self._test_web_link.pk
             }, data={
-                'added-submit': 'true',
-                'added-selection': self._test_document_type.pk
+                'added-selection': self._test_document_type.pk,
+                'added-submit': 'true'
             }
         )
 
@@ -201,7 +201,7 @@ class WebLinkViewTestMixin:
         response = self.post(
             viewname='web_links:web_link_create', data={
                 'label': TEST_WEB_LINK_LABEL,
-                'template_template': TEST_WEB_LINK_TEMPLATE,
+                'template_template': TEST_WEB_LINK_TEMPLATE
             }
         )
 

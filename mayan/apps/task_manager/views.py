@@ -10,7 +10,7 @@ from .permissions import permission_task_view
 class QueueListView(SingleObjectListView):
     extra_context = {
         'hide_object': True,
-        'title': _('Background task queues'),
+        'title': _('Background task queues')
     }
     view_icon = icon_queue_list
     view_permission = permission_task_view

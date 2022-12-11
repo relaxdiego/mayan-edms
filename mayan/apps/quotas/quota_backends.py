@@ -77,7 +77,7 @@ class DocumentCountQuota(
             'help_text': _(
                 'Maximum number of documents.'
             )
-        },
+        }
     }
     label = _('Document count limit')
     sender = Document
@@ -112,7 +112,7 @@ class DocumentCountQuota(
         action_queryset = Action.objects.annotate(
             target_object_id_int=Cast(
                 'target_object_id', output_field=IntegerField()
-            ),
+            )
         )
         action_filter_kwargs = {
             'verb': event_document_created.id
@@ -124,7 +124,7 @@ class DocumentCountQuota(
                 {
                     'document_type_id__in': self._get_document_types().values(
                         'pk'
-                    ),
+                    )
                 }
             )
 
@@ -148,8 +148,8 @@ class DocumentCountQuota(
 
                     action_filter_kwargs.update(
                         {
-                            'actor_object_id': user.pk,
                             'actor_content_type': content_type,
+                            'actor_object_id': user.pk
                         }
                     )
 
@@ -178,9 +178,9 @@ class DocumentSizeQuota(
     field_order = ('document_size_limit',)
     fields = {
         'document_size_limit': {
-            'label': _('Document size limit'),
             'class': 'django.forms.FloatField',
-            'help_text': _('Maximum document size in megabytes (MB).')
+            'help_text': _('Maximum document size in megabytes (MB).'),
+            'label': _('Document size limit')
         }
     }
     label = _('Document size limit')
@@ -209,7 +209,9 @@ class DocumentSizeQuota(
 
     def _allowed_filter_display(self):
         return _('document size: %(formatted_file_size)s') % {
-            'formatted_file_size': filesizeformat(self._allowed())
+            'formatted_file_size': filesizeformat(
+                bytes_=self._allowed()
+            )
         }
 
     def process(self, **kwargs):

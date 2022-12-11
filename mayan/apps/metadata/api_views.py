@@ -41,11 +41,11 @@ class APIDocumentMetadataListView(
     def get_instance_extra_data(self):
         return {
             '_event_actor': self.request.user,
-            'document': self.external_object
+            'document': self.get_external_object()
         }
 
     def get_queryset(self):
-        return self.external_object.metadata.all()
+        return self.get_external_object().metadata.all()
 
     def perform_create(self, serializer):
         if 'metadata_type_id' in serializer.validated_data:
@@ -82,11 +82,11 @@ class APIDocumentMetadataView(
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
     def get_queryset(self):
-        return self.external_object.metadata.all()
+        return self.get_external_object().metadata.all()
 
 
 class APIMetadataTypeListView(generics.ListCreateAPIView):
@@ -152,7 +152,7 @@ class MetadataTypeFilterAPIMixin:
         return queryset
 
     def get_queryset(self):
-        return self.external_object.metadata.filter(
+        return self.get_external_object().metadata.filter(
             metadata_type__in=self.get_metadata_type_queryset()
         )
 
@@ -175,7 +175,7 @@ class APIDocumentTypeMetadataTypeListView(
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
 
@@ -202,5 +202,5 @@ class APIDocumentTypeMetadataTypeView(
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }

@@ -7,7 +7,7 @@ from mayan.apps.organizations.utils import get_organization_installation_url
 from mayan.apps.views.generics import (
     MultipleObjectFormActionView, SingleObjectDownloadView
 )
-from mayan.apps.views.mixins import MultipleExternalObjectViewMixin
+from mayan.apps.views.view_mixins import MultipleExternalObjectViewMixin
 
 from .forms import DocumentDownloadFormSet
 from .icons import (
@@ -29,21 +29,18 @@ class DocumentDownloadView(
     form_class = DocumentDownloadFormSet
     object_permission = permission_document_file_download
     source_queryset = DocumentFile.valid.all()
-    success_message_single = _('Operation performed on %(object)s.')
-    success_message_singular = _('Operation performed on %(count)d object.')
-    success_message_plural = _('Operation performed on %(count)d objects.')
+    success_message_plural = _(
+        '%(count)d document files queued for download.'
+    )
     success_message_single = _(
         'Document file "%(object)s" queued for download.'
     )
     success_message_singular = _(
         '%(count)d document file queued for download.'
     )
-    success_message_plural = _(
-        '%(count)d document files queued for download.'
-    )
+    title_plural = _('Download files of %(count)d documents')
     title_single = _('Download files of document: %(object)s')
     title_singular = _('Download files of %(count)d document')
-    title_plural = _('Download files of %(count)d documents')
     view_icon = icon_document_download_multiple
 
     def get_extra_context(self):
@@ -79,9 +76,9 @@ class DocumentDownloadView(
         for document_file in self.object_list:
             initial.append(
                 {
-                    'document_file_id': document_file.pk,
                     'document': str(document_file.document),
                     'document_file': str(document_file),
+                    'document_file_id': document_file.pk
                 }
             )
 
@@ -134,4 +131,4 @@ class DocumentFileDownloadView(SingleObjectDownloadView):
         return self.object.filename
 
     def get_download_mime_type_and_encoding(self, file_object):
-        return self.object.mimetype, self.object.encoding
+        return (self.object.mimetype, self.object.encoding)

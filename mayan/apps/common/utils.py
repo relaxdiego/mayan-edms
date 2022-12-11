@@ -239,7 +239,7 @@ def get_related_field(model, related_field_name):
         local_field_name = related_field_name
         remaining_field_path = None
 
-    related_field = model._meta.get_field(local_field_name)
+    related_field = model._meta.get_field(field_name=local_field_name)
 
     if remaining_field_path:
         return get_related_field(

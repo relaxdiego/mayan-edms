@@ -3,14 +3,14 @@ from django.utils.translation import ugettext_lazy as _
 from actstream.models import Action, any_stream
 
 from mayan.apps.views.generics import SingleObjectListView
-from mayan.apps.views.mixins import ExternalContentTypeObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalContentTypeObjectViewMixin
 
 from ..icons import (
     icon_event_list, icon_object_event_list, icon_verb_event_list
 )
 from ..permissions import permission_events_view
 
-from .mixins import VerbEventViewMixin
+from .view_mixins import VerbEventViewMixin
 
 
 class EventListBaseView(SingleObjectListView):

@@ -5,8 +5,6 @@ from ..models.document_models import RecentlyCreatedDocument
 
 from .document_views import DocumentListView
 
-__all__ = ('RecentCreatedDocumentListView',)
-
 
 class RecentCreatedDocumentListView(DocumentListView):
     view_icon = icon_document_recently_created_list
@@ -26,7 +24,7 @@ class RecentCreatedDocumentListView(DocumentListView):
                 'no_results_title': _(
                     'There are no recently created documents'
                 ),
-                'title': _('Recently created'),
+                'title': _('Recently created')
             }
         )
         return context

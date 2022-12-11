@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.documents.views.document_views import DocumentListView
 from mayan.apps.views.generics import SingleObjectListView
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..icons import (
     icon_workflow_runtime_proxy_document_list,
@@ -11,7 +11,9 @@ from ..icons import (
     icon_workflow_runtime_proxy_state_document_list,
     icon_workflow_runtime_proxy_state_list, icon_workflow_template_list
 )
-from ..links import link_workflow_template_create, link_workflow_template_state_create
+from ..links import (
+    link_workflow_template_create, link_workflow_template_state_create
+)
 from ..models import WorkflowRuntimeProxy, WorkflowStateRuntimeProxy
 from ..permissions import permission_workflow_template_view
 
@@ -65,7 +67,7 @@ class WorkflowRuntimeProxyListView(SingleObjectListView):
                 'for which they are executing.'
             ),
             'no_results_title': _('There are no workflows'),
-            'title': _('Workflows'),
+            'title': _('Workflows')
         }
 
 
@@ -96,7 +98,7 @@ class WorkflowRuntimeProxyStateDocumentListView(
                 ),
                 'workflow': WorkflowRuntimeProxy.objects.get(
                     pk=self.external_object.workflow.pk
-                ),
+                )
             }
         )
         return context
@@ -116,7 +118,8 @@ class WorkflowRuntimeProxyStateListView(
             'hide_object': True,
             'no_results_main_link': link_workflow_template_state_create.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={'object': self.external_object}
+                    dict_={'object': self.external_object},
+                    request=self.request
                 )
             ),
             'no_results_text': _(

@@ -1,5 +1,3 @@
-from django.utils.encoding import force_text
-
 from ..events import event_document_file_edited
 from ..permissions import (
     permission_document_file_tools, permission_document_file_view
@@ -268,8 +266,8 @@ class DocumentFilePageViewTestCase(
             document_file_page=self._test_document_file.pages.first()
         )
         self.assertContains(
-            response=response, status_code=200, text=force_text(
-                s=self._test_document_file.pages.first()
+            response=response, status_code=200, text=str(
+                self._test_document_file.pages.first()
             )
         )
 

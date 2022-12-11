@@ -9,7 +9,7 @@ from mayan.apps.views.generics import (
     FormView, SingleObjectCreateView, SingleObjectDeleteView,
     SingleObjectEditView, SingleObjectListView
 )
-from mayan.apps.views.mixins import ExternalObjectViewMixin
+from mayan.apps.views.view_mixins import ExternalObjectViewMixin
 
 from ..forms import (
     WorkflowTransitionForm, WorkflowTransitionTriggerEventRelationshipFormSet
@@ -93,7 +93,7 @@ class WorkflowTemplateTransitionDeleteView(SingleObjectDeleteView):
             'title': _(
                 'Delete workflow transition: %s?'
             ) % self.object,
-            'workflow': self.object.workflow,
+            'workflow': self.object.workflow
         }
 
     def get_instance_extra_data(self):
@@ -122,7 +122,7 @@ class WorkflowTemplateTransitionEditView(SingleObjectEditView):
             'title': _(
                 'Edit workflow transition: %s'
             ) % self.object,
-            'workflow': self.object.workflow,
+            'workflow': self.object.workflow
         }
 
     def get_form_kwargs(self):
@@ -157,7 +157,8 @@ class WorkflowTemplateTransitionListView(
             'no_results_icon': icon_workflow_template_transition,
             'no_results_main_link': link_workflow_template_transition_create.resolve(
                 context=RequestContext(
-                    self.request, {'workflow': self.external_object}
+                    dict_={'workflow': self.external_object},
+                    request=self.request
                 )
             ),
             'no_results_text': _(
@@ -203,7 +204,7 @@ class WorkflowTemplateTransitionFieldCreateView(
     def get_instance_extra_data(self):
         return {
             '_event_actor': self.request.user,
-            'transition': self.external_object,
+            'transition': self.external_object
         }
 
     def get_queryset(self):
@@ -232,7 +233,7 @@ class WorkflowTemplateTransitionFieldDeleteView(SingleObjectDeleteView):
             'object': self.object,
             'title': _('Delete workflow transition field: %s') % self.object,
             'workflow': self.object.transition.workflow,
-            'workflow_template_transition': self.object.transition,
+            'workflow_template_transition': self.object.transition
         }
 
     def get_instance_extra_data(self):
@@ -267,7 +268,7 @@ class WorkflowTemplateTransitionFieldEditView(SingleObjectEditView):
             'object': self.object,
             'title': _('Edit workflow transition field: %s') % self.object,
             'workflow': self.object.transition.workflow,
-            'workflow_template_transition': self.object.transition,
+            'workflow_template_transition': self.object.transition
         }
 
     def get_instance_extra_data(self):
@@ -299,9 +300,9 @@ class WorkflowTemplateTransitionFieldListView(
             'no_results_icon': icon_workflow_template_transition_field,
             'no_results_main_link': link_workflow_template_transition_field_create.resolve(
                 context=RequestContext(
-                    request=self.request, dict_={
+                    dict_={
                         'object': self.external_object
-                    }
+                    }, request=self.request
                 )
             ),
             'no_results_text': _(
@@ -317,7 +318,7 @@ class WorkflowTemplateTransitionFieldListView(
             'title': _(
                 'Fields for workflow transition: %s'
             ) % self.external_object,
-            'workflow': self.external_object.workflow,
+            'workflow': self.external_object.workflow
         }
 
     def get_source_queryset(self):
@@ -369,7 +370,7 @@ class WorkflowTemplateTransitionTriggerEventListView(
             'title': _(
                 'Workflow transition trigger events for: %s'
             ) % self.external_object,
-            'workflow': self.external_object.workflow,
+            'workflow': self.external_object.workflow
         }
 
     def get_initial(self):
@@ -388,10 +389,12 @@ class WorkflowTemplateTransitionTriggerEventListView(
         )
 
         for event_type in event_type_queryset:
-            initial.append({
-                'transition': obj,
-                'event_type': event_type,
-            })
+            initial.append(
+                {
+                    'event_type': event_type,
+                    'transition': obj
+                }
+            )
         return initial
 
     def get_post_action_redirect(self):

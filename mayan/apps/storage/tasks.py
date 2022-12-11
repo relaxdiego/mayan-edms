@@ -9,7 +9,7 @@ logger = logging.getLogger(name=__name__)
 
 @app.task(ignore_result=True)
 def task_download_files_stale_delete():
-    logger.debug('Executing')
+    logger.debug(msg='Executing')
 
     DownloadFile = apps.get_model(
         app_label='storage', model_name='DownloadFile'
@@ -17,7 +17,9 @@ def task_download_files_stale_delete():
 
     queryset = DownloadFile.objects.stale()
 
-    logger.debug('Queryset count: %d', queryset.count())
+    logger.debug(
+        'Queryset count: %d', queryset.count()
+    )
 
     for expired_download in queryset.all():
         expired_download.delete()
@@ -35,7 +37,9 @@ def task_shared_upload_stale_delete():
 
     queryset = SharedUploadedFile.objects.stale()
 
-    logger.debug('Queryset count: %d', queryset.count())
+    logger.debug(
+        'Queryset count: %d', queryset.count()
+    )
 
     for expired_upload in queryset.all():
         expired_upload.delete()

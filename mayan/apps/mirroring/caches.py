@@ -11,7 +11,9 @@ from .settings import (
 class MirrorFilesystemCache:
     @staticmethod
     def get_key_hash(key):
-        return hashlib.sha256(force_bytes(s=key)).hexdigest()
+        return hashlib.sha256(
+            string=force_bytes(s=key)
+        ).hexdigest()
 
     @staticmethod
     def get_document_key(document):
@@ -48,7 +50,9 @@ class MirrorFilesystemCache:
         self.cache.delete(key=node_key)
 
     def clear_document(self, document):
-        document_key = MirrorFilesystemCache.get_document_key(document=document)
+        document_key = MirrorFilesystemCache.get_document_key(
+            document=document
+        )
         path_cache = self.cache.get(key=document_key)
         if path_cache:
             path = path_cache.get('path')
@@ -73,22 +77,22 @@ class MirrorFilesystemCache:
         if document:
             self.cache.set(
                 key=MirrorFilesystemCache.get_path_key(path=path),
-                value={'document_pk': document.pk},
-                timeout=setting_document_lookup_cache_timeout.value
+                timeout=setting_document_lookup_cache_timeout.value,
+                value={'document_pk': document.pk}
             )
             self.cache.set(
                 key=MirrorFilesystemCache.get_document_key(document=document),
-                value={'path': path},
-                timeout=setting_document_lookup_cache_timeout.value
+                timeout=setting_document_lookup_cache_timeout.value,
+                value={'path': path}
             )
         elif node:
             self.cache.set(
                 key=MirrorFilesystemCache.get_path_key(path=path),
-                value={'node_pk': node.pk},
-                timeout=setting_node_lookup_cache_timeout.value
+                timeout=setting_node_lookup_cache_timeout.value,
+                value={'node_pk': node.pk}
             )
             self.cache.set(
                 key=MirrorFilesystemCache.get_node_key(node=node),
-                value={'path': path},
-                timeout=setting_node_lookup_cache_timeout.value
+                timeout=setting_node_lookup_cache_timeout.value,
+                value={'path': path}
             )
