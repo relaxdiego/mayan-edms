@@ -229,6 +229,7 @@
   The new document change type permission is required for the document being
   changed and for the document type to which the document will be changed
   into.
+- Fix file metadata model ``verbose_name`` attribute.
 
 4.3.2 (unreleased)
 ==================

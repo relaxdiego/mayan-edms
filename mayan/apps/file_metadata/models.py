@@ -40,9 +40,9 @@ class DocumentTypeSettings(models.Model):
         to=DocumentType, unique=True, verbose_name=_('Document type')
     )
     auto_process = models.BooleanField(
-        default=True, verbose_name=_(
+        default=True, help_text=_(
             'Automatically queue newly created documents for processing.'
-        )
+        ), verbose_name=_('Auto process')
     )
 
     objects = DocumentTypeSettingsManager()
