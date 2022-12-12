@@ -55,17 +55,21 @@ class UserMailingCreateView(SingleObjectDynamicFormCreateView):
 
     def get_backend(self):
         try:
-            return MailerBackend.get(name=self.kwargs['class_path'])
+            return MailerBackend.get(
+                name=self.kwargs['class_path']
+            )
         except KeyError:
             raise Http404(
-                '{} class not found'.format(self.kwargs['class_path'])
+                '{} class not found'.format(
+                    self.kwargs['class_path']
+                )
             )
 
     def get_extra_context(self):
         return {
             'title': _(
                 'Create a "%s" mailing profile'
-            ) % self.get_backend().label,
+            ) % self.get_backend().label
         }
 
     def get_form_schema(self):

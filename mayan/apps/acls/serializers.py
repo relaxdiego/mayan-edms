@@ -16,70 +16,64 @@ class ACLSerializer(serializers.ModelSerializer):
         label=_('Content type'), read_only=True
     )
     permissions_add_url = MultiKwargHyperlinkedIdentityField(
-        label=_('Permissions add URL'),
-        view_name='rest_api:accesscontrollist-permission-add',
-        view_kwargs=(
+        label=_('Permissions add URL'), view_kwargs=(
             {
                 'lookup_field': 'content_type.app_label',
-                'lookup_url_kwarg': 'app_label',
+                'lookup_url_kwarg': 'app_label'
             },
             {
                 'lookup_field': 'content_type.model',
-                'lookup_url_kwarg': 'model_name',
+                'lookup_url_kwarg': 'model_name'
             },
             {
                 'lookup_field': 'object_id',
-                'lookup_url_kwarg': 'object_id',
+                'lookup_url_kwarg': 'object_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'acl_id',
+                'lookup_url_kwarg': 'acl_id'
             }
-        )
+        ), view_name='rest_api:accesscontrollist-permission-add'
     )
     permissions_remove_url = MultiKwargHyperlinkedIdentityField(
-        label=_('Permissions remove URL'),
-        view_name='rest_api:accesscontrollist-permission-remove',
-        view_kwargs=(
+        label=_('Permissions remove URL'), view_kwargs=(
             {
                 'lookup_field': 'content_type.app_label',
-                'lookup_url_kwarg': 'app_label',
+                'lookup_url_kwarg': 'app_label'
             },
             {
                 'lookup_field': 'content_type.model',
-                'lookup_url_kwarg': 'model_name',
+                'lookup_url_kwarg': 'model_name'
             },
             {
                 'lookup_field': 'object_id',
-                'lookup_url_kwarg': 'object_id',
+                'lookup_url_kwarg': 'object_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'acl_id',
+                'lookup_url_kwarg': 'acl_id'
             }
-        )
+        ), view_name='rest_api:accesscontrollist-permission-remove'
     )
     permissions_url = MultiKwargHyperlinkedIdentityField(
-        label=_('Permissions URL'),
-        view_name='rest_api:accesscontrollist-permission-list',
-        view_kwargs=(
+        label=_('Permissions URL'), view_kwargs=(
             {
                 'lookup_field': 'content_type.app_label',
-                'lookup_url_kwarg': 'app_label',
+                'lookup_url_kwarg': 'app_label'
             },
             {
                 'lookup_field': 'content_type.model',
-                'lookup_url_kwarg': 'model_name',
+                'lookup_url_kwarg': 'model_name'
             },
             {
                 'lookup_field': 'object_id',
-                'lookup_url_kwarg': 'object_id',
+                'lookup_url_kwarg': 'object_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'acl_id',
+                'lookup_url_kwarg': 'acl_id'
             }
-        )
+        ), view_name='rest_api:accesscontrollist-permission-list'
     )
     role = RoleSerializer(
         label=_('Role'), read_only=True
@@ -88,25 +82,24 @@ class ACLSerializer(serializers.ModelSerializer):
         label=_('Role ID'), write_only=True
     )
     url = MultiKwargHyperlinkedIdentityField(
-        label=_('URL'), view_name='rest_api:accesscontrollist-detail',
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'content_type.app_label',
-                'lookup_url_kwarg': 'app_label',
+                'lookup_url_kwarg': 'app_label'
             },
             {
                 'lookup_field': 'content_type.model',
-                'lookup_url_kwarg': 'model_name',
+                'lookup_url_kwarg': 'model_name'
             },
             {
                 'lookup_field': 'object_id',
-                'lookup_url_kwarg': 'object_id',
+                'lookup_url_kwarg': 'object_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'acl_id',
+                'lookup_url_kwarg': 'acl_id'
             }
-        )
+        ), view_name='rest_api:accesscontrollist-detail'
     )
 
     class Meta:

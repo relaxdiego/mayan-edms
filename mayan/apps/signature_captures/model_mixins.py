@@ -56,7 +56,9 @@ class SignatureCaptureBusinessLogicMixin:
                 image.save(image_buffer, format='PNG')
 
                 with self.cache_partition.create_file(filename=cache_filename) as file_object:
-                    file_object.write(image_buffer.getvalue())
+                    file_object.write(
+                        image_buffer.getvalue()
+                    )
         else:
             logger.debug(
                 'signature_capture cache file "%s" found', cache_filename

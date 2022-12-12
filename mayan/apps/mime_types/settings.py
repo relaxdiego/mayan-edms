@@ -6,7 +6,9 @@ from .literals import (
     DEFAULT_MIME_TYPE_BACKEND, DEFAULT_MIME_TYPE_BACKEND_ARGUMENTS
 )
 
-namespace = SettingNamespace(label=_('MIME types'), name='mime_types')
+namespace = SettingNamespace(
+    label=_('MIME types'), name='mime_types'
+)
 
 setting_backend = namespace.add_setting(
     default=DEFAULT_MIME_TYPE_BACKEND, global_name='MIME_TYPE_BACKEND',

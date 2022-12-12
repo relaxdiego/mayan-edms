@@ -100,7 +100,7 @@ class ACLDeleteView(SingleObjectDeleteView):
             'acl': self.object,
             'navigation_object_list': ('object', 'acl'),
             'object': self.object.content_object,
-            'title': _('Delete ACL: %s') % self.object,
+            'title': _('Delete ACL: %s') % self.object
         }
 
     def get_instance_extra_data(self):

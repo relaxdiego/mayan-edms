@@ -40,7 +40,9 @@ class QuotaBusinessModelMixin:
 
     def get_backend_instance(self):
         try:
-            return self.get_backend_class()(**self.loads())
+            return self.get_backend_class()(
+                **self.loads()
+            )
         except Exception as exception:
             logger.error(exception, exc_info=True)
 

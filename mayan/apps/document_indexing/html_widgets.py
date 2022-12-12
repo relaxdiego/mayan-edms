@@ -1,5 +1,4 @@
 from django.apps import apps
-from django.utils.encoding import force_text
 from django.utils.html import mark_safe, escape
 
 from .icons import (
@@ -14,7 +13,9 @@ def get_instance_link(index_instance_node):
     return mark_safe(
         s='<a href="{url}">{text}</a>'.format(
             url=index_instance_node.get_absolute_url(),
-            text=escape(index_instance_node.get_full_path())
+            text=escape(
+                index_instance_node.get_full_path()
+            )
         )
     )
 
@@ -50,7 +51,7 @@ def node_level(node):
             [
                 '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' * node.get_level(),
                 '' if node.is_root_node() else icon_index_level_up.render(),
-                force_text(s=node)
+                str(node)
             ]
         )
     )

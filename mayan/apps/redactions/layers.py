@@ -19,6 +19,6 @@ layer_redactions = Layer(
         'exclude': permission_redaction_exclude,
         'edit': permission_redaction_edit,
         'select': permission_redaction_create,
-        'view': permission_redaction_view,
+        'view': permission_redaction_view
     }, symbol='highlighter'
 )

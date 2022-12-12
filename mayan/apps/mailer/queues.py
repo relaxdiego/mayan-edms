@@ -8,6 +8,6 @@ queue_mailing = CeleryQueue(
 )
 
 queue_mailing.add_task_type(
-    label=_('Send object'),
-    dotted_path='mayan.apps.mailer.tasks.task_send_object'
+    dotted_path='mayan.apps.mailer.tasks.task_send_object',
+    label=_('Send object')
 )

@@ -21,7 +21,6 @@ link_api_documentation = Link(
     tags='new_window', text=_('API Documentation (Swagger)'),
     view='rest_api:schema-swagger-ui'
 )
-
 link_api_documentation_redoc = Link(
     condition=condition_api_links_enabled, icon=icon_api_documentation_redoc,
     tags='new_window', text=_('API Documentation (ReDoc)'),

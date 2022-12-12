@@ -18,7 +18,7 @@ class EventTypeUserRelationshipForm(forms.Form):
         label=_('Subscription'),
         widget=forms.RadioSelect(), choices=(
             ('none', _('No')),
-            ('subscribed', _('Subscribed')),
+            ('subscribed', _('Subscribed'))
         )
     )
 
@@ -75,7 +75,7 @@ class ObjectEventTypeUserRelationshipForm(forms.Form):
         label=_('Subscription'),
         widget=forms.RadioSelect(), choices=(
             ('none', _('No')),
-            ('subscribed', _('Subscribed')),
+            ('subscribed', _('Subscribed'))
         )
     )
 

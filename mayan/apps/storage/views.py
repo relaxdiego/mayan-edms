@@ -30,7 +30,7 @@ class DownloadFileDeleteView(
 
     def get_instance_extra_data(self):
         return {
-            '_event_actor': self.request.user,
+            '_event_actor': self.request.user
         }
 
 

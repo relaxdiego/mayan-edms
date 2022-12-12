@@ -29,7 +29,9 @@ class WebLink(ExtraDataModelMixin, WebLinkBusinessLogicMixin, models.Model):
             'web link.'
         ), verbose_name=_('Template')
     )
-    enabled = models.BooleanField(default=True, verbose_name=_('Enabled'))
+    enabled = models.BooleanField(
+        default=True, verbose_name=_('Enabled')
+    )
     document_types = models.ManyToManyField(
         related_name='web_links', to=DocumentType,
         verbose_name=_('Document types')
@@ -54,11 +56,11 @@ class WebLink(ExtraDataModelMixin, WebLinkBusinessLogicMixin, models.Model):
         event_manager_class=EventManagerSave,
         created={
             'event': event_web_link_created,
-            'target': 'self',
+            'target': 'self'
         },
         edited={
             'event': event_web_link_edited,
-            'target': 'self',
+            'target': 'self'
         }
     )
     def save(self, *args, **kwargs):

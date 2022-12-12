@@ -5,7 +5,9 @@ from .utils import split_recipient_list
 
 
 def validate_email_multiple(value):
-    recipient_list = split_recipient_list(recipients=[value])
+    recipient_list = split_recipient_list(
+        recipients=[value]
+    )
 
     for recipient in recipient_list:
         validate_email = validators.EmailValidator(

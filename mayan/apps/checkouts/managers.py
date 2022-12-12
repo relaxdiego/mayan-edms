@@ -54,7 +54,9 @@ class DocumentCheckoutManager(models.Manager):
         for document in self.expired_check_outs():
             document.check_in()
 
-    def check_out_document(self, document, expiration_datetime, user, block_new_file=True):
+    def check_out_document(
+        self, document, expiration_datetime, user, block_new_file=True
+    ):
         return self.create(
             block_new_file=block_new_file, document=document,
             expiration_datetime=expiration_datetime, user=user
@@ -96,7 +98,9 @@ class DocumentCheckoutManager(models.Manager):
 
     def get_by_natural_key(self, document_natural_key):
         try:
-            document = Document.objects.get_by_natural_key(document_natural_key)
+            document = Document.objects.get_by_natural_key(
+                document_natural_key
+            )
         except Document.DoesNotExist:
             raise self.model.DoesNotExist
 

@@ -35,7 +35,8 @@ class SmartLinkConditionForm(forms.ModelForm):
         )
         choices.append(
             (
-                ModelFieldRelated.class_label, ModelFieldRelated.get_choices_for(
+                ModelFieldRelated.class_label,
+                ModelFieldRelated.get_choices_for(
                     model=Document,
                 )
             )

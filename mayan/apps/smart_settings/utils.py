@@ -197,7 +197,8 @@ class FilesystemBootstrapSetting(BaseSetting):
         return os.path.join(
             # Can't use BASE_DIR from django.conf.settings
             # Use it from the global_symbol_table which should be the same
-            self.namespace.global_symbol_table.get('BASE_DIR'), *self.path_parts
+            self.namespace.global_symbol_table.get('BASE_DIR'),
+            *self.path_parts
         )
 
     def get_value(self):

@@ -56,7 +56,8 @@ def widget_event_type_link(context, attribute=None):
     return mark_safe(
         '<a href="{url}">{label}</a>'.format(
             url=reverse(
-                viewname='events:verb_event_list', kwargs={'verb': entry.verb}
+                viewname='events:verb_event_list',
+                kwargs={'verb': entry.verb}
             ), label=event_type_label
         )
     )

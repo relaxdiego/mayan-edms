@@ -15,7 +15,11 @@ class AppImageError(ConvertError):
         super().__init__()
 
     def __str__(self):
-        return('Error name: {}'.format(repr(self.error_name)))
+        return(
+            'Error name: {}'.format(
+                repr(self.error_name)
+            )
+        )
 
 
 class UnknownFileFormat(ConvertError):

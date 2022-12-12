@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Appearance'), name='appearance')
+namespace = PermissionNamespace(
+    label=_('Appearance'), name='appearance'
+)
 
 permission_theme_create = namespace.add_permission(
     label=_('Create new themes'), name='theme_create'

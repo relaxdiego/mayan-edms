@@ -19,7 +19,9 @@ class RESTAPISearchFilter(BaseFilterBackend):
             search_model = self.get_search_model(queryset=queryset)
             if search_model:
                 query_dict = request.GET.dict().copy()
-                query_dict.update(request.POST.dict())
+                query_dict.update(
+                    request.POST.dict()
+                )
 
                 search_model_fields = list(
                     map(
@@ -51,8 +53,8 @@ class RESTAPISearchFilter(BaseFilterBackend):
                             raise
 
                         logger.error(
-                            'Error performing REST API list search filtering; %s',
-                            exception
+                            'Error performing REST API list search '
+                            'filtering; %s', exception
                         )
                         return search_model.model._meta.default_manager.none()
                     else:

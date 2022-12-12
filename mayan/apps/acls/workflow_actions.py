@@ -58,17 +58,17 @@ class GrantAccessAction(WorkflowAction):
     widgets = {
         'content_type': {
             'class': 'django.forms.widgets.Select', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         },
         'roles': {
             'class': 'django.forms.widgets.SelectMultiple', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         },
         'permissions': {
             'class': 'django.forms.widgets.SelectMultiple', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         }
     }
@@ -84,15 +84,20 @@ class GrantAccessAction(WorkflowAction):
         )
 
         content_type = ContentType.objects.get(
-            pk=int(form_data['action_data']['content_type'])
+            pk=int(
+                form_data['action_data']['content_type']
+            )
         )
         obj = content_type.get_object_for_this_type(
-            pk=int(form_data['action_data']['object_id'])
+            pk=int(
+                form_data['action_data']['object_id']
+            )
         )
 
         try:
             AccessControlList.objects.check_access(
-                obj=obj, permissions=(permission_acl_edit,), user=request.user
+                obj=obj, permissions=(permission_acl_edit,),
+                user=request.user
             )
         except Exception as exception:
             raise ValidationError(message=exception)
@@ -117,7 +122,9 @@ class GrantAccessAction(WorkflowAction):
         self.obj = content_type.get_object_for_this_type(
             pk=self.form_data['object_id']
         )
-        self.roles = Role.objects.filter(pk__in=self.form_data['roles'])
+        self.roles = Role.objects.filter(
+            pk__in=self.form_data['roles']
+        )
         self.permissions = [
             Permission.get(
                 pk=permission
@@ -171,12 +178,12 @@ class GrantDocumentAccessAction(WorkflowAction):
     widgets = {
         'roles': {
             'class': 'django.forms.widgets.SelectMultiple', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         },
         'permissions': {
             'class': 'django.forms.widgets.SelectMultiple', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         }
     }
@@ -188,7 +195,9 @@ class GrantDocumentAccessAction(WorkflowAction):
         return super().get_form_schema(*args, **kwargs)
 
     def get_execute_data(self):
-        self.roles = Role.objects.filter(pk__in=self.form_data['roles'])
+        self.roles = Role.objects.filter(
+            pk__in=self.form_data['roles']
+        )
         self.permissions = [
             Permission.get(
                 pk=permission

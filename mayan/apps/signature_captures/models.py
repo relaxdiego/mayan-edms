@@ -71,7 +71,9 @@ class SignatureCapture(
         verbose_name_plural = _('Signature captures')
 
     def __str__(self):
-        return '{} - {}'.format(self.text, self.get_date_time_created())
+        return '{} - {}'.format(
+            self.text, self.get_date_time_created()
+        )
 
     @method_event(
         action_object='self',

@@ -8,4 +8,6 @@ class AnnouncementManager(models.Manager):
         now = timezone.now()
         return self.filter(enabled=True).filter(
             Q(start_datetime__isnull=True) | Q(start_datetime__lte=now)
-        ).filter(Q(end_datetime__isnull=True) | Q(end_datetime__gte=now))
+        ).filter(
+            Q(end_datetime__isnull=True) | Q(end_datetime__gte=now)
+        )

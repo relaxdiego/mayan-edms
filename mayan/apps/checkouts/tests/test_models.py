@@ -123,7 +123,9 @@ class DocumentCheckoutTestCase(
 
     def test_blocking_new_files(self):
         # Silence unrelated logging.
-        self._silence_logger(name='mayan.apps.documents.models')
+        self._silence_logger(
+            name='mayan.apps.documents.models.document_model_mixins'
+        )
         self._check_out_test_document()
 
         self._clear_events()
@@ -137,7 +139,9 @@ class DocumentCheckoutTestCase(
 
     def test_file_creation_blocking(self):
         # Silence unrelated logging.
-        self._silence_logger(name='mayan.apps.documents.models')
+        self._silence_logger(
+            name='mayan.apps.documents.models.document_model_mixins'
+        )
 
         self._create_test_case_superuser()
 

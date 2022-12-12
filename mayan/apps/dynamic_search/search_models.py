@@ -38,7 +38,9 @@ class SearchModel(AppsModuleLoaderMixin):
         try:
             result = cls._registry[name]
         except KeyError:
-            raise KeyError(_('Unknown search model `%s`.') % name)
+            raise KeyError(
+                _('Unknown search model `%s`.') % name
+            )
         else:
             if getattr(result, 'serializer_path', None):
                 result.serializer = import_string(
@@ -56,7 +58,9 @@ class SearchModel(AppsModuleLoaderMixin):
     @classmethod
     def get_for_model(cls, instance):
         # Works the same for model classes and model instances.
-        return cls.get(name=instance._meta.label.lower())
+        return cls.get(
+            name=instance._meta.label.lower()
+        )
 
     @classmethod
     def get_through_models(cls):
@@ -73,7 +77,9 @@ class SearchModel(AppsModuleLoaderMixin):
                             through_model = field.remote_field.through
 
                         through_models.setdefault(through_model, {})
-                        through_models[through_model].setdefault(related_model, set())
+                        through_models[through_model].setdefault(
+                            related_model, set()
+                        )
                         through_models[through_model][related_model].add(related_path)
 
         return through_models
@@ -137,7 +143,9 @@ class SearchModel(AppsModuleLoaderMixin):
             }
         )
 
-        self.__class__._registry['{}.{}'.format(app_label, model_name)] = self
+        self.__class__._registry[
+            '{}.{}'.format(app_label, model_name)
+        ] = self
 
     @cached_property
     def base_model(self):
@@ -174,7 +182,9 @@ class SearchModel(AppsModuleLoaderMixin):
         )
 
         generator_valid_id_groups = (
-            queryset.filter(pk__in=id_list).values_list('id', flat=True) for id_list in id_list_groups
+            queryset.filter(
+                pk__in=id_list
+            ).values_list('id', flat=True) for id_list in id_list_groups
         )
 
         # Part 3 - Chain the valid ID groups into a single sequence and
@@ -200,7 +210,9 @@ class SearchModel(AppsModuleLoaderMixin):
                 )
                 if path:
                     # Ignore search model fields.
-                    result.add((obj, path))
+                    result.add(
+                        (obj, path)
+                    )
 
         return result
 
@@ -222,7 +234,9 @@ class SearchModel(AppsModuleLoaderMixin):
                 (search_field.field_name, search_field.label)
             )
 
-        return sorted(result, key=lambda x: x[1])
+        return sorted(
+            result, key=lambda x: x[1]
+        )
 
     @cached_property
     def label(self):
@@ -256,9 +270,9 @@ class SearchModel(AppsModuleLoaderMixin):
 
         for search_field in search_fields:
             field_value = search_field.get_instance_value(
-                exclude_model=exclude_model, exclude_kwargs=exclude_kwargs,
-                search_backend=search_backend, instance=instance,
-                instance_field_data=instance_field_data
+                exclude_kwargs=exclude_kwargs, exclude_model=exclude_model,
+                instance=instance, instance_field_data=instance_field_data,
+                search_backend=search_backend
             )
             if field_value is not None:
                 instance_field_data[search_field.field_name] = field_value

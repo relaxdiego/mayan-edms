@@ -150,7 +150,9 @@ class CommonApp(MayanAppConfig):
             )
         )
 
-        menu_topbar.bind_links(links=(menu_about, menu_user), position=10)
+        menu_topbar.bind_links(
+            links=(menu_about, menu_user)
+        , position=10)
 
         signal_pre_initial_setup.connect(
             dispatch_uid='common_handler_pre_initial_setup',

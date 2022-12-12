@@ -16,16 +16,19 @@ class IndexTemplateEventTriggerRelationshipForm(Form):
         widget=forms.widgets.HiddenInput()
     )
     namespace = forms.CharField(
-        label=_('Namespace'), required=False,
-        widget=forms.TextInput(attrs={'readonly': 'readonly'})
+        label=_('Namespace'), required=False, widget=forms.TextInput(
+            attrs={'readonly': 'readonly'}
+        )
     )
     namespace = forms.CharField(
-        label=_('Namespace'), required=False,
-        widget=forms.TextInput(attrs={'readonly': 'readonly'})
+        label=_('Namespace'), required=False, widget=forms.TextInput(
+            attrs={'readonly': 'readonly'}
+        )
     )
     label = forms.CharField(
-        label=_('Label'), required=False,
-        widget=forms.TextInput(attrs={'readonly': 'readonly'})
+        label=_('Label'), required=False, widget=forms.TextInput(
+            attrs={'readonly': 'readonly'}
+        )
     )
     relationship = forms.ChoiceField(
         choices=RELATIONSHIP_CHOICES, label=_('Enabled'),
@@ -63,5 +66,7 @@ class IndexTemplateNodeForm(forms.ModelForm):
         )
 
     class Meta:
-        fields = ('parent', 'index', 'expression', 'enabled', 'link_documents')
+        fields = (
+            'parent', 'index', 'expression', 'enabled', 'link_documents'
+        )
         model = IndexTemplateNode

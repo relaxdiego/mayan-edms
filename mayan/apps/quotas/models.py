@@ -12,9 +12,9 @@ from .model_mixins import QuotaBusinessModelMixin
 
 class Quota(ExtraDataModelMixin, QuotaBusinessModelMixin, models.Model):
     backend_path = models.CharField(
-        max_length=255,
-        help_text=_('The dotted Python path to the backend class.'),
-        verbose_name=_('Backend path')
+        max_length=255, help_text=_(
+            'The dotted Python path to the backend class.'
+        ), verbose_name=_('Backend path')
     )
     backend_data = models.TextField(
         blank=True, verbose_name=_('Backend data')
@@ -31,7 +31,9 @@ class Quota(ExtraDataModelMixin, QuotaBusinessModelMixin, models.Model):
         verbose_name_plural = _('Quotas')
 
     def __str__(self):
-        return str(self.backend_label())
+        return str(
+            self.backend_label()
+        )
 
     def get_absolute_url(self):
         return reverse(viewname='quotas:quota_list')
@@ -40,11 +42,11 @@ class Quota(ExtraDataModelMixin, QuotaBusinessModelMixin, models.Model):
         event_manager_class=EventManagerSave,
         created={
             'event': event_quota_created,
-            'target': 'self',
+            'target': 'self'
         },
         edited={
             'event': event_quota_edited,
-            'target': 'self',
+            'target': 'self'
         }
     )
     def save(self, *args, **kwargs):

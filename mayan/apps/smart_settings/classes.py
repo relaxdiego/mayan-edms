@@ -381,10 +381,10 @@ class Setting:
 
         if self.validation_function:
             self.raw_value = self.validation_function(
-                setting=self, raw_value=self.raw_value
+                raw_value=self.raw_value, setting=self
             )
 
-        self.yaml = Setting.serialize_value(self.raw_value)
+        self.yaml = Setting.serialize_value(value=self.raw_value)
         self.loaded = True
 
     def get_choices(self):

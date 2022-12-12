@@ -112,7 +112,7 @@ class CeleryQueue(AppsModuleLoaderMixin):
 
     def _update_celery(self):
         kwargs = {
-            'name': self.name, 'exchange': Exchange(self.name),
+            'exchange': Exchange(self.name), 'name': self.name,
             'routing_key': self.name
         }
 
@@ -139,8 +139,8 @@ class CeleryQueue(AppsModuleLoaderMixin):
                 celery_app.conf.beat_schedule.update(
                     {
                         task_type.name: {
-                            'task': task_type.dotted_path,
-                            'schedule': task_type.schedule
+                            'schedule': task_type.schedule,
+                            'task': task_type.dotted_path
                         }
                     }
                 )

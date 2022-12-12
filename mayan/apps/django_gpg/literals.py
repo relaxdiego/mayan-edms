@@ -21,7 +21,7 @@ ERROR_MSG_MISSING_PASSPHRASE = 'MISSING_PASSPHRASE'
 
 KEY_TYPES = {
     'pub': _('Public'),
-    'sec': _('Secret'),
+    'sec': _('Secret')
 }
 
 KEY_TYPE_PUBLIC = 'pub'
@@ -29,7 +29,7 @@ KEY_TYPE_SECRET = 'sec'
 
 KEY_TYPE_CHOICES = (
     (KEY_TYPE_PUBLIC, _('Public')),
-    (KEY_TYPE_SECRET, _('Secret')),
+    (KEY_TYPE_SECRET, _('Secret'))
 )
 
 KEY_CLASS_RSA = 'RSA'
@@ -37,13 +37,21 @@ KEY_CLASS_DSA = 'DSA'
 KEY_CLASS_ELG = 'ELG-E'
 
 KEY_PRIMARY_CLASSES = (
-    ((KEY_CLASS_RSA), _('RSA')),
-    ((KEY_CLASS_DSA), _('DSA')),
+    (
+        (KEY_CLASS_RSA), _('RSA')
+    ),
+    (
+        (KEY_CLASS_DSA), _('DSA')
+    )
 )
 
 KEY_SECONDARY_CLASSES = (
-    ((KEY_CLASS_RSA), _('RSA')),
-    ((KEY_CLASS_ELG), _('Elgamal')),
+    (
+        (KEY_CLASS_RSA), _('RSA')
+    ),
+    (
+        (KEY_CLASS_ELG), _('Elgamal')
+    )
 )
 
 KEYSERVER_DEFAULT_PORT = 11371
@@ -62,21 +70,21 @@ SIGNATURE_STATES = {
         'text': _('Bad signature.'),
     },
     SIGNATURE_STATE_NONE: {
-        'text': _('Document not signed or invalid signature.'),
+        'text': _('Document not signed or invalid signature.')
     },
     SIGNATURE_STATE_ERROR: {
-        'text': _('Signature error.'),
+        'text': _('Signature error.')
     },
     SIGNATURE_STATE_NO_PUBLIC_KEY: {
         'text': _(
             'Document is signed but no public key is available for '
             'verification.'
-        ),
+        )
     },
     SIGNATURE_STATE_GOOD: {
-        'text': _('Document is signed, and signature is good.'),
+        'text': _('Document is signed, and signature is good.')
     },
     SIGNATURE_STATE_VALID: {
-        'text': _('Document is signed with a valid signature.'),
-    },
+        'text': _('Document is signed with a valid signature.')
+    }
 }

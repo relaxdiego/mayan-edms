@@ -52,7 +52,7 @@ class AnnouncementsApp(MayanAppConfig):
         ).add_fields(
             field_names=(
                 'label', 'text', 'enabled', 'start_datetime', 'end_datetime'
-            ),
+            )
         )
 
         ModelEventType.register(
@@ -84,7 +84,8 @@ class AnnouncementsApp(MayanAppConfig):
         )
 
         menu_multi_item.bind_links(
-            links=(link_announcement_multiple_delete,), sources=(Announcement,)
+            links=(link_announcement_multiple_delete,),
+            sources=(Announcement,)
         )
         menu_object.bind_links(
             links=(

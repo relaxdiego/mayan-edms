@@ -99,8 +99,9 @@ class DocumentIndexingApp(MayanAppConfig):
         EventModelRegistry.register(model=IndexTemplate)
 
         ModelCopy(
-            model=IndexTemplateNode, excludes={'parent__isnull': False},
-            extra_kwargs={'get_or_create': True}
+            excludes={'parent__isnull': False},
+            extra_kwargs={'get_or_create': True},
+            model=IndexTemplateNode
         ).add_fields(
             field_names=(
                 'index', 'expression', 'enabled', 'link_documents'
@@ -177,8 +178,9 @@ class DocumentIndexingApp(MayanAppConfig):
         # Index instance node
 
         column_index_instance_node_level = SourceColumn(
-            func=lambda context: index_instance_item_link(context['object']),
-            is_identifier=True, is_sortable=True, label=_('Level'),
+            func=lambda context: index_instance_item_link(
+                index_instance_item=context['object']
+            ), is_identifier=True, is_sortable=True, label=_('Level'),
             sort_field='value', source=IndexInstanceNode
         )
         column_index_instance_node_level.add_exclude(
@@ -216,8 +218,9 @@ class DocumentIndexingApp(MayanAppConfig):
         )
 
         SourceColumn(
-            func=lambda context: index_instance_item_link(context['object']),
-            is_identifier=True, is_sortable=True, label=_('Level'),
+            func=lambda context: index_instance_item_link(
+                index_instance_item=context['object']
+            ), is_identifier=True, is_sortable=True, label=_('Level'),
             sort_field='value', source=IndexInstanceNodeSearchResult
         )
         SourceColumn(
@@ -249,8 +252,9 @@ class DocumentIndexingApp(MayanAppConfig):
         # Index template node
 
         SourceColumn(
-            func=lambda context: node_level(context['object']),
-            include_label=True, is_identifier=True, label=_('Level'),
+            func=lambda context: node_level(
+                node=context['object']
+            ), include_label=True, is_identifier=True, label=_('Level'),
             source=IndexTemplateNode
         )
         SourceColumn(
@@ -291,7 +295,9 @@ class DocumentIndexingApp(MayanAppConfig):
                 link_index_template_node_edit
             ), sources=(IndexTemplateNode,)
         )
-        menu_main.bind_links(links=(link_index_instance_menu,), position=50)
+        menu_main.bind_links(
+            links=(link_index_instance_menu,), position=50
+        )
         menu_related.bind_links(
             links=(link_index_template_list,),
             sources=(
@@ -313,7 +319,9 @@ class DocumentIndexingApp(MayanAppConfig):
                 'indexing:index_template_create'
             )
         )
-        menu_setup.bind_links(links=(link_index_template_setup,))
+        menu_setup.bind_links(
+            links=(link_index_template_setup,)
+        )
         menu_tools.bind_links(
             links=(link_index_instances_rebuild, link_index_instances_reset)
         )

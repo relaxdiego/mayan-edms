@@ -101,7 +101,7 @@ class DependenciesApp(MayanAppConfig):
             links=(link_dependency_group_list,),
             sources=(
                 DependencyGroup,
-                'dependencies:dependency_group_list',
+                'dependencies:dependency_group_list'
             )
         )
 

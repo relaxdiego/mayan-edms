@@ -21,7 +21,7 @@ class RendererChartJSLine(RendererChartJS):
             'pointBorderWidth': 3,
             'pointHitRadius': 6,
             'pointHoverRadius': 7,
-            'pointRadius': 6,
+            'pointRadius': 6
         },
     )
 
@@ -35,8 +35,12 @@ class RendererChartJSLine(RendererChartJS):
             dataset_values = []
 
             for data_point in series_data:
-                dataset_labels.extend(data_point.keys())
-                dataset_values.extend(data_point.values())
+                dataset_labels.extend(
+                    data_point.keys()
+                )
+                dataset_values.extend(
+                    data_point.values()
+                )
 
             labels = dataset_labels
             dataset = {
@@ -58,7 +62,9 @@ class RendererChartJSLine(RendererChartJS):
             'labels': labels
         }
 
-        return {'data': json.dumps(obj=data), 'type': 'line'}
+        return {
+            'data': json.dumps(obj=data), 'type': 'line'
+        }
 
 
 class RendererChartJSDoughnut(RendererChartJS):
@@ -83,8 +89,12 @@ class RendererChartJSDoughnut(RendererChartJS):
             series_name, series_data = serie
 
             for entry in series_data:
-                labels.append(entry['label'])
-                dataset['data'].append(entry['value'])
+                labels.append(
+                    entry['label']
+                )
+                dataset['data'].append(
+                    entry['value']
+                )
 
             dataset.update(
                 self.dataset_palette[
@@ -99,7 +109,9 @@ class RendererChartJSDoughnut(RendererChartJS):
             'labels': labels
         }
 
-        return {'data': json.dumps(obj=data), 'type': self.chart_type}
+        return {
+            'data': json.dumps(obj=data), 'type': self.chart_type
+        }
 
 
 class RendererChartJSPie(RendererChartJSDoughnut):

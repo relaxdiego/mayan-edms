@@ -131,7 +131,7 @@ class MetadataApp(MayanAppConfig):
             field_names=(
                 'name', 'label', 'default', 'lookup', 'validation', 'parser',
                 'document_types'
-            ),
+            )
         )
 
         ModelProperty(
@@ -194,7 +194,7 @@ class MetadataApp(MayanAppConfig):
             )
         )
         ModelPermission.register_inheritance(
-            model=DocumentMetadata, related='metadata_type',
+            model=DocumentMetadata, related='metadata_type'
         )
 
         model_query_fields_document = ModelQueryFields(model=Document)

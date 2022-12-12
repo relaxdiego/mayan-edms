@@ -96,7 +96,7 @@ class ThemeListView(SingleObjectListView):
             'no_results_title': _(
                 'There are no themes'
             ),
-            'title': _('Themes'),
+            'title': _('Themes')
         }
 
 

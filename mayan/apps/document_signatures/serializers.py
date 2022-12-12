@@ -14,17 +14,16 @@ from .models import DetachedSignature, EmbeddedSignature
 
 class BaseSignatureSerializer(serializers.HyperlinkedModelSerializer):
     document_file_url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('Document file URL'), view_kwargs=(
             {
                 'lookup_field': 'document_file_id',
-                'lookup_url_kwarg': 'document_file_id',
+                'lookup_url_kwarg': 'document_file_id'
             },
             {
                 'lookup_field': 'document_file.document_id',
-                'lookup_url_kwarg': 'document_id',
+                'lookup_url_kwarg': 'document_id'
             }
-        ),
-        view_name='rest_api:documentfile-detail'
+        ), view_name='rest_api:documentfile-detail'
     )
     key_url = serializers.SerializerMethodField()
 
@@ -108,21 +107,20 @@ class EmbeddedSignatureSerializer(
     BaseSignatureSerializer, serializers.HyperlinkedModelSerializer
 ):
     url = MultiKwargHyperlinkedIdentityField(
-        view_kwargs=(
+        label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'document_file.document.pk',
-                'lookup_url_kwarg': 'document_id',
+                'lookup_url_kwarg': 'document_id'
             },
             {
                 'lookup_field': 'document_file_id',
-                'lookup_url_kwarg': 'document_file_id',
+                'lookup_url_kwarg': 'document_file_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'embedded_signature_id',
+                'lookup_url_kwarg': 'embedded_signature_id'
             },
-        ),
-        view_name='rest_api:embeddedsignature-detail'
+        ), view_name='rest_api:embeddedsignature-detail'
     )
 
     class Meta(BaseSignatureSerializer.Meta):

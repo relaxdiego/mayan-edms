@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.events.classes import EventTypeNamespace
 
-namespace = EventTypeNamespace(label=_('Metadata'), name='metadata')
+namespace = EventTypeNamespace(
+    label=_('Metadata'), name='metadata'
+)
 
 event_document_metadata_added = namespace.add_event_type(
     label=_('Document metadata added'), name='document_metadata_added'

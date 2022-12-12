@@ -30,7 +30,7 @@ def handler_create_document_file_page_image_cache(sender, **kwargs):
     Cache.objects.update_or_create(
         defaults={
             'maximum_size': setting_document_file_page_image_cache_maximum_size.value,
-        }, defined_storage_name=STORAGE_NAME_DOCUMENT_FILE_PAGE_IMAGE_CACHE,
+        }, defined_storage_name=STORAGE_NAME_DOCUMENT_FILE_PAGE_IMAGE_CACHE
     )
 
 
@@ -39,5 +39,6 @@ def handler_create_document_version_page_image_cache(sender, **kwargs):
     Cache.objects.update_or_create(
         defaults={
             'maximum_size': setting_document_version_page_image_cache_maximum_size.value,
-        }, defined_storage_name=STORAGE_NAME_DOCUMENT_VERSION_PAGE_IMAGE_CACHE,
+        },
+        defined_storage_name=STORAGE_NAME_DOCUMENT_VERSION_PAGE_IMAGE_CACHE
     )

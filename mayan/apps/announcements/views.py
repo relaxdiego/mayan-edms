@@ -50,29 +50,29 @@ class AnnouncementDeleteView(MultipleObjectConfirmActionView):
     post_action_redirect = reverse_lazy(
         viewname='announcements:announcement_list'
     )
+    success_message_plural = _(
+        '%(count)d announcements deleted successfully.'
+    )
     success_message_single = _(
         'Announcement "%(object)s" deleted successfully.'
     )
     success_message_singular = _(
         '%(count)d announcement deleted successfully.'
     )
-    success_message_plural = _(
-        '%(count)d announcements deleted successfully.'
-    )
+    title_plural = _('Delete the %(count)d selected announcements.')
     title_single = _('Delete announcement: %(object)s.')
     title_singular = _('Delete the %(count)d selected announcement.')
-    title_plural = _('Delete the %(count)d selected announcements.')
     view_icon = icon_announcement_delete
 
     def get_extra_context(self):
         context = {
-            'delete_view': True,
+            'delete_view': True
         }
 
         if self.object_list.count() == 1:
             context.update(
                 {
-                    'object': self.object_list.first(),
+                    'object': self.object_list.first()
                 }
             )
 
@@ -95,7 +95,7 @@ class AnnouncementEditView(SingleObjectEditView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Edit announcement: %s') % self.object,
+            'title': _('Edit announcement: %s') % self.object
         }
 
     def get_instance_extra_data(self):
@@ -123,5 +123,5 @@ class AnnouncementListView(SingleObjectListView):
                 'announcements or usage guidelines for your users.'
             ),
             'no_results_title': _('No announcements available'),
-            'title': _('Announcements'),
+            'title': _('Announcements')
         }

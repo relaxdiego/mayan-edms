@@ -67,9 +67,13 @@ class DocumentMetadataForm(forms.Form):
                         label=self.fields['value'].label
                     )
                     choices = self.metadata_type.get_lookup_values()
-                    choices = list(zip(choices, choices))
+                    choices = list(
+                        zip(choices, choices)
+                    )
                     if not required:
-                        choices.insert(0, ('', '------'))
+                        choices.insert(
+                            0, ('', '------')
+                        )
                     self.fields['value'].choices = choices
                     self.fields['value'].required = required
                     self.fields['value'].widget.attrs.update(
@@ -272,4 +276,6 @@ class DocumentTypeMetadataTypeRelationshipFormSet(
     def __init__(self, *args, **kwargs):
         _event_actor = kwargs.pop('_event_actor')
         super().__init__(*args, **kwargs)
-        self.form_kwargs.update({'_event_actor': _event_actor})
+        self.form_kwargs.update(
+            {'_event_actor': _event_actor}
+        )

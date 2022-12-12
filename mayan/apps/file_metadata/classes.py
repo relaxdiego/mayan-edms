@@ -61,7 +61,9 @@ class FileMetadataDriver:
         self.auto_initialize = auto_initialize
 
     def get_driver_path(self):
-        return '.'.join([self.__module__, self.__class__.__name__])
+        return '.'.join(
+            [self.__module__, self.__class__.__name__]
+        )
 
     def initialize(self):
         StoredDriver = apps.get_model(

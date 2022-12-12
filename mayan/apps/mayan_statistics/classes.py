@@ -53,7 +53,9 @@ class StatisticType:
     def evaluate(data):
         try:
             for key, value in data.items():
-                return {key: StatisticType.evaluate(data=value)}
+                return {
+                    key: StatisticType.evaluate(data=value)
+                }
         except AttributeError:
             if type(data) == map:
                 data = list(data)
@@ -71,7 +73,9 @@ class StatisticType:
 
         queryset = PeriodicTask.objects.filter(
             name__startswith='mayan_statistics.'
-        ).exclude(name__in=StatisticType.get_task_names())
+        ).exclude(
+            name__in=StatisticType.get_task_names()
+        )
 
         for periodic_task in queryset:
             crontab_instance = periodic_task.crontab
@@ -95,11 +99,13 @@ class StatisticType:
 
     @classmethod
     def get_task_names(cls):
-        return [task.get_task_name() for task in cls.get_all()]
+        return [
+            task.get_task_name() for task in cls.get_all()
+        ]
 
     def __init__(
-        self, slug, label, func, minute='*', hour='*', day_of_week='*',
-        day_of_month='*', month_of_year='*'
+        self, func, label, slug, day_of_month='*', day_of_week='*',
+        hour='*', minute='*', month_of_year='*'
     ):
         # Hidden import.
         from .queues import queue_statistics, task_execute_statistic
@@ -109,8 +115,8 @@ class StatisticType:
         self.func = func
 
         self.schedule = crontab(
-            minute=minute, hour=hour, day_of_week=day_of_week,
-            day_of_month=day_of_month, month_of_year=month_of_year,
+            day_of_month=day_of_month, day_of_week=day_of_week, hour=hour,
+            minute=minute, month_of_year=month_of_year
         )
 
         app.conf.beat_schedule.update(
@@ -127,7 +133,7 @@ class StatisticType:
             {
                 self.get_task_name(): {
                     'queue': queue_statistics.name
-                },
+                }
             }
         )
 
@@ -176,7 +182,9 @@ class StatisticType:
         if results:
             return results.get_data()
         else:
-            return {'series': {}}
+            return {
+                'series': {}
+            }
 
     def get_task_name(self):
         return 'mayan_statistics.task_execute_statistic_{}'.format(self.slug)

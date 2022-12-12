@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_LINK_BODY_TEMPLATE, DEFAULT_LINK_SUBJECT_TEMPLATE
 )
 
-namespace = SettingNamespace(label=_('Mailing'), name='mailer')
+namespace = SettingNamespace(
+    label=_('Mailing'), name='mailer'
+)
 
 setting_attachment_subject_template = namespace.add_setting(
     default=DEFAULT_DOCUMENT_SUBJECT_TEMPLATE,

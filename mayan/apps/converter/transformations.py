@@ -117,7 +117,9 @@ class BaseTransformation(metaclass=BaseTransformationType):
             for layer, transformations in cls._layer_transformations.items():
                 for transformation in transformations:
                     if transformation in flat_transformation_list:
-                        layer_transformation_choices.setdefault(layer, [])
+                        layer_transformation_choices.setdefault(
+                            layer, []
+                        )
                         layer_transformation_choices[layer].append(
                             (
                                 transformation.name,
@@ -131,7 +133,9 @@ class BaseTransformation(metaclass=BaseTransformationType):
                 )
 
             result = [
-                (layer.label, transformations) for layer, transformations in layer_transformation_choices.items()
+                (
+                    layer.label, transformations
+                ) for layer, transformations in layer_transformation_choices.items()
             ]
 
             # Finally sort by transformation layer group.

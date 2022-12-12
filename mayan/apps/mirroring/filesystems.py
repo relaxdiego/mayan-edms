@@ -174,8 +174,8 @@ class MirrorFilesystem(LoggingMixIn, Operations):
                     else:
                         try:
                             document = MirrorFilesystem._clean_queryset(
-                                queryset=node._get_documents(),
                                 destination_field_name='label_clean',
+                                queryset=node._get_documents(),
                                 source_field_name='label'
                             ).get(label_clean=part)
 

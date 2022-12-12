@@ -33,7 +33,8 @@ class TaskManagerApp(MayanAppConfig):
         logger.debug('Starting Celery broker connectivity test')
         try:
             connection.ensure_connection(
-                interval_step=0, interval_max=0, interval_start=0, timeout=0.1
+                interval_step=0, interval_max=0, interval_start=0,
+                timeout=0.1
             )
         except Exception as exception:
             print(
@@ -59,7 +60,8 @@ class TaskManagerApp(MayanAppConfig):
             logger.debug('Starting Celery result backend connectivity test')
             try:
                 backend.set(
-                    key=TEST_CELERY_RESULT_KEY, value=TEST_CELERY_RESULT_VALUE
+                    key=TEST_CELERY_RESULT_KEY,
+                    value=TEST_CELERY_RESULT_VALUE
                 )
             except Exception as exception:
                 print(

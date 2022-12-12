@@ -18,7 +18,7 @@ class TemplateWidget(NamedMultiWidget):
         'builtin_tags': forms.widgets.Select(
             attrs={
                 'data-autocopy': 'true',
-                'data-field-template': '${ $this.val() }',
+                'data-field-template': '${ $this.val() }'
             }
         ),
         'template': forms.widgets.Textarea(
@@ -44,11 +44,15 @@ class TemplateWidget(NamedMultiWidget):
                     title = _(title)
                     result.append(
                         (
-                            name_template.format(name), '{} - {}'.format(name, title)
+                            name_template.format(name), '{} - {}'.format(
+                                name, title
+                            )
                         )
                     )
 
-        result = sorted(result, key=lambda x: x[0])
+        result = sorted(
+            result, key=lambda x: x[0]
+        )
 
         return result
 
@@ -75,7 +79,9 @@ class TemplateWidget(NamedMultiWidget):
             )
         )
         choices_builtin.insert(
-            0, ('', _('<Filters and tags>'))
+            0, (
+                '', _('<Filters and tags>')
+            )
         )
 
         self.widgets['builtin_tags'].choices = choices_builtin
@@ -84,7 +90,9 @@ class TemplateWidget(NamedMultiWidget):
         }
 
     def value_from_datadict(self, querydict, files, name):
-        template = querydict.get('{}_template'.format(name))
+        template = querydict.get(
+            '{}_template'.format(name)
+        )
 
         return template
 
@@ -116,7 +124,9 @@ class ModelTemplateWidget(TemplateWidget):
 
         attribute_choices = ModelAttribute.get_all_choices_for(model=model)
         attribute_choices.insert(
-            0, ('', _('<Model attributes>'))
+            0, (
+                '', _('<Model attributes>')
+            )
         )
 
         self.widgets['model_attribute'].choices = attribute_choices

@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.events.classes import EventTypeNamespace
 
-namespace = EventTypeNamespace(label=_('Documents'), name='documents')
+namespace = EventTypeNamespace(
+    label=_('Documents'), name='documents'
+)
 
 # Document
 

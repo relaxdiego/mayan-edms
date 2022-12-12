@@ -15,7 +15,9 @@ class BackendQueryType:
 
     @classmethod
     def get_for_query_type(cls, search_backend, query_type):
-        search_backend_dictionary = cls._registry.get(search_backend, {})
+        search_backend_dictionary = cls._registry.get(
+            search_backend, {}
+        )
 
         return search_backend_dictionary[query_type]
 
@@ -204,7 +206,9 @@ class QueryTypeRange(QueryType):
     name = 'RANGE'
 
     @classmethod
-    def do_value_process(cls, is_raw_value, search_backend, search_field, value):
+    def do_value_process(
+        cls, is_raw_value, search_backend, search_field, value
+    ):
         if is_raw_value:
             return value
         else:
@@ -218,7 +222,9 @@ class QueryTypeRange(QueryType):
             else:
                 if len(items) != 2:
                     raise DynamicSearchValueTransformationError(
-                        'Invalid number of arguments for range `{}`'.format(value)
+                        'Invalid number of arguments for range `{}`'.format(
+                            value
+                        )
                     )
                 for item in items:
                     parts.append(

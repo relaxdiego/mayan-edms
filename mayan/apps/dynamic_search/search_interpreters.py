@@ -17,8 +17,12 @@ class SearchInterpreter:
 
     @classmethod
     def all(cls):
-        sorted_keys = sorted(cls._registry.keys())
-        return [cls._registry[key] for key in sorted_keys]
+        sorted_keys = sorted(
+            cls._registry.keys()
+        )
+        return [
+            cls._registry[key] for key in sorted_keys
+        ]
 
     @classmethod
     def init(cls, query, search_model, prefix=''):

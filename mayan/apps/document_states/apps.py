@@ -177,7 +177,7 @@ class DocumentStatesApp(MayanAppConfig):
                 'destination_state': {
                     'workflow': '{workflow.pk}',
                     'label': '{instance.destination_state.label}'
-                },
+                }
             }
         )
         ModelCopy(
@@ -199,7 +199,7 @@ class DocumentStatesApp(MayanAppConfig):
             field_names=(
                 'auto_launch', 'internal_name', 'label', 'document_types',
                 'states', 'transitions'
-            ),
+            )
         )
 
         ModelEventType.register(
@@ -315,7 +315,9 @@ class DocumentStatesApp(MayanAppConfig):
             attribute='internal_name', include_label=True, is_sortable=True,
             source=Workflow
         )
-        column_workflow_internal_name.add_exclude(source=WorkflowRuntimeProxy)
+        column_workflow_internal_name.add_exclude(
+            source=WorkflowRuntimeProxy
+        )
         column_workflow_get_initial_state = SourceColumn(
             attribute='get_initial_state', empty_value=_('None'),
             include_label=True, source=Workflow
@@ -344,14 +346,15 @@ class DocumentStatesApp(MayanAppConfig):
         )
         SourceColumn(
             func=lambda context: getattr(
-                context['object'].get_current_state(), 'completion', _('None')
+                context['object'].get_current_state(),
+                'completion', _('None')
             ), include_label=True, label=_('Completion'),
             source=WorkflowInstance
         )
 
         SourceColumn(
-            attribute='datetime', is_identifier=True, label=_('Date and time'),
-            source=WorkflowInstanceLogEntry
+            attribute='datetime', is_identifier=True,
+            label=_('Date and time'), source=WorkflowInstanceLogEntry
         )
         SourceColumn(
             attribute='user', include_label=True, label=_('User'),
@@ -451,8 +454,8 @@ class DocumentStatesApp(MayanAppConfig):
             source=WorkflowTransition
         )
         SourceColumn(
-            attribute='destination_state', include_label=True, is_sortable=True,
-            source=WorkflowTransition
+            attribute='destination_state', include_label=True,
+            is_sortable=True, source=WorkflowTransition
         )
         SourceColumn(
             attribute='has_condition', include_label=True,
@@ -519,7 +522,7 @@ class DocumentStatesApp(MayanAppConfig):
             sources=(
                 'document_states:document_multiple_workflow_templates_launch',
                 'document_states:document_single_workflow_templates_launch',
-                'document_states:workflow_instance_list', WorkflowInstance,
+                'document_states:workflow_instance_list', WorkflowInstance
             )
         )
 
@@ -664,7 +667,7 @@ class DocumentStatesApp(MayanAppConfig):
             ), sources=(
                 WorkflowTransition,
                 'document_states:workflow_template_transition_create',
-                'document_states:workflow_template_transition_list',
+                'document_states:workflow_template_transition_list'
             )
         )
         menu_secondary.bind_links(
@@ -673,17 +676,21 @@ class DocumentStatesApp(MayanAppConfig):
             ), sources=(
                 WorkflowState,
                 'document_states:workflow_template_state_create',
-                'document_states:workflow_template_state_list',
+                'document_states:workflow_template_state_list'
             )
         )
 
-        menu_setup.bind_links(links=(link_workflow_template_list,))
+        menu_setup.bind_links(
+            links=(link_workflow_template_list,)
+        )
 
-        menu_tools.bind_links(links=(link_tool_launch_workflows,))
+        menu_tools.bind_links(
+            links=(link_tool_launch_workflows,)
+        )
 
         post_migrate.connect(
             dispatch_uid='workflows_handler_create_workflow_image_cache',
-            receiver=handler_create_workflow_image_cache,
+            receiver=handler_create_workflow_image_cache
         )
         post_save.connect(
             dispatch_uid='workflows_handler_launch_workflow_on_create',

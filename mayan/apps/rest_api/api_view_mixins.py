@@ -190,7 +190,11 @@ class SerializerActionAPIViewMixin:
 
     def get_success_headers(self, data):
         try:
-            return {'Location': str(data[api_settings.URL_FIELD_NAME])}
+            return {
+                'Location': str(
+                    data[api_settings.URL_FIELD_NAME]
+                )
+            }
         except (TypeError, KeyError):
             return {}
 
@@ -206,14 +210,16 @@ class SerializerActionAPIViewMixin:
         self.perform_serializer_action(serializer=serializer)
         headers = self.get_success_headers(serializer.data)
         return Response(
-            serializer.data, status=status.HTTP_200_OK, headers=headers
+            serializer.data, headers=headers, status=status.HTTP_200_OK
         )
 
 
 class SerializerExtraContextAPIViewMixin:
     def get_serializer_context(self):
         context = super().get_serializer_context()
-        context.update(self.get_serializer_extra_context())
+        context.update(
+            self.get_serializer_extra_context()
+        )
         return context
 
     def get_serializer_extra_context(self):
@@ -223,6 +229,10 @@ class SerializerExtraContextAPIViewMixin:
 class SuccessHeadersAPIViewMixin:
     def get_success_headers(self, data):
         try:
-            return {'Location': str(data[api_settings.URL_FIELD_NAME])}
+            return {
+                'Location': str(
+                    data[api_settings.URL_FIELD_NAME]
+                )
+            }
         except (TypeError, KeyError):
             return {}

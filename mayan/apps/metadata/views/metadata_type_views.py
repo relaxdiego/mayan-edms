@@ -53,18 +53,18 @@ class MetadataTypeDeleteView(MultipleObjectDeleteView):
     post_action_redirect = reverse_lazy(
         viewname='metadata:metadata_type_list'
     )
+    success_message_plural = _(
+        '%(count)d metadata types deleted successfully.'
+    )
     success_message_single = _(
         'Metadata type "%(object)s" deleted successfully.'
     )
     success_message_singular = _(
         '%(count)d metadata type deleted successfully.'
     )
-    success_message_plural = _(
-        '%(count)d metadata types deleted successfully.'
-    )
+    title_plural = _('Delete the %(count)d selected metadata types.')
     title_single = _('Delete metadata type: %(object)s.')
     title_singular = _('Delete the %(count)d selected metadata type.')
-    title_plural = _('Delete the %(count)d selected metadata types.')
     view_icon = icon_metadata_type_single_delete
 
 
@@ -112,7 +112,7 @@ class MetadataTypeListView(SingleObjectListView):
                 'metadata value is provided.'
             ),
             'no_results_title': _('There are no metadata types'),
-            'title': _('Metadata types'),
+            'title': _('Metadata types')
         }
 
 

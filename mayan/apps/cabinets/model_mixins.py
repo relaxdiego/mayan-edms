@@ -17,6 +17,15 @@ class CabinetBusinessLogicMixin:
     def document_remove(self, document, user):
         return self._document_remove(document=document, user=user)
 
+    def get_document_count(self, user):
+        """
+        Return numeric count of the total documents in a cabinet. The count
+        is filtered by access.
+        """
+        return self.get_documents(
+            permission=permission_document_view, user=user
+        ).count()
+
     def get_documents(self, permission, user):
         """
         Provide a queryset of the documents in a cabinet. The queryset is
@@ -26,15 +35,6 @@ class CabinetBusinessLogicMixin:
             permission=permission, queryset=self._get_documents(),
             user=user
         )
-
-    def get_document_count(self, user):
-        """
-        Return numeric count of the total documents in a cabinet. The count
-        is filtered by access.
-        """
-        return self.get_documents(
-            permission=permission_document_view, user=user
-        ).count()
 
     def get_full_path(self):
         """

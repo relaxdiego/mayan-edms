@@ -101,10 +101,12 @@ class EventsApp(MayanAppConfig):
         # Stored event type
 
         SourceColumn(
-            source=StoredEventType, label=_('Namespace'), attribute='namespace'
+            attribute='namespace', label=_('Namespace'),
+            source=StoredEventType
+
         )
         SourceColumn(
-            source=StoredEventType, label=_('Label'), attribute='label'
+            attribute='label', label=_('Label'), source=StoredEventType
         )
 
         # Notification
@@ -154,7 +156,7 @@ class EventsApp(MayanAppConfig):
             links=(link_event_list_clear,),
             sources=(
                 'events:event_list',
-                'events:event_list_clear',
+                'events:event_list_clear'
             )
         )
         menu_secondary.bind_links(
@@ -171,7 +173,7 @@ class EventsApp(MayanAppConfig):
             links=(link_event_list_export,),
             sources=(
                 'events:event_list',
-                'events:event_list_export',
+                'events:event_list_export'
             )
         )
         menu_secondary.bind_links(
@@ -211,4 +213,6 @@ class EventsApp(MayanAppConfig):
         menu_topbar.bind_links(
             links=(link_notification_list,), position=30
         )
-        menu_tools.bind_links(links=(link_event_list,))
+        menu_tools.bind_links(
+            links=(link_event_list,)
+        )

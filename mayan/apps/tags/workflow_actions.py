@@ -20,7 +20,7 @@ class AttachTagAction(WorkflowAction):
                 'help_text': _('Tags to attach to the document'),
                 'queryset': Tag.objects.none(), 'required': False
             }
-        },
+        }
     }
     label = _('Attach tag')
     media = {
@@ -54,7 +54,11 @@ class AttachTagAction(WorkflowAction):
         return result
 
     def get_tags(self):
-        return Tag.objects.filter(pk__in=self.form_data.get('tags', ()))
+        return Tag.objects.filter(
+            pk__in=self.form_data.get(
+                'tags', ()
+            )
+        )
 
 
 class RemoveTagAction(AttachTagAction):
@@ -65,7 +69,7 @@ class RemoveTagAction(AttachTagAction):
                 'help_text': _('Tags to remove from the document'),
                 'queryset': Tag.objects.none(), 'required': False
             }
-        },
+        }
     }
     label = _('Remove tag')
     permission = permission_tag_remove

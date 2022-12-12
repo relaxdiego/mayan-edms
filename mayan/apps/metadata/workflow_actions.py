@@ -31,7 +31,7 @@ class DocumentMetadataAddAction(WorkflowAction):
     widgets = {
         'metadata_types': {
             'class': 'django.forms.widgets.SelectMultiple', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         }
     }
@@ -52,7 +52,7 @@ class DocumentMetadataAddAction(WorkflowAction):
                     ) % {
                         'document': context['document'],
                         'exception': exception,
-                        'metadata_type': metadata_type,
+                        'metadata_type': metadata_type
                     }
                 ) from exception
 
@@ -76,7 +76,9 @@ class DocumentMetadataAddAction(WorkflowAction):
 
     def get_metadata_types(self):
         return MetadataType.objects.filter(
-            pk__in=self.form_data.get('metadata_types', ())
+            pk__in=self.form_data.get(
+                'metadata_types', ()
+            )
         )
 
 
@@ -105,12 +107,12 @@ class DocumentMetadataEditAction(WorkflowAction):
     widgets = {
         'metadata_types': {
             'class': 'django.forms.widgets.Select', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         },
         'value': {
             'class': 'django.forms.widgets.Textarea', 'kwargs': {
-                'attrs': {'rows': '10'},
+                'attrs': {'rows': '10'}
             }
         }
     }
@@ -132,7 +134,7 @@ class DocumentMetadataEditAction(WorkflowAction):
                 ) % {
                     'document': context['document'],
                     'exception': exception,
-                    'metadata_type': metadata_type,
+                    'metadata_type': metadata_type
                 }
             ) from exception
         else:
@@ -161,7 +163,9 @@ class DocumentMetadataEditAction(WorkflowAction):
         return result
 
     def get_metadata_type(self):
-        return MetadataType.objects.get(pk=self.form_data['metadata_type'])
+        return MetadataType.objects.get(
+            pk=self.form_data['metadata_type']
+        )
 
 
 class DocumentMetadataRemoveAction(DocumentMetadataAddAction):
@@ -169,10 +173,11 @@ class DocumentMetadataRemoveAction(DocumentMetadataAddAction):
         'metadata_types': {
             'label': _('Metadata types'),
             'class': 'django.forms.ModelMultipleChoiceField', 'kwargs': {
-                'help_text': _('Metadata types to remove from the document.'),
-                'queryset': MetadataType.objects.none(), 'required': False
+                'help_text': _(
+                    'Metadata types to remove from the document.'
+                ), 'queryset': MetadataType.objects.none(), 'required': False
             }
-        },
+        }
     }
     label = _('Remove metadata')
 
@@ -195,6 +200,6 @@ class DocumentMetadataRemoveAction(DocumentMetadataAddAction):
                     ) % {
                         'document': context['document'],
                         'exception': exception,
-                        'metadata_type': metadata_type,
+                        'metadata_type': metadata_type
                     }
                 ) from exception

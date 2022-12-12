@@ -16,7 +16,7 @@ layer_decorations = Layer(
         'delete': permission_transformation_delete,
         'edit': permission_transformation_edit,
         'select': permission_transformation_create,
-        'view': permission_transformation_view,
+        'view': permission_transformation_view
     }, symbol='paint-roller'
 )
 
@@ -27,6 +27,6 @@ layer_saved_transformations = Layer(
         'delete': permission_transformation_delete,
         'edit': permission_transformation_edit,
         'select': permission_transformation_create,
-        'view': permission_transformation_view,
+        'view': permission_transformation_view
     }, symbol='crop'
 )

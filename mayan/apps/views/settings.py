@@ -6,7 +6,9 @@ from .literals import (
     DEFAULT_VIEWS_PAGINATE_BY, DEFAULT_VIEWS_PAGING_ARGUMENT
 )
 
-namespace = SettingNamespace(label=_('Views'), name='views')
+namespace = SettingNamespace(
+    label=_('Views'), name='views'
+)
 
 setting_paginate_by = namespace.add_setting(
     default=DEFAULT_VIEWS_PAGINATE_BY, global_name='VIEWS_PAGINATE_BY',

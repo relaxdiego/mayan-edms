@@ -14,30 +14,36 @@ class SplitTimeDeltaWidget(NamedMultiWidget):
     time and another for the amount of units.
     """
     subwidgets = {
-        'unit': forms.widgets.Select(
-            attrs={'style': 'width: 8em;'}, choices=TIME_DELTA_UNIT_CHOICES
-        ),
         'amount': forms.widgets.NumberInput(
             attrs={
                 'maxlength': 4, 'style': 'width: 8em;',
                 'placeholder': _('Amount')
             }
+        ),
+        'unit': forms.widgets.Select(
+            attrs={'style': 'width: 8em;'}, choices=TIME_DELTA_UNIT_CHOICES
         )
     }
 
     def decompress(self, value):
         return {
-            'unit': None, 'amount': None
+            'amount': None, 'unit': None
         }
 
     def value_from_datadict(self, querydict, files, name):
-        unit = querydict.get('{}_unit'.format(name))
-        amount = querydict.get('{}_amount'.format(name))
+        amount = querydict.get(
+            '{}_amount'.format(name)
+        )
+        unit = querydict.get(
+            '{}_unit'.format(name)
+        )
 
         if not unit or not amount:
             return now()
 
         amount = int(amount)
 
-        timedelta = datetime.timedelta(**{unit: amount})
+        timedelta = datetime.timedelta(
+            **{unit: amount}
+        )
         return now() + timedelta

@@ -87,8 +87,8 @@ class BatchRequest:
     ):
         self.collection = collection
         self.body = body or {}
-        self.include = include
         self.group_name = group_name
+        self.include = include
         self.iterables = iterables
         self.method = method
         self.name = name
@@ -97,7 +97,9 @@ class BatchRequest:
     def execute(self):
         if self.iterables:
             # Initialize the iterables list to allow using any index.
-            self.collection.context['iterables'] = [None] * len(self.iterables)
+            self.collection.context['iterables'] = [None] * len(
+                self.iterables
+            )
 
             iterator = None
             for iterable_index, iterable in enumerate(self.iterables):
@@ -274,7 +276,9 @@ class BatchRequestCollection:
                 {'collection': self}
             )
             try:
-                self.requests.append(BatchRequest(**request_dict))
+                self.requests.append(
+                    BatchRequest(**request_dict)
+                )
             except Exception as exception:
                 raise ValueError(
                     'Error instantiating request #{}; {}'.format(
@@ -297,10 +301,14 @@ class BatchRequestCollection:
                 result.append(
                     BatchResponse(
                         content=value.get('content', ''),
+                        data=value.get(
+                            'data', {}
+                        ),
+                        headers=value.get(
+                            'headers', {}
+                        ),
                         name=key,
                         status_code=value.get('status_code', 0),
-                        data=value.get('data', {}),
-                        headers=value.get('headers', {}),
                     )
                 )
 

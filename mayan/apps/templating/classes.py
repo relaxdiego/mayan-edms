@@ -58,7 +58,7 @@ class Template:
         engine = Engine(
             builtins=[
                 'mathfilters.templatetags.mathfilters',
-                'mayan.apps.templating.templatetags.templating_tags',
+                'mayan.apps.templating.templatetags.templating_tags'
             ]
         )
 

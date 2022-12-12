@@ -70,7 +70,8 @@ urlpatterns.extend(urlpatterns_transformations)
 api_urls_assets = [
     url(
         regex=r'^app_image_error/(?P<app_image_error_name>[-\w]+)/image/$',
-        name='app-image-error-image', view=APIAppImageErrorImageView.as_view()
+        name='app-image-error-image',
+        view=APIAppImageErrorImageView.as_view()
     ),
     url(
         regex=r'^assets/$', name='asset-list',

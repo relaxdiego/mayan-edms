@@ -41,23 +41,29 @@ class DocumentFileSignatureCreateForm(FilteredSelectionForm):
 class DocumentFileSignatureDetailForm(DetailForm):
     def __init__(self, *args, **kwargs):
         extra_fields = (
-            {'label': _('Signature is embedded?'), 'field': 'is_embedded'},
+            {
+                'label': _('Signature is embedded?'), 'field': 'is_embedded'
+            },
             {
                 'label': _('Signature date'), 'field': 'date_time',
                 'widget': forms.widgets.DateTimeInput
             },
-            {'label': _('Signature key ID'), 'field': 'key_id'},
+            {
+                'label': _('Signature key ID'), 'field': 'key_id'
+            },
             {
                 'label': _('Signature key present?'),
                 'func': lambda x: x.public_key_fingerprint is not None
-            },
+            }
         )
 
         key = kwargs['instance'].key
 
         if key:
             extra_fields += (
-                {'label': _('Signature ID'), 'field': 'signature_id'},
+                {
+                    'label': _('Signature ID'), 'field': 'signature_id'
+                },
                 {
                     'label': _('Key fingerprint'),
                     'func': lambda x: key.fingerprint
@@ -87,7 +93,7 @@ class DocumentFileSignatureDetailForm(DetailForm):
                 {
                     'label': _('Key type'),
                     'func': lambda x: key.get_key_type_display()
-                },
+                }
             )
 
         kwargs['extra_fields'] = extra_fields

@@ -56,7 +56,7 @@ class FontAwesomeDualClassesDriver(IconDriver):
                 {
                     'class': '{}'.format(self.secondary_class),
                     'transform': 'shrink-4 down-3 right-10'
-                },
+                }
             )
         }
 
@@ -81,7 +81,7 @@ class FontAwesomeDualDriver(IconDriver):
                 {
                     'class': 'fas fa-{}'.format(self.secondary_symbol),
                     'transform': 'shrink-4 down-3 right-10'
-                },
+                }
             )
         }
 

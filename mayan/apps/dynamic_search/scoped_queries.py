@@ -110,7 +110,9 @@ class ScopedQuery:
     def to_string(self):
         scope_text_list = []
         for scope_entry in self.scope_entry_list:
-            scope_text_list.append(scope_entry.to_string())
+            scope_text_list.append(
+                scope_entry.to_string()
+            )
 
         return '&'.join(scope_text_list)
 
@@ -180,7 +182,9 @@ class ScopedQueryEntry:
     def do_template_render(self, template_name, context=None):
         context_final = self.get_template_context_defaults()
 
-        context_final.update(context or {})
+        context_final.update(
+            context or {}
+        )
 
         template_string = self.get_template(template_name=template_name)
 
@@ -191,8 +195,8 @@ class ScopedQueryEntry:
 
     def get_template_context_defaults(self):
         return {
-            'scope_marker': self.scoped_query.scope_marker,
-            'scope_delimiter': self.scoped_query.scope_delimiter
+            'scope_delimiter': self.scoped_query.scope_delimiter,
+            'scope_marker': self.scoped_query.scope_marker
         }
 
     def get_template_explain_context(self):
@@ -268,7 +272,9 @@ class ScopedQueryEntryDataFilter(ScopedQueryEntryData):
     def _check(cls, key, value):
         if key.startswith(cls.scoped_query.scope_marker):
             # Remove the scope marker.
-            key = key[len(cls.scoped_query.scope_marker):]
+            key = key[
+                len(cls.scoped_query.scope_marker):
+            ]
 
             try:
                 scope_identifier, field_name = key.split(
@@ -335,10 +341,9 @@ class ScopedQueryEntryDataFilter(ScopedQueryEntryData):
 
             try:
                 results = search_backend._search(
-                    is_raw_value=self.is_raw_value,
-                    is_quoted_value=self.is_quoted_value, limit=limit,
-                    query_type=query_type, search_field=self.search_field,
-                    value=value
+                    limit=limit, is_quoted_value=self.is_quoted_value,
+                    is_raw_value=self.is_raw_value, query_type=query_type,
+                    search_field=self.search_field, value=value
                 )
 
                 if len(results) >= limit:
@@ -347,7 +352,8 @@ class ScopedQueryEntryDataFilter(ScopedQueryEntryData):
                             'Search results exceed limit setting. Results '
                             'might not be reliable if multiple scopes are '
                             'used. Narrow down the search criteria or '
-                            'increase the value of the results limit setting.'
+                            'increase the value of the results limit '
+                            'setting.'
                         )
                     )
 
@@ -494,7 +500,9 @@ class ScopedQueryEntryDataOperator(ScopedQueryEntryData):
 
         context.update(
             {
-                'operator_with_operands': '( {} )'.format(operator_with_operands)
+                'operator_with_operands': '( {} )'.format(
+                    operator_with_operands
+                )
             }
         )
         return context
@@ -513,7 +521,9 @@ class ScopedQueryEntryDataOperator(ScopedQueryEntryData):
     def get_template_value_context(self):
         return {
             'operator_text': self.operator_text,
-            'operand_list': self.scoped_query.scope_delimiter.join(self.operand_list)
+            'operand_list': self.scoped_query.scope_delimiter.join(
+                self.operand_list
+            )
         }
 
     @property

@@ -23,7 +23,9 @@ def get_month_name(month_number):
 def new_documents_per_month():
     Document = apps.get_model(app_label='documents', model_name='Document')
 
-    qss = qsstats.QuerySetStats(Document.valid.all(), 'datetime_created')
+    qss = qsstats.QuerySetStats(
+        Document.valid.all(), 'datetime_created'
+    )
 
     now = timezone.now().date()
     start = timezone.datetime(year=now.year, month=1, day=1).date()
@@ -31,8 +33,9 @@ def new_documents_per_month():
     return {
         'series': {
             'Documents': map(
-                lambda x: {get_month_name(month_number=x[0].month): x[1]},
-                qss.time_series(start=start, end=now, interval='months')
+                lambda x: {
+                    get_month_name(month_number=x[0].month): x[1]
+                }, qss.time_series(start=start, end=now, interval='months')
             )
         }
     }
@@ -53,8 +56,9 @@ def new_document_pages_per_month():
     return {
         'series': {
             'Pages': map(
-                lambda x: {get_month_name(month_number=x[0].month): x[1]},
-                qss.time_series(start=start, end=now, interval='months')
+                lambda x: {
+                    get_month_name(month_number=x[0].month): x[1]
+                }, qss.time_series(start=start, end=now, interval='months')
             )
         }
     }
@@ -93,8 +97,9 @@ def new_document_files_per_month():
     return {
         'series': {
             'Files': map(
-                lambda x: {get_month_name(month_number=x[0].month): x[1]},
-                qss.time_series(start=start, end=now, interval='months')
+                lambda x: {
+                    get_month_name(month_number=x[0].month): x[1]
+                }, qss.time_series(start=start, end=now, interval='months')
             )
         }
     }
@@ -198,7 +203,8 @@ def total_document_page_per_month():
     )
 
     qss = qsstats.QuerySetStats(
-        DocumentFilePage.valid.all(), 'document_file__document__datetime_created'
+        DocumentFilePage.valid.all(),
+        'document_file__document__datetime_created'
     )
     now = timezone.now()
 

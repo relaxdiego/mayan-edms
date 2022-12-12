@@ -44,7 +44,7 @@ class CabinetCreateView(SingleObjectCreateView):
 
     def get_extra_context(self):
         return {
-            'title': _('Create cabinet'),
+            'title': _('Create cabinet')
         }
 
     def get_instance_extra_data(self):
@@ -86,7 +86,7 @@ class CabinetDeleteView(SingleObjectDeleteView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Delete the cabinet: %s?') % self.object,
+            'title': _('Delete the cabinet: %s?') % self.object
         }
 
 
@@ -133,7 +133,7 @@ class CabinetDetailView(ExternalObjectViewMixin, DocumentListView):
                 'object': self.external_object,
                 'title': _(
                     'Details of cabinet: %s'
-                ) % self.external_object.get_full_path(),
+                ) % self.external_object.get_full_path()
             }
         )
 
@@ -151,7 +151,7 @@ class CabinetEditView(SingleObjectEditView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Edit cabinet: %s') % self.object,
+            'title': _('Edit cabinet: %s') % self.object
         }
 
     def get_instance_extra_data(self):
@@ -176,7 +176,7 @@ class CabinetListView(SingleObjectListView):
                 'documents. Each cabinet can contain documents as '
                 'well as other sub level cabinets.'
             ),
-            'no_results_title': _('No cabinets available'),
+            'no_results_title': _('No cabinets available')
         }
 
     def get_source_queryset(self):
@@ -208,7 +208,7 @@ class DocumentCabinetAddView(MultipleObjectFormActionView):
         if self.object_list.count() == 1:
             context.update(
                 {
-                    'object': self.object_list.first(),
+                    'object': self.object_list.first()
                 }
             )
 
@@ -271,7 +271,7 @@ class DocumentCabinetListView(ExternalObjectViewMixin, CabinetListView):
             'object': self.external_object,
             'title': _(
                 'Cabinets containing document: %s'
-            ) % self.external_object,
+            ) % self.external_object
         }
 
     def get_source_queryset(self):
@@ -305,7 +305,7 @@ class DocumentCabinetRemoveView(MultipleObjectFormActionView):
         if self.object_list.count() == 1:
             context.update(
                 {
-                    'object': self.object_list.first(),
+                    'object': self.object_list.first()
                 }
             )
 
@@ -333,8 +333,9 @@ class DocumentCabinetRemoveView(MultipleObjectFormActionView):
     def object_action(self, form, instance):
         for cabinet in form.cleaned_data['cabinets']:
             AccessControlList.objects.check_access(
-                obj=cabinet, permissions=(permission_cabinet_remove_document,),
-                user=self.request.user
+                obj=cabinet, permissions=(
+                    permission_cabinet_remove_document,
+                ), user=self.request.user
             )
 
             cabinet.document_remove(

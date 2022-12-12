@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Metadata'), name='metadata')
+namespace = PermissionNamespace(
+    label=_('Metadata'), name='metadata'
+)
 
 permission_document_metadata_add = namespace.add_permission(
     label=_('Add metadata to a document'), name='metadata_document_add'

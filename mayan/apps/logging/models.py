@@ -6,12 +6,15 @@ from django.utils.translation import ugettext_lazy as _
 from mayan.apps.events.classes import EventManagerMethodAfter
 from mayan.apps.events.decorators import method_event
 
-from .classes import ErrorLog as ErrorLogProxy
 from .events import event_error_log_deleted
 from .managers import ErrorLogPartitionEntryManager
+from .model_mixins import (
+    ErrorLogPartitionEntryBusinessLogicMixin,
+    StoredErrorLogBusinessLogicMixin
+)
 
 
-class StoredErrorLog(models.Model):
+class StoredErrorLog(StoredErrorLogBusinessLogicMixin, models.Model):
     name = models.CharField(
         max_length=128, unique=True, verbose_name=_('Internal name')
     )
@@ -23,16 +26,6 @@ class StoredErrorLog(models.Model):
 
     def __str__(self):
         return str(self.app_label)
-
-    @property
-    def app_label(self):
-        return self.proxy.app_config
-
-    app_label.fget.short_description = _('App label')
-
-    @property
-    def proxy(self):
-        return ErrorLogProxy.get(name=self.name)
 
 
 class ErrorLogPartition(models.Model):
@@ -62,7 +55,9 @@ class ErrorLogPartition(models.Model):
         return self.name
 
 
-class ErrorLogPartitionEntry(models.Model):
+class ErrorLogPartitionEntry(
+    ErrorLogPartitionEntryBusinessLogicMixin, models.Model
+):
     error_log_partition = models.ForeignKey(
         on_delete=models.CASCADE, related_name='entries',
         to=ErrorLogPartition, verbose_name=_('Error log partition')
@@ -90,11 +85,6 @@ class ErrorLogPartitionEntry(models.Model):
     )
     def delete(self, *args, **kwargs):
         return super().delete(*args, **kwargs)
-
-    def get_object(self):
-        return self.error_log_partition.content_object
-
-    get_object.short_description = _('Object')
 
 
 class GlobalErrorLogPartitionEntry(ErrorLogPartitionEntry):

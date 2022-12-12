@@ -47,7 +47,9 @@ class TagBusinessLogicMixin:
         """
         Return a filtered queryset documents that have this tag attached.
         """
-        queryset = Document.valid.filter(pk__in=self.documents.all())
+        queryset = Document.valid.filter(
+            pk__in=self.documents.all()
+        )
 
         queryset = AccessControlList.objects.restrict_queryset(
             permission=permission, queryset=queryset,

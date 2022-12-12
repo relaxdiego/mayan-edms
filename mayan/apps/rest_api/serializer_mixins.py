@@ -41,12 +41,16 @@ class DynamicFieldListSerializerMixin:
 
         for field_exclude in fields_exclude:
             parts = field_exclude.split(DEFAULT_DYNAMIC_FIELD_SEPARATOR)
-            matched_exclude.append(parts[-1])
+            matched_exclude.append(
+                parts[-1]
+            )
 
         for field_only in fields_only:
             parts = field_only.split(DEFAULT_DYNAMIC_FIELD_SEPARATOR)
             if parts[0]:
-                matched_only.append(parts[0])
+                matched_only.append(
+                    parts[0]
+                )
 
         self.update_excluded_fields(
             fields_exclude=matched_exclude, fields_only=matched_only
@@ -90,7 +94,9 @@ class DynamicFieldListSerializerMixin:
         fields = super().get_fields()
 
         # Copy keys to avoid modifying them in the loop.
-        field_names = list(fields.keys())
+        field_names = list(
+            fields.keys()
+        )
 
         for field in field_names:
             if field in self._excluded_fields:

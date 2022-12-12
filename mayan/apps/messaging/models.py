@@ -15,16 +15,18 @@ from .model_mixins import MessageBusinessLogicMixin
 
 class Message(ExtraDataModelMixin, MessageBusinessLogicMixin, models.Model):
     sender_content_type = models.ForeignKey(
-        blank=True, null=True, on_delete=models.CASCADE, to=ContentType
+        blank=True, null=True, on_delete=models.CASCADE, to=ContentType,
+        verbose_name=_('Sender content type')
     )
-    sender_object_id = models.PositiveIntegerField(blank=True, null=True)
+    sender_object_id = models.PositiveIntegerField(
+        blank=True, null=True, verbose_name=_('Sender object ID')
+    )
     sender_object = GenericForeignKey(
         ct_field='sender_content_type', fk_field='sender_object_id'
     )
     user = models.ForeignKey(
-        db_index=True, on_delete=models.CASCADE,
-        related_name='messages', to=settings.AUTH_USER_MODEL,
-        verbose_name=_('User')
+        db_index=True, on_delete=models.CASCADE, related_name='messages',
+        to=settings.AUTH_USER_MODEL, verbose_name=_('User')
     )
     subject = models.CharField(
         max_length=255, help_text=_('Short description of this message.'),

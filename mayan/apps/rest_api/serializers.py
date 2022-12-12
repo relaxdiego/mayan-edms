@@ -43,7 +43,9 @@ class BatchAPIRequestResponseSerializer(Serializer):
 
     def validate(self, data):
         try:
-            BatchRequestCollection(request_list=data['requests'])
+            BatchRequestCollection(
+                request_list=data['requests']
+            )
         except Exception as exception:
             raise rest_framework_serializers.ValidationError(
                 'Error validating requests; {}'.format(exception)

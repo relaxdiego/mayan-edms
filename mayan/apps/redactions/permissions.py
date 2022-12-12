@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Redactions'), name='redactions')
+namespace = PermissionNamespace(
+    label=_('Redactions'), name='redactions'
+)
 
 permission_redaction_create = namespace.add_permission(
     label=_('Create new redactions'), name='redaction_create'

@@ -32,7 +32,9 @@ class Comment(CommentBusinessLogicMixin, ExtraDataModelMixin, models.Model):
         editable=False, on_delete=models.CASCADE, related_name='comments',
         to=settings.AUTH_USER_MODEL, verbose_name=_('User')
     )
-    text = models.TextField(verbose_name=_('Text'))
+    text = models.TextField(
+        verbose_name=_('Text')
+    )
     submit_date = models.DateTimeField(
         auto_now_add=True, db_index=True,
         verbose_name=_('Date time submitted')

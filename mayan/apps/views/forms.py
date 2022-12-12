@@ -35,7 +35,8 @@ class ChoiceForm(Form):
     items from a many to many field.
     """
     search = django_forms.CharField(
-        label=_('Search'), required=False, widget=django_forms.widgets.TextInput(
+        label=_('Search'), required=False,
+        widget=django_forms.widgets.TextInput(
             attrs={
                 'autocomplete': 'off',
                 'class': 'views-select-search',
@@ -49,9 +50,13 @@ class ChoiceForm(Form):
 
     def __init__(self, *args, **kwargs):
         choices = kwargs.pop('choices', [])
-        label = kwargs.pop('label', _('Selection'))
+        label = kwargs.pop(
+            'label', _('Selection')
+        )
         help_text = kwargs.pop('help_text', None)
-        disabled_choices = kwargs.pop('disabled_choices', ())
+        disabled_choices = kwargs.pop(
+            'disabled_choices', ()
+        )
         super().__init__(*args, **kwargs)
         self.fields['selection'].choices = choices
         self.fields['selection'].label = label
@@ -82,7 +87,9 @@ class FormOptions:
             except KeyError:
                 try:
                     # Check if there is a get_... method
-                    value = getattr(self, 'get_{}'.format(name))()
+                    value = getattr(
+                        self, 'get_{}'.format(name)
+                    )()
                 except AttributeError:
                     try:
                         # Check the meta class options
@@ -95,7 +102,9 @@ class FormOptions:
 
 class DetailFormOption(FormOptions):
     # Dictionary list of option names and default values.
-    option_definitions = {'extra_fields': []}
+    option_definitions = {
+        'extra_fields': []
+    }
 
 
 class DetailForm(ModelForm):
@@ -183,7 +192,9 @@ class DynamicFormMetaclass(ModelFormMetaclass):
 
         if new_class._meta.fields:
             new_class._meta.fields += ('backend_data',)
-            widgets = getattr(new_class._meta, 'widgets', {}) or {}
+            widgets = getattr(
+                new_class._meta, 'widgets', {}
+            ) or {}
             widgets['backend_data'] = django_forms.widgets.HiddenInput
             new_class._meta.widgets = widgets
 
@@ -263,8 +274,8 @@ class FilteredSelectionFormOptions(FormOptions):
         'queryset': None,
         'required': True,
         'user': None,
-        'widget_class': None,
         'widget_attributes': {'size': '10'},
+        'widget_class': None
     }
 
 
@@ -329,11 +340,13 @@ class RelationshipForm(Form):
 
         self.fields['label'] = django_forms.CharField(
             label=_('Label'), required=False,
-            widget=django_forms.TextInput(attrs={'readonly': 'readonly'})
+            widget=django_forms.TextInput(
+                attrs={'readonly': 'readonly'}
+            )
         )
         self.fields['relationship_type'] = django_forms.ChoiceField(
-            label=_('Relationship'),
-            widget=django_forms.RadioSelect(), choices=self.RELATIONSHIP_CHOICES
+            choices=self.RELATIONSHIP_CHOICES, label=_('Relationship'),
+            widget=django_forms.RadioSelect()
         )
 
         self.sub_object = self.initial.get('sub_object')

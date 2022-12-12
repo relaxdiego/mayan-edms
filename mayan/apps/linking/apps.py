@@ -181,7 +181,8 @@ class LinkingApp(MayanAppConfig):
         menu_list_facet.bind_links(
             exclude=(ResolvedSmartLink,),
             links=(
-                link_smart_link_document_types, link_smart_link_condition_list
+                link_smart_link_document_types,
+                link_smart_link_condition_list
             ), sources=(SmartLink,)
         )
 
@@ -229,4 +230,6 @@ class LinkingApp(MayanAppConfig):
 
         # Setup
 
-        menu_setup.bind_links(links=(link_smart_link_setup,))
+        menu_setup.bind_links(
+            links=(link_smart_link_setup,)
+        )

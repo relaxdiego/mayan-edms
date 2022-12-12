@@ -136,7 +136,9 @@ class CabinetsApp(MayanAppConfig):
         )
 
         model_query_fields_document = ModelQueryFields(model=Document)
-        model_query_fields_document.add_prefetch_related_field(field_name='cabinets')
+        model_query_fields_document.add_prefetch_related_field(
+            field_name='cabinets'
+        )
 
         def get_root_filter():
             return {

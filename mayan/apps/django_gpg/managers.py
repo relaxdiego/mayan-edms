@@ -98,7 +98,8 @@ class KeyManager(models.Manager):
         key_fingerprint=None, key_id=None
     ):
         keys = self._preload_keys(
-            all_keys=all_keys, key_fingerprint=key_fingerprint, key_id=key_id
+            all_keys=all_keys, key_fingerprint=key_fingerprint,
+            key_id=key_id
         )
 
         if signature_file:

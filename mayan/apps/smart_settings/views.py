@@ -55,7 +55,9 @@ class SettingEditView(FormView):
         return {'setting': self.object}
 
     def get_object(self):
-        return Setting.get(global_name=self.kwargs['setting_global_name'])
+        return Setting.get(
+            global_name=self.kwargs['setting_global_name']
+        )
 
     def get_post_action_redirect(self):
         return reverse(

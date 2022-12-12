@@ -24,13 +24,13 @@ class CabinetAddAction(WorkflowAction):
                 ),
                 'queryset': Cabinet.objects.none(), 'required': False
             }
-        },
+        }
     }
     label = _('Add to cabinets')
     widgets = {
         'cabinets': {
             'class': 'django.forms.widgets.SelectMultiple', 'kwargs': {
-                'attrs': {'class': 'select2'},
+                'attrs': {'class': 'select2'}
             }
         }
     }
@@ -38,11 +38,15 @@ class CabinetAddAction(WorkflowAction):
 
     def execute(self, context):
         for cabinet in self.get_cabinets():
-            cabinet._document_add(document=context['document'])
+            cabinet._document_add(
+                document=context['document']
+            )
 
     def get_cabinets(self):
         return Cabinet.objects.filter(
-            pk__in=self.form_data.get('cabinets', ())
+            pk__in=self.form_data.get(
+                'cabinets', ()
+            )
         )
 
     def get_form_schema(self, **kwargs):
@@ -67,11 +71,13 @@ class CabinetRemoveAction(CabinetAddAction):
                     'Cabinets from which the document will be removed.'),
                 'queryset': Cabinet.objects.none(), 'required': False
             }
-        },
+        }
     }
     label = _('Remove from cabinets')
     permission = permission_cabinet_remove_document
 
     def execute(self, context):
         for cabinet in self.get_cabinets():
-            cabinet._document_remove(document=context['document'])
+            cabinet._document_remove(
+                document=context['document']
+            )

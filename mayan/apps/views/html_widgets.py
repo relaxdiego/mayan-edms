@@ -13,7 +13,7 @@ class TwoStateWidget(SourceColumnWidget):
 
     def get_extra_context(self):
         return {
-            'icon_ok': self.icon_ok, 'icon_fail': self.icon_fail,
+            'icon_fail': self.icon_fail, 'icon_ok': self.icon_ok
         }
 
 

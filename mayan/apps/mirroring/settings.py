@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_MIRRORING_NODE_CACHE_LOOKUP_TIMEOUT
 )
 
-namespace = SettingNamespace(label=_('Mirroring'), name='mirroring')
+namespace = SettingNamespace(
+    label=_('Mirroring'), name='mirroring'
+)
 
 setting_document_lookup_cache_timeout = namespace.add_setting(
     default=DEFAULT_MIRRORING_DOCUMENT_CACHE_LOOKUP_TIMEOUT,

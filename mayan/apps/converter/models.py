@@ -74,11 +74,11 @@ class Asset(AssetBusinessLogicMixin, ExtraDataModelMixin, models.Model):
         event_manager_class=EventManagerSave,
         created={
             'event': event_asset_created,
-            'target': 'self',
+            'target': 'self'
         },
         edited={
             'event': event_asset_edited,
-            'target': 'self',
+            'target': 'self'
         }
     )
     def save(self, *args, **kwargs):
@@ -106,15 +106,22 @@ class StoredLayer(models.Model):
 
 
 class ObjectLayer(ObjectLayerBusinessLogicMixin, models.Model):
-    content_type = models.ForeignKey(on_delete=models.CASCADE, to=ContentType)
-    object_id = models.PositiveIntegerField()
+    content_type = models.ForeignKey(
+        on_delete=models.CASCADE, to=ContentType,
+        verbose_name=_('Content type')
+    )
+    object_id = models.PositiveIntegerField(
+        verbose_name=_('Object ID')
+    )
     content_object = GenericForeignKey(
         ct_field='content_type', fk_field='object_id'
     )
-    enabled = models.BooleanField(default=True, verbose_name=_('Enabled'))
+    enabled = models.BooleanField(
+        default=True, verbose_name=_('Enabled')
+    )
     stored_layer = models.ForeignKey(
-        on_delete=models.CASCADE, related_name='object_layers', to=StoredLayer,
-        verbose_name=_('Stored layer')
+        on_delete=models.CASCADE, related_name='object_layers',
+        to=StoredLayer, verbose_name=_('Stored layer')
     )
 
     objects = ObjectLayerManager()
@@ -150,14 +157,18 @@ class LayerTransformation(
             'unchanged, an automatic order value will be assigned.'
         ), verbose_name=_('Order')
     )
-    name = models.CharField(max_length=128, verbose_name=_('Name'))
+    name = models.CharField(
+        max_length=128, verbose_name=_('Name')
+    )
     arguments = models.TextField(
         blank=True, help_text=_(
             'Enter the arguments for the transformation as a YAML '
             'dictionary. ie: {"degrees": 180}'
         ), validators=[YAMLValidator()], verbose_name=_('Arguments')
     )
-    enabled = models.BooleanField(default=True, verbose_name=_('Enabled'))
+    enabled = models.BooleanField(
+        default=True, verbose_name=_('Enabled')
+    )
 
     objects = LayerTransformationManager()
 

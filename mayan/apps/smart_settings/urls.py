@@ -15,6 +15,7 @@ urlpatterns = [
     ),
     url(
         regex=r'^namespaces/(?P<namespace_name>\w+)/$',
-        name='setting_namespace_detail', view=SettingNamespaceDetailView.as_view()
+        name='setting_namespace_detail',
+        view=SettingNamespaceDetailView.as_view()
     )
 ]

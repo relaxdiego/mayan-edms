@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_LOCK_MANAGER_DEFAULT_LOCK_TIMEOUT
 )
 
-namespace = SettingNamespace(label=_('Lock manager'), name='lock_manager')
+namespace = SettingNamespace(
+    label=_('Lock manager'), name='lock_manager'
+)
 
 setting_backend = namespace.add_setting(
     default=DEFAULT_LOCK_MANAGER_BACKEND, global_name='LOCK_MANAGER_BACKEND',

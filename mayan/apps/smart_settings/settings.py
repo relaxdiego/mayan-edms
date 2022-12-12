@@ -23,7 +23,9 @@ from .literals import (
 # Don't import anything on start import, we just want to make it easy
 # for apps.py to activate the settings in this module.
 __all__ = ()
-namespace = SettingNamespace(label=_('Django'), name='django')
+namespace = SettingNamespace(
+    label=_('Django'), name='django'
+)
 
 setting_django_allowed_hosts = namespace.add_setting(
     default=DEFAULT_ALLOWED_HOSTS, global_name='ALLOWED_HOSTS', help_text=_(

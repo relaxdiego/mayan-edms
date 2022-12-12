@@ -72,8 +72,9 @@ class APICheckedoutDocumentView(generics.RetrieveDestroyAPIView):
         elif self.request.method == 'DELETE':
             check_in_queryset = AccessControlList.objects.restrict_queryset(
                 permission=permission_document_check_in,
-                queryset=DocumentCheckout.objects.filter(user_id=self.request.user.pk),
-                user=self.request.user
+                queryset=DocumentCheckout.objects.filter(
+                    user_id=self.request.user.pk
+                ), user=self.request.user
             )
             check_in_override_queryset = AccessControlList.objects.restrict_queryset(
                 permission=permission_document_check_in_override,
@@ -122,7 +123,9 @@ class APIDocumentCheckoutView(
                 return permission
 
     def get_object(self):
-        queryset = self.filter_queryset(queryset=self.get_queryset())
+        queryset = self.filter_queryset(
+            queryset=self.get_queryset()
+        )
 
         obj = queryset.first()
 

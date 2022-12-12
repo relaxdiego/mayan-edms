@@ -59,7 +59,9 @@ class ObjectMailForm(forms.Form):
             'separated by comma or semicolon.'
         ), label=_('Email address'), validators=[validate_email_multiple]
     )
-    subject = forms.CharField(label=_('Subject'), required=False)
+    subject = forms.CharField(
+        label=_('Subject'), required=False
+    )
     body = forms.CharField(
         label=_('Body'), widget=forms.widgets.Textarea(), required=False
     )

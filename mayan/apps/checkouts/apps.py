@@ -70,7 +70,8 @@ class CheckoutsApp(MayanAppConfig):
         ModelEventType.register(
             model=Document, event_types=(
                 event_document_auto_checked_in, event_document_checked_in,
-                event_document_checked_out, event_document_forcefully_checked_in
+                event_document_checked_out,
+                event_document_forcefully_checked_in
             )
         )
 
@@ -111,7 +112,9 @@ class CheckoutsApp(MayanAppConfig):
         menu_list_facet.bind_links(
             links=(link_check_out_info,), sources=(Document,)
         )
-        menu_main.bind_links(links=(link_check_out_list,), position=40)
+        menu_main.bind_links(
+            links=(link_check_out_list,), position=40
+        )
         menu_multi_item.bind_links(
             links=(
                 link_check_in_document_multiple,

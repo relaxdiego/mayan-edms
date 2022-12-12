@@ -13,17 +13,17 @@ queue_search_slow = CeleryQueue(
 queue_search.add_task_type(
     dotted_path='mayan.apps.dynamic_search.tasks.task_deindex_instance',
     label=_('Remove a model instance from the search engine.'),
-    name='task_deindex_instance',
+    name='task_deindex_instance'
 )
 queue_search.add_task_type(
     dotted_path='mayan.apps.dynamic_search.tasks.task_index_instance',
     label=_('Index a model instance to the search engine.'),
-    name='task_index_instance',
+    name='task_index_instance'
 )
 queue_search.add_task_type(
     dotted_path='mayan.apps.dynamic_search.tasks.task_index_instances',
     label=_('Index all instances of a search model to the search engine.'),
-    name='task_index_instances',
+    name='task_index_instances'
 )
 queue_search.add_task_type(
     dotted_path='mayan.apps.dynamic_search.tasks.task_index_related_instance_m2m',
@@ -31,11 +31,11 @@ queue_search.add_task_type(
         'Index all related instances of a search model after a many to many '
         'event.'
     ),
-    name='task_index_related_instance_m2m',
+    name='task_index_related_instance_m2m'
 )
 
 queue_search_slow.add_task_type(
     dotted_path='mayan.apps.dynamic_search.tasks.task_reindex_backend',
     label=_('Reset the search backend indices and index all instances again.'),
-    name='task_reindex_backend',
+    name='task_reindex_backend'
 )

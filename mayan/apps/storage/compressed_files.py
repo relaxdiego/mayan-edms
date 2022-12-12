@@ -67,7 +67,8 @@ class Archive:
     def get_members(self):
         return (
             SimpleUploadedFile(
-                content=self.member_contents(filename=filename), name=filename
+                content=self.member_contents(filename=filename),
+                name=filename
             ) for filename in self.members()
         )
 
@@ -114,11 +115,15 @@ class MsgArchive(Archive):
 
     def open_member(self, filename):
         if filename == 'message.txt':
-            return BytesIO(initial_bytes=force_bytes(s=self._archive.body))
+            return BytesIO(
+                initial_bytes=force_bytes(s=self._archive.body)
+            )
 
         for member in self._archive.attachments:
             if member.longFilename == filename:
-                return BytesIO(initial_bytes=force_bytes(s=member.data))
+                return BytesIO(
+                    initial_bytes=force_bytes(s=member.data)
+                )
 
 
 class TarArchive(Archive):
@@ -205,12 +210,16 @@ class ZipArchive(Archive):
 
         if filename:
             with open(file=filename, mode='wb') as file_object:
-                file_object.write(self.string_buffer.read())
+                file_object.write(
+                    self.string_buffer.read()
+                )
         else:
             return self.string_buffer
 
     def as_file(self, filename):
-        return SimpleUploadedFile(name=filename, content=self.write().read())
+        return SimpleUploadedFile(
+            name=filename, content=self.write().read()
+        )
 
 
 Archive.register(

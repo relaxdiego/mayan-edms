@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Tags'), name='tags')
+namespace = PermissionNamespace(
+    label=_('Tags'), name='tags'
+)
 
 permission_tag_create = namespace.add_permission(
     label=_('Create new tags'), name='tag_create'

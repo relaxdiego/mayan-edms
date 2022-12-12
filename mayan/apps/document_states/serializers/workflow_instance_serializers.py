@@ -38,7 +38,7 @@ class WorkflowInstanceLogEntrySerializer(serializers.ModelSerializer):
             {
                 'lookup_field': 'workflow_instance.document.pk',
                 'lookup_url_kwarg': 'document_id',
-            }
+            },
         ), view_name='rest_api:document-detail'
     )
     transition = WorkflowTemplateTransitionSerializer(

@@ -18,7 +18,8 @@ DEFAULT_COMMON_PROJECT_URL = mayan.__website__
 EMPTY_LABEL = '---------'
 
 MESSAGE_DEPRECATION_WARNING = _(
-    'This feature has been deprecated and will be removed in a future version.'
+    'This feature has been deprecated and will be removed in a future '
+    'version.'
 )
 
 TIME_DELTA_UNIT_DAYS = 'days'
@@ -28,5 +29,5 @@ TIME_DELTA_UNIT_MINUTES = 'minutes'
 TIME_DELTA_UNIT_CHOICES = (
     (TIME_DELTA_UNIT_DAYS, _('Days')),
     (TIME_DELTA_UNIT_HOURS, _('Hours')),
-    (TIME_DELTA_UNIT_MINUTES, _('Minutes')),
+    (TIME_DELTA_UNIT_MINUTES, _('Minutes'))
 )

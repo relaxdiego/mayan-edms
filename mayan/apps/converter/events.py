@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.events.classes import EventTypeNamespace
 
-namespace = EventTypeNamespace(label=_('Converter'), name='converter')
+namespace = EventTypeNamespace(
+    label=_('Converter'), name='converter'
+)
 
 event_asset_created = namespace.add_event_type(
     label=_('Asset created'), name='asset_created'

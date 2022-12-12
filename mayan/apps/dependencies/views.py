@@ -21,8 +21,8 @@ class CheckVersionView(SimpleView):
 
     def get_extra_context(self):
         return {
-            'title': _('Check for updates'),
-            'content': PyPIClient().check_version_verbose()
+            'content': PyPIClient().check_version_verbose(),
+            'title': _('Check for updates')
         }
 
 

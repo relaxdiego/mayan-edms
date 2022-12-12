@@ -45,7 +45,9 @@ urlpatterns_groups = [
 ]
 
 urlpatterns_users = [
-    url(regex=r'^users/$', name='user_list', view=UserListView.as_view()),
+    url(
+        regex=r'^users/$', name='user_list', view=UserListView.as_view()
+    ),
     url(
         regex=r'^users/create/$', name='user_create',
         view=UserCreateView.as_view()
@@ -81,16 +83,17 @@ urlpatterns.extend(urlpatterns_groups)
 urlpatterns.extend(urlpatterns_users)
 
 api_urls = [
-    url(regex=r'^groups/$', view=APIGroupListView.as_view(), name='group-list'),
     url(
-        regex=r'^groups/(?P<group_id>[0-9]+)/$', view=APIGroupDetailView.as_view(),
-        name='group-detail'
+        regex=r'^groups/$', name='group-list',
+        view=APIGroupListView.as_view()
     ),
-
+    url(
+        regex=r'^groups/(?P<group_id>[0-9]+)/$', name='group-detail',
+        view=APIGroupDetailView.as_view()
+    ),
     url(
         regex=r'^groups/(?P<group_id>[0-9]+)/users/$',
-        name='group-user-list',
-        view=APIGroupUserListView.as_view()
+        name='group-user-list', view=APIGroupUserListView.as_view()
     ),
     url(
         regex=r'^groups/(?P<group_id>[0-9]+)/users/add/$',
@@ -100,17 +103,19 @@ api_urls = [
         regex=r'^groups/(?P<group_id>[0-9]+)/users/remove/$',
         name='group-user-remove', view=APIGroupUserRemoveView.as_view()
     ),
-    url(regex=r'^users/$', view=APIUserListView.as_view(), name='user-list'),
     url(
-        regex=r'^users/(?P<user_id>[0-9]+)/$', view=APIUserDetailView.as_view(),
-        name='user-detail'
+        regex=r'^users/$', name='user-list', view=APIUserListView.as_view()
     ),
     url(
-        regex=r'^users/current/$', view=APICurrentUserView.as_view(),
-        name='user-current'
+        regex=r'^users/(?P<user_id>[0-9]+)/$', name='user-detail',
+        view=APIUserDetailView.as_view()
     ),
     url(
-        regex=r'^users/(?P<user_id>[0-9]+)/groups/$',
-        view=APIUserGroupListView.as_view(), name='user-group-list'
+        regex=r'^users/current/$', name='user-current',
+        view=APICurrentUserView.as_view()
+    ),
+    url(
+        regex=r'^users/(?P<user_id>[0-9]+)/groups/$', name='user-group-list',
+        view=APIUserGroupListView.as_view()
     )
 ]

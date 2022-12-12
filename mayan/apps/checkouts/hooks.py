@@ -7,6 +7,7 @@ def hook_is_new_file_allowed(instance, kwargs=None):
     DocumentCheckout = apps.get_model(
         app_label='checkouts', model_name='DocumentCheckout'
     )
+
     document = kwargs.get('document', None)
     # Do not put "instance.document" as the default for .get() as it gets
     # evaluated before .get() is executed and returns an AttributeError when

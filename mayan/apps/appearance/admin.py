@@ -15,5 +15,5 @@ class UserThemeSettingAdmin(admin.ModelAdmin):
     list_filter = ('theme__label',)
     search_fields = (
         'user__username', 'user__first_name', 'user__last_name',
-        'user__email', 'theme__label',
+        'user__email', 'theme__label'
     )

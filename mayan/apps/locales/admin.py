@@ -9,5 +9,5 @@ class UserLocaleProfileAdmin(admin.ModelAdmin):
     list_filter = ('timezone', 'language')
     search_fields = (
         'user__username', 'user__first_name', 'user__last_name',
-        'user__email', 'timezone',
+        'user__email', 'timezone'
     )

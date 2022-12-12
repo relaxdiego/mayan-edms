@@ -19,4 +19,6 @@ class SmartLinkAdmin(admin.ModelAdmin):
 
     filter_horizontal = ('document_types',)
     inlines = (SmartLinkConditionInline,)
-    list_display = ('label', 'dynamic_label', 'enabled', 'document_type_list')
+    list_display = (
+        'label', 'dynamic_label', 'enabled', 'document_type_list'
+    )

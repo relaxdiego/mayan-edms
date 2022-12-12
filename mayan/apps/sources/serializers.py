@@ -15,7 +15,7 @@ class SourceSerializer(serializers.HyperlinkedModelSerializer):
             'url': {
                 'lookup_field': 'pk', 'lookup_url_kwarg': 'source_id',
                 'view_name': 'rest_api:source-detail'
-            },
+            }
         }
         fields = (
             'actions', 'backend_data', 'backend_path', 'enabled', 'id',

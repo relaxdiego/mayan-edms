@@ -52,7 +52,9 @@ class APISourceActionDetailView(generics.ObjectActionAPIView):
     def object_action(self, obj, request, serializer):
         query_dict = request.GET
 
-        arguments = serializer.validated_data.get('arguments', {}) or {}
+        arguments = serializer.validated_data.get(
+            'arguments', {}
+        ) or {}
         arguments.update(query_dict)
 
         if self.get_action().accept_files:

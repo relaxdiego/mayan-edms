@@ -147,7 +147,9 @@ class ModelCopy:
 
                 new_node = self._copy(
                     instance=source_node, values=values,
-                    _get_or_create=self.extra_kwargs.get('get_or_create', False)
+                    _get_or_create=self.extra_kwargs.get(
+                        'get_or_create', False
+                    )
                 )
                 if not values['parent_id']:
                     result = new_node
@@ -200,7 +202,9 @@ class ModelCopy:
 
         # Foreign keys.
         for field in self.fields_foreign_keys:
-            value = values.get(field, getattr(instance, field))
+            value = values.get(
+                field, getattr(instance, field)
+            )
 
             value = self._evaluate_field_get_for_field(
                 field=field, instance=instance, value=value, values=values
@@ -210,7 +214,8 @@ class ModelCopy:
         # Fields that are given an unique value if a condition is met.
         for field in self.unique_conditional:
             if self.unique_conditional[field](
-                instance=instance, new_instance_dictionary=new_model_dictionary
+                instance=instance,
+                new_instance_dictionary=new_model_dictionary
             ):
                 base_value = getattr(instance, field)
                 counter = 1
@@ -223,7 +228,8 @@ class ModelCopy:
                     counter += 1
 
                 value = self._evaluate_field_get_for_field(
-                    field=field, instance=instance, value=value, values=values
+                    field=field, instance=instance, value=value,
+                    values=values
                 )
                 new_model_dictionary[field] = value
 
@@ -237,11 +243,15 @@ class ModelCopy:
 
         # Many to many fields added after instance creation.
         for field in self.fields_many_to_many:
-            getattr(new_instance, field).set(getattr(instance, field).all())
+            getattr(new_instance, field).set(
+                getattr(instance, field).all()
+            )
 
         # Many to many reverse related fields added after instance creation.
         for field in self.fields_many_to_many_reverse_related:
-            getattr(new_instance, field).set(getattr(instance, field).all())
+            getattr(new_instance, field).set(
+                getattr(instance, field).all()
+            )
 
         # Reverse related.
         for field in self.fields_reverse_related:
@@ -249,7 +259,9 @@ class ModelCopy:
             related_field_name = related_field.field.name
 
             for related_instance in getattr(instance, field).all():
-                values.update({related_field_name: new_instance})
+                values.update(
+                    {related_field_name: new_instance}
+                )
                 related_instance.copy_instance(
                     values=values
                 )
@@ -313,9 +325,9 @@ class MissingItem:
         return result
 
     def __init__(self, label, condition, description, view):
-        self.label = label
         self.condition = condition
         self.description = description
+        self.label = label
         self.view = view
         self.__class__._registry.append(self)
 

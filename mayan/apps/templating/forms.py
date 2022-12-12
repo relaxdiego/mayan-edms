@@ -21,4 +21,6 @@ class DocumentTemplateSandboxForm(forms.Form):
             label=_('Template'), model=self.model,
             model_variable=self.model_variable, required=True
         )
-        self.order_fields(field_order=('template', 'result'))
+        self.order_fields(
+            field_order=('template', 'result')
+        )

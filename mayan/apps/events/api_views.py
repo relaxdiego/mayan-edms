@@ -99,7 +99,9 @@ class APIEventListView(generics.ListAPIView):
     """
     get: Returns a list of all the available events.
     """
-    mayan_view_permissions = {'GET': (permission_events_view,)}
+    mayan_view_permissions = {
+        'GET': (permission_events_view,)
+    }
     ordering_fields = ('id', 'timestamp')
     queryset = Action.objects.all()
     serializer_class = EventSerializer

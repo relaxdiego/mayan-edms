@@ -15,7 +15,9 @@ def split_recipient_list(recipients, separator_list=None, separator_index=0):
     else:
         result = []
         for recipient in recipients:
-            result.extend(recipient.split(separator))
+            result.extend(
+                recipient.split(separator)
+            )
 
         return split_recipient_list(
             recipients=result, separator_list=separator_list,
@@ -38,7 +40,9 @@ def get_document_version_content(obj):
 
         def __enter__(self):
             self.file_object = NamedTemporaryFile(delete=False)
-            document_version_exporter = DocumentVersionExporter(document_version=obj)
+            document_version_exporter = DocumentVersionExporter(
+                document_version=obj
+            )
             document_version_exporter.export(file_object=self.file_object)
             self.file_object.seek(0)
             return self.file_object

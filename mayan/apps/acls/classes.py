@@ -33,7 +33,9 @@ class ModelPermission:
             permission_options = [
                 (permission.pk, str(permission)) for permission in permissions
             ]
-            permission_options.sort(key=lambda entry: entry[1])
+            permission_options.sort(
+                key=lambda entry: entry[1]
+            )
             result.append(
                 (namespace, permission_options)
             )
@@ -69,9 +71,17 @@ class ModelPermission:
         # Return the permissions for the klass and the models that
         # inherit from it.
         result = set()
-        result.update(cls._model_permissions.get(klass, ()))
+        result.update(
+            cls._model_permissions.get(
+                klass, ()
+            )
+        )
         for model in cls._inheritances_reverse.get(klass, ()):
-            result.update(cls._model_permissions.get(model, ()))
+            result.update(
+                cls._model_permissions.get(
+                    model, ()
+                )
+            )
 
         result = list(result)
         result.sort(key=lambda permission: permission.namespace.name)
@@ -86,7 +96,9 @@ class ModelPermission:
 
         permissions = []
 
-        class_permissions = cls.get_for_class(klass=type(instance))
+        class_permissions = cls.get_for_class(
+            klass=type(instance)
+        )
 
         if class_permissions:
             permissions.extend(class_permissions)
@@ -131,7 +143,9 @@ class ModelPermission:
         # Hidden imports
         from django.contrib.contenttypes.fields import GenericRelation
         from mayan.apps.common.classes import ModelCopy
-        from mayan.apps.events.classes import EventModelRegistry, ModelEventType
+        from mayan.apps.events.classes import (
+            EventModelRegistry, ModelEventType
+        )
 
         AccessControlList = apps.get_model(
             app_label='acls', model_name='AccessControlList'
@@ -141,9 +155,13 @@ class ModelPermission:
         )
 
         initalize_model_for_events = model not in cls._model_permissions
-        is_excluded_subclass = issubclass(model, (AccessControlList, StoredPermission))
+        is_excluded_subclass = issubclass(
+            model, (AccessControlList, StoredPermission)
+        )
 
-        cls._model_permissions.setdefault(model, set())
+        cls._model_permissions.setdefault(
+            model, set()
+        )
 
         if not is_excluded_subclass:
             try:
@@ -183,7 +201,9 @@ class ModelPermission:
                     )
                 )
 
-                ModelCopy.add_fields_lazy(model=model, field_names=('acls',))
+                ModelCopy.add_fields_lazy(
+                    model=model, field_names=('acls',)
+                )
 
     @classmethod
     def register_field_query_function(cls, model, function):
@@ -194,7 +214,9 @@ class ModelPermission:
         model_reverse = get_related_field(
             model=model, related_field_name=related
         ).related_model
-        cls._inheritances_reverse.setdefault(model_reverse, [])
+        cls._inheritances_reverse.setdefault(
+            model_reverse, []
+        )
         cls._inheritances_reverse[model_reverse].append(model)
 
         cls._inheritances.setdefault(model, [])

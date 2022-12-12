@@ -10,7 +10,9 @@ from .literals import (
 )
 from .setting_callbacks import callback_update_workflow_image_cache_size
 
-namespace = SettingNamespace(label=_('Workflows'), name='document_states')
+namespace = SettingNamespace(
+    label=_('Workflows'), name='document_states'
+)
 
 setting_graphviz_dot_path = namespace.add_setting(
     default=DEFAULT_GRAPHVIZ_DOT_PATH,

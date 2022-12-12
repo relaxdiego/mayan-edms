@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_CELERY_BROKER_USE_SSL, DEFAULT_CELERY_RESULT_BACKEND
 )
 
-namespace = SettingNamespace(label=_('Celery'), name='celery')
+namespace = SettingNamespace(
+    label=_('Celery'), name='celery'
+)
 
 setting_celery_broker_login_method = namespace.add_setting(
     default=DEFAULT_CELERY_BROKER_LOGIN_METHOD,

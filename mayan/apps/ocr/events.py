@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.events.classes import EventTypeNamespace
 
-namespace = EventTypeNamespace(label=_('OCR'), name='ocr')
+namespace = EventTypeNamespace(
+    label=_('OCR'), name='ocr'
+)
 
 event_ocr_document_version_content_deleted = namespace.add_event_type(
     label=_('Document version OCR content deleted'),

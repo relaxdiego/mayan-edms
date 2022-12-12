@@ -50,7 +50,7 @@ class CabinetSerializer(serializers.ModelSerializer):
             'url': {
                 'lookup_url_kwarg': 'cabinet_id',
                 'view_name': 'rest_api:cabinet-detail'
-            },
+            }
         }
         fields = (
             'children', 'documents_url', 'full_path', 'id', 'label',

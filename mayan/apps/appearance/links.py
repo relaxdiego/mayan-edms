@@ -9,7 +9,7 @@ from .icons import (
     icon_theme_delete, icon_theme_edit, icon_theme_list, icon_theme_setup
 )
 from .permissions import (
-    permission_theme_create, permission_theme_delete, permission_theme_edit,
+    permission_theme_create, permission_theme_delete, permission_theme_edit
 )
 
 link_user_theme_settings_detail = Link(

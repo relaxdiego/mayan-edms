@@ -68,7 +68,9 @@ class SmartLinkBusinessLogicMixin:
             condition_query = Q(**{
                 '{}__{}'.format(
                     condition.foreign_document_data, condition.operator
-                ): template.render(context={'document': document})
+                ): template.render(
+                    context={'document': document}
+                )
             })
             if condition.negated:
                 condition_query = ~condition_query
@@ -83,7 +85,9 @@ class SmartLinkBusinessLogicMixin:
         else:
             queryset = Document.objects.none()
 
-        return Document.valid.filter(pk__in=queryset.values('pk'))
+        return Document.valid.filter(
+            pk__in=queryset.values('pk')
+        )
 
     def resolve_for(self, document):
         ResolvedSmartLink = apps.get_model(

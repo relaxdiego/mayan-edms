@@ -49,7 +49,8 @@ class DocumentCommentsApp(MayanAppConfig):
         )
         ModelEventType.register(
             model=Document, event_types=(
-                event_document_comment_created, event_document_comment_deleted,
+                event_document_comment_created,
+                event_document_comment_deleted,
                 event_document_comment_edited
             )
         )
@@ -90,5 +91,7 @@ class DocumentCommentsApp(MayanAppConfig):
         )
 
         menu_object.bind_links(
-            links=(link_comment_delete, link_comment_edit), sources=(Comment,)
+            links=(
+                link_comment_delete, link_comment_edit
+            ), sources=(Comment,)
         )

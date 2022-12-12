@@ -75,7 +75,9 @@ class ZipCompressedPassthroughStorageTestCase(
         )
 
         test_file_name = storage.save(
-            name=TEST_FILE_NAME, content=ContentFile(content=TEST_BINARY_CONTENT)
+            name=TEST_FILE_NAME, content=ContentFile(
+                content=TEST_BINARY_CONTENT
+            )
         )
 
         path_file = Path(self.temporary_directory) / test_file_name
@@ -113,13 +115,15 @@ class CombinationPassthroughStorageTestCase(
             next_storage_backend='mayan.apps.storage.backends.compressedstorage.ZipCompressedPassthroughStorage',
             next_storage_backend_arguments={
                 'next_storage_backend_arguments': {
-                    'location': self.temporary_directory,
+                    'location': self.temporary_directory
                 }
             }
         )
 
         test_file_name = storage.save(
-            name=TEST_FILE_NAME, content=ContentFile(content=TEST_BINARY_CONTENT)
+            name=TEST_FILE_NAME, content=ContentFile(
+                content=TEST_BINARY_CONTENT
+            )
         )
 
         path_file = Path(self.temporary_directory) / test_file_name

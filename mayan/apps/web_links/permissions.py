@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Web links'), name='web_links')
+namespace = PermissionNamespace(
+    label=_('Web links'), name='web_links'
+)
 
 permission_web_link_create = namespace.add_permission(
     label=_('Create new web links'), name='web_link_create'

@@ -8,7 +8,9 @@ from .literals import (
 )
 from .setting_validators import validation_fuction_check_path_format
 
-namespace = SettingNamespace(label=_('Organizations'), name='organizations')
+namespace = SettingNamespace(
+    label=_('Organizations'), name='organizations'
+)
 
 setting_organization_installation_url = namespace.add_setting(
     default=DEFAULT_ORGANIZATIONS_INSTALLATION_URL,

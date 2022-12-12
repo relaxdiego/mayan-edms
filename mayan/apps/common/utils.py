@@ -100,7 +100,7 @@ class ResolverList(Resolver):
         for item in self.obj:
             result.append(
                 self.klass.resolve(
-                    attribute=self.attribute, obj=item, kwargs=self.kwargs,
+                    attribute=self.attribute, kwargs=self.kwargs, obj=item,
                     resolver_extra_kwargs=self.resolver_extra_kwargs
                 )
             )
@@ -115,7 +115,9 @@ class ResolverPipelineObjectAttribute:
     )
 
     @classmethod
-    def resolve(cls, attribute, obj, resolver_extra_kwargs=None, kwargs=None):
+    def resolve(
+        cls, attribute, obj, resolver_extra_kwargs=None, kwargs=None
+    ):
         kwargs = kwargs or {}
         resolver_extra_kwargs = resolver_extra_kwargs or {}
 
@@ -129,8 +131,9 @@ class ResolverPipelineObjectAttribute:
             for resolver in cls.resolver_list:
                 try:
                     result = resolver(
-                        attribute=attribute, obj=result, kwargs=kwargs,
-                        klass=cls, resolver_extra_kwargs=resolver_extra_kwargs
+                        attribute=attribute, klass=cls, kwargs=kwargs,
+                        obj=result,
+                        resolver_extra_kwargs=resolver_extra_kwargs
                     ).resolve()
                 except ResolverError:
                     """Expected, try the next resolver in the list."""
@@ -149,8 +152,12 @@ class ResolverRelatedManager(Resolver):
     exceptions = (AttributeError, FieldDoesNotExist)
 
     def _resolve(self):
-        model = self.resolver_extra_kwargs.get('model', {})
-        exclude = self.resolver_extra_kwargs.get('exclude', {})
+        model = self.resolver_extra_kwargs.get(
+            'model', {}
+        )
+        exclude = self.resolver_extra_kwargs.get(
+            'exclude', {}
+        )
 
         field = self.obj._meta.get_field(field_name=self.attribute)
 
@@ -196,10 +203,12 @@ class ResolverPipelineModelAttribute(ResolverPipelineObjectAttribute):
     )
 
     @classmethod
-    def resolve(cls, attribute, obj, resolver_extra_kwargs=None, kwargs=None):
+    def resolve(
+        cls, attribute, obj, kwargs=None, resolver_extra_kwargs=None
+    ):
         attribute = attribute.replace(LOOKUP_SEP, '.')
         return super().resolve(
-            attribute=attribute, obj=obj, kwargs=kwargs,
+            attribute=attribute, kwargs=kwargs, obj=obj,
             resolver_extra_kwargs=resolver_extra_kwargs
         )
 
@@ -255,7 +264,9 @@ def group_iterator(iterable, group_size=None):
 
     if group_size > 1:
         while True:
-            chunk = tuple(itertools.islice(iterable, group_size))
+            chunk = tuple(
+                itertools.islice(iterable, group_size)
+            )
             if not chunk:
                 break
             yield chunk
@@ -269,8 +280,12 @@ def parse_range(range_string):
 
         if '-' in part:
             part_range = part.split('-')
-            start = int(part_range[0].strip())
-            stop = int(part_range[1].strip())
+            start = int(
+                part_range[0].strip()
+            )
+            stop = int(
+                part_range[1].strip()
+            )
 
             if stop > start:
                 step = 1
@@ -307,7 +322,9 @@ def resolve_attribute(attribute, obj, kwargs=None):
             try:
                 # If there are dots in the attribute name, traverse them
                 # to the final attribute
-                result = reduce(getattr, attribute.split('.'), obj)
+                result = reduce(
+                    getattr, attribute.split('.'), obj
+                )
                 try:
                     # Try it as a method
                     return result(**kwargs)
@@ -319,7 +336,7 @@ def resolve_attribute(attribute, obj, kwargs=None):
                 if LOOKUP_SEP in attribute:
                     attribute_replaced = attribute.replace(LOOKUP_SEP, '.')
                     return resolve_attribute(
-                        obj=obj, attribute=attribute_replaced, kwargs=kwargs
+                        attribute=attribute_replaced, kwargs=kwargs, obj=obj
                     )
                 else:
                     raise
@@ -333,7 +350,9 @@ def return_attrib(obj, attrib, arguments=None):
     ) or isinstance(obj, dict):
         return obj[attrib]
     else:
-        result = reduce(getattr, attrib.split('.'), obj)
+        result = reduce(
+            getattr, attrib.split('.'), obj
+        )
         if isinstance(result, types.MethodType):
             if arguments:
                 return result(**arguments)
@@ -349,4 +368,6 @@ def return_related(instance, related_field):
     meant for related models. Support multiple levels of relationship
     using double underscore.
     """
-    return reduce(getattr, related_field.split(LOOKUP_SEP), instance)
+    return reduce(
+        getattr, related_field.split(LOOKUP_SEP), instance
+    )

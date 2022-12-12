@@ -26,7 +26,7 @@ class DocumentCountQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
         self._clear_events()
         self._upload_test_document(user=self._test_case_user)
         self.test_case_silenced_logger_new_level = logging.FATAL + 10
-        self._silence_logger(name='mayan.apps.documents.models')
+        self._silence_logger(name='mayan.apps.documents.model_mixins')
 
     def test_user_all_document_type_all(self):
         self._test_quota = DocumentCountQuota.create(
@@ -466,7 +466,7 @@ class DocumentSizeQuotaTestCase(GroupTestMixin, GenericDocumentTestCase):
     def setUp(self):
         super().setUp()
         self.test_case_silenced_logger_new_level = logging.FATAL + 10
-        self._silence_logger(name='mayan.apps.documents.models')
+        self._silence_logger(name='mayan.apps.documents.model_mixins')
 
     def test_user_all_document_type_all(self):
         self._test_quota = DocumentSizeQuota.create(

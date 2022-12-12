@@ -50,10 +50,14 @@ from .permissions import (
     permission_user_view
 )
 
-
+#TODO: move to utils
 def get_groups():
     Group = apps.get_model(app_label='auth', model_name='Group')
-    return ','.join([group.name for group in Group.objects.all()])
+    return ','.join(
+        [
+            group.name for group in Group.objects.all()
+        ]
+    )
 
 
 def get_users():
@@ -152,7 +156,9 @@ class UserManagementApp(MayanAppConfig):
         User.add_to_class(
             name='groups_remove', value=method_user_groups_remove
         )
-        User.add_to_class(name='save', value=get_method_user_save())
+        User.add_to_class(
+            name='save', value=get_method_user_save()
+        )
 
         User.has_usable_password.short_description = _(
             'Has usable password?'
@@ -175,7 +181,7 @@ class UserManagementApp(MayanAppConfig):
         ).add_fields(
             field_names=(
                 'name', 'user',
-            ),
+            )
         )
         ModelCopy(model=UserOptions).add_fields(
             field_names=('user', 'block_password_change'),
@@ -194,11 +200,12 @@ class UserManagementApp(MayanAppConfig):
             field_names=(
                 'username', 'first_name', 'last_name', 'email', 'is_active',
                 'password', 'groups', 'user_options'
-            ),
+            )
         )
 
         ModelEventType.register(
-            event_types=(event_group_created, event_group_edited), model=Group
+            event_types=(event_group_created, event_group_edited),
+            model=Group
         )
 
         ModelEventType.register(

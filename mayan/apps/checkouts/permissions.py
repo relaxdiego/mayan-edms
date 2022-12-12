@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Document checkout'), name='checkouts')
+namespace = PermissionNamespace(
+    label=_('Document checkout'), name='checkouts'
+)
 
 permission_document_check_in = namespace.add_permission(
     label=_('Check in documents'), name='checkin_document'

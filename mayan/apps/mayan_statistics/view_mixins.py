@@ -11,7 +11,9 @@ class StatisticTypeViewMixin:
 
     def get_object(self):
         try:
-            return StatisticType.get(slug=self.kwargs['slug'])
+            return StatisticType.get(
+                slug=self.kwargs['slug']
+            )
         except KeyError:
             raise Http404(
                 _('Statistic "%s" not found.') % self.kwargs['slug']

@@ -47,7 +47,7 @@ CONVERTER_OFFICE_FILE_MIMETYPES = (
     'text/x-python',
     'text/x-shellscript',
     'text/plain',
-    'text/rtf',
+    'text/rtf'
 )
 
 if platform.system() in ('FreeBSD', 'OpenBSD', 'Darwin'):
@@ -89,7 +89,7 @@ DEFAULT_CONVERTER_GRAPHICS_BACKEND_ARGUMENTS = {
     'pdftoppm_path': DEFAULT_PDFTOPPM_PATH,
     'pdfinfo_path': DEFAULT_PDFINFO_PATH,
     'pillow_format': DEFAULT_PILLOW_FORMAT,
-    'pillow_maximum_image_pixels': DEFAULT_PILLOW_MAXIMUM_IMAGE_PIXELS,
+    'pillow_maximum_image_pixels': DEFAULT_PILLOW_MAXIMUM_IMAGE_PIXELS
 }
 
 STORAGE_NAME_ASSETS = 'converter__assets'

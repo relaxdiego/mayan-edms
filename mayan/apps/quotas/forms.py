@@ -61,7 +61,9 @@ class QuotaDynamicForm(DynamicModelForm):
 
             # Reduce querysets to a list
             if isinstance(field_data, models.query.QuerySet):
-                field_data = list(field_data.values_list('pk', flat=True))
+                field_data = list(
+                    field_data.values_list('pk', flat=True)
+                )
 
             backend_data[field_name] = field_data
 

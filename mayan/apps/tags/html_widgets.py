@@ -20,16 +20,14 @@ class DocumentTagWidget(SourceColumnWidget):
 
         try:
             AccessControlList.objects.check_access(
-                obj=self.value,
-                permissions=(permission_tag_view,),
+                obj=self.value, permissions=(permission_tag_view,),
                 user=self.request.user
             )
         except PermissionDenied:
             queryset = self.value.tags.none()
         else:
             queryset = self.value.get_tags(
-                permission=permission_tag_view,
-                user=self.request.user
+                permission=permission_tag_view, user=self.request.user
             )
 
         return {'tags': queryset}

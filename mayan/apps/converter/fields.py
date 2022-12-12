@@ -37,9 +37,9 @@ class QRCodeImageField(ReadOnlyImageField):
             embeded_image = Image.open(fp=file_object)
 
             qrcode_image = instance.make_image(
+                embeded_image=embeded_image,
                 image_factory=StyledPilImage,
-                module_drawer=CircleModuleDrawer(),
-                embeded_image=embeded_image
+                module_drawer=CircleModuleDrawer()
             )
 
             size = qrcode_image.height / 2

@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.events.classes import EventTypeNamespace
 
-namespace = EventTypeNamespace(label=_('Checkouts'), name='checkouts')
+namespace = EventTypeNamespace(
+    label=_('Checkouts'), name='checkouts'
+)
 
 event_document_auto_checked_in = namespace.add_event_type(
     label=_('Document automatically checked in'),

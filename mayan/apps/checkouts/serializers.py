@@ -13,15 +13,19 @@ from .permissions import permission_document_check_out
 
 
 class DocumentCheckoutSerializer(serializers.ModelSerializer):
-    document = DocumentSerializer()
-    user = UserSerializer()
+    document = DocumentSerializer(
+        label=_('Document')
+    )
+    user = UserSerializer(
+        label=_('User')
+    )
 
     class Meta:
         extra_kwargs = {
             'url': {
                 'lookup_url_kwarg': 'checkout_id',
                 'view_name': 'rest_api:checkedout-document-view'
-            },
+            }
         }
         fields = (
             'checkout_datetime', 'document', 'expiration_datetime', 'id',

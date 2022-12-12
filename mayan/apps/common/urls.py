@@ -24,12 +24,24 @@ urlpatterns_misc = [
 ]
 
 urlpatterns = [
-    url(regex=r'^$', name='root', view=RootView.as_view()),
-    url(regex=r'^home/$', name='home', view=HomeView.as_view()),
-    url(regex=r'^about/$', name='about_view', view=AboutView.as_view()),
-    url(regex=r'^license/$', name='license_view', view=LicenseView.as_view()),
-    url(regex=r'^setup/$', name='setup_list', view=SetupListView.as_view()),
-    url(regex=r'^tools/$', name='tools_list', view=ToolsListView.as_view())
+    url(
+        regex=r'^$', name='root', view=RootView.as_view()
+    ),
+    url(
+        regex=r'^home/$', name='home', view=HomeView.as_view()
+    ),
+    url(
+        regex=r'^about/$', name='about_view', view=AboutView.as_view()
+    ),
+    url(
+        regex=r'^license/$', name='license_view', view=LicenseView.as_view()
+    ),
+    url(
+        regex=r'^setup/$', name='setup_list', view=SetupListView.as_view()
+    ),
+    url(
+        regex=r'^tools/$', name='tools_list', view=ToolsListView.as_view()
+    )
 ]
 
 urlpatterns.extend(urlpatterns_misc)

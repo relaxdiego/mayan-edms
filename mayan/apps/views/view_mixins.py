@@ -61,7 +61,9 @@ class ExtraDataDeleteViewMixin:
 
         success_url = self.get_success_url()
         if hasattr(self, 'get_delete_extra_data'):
-            self.object.delete(**self.get_delete_extra_data())
+            self.object.delete(
+                **self.get_delete_extra_data()
+            )
         else:
             self.object.delete()
 
@@ -123,7 +125,9 @@ class DynamicFormViewMixin:
     def get_form_kwargs(self):
         data = super().get_form_kwargs()
         data.update(
-            {'schema': self.get_form_schema()}
+            {
+                'schema': self.get_form_schema()
+            }
         )
         return data
 
@@ -226,7 +230,9 @@ class ExtraContextViewMixin:
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update(self.get_extra_context())
+        context.update(
+            self.get_extra_context()
+        )
         return context
 
     def get_extra_context(self):
@@ -244,7 +250,9 @@ class FormExtraKwargsViewMixin:
 
     def get_form_kwargs(self):
         result = super().get_form_kwargs()
-        result.update(self.get_form_extra_kwargs())
+        result.update(
+            self.get_form_extra_kwargs()
+        )
         return result
 
 
@@ -377,7 +385,9 @@ class MultipleObjectViewMixin(SingleObjectMixin):
         # Next, try looking up by slug.
         if slug is not None and (pk is None or self.query_pk_and_slug):
             slug_field = self.get_slug_field()
-            queryset = queryset.filter(**{slug_field: slug})
+            queryset = queryset.filter(
+                **{slug_field: slug}
+            )
             self.view_mode_single = True
 
         if pk_list is not None:
@@ -512,7 +522,9 @@ class ObjectNameViewMixin:
         object_name = context.get('object_name')
 
         if not object_name:
-            view_object = getattr(self, 'object', context['object'])
+            view_object = getattr(
+                self, 'object', context['object']
+            )
             try:
                 object_name = view_object._meta.verbose_name
             except AttributeError:
@@ -524,8 +536,8 @@ class ObjectNameViewMixin:
 class RedirectionViewMixin:
     action_cancel_redirect = None
     next_url = None
-    previous_url = None
     post_action_redirect = None
+    previous_url = None
     success_url = None
 
     def get_action_cancel_redirect(self):
@@ -634,7 +646,9 @@ class SortingViewMixin:
 
         sort_fields = self.get_sort_fields()
         if sort_fields:
-            queryset = queryset.order_by(*sort_fields.split(','))
+            queryset = queryset.order_by(
+                *sort_fields.split(',')
+            )
 
         return queryset
 
@@ -661,8 +675,8 @@ class ViewPermissionCheckViewMixin:
     """
     Restrict access to the view based on the user's direct permissions from
     roles. This mixing is used for views whose objects don't support ACLs or
-    for views that perform actions that are not related to a specify object or
-    object's permission like maintenance views.
+    for views that perform actions that are not related to a specify object
+    or object's permission like maintenance views.
     """
     view_permission = None
 

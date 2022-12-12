@@ -17,6 +17,6 @@ class MailDocumentLinkView(ObjectLinkMailView):
         '%(count)d document links queued for email delivery'
     )
     title = 'Email document link'
-    title_plural = 'Email document links'
     title_document = 'Email link for document: %s'
+    title_plural = 'Email document links'
     view_icon = icon_document_link_send_single

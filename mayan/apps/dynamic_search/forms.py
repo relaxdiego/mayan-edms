@@ -22,12 +22,16 @@ class AdvancedSearchForm(forms.Form):
                 self.fields[search_field.field_name] = forms.CharField(
                     help_text=search_field.get_help_text(),
                     label=search_field.label, required=False,
-                    widget=forms.widgets.TextInput(attrs={'type': 'search'})
+                    widget=forms.widgets.TextInput(
+                        attrs={'type': 'search'}
+                    )
                 )
 
 
 class SearchForm(forms.Form):
     q = forms.CharField(
         max_length=128, label=_('Search terms'), required=False,
-        widget=forms.widgets.TextInput(attrs={'type': 'search'})
+        widget=forms.widgets.TextInput(
+            attrs={'type': 'search'}
+        )
     )

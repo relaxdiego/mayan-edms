@@ -148,7 +148,9 @@ class MetadataType(
                 raise ValidationError(
                     message=_(
                         'Metadata type validation error; %(exception)s'
-                    ) % {'exception': ','.join(exception)}
+                    ) % {
+                        'exception': ','.join(exception)
+                    }
                 ) from exception
 
         if self.parser:
@@ -272,7 +274,9 @@ class DocumentTypeMetadataType(ExtraDataModelMixin, models.Model):
         on_delete=models.CASCADE, related_name='document_types',
         to=MetadataType, verbose_name=_('Metadata type')
     )
-    required = models.BooleanField(default=False, verbose_name=_('Required'))
+    required = models.BooleanField(
+        default=False, verbose_name=_('Required')
+    )
 
     objects = DocumentTypeMetadataTypeManager()
 

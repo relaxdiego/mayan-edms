@@ -28,14 +28,14 @@ class DocumentCheckInView(MultipleObjectConfirmActionView):
         'Unable to check in document "%(instance)s"; %(exception)s'
     )
     pk_url_kwarg = 'document_id'
+    success_message_plural = _(
+        '%(count)d documents checked in successfully.'
+    )
     success_message_single = _(
         'Document "%(object)s" checked in successfully.'
     )
     success_message_singular = _(
         '%(count)d document checked in successfully.'
-    )
-    success_message_plural = _(
-        '%(count)d documents checked in successfully.'
     )
     title_plural = _('Check in %(count)d documents.')
     title_single = _('Check in document "%(object)s".')
@@ -48,7 +48,7 @@ class DocumentCheckInView(MultipleObjectConfirmActionView):
         if self.object_list.count() == 1:
             context.update(
                 {
-                    'object': self.object_list.first(),
+                    'object': self.object_list.first()
                 }
             )
 
@@ -70,8 +70,8 @@ class DocumentCheckInView(MultipleObjectConfirmActionView):
         document_queryset = Document.valid.all()
 
         check_in_queryset = AccessControlList.objects.restrict_queryset(
-            permission=permission_document_check_in, queryset=document_queryset,
-            user=self.request.user
+            permission=permission_document_check_in,
+            queryset=document_queryset, user=self.request.user
         )
 
         check_in_override_queryset = AccessControlList.objects.restrict_queryset(
@@ -168,7 +168,9 @@ class DocumentCheckOutListView(DocumentListView):
 
     def get_document_queryset(self):
         queryset = DocumentCheckout.objects.checked_out_documents()
-        return Document.valid.filter(pk__in=queryset.values('pk'))
+        return Document.valid.filter(
+            pk__in=queryset.values('pk')
+        )
 
     def get_extra_context(self):
         context = super().get_extra_context()

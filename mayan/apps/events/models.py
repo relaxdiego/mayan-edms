@@ -71,7 +71,9 @@ class Notification(NotificationBusinessLogicMixin, models.Model):
         on_delete=models.CASCADE, related_name='notifications', to=Action,
         verbose_name=_('Action')
     )
-    read = models.BooleanField(default=False, verbose_name=_('Read'))
+    read = models.BooleanField(
+        default=False, verbose_name=_('Read')
+    )
 
     objects = NotificationManager()
 

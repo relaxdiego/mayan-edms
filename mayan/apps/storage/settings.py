@@ -11,7 +11,9 @@ from .literals import (
     DEFAULT_STORAGE_TEMPORARY_DIRECTORY
 )
 
-namespace = SettingNamespace(label=_('Storage'), name='storage')
+namespace = SettingNamespace(
+    label=_('Storage'), name='storage'
+)
 
 setting_download_file_expiration_interval = namespace.add_setting(
     default=DEFAULT_DOWNLOAD_FILE_EXPIRATION_INTERVAL,

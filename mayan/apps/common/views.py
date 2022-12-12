@@ -112,10 +112,10 @@ class SetupListView(SimpleView):
             'resolved_links': menu_setup.resolve(
                 request=self.request, sort_results=True
             ),
-            'title': _('Setup items'),
             'subtitle': _(
                 'Here you can configure all aspects of the system.'
-            )
+            ),
+            'title': _('Setup items')
         }
 
 
@@ -128,8 +128,8 @@ class ToolsListView(SimpleView):
             'resolved_links': menu_tools.resolve(
                 request=self.request, sort_results=True
             ),
-            'title': _('Tools'),
             'subtitle': _(
                 'These modules are used to do system maintenance.'
-            )
+            ),
+            'title': _('Tools')
         }

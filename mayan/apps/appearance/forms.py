@@ -20,7 +20,7 @@ class UserThemeSettingForm(forms.ModelForm):
                 attrs={
                     'class': 'select2'
                 }
-            ),
+            )
         }
 
 

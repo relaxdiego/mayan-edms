@@ -10,5 +10,7 @@ class AccessControlListAdmin(admin.ModelAdmin):
     list_display_links = ('pk',)
     list_filter = ('content_type',)
     related_lookup_fields = {
-        'generic': (('content_type', 'object_id'),),
+        'generic': (
+            ('content_type', 'object_id'),
+        ),
     }

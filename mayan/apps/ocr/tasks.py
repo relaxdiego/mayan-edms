@@ -15,7 +15,9 @@ logger = logging.getLogger(name=__name__)
 
 
 @app.task(bind=True, ignore_result=True, retry_backoff=True)
-def task_document_version_ocr_process(self, document_version_id, user_id=None):
+def task_document_version_ocr_process(
+    self, document_version_id, user_id=None
+):
     logger.info(
         'Starting OCR for document version page ID: %s', document_version_id
     )

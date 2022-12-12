@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_SIGNATURES_KEYSERVER
 )
 
-namespace = SettingNamespace(label=_('Signatures'), name='django_gpg')
+namespace = SettingNamespace(
+    label=_('Signatures'), name='django_gpg'
+)
 
 setting_gpg_backend = namespace.add_setting(
     default=DEFAULT_SIGNATURES_BACKEND,

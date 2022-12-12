@@ -18,7 +18,9 @@ def get_method_group_init():
     method_original = Group.__init__
 
     def method_init(self, *args, **kwargs):
-        _instance_extra_data = kwargs.pop('_instance_extra_data', {})
+        _instance_extra_data = kwargs.pop(
+            '_instance_extra_data', {}
+        )
         result = method_original(self, *args, **kwargs)
         for key, value in _instance_extra_data.items():
             setattr(self, key, value)
@@ -143,11 +145,11 @@ def get_method_user_save():
         event_manager_class=EventManagerSave,
         created={
             'event': event_user_created,
-            'target': 'self',
+            'target': 'self'
         },
         edited={
             'event': event_user_edited,
-            'target': 'self',
+            'target': 'self'
         }
     )
     def method_user_save(self, *args, **kwargs):

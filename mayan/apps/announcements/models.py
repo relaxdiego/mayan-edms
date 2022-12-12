@@ -52,11 +52,11 @@ class Announcement(ExtraDataModelMixin, models.Model):
         event_manager_class=EventManagerSave,
         created={
             'event': event_announcement_created,
-            'target': 'self',
+            'target': 'self'
         },
         edited={
             'event': event_announcement_edited,
-            'target': 'self',
+            'target': 'self'
         }
     )
     def save(self, *args, **kwargs):

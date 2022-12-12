@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Mailing'), name='mailing')
+namespace = PermissionNamespace(
+    label=_('Mailing'), name='mailing'
+)
 
 # Mailing profile
 

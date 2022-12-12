@@ -10,7 +10,9 @@ from .literals import (
     SCOPE_OPERATOR_CHOICES
 )
 
-namespace = SettingNamespace(label=_('Search'), name='search')
+namespace = SettingNamespace(
+    label=_('Search'), name='search'
+)
 
 setting_backend = namespace.add_setting(
     default=DEFAULT_SEARCH_BACKEND, global_name='SEARCH_BACKEND',

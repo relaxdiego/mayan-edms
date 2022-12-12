@@ -11,6 +11,6 @@ class DocumentCommentDetailForm(DetailForm):
         fields = ('text',)
         extra_fields = (
             {'field': 'submit_date', 'widget': forms.widgets.DateTimeInput},
-            {'field': 'user'},
+            {'field': 'user'}
         )
         model = Comment

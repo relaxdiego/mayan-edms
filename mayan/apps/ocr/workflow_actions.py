@@ -24,7 +24,7 @@ class UpdateDocumentPageOCRAction(WorkflowAction):
                     'are considered to be logical false, any other value is '
                     'considered to be the logical true.'
                 ), 'required': False, 'model': DocumentVersionPage,
-                'model_variable': 'document_page',
+                'model_variable': 'document_page'
             }
         },
         'page_content': {
@@ -35,9 +35,9 @@ class UpdateDocumentPageOCRAction(WorkflowAction):
                     'A template that will generate the OCR content to be '
                     'saved.'
                 ), 'required': False, 'model': DocumentVersionPage,
-                'model_variable': 'document_page',
+                'model_variable': 'document_page'
             }
-        },
+        }
     }
     field_order = ('page_condition', 'page_content')
     label = _('Update document page OCR content')

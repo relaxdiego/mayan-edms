@@ -32,7 +32,7 @@ class WorkflowActionMessageSend(WorkflowAction):
                 'model': WorkflowInstance,
                 'model_variable': 'workflow_instance',
                 'required': True
-            },
+            }
         },
         'subject': {
             'label': _('Subject'),
@@ -49,7 +49,7 @@ class WorkflowActionMessageSend(WorkflowAction):
                 'model': WorkflowInstance,
                 'model_variable': 'workflow_instance',
                 'required': True
-            },
+            }
         },
         'body': {
             'label': _('Body'),
@@ -66,8 +66,8 @@ class WorkflowActionMessageSend(WorkflowAction):
                 'model': WorkflowInstance,
                 'model_variable': 'workflow_instance',
                 'required': True
-            },
-        },
+            }
+        }
     }
     field_order = ('username_list', 'subject', 'body')
     label = _('Send user message')

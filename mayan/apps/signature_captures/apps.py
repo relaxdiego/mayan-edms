@@ -145,11 +145,13 @@ class SignatureCapturesApp(MayanAppConfig):
         )
 
         menu_secondary.bind_links(
-            links=(link_signature_capture_create, link_signature_capture_list),
+            links=(
+                link_signature_capture_create, link_signature_capture_list
+            ),
             sources=(
                 SignatureCapture,
                 'signature_captures:signature_capture_create',
-                'signature_captures:signature_capture_list',
+                'signature_captures:signature_capture_list'
             )
         )
 

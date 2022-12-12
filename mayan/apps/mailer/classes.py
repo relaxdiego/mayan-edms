@@ -28,12 +28,16 @@ class MailerBackend(BaseBackend):
     class_path = ''  # Dot path to the actual class that will handle the mail
 
     @classmethod
-    def get_fields(cls):
-        return getattr(cls, 'fields', {})
+    def get_field_order(cls):
+        return getattr(
+            cls, 'field_order', ()
+        )
 
     @classmethod
-    def get_field_order(cls):
-        return getattr(cls, 'field_order', ())
+    def get_fields(cls):
+        return getattr(
+            cls, 'fields', {}
+        )
 
     @classmethod
     def get_form_schema(cls):
@@ -47,7 +51,9 @@ class MailerBackend(BaseBackend):
 
     @classmethod
     def get_widgets(cls):
-        return getattr(cls, 'widgets', {})
+        return getattr(
+            cls, 'widgets', {}
+        )
 
 
 class NullBackend(MailerBackend):

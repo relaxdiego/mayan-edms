@@ -25,15 +25,15 @@ class WorkflowTransitionFieldSerializer(
         label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'transition.workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
             {
                 'lookup_field': 'transition_id',
-                'lookup_url_kwarg': 'workflow_template_transition_id',
+                'lookup_url_kwarg': 'workflow_template_transition_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'workflow_template_transition_field_id',
+                'lookup_url_kwarg': 'workflow_template_transition_field_id'
             }
         ), view_name='rest_api:workflow-template-transition-field-detail'
     )
@@ -41,7 +41,7 @@ class WorkflowTransitionFieldSerializer(
         label=_('Workflow template URL'), view_kwargs=(
             {
                 'lookup_field': 'transition__workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
         ), view_name='rest_api:workflow-template-detail'
     )
@@ -58,7 +58,7 @@ class WorkflowTransitionFieldSerializer(
             {
                 'lookup_field': 'transition_id',
                 'lookup_url_kwarg': 'workflow_template_transition_id',
-            },
+            }
         ), view_name='rest_api:workflow-template-transition-detail'
     )
 
@@ -202,15 +202,15 @@ class WorkflowTemplateTransitionTriggerSerializer(
         label=_('URL'), view_kwargs=(
             {
                 'lookup_field': 'transition.workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
             {
                 'lookup_field': 'transition_id',
-                'lookup_url_kwarg': 'workflow_template_transition_id',
+                'lookup_url_kwarg': 'workflow_template_transition_id'
             },
             {
                 'lookup_field': 'pk',
-                'lookup_url_kwarg': 'workflow_template_transition_trigger_id',
+                'lookup_url_kwarg': 'workflow_template_transition_trigger_id'
             }
         ), view_name='rest_api:workflow-template-transition-trigger-detail'
     )
@@ -218,7 +218,7 @@ class WorkflowTemplateTransitionTriggerSerializer(
         label=_('Workflow template URL'), view_kwargs=(
             {
                 'lookup_field': 'transition__workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
         ), view_name='rest_api:workflow-template-detail'
     )
@@ -230,19 +230,20 @@ class WorkflowTemplateTransitionTriggerSerializer(
         label=_('Workflow transition URL'), view_kwargs=(
             {
                 'lookup_field': 'transition.workflow_id',
-                'lookup_url_kwarg': 'workflow_template_id',
+                'lookup_url_kwarg': 'workflow_template_id'
             },
             {
                 'lookup_field': 'transition_id',
-                'lookup_url_kwarg': 'workflow_template_transition_id',
-            },
+                'lookup_url_kwarg': 'workflow_template_transition_id'
+            }
         ), view_name='rest_api:workflow-template-transition-detail'
     )
 
     class Meta:
         fields = (
-            'event_type', 'event_type_id', 'id', 'url', 'workflow_template_url',
-            'workflow_transition_id', 'workflow_transition_url'
+            'event_type', 'event_type_id', 'id', 'url',
+            'workflow_template_url', 'workflow_transition_id',
+            'workflow_transition_url'
         )
         model = WorkflowTransitionTriggerEvent
         read_only_fields = (
@@ -253,7 +254,9 @@ class WorkflowTemplateTransitionTriggerSerializer(
     def create(self, validated_data):
         # Unroll nested source "event_type.event_type.id".
         event_type = validated_data.pop('event_type', None)
-        event_type = event_type.get('event_type', {})
+        event_type = event_type.get(
+            'event_type', {}
+        )
         event_type_id = event_type.get('id')
 
         if event_type_id:
@@ -266,7 +269,9 @@ class WorkflowTemplateTransitionTriggerSerializer(
     def update(self, instance, validated_data):
         # Unroll nested source "event_type.event_type.id".
         event_type = validated_data.pop('event_type', None)
-        event_type = event_type.get('event_type', {})
+        event_type = event_type.get(
+            'event_type', {}
+        )
         event_type_id = event_type.get('id')
 
         if event_type_id:

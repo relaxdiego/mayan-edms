@@ -48,7 +48,7 @@ class EmailSourceViewTestCase(
 
     def test_metadata_type_validation_invalid_from(self):
         self._silence_logger(name='mayan.apps.logging.middleware')
-        self._silence_logger(name='mayan.apps.navigation.classes')
+        self._silence_logger(name='mayan.apps.navigation.class_mixins')
 
         test_metadata_type = MetadataType.objects.create(
             name='test_metadata_type'
@@ -107,7 +107,7 @@ class EmailSourceViewTestCase(
 
     def test_metadata_type_validation_invalid_subject(self):
         self._silence_logger(name='mayan.apps.logging.middleware')
-        self._silence_logger(name='mayan.apps.navigation.classes')
+        self._silence_logger(name='mayan.apps.navigation.class_mixins')
 
         test_metadata_type = MetadataType.objects.create(
             name='test_metadata_type'

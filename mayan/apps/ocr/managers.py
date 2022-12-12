@@ -55,7 +55,8 @@ class DocumentVersionPageOCRContentManager(models.Manager):
                         language=document_version_page.document_version.document.language
                     )
                     DocumentVersionPageOCRContent.objects.update_or_create(
-                        document_version_page=document_version_page, defaults={
+                        document_version_page=document_version_page,
+                        defaults={
                             'content': ocr_content
                         }
                     )

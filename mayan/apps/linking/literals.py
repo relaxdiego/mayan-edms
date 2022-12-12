@@ -5,7 +5,7 @@ INCLUSION_OR = '|'
 
 INCLUSION_CHOICES = (
     (INCLUSION_AND, _('and')),
-    (INCLUSION_OR, _('or')),
+    (INCLUSION_OR, _('or'))
 )
 
 OPERATOR_CHOICES = (
@@ -23,5 +23,5 @@ OPERATOR_CHOICES = (
     ('endswith', _('ends with')),
     ('iendswith', _('ends with (case insensitive)')),
     ('regex', _('is in regular expression')),
-    ('iregex', _('is in regular expression (case insensitive)')),
+    ('iregex', _('is in regular expression (case insensitive)'))
 )

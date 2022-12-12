@@ -4,7 +4,9 @@ from mayan.apps.smart_settings.classes import SettingNamespace
 
 from .literals import DEFAULT_EMAIL, DEFAULT_PASSWORD, DEFAULT_USERNAME
 
-namespace = SettingNamespace(label=_('Auto administrator'), name='autoadmin')
+namespace = SettingNamespace(
+    label=_('Auto administrator'), name='autoadmin'
+)
 
 setting_email = namespace.add_setting(
     default=DEFAULT_EMAIL, global_name='AUTOADMIN_EMAIL', help_text=_(

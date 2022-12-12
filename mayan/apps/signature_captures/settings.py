@@ -25,7 +25,8 @@ setting_signature_capture_cache_maximum_size = namespace.add_setting(
 )
 setting_signature_capture_cache_storage_backend = namespace.add_setting(
     default=DEFAULT_SIGNATURE_CAPTURES_SIGNATURE_CAPTURE_CACHE_STORAGE_BACKEND,
-    global_name='SIGNATURE_CAPTURES_SIGNATURE_CAPTURE_CACHE_STORAGE_BACKEND', help_text=_(
+    global_name='SIGNATURE_CAPTURES_SIGNATURE_CAPTURE_CACHE_STORAGE_BACKEND',
+    help_text=_(
         'Path to the Storage subclass to use when storing the cached '
         'signature capture files.'
     )

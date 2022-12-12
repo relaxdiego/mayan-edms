@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions.classes import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Quotas'), name='quotas')
+namespace = PermissionNamespace(
+    label=_('Quotas'), name='quotas'
+)
 
 permission_quota_create = namespace.add_permission(
     label=_('Create a quota'), name='quota_create'

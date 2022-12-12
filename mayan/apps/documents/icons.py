@@ -103,7 +103,9 @@ icon_document_file_page_count_update = Icon(
 )
 icon_document_list = Icon(driver_name='fontawesome', symbol='book')
 icon_document_preview = Icon(driver_name='fontawesome', symbol='eye')
-icon_document_properties_detail = Icon(driver_name='fontawesome', symbol='info')
+icon_document_properties_detail = Icon(
+    driver_name='fontawesome', symbol='info'
+)
 icon_document_properties_edit = Icon(
     driver_name='fontawesome', symbol='pencil-alt'
 )

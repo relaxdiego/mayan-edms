@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_MAXIMUM_NORMAL_PRUNE_ATTEMPTS
 )
 
-namespace = SettingNamespace(label=_('File caching'), name='file_caching')
+namespace = SettingNamespace(
+    label=_('File caching'), name='file_caching'
+)
 
 setting_maximum_failed_prune_attempts = namespace.add_setting(
     default=DEFAULT_MAXIMUM_FAILED_PRUNE_ATTEMPTS,

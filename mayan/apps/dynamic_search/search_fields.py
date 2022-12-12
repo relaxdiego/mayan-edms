@@ -67,7 +67,9 @@ class SearchField:
         self.help_text = help_text
         self.search_model = search_model
 
-        self.__class__._registry_by_class.setdefault(self.__class__, [])
+        self.__class__._registry_by_class.setdefault(
+            self.__class__, []
+        )
         self.__class__._registry_by_class[self.__class__].append(self)
 
     def __repr__(self):
@@ -126,7 +128,9 @@ class SearchField:
     def get_backend_field_transformations(self, search_backend):
         return self.get_search_field_type_backend_dictionary(
             search_backend=search_backend
-        ).get('transformations', {})
+        ).get(
+            'transformations', {}
+        )
 
     def get_help_text(self):
         return self.help_text or getattr(self.model_field, 'help_text', '')

@@ -74,7 +74,9 @@ class ObjectLinkMailView(MultipleObjectFormActionView):
         }
 
         kwargs.update(
-            MODEL_SEND_FUNCTION_DOTTED_PATH.get(instance._meta.model, {})
+            MODEL_SEND_FUNCTION_DOTTED_PATH.get(
+                instance._meta.model, {}
+            )
         )
 
         task_send_object.apply_async(kwargs=kwargs)

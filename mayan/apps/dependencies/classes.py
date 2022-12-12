@@ -61,7 +61,9 @@ class DependencyGroup:
 
     @classmethod
     def get_all(cls):
-        return sorted(cls._registry.values(), key=lambda x: x.label)
+        return sorted(
+            cls._registry.values(), key=lambda x: x.label
+        )
 
     def __init__(
         self, attribute_name, label, name, allow_multiple=False,
@@ -176,7 +178,9 @@ class Dependency(AppsModuleLoaderMixin):
 
     @staticmethod
     def return_sorted(dependencies):
-        return sorted(dependencies, key=lambda x: x.get_label())
+        return sorted(
+            dependencies, key=lambda x: x.get_label()
+        )
 
     @classmethod
     def _check_all(cls):
@@ -196,8 +200,8 @@ class Dependency(AppsModuleLoaderMixin):
                 result.append(
                     {
                         'check': check,
-                        'check_text': check_text,
                         'check_color': check_color,
+                        'check_text': check_text,
                         'dependency': dependency
                     }
                 )
@@ -258,7 +262,9 @@ class Dependency(AppsModuleLoaderMixin):
     def get_all(cls, subclass_only=False):
         dependencies = cls._registry.values()
         if subclass_only:
-            dependencies = [dependency for dependency in dependencies if isinstance(dependency, cls)]
+            dependencies = [
+                dependency for dependency in dependencies if isinstance(dependency, cls)
+            ]
 
         return Dependency.return_sorted(dependencies=dependencies)
 
@@ -315,7 +321,9 @@ class Dependency(AppsModuleLoaderMixin):
                 _('Dependency "%s" already registered.') % self.name
             )
 
-        self.__class__._registry[self.get_pk()] = self
+        self.__class__._registry[
+            self.get_pk()
+        ] = self
 
     @cached_property
     def app_label(self):
@@ -345,19 +353,27 @@ class Dependency(AppsModuleLoaderMixin):
 
         if not force:
             if self.check():
-                print(_('Already installed.'))
+                print(
+                    _('Already installed.')
+                )
             else:
                 self._install()
-                print(_('Complete.'))
+                print(
+                    _('Complete.')
+                )
                 sys.stdout.flush()
         else:
             if self.replace_list:
                 self.patch_files()
-                print(_('Complete.'))
+                print(
+                    _('Complete.')
+                )
                 sys.stdout.flush()
 
             self.patch_files()
-            print(_('Complete.'))
+            print(
+                _('Complete.')
+            )
             sys.stdout.flush()
 
     def _install(self):
@@ -417,7 +433,9 @@ class Dependency(AppsModuleLoaderMixin):
         else:
             version_string = ''
 
-        return '{} {}'.format(self.get_label(), version_string)
+        return '{} {}'.format(
+            self.get_label(), version_string
+        )
 
     def get_other_data(self):
         return _('None')
@@ -495,12 +513,13 @@ class JavaScriptDependency(Dependency):
         except FileNotFoundError:
             return False
 
-        versions = [package_info['version']]
+        versions = [
+            package_info['version']
+        ]
         version_string = self.version_string
 
         return max_satisfying(
-            versions=versions, range_=version_string,
-            loose=True
+            loose=True, range_=version_string, versions=versions
         )
 
     def _read_package_file(self):
@@ -512,13 +531,19 @@ class JavaScriptDependency(Dependency):
 
     def _install(self, include_dependencies=False):
         self.get_metadata()
-        print(_('Downloading... '), end='')
+        print(
+            _('Downloading... '), end=''
+        )
         sys.stdout.flush()
         self.download()
-        print(_('Verifying... '), end='')
+        print(
+            _('Verifying... '), end=''
+        )
         sys.stdout.flush()
         self.verify()
-        print(_('Extracting... '), end='')
+        print(
+            _('Extracting... '), end=''
+        )
         sys.stdout.flush()
         self.extract()
 
@@ -536,7 +561,9 @@ class JavaScriptDependency(Dependency):
             with tarfile.open(name=str(path_compressed_file), mode='r') as file_object:
                 file_object.extractall(path=temporary_directory)
 
-            self.patch_files(path=temporary_directory, replace_list=replace_list)
+            self.patch_files(
+                path=temporary_directory, replace_list=replace_list
+            )
 
             path_install = self.get_install_path()
 
@@ -552,7 +579,9 @@ class JavaScriptDependency(Dependency):
             # We do a copy and delete instead of move because os.rename doesn't
             # support renames across filesystems.
             path_uncompressed_package = Path(temporary_directory, 'package')
-            shutil.rmtree(path=str(path_install))
+            shutil.rmtree(
+                path=str(path_install)
+            )
             shutil.copytree(
                 src=str(path_uncompressed_package),
                 dst=str(path_install)
@@ -582,7 +611,9 @@ class JavaScriptDependency(Dependency):
 
         for entry in path_install_path.glob(pattern='LICENSE*'):
             with entry.open(mode='rb') as file_object:
-                return str(file_object.read())
+                return str(
+                    file_object.read()
+                )
 
         copyright_text = []
 
@@ -625,7 +656,9 @@ class JavaScriptDependency(Dependency):
         return result
 
     def get_metadata(self):
-        response = requests.get(url=self.get_url())
+        response = requests.get(
+            url=self.get_url()
+        )
         self.package_metadata = response.json()
         self.versions = self.package_metadata['versions'].keys()
         self.version_best = self.get_best_version()
@@ -755,15 +788,21 @@ class GoogleFontDependency(Dependency):
         return self.get_install_path().exists()
 
     def _install(self):
-        print(_('Downloading... '), end='')
+        print(
+            _('Downloading... '), end=''
+        )
         sys.stdout.flush()
         self.download()
-        print(_('Extracting... '), end='')
+        print(
+            _('Extracting... '), end=''
+        )
         sys.stdout.flush()
         self.extract()
 
     def download(self):
-        self.path_cache = Path(mkdtemp())
+        self.path_cache = Path(
+            mkdtemp()
+        )
         # Use .css to keep the same ContentType, otherwise the webserver
         # will use the generic octet and the browser will ignore the import
         # https://www.w3.org/TR/2013/CR-css-cascade-3-20131003/#content-type

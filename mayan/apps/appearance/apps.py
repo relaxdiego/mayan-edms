@@ -52,7 +52,7 @@ class AppearanceApp(MayanAppConfig):
         'appearance/node_modules/toastr/karma.conf.js',
         'appearance/node_modules/toastr/toastr.js',
         'appearance/node_modules/toastr/toastr-icon.png',
-        'appearance/node_modules/toastr/nuget/*',
+        'appearance/node_modules/toastr/nuget/*'
     )
     verbose_name = _('Appearance')
 
@@ -64,9 +64,9 @@ class AppearanceApp(MayanAppConfig):
         User = get_user_model()
 
         ModelCopy(
-            model=Theme, bind_link=True, register_permission=True
+            bind_link=True, model=Theme, register_permission=True
         ).add_fields(
-            field_names=('label', 'stylesheet',),
+            field_names=('label', 'stylesheet',)
         )
 
         EventModelRegistry.register(model=Theme)
@@ -113,7 +113,9 @@ class AppearanceApp(MayanAppConfig):
                 Theme, 'appearance:theme_list', 'appearance:theme_create'
             )
         )
-        menu_setup.bind_links(links=(link_theme_setup,))
+        menu_setup.bind_links(
+            links=(link_theme_setup,)
+        )
 
         menu_list_facet.bind_links(
             links=(

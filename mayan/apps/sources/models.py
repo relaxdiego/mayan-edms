@@ -46,11 +46,11 @@ class Source(
         event_manager_class=EventManagerSave,
         created={
             'event': event_source_created,
-            'target': 'self',
+            'target': 'self'
         },
         edited={
             'event': event_source_edited,
-            'target': 'self',
+            'target': 'self'
         }
     )
     def save(self, *args, **kwargs):

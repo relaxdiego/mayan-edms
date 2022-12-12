@@ -85,7 +85,9 @@ class ConverterBase:
         self.soffice_file = None
         Image.init()
         try:
-            self.command_libreoffice = sh.Command(path=libreoffice_path).bake(
+            self.command_libreoffice = sh.Command(
+                path=libreoffice_path
+            ).bake(
                 '--headless', '--convert-to', 'pdf:writer_pdf_Export'
             )
         except sh.CommandNotFound:
@@ -110,7 +112,9 @@ class ConverterBase:
             # RGB. Removes modes: P and RGBA.
             new_mode = 'RGB'
 
-        self.image.convert(new_mode).save(image_buffer, format=output_format)
+        self.image.convert(
+            mode=new_mode
+        ).save(fp=image_buffer, format=output_format)
 
         image_buffer.seek(0)
 
@@ -145,7 +149,7 @@ class ConverterBase:
             )
             raise
         else:
-            self.image.seek(page_number)
+            self.image.seek(frame=page_number)
             self.image.load()
 
     def soffice(self):

@@ -94,7 +94,9 @@ class MetadataTypeModuleMixin(AppsModuleLoaderMixin):
         choices.sort(key=lambda x: x[1])
 
         if add_blank:
-            choices.insert(0, (None, EMPTY_LABEL))
+            choices.insert(
+                0, (None, EMPTY_LABEL)
+            )
 
         return choices
 

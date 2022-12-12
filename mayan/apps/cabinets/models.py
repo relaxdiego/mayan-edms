@@ -27,7 +27,7 @@ class Cabinet(CabinetBusinessLogicMixin, ExtraDataModelMixin, MPTTModel):
     """
     parent = TreeForeignKey(
         blank=True, db_index=True, null=True, on_delete=models.CASCADE,
-        related_name='children', to='self'
+        related_name='children', to='self', verbose_name=_('Parent')
     )
     label = models.CharField(
         help_text=_('A short text used to identify the cabinet.'),
@@ -98,11 +98,11 @@ class Cabinet(CabinetBusinessLogicMixin, ExtraDataModelMixin, MPTTModel):
         created={
             'action_object': 'parent',
             'event': event_cabinet_created,
-            'target': 'self',
+            'target': 'self'
         },
         edited={
             'event': event_cabinet_edited,
-            'target': 'self',
+            'target': 'self'
         }
     )
     def save(self, *args, **kwargs):

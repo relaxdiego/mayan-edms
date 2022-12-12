@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from . import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Permissions'), name='permissions')
+namespace = PermissionNamespace(
+    label=_('Permissions'), name='permissions'
+)
 
 permission_role_create = namespace.add_permission(
     label=_('Create roles'), name='role_create'

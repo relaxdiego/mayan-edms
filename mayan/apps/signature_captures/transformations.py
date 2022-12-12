@@ -87,5 +87,6 @@ class SignatureCapturePasteTransformation(
 
 
 BaseTransformation.register(
-    layer=layer_decorations, transformation=SignatureCapturePasteTransformation
+    layer=layer_decorations,
+    transformation=SignatureCapturePasteTransformation
 )

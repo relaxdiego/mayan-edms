@@ -32,7 +32,9 @@ class ErrorLog:
     def get(cls, name):
         return cls._registry[name]
 
-    def __init__(self, app_config, limit=DEFAULT_ERROR_LOG_PARTITION_ENTRY_LIMIT):
+    def __init__(
+        self, app_config, limit=DEFAULT_ERROR_LOG_PARTITION_ENTRY_LIMIT
+    ):
         self.app_config = app_config
         self.limit = limit
 
@@ -83,11 +85,14 @@ class ErrorLog:
         if register_permission:
             ModelPermission.register(
                 model=model, permissions=(
-                    permission_error_log_entry_delete, permission_error_log_entry_view
+                    permission_error_log_entry_delete,
+                    permission_error_log_entry_view
                 )
             )
 
-        def handler_model_instance_delete_partition(sender, instance, **kwargs):
+        def handler_model_instance_delete_partition(
+            sender, instance, **kwargs
+        ):
             ContentType = apps.get_model(
                 app_label='contenttypes', model_name='ContentType'
             )
@@ -100,7 +105,9 @@ class ErrorLog:
                 content_type=content_type, object_id=instance.pk
             ).delete()
 
-        def handler_model_instance_create_partition(sender, instance, **kwargs):
+        def handler_model_instance_create_partition(
+            sender, instance, **kwargs
+        ):
             if kwargs['created']:
                 ContentType = apps.get_model(
                     app_label='contenttypes', model_name='ContentType'

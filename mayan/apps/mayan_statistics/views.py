@@ -56,7 +56,9 @@ class StatisticNamespaceDetailView(SingleObjectListView):
         }
 
     def get_object(self):
-        return StatisticNamespace.get(slug=self.kwargs['slug'])
+        return StatisticNamespace.get(
+            slug=self.kwargs['slug']
+        )
 
     def get_source_queryset(self):
         return self.object.statistics

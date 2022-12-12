@@ -148,7 +148,9 @@ class SourcesApp(MayanAppConfig):
                 'sources:source_list'
             )
         )
-        menu_setup.bind_links(links=(link_source_list,))
+        menu_setup.bind_links(
+            links=(link_source_list,)
+        )
         menu_secondary.bind_links(
             links=(link_document_file_upload,),
             sources=(

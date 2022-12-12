@@ -31,7 +31,9 @@ class SettingForm(forms.Form):
 
     def clean(self):
         try:
-            yaml_load(stream=self.cleaned_data['value'])
+            yaml_load(
+                stream=self.cleaned_data['value']
+            )
         except yaml.YAMLError:
             raise ValidationError(
                 message=_(

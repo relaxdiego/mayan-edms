@@ -77,9 +77,10 @@ class QuotaBackend(QuotaBackendBase, metaclass=QuotaBackendMetaclass):
     @classmethod
     def create(cls, **kwargs):
         Quota = apps.get_model(app_label='quotas', model_name='Quota')
+
         return Quota.objects.create(
-            backend_path=cls.get_dotted_path(),
-            backend_data=json.dumps(obj=kwargs)
+            backend_data=json.dumps(obj=kwargs),
+            backend_path=cls.get_dotted_path()
         )
 
     @classmethod
@@ -115,7 +116,10 @@ class QuotaBackend(QuotaBackendBase, metaclass=QuotaBackendMetaclass):
     @classmethod
     def get_instances(cls):
         Quota = apps.get_model(app_label='quotas', model_name='Quota')
-        return Quota.objects.filter(backend_path=cls.get_dotted_path())
+
+        return Quota.objects.filter(
+            backend_path=cls.get_dotted_path()
+        )
 
     @classmethod
     def get_widgets(cls):
@@ -137,11 +141,15 @@ class QuotaBackend(QuotaBackendBase, metaclass=QuotaBackendMetaclass):
         result = self.get_filter_text()
 
         return format_lazy(
-            ', '.join(['{}'] * len(result)), *result.values()
+            ', '.join(
+                ['{}'] * len(result)
+            ), *result.values()
         )
 
     def get_filter_text(self):
-        return {'limit': self._allowed_filter_display()}
+        return {
+            'limit': self._allowed_filter_display()
+        }
 
     def process(self, **kwargs):
         if self._usage() >= self._allowed():

@@ -7,7 +7,9 @@ from .literals import (
     DEFAULT_MESSAGE_POSITION, DEFAULT_MENU_POLLING_INTERVAL
 )
 
-namespace = SettingNamespace(label=_('Appearance'), name='appearance')
+namespace = SettingNamespace(
+    label=_('Appearance'), name='appearance'
+)
 
 setting_ajax_redirection_code = namespace.add_setting(
     default=DEFAULT_AJAX_REDIRECTION_CODE,

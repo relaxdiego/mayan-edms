@@ -37,11 +37,13 @@ class AccessControlList(
     """
     content_type = models.ForeignKey(
         on_delete=models.CASCADE, related_name='object_content_type',
-        to=ContentType
+        to=ContentType, verbose_name=_('Content type')
     )
-    object_id = models.PositiveIntegerField()
+    object_id = models.PositiveIntegerField(
+        verbose_name=_('Object ID')
+    )
     content_object = GenericForeignKey(
-        ct_field='content_type', fk_field='object_id',
+        ct_field='content_type', fk_field='object_id'
     )
     permissions = models.ManyToManyField(
         blank=True, related_name='acls', to=StoredPermission,
@@ -67,7 +69,7 @@ class AccessControlList(
             'Role "%(role)s" permission\'s for "%(object)s"'
         ) % {
             'object': self.content_object,
-            'role': self.role,
+            'role': self.role
         }
 
     @method_event(
@@ -88,7 +90,7 @@ class AccessControlList(
         created={
             'action_object': 'content_object',
             'event': event_acl_created,
-            'target': 'self',
+            'target': 'self'
         }
     )
     def save(self, *args, **kwargs):

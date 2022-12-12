@@ -106,7 +106,9 @@ class SmartLinkCondition(
         default=False, help_text=_('Inverts the logic of the operator.'),
         verbose_name=_('Negated')
     )
-    enabled = models.BooleanField(default=True, verbose_name=_('Enabled'))
+    enabled = models.BooleanField(
+        default=True, verbose_name=_('Enabled')
+    )
 
     class Meta:
         verbose_name = _('Link condition')

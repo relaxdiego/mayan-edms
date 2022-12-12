@@ -13,8 +13,12 @@ class APIAnnouncementListView(generics.ListCreateAPIView):
     get: Returns a list of all the announcements.
     post: Create a new announcement.
     """
-    mayan_object_permissions = {'GET': (permission_announcement_view,)}
-    mayan_view_permissions = {'POST': (permission_announcement_create,)}
+    mayan_object_permissions = {
+        'GET': (permission_announcement_view,)
+    }
+    mayan_view_permissions = {
+        'POST': (permission_announcement_create,)
+    }
     ordering_fields = (
         'enabled', 'end_datetime', 'id', 'label', 'start_datetime'
     )

@@ -111,7 +111,9 @@ class BrowseableObtainAuthToken(ObtainAuthToken):
     """
     Obtain an API authentication token.
     """
-    renderer_classes = (renderers.BrowsableAPIRenderer, renderers.JSONRenderer)
+    renderer_classes = (
+        renderers.BrowsableAPIRenderer, renderers.JSONRenderer
+    )
 
 
 class ProjectInformationAPIView(RetrieveAPIView):

@@ -41,11 +41,14 @@ class RESTAPIApp(MayanAppConfig):
         )
         menu_tools.bind_links(
             links=(
-                link_api, link_api_documentation, link_api_documentation_redoc
+                link_api, link_api_documentation,
+                link_api_documentation_redoc
             )
         )
 
         for app in apps.get_app_configs():
             if getattr(app, 'has_rest_api', False):
-                app_api_urls = import_string(dotted_path='{}.urls.api_urls'.format(app.name))
+                app_api_urls = import_string(
+                    dotted_path='{}.urls.api_urls'.format(app.name)
+                )
                 api_version_urls.extend(app_api_urls)

@@ -46,8 +46,7 @@ class DocumentCheckout(ExtraDataModelMixin, models.Model):
         verbose_name=_('User')
     )
     block_new_file = models.BooleanField(
-        default=True,
-        help_text=_(
+        default=True, help_text=_(
             'Do not allow new file of this document to be uploaded.'
         ), verbose_name=_('Block new file upload')
     )

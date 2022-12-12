@@ -89,7 +89,7 @@ class ObjectEmailActionMixin:
                 'Attach an object to the email.'
             ),
             'required': False
-        },
+        }
     }
     field_order = (
         'mailing_profile', 'recipient', 'cc', 'bcc', 'reply_to', 'subject',
@@ -105,7 +105,9 @@ class ObjectEmailActionMixin:
 
     def execute(self, context):
         user_mailer = self.get_user_mailer()
-        user_mailer.send_object(**self.get_execute_data(context=context))
+        user_mailer.send_object(
+            **self.get_execute_data(context=context)
+        )
 
     def get_execute_data(self, context):
         recipient = self.render_field(

@@ -331,7 +331,8 @@ class PlatformTemplateSupervisord(PlatformTemplate):
                 environment_name='MAYAN_GUNICORN_TIMEOUT'
             ),
             Variable(
-                name='INSTALLATION_PATH', default=DEFAULT_DIRECTORY_INSTALLATION,
+                name='INSTALLATION_PATH',
+                default=DEFAULT_DIRECTORY_INSTALLATION,
                 environment_name='MAYAN_INSTALLATION_PATH'
             ),
             Variable(
@@ -358,7 +359,7 @@ class PlatformTemplateSupervisord(PlatformTemplate):
             'user_settings_folder': Path(
                 media_root.get_value()
             ) / user_settings_folder.get_value(),
-            'workers': Worker.all(),
+            'workers': Worker.all()
         }
 
 
@@ -378,7 +379,9 @@ class PlatformTemplateWorkerQueues(PlatformTemplate):
         try:
             queues = Worker.get(name=worker_name).queues
         except KeyError:
-            raise KeyError('Worker name "{}" not found.'.format(worker_name))
+            raise KeyError(
+                'Worker name "{}" not found.'.format(worker_name)
+            )
 
         return {
             'queues': queues, 'queue_names': sorted(

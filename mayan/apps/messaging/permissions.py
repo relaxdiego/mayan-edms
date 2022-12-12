@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Messaging'), name='messaging')
+namespace = PermissionNamespace(
+    label=_('Messaging'), name='messaging'
+)
 
 permission_message_create = namespace.add_permission(
     label=_('Create messages'), name='message_create'

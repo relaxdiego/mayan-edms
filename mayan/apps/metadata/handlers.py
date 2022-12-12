@@ -47,7 +47,9 @@ def handler_post_document_type_change_metadata(sender, instance, **kwargs):
     # or workflow on document change by metadata save signal
     new_document_type_metadata_types = instance.document_type.metadata.filter(
         required=True
-    ).exclude(metadata_type__in=instance.metadata.values('metadata_type'))
+    ).exclude(
+        metadata_type__in=instance.metadata.values('metadata_type')
+    )
 
     for document_type_metadata_type in new_document_type_metadata_types:
         DocumentMetadata.objects.create(
@@ -57,7 +59,9 @@ def handler_post_document_type_change_metadata(sender, instance, **kwargs):
         )
 
 
-def handler_post_document_type_metadata_type_add(sender, instance, created, **kwargs):
+def handler_post_document_type_metadata_type_add(
+    sender, instance, created, **kwargs
+):
     logger.debug('instance: %s', instance)
 
     if created and instance.required:
@@ -69,7 +73,9 @@ def handler_post_document_type_metadata_type_add(sender, instance, created, **kw
         )
 
 
-def handler_post_document_type_metadata_type_delete(sender, instance, **kwargs):
+def handler_post_document_type_metadata_type_delete(
+    sender, instance, **kwargs
+):
     logger.debug('instance: %s', instance)
     task_remove_metadata_type.apply_async(
         kwargs={

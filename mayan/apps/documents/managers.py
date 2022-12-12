@@ -38,7 +38,9 @@ class DocumentFileManager(models.Manager):
             app_label='documents', model_name='Document'
         )
         try:
-            document = Document.objects.get_by_natural_key(*document_natural_key)
+            document = Document.objects.get_by_natural_key(
+                *document_natural_key
+            )
         except Document.DoesNotExist:
             raise self.model.DoesNotExist
 
@@ -51,7 +53,9 @@ class DocumentFilePageManager(models.Manager):
             app_label='documents', model_name='DocumentFile'
         )
         try:
-            document_file = DocumentFile.objects.get_by_natural_key(*document_file_natural_key)
+            document_file = DocumentFile.objects.get_by_natural_key(
+                *document_file_natural_key
+            )
         except DocumentFile.DoesNotExist:
             raise self.model.DoesNotExist
 

@@ -6,7 +6,7 @@ from django.utils.log import DEFAULT_LOGGING
 
 from .settings import (
     setting_logging_enable, setting_logging_handlers,
-    setting_logging_level, setting_logging_log_file_path,
+    setting_logging_level, setting_logging_log_file_path
 )
 
 logger = logging.getLogger(name=__name__)
@@ -26,18 +26,18 @@ class LoggingAppConfigMixin:
                     'formatters': {
                         'mayan_intermediate': {
                             '()': 'mayan.apps.logging.formatters.ColorFormatter',
-                            'format': '%(name)s <%(process)d> [%(levelname)s] "%(funcName)s() line %(lineno)d %(message)s"',
+                            'format': '%(name)s <%(process)d> [%(levelname)s] "%(funcName)s() line %(lineno)d %(message)s"'
                         },
                         'mayan_logfile': {
                             'format': '%(asctime)s %(name)s <%(process)d> [%(levelname)s] "%(funcName)s() line %(lineno)d %(message)s"'
-                        },
+                        }
                     },
                     'handlers': {
                         'console': {
                             'class': 'logging.StreamHandler',
                             'formatter': 'mayan_intermediate',
-                            'level': 'DEBUG',
-                        },
+                            'level': 'DEBUG'
+                        }
                     }
                 }
             )
@@ -59,7 +59,7 @@ class LoggingAppConfigMixin:
                         'class': 'logging.handlers.RotatingFileHandler',
                         'filename': setting_logging_log_file_path.value,
                         'formatter': 'mayan_logfile',
-                        'maxBytes': 65535,
+                        'maxBytes': 65535
                     }
 
             loggers = {}
@@ -73,7 +73,7 @@ class LoggingAppConfigMixin:
                 loggers[project_app.name] = {
                     'handlers': handlers,
                     'propagate': True,
-                    'level': setting_logging_level.value,
+                    'level': setting_logging_level.value
                 }
 
             logging_configuration['loggers'] = loggers

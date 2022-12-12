@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Converter'), name='converter')
+namespace = PermissionNamespace(
+    label=_('Converter'), name='converter'
+)
 
 permission_asset_create = namespace.add_permission(
     label=_('Create new assets'), name='asset_create'

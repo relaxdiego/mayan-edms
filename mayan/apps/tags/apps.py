@@ -83,7 +83,7 @@ class TagsApp(MayanAppConfig):
             model=Tag, bind_link=True, register_permission=True
         ).add_fields(
             field_names=(
-                'label', 'color', 'documents',
+                'label', 'color', 'documents'
             )
         )
 

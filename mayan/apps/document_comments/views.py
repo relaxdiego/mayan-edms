@@ -160,7 +160,7 @@ class DocumentCommentListView(ExternalObjectViewMixin, SingleObjectListView):
             ),
             'no_results_title': _('There are no comments'),
             'object': self.external_object,
-            'title': _('Comments for document: %s') % self.external_object,
+            'title': _('Comments for document: %s') % self.external_object
         }
 
     def get_source_queryset(self):

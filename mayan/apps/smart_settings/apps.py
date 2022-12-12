@@ -47,7 +47,8 @@ class SmartSettingsApp(MayanAppConfig):
         )
 
         menu_list_facet.bind_links(
-            links=(link_setting_namespace_detail,), sources=(SettingNamespace,)
+            links=(link_setting_namespace_detail,),
+            sources=(SettingNamespace,)
         )
         menu_object.bind_links(
             links=(link_setting_edit,), sources=(Setting,)
@@ -57,6 +58,8 @@ class SmartSettingsApp(MayanAppConfig):
                 SettingNamespace, Setting
             )
         )
-        menu_setup.bind_links(links=(link_setting_namespace_list,))
+        menu_setup.bind_links(
+            links=(link_setting_namespace_list,)
+        )
 
         Setting.save_last_known_good()

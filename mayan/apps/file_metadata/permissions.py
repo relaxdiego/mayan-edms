@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('File metadata'), name='file_metadata')
+namespace = PermissionNamespace(
+    label=_('File metadata'), name='file_metadata'
+)
 
 permission_document_type_file_metadata_setup = namespace.add_permission(
     label=_('Change document type file metadata settings'),

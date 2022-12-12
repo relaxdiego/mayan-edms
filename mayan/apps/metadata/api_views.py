@@ -94,8 +94,12 @@ class APIMetadataTypeListView(generics.ListCreateAPIView):
     get: Returns a list of all the metadata types.
     post: Create a new metadata type.
     """
-    mayan_object_permissions = {'GET': (permission_metadata_type_view,)}
-    mayan_view_permissions = {'POST': (permission_metadata_type_create,)}
+    mayan_object_permissions = {
+        'GET': (permission_metadata_type_view,)
+    }
+    mayan_view_permissions = {
+        'POST': (permission_metadata_type_create,)
+    }
     ordering_fields = ('id', 'label', 'name')
     queryset = MetadataType.objects.all()
     serializer_class = MetadataTypeSerializer

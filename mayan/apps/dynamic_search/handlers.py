@@ -36,11 +36,11 @@ def handler_factory_index_related_instance_delete(reverse_field_path):
             task_index_instance.apply_async(
                 kwargs={
                     'app_label': instance._meta.app_label,
-                    'model_name': instance._meta.model_name,
-                    'object_id': instance.pk,
                     'exclude_app_label': related_instance._meta.app_label,
+                    'exclude_kwargs': {'id': related_instance.pk},
                     'exclude_model_name': related_instance._meta.model_name,
-                    'exclude_kwargs': {'id': related_instance.pk}
+                    'model_name': instance._meta.model_name,
+                    'object_id': instance.pk
                 }
             )
 
@@ -102,7 +102,9 @@ def handler_factory_index_related_instance_m2m(data):
             'instance_object_id': instance.pk,
             'model_app_label': model._meta.app_label,
             'model_model_name': model._meta.model_name,
-            'pk_set': tuple(kwargs['pk_set']),
+            'pk_set': tuple(
+                kwargs['pk_set']
+            ),
             'serialized_search_model_related_paths': serialized_search_model_related_paths
         }
 

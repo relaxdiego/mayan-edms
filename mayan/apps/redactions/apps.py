@@ -29,7 +29,7 @@ class RedactionsApp(MayanAppConfig):
     static_media_ignore_patterns = (
         'redactions/node_modules/cropperjs/src/*',
         'redactions/node_modules/cropperjs/types/index.d.ts',
-        'redactions/node_modules/jquery-cropper/src/*',
+        'redactions/node_modules/jquery-cropper/src/*'
     )
     verbose_name = _('Redactions')
 

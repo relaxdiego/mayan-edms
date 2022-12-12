@@ -9,8 +9,7 @@ from mayan.apps.rest_api import generics
 
 from .models import DocumentVersionPageOCRContent, DocumentTypeOCRSettings
 from .permissions import (
-    permission_document_type_ocr_setup,
-    permission_document_version_ocr,
+    permission_document_type_ocr_setup, permission_document_version_ocr,
     permission_document_version_ocr_content_edit,
     permission_document_version_ocr_content_view
 )

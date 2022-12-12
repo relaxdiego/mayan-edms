@@ -2,7 +2,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.permissions import PermissionNamespace
 
-namespace = PermissionNamespace(label=_('Logging'), name='logging')
+namespace = PermissionNamespace(
+    label=_('Logging'), name='logging'
+)
 
 permission_error_log_entry_delete = namespace.add_permission(
     label=_('Delete error log'), name='error_log_delete'

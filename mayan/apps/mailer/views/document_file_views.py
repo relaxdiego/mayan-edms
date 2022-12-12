@@ -23,8 +23,8 @@ class MailDocumentFileAttachmentView(ObjectAttachmentMailView):
         '%(count)d document files queued for email delivery'
     )
     title = 'Email document file'
-    title_plural = 'Email document files'
     title_document = 'Email document file: %s'
+    title_plural = 'Email document files'
     view_icon = icon_document_file_attachment_send_single
 
 
@@ -39,6 +39,6 @@ class MailDocumentFileLinkView(ObjectLinkMailView):
         '%(count)d document file links queued for email delivery'
     )
     title = 'Email document file link'
-    title_plural = 'Email document file links'
     title_document = 'Email link for document file: %s'
+    title_plural = 'Email document file links'
     view_icon = icon_document_file_link_send_single

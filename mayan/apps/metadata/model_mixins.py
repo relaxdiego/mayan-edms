@@ -1,7 +1,6 @@
 import shlex
 
 from django.apps import apps
-from django.utils.encoding import force_text
 
 from mayan.apps.templating.classes import Template
 
@@ -12,8 +11,8 @@ class DocumentMetadataBusinessLogicMixin:
     @property
     def is_required(self):
         """
-        Return a boolean value of True of this metadata instance's parent type
-        is required for the stored document type.
+        Return a boolean value of True of this metadata instance's parent
+        type is required for the stored document type.
         """
         return self.metadata_type.get_required_for(
             document_type=self.document.document_type
@@ -27,7 +26,9 @@ class MetadataTypeBusinessLogicMixin:
         splitter.whitespace = ','
         splitter.whitespace_split = True
         splitter.commenters = ''
-        return [force_text(s=e) for e in splitter]
+        return [
+            str(e) for e in splitter
+        ]
 
     def get_default_value(self):
         template = Template(template_string=self.default)
@@ -40,7 +41,9 @@ class MetadataTypeBusinessLogicMixin:
 
         template = Template(template_string=self.lookup)
         return MetadataType.comma_splitter(
-            template.render(context=MetadataLookup.get_as_context())
+            template.render(
+                context=MetadataLookup.get_as_context()
+            )
         )
 
     def get_required_for(self, document_type):

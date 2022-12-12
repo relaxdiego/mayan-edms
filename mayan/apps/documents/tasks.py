@@ -74,8 +74,8 @@ def task_document_file_upload(
     except OperationalError as exception:
         logger.warning(
             'Operational error during attempt to retrieve shared data for '
-            'new document file for document ID: %s; %s. Retrying.', document_id,
-            exception
+            'new document file for document ID: %s; %s. Retrying.',
+            document_id, exception
         )
         raise self.retry(exc=exception)
 
@@ -216,7 +216,9 @@ def task_document_type_document_trash_periods_check():
 # Document version
 
 @app.task(ignore_result=True)
-def task_document_version_page_list_append(document_version_id, user_id=None):
+def task_document_version_page_list_append(
+    document_version_id, user_id=None
+):
     DocumentVersion = apps.get_model(
         app_label='documents', model_name='DocumentVersion'
     )
@@ -290,7 +292,8 @@ def task_document_version_export(
     )
 
     document_version.export_to_download_file(
-        organization_installation_url=organization_installation_url, user=user
+        organization_installation_url=organization_installation_url,
+        user=user
     )
 
 

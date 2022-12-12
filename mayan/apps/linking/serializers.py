@@ -152,7 +152,9 @@ class ResolvedSmartLinkSerializer(serializers.HyperlinkedModelSerializer):
         )
 
     def get_label(self, instance):
-        return instance.get_label_for(document=self.context['document'])
+        return instance.get_label_for(
+            document=self.context['document']
+        )
 
     def get_smart_link_url(self, instance):
         return reverse(

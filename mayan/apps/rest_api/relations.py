@@ -29,13 +29,13 @@ class FilteredSimplePrimaryKeyRelatedField(
     and that only stores the primary key.
     """
     default_error_messages = {
-        'required': _('This field is required.'),
         'does_not_exist': _(
             'Invalid pk "{pk_value}" - object does not exist.'
         ),
         'incorrect_type': _(
             'Incorrect type. Expected pk value, received {data_type}.'
-        )
+        ),
+        'required': _('This field is required.')
     }
 
     def __init__(self, **kwargs):
@@ -49,11 +49,15 @@ class FilteredSimplePrimaryKeyRelatedField(
 
         queryset = self.get_queryset()
         try:
-            return getattr(queryset.get(**kwargs), self.pk_field)
+            return getattr(
+                queryset.get(**kwargs), self.pk_field
+            )
         except ObjectDoesNotExist:
             self.fail('does_not_exist', pk_value=data)
         except (TypeError, ValueError):
-            self.fail('incorrect_type', data_type=type(data).__name__)
+            self.fail(
+                'incorrect_type', data_type=type(data).__name__
+            )
 
     def to_representation(self, value):
         return getattr(value, self.pk_field)
@@ -61,7 +65,9 @@ class FilteredSimplePrimaryKeyRelatedField(
 
 class MultiKwargHyperlinkedIdentityField(HyperlinkedIdentityField):
     def __init__(self, *args, **kwargs):
-        self.view_kwargs = kwargs.pop('view_kwargs', [])
+        self.view_kwargs = kwargs.pop(
+            'view_kwargs', []
+        )
         super().__init__(*args, **kwargs)
 
     def get_url(self, obj, view_name, request, format):
@@ -80,7 +86,9 @@ class MultiKwargHyperlinkedIdentityField(HyperlinkedIdentityField):
 
         kwargs = {}
         for entry in self.view_kwargs:
-            kwargs[entry['lookup_url_kwarg']] = resolve_attribute(
+            kwargs[
+                entry['lookup_url_kwarg']
+            ] = resolve_attribute(
                 attribute=entry['lookup_field'], obj=obj
             )
 
