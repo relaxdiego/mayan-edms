@@ -182,7 +182,7 @@ class DocumentMetadata(
         blank=True, help_text=_(
             'The actual value stored in the metadata type field for '
             'the document.'
-        ), verbose_name=_('Value')
+        ), null=True, verbose_name=_('Value')
     )
 
     class Meta:
