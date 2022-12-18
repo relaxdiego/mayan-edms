@@ -7,6 +7,9 @@
 - Fix metadata add action actor assignment. This assignment is not
   currently used by either the view or the API which assign the actor
   directly themselves.
+- Silence Docker warning "MAYAN_WORKER_CUSTOM_QUEUE_LIST variable is not
+  set". Closes GitLab issue #1129. Thanks to GR Buck (@graybuck) for the
+  report.
 
 4.2.12 (2022-11-13)
 ===================
