@@ -241,7 +241,9 @@ class MetadataTypeTestCase(
         self.test_document_type.metadata.all().delete()
 
         self.assertFalse(
-            self.test_metadata_type.get_required_for(self.test_document_type)
+            self.test_metadata_type.get_required_for(
+                document_type=self.test_document_type
+            )
         )
 
         self.test_document_type.metadata.create(
@@ -249,7 +251,9 @@ class MetadataTypeTestCase(
         )
 
         self.assertFalse(
-            self.test_metadata_type.get_required_for(self.test_document_type)
+            self.test_metadata_type.get_required_for(
+                document_type=self.test_document_type
+            )
         )
 
         self.test_document_type.metadata.all().delete()
@@ -259,7 +263,9 @@ class MetadataTypeTestCase(
         )
 
         self.assertTrue(
-            self.test_metadata_type.get_required_for(self.test_document_type)
+            self.test_metadata_type.get_required_for(
+                document_type=self.test_document_type
+            )
         )
 
     def test_method_get_absolute_url(self):
