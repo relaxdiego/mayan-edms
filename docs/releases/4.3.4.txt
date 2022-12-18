@@ -8,6 +8,21 @@ Status: Stable
 Changes
 -------
 
+
+OCR
+^^^
+
+Fixed reference to ``ocr_errors`` in ``mayan.apps.ocr.tasks.task_document_version_ocr_finished``.
+
+
+User interface
+^^^^^^^^^^^^^^
+
+Fixed click events passing through views and action dropdown caret icons.
+Activating the dropdown menu by clicking on the menu's caret no longer
+select the document file or version card.
+
+
 Removals
 --------
 
