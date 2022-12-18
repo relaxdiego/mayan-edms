@@ -1,3 +1,7 @@
+4.2.13 (2022-12-18)
+===================
+- Fix document file and document version print form submit button.
+
 4.2.12 (2022-11-13)
 ===================
 - Fixes from version 4.1.10.

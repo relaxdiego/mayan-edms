@@ -281,7 +281,7 @@ class PartialNavigation {
                     // opening a new window and passing the form serialized
                     // data as the query.
                     const formAction = new URI($form.attr('action'));
-                    let finalUrl = new URL(formAction.path());
+                    let finalUrl = new URI(formAction.path());
                     const formQueryString = new URLSearchParams(
                         decodeURIComponent($form.serialize())
                     );
