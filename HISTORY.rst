@@ -5,6 +5,9 @@
   ``mayan.apps.ocr.tasks.task_document_version_ocr_finished``. Closes GitLab
   issue #1131. Thanks to  Olivier D. (@odelseth) for the report and debug
   information.
+- Fix click events passing through views and action dropdown caret icons.
+  Activating the dropdown menu by clicking on the menu's caret no longer
+  select the document file or version card.
 
 4.3.3 (2022-11-15)
 ==================

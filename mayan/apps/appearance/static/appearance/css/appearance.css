@@ -650,3 +650,8 @@ a i {
     padding: 0 10px 3px;
     width: auto;
 }
+
+/* Menu dropdown */
+.caret {
+    pointer-events: none;
+}
