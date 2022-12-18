@@ -1,3 +1,11 @@
+4.3.4 (2022-12-XX)
+==================
+- Merge fixes from version 4.2.13.
+- Fix reference to ``ocr_errors`` in
+  ``mayan.apps.ocr.tasks.task_document_version_ocr_finished``. Closes GitLab
+  issue #1131. Thanks to  Olivier D. (@odelseth) for the report and debug
+  information.
+
 4.3.3 (2022-11-15)
 ==================
 - Fixes from version 4.2.12.

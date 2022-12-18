@@ -121,7 +121,7 @@ def task_document_version_ocr_finished(
             'Exception in OCR finish for document version: %d; %s',
             document_version_id, exception, exc_info=True
         )
-        document_version.ocr_errors.create(result=exception)
+        document_version.error_log.create(text=exception)
         raise
     except OperationalError as exception:
         logger.warning(
