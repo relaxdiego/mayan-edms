@@ -8,6 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 from mayan.apps.acls.models import AccessControlList
 from mayan.apps.common.classes import ModelQueryFields
 from mayan.apps.documents.models import Document
+from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.documents.views.document_views import DocumentListView
 from mayan.apps.views.generics import (
     MultipleObjectFormActionView, MultipleObjectDeleteView,
@@ -187,7 +188,7 @@ class TagDocumentListView(ExternalObjectViewMixin, DocumentListView):
     def get_document_queryset(self):
         return Document.valid.filter(
             pk__in=self.get_tag().get_documents(
-                permission=permission_tag_view, user=self.request.user
+                permission=permission_document_view, user=self.request.user
             ).values('pk')
         )
 

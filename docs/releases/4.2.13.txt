@@ -14,7 +14,9 @@ Other
 ^^^^^
 
 - Fix document file and document version print form submit button.
-
+- Fix tagged document list view permission filtering. The permission
+  layout remains the same. Only the method in which the permissions is
+  checked was updated.
 
 Removals
 --------

@@ -1,6 +1,9 @@
 4.2.13 (2022-12-18)
 ===================
 - Fix document file and document version print form submit button.
+- Fix tagged document list view permission filtering. The permission
+  layout remains the same. Only the method in which the permissions is
+  checked was updated.
 
 4.2.12 (2022-11-13)
 ===================
