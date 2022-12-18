@@ -16,9 +16,10 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'tag_id',
                 'view_name': 'rest_api:tag-detail'
-            },
+            }
         }
         fields = (
             'color', 'documents_url', 'id', 'label', 'url'

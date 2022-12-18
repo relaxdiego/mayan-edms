@@ -48,6 +48,7 @@ class CabinetSerializer(serializers.ModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'cabinet_id',
                 'view_name': 'rest_api:cabinet-detail'
             }

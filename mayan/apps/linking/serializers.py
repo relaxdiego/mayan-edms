@@ -83,6 +83,7 @@ class SmartLinkSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'smart_link_id',
                 'view_name': 'rest_api:smartlink-detail'
             }

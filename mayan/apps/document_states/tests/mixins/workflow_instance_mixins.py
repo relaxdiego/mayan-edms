@@ -1,3 +1,15 @@
+class DocumentWorkflowTemplateViewTestMixin:
+    def _request_test_document_single_workflow_template_launch_view(self):
+        return self.post(
+            viewname='document_states:document_single_workflow_templates_launch',
+            kwargs={
+                'document_id': self._test_document.pk
+            }, data={
+                'workflows': self._test_workflow_template.pk
+            }
+        )
+
+
 class WorkflowInstanceAPIViewTestMixin:
     def _request_test_workflow_instance_detail_api_view(self):
         return self.get(
@@ -40,14 +52,13 @@ class WorkflowInstanceAPIViewTestMixin:
         )
 
 
-class DocumentWorkflowTemplateViewTestMixin:
-    def _request_test_document_single_workflow_template_launch_view(self):
+class WorkflowInstanceLaunchAPIViewTestMixin:
+    def _request_test_workflow_instance_launch_api_view(self):
         return self.post(
-            viewname='document_states:document_single_workflow_templates_launch',
-            kwargs={
+            viewname='rest_api:workflow-instance-launch', kwargs={
                 'document_id': self._test_document.pk
             }, data={
-                'workflows': self._test_workflow_template.pk
+                'workflow_template_id': self._test_workflow_template.pk
             }
         )
 

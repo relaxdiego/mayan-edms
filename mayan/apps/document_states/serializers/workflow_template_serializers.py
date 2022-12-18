@@ -40,6 +40,7 @@ class WorkflowTemplateSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'workflow_template_id',
                 'view_name': 'rest_api:workflow-template-detail'
             }

@@ -23,6 +23,7 @@ class DocumentCheckoutSerializer(serializers.ModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'checkout_id',
                 'view_name': 'rest_api:checkedout-document-view'
             }

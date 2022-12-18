@@ -39,6 +39,7 @@ class DocumentTypeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'document_type_id',
                 'view_name': 'rest_api:documenttype-detail'
             }

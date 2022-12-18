@@ -20,6 +20,7 @@ class TrashedDocumentSerializer(DocumentSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'document_id',
                 'view_name': 'rest_api:trasheddocument-detail'
             }

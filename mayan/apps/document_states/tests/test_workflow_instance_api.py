@@ -15,7 +15,7 @@ from ..permissions import (
 
 from .literals import TEST_WORKFLOW_INSTANCE_LOG_ENTRY_EXTRA_DATA
 from .mixins.workflow_instance_mixins import (
-    WorkflowInstanceAPIViewTestMixin,
+    WorkflowInstanceAPIViewTestMixin, WorkflowInstanceLaunchAPIViewTestMixin,
     WorkflowInstanceLogEntryTransitrionListAPIViewTestMixin
 )
 from .mixins.workflow_template_mixins import WorkflowTemplateTestMixin
@@ -511,8 +511,10 @@ class WorkflowInstanceAPIViewTestCase(
         self.assertEqual(events.count(), 0)
 
 
+
 class WorkflowInstanceLaunchAPIViewTestCase(
-    DocumentTestMixin, WorkflowTemplateTestMixin, BaseAPITestCase
+    DocumentTestMixin, WorkflowInstanceLaunchAPIViewTestMixin,
+    WorkflowTemplateTestMixin, BaseAPITestCase
 ):
     auto_upload_test_document = False
 
@@ -525,15 +527,6 @@ class WorkflowInstanceLaunchAPIViewTestCase(
         self._create_test_workflow_template_state()
         self._create_test_workflow_template_transition()
         self._create_test_document_stub()
-
-    def _request_test_workflow_instance_launch_api_view(self):
-        return self.post(
-            viewname='rest_api:workflow-instance-launch', kwargs={
-                'document_id': self._test_document.pk
-            }, data={
-                'workflow_template_id': self._test_workflow_template.pk
-            }
-        )
 
     def test_workflow_instance_api_view_no_permission(self):
         test_document_workflow_instance_count = self._test_document.workflows.count()

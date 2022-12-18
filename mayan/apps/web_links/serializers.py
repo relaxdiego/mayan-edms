@@ -45,9 +45,10 @@ class WebLinkSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'web_link_id',
                 'view_name': 'rest_api:web_link-detail'
-            },
+            }
         }
         fields = (
             'document_types_add_url', 'document_types_remove_url',

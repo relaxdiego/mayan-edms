@@ -30,6 +30,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'group_id',
                 'view_name': 'rest_api:group-detail'
             }
@@ -76,6 +77,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'user_id',
                 'view_name': 'rest_api:user-detail'
             }

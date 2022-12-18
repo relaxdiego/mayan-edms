@@ -23,6 +23,7 @@ class GenericAPIView(
 ):
     filter_backends = (MayanObjectPermissionsFilter,)
     permission_classes = (MayanPermission,)
+    request_method_real = None
 
     def initial(self, *args, **kwargs):
         # DRF modified the value of the request.method attribute.

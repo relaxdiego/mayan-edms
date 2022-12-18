@@ -30,6 +30,7 @@ class MessageSerializer(serializers.HyperlinkedModelSerializer):
         create_only_fields = ('user',)
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'message_id',
                 'view_name': 'rest_api:message-detail'
             }

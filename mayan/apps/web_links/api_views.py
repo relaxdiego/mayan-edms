@@ -6,6 +6,7 @@ from mayan.apps.documents.serializers.document_type_serializers import (
 )
 from mayan.apps.rest_api import generics
 from mayan.apps.rest_api.api_view_mixins import ExternalObjectAPIViewMixin
+from mayan.apps.rest_api.serializers import BlankSerializer
 
 from .models import ResolvedWebLink, WebLink
 from .permissions import (
@@ -79,6 +80,7 @@ class APIResolvedWebLinkNavigateView(
     mayan_object_permissions = {
         'GET': (permission_web_link_instance_view,)
     }
+    serializer_class = BlankSerializer
 
     def get_queryset(self):
         return ResolvedWebLink.objects.get_for(

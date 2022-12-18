@@ -13,7 +13,8 @@ class SourceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
-                'lookup_field': 'pk', 'lookup_url_kwarg': 'source_id',
+                'label': _('URL'), 'lookup_field': 'pk',
+                'lookup_url_kwarg': 'source_id',
                 'view_name': 'rest_api:source-detail'
             }
         }

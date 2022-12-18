@@ -25,7 +25,8 @@ class MetadataTypeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         extra_kwargs = {
             'url': {
-                'lookup_field': 'pk', 'lookup_url_kwarg': 'metadata_type_id',
+                'label': _('URL'), 'lookup_field': 'pk',
+                'lookup_url_kwarg': 'metadata_type_id',
                 'view_name': 'rest_api:metadatatype-detail'
             }
         }

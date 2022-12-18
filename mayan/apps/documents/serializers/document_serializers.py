@@ -54,6 +54,7 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
         create_only_fields = ('document_type_id',)
         extra_kwargs = {
             'url': {
+                'label': _('URL'),
                 'lookup_url_kwarg': 'document_id',
                 'view_name': 'rest_api:document-detail'
             },
