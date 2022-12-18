@@ -378,7 +378,7 @@ msgstr "Identificatore"
 
 #: templates/appearance/generic_list_subtemplate.html:134
 msgid "Facets"
-msgstr ""
+msgstr "Vai a..."
 
 #: templates/appearance/home.html:27
 msgid "Getting started"

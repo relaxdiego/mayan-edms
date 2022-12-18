@@ -72,7 +72,7 @@ class Tag(ExtraDataModelMixin, models.Model):
 
         if permission:
             queryset = AccessControlList.objects.restrict_queryset(
-                permission=permission_document_view, queryset=queryset,
+                permission=permission, queryset=queryset,
                 user=user
             )
 

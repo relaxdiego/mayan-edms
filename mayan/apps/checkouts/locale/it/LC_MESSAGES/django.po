@@ -7,6 +7,7 @@
 # Marco Camplese <marco.camplese.mc@gmail.com>, 2022
 # Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022
 # Roberto Rosario, 2022
+# Daniele Bortoluzzi <daniele@elkos.it>, 2022
 # 
 msgid ""
 msgstr ""
@@ -72,7 +73,7 @@ msgstr "Scadenza della prenotazione"
 
 #: forms.py:51
 msgid "New files allowed?"
-msgstr ""
+msgstr "Permetti nuovi file?"
 
 #: forms.py:52
 msgid "Yes"
@@ -128,11 +129,11 @@ msgstr "Data e l'ora di scadenza de prenotazione"
 
 #: models.py:52
 msgid "Do not allow new file of this document to be uploaded."
-msgstr ""
+msgstr "Non permettere upload di nuovi file su questo documento."
 
 #: models.py:54
 msgid "Block new file upload"
-msgstr ""
+msgstr "Blocca l'invio di nuovi file"
 
 #: models.py:62 permissions.py:5
 msgid "Document checkout"
@@ -185,72 +186,72 @@ msgstr "Chiave primaria del documento da prenotare."
 #: views.py:28
 #, python-format
 msgid "Unable to check in document \"%(instance)s\"; %(exception)s"
-msgstr ""
+msgstr "Impossibile liberare il documento \"%(instance)s\"; %(exception)s"
 
 #: views.py:32
 #, python-format
 msgid "Document \"%(object)s\" checked in successfully."
-msgstr ""
+msgstr "Documento \"%(object)s\" liberato correttamente."
 
 #: views.py:35
 #, python-format
 msgid "%(count)d document checked in successfully."
-msgstr ""
+msgstr "%(count)d documento liberato correttamente."
 
 #: views.py:38
 #, python-format
 msgid "%(count)d documents checked in successfully."
-msgstr ""
+msgstr "%(count)d documenti liberati correttamente."
 
 #: views.py:40
 #, python-format
 msgid "Check in document \"%(object)s\"."
-msgstr ""
+msgstr "Libera documento \"%(object)s\"."
 
 #: views.py:41
 #, python-format
 msgid "Check in %(count)d document."
-msgstr ""
+msgstr "Libera %(count)d documento."
 
 #: views.py:42
 #, python-format
 msgid "Check in %(count)d documents."
-msgstr ""
+msgstr "Libera %(count)d documenti."
 
 #: views.py:95
 #, python-format
 msgid "Unable to checkout document \"%(instance)s\"; %(exception)s"
-msgstr ""
+msgstr "Impossibile prenotare il documento \"%(instance)s\"; %(exception)s"
 
 #: views.py:102
 #, python-format
 msgid "Document \"%(object)s\" checked out successfully."
-msgstr ""
+msgstr "Documento \"%(object)s\" prenotato correttamente."
 
 #: views.py:105
 #, python-format
 msgid "%(count)d document checked out successfully."
-msgstr ""
+msgstr "%(count)d documento prenotato correttamente."
 
 #: views.py:108
 #, python-format
 msgid "%(count)d documents checked out successfully."
-msgstr ""
+msgstr "%(count)d documenti prenotati correttamente."
 
 #: views.py:110
 #, python-format
 msgid "Checkout document \"%(object)s\"."
-msgstr ""
+msgstr "Prenota il documento \"%(object)s\"."
 
 #: views.py:111
 #, python-format
 msgid "Checkout %(count)d document."
-msgstr ""
+msgstr "Prenota %(count)d documento."
 
 #: views.py:112
 #, python-format
 msgid "Checkout %(count)d documents."
-msgstr ""
+msgstr "Prenota %(count)d documenti."
 
 #: views.py:160
 #, python-format

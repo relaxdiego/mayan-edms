@@ -69,7 +69,7 @@ msgstr "název"
 msgid "App"
 msgstr "Aplikace"
 
-#: classes.py:215 classes.py:840
+#: classes.py:215 classes.py:862
 msgid "Environments"
 msgstr ""
 
@@ -135,7 +135,7 @@ msgstr ""
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: classes.py:511 classes.py:752
+#: classes.py:511 classes.py:774
 msgid "Downloading... "
 msgstr "Stahování ..."
 
@@ -143,39 +143,39 @@ msgstr "Stahování ..."
 msgid "Verifying... "
 msgstr "Ověření ..."
 
-#: classes.py:517 classes.py:755
+#: classes.py:517 classes.py:777
 msgid "Extracting... "
 msgstr "Probíhá extrakce ..."
 
-#: classes.py:694
+#: classes.py:716
 msgid "Python packages downloaded from PyPI."
 msgstr "Python balíčky stažené z PyPI."
 
-#: classes.py:696
+#: classes.py:718
 msgid "Python"
 msgstr "Python"
 
-#: classes.py:733
+#: classes.py:755
 msgid "Fonts downloaded from fonts.googleapis.com."
 msgstr "Fonty stažené z fonts.googleapis.com."
 
-#: classes.py:735
+#: classes.py:757
 msgid "Google font"
 msgstr "Písmo Google"
 
-#: classes.py:821
+#: classes.py:843
 msgid "Declared in app"
 msgstr "Deklarováno v aplikaci"
 
-#: classes.py:822
+#: classes.py:844
 msgid "Show dependencies by the app that declared them."
 msgstr "Zobrazit závislosti podle aplikace, která je deklarovala."
 
-#: classes.py:826
+#: classes.py:848
 msgid "Class"
 msgstr "Třída"
 
-#: classes.py:827
+#: classes.py:849
 msgid ""
 "Show the different classes of dependencies. Classes are usually divided by "
 "language or the file types of the dependency."
@@ -183,11 +183,11 @@ msgstr ""
 "Zobrazit různé třídy závislostí. Třídy jsou obvykle rozděleny podle jazyka "
 "nebo typu souboru závislosti."
 
-#: classes.py:832
+#: classes.py:854
 msgid "State"
 msgstr "Stav"
 
-#: classes.py:833
+#: classes.py:855
 msgid ""
 "Show the different states of the dependencies. True means that the "
 "dependencies is installed and is of a correct version. False means the "
@@ -197,7 +197,7 @@ msgstr ""
 "závislosti a mají správnou verzi. False znamená, že chybí závislosti nebo je"
 " přítomna nesprávná verze."
 
-#: classes.py:841
+#: classes.py:863
 msgid ""
 "Dependencies required for an environment might not be required for another. "
 "Example environments: Production, Development."

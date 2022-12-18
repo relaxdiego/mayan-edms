@@ -1,0 +1,76 @@
+Version 4.2.13
+==============
+
+Released: December 18, 2022
+
+Status: Maintenance
+
+
+Changes
+-------
+
+
+Docker
+^^^^^^
+
+An empty value is now added by default to the Docker Compose variable
+``MAYAN_WORKER_CUSTOM_QUEUE_LIST`` to silence a warning about this variable
+not being set.
+
+
+Documents
+^^^^^^^^^
+
+An issue that prevented the document file and document version print form to
+work correctly was fixed.
+
+
+Other
+^^^^^
+
+- Fix tagged document list view permission filtering. The permission
+  layout remains the same. Only the method in which the permissions is
+  checked was updated.
+- Fix metadata add action actor assignment. This assignment is not
+  currently used by either the view or the API which assign the actor
+  directly themselves.
+
+
+Removals
+--------
+
+- None
+
+
+Upgrade process
+---------------
+
+.. important::
+
+  If using a direct deployment, Supervisord must be upgraded to version
+  4.2.2. See troubleshooting section: :ref:`troubleshooting-version-4.1`
+
+
+.. include:: partials/upgrade-3.5-4.0.txt
+
+
+Troubleshooting
+---------------
+
+Follow the solutions outlined in the troubleshooting section:
+:ref:`troubleshooting-version-4.1`
+
+
+Backward incompatible changes
+-----------------------------
+
+- None
+
+
+Issues closed
+-------------
+
+- :gitlab-issue:`1129` MAYAN_WORKER_CUSTOM_QUEUE_LIST variable is not set
+
+
+.. _PyPI: https://pypi.python.org/pypi/mayan-edms/
