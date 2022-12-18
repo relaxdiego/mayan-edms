@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 04:28+0000\n"
+"POT-Creation-Date: 2022-12-18 02:51+0000\n"
 "PO-Revision-Date: 2022-02-03 10:13+0000\n"
 "Last-Translator: molnars <szabolcs.molnar@gmail.com>, 2022\n"
 "Language-Team: Hungarian (https://www.transifex.com/rosarior/teams/13584/hu/)\n"
@@ -108,17 +108,17 @@ msgstr "Névtér részlete a: %s-hoz"
 msgid "Results for: %s"
 msgstr "Eredmények a: %s-hez"
 
-#: views.py:62 views.py:88
+#: views.py:62 views.py:89
 #, python-format
 msgid "Statistic \"%s\" not found."
 msgstr "Nem található a \"%s\" statisztika"
 
-#: views.py:80
+#: views.py:81
 #, python-format
 msgid "Queue statistic \"%s\" to be updated?"
 msgstr "Legyen frissítve a \"%s\" statisztika munkasora?"
 
-#: views.py:94
+#: views.py:95
 #, python-format
 msgid "Statistic \"%s\" queued successfully for update."
 msgstr ""

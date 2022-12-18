@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 04:28+0000\n"
+"POT-Creation-Date: 2022-12-18 02:50+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
 "Last-Translator: pyrotech <anastasios@tutamail.com>, 2022\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
@@ -69,7 +69,7 @@ msgstr "Όνομα"
 msgid "App"
 msgstr "Εφαρμογή"
 
-#: classes.py:215 classes.py:840
+#: classes.py:215 classes.py:862
 msgid "Environments"
 msgstr ""
 
@@ -135,7 +135,7 @@ msgstr ""
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: classes.py:511 classes.py:752
+#: classes.py:511 classes.py:774
 msgid "Downloading... "
 msgstr "Λήψη..."
 
@@ -143,39 +143,39 @@ msgstr "Λήψη..."
 msgid "Verifying... "
 msgstr "Επαλήθευση..."
 
-#: classes.py:517 classes.py:755
+#: classes.py:517 classes.py:777
 msgid "Extracting... "
 msgstr "Εξαγωγή..."
 
-#: classes.py:694
+#: classes.py:716
 msgid "Python packages downloaded from PyPI."
 msgstr "Πακέτα Python ελήφθησαν από το PyPI."
 
-#: classes.py:696
+#: classes.py:718
 msgid "Python"
 msgstr "Python"
 
-#: classes.py:733
+#: classes.py:755
 msgid "Fonts downloaded from fonts.googleapis.com."
 msgstr "Ελήφθησαν γραμματοσειρές από το fonts.googleapis.com."
 
-#: classes.py:735
+#: classes.py:757
 msgid "Google font"
 msgstr "Γραμματοσειρά Google"
 
-#: classes.py:821
+#: classes.py:843
 msgid "Declared in app"
 msgstr "Δηλώθηκε στην εφαρμογή"
 
-#: classes.py:822
+#: classes.py:844
 msgid "Show dependencies by the app that declared them."
 msgstr "Εμφάνιση εξαρτήσεων από την εφαρμογή που τις δηλώνει."
 
-#: classes.py:826
+#: classes.py:848
 msgid "Class"
 msgstr "Κλάση"
 
-#: classes.py:827
+#: classes.py:849
 msgid ""
 "Show the different classes of dependencies. Classes are usually divided by "
 "language or the file types of the dependency."
@@ -183,11 +183,11 @@ msgstr ""
 "Εμφάνιση των διαφορετικών κλάσεων εξαρτήσεων. Οι κλάσεις διαιρούνται συνήθως"
 " ανά γλώσσα ή τους τύπους αρχείων της εξάρτησης."
 
-#: classes.py:832
+#: classes.py:854
 msgid "State"
 msgstr "Κατάσταση"
 
-#: classes.py:833
+#: classes.py:855
 msgid ""
 "Show the different states of the dependencies. True means that the "
 "dependencies is installed and is of a correct version. False means the "
@@ -197,7 +197,7 @@ msgstr ""
 "ότι οι εξαρτήσεις είναι εγκατεστημένες και έχουν σωστή έκδοση. Η τιμή False "
 "σημαίνει ότι λείπουν οι εξαρτήσεις ή υπάρχει λανθασμένη έκδοση."
 
-#: classes.py:841
+#: classes.py:863
 msgid ""
 "Dependencies required for an environment might not be required for another. "
 "Example environments: Production, Development."

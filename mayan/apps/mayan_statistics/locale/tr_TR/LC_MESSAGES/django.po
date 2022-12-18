@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 04:28+0000\n"
+"POT-Creation-Date: 2022-12-18 02:51+0000\n"
 "PO-Revision-Date: 2022-02-03 10:13+0000\n"
 "Last-Translator: Bedreddin Şahbaz, 2022\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
@@ -111,17 +111,17 @@ msgstr "Alanadı detayı: %s"
 msgid "Results for: %s"
 msgstr "%s için Sonuçlar"
 
-#: views.py:62 views.py:88
+#: views.py:62 views.py:89
 #, python-format
 msgid "Statistic \"%s\" not found."
 msgstr "\"%s\" istatistiği bulunamadı."
 
-#: views.py:80
+#: views.py:81
 #, python-format
 msgid "Queue statistic \"%s\" to be updated?"
 msgstr "Kuyruktaki istatistik \"%s\" güncellenecek mi?"
 
-#: views.py:94
+#: views.py:95
 #, python-format
 msgid "Statistic \"%s\" queued successfully for update."
 msgstr "%s istatistiği güncelleme için başarıyla sıraya alındı."

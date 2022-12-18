@@ -8,14 +8,15 @@
 # Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022
 # Marco Camplese <marco.camplese.mc@gmail.com>, 2022
 # Roberto Rosario, 2022
+# Daniele Bortoluzzi <daniele@elkos.it>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 04:27+0000\n"
+"POT-Creation-Date: 2022-12-18 02:50+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -252,22 +253,25 @@ msgstr "Visualizza le trasformazioni esistenti"
 
 #: queues.py:12
 msgid "Generate a image of an object."
-msgstr ""
+msgstr "Genera l'immagine di un oggetto."
 
 #: settings.py:30
 msgid ""
 "The threshold at which the CONVERTER_ASSET_CACHE_STORAGE_BACKEND will start "
 "deleting the oldest asset cache files. Specify the size in bytes."
 msgstr ""
+"La soglia alla quale CONVERTER_ASSET_CACHE_STORAGE_BACKEND inizierà a "
+"eliminare i file di cache delle risorse meno recenti. Specifica la "
+"dimensione in byte."
 
 #: settings.py:38
 msgid ""
 "Path to the Storage subclass to use when storing the cached asset files."
-msgstr ""
+msgstr "Percorso per la classe Storage da usare per la cache delle risorse."
 
 #: settings.py:46
 msgid "Arguments to pass to the CONVERTER_ASSET_CACHE_STORAGE_BACKEND."
-msgstr ""
+msgstr "Argomenti da passare a CONVERTER_ASSET_CACHE_STORAGE_BACKEND."
 
 #: settings.py:52
 msgid "Path to the Storage subclass to use when storing assets."
@@ -290,18 +294,24 @@ msgstr "Opzioni di configurazione per il backend di conversione grafica."
 #: settings.py:77
 msgid "Time in seconds that the browser should cache the supplied image. "
 msgstr ""
+"Durata, in secondi, della cache che il browser deve mantenere per "
+"l'immagine."
 
 #: settings.py:84
 msgid ""
 "Maximum number of retries before giving up. A value of None means the task "
 "will retry forever."
 msgstr ""
+"Numero massimo di tentativi prima di mollare. Un valore None significa che "
+"il task verrà ritentato all'infinito."
 
 #: settings.py:92
 msgid ""
 "Time in seconds after which the image generation task will stop running and "
 "raise an error."
 msgstr ""
+"Tempo in secondi dopo il quale il task di generazione immagine verrà "
+"stoppato e darà errore."
 
 #: storages.py:15
 msgid ""
@@ -316,10 +326,12 @@ msgid ""
 "Unable to initialize the converter asset cachestorage. Check the settings {}"
 " and {} for formatting errors."
 msgstr ""
+"Impossibile inizializzare lo storage della cache per il convertitore "
+"risorse. Controlla le impostazioni {} e {} per errori di formattazione."
 
 #: storages.py:34
 msgid "Assets cache"
-msgstr ""
+msgstr "Cache delle risorse"
 
 #: transformations.py:234
 msgid "Paste an asset"
