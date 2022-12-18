@@ -17,6 +17,10 @@ Other
 - Fix tagged document list view permission filtering. The permission
   layout remains the same. Only the method in which the permissions is
   checked was updated.
+- Fix metadata add action actor assignment. This assignment is not
+  currently used by either the view or the API which assign the actor
+  directly themselves.
+
 
 Removals
 --------
