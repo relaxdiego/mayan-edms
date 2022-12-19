@@ -1,7 +1,7 @@
 Version 4.3.4
 =============
 
-Released: December XX, 2022
+Released: December 19, 2022
 
 Status: Stable
 
@@ -12,7 +12,9 @@ Changes
 OCR
 ^^^
 
-Fixed reference to ``ocr_errors`` in ``mayan.apps.ocr.tasks.task_document_version_ocr_finished``.
+An invalid reference to ``ocr_errors`` in the module
+``mayan.apps.ocr.tasks.task_document_version_ocr_finished`` was fixed.
+This will allow OCR errors to be accessible once again.
 
 
 User interface
@@ -20,7 +22,16 @@ User interface
 
 Fixed click events passing through views and action dropdown caret icons.
 Activating the dropdown menu by clicking on the menu's caret no longer
-select the document file or version card.
+selects the document file or version card.
+
+
+Other
+^^^^^
+
+- Merged fixes from version 4.2.13.
+- Keep track of the test document versions. Make sure test document versions
+  are available to the tests.
+- Improve quota testing. Add detailed even checking during quota testing.
 
 
 Removals

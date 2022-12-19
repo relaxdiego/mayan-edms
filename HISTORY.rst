@@ -1,4 +1,4 @@
-4.3.4 (2022-12-XX)
+4.3.4 (2022-12-19)
 ==================
 - Merge fixes from version 4.2.13.
 - Fix reference to ``ocr_errors`` in
