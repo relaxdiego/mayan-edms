@@ -44,9 +44,9 @@ class DocumentTypeSettings(models.Model):
         to=DocumentType, unique=True, verbose_name=_('Document type')
     )
     auto_parsing = models.BooleanField(
-        default=True, verbose_name=_(
+        default=True, help_text=_(
             'Automatically queue newly created documents for parsing.'
-        )
+        ), verbose_name=_('Auto parsing')
     )
 
     objects = DocumentTypeSettingsManager()
