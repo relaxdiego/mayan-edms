@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-12 03:39+0000\n"
+"POT-Creation-Date: 2022-12-18 21:00+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/teams/13584/pt_BR/)\n"
@@ -110,17 +110,17 @@ msgstr "Detalhes  da categoria para: %s"
 msgid "Results for: %s"
 msgstr "Resultados para: %s"
 
-#: views.py:70 views.py:97
+#: views.py:70 views.py:98
 #, python-format
 msgid "Statistic \"%s\" not found."
 msgstr "Estatística \"%s\" não encontrada."
 
-#: views.py:89
+#: views.py:90
 #, python-format
 msgid "Queue statistic \"%s\" to be updated?"
 msgstr "Enfileirar estatística \"%s\" para ser executada?"
 
-#: views.py:103
+#: views.py:104
 #, python-format
 msgid "Statistic \"%s\" queued successfully for update."
 msgstr "A estatística \"%s\" foi enfileirada com sucesso para atualização."

@@ -5,18 +5,18 @@
 # Translators:
 # Translators:
 # Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022
-# Daniele Bortoluzzi <daniele@elkos.it>, 2022
 # Marco Camplese <marco.camplese.mc@gmail.com>, 2022
 # Roberto Rosario, 2022
 # Giovanni Tricarico <gtricarico92@gmail.com>, 2022
+# Daniele Bortoluzzi <daniele@elkos.it>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-12 03:38+0000\n"
+"POT-Creation-Date: 2022-12-18 20:59+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Giovanni Tricarico <gtricarico92@gmail.com>, 2022\n"
+"Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Common"
 msgstr "Comune"
 
-#: dependencies.py:169
+#: dependencies.py:172
 msgid "Used to allow offline translation of the code text strings."
 msgstr ""
 "Usato per consentire la traduzione offline delle stringhe di testo nel "
@@ -48,7 +48,7 @@ msgstr "Controlla la corretta formattazione del file README."
 
 #: links.py:30
 msgid "About this"
-msgstr "A questo proposito"
+msgstr "Informazioni sul software"
 
 #: links.py:33
 msgid "Get the book"
@@ -113,7 +113,7 @@ msgstr "Sistema"
 
 #: menus.py:10 menus.py:11
 msgid "Facet"
-msgstr "Sfaccettatura"
+msgstr "Vai a..."
 
 #: menus.py:14
 msgid "Actions"
@@ -121,7 +121,7 @@ msgstr "Azioni "
 
 #: menus.py:15
 msgid "Related"
-msgstr "Relazionato"
+msgstr "Correlato"
 
 #: menus.py:16
 msgid "Secondary"
@@ -129,7 +129,7 @@ msgstr "Secondario"
 
 #: menus.py:18
 msgid "Return"
-msgstr "Ritorno"
+msgstr "Torna indietro..."
 
 #: menus.py:22
 msgid "User"
@@ -144,7 +144,7 @@ msgid ""
 "In list mode, show the \"list facet\" menu options as a dropdown menu "
 "instead of individual buttons."
 msgstr ""
-"In modalità lista, mostra le opzioni menù \"vai a...\" come menù a tendina "
+"In modalità lista, mostra le opzioni \"vai a...\" come menù a tendina "
 "anziché bottoni singoli."
 
 #: settings.py:31
@@ -161,6 +161,9 @@ msgid ""
 "apps must be also configured via their respective storage backend settings "
 "to use alternate persistence."
 msgstr ""
+"Disabilita l'uso della cartella locale \"media\". In questo caso tutte le "
+"app devono essere configurate con un backend di storage alternativo per "
+"poter avere la persistenza dei dati."
 
 #: settings.py:46
 msgid ""
@@ -200,7 +203,7 @@ msgstr ""
 "normalmente installate da Mayan EDMS. Ogni stringa dovrebbe essere un "
 "percorso Python puntato a: una classe di configurazione dell'applicazione "
 "(preferita) o un pacchetto contenente un'applicazione. Queste applicazioni "
-"saranno installate PRIMA delle applicazioni di default. Esempio: ['app_1', "
+"saranno installate prima delle applicazioni di default. Esempio: ['app_1', "
 "'app_2']"
 
 #: settings.py:78
@@ -270,8 +273,8 @@ msgid ""
 "No results here means that don't have the required permissions to perform "
 "administrative task."
 msgstr ""
-"Nessun risultato qui significa che non dispongono delle autorizzazioni "
-"necessarie per eseguire l'attività amministrativa."
+"Nessun risultato qui significa che non si hanno le autorizzazioni necessarie"
+" per eseguire l'attività amministrativa."
 
 #: views.py:111
 msgid "No setup options available."

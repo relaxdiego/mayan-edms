@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-12 03:38+0000\n"
+"POT-Creation-Date: 2022-12-18 20:59+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr "OTP abilitate"
 
 #: forms.py:20
 msgid "Token is either invalid or expired."
-msgstr "Il token non è valido o è scaduto"
+msgstr "Il token non è valido o è scaduto."
 
 #: forms.py:25
 msgid "TOTP token"

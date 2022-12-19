@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-12 03:39+0000\n"
+"POT-Creation-Date: 2022-12-18 21:00+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
@@ -110,17 +110,17 @@ msgstr "Подробности пространства имён: %s"
 msgid "Results for: %s"
 msgstr "Результаты для: %s"
 
-#: views.py:70 views.py:97
+#: views.py:70 views.py:98
 #, python-format
 msgid "Statistic \"%s\" not found."
 msgstr "Статистика \"%s\" не найдена."
 
-#: views.py:89
+#: views.py:90
 #, python-format
 msgid "Queue statistic \"%s\" to be updated?"
 msgstr "Поставить статистику \"%s\" в очередь для обновления?"
 
-#: views.py:103
+#: views.py:104
 #, python-format
 msgid "Statistic \"%s\" queued successfully for update."
 msgstr "Статистика \"%s\" поставлена в очередь для обновления."
