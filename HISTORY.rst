@@ -229,7 +229,12 @@
   The new document change type permission is required for the document being
   changed and for the document type to which the document will be changed
   into.
-- Fix file metadata model ``verbose_name`` attribute.
+- Update the file metadata model ``verbose_name`` attribute to be the
+  ``help_text`` attribute.
+- Update the document parsing ``verbose_name`` attribute to be the
+  ``help_text`` attribute.
+- Update the document version OCR ``verbose_name`` attribute to be the
+  ``help_text`` attribute.
 
 4.3.2 (unreleased)
 ==================
