@@ -22,9 +22,9 @@ class DocumentTypeOCRSettings(ExtraDataModelMixin, models.Model):
         to=DocumentType, unique=True, verbose_name=_('Document type')
     )
     auto_ocr = models.BooleanField(
-        default=True, verbose_name=_(
+        default=True, help_text=_(
             'Automatically queue newly created documents for OCR.'
-        )
+        ), verbose_name=_('Auto OCR')
     )
 
     objects = DocumentTypeSettingsManager()
