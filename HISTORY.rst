@@ -235,6 +235,8 @@
   ``help_text`` attribute.
 - Update the document version OCR ``verbose_name`` attribute to be the
   ``help_text`` attribute.
+- Update the search API to provide a dummy model serializer during Swagger
+  introspection.
 
 4.3.2 (unreleased)
 ==================

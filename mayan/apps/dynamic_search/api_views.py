@@ -5,7 +5,9 @@ from mayan.apps.rest_api import generics
 from .api_view_mixins import SearchModelAPIViewMixin
 from .exceptions import DynamicSearchException
 from .search_models import SearchModel
-from .serializers import SearchModelSerializer
+from .serializers import (
+    DummySearchResultModelSerializer, SearchModelSerializer
+)
 from .view_mixins import SearchResultViewMixin
 
 
@@ -13,17 +15,22 @@ class APISearchView(
     SearchResultViewMixin, SearchModelAPIViewMixin, generics.ListAPIView
 ):
     """
-    get: Perform a search operation
+    get: Perform a search operation.
     """
 
     def get_queryset(self):
         try:
             return self.get_search_queryset()
         except DynamicSearchException as exception:
-            raise ParseError(str(exception))
+            raise ParseError(
+                detail=str(exception)
+            )
 
     def get_serializer_class(self):
-        return self.search_model.serializer
+        if getattr(self, 'swagger_fake_view', False):
+            return DummySearchResultModelSerializer
+        else:
+            return self.search_model.serializer
 
 
 class APISearchModelList(generics.ListAPIView):

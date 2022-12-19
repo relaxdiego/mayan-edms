@@ -3,6 +3,12 @@ from django.utils.translation import ugettext_lazy as _
 from mayan.apps.rest_api import serializers
 
 
+class DummySearchResultModelSerializer(serializers.Serializer):
+    """
+    Empty serializer for Swagger views.
+    """
+
+
 class SearchFieldSerializer(serializers.Serializer):
     field = serializers.CharField(
         label=_('Field'), read_only=True
