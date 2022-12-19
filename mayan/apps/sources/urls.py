@@ -9,9 +9,7 @@ from .views.source_views import (
 )
 from .wizards import DocumentCreateWizard
 
-urlpatterns = [
-    # Document create views
-
+urlpatterns_document_create = [
     url(
         regex=r'^documents/create/from/local/multiple/$',
         name='document_create_multiple', view=DocumentCreateWizard.as_view()
@@ -35,10 +33,11 @@ urlpatterns = [
         regex=r'^documents/(?P<document_id>\d+)/files/upload/interactive/$',
         name='document_file_upload',
         view=DocumentFileUploadInteractiveView.as_view()
-    ),
+    )
+]
 
-    # Setup views
 
+urlpatterns_sources = [
     url(
         regex=r'^sources/$', name='source_list',
         view=SourceListView.as_view()
@@ -69,6 +68,10 @@ urlpatterns = [
         name='source_test', view=SourceTestView.as_view()
     )
 ]
+
+urlpatterns = []
+urlpatterns.extend(urlpatterns_document_create)
+urlpatterns.extend(urlpatterns_sources)
 
 api_urls = [
     url(
