@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from mayan.apps.documents.permissions import permission_document_create
 from mayan.apps.rest_api import generics
 
+from .classes import SourceBackendActionDummy
 from .models import Source
 from .permissions import (
     permission_sources_create, permission_sources_delete,
@@ -36,10 +37,13 @@ class APISourceActionDetailView(generics.ObjectActionAPIView):
             return self.view_action(request, *args, **kwargs)
 
     def get_action(self):
-        obj = self.get_object()
-        return obj.get_action(
-            name=self.kwargs['action_name']
-        )
+        if getattr(self, 'swagger_fake_view', False):
+            return SourceBackendActionDummy(name='dummy')
+        else:
+            obj = self.get_object()
+            return obj.get_action(
+                name=self.kwargs['action_name']
+            )
 
     def get_queryset(self):
         return Source.objects.filter(enabled=True)

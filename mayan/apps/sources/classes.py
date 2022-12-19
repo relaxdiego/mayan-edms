@@ -121,6 +121,12 @@ class SourceBackendAction(SourceBackendActionNamedTuple):
         )
 
 
+class SourceBackendActionDummy(SourceBackendAction):
+    """
+    Blank source action class for use in API documentation.
+    """
+
+
 class SourceBackend(ModelBaseBackend):
     """
     Base class for the source backends.

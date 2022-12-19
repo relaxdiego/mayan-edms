@@ -237,6 +237,8 @@
   ``help_text`` attribute.
 - Update the search API to provide a dummy model serializer during Swagger
   introspection.
+- Update the sources actions API to provide a dummy serializer during Swagger
+  introspection.
 
 4.3.2 (unreleased)
 ==================
