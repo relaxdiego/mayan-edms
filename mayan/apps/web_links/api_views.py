@@ -36,7 +36,7 @@ class APIResolvedWebLinkListView(
     }
     serializer_class = ResolvedWebLinkSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return ResolvedWebLink.objects.get_for(
             document=self.get_external_object(), user=self.request.user
         )
@@ -59,7 +59,7 @@ class APIResolvedWebLinkView(
     }
     serializer_class = ResolvedWebLinkSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return ResolvedWebLink.objects.get_for(
             document=self.get_external_object(), user=self.request.user
         )
@@ -82,7 +82,7 @@ class APIResolvedWebLinkNavigateView(
     }
     serializer_class = BlankSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return ResolvedWebLink.objects.get_for(
             document=self.get_external_object(), user=self.request.user
         )
@@ -105,8 +105,8 @@ class APIWebLinkListView(generics.ListCreateAPIView):
         'POST': (permission_web_link_create,)
     }
     ordering_fields = ('enabled', 'id', 'label')
-    queryset = WebLink.objects.all()
     serializer_class = WebLinkSerializer
+    source_queryset = WebLink.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -128,8 +128,8 @@ class APIWebLinkView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_web_link_edit,),
         'PUT': (permission_web_link_edit,)
     }
-    queryset = WebLink.objects.all()
     serializer_class = WebLinkSerializer
+    source_queryset = WebLink.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -146,7 +146,7 @@ class APIWebLinkDocumentTypeAddView(generics.ObjectActionAPIView):
         'POST': (permission_web_link_edit,)
     }
     serializer_class = WebLinkDocumentTypeAddSerializer
-    queryset = WebLink.objects.all()
+    source_queryset = WebLink.objects.all()
 
     def object_action(self, obj, request, serializer):
         document_type = serializer.validated_data['document_type']
@@ -172,7 +172,7 @@ class APIWebLinkDocumentTypeListView(
     }
     serializer_class = DocumentTypeSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().document_types.all()
 
 
@@ -185,7 +185,7 @@ class APIWebLinkDocumentTypeRemoveView(generics.ObjectActionAPIView):
         'POST': (permission_web_link_edit,)
     }
     serializer_class = WebLinkDocumentTypeRemoveSerializer
-    queryset = WebLink.objects.all()
+    source_queryset = WebLink.objects.all()
 
     def object_action(self, obj, request, serializer):
         document_type = serializer.validated_data['document_type']

@@ -35,7 +35,7 @@ class APIDocumentCabinetListView(
     }
     serializer_class = CabinetSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().cabinets.all()
 
 
@@ -51,8 +51,8 @@ class APICabinetListView(generics.ListCreateAPIView):
         'POST': (permission_cabinet_create,)
     }
     ordering_fields = ('id', 'label')
-    queryset = Cabinet.objects.all()
     serializer_class = CabinetSerializer
+    source_queryset = Cabinet.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -77,7 +77,7 @@ class APICabinetListView(generics.ListCreateAPIView):
         if parent:
             queryset = AccessControlList.objects.restrict_queryset(
                 permission=permission_cabinet_create,
-                queryset=self.get_queryset(), user=self.request.user
+                queryset=self.get_source_queryset(), user=self.request.user
             )
             get_object_or_404(queryset=queryset, pk=parent.pk)
 
@@ -98,8 +98,8 @@ class APICabinetView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_cabinet_edit,),
         'DELETE': (permission_cabinet_delete,)
     }
-    queryset = Cabinet.objects.all()
     serializer_class = CabinetSerializer
+    source_queryset = Cabinet.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -116,7 +116,7 @@ class APICabinetDocumentAddView(generics.ObjectActionAPIView):
         'POST': (permission_cabinet_add_document,)
     }
     serializer_class = CabinetDocumentAddSerializer
-    queryset = Cabinet.objects.all()
+    source_queryset = Cabinet.objects.all()
 
     def object_action(self, obj, request, serializer):
         document = serializer.validated_data['document']
@@ -132,7 +132,7 @@ class APICabinetDocumentRemoveView(generics.ObjectActionAPIView):
         'POST': (permission_cabinet_remove_document,)
     }
     serializer_class = CabinetDocumentRemoveSerializer
-    queryset = Cabinet.objects.all()
+    source_queryset = Cabinet.objects.all()
 
     def object_action(self, obj, request, serializer):
         document = serializer.validated_data['document']
@@ -155,7 +155,7 @@ class APICabinetDocumentListView(
     }
     serializer_class = DocumentSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return Document.valid.filter(
             pk__in=self.get_external_object().documents.only('pk')
         )

@@ -29,8 +29,8 @@ class APITrashedDocumentDetailView(generics.RetrieveDestroyAPIView):
         'DELETE': (permission_trashed_document_delete,),
         'GET': (permission_document_view,)
     }
-    queryset = TrashedDocument.objects.all()
     serializer_class = TrashedDocumentSerializer
+    source_queryset = TrashedDocument.objects.all()
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -53,8 +53,8 @@ class APITrashedDocumentListView(generics.ListAPIView):
         'GET': (permission_document_view,)
     }
     ordering_fields = ('id', 'label')
-    queryset = TrashedDocument.objects.all()
     serializer_class = TrashedDocumentSerializer
+    source_queryset = TrashedDocument.objects.all()
 
 
 class APITrashedDocumentRestoreView(generics.ObjectActionAPIView):
@@ -65,12 +65,7 @@ class APITrashedDocumentRestoreView(generics.ObjectActionAPIView):
     mayan_object_permissions = {
         'POST': (permission_trashed_document_restore,)
     }
-    queryset = TrashedDocument.objects.all()
-
-    # ~ def get_instance_extra_data(self):
-        # ~ return {
-            # ~ '_event_actor': self.request.user
-        # ~ }
+    source_queryset = TrashedDocument.objects.all()
 
     def object_action(self, obj, request, serializer):
         obj.restore(user=self.request.user)
@@ -100,5 +95,5 @@ class APITrashedDocumentImageView(
 
         return get_object_or_404(queryset=obj.pages, pk=first_page_id)
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return TrashedDocument.objects.all()

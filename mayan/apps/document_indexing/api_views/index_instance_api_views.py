@@ -32,7 +32,7 @@ class APIDocumentIndexInstanceNodeListView(
     }
     serializer_class = IndexInstanceNodeSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().index_instance_nodes.all()
 
 
@@ -42,8 +42,8 @@ class APIIndexInstanceDetailView(generics.RetrieveAPIView):
     """
     lookup_url_kwarg = 'index_instance_id'
     mayan_object_permissions = {'GET': (permission_index_instance_view,)}
-    queryset = IndexInstance.objects.all()
     serializer_class = IndexInstanceSerializer
+    source_queryset = IndexInstance.objects.all()
 
 
 class APIIndexInstanceListView(generics.ListAPIView):
@@ -51,8 +51,8 @@ class APIIndexInstanceListView(generics.ListAPIView):
     get: Returns a list of all the indexes instances.
     """
     mayan_object_permissions = {'GET': (permission_index_instance_view,)}
-    queryset = IndexInstance.objects.all()
     serializer_class = IndexInstanceSerializer
+    source_queryset = IndexInstance.objects.all()
 
 
 class APIIndexInstanceNodeListView(
@@ -63,7 +63,7 @@ class APIIndexInstanceNodeListView(
     """
     ordering_fields = ('id', 'values')
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_index_instance().get_children()
 
 
@@ -75,7 +75,7 @@ class APIIndexInstanceNodeDetailView(
     """
     lookup_url_kwarg = 'index_instance_node_id'
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_index_instance().get_descendants()
 
 
@@ -94,7 +94,7 @@ class APIIndexInstanceNodeChildrenNodeListView(
             pk=self.kwargs['index_instance_node_id']
         )
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_node().get_children()
 
 
@@ -114,7 +114,7 @@ class APIIndexInstanceNodeDocumentListView(
             pk=self.kwargs['index_instance_node_id']
         )
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return Document.valid.filter(
             pk__in=self.get_node().documents.values('pk')
         )

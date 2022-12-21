@@ -29,8 +29,8 @@ class APIAssetListView(generics.ListCreateAPIView):
         'POST': (permission_asset_create,)
     }
     ordering_fields = ('id', 'internal_name', 'label')
-    queryset = Asset.objects.all()
     serializer_class = AssetSerializer
+    source_queryset = Asset.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -52,8 +52,8 @@ class APIAssetDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_asset_edit,),
         'PUT': (permission_asset_edit,)
     }
-    queryset = Asset.objects.all()
     serializer_class = AssetSerializer
+    source_queryset = Asset.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -69,7 +69,7 @@ class APIAssetImageView(APIImageViewMixin, generics.RetrieveAPIView):
     mayan_object_permissions = {
         'GET': (permission_asset_view,),
     }
-    queryset = Asset.objects.all()
+    source_queryset = Asset.objects.all()
 
 
 class APIAppImageErrorImageView(generics.RetrieveAPIView):

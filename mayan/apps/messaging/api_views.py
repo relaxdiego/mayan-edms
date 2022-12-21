@@ -28,7 +28,7 @@ class APIMessageDetailView(generics.RetrieveUpdateDestroyAPIView):
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.request.user.messages.all()
 
 
@@ -51,5 +51,5 @@ class APIMessageListView(generics.ListCreateAPIView):
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.request.user.messages.all()

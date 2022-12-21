@@ -8,7 +8,7 @@ def check_for_sqlite():
     return settings.DATABASES['default']['ENGINE'] == DJANGO_SQLITE_BACKEND and settings.DEBUG is False
 
 
-def check_queryset(self, queryset):
+def check_queryset(view, queryset):
     """
     Validate that a view queryset is usable.
     """
@@ -21,7 +21,7 @@ def check_queryset(self, queryset):
         except TypeError as exception:
             raise ImproperlyConfigured(
                 'Queryset `{}` of view `{}` is not a valid queryset.'.format(
-                    queryset, self.__class__
+                    queryset, view.__class__
                 )
             ) from exception
         else:

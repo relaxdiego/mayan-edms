@@ -22,8 +22,8 @@ class APIAnnouncementListView(generics.ListCreateAPIView):
     ordering_fields = (
         'enabled', 'end_datetime', 'id', 'label', 'start_datetime'
     )
-    queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
+    source_queryset = Announcement.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -45,8 +45,8 @@ class APIAnnouncementView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_announcement_edit,),
         'PUT': (permission_announcement_edit,)
     }
-    queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
+    source_queryset = Announcement.objects.all()
 
     def get_instance_extra_data(self):
         return {

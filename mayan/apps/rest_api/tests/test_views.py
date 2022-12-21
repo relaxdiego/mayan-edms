@@ -88,8 +88,8 @@ class BatchAPIRequestViewTestCase(BaseAPITestCase):
                 mayan_view_permissions = {
                     'POST': (self._test_permission,)
                 }
-                queryset = self.TestModel.objects.all()
                 serializer_class = TestModelSerializer
+                source_queryset = self.TestModel.objects.all()
 
             return TestView.as_view()
 
@@ -111,8 +111,8 @@ class BatchAPIRequestViewTestCase(BaseAPITestCase):
                     'PATCH': (self._test_permission,),
                     'PUT': (self._test_permission,)
                 }
-                queryset = TestModel.objects.all()
                 serializer_class = TestModelSerializer
+                source_queryset = TestModel.objects.all()
 
             return TestView.as_view()
 
@@ -388,8 +388,8 @@ class DynamicFieldSerializerAPIViewTestCase(
 
         class TestView(generics.RetrieveAPIView):
             lookup_url_kwarg = 'test_object_id'
-            queryset = self.TestModelChild.objects.all()
             serializer_class = local_serializer_class
+            source_queryset = self.TestModelChild.objects.all()
 
         return TestView
 
@@ -526,8 +526,8 @@ class DynamicFieldSerializerWithMixinAPIViewTestCase(
             external_object_queryset = self.TestModelChild.objects.all()
             external_object_pk_url_kwarg = 'test_object_id'
             lookup_url_kwarg = 'test_object_id'
-            queryset = self.TestModelChild.objects.all()
             serializer_class = local_serializer_class
+            source_queryset = self.TestModelChild.objects.all()
 
         return TestView
 

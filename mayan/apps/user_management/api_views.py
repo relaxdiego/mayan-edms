@@ -42,8 +42,8 @@ class APIGroupDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_group_edit,),
         'DELETE': (permission_group_delete,)
     }
-    queryset = Group.objects.order_by('id')
     serializer_class = GroupSerializer
+    source_queryset = Group.objects.order_by('id')
 
     def get_instance_extra_data(self):
         return {
@@ -63,8 +63,8 @@ class APIGroupListView(generics.ListCreateAPIView):
         'POST': (permission_group_create,)
     }
     ordering_fields = ('id', 'name')
-    queryset = Group.objects.order_by('id')
     serializer_class = GroupSerializer
+    source_queryset = Group.objects.order_by('id')
 
     def get_instance_extra_data(self):
         return {
@@ -81,7 +81,7 @@ class APIGroupUserAddView(generics.ObjectActionAPIView):
         'POST': (permission_group_edit,)
     }
     serializer_class = GroupUserAddSerializer
-    queryset = Group.objects.all()
+    source_queryset = Group.objects.all()
 
     def object_action(self, obj, request, serializer):
         obj.users_add(
@@ -107,7 +107,7 @@ class APIGroupUserListView(
     }
     serializer_class = UserSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().user_set.all()
 
 
@@ -120,7 +120,7 @@ class APIGroupUserRemoveView(generics.ObjectActionAPIView):
         'POST': (permission_group_edit,)
     }
     serializer_class = GroupUserRemoveSerializer
-    queryset = Group.objects.all()
+    source_queryset = Group.objects.all()
 
     def object_action(self, obj, request, serializer):
         obj.users_remove(
@@ -145,8 +145,8 @@ class APIUserListView(generics.ListCreateAPIView):
         'email', 'first_name', 'last_name', 'has_usable_password',
         'id', 'is_active', 'username'
     )
-    queryset = get_user_queryset()
     serializer_class = UserSerializer
+    source_queryset = get_user_queryset()
 
     def get_instance_extra_data(self):
         return {'_event_actor': self.request.user}
@@ -166,8 +166,8 @@ class APIUserDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_user_edit,),
         'DELETE': (permission_user_delete,)
     }
-    queryset = get_user_queryset()
     serializer_class = UserSerializer
+    source_queryset = get_user_queryset()
 
     def get_instance_extra_data(self):
         return {'_event_actor': self.request.user}
@@ -189,5 +189,5 @@ class APIUserGroupListView(
     }
     serializer_class = GroupSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().groups.all()

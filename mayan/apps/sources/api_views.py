@@ -45,13 +45,13 @@ class APISourceActionDetailView(generics.ObjectActionAPIView):
                 name=self.kwargs['action_name']
             )
 
-    def get_queryset(self):
-        return Source.objects.filter(enabled=True)
-
     def get_serializer_extra_context(self):
         return {
             'action': self.get_action()
         }
+
+    def get_source_queryset(self):
+        return Source.objects.filter(enabled=True)
 
     def object_action(self, obj, request, serializer):
         query_dict = request.GET
@@ -117,8 +117,8 @@ class APISourceListView(generics.ListCreateAPIView):
     mayan_view_permissions = {
         'POST': (permission_sources_create,)
     }
-    queryset = Source.objects.all()
     serializer_class = SourceSerializer
+    source_queryset = Source.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -140,8 +140,8 @@ class APISourceView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_sources_edit,),
         'PUT': (permission_sources_edit,)
     }
-    queryset = Source.objects.all()
     serializer_class = SourceSerializer
+    source_queryset = Source.objects.all()
 
     def get_instance_extra_data(self):
         return {

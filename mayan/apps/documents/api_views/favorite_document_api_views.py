@@ -23,7 +23,7 @@ class APIFavoriteDocumentDetailView(generics.RetrieveDestroyAPIView):
     }
     serializer_class = FavoriteDocumentSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return FavoriteDocument.valid.filter(user=self.request.user)
 
 
@@ -42,7 +42,7 @@ class APIFavoriteDocumentListView(generics.ListCreateAPIView):
             'user': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return FavoriteDocument.valid.filter(user=self.request.user)
 
     def perform_create(self, serializer):

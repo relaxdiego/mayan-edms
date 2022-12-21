@@ -83,7 +83,7 @@ class ChildExternalObjectAPIViewMixinTestCase(
             external_object_pk_url_kwarg = 'test_object_id'
             serializer_class = TestModelSerializer
 
-            def get_queryset(self):
+            def get_source_queryset(self):
                 # Normally this would return a queryset based on the
                 # external object. This incomplete method is good enought for
                 # the test.

@@ -23,7 +23,7 @@ class APIPermissionList(generics.ListAPIView):
     get: Returns a list of all the available permissions.
     """
     serializer_class = PermissionSerializer
-    queryset = Permission.all()
+    source_queryset = Permission.all()
 
 
 class APIRoleListView(generics.ListCreateAPIView):
@@ -38,8 +38,8 @@ class APIRoleListView(generics.ListCreateAPIView):
         'POST': (permission_role_create,)
     }
     ordering_fields = ('id', 'label')
-    queryset = Role.objects.all()
     serializer_class = RoleSerializer
+    source_queryset = Role.objects.all()
 
     def get_instance_extra_data(self):
         return {'_event_actor': self.request.user}
@@ -59,8 +59,8 @@ class APIRoleDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_role_edit,),
         'DELETE': (permission_role_delete,)
     }
-    queryset = Role.objects.all()
     serializer_class = RoleSerializer
+    source_queryset = Role.objects.all()
 
     def get_instance_extra_data(self):
         return {'_event_actor': self.request.user}
@@ -82,7 +82,7 @@ class APIRoleGroupListView(
     }
     serializer_class = GroupSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().groups.all()
 
 
@@ -95,7 +95,7 @@ class APIRoleGroupAddView(generics.ObjectActionAPIView):
         'POST': (permission_role_edit,)
     }
     serializer_class = RoleGroupAddSerializer
-    queryset = Role.objects.all()
+    source_queryset = Role.objects.all()
 
     def object_action(self, obj, request, serializer):
         obj.groups_add(
@@ -114,7 +114,7 @@ class APIRoleGroupRemoveView(generics.ObjectActionAPIView):
         'POST': (permission_role_edit,)
     }
     serializer_class = RoleGroupRemoveSerializer
-    queryset = Role.objects.all()
+    source_queryset = Role.objects.all()
 
     def object_action(self, obj, request, serializer):
         obj.groups_remove(
@@ -137,7 +137,7 @@ class APIRolePermissionListView(
     }
     serializer_class = PermissionSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().permissions.all()
 
 
@@ -150,7 +150,7 @@ class APIRolePermissionAddView(generics.ObjectActionAPIView):
         'POST': (permission_role_edit,)
     }
     serializer_class = RolePermissionAddSerializer
-    queryset = Role.objects.all()
+    source_queryset = Role.objects.all()
 
     def object_action(self, obj, request, serializer):
         obj.permissions_add(
@@ -169,7 +169,7 @@ class APIRolePermissionRemoveView(generics.ObjectActionAPIView):
         'POST': (permission_role_edit,)
     }
     serializer_class = RolePermissionRemoveSerializer
-    queryset = Role.objects.all()
+    source_queryset = Role.objects.all()
 
     def object_action(self, obj, request, serializer):
         obj.permissions_remove(

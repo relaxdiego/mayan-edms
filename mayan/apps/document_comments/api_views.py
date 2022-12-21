@@ -32,7 +32,7 @@ class APICommentListView(
             'user': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().comments.all()
 
 
@@ -60,5 +60,5 @@ class APICommentView(
             'document': self.get_external_object()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().comments.all()

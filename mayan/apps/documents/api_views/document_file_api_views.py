@@ -53,7 +53,7 @@ class APIDocumentFileListView(
             }
         )
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document(
             permission=permission_document_file_view
         ).files.all()
@@ -80,7 +80,7 @@ class APIDocumentFileDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document().files.all()
 
 
@@ -99,7 +99,7 @@ class APIDocumentFilePageDetailView(
         'GET': (permission_document_file_view,),
     }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document_file().pages.all()
 
 
@@ -115,7 +115,7 @@ class APIDocumentFilePageImageView(
         'GET': (permission_document_file_view,),
     }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document_file().pages.all()
 
 
@@ -124,7 +124,7 @@ class APIDocumentFilePageListView(
 ):
     serializer_class = DocumentFilePageSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document_file(
             permission=permission_document_file_view
         ).pages.all()

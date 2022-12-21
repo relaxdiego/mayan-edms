@@ -10,4 +10,4 @@ class APIContentTypeList(generics.ListAPIView):
     Returns a list of all the available content types.
     """
     serializer_class = ContentTypeSerializer
-    queryset = ContentType.objects.order_by('app_label', 'model')
+    source_queryset = ContentType.objects.order_by('app_label', 'model')

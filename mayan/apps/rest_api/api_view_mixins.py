@@ -22,7 +22,7 @@ class AsymmetricSerializerAPIViewMixin:
     def get_read_serializer_class(self):
         if not self.read_serializer_class:
             raise ImproperlyConfigured(
-                'View {} must specify a read_serializer_class.'.format(
+                'View {} must specify a `read_serializer_class`.'.format(
                     self.__class__.__name__
                 )
             )
@@ -32,8 +32,8 @@ class AsymmetricSerializerAPIViewMixin:
     def get_serializer_class(self):
         if getattr(self, 'serializer_class', None):
             raise ImproperlyConfigured(
-                'View {} can not use AsymmetricSerializerAPIViewMixin while '
-                'also specifying a serializer_class.'.format(
+                'View {} can not use `AsymmetricSerializerAPIViewMixin` '
+                'while also specifying a `serializer_class`.'.format(
                     self.__class__.__name__
                 )
             )
@@ -46,7 +46,7 @@ class AsymmetricSerializerAPIViewMixin:
     def get_write_serializer_class(self):
         if not self.write_serializer_class:
             raise ImproperlyConfigured(
-                'View {} must specify a write_serializer_class.'.format(
+                'View {} must specify a `write_serializer_class`.'.format(
                     self.__class__.__name__
                 )
             )
@@ -55,9 +55,9 @@ class AsymmetricSerializerAPIViewMixin:
 
 
 class CheckQuerysetAPIViewMixin:
-    def get_queryset(self, *args, **kwargs):
-        queryset = super().get_queryset(*args, **kwargs)
-        return check_queryset(self=self, queryset=queryset)
+    def get_source_queryset(self, *args, **kwargs):
+        queryset = super().get_source_queryset(*args, **kwargs)
+        return check_queryset(view=self, queryset=queryset)
 
 
 class ContentTypeAPIViewMixin:
@@ -72,11 +72,11 @@ class ContentTypeAPIViewMixin:
 
     def get_content_type(self):
         return get_object_or_404(
-            queryset=ContentType, app_label=self.kwargs[
+            queryset=ContentType, app_label=self.kwargs.get(
                 self.content_type_url_kw_args['app_label']
-            ], model=self.kwargs[
+            ), model=self.kwargs.get(
                 self.content_type_url_kw_args['model_name']
-            ]
+            )
         )
 
 
@@ -165,24 +165,68 @@ class InstanceExtraDataAPIViewMixin:
 
 
 class SchemaInspectionAPIViewMixin:
+    def get_serializer_context(self, *args, **kwargs):
+        if getattr(self, 'swagger_fake_view', False):
+            return {'request': self.request}
+        else:
+            return super().get_serializer_context(*args, **kwargs)
+
+
+class QuerySetOverrideCheckAPIViewMixin:
+    source_queryset = None
+
+    def __init__(self, *args, **kwargs):
+        result = super().__init__(*args, **kwargs)
+
+        queryset = getattr(self, 'queryset', None)
+
+        if queryset is not None:
+            raise ImproperlyConfigured(
+                '%(cls)s is overloading the `queryset` property. '
+                'Subclasses should use the `source_queryset` property '
+                'instead. ' % {
+                    'cls': self.__class__.mro()[0].__name__
+                }
+            )
+
+        if self.__class__.mro()[0].get_queryset != QuerySetOverrideCheckAPIViewMixin.get_queryset:
+            raise ImproperlyConfigured(
+                '%(cls)s is overloading the `get_queryset` method. '
+                'Subclasses should implement the `get_source_queryset` '
+                'method instead. ' % {
+                    'cls': self.__class__.mro()[0].__name__
+                }
+            )
+
+        return result
+
+    def get_source_queryset(self):
+        if self.source_queryset is None:
+            if self.model:
+                return self.model._default_manager.all()
+            else:
+                raise ImproperlyConfigured(
+                    '%(cls)s is missing a QuerySet. Define '
+                    '`%(cls)s.model`, `%(cls)s.source_queryset`, or '
+                    'override `%(cls)s.get_source_queryset()`.' % {
+                        'cls': self.__class__.__name__
+                    }
+                )
+
+        return self.source_queryset
+
     def get_queryset(self):
         if getattr(self, 'swagger_fake_view', False):
             return []
-
-        return super().get_queryset()
-
-    def get_serializer(self, *args, **kwargs):
-        if getattr(self, 'swagger_fake_view', False):
-
-            return None
-
-        return super().get_serializer(*args, **kwargs)
-
-    def get_serializer_context(self, *args, **kwargs):
-        if getattr(self, 'swagger_fake_view', False):
-            return {}
-
-        return super().get_serializer_context(*args, **kwargs)
+        else:
+            try:
+                return super().get_queryset()
+            except AssertionError:
+                self.queryset = self.get_source_queryset()
+                return super().get_queryset()
+            except ImproperlyConfigured:
+                self.queryset = self.get_source_queryset()
+                return super().get_queryset()
 
 
 class SerializerActionAPIViewMixin:
@@ -217,9 +261,12 @@ class SerializerActionAPIViewMixin:
 class SerializerExtraContextAPIViewMixin:
     def get_serializer_context(self):
         context = super().get_serializer_context()
-        context.update(
-            self.get_serializer_extra_context()
-        )
+
+        if not getattr(self, 'swagger_fake_view', False):
+            context.update(
+                self.get_serializer_extra_context()
+            )
+
         return context
 
     def get_serializer_extra_context(self):

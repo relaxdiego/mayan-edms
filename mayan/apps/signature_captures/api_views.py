@@ -25,8 +25,8 @@ class APISignatureCaptureDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_signature_capture_edit,),
         'PUT': (permission_signature_capture_edit,)
     }
-    queryset = SignatureCapture.valid.all()
     serializer_class = SignatureCaptureSerializer
+    source_queryset = SignatureCapture.valid.all()
 
     def get_instance_extra_data(self):
         return {
@@ -44,7 +44,7 @@ class APISignatureCapturesImageView(
     mayan_object_permissions = {
         'GET': (permission_signature_capture_view,)
     }
-    queryset = SignatureCapture.valid.all()
+    source_queryset = SignatureCapture.valid.all()
 
 
 class APISignatureCaptureListView(
@@ -70,5 +70,5 @@ class APISignatureCaptureListView(
             'user': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().signature_captures.all()

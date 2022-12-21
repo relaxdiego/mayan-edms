@@ -19,7 +19,7 @@ class APIErrorLogPartitionEntryListView(
     ordering_fields = ('id', 'datetime')
     serializer_class = ErrorLogPartitionEntrySerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().error_log.all()
 
 
@@ -42,5 +42,5 @@ class APIErrorLogPartitionEntryDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().error_log.all()

@@ -33,7 +33,7 @@ class APIDocumentFileDownloadView(
     def get_serializer_class(self):
         return None
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document().files.all()
 
     def retrieve(self, request, *args, **kwargs):

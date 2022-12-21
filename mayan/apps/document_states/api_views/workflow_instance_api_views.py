@@ -24,7 +24,7 @@ class APIWorkflowInstanceLaunchActionView(generics.ObjectActionAPIView):
         'POST': (permission_workflow_tools,)
     }
     serializer_class = WorkflowInstanceLaunchSerializer
-    queryset = Document.valid.all()
+    source_queryset = Document.valid.all()
 
     def get_serializer_extra_context(self):
         obj = self.get_object()
@@ -53,7 +53,7 @@ class APIWorkflowInstanceListView(
     }
     serializer_class = WorkflowInstanceSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().workflows.all()
 
 
@@ -74,7 +74,7 @@ class APIWorkflowInstanceDetailView(
     }
     serializer_class = WorkflowInstanceSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().workflows.all()
 
 
@@ -92,7 +92,7 @@ class APIWorkflowInstanceLogEntryDetailView(
     serializer_class = WorkflowInstanceLogEntrySerializer
     lookup_url_kwarg = 'workflow_instance_log_entry_id'
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_instance().log_entries.all()
 
     def get_workflow_instance(self):
@@ -134,7 +134,7 @@ class APIWorkflowInstanceLogEntryListView(
         else:
             return {}
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_instance().log_entries.all()
 
     def get_workflow_instance(self):
@@ -174,7 +174,7 @@ class APIWorkflowInstanceLogEntryTransitionListView(
 
         return context
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_instance().get_transition_choices(
             user=self.request.user
         )

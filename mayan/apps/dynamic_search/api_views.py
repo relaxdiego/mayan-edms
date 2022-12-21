@@ -18,19 +18,19 @@ class APISearchView(
     get: Perform a search operation.
     """
 
-    def get_queryset(self):
+    def get_serializer_class(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return DummySearchResultModelSerializer
+        else:
+            return self.search_model.serializer
+
+    def get_source_queryset(self):
         try:
             return self.get_search_queryset()
         except DynamicSearchException as exception:
             raise ParseError(
                 detail=str(exception)
             )
-
-    def get_serializer_class(self):
-        if getattr(self, 'swagger_fake_view', False):
-            return DummySearchResultModelSerializer
-        else:
-            return self.search_model.serializer
 
 
 class APISearchModelList(generics.ListAPIView):
@@ -40,7 +40,7 @@ class APISearchModelList(generics.ListAPIView):
 
     serializer_class = SearchModelSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         # This changes after the initial startup as search models are
         # automatically loaded.
         return SearchModel.all()

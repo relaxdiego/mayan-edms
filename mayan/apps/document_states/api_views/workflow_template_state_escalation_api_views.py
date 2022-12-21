@@ -28,7 +28,7 @@ class APIWorkflowTemplateStateEscalationListView(
             'state': self.get_workflow_template_state()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template_state().escalations.all()
 
 
@@ -56,5 +56,5 @@ class APIWorkflowTemplateStateEscalationDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template_state().escalations.all()

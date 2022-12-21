@@ -33,7 +33,7 @@ class APIWorkflowTemplateStateListView(
             'workflow': self.get_workflow_template()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template().states.all()
 
 
@@ -61,7 +61,7 @@ class APIWorkflowTemplateStateView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template().states.all()
 
 
@@ -85,7 +85,7 @@ class APIWorkflowTemplateStateActionListView(
             'state': self.get_workflow_template_state()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template_state().actions.all()
 
 
@@ -113,5 +113,5 @@ class APIWorkflowTemplateStateActionDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template_state().actions.all()

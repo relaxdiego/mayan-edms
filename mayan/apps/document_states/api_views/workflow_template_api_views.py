@@ -32,7 +32,7 @@ class APIWorkflowTemplateDocumentTypeListView(
     }
     serializer_class = DocumentTypeSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         """
         This view returns a list of document types that belong to a workflow template.
         """
@@ -48,7 +48,7 @@ class APIWorkflowTemplateDocumentTypeAddView(generics.ObjectActionAPIView):
         'POST': (permission_workflow_template_edit,)
     }
     serializer_class = WorkflowTemplateDocumentTypeAddSerializer
-    queryset = Workflow.objects.all()
+    source_queryset = Workflow.objects.all()
 
     def object_action(self, obj, request, serializer):
         document_type = serializer.validated_data['document_type_id']
@@ -67,7 +67,7 @@ class APIWorkflowTemplateDocumentTypeRemoveView(generics.ObjectActionAPIView):
         'POST': (permission_workflow_template_edit,)
     }
     serializer_class = WorkflowTemplateDocumentTypeRemoveSerializer
-    queryset = Workflow.objects.all()
+    source_queryset = Workflow.objects.all()
 
     def object_action(self, obj, request, serializer):
         document_type = serializer.validated_data['document_type_id']
@@ -87,7 +87,7 @@ class APIWorkflowTemplateImageView(
     mayan_object_permissions = {
         'GET': (permission_workflow_template_view,)
     }
-    queryset = Workflow.objects.all()
+    source_queryset = Workflow.objects.all()
 
 
 class APIWorkflowTemplateListView(generics.ListCreateAPIView):
@@ -102,8 +102,8 @@ class APIWorkflowTemplateListView(generics.ListCreateAPIView):
         'POST': (permission_workflow_template_create,)
     }
     ordering_fields = ('id', 'internal_name', 'label')
-    queryset = Workflow.objects.all()
     serializer_class = WorkflowTemplateSerializer
+    source_queryset = Workflow.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -125,8 +125,8 @@ class APIWorkflowTemplateDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_workflow_template_edit,),
         'PUT': (permission_workflow_template_edit,)
     }
-    queryset = Workflow.objects.all()
     serializer_class = WorkflowTemplateSerializer
+    source_queryset = Workflow.objects.all()
 
     def get_instance_extra_data(self):
         return {

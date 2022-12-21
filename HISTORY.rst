@@ -239,6 +239,12 @@
   introspection.
 - Update the sources actions API to provide a dummy serializer during Swagger
   introspection.
+- Fix Swagger schema model definition introspection. Updated REST API views
+  to behave like user interface views and returning querysets either via
+  the ``source_queryset`` property or the ``get_source_queryset`` method.
+  This prevents API views from overriding the queryset return methods and
+  allows the ``SchemaInspectionAPIViewMixin`` mixin to work in all
+  instances.
 
 4.3.2 (unreleased)
 ==================

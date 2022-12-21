@@ -50,5 +50,5 @@ class APIDocumentTypeParsingSettingsView(generics.RetrieveUpdateAPIView):
         'PATCH': (permission_document_type_parsing_setup,),
         'PUT': (permission_document_type_parsing_setup,)
     }
-    queryset = DocumentTypeSettings.objects.all()
     serializer_class = DocumentTypeParsingSettingsSerializer
+    source_queryset = DocumentTypeSettings.objects.all()

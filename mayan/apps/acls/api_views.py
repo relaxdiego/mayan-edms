@@ -33,7 +33,7 @@ class APIACLListView(
             'content_object': self.get_external_object()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().acls.all()
 
 
@@ -56,7 +56,7 @@ class APIACLDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().acls.all()
 
 
@@ -72,7 +72,7 @@ class APIACLPermissionAddView(
     }
     serializer_class = ACLPermissionAddSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().acls
 
     def object_action(self, obj, request, serializer):
@@ -101,7 +101,7 @@ class APIACLPermissionListView(
             klass=self.get_external_object().acls, pk=self.kwargs['acl_id']
         )
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_acl().permissions.all()
 
 
@@ -117,7 +117,7 @@ class APIACLPermissionRemoveView(
     }
     serializer_class = ACLPermissionRemoveSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().acls
 
     def object_action(self, obj, request, serializer):
@@ -140,7 +140,7 @@ class APIClassPermissionList(generics.ListAPIView):
             model=self.kwargs['model_name']
         )
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return ModelPermission.get_for_class(
             klass=self.get_content_type().model_class()
         )

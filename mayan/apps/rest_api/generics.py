@@ -9,8 +9,8 @@ from mayan.apps.dynamic_search.api_filters import RESTAPISearchFilter
 
 from .api_view_mixins import (
     CheckQuerysetAPIViewMixin, DynamicFieldListAPIViewMixin,
-    InstanceExtraDataAPIViewMixin, SerializerExtraContextAPIViewMixin,
-    SchemaInspectionAPIViewMixin
+    InstanceExtraDataAPIViewMixin, QuerySetOverrideCheckAPIViewMixin,
+    SerializerExtraContextAPIViewMixin, SchemaInspectionAPIViewMixin
 )
 from .filters import MayanObjectPermissionsFilter, MayanSortingFilter
 from .permissions import MayanPermission
@@ -19,7 +19,7 @@ from .serializers import BlankSerializer
 
 class GenericAPIView(
     CheckQuerysetAPIViewMixin, SchemaInspectionAPIViewMixin,
-    rest_framework_generics.GenericAPIView
+    QuerySetOverrideCheckAPIViewMixin, rest_framework_generics.GenericAPIView
 ):
     filter_backends = (MayanObjectPermissionsFilter,)
     permission_classes = (MayanPermission,)
@@ -36,7 +36,7 @@ class GenericAPIView(
 class CreateAPIView(
     CheckQuerysetAPIViewMixin, InstanceExtraDataAPIViewMixin,
     SchemaInspectionAPIViewMixin, SerializerExtraContextAPIViewMixin,
-    rest_framework_generics.CreateAPIView
+    QuerySetOverrideCheckAPIViewMixin, rest_framework_generics.CreateAPIView
 ):
     """
     requires:
@@ -47,8 +47,8 @@ class CreateAPIView(
 
 class ListAPIView(
     CheckQuerysetAPIViewMixin, DynamicFieldListAPIViewMixin,
-    SchemaInspectionAPIViewMixin, SerializerExtraContextAPIViewMixin,
-    rest_framework_generics.ListAPIView
+    SerializerExtraContextAPIViewMixin, SchemaInspectionAPIViewMixin,
+    QuerySetOverrideCheckAPIViewMixin, rest_framework_generics.ListAPIView
 ):
     """
     requires:
@@ -65,8 +65,8 @@ class ListAPIView(
 
 class ListCreateAPIView(
     CheckQuerysetAPIViewMixin, DynamicFieldListAPIViewMixin,
-    InstanceExtraDataAPIViewMixin, SchemaInspectionAPIViewMixin,
-    SerializerExtraContextAPIViewMixin,
+    InstanceExtraDataAPIViewMixin, SerializerExtraContextAPIViewMixin,
+    SchemaInspectionAPIViewMixin, QuerySetOverrideCheckAPIViewMixin,
     rest_framework_generics.ListCreateAPIView
 ):
     """
@@ -151,8 +151,8 @@ class ObjectActionAPIView(
 
 class RetrieveAPIView(
     CheckQuerysetAPIViewMixin, DynamicFieldListAPIViewMixin,
-    InstanceExtraDataAPIViewMixin, SchemaInspectionAPIViewMixin,
-    SerializerExtraContextAPIViewMixin,
+    InstanceExtraDataAPIViewMixin, SerializerExtraContextAPIViewMixin,
+    SchemaInspectionAPIViewMixin, QuerySetOverrideCheckAPIViewMixin,
     rest_framework_generics.RetrieveAPIView
 ):
     """
@@ -166,8 +166,8 @@ class RetrieveAPIView(
 
 class RetrieveDestroyAPIView(
     CheckQuerysetAPIViewMixin, DynamicFieldListAPIViewMixin,
-    InstanceExtraDataAPIViewMixin, SchemaInspectionAPIViewMixin,
-    SerializerExtraContextAPIViewMixin,
+    InstanceExtraDataAPIViewMixin, SerializerExtraContextAPIViewMixin,
+    SchemaInspectionAPIViewMixin, QuerySetOverrideCheckAPIViewMixin,
     rest_framework_generics.RetrieveDestroyAPIView
 ):
     """
@@ -182,8 +182,8 @@ class RetrieveDestroyAPIView(
 
 class RetrieveUpdateAPIView(
     CheckQuerysetAPIViewMixin, DynamicFieldListAPIViewMixin,
-    InstanceExtraDataAPIViewMixin, SchemaInspectionAPIViewMixin,
-    SerializerExtraContextAPIViewMixin,
+    InstanceExtraDataAPIViewMixin, SerializerExtraContextAPIViewMixin,
+    SchemaInspectionAPIViewMixin, QuerySetOverrideCheckAPIViewMixin,
     rest_framework_generics.RetrieveUpdateAPIView
 ):
     """
@@ -199,8 +199,8 @@ class RetrieveUpdateAPIView(
 
 class RetrieveUpdateDestroyAPIView(
     CheckQuerysetAPIViewMixin, DynamicFieldListAPIViewMixin,
-    InstanceExtraDataAPIViewMixin, SchemaInspectionAPIViewMixin,
-    SerializerExtraContextAPIViewMixin,
+    InstanceExtraDataAPIViewMixin, SerializerExtraContextAPIViewMixin,
+    SchemaInspectionAPIViewMixin, QuerySetOverrideCheckAPIViewMixin,
     rest_framework_generics.RetrieveUpdateDestroyAPIView
 ):
     """

@@ -18,8 +18,8 @@ class APIKeyListView(generics.ListCreateAPIView):
     mayan_view_permissions = {
         'POST': (permission_key_upload,)
     }
-    queryset = Key.objects.all()
     serializer_class = KeySerializer
+    source_queryset = Key.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -37,5 +37,5 @@ class APIKeyView(generics.RetrieveDestroyAPIView):
         'DELETE': (permission_key_delete,),
         'GET': (permission_key_view,)
     }
-    queryset = Key.objects.all()
     serializer_class = KeySerializer
+    source_queryset = Key.objects.all()

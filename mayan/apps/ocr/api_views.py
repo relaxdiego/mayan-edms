@@ -32,8 +32,8 @@ class APIDocumentTypeOCRSettingsView(generics.RetrieveUpdateAPIView):
         'PATCH': (permission_document_type_ocr_setup,),
         'PUT': (permission_document_type_ocr_setup,)
     }
-    queryset = DocumentTypeOCRSettings.objects.all()
     serializer_class = DocumentTypeOCRSettingsSerializer
+    source_queryset = DocumentTypeOCRSettings.objects.all()
 
 
 class APIDocumentOCRSubmitView(generics.GenericAPIView):
@@ -44,7 +44,7 @@ class APIDocumentOCRSubmitView(generics.GenericAPIView):
     mayan_object_permissions = {
         'POST': (permission_document_version_ocr,)
     }
-    queryset = Document.valid.all()
+    source_queryset = Document.valid.all()
 
     def get_serializer(self, *args, **kwargs):
         return None
@@ -101,21 +101,21 @@ class APIDocumentVersionOCRSubmitView(generics.GenericAPIView):
     mayan_object_permissions = {
         'POST': (permission_document_version_ocr,)
     }
-    queryset = DocumentVersion.objects.all()
+    source_queryset = DocumentVersion.objects.all()
 
     def get_document(self):
         return get_object_or_404(
             queryset=Document.valid.all(), pk=self.kwargs['document_id']
         )
 
-    def get_queryset(self):
-        return self.get_document().versions.all()
-
     def get_serializer(self, *args, **kwargs):
         return None
 
     def get_serializer_class(self):
         return None
+
+    def get_source_queryset(self):
+        return self.get_document().versions.all()
 
     def post(self, request, *args, **kwargs):
         self.get_object().submit_for_ocr(user=self.request.user)

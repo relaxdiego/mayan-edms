@@ -46,7 +46,7 @@ class APIDocumentVersionDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document().versions.all()
 
 
@@ -70,7 +70,7 @@ class APIDocumentVersionListView(
             )
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         # This method is only called during GET, therefore filter only by
         # the view permission.
         return self.get_document(
@@ -91,7 +91,7 @@ class APIDocumentVersionModificationView(
     }
     serializer_class = DocumentVersionModificationExecuteSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document().versions.all()
 
     def object_action(self, obj, request, serializer):
@@ -108,15 +108,15 @@ class APIDocumentVersionModificationBackendListView(generics.ListAPIView):
     """
     serializer_class = DocumentVersionModificationSerializer
 
-    def get_queryset(self):
-        return DocumentVersionModification.get_all()
-
     def get_serializer_context(self):
         return {
             'format': self.format_kwarg,
             'request': self.request,
             'view': self
         }
+
+    def get_source_queryset(self):
+        return DocumentVersionModification.get_all()
 
 
 class APIDocumentVersionPageDetailView(
@@ -143,7 +143,7 @@ class APIDocumentVersionPageDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document_version().pages.all()
 
 
@@ -159,7 +159,7 @@ class APIDocumentVersionPageImageView(
         'GET': (permission_document_version_view,)
     }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document_version().pages.all()
 
 
@@ -183,7 +183,7 @@ class APIDocumentVersionPageListView(
             )
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         # This method is only called during GET, therefore filter only by
         # the view permission.
         return self.get_document_version(

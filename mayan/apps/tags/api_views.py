@@ -31,8 +31,8 @@ class APITagDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_tag_edit,),
         'PUT': (permission_tag_edit,)
     }
-    queryset = Tag.objects.all()
     serializer_class = TagSerializer
+    source_queryset = Tag.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -52,8 +52,8 @@ class APITagListView(generics.ListCreateAPIView):
         'POST': (permission_tag_create,)
     }
     ordering_fields = ('id', 'label')
-    queryset = Tag.objects.all()
     serializer_class = TagSerializer
+    source_queryset = Tag.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -77,7 +77,7 @@ class APITagDocumentListView(
     }
     serializer_class = DocumentSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return Document.valid.filter(
             pk__in=self.get_external_object().documents.only('pk')
         )
@@ -92,7 +92,7 @@ class APIDocumentTagAttachView(generics.ObjectActionAPIView):
         'POST': (permission_tag_attach,)
     }
     serializer_class = DocumentTagAttachSerializer
-    queryset = Document.valid.all()
+    source_queryset = Document.valid.all()
 
     def object_action(self, obj, request, serializer):
         tag = serializer.validated_data['tag']
@@ -108,7 +108,7 @@ class APIDocumentTagRemoveView(generics.ObjectActionAPIView):
         'POST': (permission_tag_remove,)
     }
     serializer_class = DocumentTagRemoveSerializer
-    queryset = Document.valid.all()
+    source_queryset = Document.valid.all()
 
     def object_action(self, obj, request, serializer):
         tag = serializer.validated_data['tag']
@@ -131,5 +131,5 @@ class APIDocumentTagListView(
     }
     serializer_class = TagSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().tags.all()

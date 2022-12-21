@@ -28,7 +28,7 @@ class APIDocumentFileSignDetachedView(
     lookup_url_kwarg = 'document_file_id'
     serializer_class = SignDetachedSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document_file_queryset()
 
     def object_action(self, obj, request, serializer):
@@ -55,7 +55,7 @@ class APIDocumentFileSignEmbeddedView(
     lookup_url_kwarg = 'document_file_id'
     serializer_class = SignEmbeddedSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document_file_queryset()
 
     def object_action(self, obj, request, serializer):
@@ -82,7 +82,7 @@ class APIDocumentFileDetachedSignatureListView(
     }
     serializer_class = DetachedSignatureSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return DetachedSignature.objects.filter(
             document_file=self.get_document_file()
         )
@@ -103,7 +103,7 @@ class APIDocumentFileDetachedSignatureDetailView(
     lookup_url_kwarg = 'detached_signature_id'
     serializer_class = DetachedSignatureSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return DetachedSignature.objects.filter(
             document_file=self.get_document_file()
         )
@@ -127,7 +127,7 @@ class APIDocumentFileDetachedSignatureUploadView(
             'document_file': self.get_document_file()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document_file_queryset()
 
 
@@ -142,7 +142,7 @@ class APIDocumentFileEmbeddedSignatureListView(
         'GET': (permission_document_file_signature_view,)
     }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return EmbeddedSignature.objects.filter(
             document_file=self.get_document_file()
         )
@@ -160,7 +160,7 @@ class APIDocumentFileEmbeddedSignatureDetailView(
     lookup_url_kwarg = 'embedded_signature_id'
     serializer_class = EmbeddedSignatureSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return EmbeddedSignature.objects.filter(
             document_file=self.get_document_file()
         )

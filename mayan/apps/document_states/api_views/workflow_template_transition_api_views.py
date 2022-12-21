@@ -39,11 +39,11 @@ class APIWorkflowTemplateTransitionListView(
             'workflow': self.get_workflow_template()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template().transitions.all()
 
 
-class APIWorkflowTemplateTransitionView(
+class APIWorkflowTemplateTransitionDetailView(
     ParentObjectWorkflowTemplateAPIViewMixin,
     generics.RetrieveUpdateDestroyAPIView
 ):
@@ -70,7 +70,7 @@ class APIWorkflowTemplateTransitionView(
             'workflow': self.get_workflow_template()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template().transitions.all()
 
 
@@ -100,7 +100,7 @@ class APIWorkflowTemplateTransitionFieldListView(
             'transition': self.get_workflow_template_transition()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template_transition().fields.all()
 
 
@@ -128,7 +128,7 @@ class APIWorkflowTemplateTransitionFieldDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template_transition().fields.all()
 
 
@@ -156,7 +156,7 @@ class APIWorkflowTemplateTransitionTriggerListView(
             'transition': self.get_workflow_template_transition()
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template_transition().trigger_events.all()
 
 
@@ -184,5 +184,5 @@ class APIWorkflowTemplateTransitionTriggerDetailView(
             '_event_actor': self.request.user
         }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_workflow_template_transition().trigger_events.all()

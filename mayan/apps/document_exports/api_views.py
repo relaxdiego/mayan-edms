@@ -21,7 +21,7 @@ class APIDocumentVersionExportView(
         'POST': (permission_document_version_export,),
     }
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_document().versions.all()
 
     def object_action(self, obj, request, serializer):

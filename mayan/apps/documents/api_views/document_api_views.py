@@ -36,8 +36,8 @@ class APIDocumentDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_document_properties_edit,),
         'DELETE': (permission_document_trash,)
     }
-    queryset = Document.valid.all()
     serializer_class = DocumentSerializer
+    source_queryset = Document.valid.all()
 
     def get_instance_extra_data(self):
         return {
@@ -51,15 +51,15 @@ class APIDocumentFileActionListView(generics.ListAPIView):
     """
     serializer_class = DocumentFileActionSerializer
 
-    def get_queryset(self):
-        return DocumentFileAction.get_all()
-
     def get_serializer_context(self):
         return {
             'format': self.format_kwarg,
             'request': self.request,
             'view': self
         }
+
+    def get_source_queryset(self):
+        return DocumentFileAction.get_all()
 
 
 class APIDocumentListView(generics.ListCreateAPIView):
@@ -71,8 +71,8 @@ class APIDocumentListView(generics.ListCreateAPIView):
         'GET': (permission_document_view,),
     }
     ordering_fields = ('datetime_created', 'document_type', 'id', 'label')
-    queryset = Document.valid.all()
     serializer_class = DocumentSerializer
+    source_queryset = Document.valid.all()
 
     def perform_create(self, serializer):
         queryset = DocumentType.objects.all()
@@ -103,7 +103,7 @@ class APIDocumentChangeTypeView(generics.ObjectActionAPIView):
         'POST': (permission_document_change_type,)
     }
     serializer_class = DocumentChangeTypeSerializer
-    queryset = Document.valid.all()
+    source_queryset = Document.valid.all()
 
     def object_action(self, obj, request, serializer):
         document_type_id = serializer.validated_data['document_type_id']

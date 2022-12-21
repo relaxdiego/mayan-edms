@@ -26,8 +26,8 @@ class APIIndexTemplateListView(generics.ListCreateAPIView):
     mayan_object_permissions = {'GET': (permission_index_template_view,)}
     mayan_view_permissions = {'POST': (permission_index_template_create,)}
     ordering_fields = ('enabled', 'id', 'label', 'slug')
-    queryset = IndexTemplate.objects.all()
     serializer_class = IndexTemplateSerializer
+    source_queryset = IndexTemplate.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -49,8 +49,8 @@ class APIIndexTemplateDetailView(generics.RetrieveUpdateDestroyAPIView):
         'PATCH': (permission_index_template_edit,),
         'DELETE': (permission_index_template_delete,)
     }
-    queryset = IndexTemplate.objects.all()
     serializer_class = IndexTemplateSerializer
+    source_queryset = IndexTemplate.objects.all()
 
     def get_instance_extra_data(self):
         return {
@@ -72,7 +72,7 @@ class APIIndexTemplateDocumentTypeListView(
     mayan_object_permissions = {'GET': (permission_document_type_view,)}
     serializer_class = DocumentTypeSerializer
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_external_object().document_types.all()
 
 
@@ -85,7 +85,7 @@ class APIIndexTemplateDocumentTypeAddView(generics.ObjectActionAPIView):
         'POST': (permission_index_template_edit,)
     }
     serializer_class = DocumentTypeAddSerializer
-    queryset = IndexTemplate.objects.all()
+    source_queryset = IndexTemplate.objects.all()
 
     def object_action(self, obj, request, serializer):
         document_type = serializer.validated_data['document_type']
@@ -103,7 +103,7 @@ class APIIndexTemplateDocumentTypeRemoveView(generics.ObjectActionAPIView):
         'POST': (permission_index_template_edit,)
     }
     serializer_class = DocumentTypeRemoveSerializer
-    queryset = IndexTemplate.objects.all()
+    source_queryset = IndexTemplate.objects.all()
 
     def object_action(self, obj, request, serializer):
         document_type = serializer.validated_data['document_type']
@@ -121,7 +121,7 @@ class APIIndexTemplateNodeListView(
     """
     ordering_fields = ('enabled', 'id', 'link_documents')
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_index_template().index_template_root_node.get_children()
 
 
@@ -136,7 +136,7 @@ class APIIndexTemplateNodeDetailView(
     """
     lookup_url_kwarg = 'index_template_node_id'
 
-    def get_queryset(self):
+    def get_source_queryset(self):
         return self.get_index_template().index_template_nodes.all()
 
 
@@ -148,7 +148,7 @@ class APIIndexTemplateRebuildView(generics.ObjectActionAPIView):
     mayan_object_permissions = {
         'POST': (permission_index_template_rebuild,)
     }
-    queryset = IndexTemplate.objects.all()
+    source_queryset = IndexTemplate.objects.all()
 
     def object_action(self, obj, request, serializer):
         task_index_template_rebuild.apply_async(
@@ -166,7 +166,7 @@ class APIIndexTemplateResetView(generics.ObjectActionAPIView):
     mayan_object_permissions = {
         'POST': (permission_index_template_rebuild,)
     }
-    queryset = IndexTemplate.objects.all()
+    source_queryset = IndexTemplate.objects.all()
 
     def object_action(self, obj, request, serializer):
         obj.reset()

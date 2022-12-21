@@ -6,9 +6,13 @@ from ..models.workflow_models import Workflow
 
 
 class ParentObjectWorkflowTemplateAPIViewMixin:
-    def get_serializer_context(self):
-        context = super().get_serializer_context()
-        context['workflow_template'] = self.get_workflow_template()
+    def get_serializer_extra_context(self):
+        context = super().get_serializer_extra_context()
+        context.update(
+            {
+                'workflow_template': self.get_workflow_template()
+            }
+        )
         return context
 
     def get_workflow_template(self, permission=None):
@@ -28,7 +32,7 @@ class ParentObjectWorkflowTemplateAPIViewMixin:
             )
 
         return get_object_or_404(
-            queryset=queryset, pk=self.kwargs['workflow_template_id']
+            queryset=queryset, pk=self.kwargs.get('workflow_template_id')
         )
 
     def get_workflow_template_queryset(self):
@@ -38,9 +42,13 @@ class ParentObjectWorkflowTemplateAPIViewMixin:
 class ParentObjectWorkflowTemplateStateAPIViewMixin(
     ParentObjectWorkflowTemplateAPIViewMixin
 ):
-    def get_serializer_context(self):
-        context = super().get_serializer_context()
-        context['workflow_template_state'] = self.get_workflow_template_state()
+    def get_serializer_extra_context(self):
+        context = super().get_serializer_extra_context()
+        context.update(
+            {
+                'workflow_template_state': self.get_workflow_template_state()
+            }
+        )
         return context
 
     def get_workflow_template_state(self, permission=None):
@@ -53,7 +61,9 @@ class ParentObjectWorkflowTemplateStateAPIViewMixin(
             )
 
         return get_object_or_404(
-            queryset=queryset, pk=self.kwargs['workflow_template_state_id']
+            queryset=queryset, pk=self.kwargs.get(
+                'workflow_template_state_id'
+            )
         )
 
     def get_workflow_template_state_queryset(self):
@@ -63,9 +73,13 @@ class ParentObjectWorkflowTemplateStateAPIViewMixin(
 class ParentObjectWorkflowTemplateTransitionAPIViewMixin(
     ParentObjectWorkflowTemplateAPIViewMixin
 ):
-    def get_serializer_context(self):
-        context = super().get_serializer_context()
-        context['workflow_template_transition'] = self.get_workflow_template_transition()
+    def get_serializer_extra_context(self):
+        context = super().get_serializer_extra_context()
+        context.update(
+            {
+                'workflow_template_transition': self.get_workflow_template_transition()
+            }
+        )
         return context
 
     def get_workflow_template_transition(self, permission=None):
@@ -78,9 +92,9 @@ class ParentObjectWorkflowTemplateTransitionAPIViewMixin(
             )
 
         return get_object_or_404(
-            queryset=queryset, pk=self.kwargs[
+            queryset=queryset, pk=self.kwargs.get(
                 'workflow_template_transition_id'
-            ]
+            )
         )
 
     def get_workflow_template_transition_queryset(self):
