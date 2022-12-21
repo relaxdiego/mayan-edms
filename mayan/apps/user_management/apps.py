@@ -49,24 +49,7 @@ from .permissions import (
     permission_group_view, permission_user_delete, permission_user_edit,
     permission_user_view
 )
-
-#TODO: move to utils
-def get_groups():
-    Group = apps.get_model(app_label='auth', model_name='Group')
-    return ','.join(
-        [
-            group.name for group in Group.objects.all()
-        ]
-    )
-
-
-def get_users():
-    return ','.join(
-        [
-            user.get_full_name() or user.username
-            for user in get_user_model().objects.all()
-        ]
-    )
+from .utils import get_groups, get_users
 
 
 class UserManagementApp(MayanAppConfig):
