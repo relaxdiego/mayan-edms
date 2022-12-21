@@ -8,7 +8,9 @@ from .models import Source
 
 
 class SourceSerializer(serializers.HyperlinkedModelSerializer):
-    actions = serializers.SerializerMethodField()
+    actions = serializers.SerializerMethodField(
+        label=_('Actions')
+    )
 
     class Meta:
         extra_kwargs = {
