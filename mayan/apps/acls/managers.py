@@ -8,7 +8,6 @@ from django.core.exceptions import PermissionDenied
 from django.db import models
 from django.db.models import CharField, Q, Value
 from django.db.models.functions import Cast, Concat
-from django.utils.encoding import force_text
 from django.utils.translation import ugettext
 
 from mayan.apps.common.utils import (

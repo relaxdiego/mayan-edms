@@ -20,7 +20,7 @@ from .api_views.workflow_template_state_api_views import (
 )
 from .api_views.workflow_template_transition_api_views import (
     APIWorkflowTemplateTransitionListView,
-    APIWorkflowTemplateTransitionView,
+    APIWorkflowTemplateTransitionDetailView,
     APIWorkflowTemplateTransitionFieldDetailView,
     APIWorkflowTemplateTransitionFieldListView,
     APIWorkflowTemplateTransitionTriggerDetailView,
@@ -384,7 +384,7 @@ api_urls = [
     url(
         regex=r'^workflow_templates/(?P<workflow_template_id>[0-9]+)/transitions/(?P<workflow_template_transition_id>[0-9]+)/$',
         name='workflow-template-transition-detail',
-        view=APIWorkflowTemplateTransitionView.as_view()
+        view=APIWorkflowTemplateTransitionDetailView.as_view()
     ),
     url(
         regex=r'^workflow_templates/(?P<workflow_template_id>[0-9]+)/transitions/(?P<workflow_template_transition_id>[0-9]+)/fields/$',

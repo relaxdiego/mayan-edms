@@ -511,7 +511,6 @@ class WorkflowInstanceAPIViewTestCase(
         self.assertEqual(events.count(), 0)
 
 
-
 class WorkflowInstanceLaunchAPIViewTestCase(
     DocumentTestMixin, WorkflowInstanceLaunchAPIViewTestMixin,
     WorkflowTemplateTestMixin, BaseAPITestCase

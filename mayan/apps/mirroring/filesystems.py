@@ -13,7 +13,6 @@ from django.db.models import (
 from django.db.models.functions import Concat
 
 from mayan.apps.documents.models import Document
-from mayan.apps.documents.permissions import permission_document_view
 
 from .literals import (
     MAX_FILE_DESCRIPTOR, MIN_FILE_DESCRIPTOR, FILE_MODE, DIRECTORY_MODE

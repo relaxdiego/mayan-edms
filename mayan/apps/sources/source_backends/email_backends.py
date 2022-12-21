@@ -106,9 +106,8 @@ class SourceBackendEmailMixin:
                     'kwargs': {
                         'choices': itertools.chain(
                             [
-                                (None, '---------')]
-                            ,
-                            [
+                                (None, '---------')
+                            ], [
                                 (instance.id, instance) for instance in MetadataType.objects.all()
                             ]
                         )

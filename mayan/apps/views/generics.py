@@ -486,8 +486,8 @@ class MultipleObjectFormActionView(
 
         if self.__class__.mro()[0].get_queryset != MultipleObjectFormActionView.get_queryset:
             raise ImproperlyConfigured(
-                '%(cls)s is overloading the get_queryset method. '
-                'Subclasses should implement the get_source_queryset '
+                '%(cls)s is overloading the `get_queryset` method. '
+                'Subclasses should implement the `get_source_queryset` '
                 'method instead. ' % {
                     'cls': self.__class__.__name__
                 }
@@ -531,8 +531,9 @@ class MultipleObjectConfirmActionView(
 
         if self.__class__.mro()[0].get_queryset != MultipleObjectConfirmActionView.get_queryset:
             raise ImproperlyConfigured(
-                '%(cls)s is overloading the get_queryset method. Subclasses '
-                'should implement the get_source_queryset method instead. ' % {
+                '%(cls)s is overloading the `get_queryset` method. '
+                'Subclasses should implement the `get_source_queryset` '
+                'method instead. ' % {
                     'cls': self.__class__.__name__
                 }
             )
@@ -698,9 +699,9 @@ class SingleObjectDeleteView(
 
         if self.__class__.mro()[0].get_queryset != SingleObjectDeleteView.get_queryset:
             raise ImproperlyConfigured(
-                '%(cls)s is overloading the get_queryset method. Subclasses '
-                'should implement the get_source_queryset method '
-                'instead. ' % {
+                '%(cls)s is overloading the `get_queryset` method. '
+                'Subclasses should implement the `get_source_queryset` '
+                'method instead. ' % {
                     'cls': self.__class__.__name__
                 }
             )
@@ -763,9 +764,9 @@ class SingleObjectDetailView(
 
         if self.__class__.mro()[0].get_queryset != SingleObjectDetailView.get_queryset:
             raise ImproperlyConfigured(
-                '%(cls)s is overloading the get_queryset method. Subclasses '
-                'should implement the get_source_queryset method '
-                'instead. ' % {
+                '%(cls)s is overloading the `get_queryset` method. '
+                'Subclasses should implement the `get_source_queryset` '
+                'method instead. ' % {
                     'cls': self.__class__.__name__
                 }
             )
@@ -843,9 +844,9 @@ class MultipleObjectDownloadView(
 
         if self.__class__.mro()[0].get_queryset != MultipleObjectDownloadView.get_queryset:
             raise ImproperlyConfigured(
-                '%(cls)s is overloading the get_queryset method. Subclasses '
-                'should implement the get_source_queryset method '
-                'instead. ' % {
+                '%(cls)s is overloading the `get_queryset` method. '
+                'Subclasses should implement the `get_source_queryset` '
+                'method instead. ' % {
                     'cls': self.__class__.__name__
                 }
             )
@@ -956,9 +957,9 @@ class SingleObjectListView(
 
         if self.__class__.mro()[0].get_queryset != SingleObjectListView.get_queryset:
             raise ImproperlyConfigured(
-                '%(cls)s is overloading the get_queryset method. Subclasses '
-                'should implement the get_source_queryset method '
-                'instead. ' % {
+                '%(cls)s is overloading the `get_queryset` method. '
+                'Subclasses should implement the `get_source_queryset` '
+                'method instead. ' % {
                     'cls': self.__class__.__name__
                 }
             )
