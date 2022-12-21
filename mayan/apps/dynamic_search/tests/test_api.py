@@ -185,10 +185,29 @@ class SearchModelAPIViewTestCase(
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        self.assertEqual(
-            [search_model['pk'] for search_model in response.data['results']],
-            [search_model.pk for search_model in SearchModel.all()]
-        )
+        expected_value = []
+        for search_model in SearchModel.all():
+            search_model_expected_value = {
+                'app_label': search_model.app_label,
+                'model_name': search_model.model_name,
+                'pk': search_model.pk,
+                'search_fields': []
+            }
+
+            for search_field in search_model.get_search_fields():
+                search_model_expected_value['search_fields'].append(
+                    {
+                        'field': search_field.field,
+                        'label': search_field.label
+                    }
+                )
+
+            expected_value.append(search_model_expected_value)
+
+        self.assertEqual(response.data['results'], expected_value)
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 0)

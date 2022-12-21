@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 05:46+0000\n"
+"POT-Creation-Date: 2022-12-18 21:00+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: Roberto Rosario, 2022\n"
 "Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
@@ -108,17 +108,17 @@ msgstr "命名空间详细信息：%s"
 msgid "Results for: %s"
 msgstr "结果：%s"
 
-#: views.py:70 views.py:97
+#: views.py:70 views.py:98
 #, python-format
 msgid "Statistic \"%s\" not found."
 msgstr "统计“%s”未找到。"
 
-#: views.py:89
+#: views.py:90
 #, python-format
 msgid "Queue statistic \"%s\" to be updated?"
 msgstr "队列统计“%s”有待更新？"
 
-#: views.py:103
+#: views.py:104
 #, python-format
 msgid "Statistic \"%s\" queued successfully for update."
 msgstr "统计“%s”已成功排队等待更新。"

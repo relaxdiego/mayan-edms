@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 05:46+0000\n"
+"POT-Creation-Date: 2022-12-18 20:59+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: Roberto Rosario, 2022\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
@@ -75,7 +75,7 @@ msgstr "Name"
 msgid "App"
 msgstr "App"
 
-#: classes.py:215 classes.py:840
+#: classes.py:215 classes.py:862
 msgid "Environments"
 msgstr "Umgebungen"
 
@@ -142,7 +142,7 @@ msgstr ""
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: classes.py:511 classes.py:752
+#: classes.py:511 classes.py:774
 msgid "Downloading... "
 msgstr "Herunterladen..."
 
@@ -150,39 +150,39 @@ msgstr "Herunterladen..."
 msgid "Verifying... "
 msgstr "Verifizieren..."
 
-#: classes.py:517 classes.py:755
+#: classes.py:517 classes.py:777
 msgid "Extracting... "
 msgstr "Entpacken..."
 
-#: classes.py:694
+#: classes.py:716
 msgid "Python packages downloaded from PyPI."
 msgstr "Pythonpakete, die von PyPI heruntergeladen werden."
 
-#: classes.py:696
+#: classes.py:718
 msgid "Python"
 msgstr "Python"
 
-#: classes.py:733
+#: classes.py:755
 msgid "Fonts downloaded from fonts.googleapis.com."
 msgstr "Von fonts.googleapis.com heruntergeladene Schriftarten."
 
-#: classes.py:735
+#: classes.py:757
 msgid "Google font"
 msgstr "Google-Schriftart"
 
-#: classes.py:821
+#: classes.py:843
 msgid "Declared in app"
 msgstr "In App deklariert"
 
-#: classes.py:822
+#: classes.py:844
 msgid "Show dependencies by the app that declared them."
 msgstr "Abhängigkeiten nach der deklarierenden App anzeigen."
 
-#: classes.py:826
+#: classes.py:848
 msgid "Class"
 msgstr "Klasse"
 
-#: classes.py:827
+#: classes.py:849
 msgid ""
 "Show the different classes of dependencies. Classes are usually divided by "
 "language or the file types of the dependency."
@@ -190,11 +190,11 @@ msgstr ""
 "Unterschiedliche Klassen von Abhängigkeiten anzeigen. Klassen sind "
 "üblicherweise unterteilt nach Sprache oder Dateityp der Abhängigkeit."
 
-#: classes.py:832
+#: classes.py:854
 msgid "State"
 msgstr "Status"
 
-#: classes.py:833
+#: classes.py:855
 msgid ""
 "Show the different states of the dependencies. True means that the "
 "dependencies is installed and is of a correct version. False means the "
@@ -205,7 +205,7 @@ msgstr ""
 "False (Falsch) bedeutet eine fehlende oder inkorrekte Version der "
 "Abhängigkeit."
 
-#: classes.py:841
+#: classes.py:863
 msgid ""
 "Dependencies required for an environment might not be required for another. "
 "Example environments: Production, Development."

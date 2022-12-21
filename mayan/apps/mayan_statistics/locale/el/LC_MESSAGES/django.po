@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 05:46+0000\n"
+"POT-Creation-Date: 2022-12-18 21:00+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: pyrotech <anastasios@tutamail.com>, 2022\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
@@ -108,17 +108,17 @@ msgstr "Λεπτομέρειες χώρου ονομάτων για: %s"
 msgid "Results for: %s"
 msgstr "Αποτελέσματα για: %s"
 
-#: views.py:70 views.py:97
+#: views.py:70 views.py:98
 #, python-format
 msgid "Statistic \"%s\" not found."
 msgstr "Σττιστικό \"%s\" δεν βρέθηκε."
 
-#: views.py:89
+#: views.py:90
 #, python-format
 msgid "Queue statistic \"%s\" to be updated?"
 msgstr "Υποβολή στατιστικού \"%s\" στην ουρά αναμονής προς ενημέρωση;"
 
-#: views.py:103
+#: views.py:104
 #, python-format
 msgid "Statistic \"%s\" queued successfully for update."
 msgstr "Στατιστικό \"%s\" προστέθηκε επιτυχώς στην ουρά αναμονής προς ενημέρωση."

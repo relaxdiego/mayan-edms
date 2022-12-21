@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 05:46+0000\n"
+"POT-Creation-Date: 2022-12-18 20:59+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Pavlin Koldamov <pkoldamov@gmail.com>, 2022\n"
 "Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
@@ -26,19 +26,19 @@ msgstr ""
 msgid "Common"
 msgstr "Общи"
 
-#: dependencies.py:169
+#: dependencies.py:172
 msgid "Used to allow offline translation of the code text strings."
 msgstr "Използва се за разрешаване на офлайн превод на текстови низове в код."
 
-#: dependencies.py:178
+#: dependencies.py:181
 msgid "Provides style checking."
 msgstr "Осигурява проверка на стила."
 
-#: dependencies.py:183
+#: dependencies.py:186
 msgid "Command line environment with autocompletion."
 msgstr "Команден ред с автоматично довършване."
 
-#: dependencies.py:188
+#: dependencies.py:191
 msgid "Checks proper formatting of the README file."
 msgstr "Проверява правилното форматиране на файла README."
 

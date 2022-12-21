@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 05:46+0000\n"
+"POT-Creation-Date: 2022-12-18 21:00+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
 "Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
@@ -107,17 +107,17 @@ msgstr "Podrobnosti imenskega prostora za: %s"
 msgid "Results for: %s"
 msgstr "Rezultati za: %s"
 
-#: views.py:70 views.py:97
+#: views.py:70 views.py:98
 #, python-format
 msgid "Statistic \"%s\" not found."
 msgstr "Statistike &quot;%s&quot; ni mogoče najti."
 
-#: views.py:89
+#: views.py:90
 #, python-format
 msgid "Queue statistic \"%s\" to be updated?"
 msgstr "Je treba statistiko čakalne vrste &quot;%s&quot; posodobiti?"
 
-#: views.py:103
+#: views.py:104
 #, python-format
 msgid "Statistic \"%s\" queued successfully for update."
 msgstr "Statistika &quot;%s&quot; je uspešno v čakalni vrsti za posodobitev."

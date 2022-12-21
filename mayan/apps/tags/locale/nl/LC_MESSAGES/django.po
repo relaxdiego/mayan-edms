@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 05:46+0000\n"
+"POT-Creation-Date: 2022-12-18 21:00+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: bwakkie <bwakkie@gmail.com>, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: apps.py:46 apps.py:130 apps.py:134 apps.py:138 apps.py:143 apps.py:147
 #: events.py:5 forms.py:27 links.py:28 menus.py:14 models.py:39
-#: permissions.py:5 views.py:180 workflow_actions.py:18 workflow_actions.py:61
+#: permissions.py:5 views.py:181 workflow_actions.py:18 workflow_actions.py:61
 msgid "Tags"
 msgstr "Labels"
 
@@ -182,90 +182,90 @@ msgid "Primary key of the tag to remove from the document."
 msgstr ""
 "Primaire sleutel van de label die uit het document moet worden verwijderd."
 
-#: views.py:42
+#: views.py:43
 #, python-format
 msgid "Tags attached to document \"%(object)s\" successfully."
 msgstr "Labels die zijn gekoppeld aan document &quot;%(object)s&quot;."
 
-#: views.py:45
+#: views.py:46
 #, python-format
 msgid "Tags attached to %(count)d document successfully."
 msgstr "Labels attached to %(count)d document successfully."
 
-#: views.py:48
+#: views.py:49
 #, python-format
 msgid "Tags attached to %(count)d documents successfully."
 msgstr "Labels die zijn gekoppeld aan %(count)d-documenten."
 
-#: views.py:50
+#: views.py:51
 #, python-format
 msgid "Attach tags to document: %(object)s"
 msgstr "Voeg labels toe aan document: %(object)s"
 
-#: views.py:51
+#: views.py:52
 #, python-format
 msgid "Attach tags to %(count)d document."
 msgstr "Voeg labels toe aan het document %(count)d."
 
-#: views.py:52
+#: views.py:53
 #, python-format
 msgid "Attach tags to %(count)d documents."
 msgstr "Voeg labels toe aan %(count)d-documenten."
 
-#: views.py:69 wizard_steps.py:27
+#: views.py:70 wizard_steps.py:27
 msgid "Tags to be attached."
 msgstr "Labels om toe te voegen."
 
-#: views.py:108
+#: views.py:109
 msgid "Create tag"
 msgstr "Label aanmaken"
 
-#: views.py:121
+#: views.py:122
 #, python-format
 msgid "Error deleting tag \"%(instance)s\"; %(exception)s"
 msgstr ""
 "Fout bij verwijderen van label &quot;%(instance)s&quot;; %(exception)s"
 
-#: views.py:126
+#: views.py:127
 #, python-format
 msgid "Tag \"%(object)s\" deleted successfully."
 msgstr "Label &quot;%(object)s&quot; succesvol verwijderd."
 
-#: views.py:127
+#: views.py:128
 #, python-format
 msgid "%(count)d tag deleted successfully."
 msgstr "%(count)d label succesvol verwijderd."
 
-#: views.py:128
+#: views.py:129
 #, python-format
 msgid "%(count)d tags deleted successfully."
 msgstr "%(count)d label succesvol verwijderd."
 
-#: views.py:129
+#: views.py:130
 #, python-format
 msgid "Delete tag: %(object)s"
 msgstr ""
 
-#: views.py:130
+#: views.py:131
 #, python-format
 msgid "Delete the %(count)d selected tag"
 msgstr ""
 
-#: views.py:131
+#: views.py:132
 #, python-format
 msgid "Delete the %(count)d selected tags"
 msgstr ""
 
-#: views.py:137
+#: views.py:138
 msgid "Will be removed from all documents."
 msgstr "Zal van alle documenten worden verwijderd."
 
-#: views.py:153
+#: views.py:154
 #, python-format
 msgid "Edit tag: %s"
 msgstr "Label bewerken: %s"
 
-#: views.py:176
+#: views.py:177
 msgid ""
 "Tags are color coded properties that can be attached or removed from "
 "documents."
@@ -273,55 +273,55 @@ msgstr ""
 "Labels zijn gekleurde etiketten die kunnen worden toegevoegd of verwijderd "
 "van documenten."
 
-#: views.py:179
+#: views.py:180
 msgid "No tags available"
 msgstr "Geen labels beschikbaar"
 
-#: views.py:209
+#: views.py:210
 #, python-format
 msgid "Documents with the tag: %s"
 msgstr "Documenten met label: %s"
 
-#: views.py:235
+#: views.py:236
 msgid "Document has no tags attached"
 msgstr "Document heet geen toegevoegde labels"
 
-#: views.py:238
+#: views.py:239
 #, python-format
 msgid "Tags for document: %s"
 msgstr "Labels voor document: %s"
 
-#: views.py:256
+#: views.py:257
 #, python-format
 msgid "Tags removed from document \"%(object)s\" successfully."
 msgstr "Labels succesvol verwijderd uit document &quot;%(object)s&quot;."
 
-#: views.py:259
+#: views.py:260
 #, python-format
 msgid "Tags removed from %(count)d document successfully."
 msgstr "Labels succesvol verwijderd uit %(count)d document."
 
-#: views.py:262
+#: views.py:263
 #, python-format
 msgid "Tags removed from %(count)d documents successfully."
 msgstr "Labels succesvol verwijderd uit %(count)d-documenten."
 
-#: views.py:264
+#: views.py:265
 #, python-format
 msgid "Remove tags from document: %(object)s"
 msgstr "Verwijder labels uit document: %(object)s"
 
-#: views.py:265
+#: views.py:266
 #, python-format
 msgid "Remove tags from %(count)d document."
 msgstr "Verwijder labels uit %(count)d document."
 
-#: views.py:266
+#: views.py:267
 #, python-format
 msgid "Remove tags from %(count)d documents."
 msgstr "Verwijder labels uit %(count)d-documenten."
 
-#: views.py:283
+#: views.py:284
 msgid "Tags to be removed."
 msgstr "Te verwijderen labels."
 

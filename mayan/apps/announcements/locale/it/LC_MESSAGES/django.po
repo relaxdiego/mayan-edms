@@ -8,14 +8,15 @@
 # Roberto Rosario, 2022
 # Marco Camplese <marco.camplese.mc@gmail.com>, 2022
 # Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022
+# Daniele Bortoluzzi <daniele@elkos.it>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-10 05:46+0000\n"
+"POT-Creation-Date: 2022-12-18 20:59+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022\n"
+"Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +27,7 @@ msgstr ""
 #: apps.py:36 events.py:5 links.py:40 models.py:43 permissions.py:6
 #: templates/announcements/announcements.html:8 views.py:126
 msgid "Announcements"
-msgstr ""
+msgstr "Avvisi"
 
 #: apps.py:78 apps.py:82
 msgid "None"
@@ -34,15 +35,15 @@ msgstr "Nessuno"
 
 #: events.py:8
 msgid "Announcement created"
-msgstr ""
+msgstr "Avviso creato"
 
 #: events.py:11
 msgid "Announcement edited"
-msgstr ""
+msgstr "Avviso modificato"
 
 #: links.py:17 views.py:34
 msgid "Create announcement"
-msgstr ""
+msgstr "Crea avviso"
 
 #: links.py:20 links.py:26
 msgid "Delete"
@@ -54,7 +55,7 @@ msgstr "Modifica"
 
 #: models.py:19
 msgid "Short description of this announcement."
-msgstr ""
+msgstr "Breve descrizione di questo avviso."
 
 #: models.py:20
 msgid "Label"
@@ -62,7 +63,7 @@ msgstr "Etichetta"
 
 #: models.py:23
 msgid "The actual text to be displayed."
-msgstr ""
+msgstr "Il testo che verrà visualizzato."
 
 #: models.py:24
 msgid "Text"
@@ -74,7 +75,7 @@ msgstr "Abilitato"
 
 #: models.py:29
 msgid "Date and time after which this announcement will be displayed."
-msgstr ""
+msgstr "Data e ora a partire dalla quale verrà visualizzato l'avviso."
 
 #: models.py:30
 msgid "Start date time"
@@ -82,7 +83,7 @@ msgstr "Data e ora inizio"
 
 #: models.py:34
 msgid "Date and time until when this announcement is to be displayed."
-msgstr ""
+msgstr "Data e ora di fine visualizzazione dell'avviso."
 
 #: models.py:35
 msgid "End date time"
@@ -90,63 +91,63 @@ msgstr "Data e ora fine"
 
 #: models.py:42
 msgid "Announcement"
-msgstr ""
+msgstr "Avviso"
 
 #: permissions.py:10
 msgid "Create announcements"
-msgstr ""
+msgstr "Crea avvisi"
 
 #: permissions.py:13
 msgid "Delete announcements"
-msgstr ""
+msgstr "Elimina avvisi"
 
 #: permissions.py:16
 msgid "Edit announcements"
-msgstr ""
+msgstr "Modifica avvisi"
 
 #: permissions.py:19
 msgid "View announcements"
-msgstr ""
+msgstr "Vedi avvisi"
 
 #: views.py:45
 #, python-format
 msgid "Error deleting announcement \"%(instance)s\"; %(exception)s"
-msgstr ""
+msgstr "Errore nella cancellazione dell'avviso \"%(instance)s\"; %(exception)s"
 
 #: views.py:54
 #, python-format
 msgid "Announcement \"%(object)s\" deleted successfully."
-msgstr ""
+msgstr "Avviso \"%(object)s\" cancellato correttamente."
 
 #: views.py:57
 #, python-format
 msgid "%(count)d announcement deleted successfully."
-msgstr ""
+msgstr "%(count)d avvisi cancellati correttamente."
 
 #: views.py:60
 #, python-format
 msgid "%(count)d announcements deleted successfully."
-msgstr ""
+msgstr "%(count)d avvisi cancellati correttamente."
 
 #: views.py:62
 #, python-format
 msgid "Delete announcement: %(object)s."
-msgstr ""
+msgstr "Cancella avviso: %(object)s."
 
 #: views.py:63
 #, python-format
 msgid "Delete the %(count)d selected announcement."
-msgstr ""
+msgstr "Elimina %(count)d avviso selezionato."
 
 #: views.py:64
 #, python-format
 msgid "Delete the %(count)d selected announcements."
-msgstr ""
+msgstr "Elimina %(count)d avvisi selezionati."
 
 #: views.py:98
 #, python-format
 msgid "Edit announcement: %s"
-msgstr ""
+msgstr "Modifica avviso: %s"
 
 #: views.py:121
 msgid ""
@@ -154,7 +155,10 @@ msgid ""
 "convery information about your organzation, announcements or usage "
 "guidelines for your users."
 msgstr ""
+"Gli avvisi sono visualizzati nella schermata di login. Puoi usare gli avvisi"
+" per trasmettere informazioni sulla tua azienda, annunci vari o linee guida "
+"di utilizzo per gli utenti."
 
 #: views.py:125
 msgid "No announcements available"
-msgstr ""
+msgstr "Nessun avviso disponibile"

@@ -208,7 +208,6 @@ class DocumentTestMixin:
             self._test_document_file.file_pages.all()
         )
         self._test_document_file_page = self._test_document_file.file_pages.first()
-
         self._test_document_version = self._test_document.version_active
         self._test_document_versions.append(self._test_document_version)
         self._test_document_version_pages = list(
