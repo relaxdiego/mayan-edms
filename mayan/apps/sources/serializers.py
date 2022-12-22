@@ -59,7 +59,9 @@ class SourceBackendActionSerializer(serializers.Serializer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        if self.context['action'].accept_files:
+        action = self.context.get('action')
+
+        if action and action.accept_files:
             self.fields['file'] = serializers.FileField(
                 help_text=_('Binary content for the new file.'),
                 use_url=False, write_only=True
