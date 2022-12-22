@@ -6,8 +6,8 @@ from rest_framework.fields import (  # NOQA
     DecimalField, DictField, DurationField, EmailField, Field, FileField,
     FilePathField, FloatField, HiddenField, HStoreField, IPAddressField,
     ImageField, IntegerField, JSONField, ListField, ModelField,
-    MultipleChoiceField, NullBooleanField, ReadOnlyField, RegexField,
-    SerializerMethodField, SlugField, TimeField, URLField, UUIDField
+    MultipleChoiceField, ReadOnlyField, RegexField, SerializerMethodField,
+    SlugField, TimeField, URLField, UUIDField
 )
 from rest_framework.serializers import (
     HyperlinkedModelSerializer as RESTFrameworkHyperlinkedModelSerializer,

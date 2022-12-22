@@ -11,6 +11,8 @@
 
   - Celery from 5.1.2 to 5.2.7.
   - extract msg from 0.34.3 to 0.36.4.
+  - djangorestframework from 3.13.1 to 3.14.0.
+  - drf-yasg from 1.20.0 to 1.21.4
 
 - Increase compatibility of the file caching storage usage with more S3
   object storage implementations.
