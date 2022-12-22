@@ -248,6 +248,7 @@
   This prevents API views from overriding the queryset return methods and
   allows the ``SchemaInspectionAPIViewMixin`` mixin to work in all
   instances.
+- Add support for platform client backends to register tool links.
 
 4.3.4 (2022-12-19)
 ==================

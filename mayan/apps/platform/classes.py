@@ -9,6 +9,7 @@ from django.template.context import Context
 from django.utils.html import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
+from mayan.apps.common.menus import menu_tools
 from mayan.apps.common.serialization import yaml_dump, yaml_load
 from mayan.apps.databases.classes import BaseBackend
 from mayan.apps.task_manager.classes import Worker
@@ -42,12 +43,21 @@ class ClientBackend(BaseBackend):
     @classmethod
     def post_load_modules(cls):
         cls.register_url_patterns()
+        cls.register_links()
         cls.launch_backends()
 
     @classmethod
     def launch_backends(cls):
         for backend_name in setting_client_backend_enabled.value:
             cls.get_backend_instance(name=backend_name).launch()
+
+    @classmethod
+    def register_links(cls):
+        for backend_name in setting_client_backend_enabled.value:
+            backend_instance = cls.get_backend_instance(name=backend_name)
+            menu_tools.bind_links(
+                links=backend_instance.get_links()
+            )
 
     @classmethod
     def register_url_patterns(cls):
@@ -74,6 +84,9 @@ class ClientBackend(BaseBackend):
 
     def __init__(self, **kwargs):
         self.kwargs = kwargs
+
+    def get_links(self):
+        return ()
 
 
 class Variable:

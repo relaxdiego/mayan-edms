@@ -6,17 +6,35 @@ from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.redis import RedisIntegration
 
 from django.conf.urls import url
+from django.utils.translation import ugettext_lazy as _
 
 import mayan
+from mayan.apps.appearance.classes import Icon
 from mayan.apps.common.utils import any_to_bool
+from mayan.apps.navigation.classes import Link
 
 from .classes import ClientBackend
+from .permissions import permission_test_trigger
 
 logger = logging.getLogger(name=__name__)
 
 
 class ClientBackendSentry(ClientBackend):
     _url_namespace = 'sentry'
+
+    def get_links(self):
+        icon_sentry_debug = Icon(
+            driver_name='fontawesome', symbol='bug'
+        )
+
+        return (
+            Link(
+                icon=icon_sentry_debug,
+                permissions=(permission_test_trigger,),
+                text=_('Sentry test error'),
+                view='platform:sentry_debug',
+            ),
+        )
 
     def get_url_patterns(self):
         def view_trigger_error(request):
