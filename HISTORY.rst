@@ -249,6 +249,7 @@
   allows the ``SchemaInspectionAPIViewMixin`` mixin to work in all
   instances.
 - Add support for platform client backends to register tool links.
+- Lower the default Sentry client sample rate from 0.05 to 0.01.
 
 4.3.4 (2022-12-19)
 ==================
