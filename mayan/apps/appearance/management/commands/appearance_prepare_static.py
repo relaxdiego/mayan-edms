@@ -15,9 +15,17 @@ class Command(DjangoCommand):
         self.verbosity = options['verbosity']
 
         for key, data in apps.app_configs.items():
-            options['ignore_patterns'].extend(getattr(data, 'static_media_ignore_patterns', ()))
+            options['ignore_patterns'].extend(
+                getattr(
+                    data, 'static_media_ignore_patterns', ()
+                )
+            )
 
         if options['verbosity'] >= 1:
-            self.log('Ignore patterns: {}'.format(options['ignore_patterns']), level=1)
+            self.log(
+                'Ignore patterns: {}'.format(
+                    options['ignore_patterns']
+                ), level=1
+            )
 
         return super().handle(**options)
