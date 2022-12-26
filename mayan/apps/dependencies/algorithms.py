@@ -1,6 +1,8 @@
 import base64
 import hashlib
 
+from django.utils.encoding import force_text
+
 
 class HashAlgorithm:
     DEFAULT_BLOCK_SIZE = 65535
@@ -29,8 +31,8 @@ class HashAlgorithm:
             self.hash_object.update(data)
 
     def get_digest(self):
-        return str(
-            self._get_digest()
+        return force_text(
+            s=self._get_digest()
         )
 
 
