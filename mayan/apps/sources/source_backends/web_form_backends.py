@@ -11,6 +11,7 @@ from mayan.apps.acls.models import AccessControlList
 from mayan.apps.documents.models.document_type_models import DocumentType
 from mayan.apps.documents.permissions import permission_document_create
 from mayan.apps.storage.models import SharedUploadedFile
+from mayan.apps.views.settings import setting_show_dropzone_submit_button
 
 from ..classes import SourceBackendAction, SourceBackend
 from ..forms import WebFormUploadFormHTML5
@@ -79,10 +80,14 @@ class SourceBackendWebForm(
         )
 
     def get_view_context(self, context, request):
+        if setting_show_dropzone_submit_button.value:
+            form_disable_submit = False
+        else:
+            form_disable_submit = True
+
         return {
             'subtemplates_list': [
                 {
-                    'name': 'appearance/generic_multiform_subtemplate.html',
                     'context': {
                         'forms': context['forms'],
                         'form_action': '{}?{}'.format(
@@ -92,10 +97,11 @@ class SourceBackendWebForm(
                             ), request.META['QUERY_STRING']
                         ),
                         'form_css_classes': 'dropzone',
-                        'form_disable_submit': True,
+                        'form_disable_submit': form_disable_submit,
                         'form_id': 'html5upload',
                         'is_multipart': True
-                    }
+                    },
+                    'name': 'appearance/generic_multiform_subtemplate.html'
                 }
             ]
         }

@@ -1,4 +1,10 @@
-from mayan.apps.dependencies.classes import PythonDependency
+from mayan.apps.dependencies.classes import (
+    JavaScriptDependency, PythonDependency
+)
+
+JavaScriptDependency(
+    module=__name__, name='dropzone', version_string='=5.9.3'
+)
 
 PythonDependency(
     module=__name__, name='django-formtools', version_string='==2.3'

@@ -27,7 +27,7 @@ class NewDocumentFileForm(forms.Form):
         label=_('Comment'), required=False,
         widget=forms.widgets.Textarea(
             attrs={'rows': 4}
-        ),
+        )
     )
     action = forms.ChoiceField(
         label=_('Action'), help_text=_(

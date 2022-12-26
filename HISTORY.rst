@@ -250,6 +250,9 @@
   instances.
 - Add support for platform client backends to register tool links.
 - Lower the default Sentry client sample rate from 0.05 to 0.01.
+- Add new setting to disable automatic upload after dragging files to the
+  DropZone widget. The setting is named ``VIEWS_SHOW_DROPZONE_SUBMIT_BUTTON``
+  and defaults to ``False``.
 
 4.3.4 (2022-12-19)
 ==================
