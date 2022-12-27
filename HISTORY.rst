@@ -253,6 +253,8 @@
 - Add new setting to disable automatic upload after dragging files to the
   DropZone widget. The setting is named ``VIEWS_SHOW_DROPZONE_SUBMIT_BUTTON``
   and defaults to ``False``.
+- Raise an ``ImproperlyConfigured`` exception when a model is registered for
+  error logging more than once.
 
 4.3.4 (2022-12-19)
 ==================

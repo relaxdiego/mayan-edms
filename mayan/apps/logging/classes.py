@@ -1,6 +1,7 @@
 import logging
 
 from django.apps import apps
+from django.core.exceptions import ImproperlyConfigured
 from django.db.models.signals import post_save, pre_delete
 
 from mayan.apps.acls.classes import ModelPermission
@@ -45,6 +46,12 @@ class ErrorLog:
 
     def register_model(self, model, register_permission=False):
         error_log_instance = self
+
+        if getattr(model, 'error_log', None):
+            raise ImproperlyConfigured(
+                'Model `{}` has already been registered for error '
+                'logging.'.format(model)
+            )
 
         @property
         def method_instance_logs(self):
