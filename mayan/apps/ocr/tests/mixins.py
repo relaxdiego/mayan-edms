@@ -1,6 +1,6 @@
 from ..events import event_ocr_document_version_finished
 from ..models import DocumentVersionPageOCRContent
-from ..tasks import task_document_version_ocr_finished
+from ..tasks import task_document_version_ocr_process
 
 from .literals import (
     TEST_DOCUMENT_VERSION_OCR_CONTENT,
@@ -65,11 +65,11 @@ class DocumentVersionOCRAPIViewTestMixin:
 
 
 class DocumentVersionOCRTaskTestMixin:
-    def _execute_task_document_version_ocr_finished(self):
-        task_document_version_ocr_finished.apply_async(
+    def _execute_task_document_version_ocr_process(self):
+        task_document_version_ocr_process.apply_async(
             kwargs={
-                'results': '',
-                'document_version_id': self._test_document_version.pk
+                'document_version_id': self._test_document_version.pk,
+                'user_id': self._test_case_user.pk
             }
         ).get()
 

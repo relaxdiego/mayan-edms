@@ -21,7 +21,7 @@ class GermanOCRSupportTestCase(GenericDocumentTestCase):
     _test_document_path = TEST_FILE_GERMAN_PATH
     _test_document_language = 'deu'
 
-    def test_ocr_language_backends_end(self):
+    def test_ocr_language_backends(self):
         content = self._test_document.version_active.pages.first().ocr_content.content
 
         self.assertTrue(

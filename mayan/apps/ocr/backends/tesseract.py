@@ -1,12 +1,9 @@
 import logging
 import os
-import shutil
 
 import sh
 
 from django.utils.translation import ugettext_lazy as _
-
-from mayan.apps.storage.utils import TemporaryFile
 
 from ..classes import OCRBackendBase
 from ..exceptions import OCRError
@@ -26,55 +23,53 @@ class Tesseract(OCRBackendBase):
         if kwargs.get('auto_initialize', True):
             self.initialize()
 
-    def execute(self, *args, **kwargs):
+    def _execute(self, image_file_object):
         """
         Execute the command line binary of tesseract.
         """
-        super().execute(*args, **kwargs)
-
         if self.command_tesseract:
-            image = self.converter.get_page()
+            arguments = ['-', '-']
 
-            with TemporaryFile() as temporary_image_file:
-                shutil.copyfileobj(fsrc=image, fdst=temporary_image_file)
-                temporary_image_file.seek(0)
+            keyword_arguments = {
+                '_in': image_file_object,
+                '_timeout': self.command_timeout
+            }
 
-                arguments = ['-', '-']
+            if self.language:
+                keyword_arguments['l'] = self.language
 
-                keyword_arguments = {
-                    '_in': temporary_image_file,
-                    '_timeout': self.command_timeout
-                }
+            environment = os.environ.copy()
+            environment.update(self.environment)
+            keyword_arguments['_env'] = environment
 
-                if self.language:
-                    keyword_arguments['l'] = self.language
-
-                environment = os.environ.copy()
-                environment.update(self.environment)
-                keyword_arguments['_env'] = environment
-
-                try:
-                    result = self.command_tesseract(
-                        *arguments, **keyword_arguments
+            try:
+                result = self.command_tesseract(
+                    *arguments, **keyword_arguments
+                )
+            except Exception as exception:
+                error_message_list = []
+                error_message_list.append(
+                    'Exception calling Tesseract with language option: {}; {}'.format(
+                        self.language, exception
                     )
-                    return str(result.stdout)
-                except Exception as exception:
-                    error_message = (
-                        'Exception calling Tesseract with language option: {}; {}'
-                    ).format(self.language, exception)
+                )
 
-                    if self.language not in self.languages:
-                        error_message = (
-                            '{}\nThe requested OCR language "{}" is not '
-                            'available and needs to be installed.\n'
-                        ).format(
-                            error_message, self.language
+                if self.language not in self.languages:
+                    error_message_list.append(
+                        'The requested OCR language "{}" is not '
+                        'available and needs to be installed.'.format(
+                            self.language
                         )
+                    )
 
-                    logger.error(error_message, exc_info=True)
-                    raise OCRError(error_message)
-                else:
-                    return result
+                error_message = '/n'.join(error_message_list)
+
+                logger.error(error_message, exc_info=True)
+                raise OCRError(error_message)
+            else:
+                return result.stdout
+        else:
+            return ''
 
     def initialize(self):
         self.languages = ()

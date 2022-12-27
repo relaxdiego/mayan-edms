@@ -9,8 +9,6 @@ from django.db import OperationalError
 from mayan.apps.lock_manager.exceptions import LockError
 from mayan.celery import app
 
-from .events import event_ocr_document_version_finished
-
 logger = logging.getLogger(name=__name__)
 
 
@@ -29,25 +27,20 @@ def task_document_version_ocr_process(
         pk=document_version_id
     )
 
-    try:
-        document_version_page_tasks = []
-        for document_version_page in document_version.pages.all():
-            document_version_page_tasks.append(
-                task_document_version_page_ocr_process.s(
-                    document_version_page_id=document_version_page.pk,
-                    user_id=user_id
-                )
-            )
-        chord(document_version_page_tasks)(
-            task_document_version_ocr_finished.s(
-                document_version_id=document_version.pk, user_id=user_id
+    document_version_page_tasks = []
+    for document_version_page in document_version.pages.all():
+        document_version_page_tasks.append(
+            task_document_version_page_ocr_process.s(
+                document_version_page_id=document_version_page.pk,
+                user_id=user_id
             )
         )
-    except Exception as exception:
-        document_version.error_log.create(
-            text=str(exception)
+
+    chord(document_version_page_tasks)(
+        task_document_version_ocr_finished.s(
+            document_version_id=document_version.pk, user_id=user_id
         )
-        raise
+    )
 
 
 @app.task(bind=True, retry_backoff=True)
@@ -102,9 +95,11 @@ def task_document_version_ocr_finished(
     DocumentVersion = apps.get_model(
         app_label='documents', model_name='DocumentVersion'
     )
-    document_version = DocumentVersion.objects.get(pk=document_version_id)
+    DocumentVersionPageOCRContent = apps.get_model(
+        app_label='ocr', model_name='DocumentVersionPageOCRContent'
+    )
 
-    document_version.error_log.all().delete()
+    document_version = DocumentVersion.objects.get(pk=document_version_id)
 
     User = get_user_model()
 
@@ -114,17 +109,10 @@ def task_document_version_ocr_finished(
         user = None
 
     try:
-        event_ocr_document_version_finished.commit(
-            action_object=document_version.document, actor=user,
-            target=document_version
+        DocumentVersionPageOCRContent.objects.do_ocr_finished(
+            document_version=document_version,
+            user=user
         )
-    except Exception as exception:
-        logger.error(
-            'Exception in OCR finish for document version: %d; %s',
-            document_version_id, exception, exc_info=True
-        )
-        document_version.error_log.create(text=exception)
-        raise
     except OperationalError as exception:
         logger.warning(
             'Operational error in OCR finish for document version: %d; %s. '

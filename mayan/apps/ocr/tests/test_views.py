@@ -1,3 +1,5 @@
+from django.utils.encoding import force_bytes
+
 from mayan.apps.documents.tests.base import GenericDocumentViewTestCase
 
 from ..events import (
@@ -481,8 +483,10 @@ class DocumentVersionOCRViewTestCase(
         self.assertEqual(response.status_code, 200)
 
         self.assert_download_response(
-            response=response, content=''.join(
-                self._test_document.ocr_content()
+            response=response, content=force_bytes(
+                s=''.join(
+                    self._test_document.ocr_content()
+                )
             )
         )
 

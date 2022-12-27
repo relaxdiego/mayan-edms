@@ -256,6 +256,15 @@
 - Raise an ``ImproperlyConfigured`` exception when a model is registered for
   error logging more than once.
 - Move error logging registration of document models to the documents app.
+- OCR updates:
+
+  - Move error logging from the document version to the document version
+    page.
+  - Add OCR backend ``_execute`` to avoid subclasses from calling the super
+    class.
+  - The base class now prepares the image to be processed and passes the
+    file object to the subclass.
+  - Move OCR finished event commit from the task to the manager.
 
 4.3.4 (2022-12-19)
 ==================
