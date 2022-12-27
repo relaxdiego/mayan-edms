@@ -12,7 +12,7 @@ from mayan.apps.common.menus import (
 from mayan.apps.databases.classes import ModelFieldRelated, ModelProperty
 from mayan.apps.documents.signals import signal_post_document_version_remap
 from mayan.apps.events.classes import ModelEventType
-from mayan.apps.logging.classes import ErrorLog
+
 
 from .events import (
     event_ocr_document_version_content_deleted,
@@ -138,9 +138,6 @@ class OCRApp(MayanAppConfig):
         ModelPermission.register_inheritance(
             model=DocumentTypeOCRSettings, related='document_type',
         )
-
-        error_log = ErrorLog(app_config=self)
-        error_log.register_model(model=DocumentVersion)
 
         # Document type
 

@@ -255,6 +255,7 @@
   and defaults to ``False``.
 - Raise an ``ImproperlyConfigured`` exception when a model is registered for
   error logging more than once.
+- Move error logging registration of document models to the documents app.
 
 4.3.4 (2022-12-19)
 ==================

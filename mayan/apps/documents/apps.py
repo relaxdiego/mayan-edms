@@ -25,6 +25,7 @@ from mayan.apps.databases.classes import (
 from mayan.apps.events.classes import EventModelRegistry, ModelEventType
 from mayan.apps.file_caching.links import link_cache_partition_purge
 from mayan.apps.file_caching.permissions import permission_cache_partition_purge
+from mayan.apps.logging.classes import ErrorLog
 from mayan.apps.navigation.classes import SourceColumn
 from mayan.apps.rest_api.fields import DynamicSerializerField
 from mayan.apps.templating.classes import AJAXTemplate
@@ -263,6 +264,13 @@ class DocumentsApp(MayanAppConfig):
             name='invalid_document',
             template_name='documents/invalid_document.html'
         )
+
+        error_log = ErrorLog(app_config=self)
+        error_log.register_model(model=Document)
+        error_log.register_model(model=DocumentFile)
+        error_log.register_model(model=DocumentFilePage)
+        error_log.register_model(model=DocumentVersion)
+        error_log.register_model(model=DocumentVersionPage)
 
         link_decorations_list = link_transformation_list.copy(
             layer=layer_decorations

@@ -12,7 +12,6 @@ from mayan.apps.common.menus import (
 from mayan.apps.databases.classes import ModelFieldRelated, ModelProperty
 from mayan.apps.documents.signals import signal_post_document_file_upload
 from mayan.apps.events.classes import ModelEventType
-from mayan.apps.logging.classes import ErrorLog
 
 from .events import (
     event_parsing_document_file_content_deleted,
@@ -124,9 +123,6 @@ class DocumentParsingApp(MayanAppConfig):
         ModelPermission.register_inheritance(
             model=DocumentTypeSettings, related='document_type',
         )
-
-        error_log = ErrorLog(app_config=self)
-        error_log.register_model(model=DocumentFile)
 
         menu_list_facet.bind_links(
             links=(link_document_file_content_detail,), sources=(DocumentFile,)
