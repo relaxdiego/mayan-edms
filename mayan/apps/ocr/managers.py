@@ -5,7 +5,6 @@ from django.db import models
 
 from mayan.apps.converter.settings import setting_image_generation_timeout
 from mayan.apps.lock_manager.backends.base import LockingBackend
-from mayan.apps.lock_manager.exceptions import LockError
 
 from .classes import OCRBackendBase
 from .events import (

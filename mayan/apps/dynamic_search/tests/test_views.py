@@ -322,7 +322,7 @@ class SearchViewTestCase(
         )
         self.assertContains(
             html=True, response=response, status_code=200,
-            text='<input type="radio" name="{name}" value="False" id="id_{id}_1">'.format(
+            text='<input type="radio" name="{name}" value="{value}" id="id_{id}_1">'.format(
                 id=MATCH_ALL_FIELD_NAME, name=MATCH_ALL_FIELD_NAME,
                 value=MATCH_ALL_FIELD_CHOICES[1][0]
             )

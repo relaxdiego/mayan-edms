@@ -21,4 +21,3 @@ class ViewsApp(MayanAppConfig):
 
     def ready(self):
         super().ready()
-

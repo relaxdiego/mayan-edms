@@ -257,9 +257,7 @@ class UserManagementApp(MayanAppConfig):
         )
 
         error_log = ErrorLog(app_config=self)
-        error_log.register_model(
-            model=User#, register_permission=True
-        )
+        error_log.register_model(model=User)
 
         # Group
 
