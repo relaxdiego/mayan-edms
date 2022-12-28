@@ -20,8 +20,9 @@ class ErrorLoggingModelTestCase(ErrorLogPartitionEntryTestMixin, BaseTestCase):
         self._test_object.error_log.create(text='4')
 
         self.assertEqual(
-            list(self._test_object.error_log.values_list('text', flat=True)),
-            ['2', '3', '4']
+            list(
+                self._test_object.error_log.values_list('text', flat=True)
+            ), ['2', '3', '4']
         )
 
     def test_orphan_error_logs_after_object_deletion(self):
