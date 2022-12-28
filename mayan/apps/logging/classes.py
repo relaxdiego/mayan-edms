@@ -44,7 +44,7 @@ class ErrorLog:
     def __str__(self):
         return str(self.app_config.verbose_name)
 
-    def register_model(self, model, register_permission=False):
+    def register_model(self, model, register_permission=True):
         error_log_instance = self
 
         if getattr(model, 'error_log', None):

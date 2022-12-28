@@ -267,6 +267,7 @@
   - Move OCR finished event commit from the task to the manager.
 
 - Restore object event attributes when the event is ignored.
+- Error log registration now register error log permissions too by default.
 
 4.3.4 (2022-12-19)
 ==================
