@@ -194,17 +194,19 @@ class SearchModelAPIViewTestCase(
                 'search_fields': []
             }
 
-            for search_field in search_model.get_search_fields():
+            for search_field in search_model.search_fields:
                 search_model_expected_value['search_fields'].append(
                     {
-                        'field': search_field.field,
+                        'field_name': search_field.field_name,
                         'label': search_field.label
                     }
                 )
 
             expected_value.append(search_model_expected_value)
 
-        self.assertEqual(response.data['results'], expected_value)
+        self.assertEqual(
+            response.data['results'], expected_value
+        )
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 0)

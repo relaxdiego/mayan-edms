@@ -10,8 +10,8 @@ class DummySearchResultModelSerializer(serializers.Serializer):
 
 
 class SearchFieldSerializer(serializers.Serializer):
-    field = serializers.CharField(
-        label=_('Field'), read_only=True
+    field_name = serializers.CharField(
+        label=_('Field name'), read_only=True
     )
     label = serializers.CharField(
         label=_('Label'), read_only=True

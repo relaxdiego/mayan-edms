@@ -732,8 +732,8 @@ class BackendFieldTypeQueryTypeDateTimeTestCaseMixin:
         id_list = self._do_backend_search(
             field_name='datetime',
             query_type=QueryTypeGreaterThan, value='{year}-{month}'.format(
-                year=self._test_object.datetime.year,
-                month=self._test_object.datetime.month - 1
+                year=self._test_object.datetime.year - 1,
+                month=self._test_object.datetime.month
             )
         )
 
@@ -766,8 +766,8 @@ class BackendFieldTypeQueryTypeDateTimeTestCaseMixin:
             field_name='datetime',
             query_type=QueryTypeGreaterThanOrEqual,
             value='{year}-{month}'.format(
-                year=self._test_object.datetime.year,
-                month=self._test_object.datetime.month - 1
+                year=self._test_object.datetime.year - 1,
+                month=self._test_object.datetime.month
             )
         )
 
@@ -778,8 +778,8 @@ class BackendFieldTypeQueryTypeDateTimeTestCaseMixin:
         id_list = self._do_backend_search(
             field_name='datetime',
             query_type=QueryTypeLessThan, value='{year}-{month}'.format(
-                year=self._test_object.datetime.year,
-                month=self._test_object.datetime.month + 1
+                year=self._test_object.datetime.year + 1,
+                month=self._test_object.datetime.month
             )
         )
 
@@ -800,8 +800,8 @@ class BackendFieldTypeQueryTypeDateTimeTestCaseMixin:
             field_name='datetime',
             query_type=QueryTypeLessThanOrEqual,
             value='{year}-{month}'.format(
-                year=self._test_object.datetime.year,
-                month=self._test_object.datetime.month + 1
+                year=self._test_object.datetime.year + 1,
+                month=self._test_object.datetime.month
             )
         )
 
@@ -813,10 +813,10 @@ class BackendFieldTypeQueryTypeDateTimeTestCaseMixin:
             field_name='datetime',
             query_type=QueryTypeRange,
             value='{year_low}-{month_low}..{year_high}-{month_high}'.format(
-                year_low=self._test_object.datetime.year,
-                month_low=self._test_object.datetime.month - 1,
-                year_high=self._test_object.datetime.year,
-                month_high=self._test_object.datetime.month + 1
+                year_low=self._test_object.datetime.year - 1,
+                month_low=self._test_object.datetime.month,
+                year_high=self._test_object.datetime.year + 1,
+                month_high=self._test_object.datetime.month
             )
         )
 
@@ -859,10 +859,10 @@ class BackendFieldTypeQueryTypeDateTimeTestCaseMixin:
             field_name='datetime',
             query_type=QueryTypeRangeExclusive,
             value='{year_low}-{month_low}..{year_high}-{month_high}'.format(
-                year_low=self._test_object.datetime.year,
-                month_low=self._test_object.datetime.month - 1,
-                year_high=self._test_object.datetime.year,
-                month_high=self._test_object.datetime.month + 1
+                year_low=self._test_object.datetime.year - 1,
+                month_low=self._test_object.datetime.month,
+                year_high=self._test_object.datetime.year + 1,
+                month_high=self._test_object.datetime.month
             )
         )
 

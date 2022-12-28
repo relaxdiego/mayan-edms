@@ -227,7 +227,6 @@ class DjangoSearchBackend(SearchBackend):
     field_type_mapping = DJANGO_TO_DJANGO_FIELD_MAP
 
     def _do_search_model_filter(self, filter_kwargs, limit, search_field):
-
         queryset = search_field.search_model.get_queryset().annotate(
             **{
                 '{}_clean'.format(search_field.field_name): Replace(

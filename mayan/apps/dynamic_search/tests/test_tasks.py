@@ -1,3 +1,5 @@
+from unittest import skip
+
 from django.db import models
 
 from mayan.apps.testing.tests.base import BaseTestCase
@@ -40,6 +42,7 @@ class SearchTaskTestCase(SearchTaskTestMixin, SearchTestMixin, BaseTestCase):
         backend = SearchBackend.get_instance()
         backend.reset()
 
+    @skip(reason='Test with a backend that supports reindexing.')
     def test_task_index_instances(self):
         queryset = self._do_search(
             search_terms=self._test_objects[0].test_field
@@ -53,6 +56,7 @@ class SearchTaskTestCase(SearchTaskTestMixin, SearchTestMixin, BaseTestCase):
         )
         self.assertTrue(self._test_objects[0] in queryset)
 
+    @skip(reason='Test with a backend that supports reindexing.')
     def test_task_reindex_backend(self):
         queryset = self._do_search(
             search_terms=self._test_objects[0].test_field

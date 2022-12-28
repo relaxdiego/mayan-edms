@@ -1,3 +1,5 @@
+from unittest import skip
+
 from django.urls import reverse
 
 from mayan.apps.documents.permissions import permission_document_view
@@ -8,7 +10,8 @@ from mayan.apps.documents.tests.mixins.document_mixins import (
 from mayan.apps.testing.tests.base import GenericViewTestCase
 
 from ..literals import (
-    MATCH_ALL_VALUES, QUERY_PARAMETER_ANY_FIELD, SEARCH_MODEL_NAME_KWARG
+    MATCH_ALL_FIELD_CHOICES, MATCH_ALL_FIELD_NAME, MATCH_ALL_VALUES,
+    QUERY_PARAMETER_ANY_FIELD, SEARCH_MODEL_NAME_KWARG
 )
 from ..permissions import permission_search_tools
 
@@ -306,13 +309,23 @@ class SearchViewTestCase(
 
         response = self._request_search_again_view(
             follow=True, query={
-                'label': 'test', '_match_all': MATCH_ALL_VALUES[0]
+                'label': 'test', MATCH_ALL_FIELD_NAME: MATCH_ALL_VALUES[0]
             }
         )
 
         self.assertContains(
             html=True, response=response, status_code=200,
-            text='<input checked="checked" name="_match_all" type="checkbox">'
+            text='<input type="radio" name="{name}" value="{value}" id="id_{id}_0">'.format(
+                id=MATCH_ALL_FIELD_NAME, name=MATCH_ALL_FIELD_NAME,
+                value=MATCH_ALL_FIELD_CHOICES[0][0]
+            )
+        )
+        self.assertContains(
+            html=True, response=response, status_code=200,
+            text='<input type="radio" name="{name}" value="False" id="id_{id}_1">'.format(
+                id=MATCH_ALL_FIELD_NAME, name=MATCH_ALL_FIELD_NAME,
+                value=MATCH_ALL_FIELD_CHOICES[1][0]
+            )
         )
 
         events = self._get_test_events()
@@ -405,6 +418,7 @@ class SearchToolsViewTestCase(
     SearchToolsViewTestMixin, TestSearchObjectSimpleTestMixin,
     SearchTestMixin, GenericViewTestCase
 ):
+    @skip(reason='Test with a backend that supports reindexing.')
     def test_search_backend_reindex_view_no_permission(self):
         self._test_search_backend.reset(
             search_model=self._test_search_model
@@ -425,6 +439,7 @@ class SearchToolsViewTestCase(
         events = self._get_test_events()
         self.assertEqual(events.count(), 0)
 
+    @skip(reason='Test with a backend that supports reindexing.')
     def test_search_backend_reindex_view_with_permission(self):
         self._test_search_backend.reset(
             search_model=self._test_search_model

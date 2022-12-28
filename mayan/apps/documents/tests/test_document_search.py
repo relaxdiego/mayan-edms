@@ -28,7 +28,9 @@ class DocumentSearchTestCase(SearchTestMixin, GenericDocumentViewTestCase):
 
         queryset = self._do_test_search(
             query={
-                'datetime_created': self._test_document.datetime_created.isoformat()
+                'datetime_created': '>={}'.format(
+                    self._test_document.datetime_created.isoformat()
+                )
             }
         )
         self.assertFalse(self._test_document in queryset)
@@ -45,7 +47,9 @@ class DocumentSearchTestCase(SearchTestMixin, GenericDocumentViewTestCase):
 
         queryset = self._do_test_search(
             query={
-                'datetime_created': self._test_document.datetime_created.isoformat()
+                'datetime_created': '>={}'.format(
+                    self._test_document.datetime_created.isoformat()
+                )
             }
         )
         self.assertTrue(self._test_document in queryset)
@@ -64,9 +68,12 @@ class DocumentSearchTestCase(SearchTestMixin, GenericDocumentViewTestCase):
 
         queryset = self._do_test_search(
             query={
-                'datetime_created': self._test_document.datetime_created.isoformat()
+                'datetime_created': '>={}'.format(
+                    self._test_document.datetime_created.isoformat()
+                )
             }
         )
+
         self.assertTrue(self._test_document not in queryset)
 
         events = self._get_test_events()
