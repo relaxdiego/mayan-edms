@@ -1,28 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
 # bwakkie <bwakkie@gmail.com>, 2022
 # Roberto Rosario, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Roberto Rosario, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:132 permissions.py:5 settings.py:16
+#: apps.py:131 permissions.py:6 settings.py:16
 msgid "Common"
 msgstr "Gemeenschappelijk"
 
@@ -82,7 +82,7 @@ msgstr "Online opslag"
 msgid "Get support"
 msgstr "Ondersteuning"
 
-#: links.py:69 queues.py:6 views.py:131
+#: links.py:69 queues.py:7 views.py:134
 msgid "Tools"
 msgstr "Gereedschappen"
 
@@ -93,15 +93,15 @@ msgstr ""
 "Deze functie is achterhaald en zal worden verwijderd in een toekomstige "
 "versie."
 
-#: literals.py:29
+#: literals.py:30
 msgid "Days"
 msgstr "Dagen"
 
-#: literals.py:30
+#: literals.py:31
 msgid "Hours"
 msgstr "Uren"
 
-#: literals.py:31
+#: literals.py:32
 msgid "Minutes"
 msgstr "Minuten"
 
@@ -133,11 +133,11 @@ msgstr "Terug"
 msgid "User"
 msgstr "Gebruiker"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Copy object"
 msgstr "Kopieer object"
 
-#: settings.py:23
+#: settings.py:24
 msgid ""
 "In list mode, show the \"list facet\" menu options as a dropdown menu "
 "instead of individual buttons."
@@ -145,40 +145,40 @@ msgstr ""
 "Geef in de lijstmodus, de menu-opties \"lijst facet\" weer als een menu "
 "keuze in plaats van afzonderlijke knoppen."
 
-#: settings.py:31
+#: settings.py:33
 msgid ""
-"In list mode, show the \"object\" menu options as a dropdown menu instead of"
-" individual buttons."
+"In list mode, show the \"object\" menu options as a dropdown menu instead of "
+"individual buttons."
 msgstr ""
 "Toon in lijstmodus de menu-opties \"object\" als een menu keuze in plaats "
 "van afzonderlijke knoppen."
 
-#: settings.py:38
+#: settings.py:41
 msgid ""
 "Disables the use of the local `media` folder. When using this setting, all "
 "apps must be also configured via their respective storage backend settings "
 "to use alternate persistence."
 msgstr ""
 
-#: settings.py:46
+#: settings.py:49
 msgid ""
 "A list of strings designating all applications that are to be removed from "
 "the list normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. Example: ['app_1', 'app_2']"
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. Example: ['app_1', 'app_2']"
 msgstr ""
-"Een lijst met tekenreeksen die alle toepassingen aanduiden die moeten worden"
-" verwijderd uit de lijst die normaal door Mayan EDMS wordt geïnstalleerd. "
+"Een lijst met tekenreeksen die alle toepassingen aanduiden die moeten worden "
+"verwijderd uit de lijst die normaal door Mayan EDMS wordt geïnstalleerd. "
 "Elke tekenreeks moet een Python-pad met stippellijnen zijn naar: een "
 "toepassingsconfiguratieklasse (bij voorkeur), of een pakket dat een "
 "toepassing bevat. Voorbeeld: ['app_1', 'app_2']"
 
-#: settings.py:56
+#: settings.py:59
 msgid ""
 "A list of strings designating all applications that are installed beyond "
 "those normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. Example: ['app_1', 'app_2']"
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. Example: ['app_1', 'app_2']"
 msgstr ""
 "Een lijst met tekenreeksen die alle toepassingen aanduiden die worden "
 "geïnstalleerd buiten de toepassingen die normaal door Mayan EDMS worden "
@@ -186,12 +186,12 @@ msgstr ""
 "naar: een toepassingsconfiguratieklasse (bij voorkeur), of een pakket dat "
 "een toepassing bevat. Voorbeeld: ['app_1', 'app_2']"
 
-#: settings.py:67
+#: settings.py:70
 msgid ""
 "A list of strings designating all applications that are installed beyond "
 "those normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. These apps will be installed before the default "
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. These apps will be installed before the default "
 "apps. Example: ['app_1', 'app_2']"
 msgstr ""
 "Een lijst met tekenreeksen die alle toepassingen aanduiden die worden "
@@ -201,25 +201,25 @@ msgstr ""
 "een toepassing bevat. Deze apps worden vóór de standaardapps geïnstalleerd. "
 "Voorbeeld:  ['app_1', 'app_2']"
 
-#: settings.py:78
+#: settings.py:81
 msgid ""
-"Name of the view attached to the brand anchor in the main menu. This is also"
-" the view to which users will be redirected after log in."
+"Name of the view attached to the brand anchor in the main menu. This is also "
+"the view to which users will be redirected after log in."
 msgstr ""
 "Naam van de overzicht gekoppeld aan het logo in het hoofdmenu. Dit is ook "
 "het overzicht waarnaar gebruikers worden doorgestuurd nadat ze zich hebben "
 "aangemeld."
 
-#: settings.py:87
+#: settings.py:90
 msgid "Name of the dashboard to display in the home view."
 msgstr ""
 "Naam van het dashboard dat in de startweergave moet worden weergegeven."
 
-#: settings.py:92
+#: settings.py:95
 msgid "Sets the project's name."
 msgstr "Stelt de naam van het project in."
 
-#: settings.py:96
+#: settings.py:99
 msgid "URL of the project's homepage."
 msgstr "URL van de startpagina van het project."
 
@@ -227,11 +227,11 @@ msgstr "URL van de startpagina van het project."
 msgid "Click here to fix this."
 msgstr "Klik hier om dit te herstellen."
 
-#: validators.py:40
+#: validators.py:41
 msgid "Enter a valid JSON value."
 msgstr "Voer een geldige JSON-waarde in."
 
-#: validators.py:64
+#: validators.py:65
 msgid "Enter a valid YAML value."
 msgstr "Voer een geldige YAML-waarde in."
 
@@ -277,14 +277,14 @@ msgstr ""
 msgid "No setup options available."
 msgstr "Geen instellingsopties beschikbaar."
 
-#: views.py:115
-msgid "Setup items"
-msgstr "Setup items"
-
-#: views.py:117
+#: views.py:116
 msgid "Here you can configure all aspects of the system."
 msgstr "Hier kunt u alle aspecten van het systeem instellen."
 
-#: views.py:133
+#: views.py:118
+msgid "Setup items"
+msgstr "Setup items"
+
+#: views.py:132
 msgid "These modules are used to do system maintenance."
 msgstr "Deze modules worden gebruikt voor systeemonderhoud."

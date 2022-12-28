@@ -1,47 +1,49 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Roberto Rosario, 2022
 # Jože Detečnik <joze.detecnik@3tav.si>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
-#: apps.py:41 events.py:5 links.py:33
+#: apps.py:41 events.py:6 links.py:33
 msgid "Checkouts"
 msgstr "Odjave"
 
-#: dashboard_widgets.py:14 views.py:183
+#: dashboard_widgets.py:14 views.py:185
 msgid "Checked out documents"
 msgstr "Preverjeni dokumenti"
 
-#: events.py:8
+#: events.py:10
 msgid "Document automatically checked in"
 msgstr "Dokument je avtomatsko prijavljen"
 
-#: events.py:12
+#: events.py:14
 msgid "Document checked in"
 msgstr "Dokument prijavljen"
 
-#: events.py:15
+#: events.py:17
 msgid "Document checked out"
 msgstr "Dokument prijavljen"
 
-#: events.py:18
+#: events.py:20
 msgid "Document forcefully checked in"
 msgstr "Dokumentu je vsiljena prijava"
 
@@ -57,7 +59,7 @@ msgstr "Dokument je že odjavljen"
 msgid "Document status"
 msgstr "Stanje dokumenta"
 
-#: forms.py:37 models.py:47 models.py:127
+#: forms.py:37 model_mixins.py:9 models.py:46 serializers.py:20
 msgid "User"
 msgstr "Uporabnik"
 
@@ -109,7 +111,15 @@ msgstr "Odjavljen"
 msgid "Checked in/available"
 msgstr "Prijavljen / na voljo"
 
-#: models.py:34
+#: model_mixins.py:14
+msgid "Checkout time and date"
+msgstr "Ura in datum odjave"
+
+#: model_mixins.py:19
+msgid "Checkout expiration"
+msgstr "Potek blagajne"
+
+#: models.py:34 serializers.py:17
 msgid "Document"
 msgstr "Dokument"
 
@@ -121,51 +131,43 @@ msgstr "Oglejte si datum in čas"
 msgid "Amount of time to hold the document checked out in minutes."
 msgstr "Količina časa za odjavo dokumenta v minutah."
 
-#: models.py:43
+#: models.py:42
 msgid "Check out expiration date and time"
 msgstr "Preverite datum in uro uporabnosti"
 
-#: models.py:52
+#: models.py:50
 msgid "Do not allow new file of this document to be uploaded."
 msgstr "Ne dovoli nalaganja nove datoteke tega dokumenta."
 
-#: models.py:54
+#: models.py:51
 msgid "Block new file upload"
 msgstr "Blokiraj nalaganje nove datoteke"
 
-#: models.py:62 permissions.py:5
+#: models.py:59 permissions.py:6
 msgid "Document checkout"
 msgstr "Odjava dokumentov"
 
-#: models.py:63
+#: models.py:60
 msgid "Document checkouts"
 msgstr "Blagajne dokumentov"
 
-#: models.py:71
+#: models.py:69
 msgid "Check out expiration date and time must be in the future."
 msgstr "Datum poteka in čas odjave morata biti v prihodnosti."
 
-#: models.py:132
-msgid "Checkout time and date"
-msgstr "Ura in datum odjave"
-
-#: models.py:137
-msgid "Checkout expiration"
-msgstr "Potek blagajne"
-
-#: permissions.py:8
+#: permissions.py:10
 msgid "Check in documents"
 msgstr "Preverite dokumente"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Forcefully check in documents"
 msgstr "Na silo preverite dokumente"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Check out documents"
 msgstr "Preverite dokumente"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Check out details view"
 msgstr "Oglejte podrobnosti"
 
@@ -177,9 +179,19 @@ msgstr "Redni ogledi"
 msgid "Check expired checkouts"
 msgstr "Preverite potekle oglede"
 
-#: serializers.py:39
+#: serializers.py:26
+msgid "URL"
+msgstr ""
+
+#: serializers.py:44
 msgid "Primary key of the document to be checked out."
 msgstr "Primarni ključ dokumenta, ki ga je treba pregledati."
+
+#: serializers.py:45
+#, fuzzy
+#| msgid "Document"
+msgid "Document PK"
+msgstr "Dokument"
 
 #: views.py:28
 #, python-format
@@ -188,33 +200,33 @@ msgstr "Ni mogoče preveriti dokumenta &quot;%(instance)s&quot;; %(exception)s"
 
 #: views.py:32
 #, python-format
+msgid "%(count)d documents checked in successfully."
+msgstr "%(count)d dokumenti so bili uspešno prijavljeni."
+
+#: views.py:35
+#, python-format
 msgid "Document \"%(object)s\" checked in successfully."
 msgstr "Dokument &quot;%(object)s&quot; je bil uspešno prijavljen."
 
-#: views.py:35
+#: views.py:38
 #, python-format
 msgid "%(count)d document checked in successfully."
 msgstr "%(count)d dokument je bil uspešno prijavljen."
 
-#: views.py:38
-#, python-format
-msgid "%(count)d documents checked in successfully."
-msgstr "%(count)d dokumenti so bili uspešno prijavljeni."
-
 #: views.py:40
+#, python-format
+msgid "Check in %(count)d documents."
+msgstr "Preverite dokumente %(count)d."
+
+#: views.py:41
 #, python-format
 msgid "Check in document \"%(object)s\"."
 msgstr "Preverite dokument &quot;%(object)s&quot;."
 
-#: views.py:41
+#: views.py:42
 #, python-format
 msgid "Check in %(count)d document."
 msgstr "Preverite v dokumentu %(count)d."
-
-#: views.py:42
-#, python-format
-msgid "Check in %(count)d documents."
-msgstr "Preverite dokumente %(count)d."
 
 #: views.py:95
 #, python-format
@@ -223,50 +235,50 @@ msgstr "Ni mogoče preveriti dokumenta &quot;%(instance)s&quot;; %(exception)s"
 
 #: views.py:102
 #, python-format
+msgid "%(count)d documents checked out successfully."
+msgstr "%(count)d dokumenti uspešno odjavljeni."
+
+#: views.py:105
+#, python-format
 msgid "Document \"%(object)s\" checked out successfully."
 msgstr "Dokument &quot;%(object)s&quot; je uspešno odjavljen."
 
-#: views.py:105
+#: views.py:108
 #, python-format
 msgid "%(count)d document checked out successfully."
 msgstr "%(count)d dokument uspešno odjavljen."
 
-#: views.py:108
-#, python-format
-msgid "%(count)d documents checked out successfully."
-msgstr "%(count)d dokumenti uspešno odjavljeni."
-
 #: views.py:110
+#, python-format
+msgid "Checkout %(count)d documents."
+msgstr "Preverite dokumente %(count)d."
+
+#: views.py:111
 #, python-format
 msgid "Checkout document \"%(object)s\"."
 msgstr "Odjavi dokument &quot;%(object)s&quot;."
 
-#: views.py:111
+#: views.py:112
 #, python-format
 msgid "Checkout %(count)d document."
 msgstr "Preverite dokument %(count)d."
-
-#: views.py:112
-#, python-format
-msgid "Checkout %(count)d documents."
-msgstr "Preverite dokumente %(count)d."
 
 #: views.py:160
 #, python-format
 msgid "Check out details for document: %s"
 msgstr "Oglejte si podrobnosti za dokument: %s"
 
-#: views.py:179
+#: views.py:181
 msgid ""
 "Checking out a document, blocks certain operations for a predetermined "
 "amount of time."
 msgstr ""
 "Preverjanje dokumenta blokira določene operacije za vnaprej določen čas."
 
-#: views.py:182
+#: views.py:184
 msgid "No documents have been checked out"
 msgstr "Noben dokument ni bil odjavljen"
 
-#: widgets.py:23
+#: widgets.py:20
 msgid "Amount"
 msgstr "Količina"

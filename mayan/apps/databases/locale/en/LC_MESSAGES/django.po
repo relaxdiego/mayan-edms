@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,19 +21,19 @@ msgstr ""
 msgid "Databases"
 msgstr ""
 
-#: classes.py:199
+#: classes.py:205
 msgid "Model fields"
 msgstr ""
 
-#: classes.py:242
+#: classes.py:253
 msgid "Model related fields"
 msgstr ""
 
-#: classes.py:247
+#: classes.py:258
 msgid "Model properties"
 msgstr ""
 
-#: classes.py:252
+#: classes.py:263
 msgid "Model reverse fields"
 msgstr ""
 

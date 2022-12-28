@@ -1,30 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # emreunal <bywant@gmail.com>, 2022
 # abc Def <hdogan1974@gmail.com>, 2022
 # Nurgül Özkan <nurgulozkan@hotmail.com>, 2022
 # serhatcan77 <serhat_can@yahoo.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: serhatcan77 <serhat_can@yahoo.com>, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
+"teams/13584/tr_TR/)\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: apps.py:70 apps.py:208 apps.py:214 apps.py:218 apps.py:223 apps.py:227
-#: events.py:5 links.py:52 permissions.py:5 queues.py:7
+#: events.py:6 links.py:52 permissions.py:6 queues.py:7
 msgid "Metadata"
 msgstr "Metadata"
 
@@ -44,27 +45,27 @@ msgstr "Meta veri türü adı"
 msgid "Metadata value"
 msgstr "Meta veri değeri"
 
-#: events.py:8
+#: events.py:10
 msgid "Document metadata added"
 msgstr ""
 
-#: events.py:11
+#: events.py:13
 msgid "Document metadata edited"
 msgstr ""
 
-#: events.py:14
+#: events.py:16
 msgid "Document metadata removed"
 msgstr ""
 
-#: events.py:17
+#: events.py:19
 msgid "Metadata type created"
 msgstr ""
 
-#: events.py:20
+#: events.py:22
 msgid "Metadata type edited"
 msgstr ""
 
-#: events.py:23
+#: events.py:25
 msgid "Metadata type relationship updated"
 msgstr ""
 
@@ -72,11 +73,11 @@ msgstr ""
 msgid "ID"
 msgstr "İD"
 
-#: forms.py:19 models.py:39
+#: forms.py:19 models.py:41
 msgid "Name"
 msgstr "İsim"
 
-#: forms.py:27 models.py:204 workflow_actions.py:93
+#: forms.py:27 models.py:185 workflow_actions.py:95
 msgid "Value"
 msgstr "Değer"
 
@@ -84,62 +85,63 @@ msgstr "Değer"
 msgid "Update"
 msgstr "Güncelleştirme"
 
-#: forms.py:52 forms.py:231 models.py:292
+#: forms.py:52 forms.py:236 models.py:278
 msgid "Required"
 msgstr "Gereklidir"
 
-#: forms.py:80
+#: forms.py:84
 #, python-format
 msgid "Lookup value error: %s"
 msgstr ""
 
-#: forms.py:93
+#: forms.py:97
 #, python-format
 msgid "Default value error: %s"
 msgstr ""
 
-#: forms.py:114 models.py:151
+#: forms.py:118 models.py:127
 #, python-format
 msgid "\"%s\" is required for this document type."
 msgstr ""
 
-#: forms.py:133
+#: forms.py:137
 msgid "Metadata types to be added to the selected documents."
 msgstr ""
 
-#: forms.py:134 models.py:87 models.py:290 search.py:14 workflow_actions.py:86
+#: forms.py:138 models.py:89 models.py:275 search.py:14 serializers.py:48
+#: serializers.py:108 workflow_actions.py:88
 msgid "Metadata type"
 msgstr "Meta veri türü"
 
-#: forms.py:159
+#: forms.py:163
 msgid "Remove"
 msgstr "Sil"
 
-#: forms.py:178
+#: forms.py:182
 msgid "Basic"
 msgstr ""
 
-#: forms.py:182
+#: forms.py:186
 msgid "Values"
 msgstr ""
 
-#: forms.py:186
+#: forms.py:190
 msgid "Validation"
 msgstr ""
 
-#: forms.py:190
+#: forms.py:194
 msgid "Parsing"
 msgstr ""
 
-#: forms.py:205
+#: forms.py:210
 msgid " Available template context variables: "
 msgstr ""
 
-#: forms.py:229
+#: forms.py:234
 msgid "None"
 msgstr "Yok"
 
-#: forms.py:230
+#: forms.py:235
 msgid "Optional"
 msgstr ""
 
@@ -147,17 +149,17 @@ msgstr ""
 msgid "Add metadata"
 msgstr "Meta veri ekle"
 
-#: links.py:31 links.py:38 workflow_actions.py:104
+#: links.py:31 links.py:38 workflow_actions.py:106
 msgid "Edit metadata"
 msgstr "Meta verileri düzenle"
 
-#: links.py:42 links.py:48 workflow_actions.py:177
+#: links.py:42 links.py:48 workflow_actions.py:182
 msgid "Remove metadata"
 msgstr "Meta verileri kaldır"
 
-#: links.py:62 links.py:96 models.py:88 permissions.py:22
+#: links.py:62 links.py:96 models.py:90 permissions.py:24
 #: views/metadata_type_views.py:115 workflow_actions.py:23
-#: workflow_actions.py:170
+#: workflow_actions.py:174
 msgid "Metadata types"
 msgstr "Meta veri türleri"
 
@@ -221,146 +223,145 @@ msgstr ""
 msgid "Selected documents must be of the same type."
 msgstr ""
 
-#: models.py:36
+#: models.py:38
 msgid ""
 "Name used by other apps to reference this metadata type. Do not use python "
 "reserved words, or spaces."
 msgstr ""
 
-#: models.py:42
+#: models.py:44
 msgid "Short description of this metadata type."
 msgstr ""
 
-#: models.py:43
+#: models.py:45
 msgid "Label"
 msgstr "Etiket"
 
-#: models.py:47
+#: models.py:49
 msgid "Enter a template to render."
 msgstr ""
 
-#: models.py:48
+#: models.py:50
 msgid "Default"
 msgstr "Varsayılan"
 
-#: models.py:52
+#: models.py:54
 msgid "Enter a template to render. Must result in a comma delimited string."
 msgstr ""
 
-#: models.py:54
+#: models.py:56
 msgid "Lookup"
 msgstr "Yukarı Bak"
 
-#: models.py:58
+#: models.py:60
 msgid ""
 "The validator will reject data entry if the value entered does not conform "
 "to the expected format."
 msgstr ""
 
-#: models.py:60
+#: models.py:62
 msgid "Validator"
 msgstr ""
 
-#: models.py:64
+#: models.py:66
 msgid "Enter the arguments for the validator in YAML format."
 msgstr ""
 
-#: models.py:66
+#: models.py:68
 msgid "Validator arguments"
 msgstr ""
 
-#: models.py:71
+#: models.py:73
 msgid ""
-"The parser will reformat the value entered to conform to the expected "
-"format."
+"The parser will reformat the value entered to conform to the expected format."
 msgstr ""
 
-#: models.py:73
+#: models.py:75
 msgid "Parser"
 msgstr ""
 
-#: models.py:77
+#: models.py:79
 msgid "Enter the arguments for the parser in YAML format."
 msgstr ""
 
-#: models.py:79
+#: models.py:81
 msgid "Parser arguments"
 msgstr ""
 
-#: models.py:159
+#: models.py:136
 msgid "Value is not one of the provided options."
 msgstr ""
 
-#: models.py:173
+#: models.py:150
 #, python-format
 msgid "Metadata type validation error; %(exception)s"
 msgstr ""
 
-#: models.py:195
+#: models.py:176 serializers.py:105
 msgid "Document"
 msgstr "Belge"
 
-#: models.py:198
+#: models.py:179
 msgid "Type"
 msgstr "Tür"
 
-#: models.py:202
+#: models.py:183
 msgid "The actual value stored in the metadata type field for the document."
 msgstr ""
 
-#: models.py:210 models.py:211
+#: models.py:191 models.py:192
 msgid "Document metadata"
 msgstr "Belge meta verileri"
 
-#: models.py:238
+#: models.py:224
 msgid "Metadata type is required for this document type."
 msgstr "Bu belge türü için meta veri türü gerekiyor."
 
-#: models.py:273
+#: models.py:257
 msgid "Metadata type is not valid for this document type."
 msgstr "Meta veri türü, bu doküman türü için geçerli değil."
 
-#: models.py:286
+#: models.py:271 serializers.py:45
 msgid "Document type"
 msgstr "Belge Türü"
 
-#: models.py:299
+#: models.py:286
 msgid "Document type metadata type options"
 msgstr "Belge türü meta veri türü seçenekleri"
 
-#: models.py:300
+#: models.py:287
 msgid "Document type metadata types options"
 msgstr "Belge türü meta veri türleri seçenekleri"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Add metadata to a document"
 msgstr "Bir belgeye meta veri ekleme"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Edit a document's metadata"
 msgstr "Bir belgenin meta verilerini düzenleme"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Remove metadata from a document"
 msgstr "Meta verileri bir belgeden kaldır"
 
-#: permissions.py:18
+#: permissions.py:20
 msgid "View metadata from a document"
 msgstr "Bir belgeden meta verileri görüntüleme"
 
-#: permissions.py:26
+#: permissions.py:28
 msgid "Edit metadata types"
 msgstr "Meta veri türlerini düzenleme"
 
-#: permissions.py:29
+#: permissions.py:31
 msgid "Create new metadata types"
 msgstr "Yeni metadata türleri oluşturma"
 
-#: permissions.py:32
+#: permissions.py:34
 msgid "Delete metadata types"
 msgstr "Meta veri türlerini sil"
 
-#: permissions.py:35
+#: permissions.py:37
 msgid "View metadata types"
 msgstr "Meta veri türlerini görüntüleme"
 
@@ -380,15 +381,19 @@ msgstr ""
 msgid "Document metadata value"
 msgstr ""
 
-#: serializers.py:47
+#: serializers.py:28 serializers.py:57 serializers.py:111
+msgid "URL"
+msgstr ""
+
+#: serializers.py:52
 msgid "Primary key of the metadata type to be added."
 msgstr "Eklenecek meta veri türünün birincil anahtarı."
 
-#: serializers.py:48
+#: serializers.py:53 serializers.py:101
 msgid "Metadata type ID"
 msgstr ""
 
-#: serializers.py:93
+#: serializers.py:100
 msgid "Primary key of the metadata type to be added to the document."
 msgstr ""
 
@@ -397,23 +402,23 @@ msgstr ""
 msgid "Metadata add request performed on %(count)d document"
 msgstr ""
 
-#: views/document_views.py:47
+#: views/document_views.py:48
 #, python-format
 msgid "Metadata add request performed on %(count)d documents"
 msgstr ""
 
-#: views/document_views.py:56
+#: views/document_views.py:57
 msgid "Add metadata types to document"
 msgid_plural "Add metadata types to documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: views/document_views.py:67
+#: views/document_views.py:68
 #, python-format
 msgid "Add metadata types to document: %s"
 msgstr ""
 
-#: views/document_views.py:145
+#: views/document_views.py:146
 #, python-format
 msgid ""
 "Error adding metadata type \"%(metadata_type)s\" to document: %(document)s; "
@@ -422,99 +427,97 @@ msgstr ""
 "Belgeye \"%(metadata_type)s\" meta veri türü eklenirken hata oluştu: "
 "%(document)s; %(exception)s"
 
-#: views/document_views.py:160
+#: views/document_views.py:161
 #, python-format
 msgid ""
-"Metadata type: %(metadata_type)s successfully added to document "
-"%(document)s."
+"Metadata type: %(metadata_type)s successfully added to document %(document)s."
 msgstr ""
 "Meta veri türü: %(metadata_type)s belgeye başarıyla eklendi %(document)s."
 
-#: views/document_views.py:170
+#: views/document_views.py:171
 #, python-format
 msgid ""
 "Metadata type: %(metadata_type)s already present in document %(document)s."
 msgstr "Meta veri türü: %(metadata_type)s zaten belgede mevcut %(document)s."
 
-#: views/document_views.py:187
+#: views/document_views.py:188
 #, python-format
 msgid "Metadata edit request performed on %(count)d document"
 msgstr ""
 
-#: views/document_views.py:190
+#: views/document_views.py:191
 #, python-format
 msgid "Metadata edit request performed on %(count)d documents"
 msgstr ""
 
-#: views/document_views.py:222
+#: views/document_views.py:224
 msgid ""
 "Add metadata types available for this document's type and assign them "
 "corresponding values."
 msgstr ""
 
-#: views/document_views.py:225
+#: views/document_views.py:227
 msgid "There is no metadata to edit"
 msgstr ""
 
-#: views/document_views.py:227
+#: views/document_views.py:229
 msgid "Edit document metadata"
 msgid_plural "Edit documents metadata"
 msgstr[0] ""
 msgstr[1] ""
 
-#: views/document_views.py:238
+#: views/document_views.py:240
 #, python-format
 msgid "Edit metadata for document: %s"
 msgstr ""
 
-#: views/document_views.py:326
+#: views/document_views.py:329
 #, python-format
 msgid "Error editing metadata for document: %(document)s; %(exception)s."
 msgstr ""
 
-#: views/document_views.py:339
+#: views/document_views.py:342
 #, python-format
 msgid "Metadata for document %s edited successfully."
 msgstr "%s dokümanı için meta veri başarıyla düzenlendi."
 
-#: views/document_views.py:365
+#: views/document_views.py:368
 msgid ""
-"Add metadata types this document's type to be able to add them to individual"
-" documents. Once added to individual document, you can then edit their "
-"values."
+"Add metadata types this document's type to be able to add them to individual "
+"documents. Once added to individual document, you can then edit their values."
 msgstr ""
 
-#: views/document_views.py:370
+#: views/document_views.py:374
 msgid "This document doesn't have any metadata"
 msgstr ""
 
-#: views/document_views.py:371
+#: views/document_views.py:376
 #, python-format
 msgid "Metadata for document: %s"
 msgstr "Dokümanın meta verileri: %s"
 
-#: views/document_views.py:386
+#: views/document_views.py:391
 #, python-format
 msgid "Metadata remove request performed on %(count)d document"
 msgstr ""
 
-#: views/document_views.py:389
+#: views/document_views.py:394
 #, python-format
 msgid "Metadata remove request performed on %(count)d documents"
 msgstr ""
 
-#: views/document_views.py:399
+#: views/document_views.py:404
 msgid "Remove metadata types from the document"
 msgid_plural "Remove metadata types from the documents"
 msgstr[0] ""
 msgstr[1] ""
 
-#: views/document_views.py:410
+#: views/document_views.py:415
 #, python-format
 msgid "Remove metadata types from the document: %s"
 msgstr ""
 
-#: views/document_views.py:476
+#: views/document_views.py:481
 #, python-format
 msgid ""
 "Successfully remove metadata type \"%(metadata_type)s\" from document: "
@@ -523,7 +526,7 @@ msgstr ""
 "\"%(metadata_type)s\" meta veri türünü belgeden başarıyla kaldırın: "
 "%(document)s."
 
-#: views/document_views.py:485
+#: views/document_views.py:490
 #, python-format
 msgid ""
 "Error removing metadata type \"%(metadata_type)s\" from document: "
@@ -543,32 +546,32 @@ msgstr ""
 
 #: views/metadata_type_views.py:57
 #, python-format
-msgid "Metadata type \"%(object)s\" deleted successfully."
+msgid "%(count)d metadata types deleted successfully."
 msgstr ""
 
 #: views/metadata_type_views.py:60
 #, python-format
-msgid "%(count)d metadata type deleted successfully."
+msgid "Metadata type \"%(object)s\" deleted successfully."
 msgstr ""
 
 #: views/metadata_type_views.py:63
 #, python-format
-msgid "%(count)d metadata types deleted successfully."
+msgid "%(count)d metadata type deleted successfully."
 msgstr ""
 
 #: views/metadata_type_views.py:65
 #, python-format
-msgid "Delete metadata type: %(object)s."
+msgid "Delete the %(count)d selected metadata types."
 msgstr ""
 
 #: views/metadata_type_views.py:66
 #, python-format
-msgid "Delete the %(count)d selected metadata type."
+msgid "Delete metadata type: %(object)s."
 msgstr ""
 
 #: views/metadata_type_views.py:67
 #, python-format
-msgid "Delete the %(count)d selected metadata types."
+msgid "Delete the %(count)d selected metadata type."
 msgstr ""
 
 #: views/metadata_type_views.py:84
@@ -578,8 +581,8 @@ msgstr "Meta veri türü düzenleme: %s"
 
 #: views/metadata_type_views.py:107
 msgid ""
-"Metadata types are user defined properties that can be assigned values. Once"
-" created they must be associated to document types, either as optional or "
+"Metadata types are user defined properties that can be assigned values. Once "
+"created they must be associated to document types, either as optional or "
 "required, for each. Setting a metadata type as required for a document type "
 "will block the upload of documents of that type until a metadata value is "
 "provided."
@@ -609,7 +612,7 @@ msgstr ""
 msgid "Document type relationships for metadata type: %s"
 msgstr ""
 
-#: wizard_steps.py:13
+#: wizard_steps.py:15
 msgid "Enter document metadata"
 msgstr ""
 
@@ -624,16 +627,16 @@ msgid ""
 "%(document)s. Exception: %(exception)s"
 msgstr ""
 
-#: workflow_actions.py:88
+#: workflow_actions.py:90
 msgid "Metadata types to edit."
 msgstr ""
 
-#: workflow_actions.py:96
+#: workflow_actions.py:98
 msgid ""
 "Value to assign to the metadata. Can be a literal value or template code."
 msgstr ""
 
-#: workflow_actions.py:128
+#: workflow_actions.py:130
 #, python-format
 msgid ""
 "Unable to edit metadata type \"%(metadata_type)s\" from document: "
@@ -641,11 +644,11 @@ msgid ""
 "Exception: %(exception)s"
 msgstr ""
 
-#: workflow_actions.py:172
+#: workflow_actions.py:177
 msgid "Metadata types to remove from the document."
 msgstr ""
 
-#: workflow_actions.py:192
+#: workflow_actions.py:197
 #, python-format
 msgid ""
 "Unable to remove metadata type \"%(metadata_type)s\" from document: "

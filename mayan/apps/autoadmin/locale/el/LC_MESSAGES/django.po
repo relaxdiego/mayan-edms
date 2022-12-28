@@ -2,26 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # pyrotech <anastasios@tutamail.com>, 2022
 # Hmayag Antonian <hmayag@freemail.gr>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Hmayag Antonian <hmayag@freemail.gr>, 2022\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:13 settings.py:7
+#: apps.py:13 settings.py:8
 msgid "Auto administrator"
 msgstr "Αυτόματος διαχειριστής"
 
@@ -41,27 +41,27 @@ msgstr "Λογαριασμός"
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
-#: models.py:19
+#: models.py:20
 msgid "Password hash"
 msgstr "Τιμή κατατεμαχισμού (hash) κωδικού πρόσβασης"
 
-#: models.py:25
+#: models.py:26
 msgid "Autoadmin properties"
 msgstr "Ιδιότητες αυτόματου διαχειριστή"
 
-#: settings.py:11
+#: settings.py:13
 msgid "Sets the email of the automatically created super user account."
 msgstr "Ορίζει το email του αυτομάτως δημιουργηθέντα υπερχρήστη."
 
-#: settings.py:16
+#: settings.py:18
 msgid ""
-"The password of the automatically created super user account. If it is equal"
-" to None, the password is randomly generated."
+"The password of the automatically created super user account. If it is equal "
+"to None, the password is randomly generated."
 msgstr ""
 "Ο κωδικός του αυτομάτως δημιουργηθέντα υπερχρήστη. Εάν είναι κενός, ο "
 "κωδικός δημιουργείται τυχαία."
 
-#: settings.py:22
+#: settings.py:24
 msgid "The username of the automatically created super user account."
 msgstr "Το όνομα χρήστη του αυτομάτως δημιουργηθέντα υπερχρήστη."
 

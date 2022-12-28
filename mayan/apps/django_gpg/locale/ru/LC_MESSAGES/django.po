@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Sergey Glita <gsv70@mail.ru>, 2022
@@ -9,50 +9,52 @@
 # Roberto Rosario, 2022
 # lilo.panic, 2022
 # Ilya Pavlov <spirkaa@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: apps.py:31
 msgid "Django GPG"
 msgstr "Django GPG"
 
-#: apps.py:53 apps.py:59 forms.py:15
+#: apps.py:53 apps.py:59 forms.py:16
 msgid "Key ID"
 msgstr "ID ключа"
 
-#: apps.py:63 forms.py:33 models.py:59
+#: apps.py:63 forms.py:42 models.py:50
 msgid "Type"
 msgstr "Тип"
 
-#: apps.py:67 forms.py:21 models.py:40
+#: apps.py:67 forms.py:23 models.py:29
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: apps.py:71
+#: apps.py:72
 msgid "No expiration"
 msgstr "Бессрочно"
 
-#: apps.py:72 forms.py:25 models.py:44
+#: apps.py:73 forms.py:28 models.py:33
 msgid "Expiration date"
 msgstr "Срок действия"
 
-#: apps.py:75 forms.py:30 models.py:51
+#: apps.py:77 forms.py:35 models.py:40
 msgid "Length"
 msgstr "Длина"
 
-#: apps.py:80 forms.py:17 models.py:56
+#: apps.py:82 forms.py:20 models.py:46
 msgid "User ID"
 msgstr "ID пользователя"
 
@@ -60,35 +62,35 @@ msgstr "ID пользователя"
 msgid "GNU privacy guard - a PGP implementation."
 msgstr "GNU Privacy Guard - свободная реализация PGP."
 
-#: events.py:5 links.py:42 permissions.py:5
+#: events.py:6 links.py:42 permissions.py:6
 msgid "Key management"
 msgstr "Управление ключами"
 
-#: events.py:8
+#: events.py:10
 msgid "Key created"
 msgstr "Ключ создан"
 
-#: events.py:12
+#: events.py:14
 msgid "Key downloaded"
 msgstr "Ключ скачан"
 
-#: forms.py:26
+#: forms.py:27
 msgid "None"
 msgstr "Нет"
 
-#: forms.py:29 models.py:48
+#: forms.py:32 models.py:37
 msgid "Fingerprint"
 msgstr "Отпечаток"
 
-#: forms.py:31 models.py:54
+#: forms.py:38 models.py:43
 msgid "Algorithm"
 msgstr "Алгоритм"
 
-#: forms.py:48
+#: forms.py:56
 msgid "Term"
 msgstr "Условие"
 
-#: forms.py:49
+#: forms.py:57
 msgid "Name, e-mail, key ID or key fingerprint to look for."
 msgstr ""
 "Имя, фамилия, адрес электронной почты, идентификатор или отпечаток ключа."
@@ -105,7 +107,7 @@ msgstr "Подробности"
 msgid "Download"
 msgstr "Скачать"
 
-#: links.py:32 permissions.py:26
+#: links.py:32 permissions.py:28
 msgid "Query keyservers"
 msgstr "Запрос к серверам ключей"
 
@@ -117,11 +119,11 @@ msgstr "Импорт"
 msgid "Upload key"
 msgstr "Загрузить ключ"
 
-#: links.py:50 views.py:201
+#: links.py:50 views.py:215
 msgid "Private keys"
 msgstr "Закрытые ключи"
 
-#: links.py:54 views.py:226
+#: links.py:54 views.py:240
 msgid "Public keys"
 msgstr "Открытые ключи"
 
@@ -133,134 +135,138 @@ msgstr "Открытый"
 msgid "Secret"
 msgstr "Закрытый"
 
-#: literals.py:40 literals.py:45
+#: literals.py:41 literals.py:50
 msgid "RSA"
 msgstr "RSA"
 
-#: literals.py:41
+#: literals.py:44
 msgid "DSA"
 msgstr "DSA"
 
-#: literals.py:46
+#: literals.py:53
 msgid "Elgamal"
 msgstr "Elgamal"
 
-#: literals.py:62
+#: literals.py:70
 msgid "Bad signature."
 msgstr "Неверная подпись"
 
-#: literals.py:65
+#: literals.py:73
 msgid "Document not signed or invalid signature."
 msgstr "Документ не подписан, либо подпись неверна."
 
-#: literals.py:68
+#: literals.py:76
 msgid "Signature error."
 msgstr "Ошибка подписи."
 
-#: literals.py:72
+#: literals.py:80
 msgid "Document is signed but no public key is available for verification."
 msgstr "Документ подписан, но нет открытого ключа для проверки."
 
-#: literals.py:77
+#: literals.py:85
 msgid "Document is signed, and signature is good."
 msgstr "Документ подписан и подпись верна."
 
-#: literals.py:80
+#: literals.py:88
 msgid "Document is signed with a valid signature."
 msgstr "Документ подписан допустимой подписью."
 
-#: models.py:36
+#: models.py:25
 msgid "ASCII armored version of the key."
 msgstr "Версия ключа в формате ASCII Armor"
 
-#: models.py:37
+#: models.py:26
 msgid "Key data"
 msgstr "Содержимое ключа"
 
-#: models.py:65
+#: models.py:56
 msgid "Key"
 msgstr "Ключ"
 
-#: models.py:66
+#: models.py:57
 msgid "Keys"
 msgstr "Ключи"
 
-#: models.py:78
+#: models.py:72
 msgid "Invalid key data"
 msgstr "Неверные данные ключа"
 
-#: models.py:81
+#: models.py:77
 msgid "Key already exists."
 msgstr "Ключ уже существует."
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Delete keys"
 msgstr "Удалить ключи"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Download keys"
 msgstr "Скачать ключи"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Import keys from keyservers"
 msgstr "Импортировать ключи с серверов ключей "
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Use keys to sign content"
 msgstr "Использовать ключи для подписи контента"
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "Upload keys"
 msgstr "Загрузить ключи"
 
-#: permissions.py:23
+#: permissions.py:25
 msgid "View keys"
 msgstr "Просмотр ключей"
 
-#: settings.py:10
+#: serializers.py:12
+msgid "URL"
+msgstr ""
+
+#: settings.py:11
 msgid "Signatures"
 msgstr "Подписи"
 
-#: settings.py:16
+#: settings.py:18
 msgid "Full path to the backend to be used to handle keys and signatures."
 msgstr ""
 "Полный путь к бэкэнду, который будет использоваться для обработки ключей и "
 "подписей."
 
-#: settings.py:25
+#: settings.py:27
 msgid "Keyserver used to query for keys."
 msgstr "Сервер ключей, используемый для запроса ключей."
 
-#: views.py:41
+#: views.py:42
 #, python-format
 msgid "Delete key: %s"
 msgstr "Удалить ключ: %s"
 
-#: views.py:59
+#: views.py:61
 #, python-format
 msgid "Details for key: %s"
 msgstr "Подробности ключа: %s"
 
-#: views.py:89
+#: views.py:97
 #, python-format
 msgid "Import key ID: %s?"
 msgstr "Импортировать ключ: %s?"
 
-#: views.py:90
+#: views.py:98
 msgid "Import key"
 msgstr "Импортировать ключ"
 
-#: views.py:99
+#: views.py:109
 #, python-format
 msgid "Unable to import key: %(key_id)s; %(error)s"
 msgstr "Невозможно импортировать ключ %(key_id)s; %(error)s"
 
-#: views.py:107
+#: views.py:117
 #, python-format
 msgid "Successfully received key: %(key_id)s"
 msgstr "Ключ получен: %(key_id)s"
 
-#: views.py:125
+#: views.py:135
 msgid ""
 "Use names, last names, key ids or emails to search public keys to import "
 "from the keyserver."
@@ -268,45 +274,45 @@ msgstr ""
 "Используйте имена, фамилии, идентификаторы ключей или адреса электронной "
 "почты для поиска открытых ключей и их импорта с сервера ключей."
 
-#: views.py:129
+#: views.py:139
 msgid "No results returned"
 msgstr "Нет результатов"
 
-#: views.py:131
+#: views.py:141
 msgid "Key query results"
 msgstr "Результаты запроса ключа"
 
-#: views.py:152
+#: views.py:162
 msgid "Query key server"
 msgstr "Запрос к серверу ключей"
 
-#: views.py:172
+#: views.py:186
 msgid "Upload new key"
 msgstr "Загрузить новый ключ"
 
-#: views.py:194
+#: views.py:208
 msgid ""
-"Private keys are used to signed documents. Private keys can only be uploaded"
-" by the user. The view to upload private and public keys is the same."
+"Private keys are used to signed documents. Private keys can only be uploaded "
+"by the user. The view to upload private and public keys is the same."
 msgstr ""
 "Закрытые ключи используются для подписи документов. Закрытые ключи могут "
 "быть загружены только пользователем. Страница для загрузки закрытого и "
 "открытого ключей одна и та же."
 
-#: views.py:199
+#: views.py:213
 msgid "There no private keys"
 msgstr "Нет закрытых ключей"
 
-#: views.py:218
+#: views.py:232
 msgid ""
-"Public keys are used to verify signed documents. Public keys can be uploaded"
-" by the user or downloaded from keyservers. The view to upload private and "
+"Public keys are used to verify signed documents. Public keys can be uploaded "
+"by the user or downloaded from keyservers. The view to upload private and "
 "public keys is the same."
 msgstr ""
 "Открытые ключи используются для проверки подписанных документов. Открытые "
 "ключи могут быть загружены пользователем или импортированы с серверов "
 "ключей. Страница для загрузки закрытого и открытого ключей одна и та же."
 
-#: views.py:224
+#: views.py:238
 msgid "There no public keys"
 msgstr "Нет открытых ключей"

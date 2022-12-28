@@ -2,41 +2,43 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Jože Detečnik <joze.detecnik@3tav.si>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
 #: apps.py:16
 msgid "Databases"
 msgstr "Baze podatkov"
 
-#: classes.py:199
+#: classes.py:205
 msgid "Model fields"
 msgstr "Modelna polja"
 
-#: classes.py:242
+#: classes.py:253
 msgid "Model related fields"
 msgstr "Polja, povezana z modelom"
 
-#: classes.py:247
+#: classes.py:258
 msgid "Model properties"
 msgstr "Lastnosti modela"
 
-#: classes.py:252
+#: classes.py:263
 msgid "Model reverse fields"
 msgstr "Obratna polja modela"
 
@@ -80,8 +82,8 @@ msgid ""
 "value is considered to be the logical true."
 msgstr ""
 "Pogoj, ki bo določil, ali se ta objekt izvede ali ne. Pogoji, ki ne vrnejo "
-"nobene vrednosti, ki vrnejo Python logično None ali prazen niz (&#39;&#39;),"
-" se štejejo za logično napačne, katera koli druga vrednost se šteje za "
+"nobene vrednosti, ki vrnejo Python logično None ali prazen niz (&#39;&#39;), "
+"se štejejo za logično napačne, katera koli druga vrednost se šteje za "
 "logično resnično."
 
 #: model_mixins.py:106

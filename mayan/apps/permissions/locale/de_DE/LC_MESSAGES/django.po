@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Marvin Haschker <marvin@haschker.me>, 2022
@@ -10,30 +10,31 @@
 # Ingo Buchholz <ingo.buchholz@takwa.de>, 2022
 # Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
 # Mathias Behrle <mathiasb@m9s.biz>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:37+0000\n"
 "Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
+"teams/13584/de_DE/)\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:44 events.py:6 models.py:37 models.py:157 permissions.py:5
+#: apps.py:44 events.py:6 models.py:31 models.py:84 permissions.py:6
 msgid "Permissions"
 msgstr "Berechtigungen"
 
-#: apps.py:106 models.py:75
+#: apps.py:106 model_mixins.py:35
 msgid "Group count"
 msgstr "Gruppenanzahl"
 
-#: classes.py:73
+#: classes.py:66
 msgid "Insufficient permissions."
 msgstr "Unzureichende Berechtigungen."
 
@@ -49,11 +50,11 @@ msgstr "Rolle erstellt"
 msgid "Role edited"
 msgstr "Rolle bearbeitet"
 
-#: links.py:20 links.py:46 models.py:48 views.py:112
+#: links.py:20 links.py:46 models.py:42 views.py:111
 msgid "Roles"
 msgstr "Rollen"
 
-#: links.py:28 views.py:58
+#: links.py:28 views.py:57
 msgid "Create new role"
 msgstr "Erstellen"
 
@@ -65,7 +66,7 @@ msgstr "Löschen"
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: links.py:50 models.py:40
+#: links.py:50 models.py:34
 msgid "Groups"
 msgstr "Gruppen"
 
@@ -73,47 +74,58 @@ msgstr "Gruppen"
 msgid "Role permissions"
 msgstr "Berechtigungen"
 
-#: models.py:32
-msgid "A short text describing the role."
-msgstr "Ein kurzer Text, der die Rolle beschreibt."
-
-#: models.py:33 search.py:14
-msgid "Label"
-msgstr "Bezeichner"
-
-#: models.py:47
-msgid "Role"
-msgstr "Rolle"
-
-#: models.py:83
+#: model_mixins.py:43
 msgid "Permission count"
 msgstr "Anzahl der Berechtigungen"
 
-#: models.py:148
+#: model_mixins.py:88
+#, fuzzy, python-format
+#| msgid "Role permissions"
+msgid "Unknown or obsolete permission: %s"
+msgstr "Berechtigungen"
+
+#: model_mixins.py:100
+#, python-format
+msgid "Unknown or obsolete permission namespace: %s"
+msgstr ""
+
+#: models.py:26
+msgid "A short text describing the role."
+msgstr "Ein kurzer Text, der die Rolle beschreibt."
+
+#: models.py:27 search.py:14 serializers.py:20
+msgid "Label"
+msgstr "Bezeichner"
+
+#: models.py:41
+msgid "Role"
+msgstr "Rolle"
+
+#: models.py:75 serializers.py:14
 msgid "Namespace"
 msgstr "Namensraum"
 
-#: models.py:149
+#: models.py:76
 msgid "Name"
 msgstr "Name"
 
-#: models.py:156
+#: models.py:83
 msgid "Permission"
 msgstr "Berechtigung"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create roles"
 msgstr "Rollen erstellen"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete roles"
 msgstr "Rollen löschen"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit roles"
 msgstr "Rollen bearbeiten"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View roles"
 msgstr "Rollen anzeigen"
 
@@ -121,38 +133,99 @@ msgstr "Rollen anzeigen"
 msgid "Group name"
 msgstr "Gruppenname"
 
-#: serializers.py:30
+#: serializers.py:17
+msgid "Primary key"
+msgstr ""
+
+#: serializers.py:36
 msgid "Primary key of the group to add to the role."
 msgstr ""
 
-#: serializers.py:38
+#: serializers.py:37 serializers.py:45
+#, fuzzy
+#| msgid "Groups"
+msgid "Group ID"
+msgstr "Gruppen"
+
+#: serializers.py:44
 msgid "Primary key of the group to remove from the role."
 msgstr ""
 
-#: serializers.py:46
+#: serializers.py:52
 msgid "Primary key of the permission to add to the role."
 msgstr ""
 
-#: serializers.py:53
+#: serializers.py:53 serializers.py:61
+#, fuzzy
+#| msgid "Permission"
+msgid "Permission ID"
+msgstr "Berechtigung"
+
+#: serializers.py:60
 msgid "Primary key of the permission to remove from the role."
 msgstr ""
 
-#: views.py:35
-msgid "Available roles"
-msgstr "Verfügbare Rollen"
+#: serializers.py:67
+#, fuzzy
+#| msgid "Groups"
+msgid "Groups URL"
+msgstr "Gruppen"
 
-#: views.py:36
+#: serializers.py:71
+#, fuzzy
+#| msgid "Groups"
+msgid "Groups add URL"
+msgstr "Gruppen"
+
+#: serializers.py:75
+#, fuzzy
+#| msgid "Group roles"
+msgid "Groups remove URL"
+msgstr "Gruppenrollen"
+
+#: serializers.py:79
+#, fuzzy
+#| msgid "Permissions"
+msgid "Permissions URL"
+msgstr "Berechtigungen"
+
+#: serializers.py:83
+#, fuzzy
+#| msgid "Permissions"
+msgid "Permissions add URL"
+msgstr "Berechtigungen"
+
+#: serializers.py:87
+#, fuzzy
+#| msgid "Permissions for role: %s"
+msgid "Permissions remove URL"
+msgstr "Berechtigungen der Rolle %s"
+
+#: serializers.py:94
+msgid "URL"
+msgstr ""
+
+#: views.py:27
 msgid "Group roles"
 msgstr "Gruppenrollen"
 
-#: views.py:46
+#: views.py:28
+msgid "Available roles"
+msgstr "Verfügbare Rollen"
+
+#: views.py:45
 #, python-format
 msgid "Roles of group: %s"
 msgstr "Rollen von Gruppe %s"
 
-#: views.py:65
+#: views.py:64
 #, python-format
 msgid "Error deleting role \"%(instance)s\"; %(exception)s"
+msgstr ""
+
+#: views.py:69
+#, python-format
+msgid "%(count)d roles deleted successfully."
 msgstr ""
 
 #: views.py:70
@@ -167,55 +240,45 @@ msgstr ""
 
 #: views.py:72
 #, python-format
-msgid "%(count)d roles deleted successfully."
+msgid "Delete role: %(object)s."
 msgstr ""
 
 #: views.py:73
 #, python-format
-msgid "Delete role: %(object)s."
+msgid "Delete the %(count)d selected role."
 msgstr ""
 
 #: views.py:74
 #, python-format
-msgid "Delete the %(count)d selected role."
-msgstr ""
-
-#: views.py:75
-#, python-format
 msgid "Delete the %(count)d selected roles."
 msgstr ""
 
-#: views.py:104
+#: views.py:103
 msgid ""
 "Roles are authorization units. They contain user groups which inherit the "
 "role permissions for the entire system. Roles can also part of access "
 "controls lists. Access controls list are permissions granted to a role for "
 "specific objects which its group members inherit."
 msgstr ""
-"Rolle sind Autorisierungseinheiten. Sie sind Benutzergruppen zugeordnet, die"
-" die Rollenberechtigungen für das gesamte System erben. Rollen können auch "
+"Rolle sind Autorisierungseinheiten. Sie sind Benutzergruppen zugeordnet, die "
+"die Rollenberechtigungen für das gesamte System erben. Rollen können auch "
 "Bestandteil von Zugriffsberechtigungslisten sein. "
 "Zugriffsberechtigungslisten beinhalten Berechtigungen für spezifische "
 "Objekte."
 
-#: views.py:111
+#: views.py:110
 msgid "There are no roles"
 msgstr "Keine Rolle vorhanden"
 
-#: views.py:124
-msgid "Available groups"
-msgstr "Verfügbare Gruppen"
-
-#: views.py:125
+#: views.py:116
 msgid "Role groups"
 msgstr "Rollengruppen"
 
-#: views.py:135
-#, python-format
-msgid "Groups of role: %s"
-msgstr "Gruppen für Rolle %s"
+#: views.py:117
+msgid "Available groups"
+msgstr "Verfügbare Gruppen"
 
-#: views.py:137
+#: views.py:135
 msgid ""
 "Add groups to be part of a role. They will inherit the role's permissions "
 "and access controls."
@@ -224,27 +287,32 @@ msgstr ""
 "Berechtigungen werden ererbt von den Berechtigungen und "
 "Zugriffsberechtigungen der Rolle."
 
-#: views.py:150
-msgid "Available permissions"
-msgstr "Verfügbare Berechtigungen"
+#: views.py:138
+#, python-format
+msgid "Groups of role: %s"
+msgstr "Gruppen für Rolle %s"
 
-#: views.py:151
+#: views.py:143
 msgid "Granted permissions"
 msgstr "Erteilte Berechtigungen"
 
-#: views.py:186
+#: views.py:144
+msgid "Available permissions"
+msgstr "Verfügbare Berechtigungen"
+
+#: views.py:185
 msgid ""
 "Permissions granted here will apply to the entire system and all objects."
 msgstr ""
 "Hier erteilte Berechtigungen gelten für das gesamte System und sämtliche "
 "Objekte."
 
-#: views.py:189
+#: views.py:188
 #, python-format
 msgid "Permissions for role: %s"
 msgstr "Berechtigungen der Rolle %s"
 
-#: views.py:209
+#: views.py:208
 #, python-format
 msgid "Details of permission: %s"
 msgstr ""

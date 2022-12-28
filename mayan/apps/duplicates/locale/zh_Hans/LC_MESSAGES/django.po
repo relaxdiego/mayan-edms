@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # yan songwei <yansw@vip.163.com>, 2022
 # Roberto Rosario, 2022
 # Leon Chu, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:35+0000\n"
 "Last-Translator: Leon Chu, 2022\n"
-"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
+"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/"
+"teams/13584/zh-Hans/)\n"
+"Language: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh-Hans\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps.py:28 apps.py:54 links.py:14 queues.py:9
@@ -42,7 +43,7 @@ msgstr "正確的文件檔案檢查碼"
 msgid "Exact document label"
 msgstr "正確的檔案標籤"
 
-#: links.py:18 models.py:41 views.py:79
+#: links.py:18 models.py:37 views.py:79
 msgid "Duplicated documents"
 msgstr "重复的文件"
 
@@ -50,23 +51,23 @@ msgstr "重复的文件"
 msgid "Duplicated document scan"
 msgstr "重复的文件扫描"
 
-#: models.py:23 models.py:33
+#: models.py:19 models.py:29
 msgid "Stored duplicate backend"
 msgstr "已存入之重製後台"
 
-#: models.py:24
+#: models.py:20
 msgid "Stored duplicate backends"
 msgstr "已存入的重複後台"
 
-#: models.py:37
+#: models.py:33
 msgid "Document"
 msgstr "文档"
 
-#: models.py:49
+#: models.py:45
 msgid "Duplicated backend entry"
 msgstr "重複的後台條目"
 
-#: models.py:50
+#: models.py:46
 msgid "Duplicated backend entries"
 msgstr "重複的後台條目"
 
@@ -94,9 +95,11 @@ msgstr "文件重复：%s"
 #: views.py:70
 msgid ""
 "Duplicates are documents that are composed of the exact same file, down to "
-"the last byte. Files that have the same text or OCR but are not identical or"
-" were saved using a different file format will not appear as duplicates."
-msgstr "重复项是由完全相同的文件组成的文档，直到最后一个字节。具有相同文本或OCR但不一致或使用不同文件格式保存的文件不会显示为重复项。"
+"the last byte. Files that have the same text or OCR but are not identical or "
+"were saved using a different file format will not appear as duplicates."
+msgstr ""
+"重复项是由完全相同的文件组成的文档，直到最后一个字节。具有相同文本或OCR但不一"
+"致或使用不同文件格式保存的文件不会显示为重复项。"
 
 #: views.py:77
 msgid "There are no duplicated documents"

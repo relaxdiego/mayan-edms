@@ -1,29 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # yan songwei <yansw@vip.163.com>, 2022
 # Roberto Rosario, 2022
 # Ford Guo <agile.guo@gmail.com>, 2022
 # Leon Chu, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Leon Chu, 2022\n"
-"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
+"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/"
+"teams/13584/zh-Hans/)\n"
+"Language: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh-Hans\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: apps.py:132 permissions.py:5 settings.py:16
+#: apps.py:131 permissions.py:6 settings.py:16
 msgid "Common"
 msgstr "常用"
 
@@ -83,7 +84,7 @@ msgstr "線上商店"
 msgid "Get support"
 msgstr "取得協助"
 
-#: links.py:69 queues.py:6 views.py:131
+#: links.py:69 queues.py:7 views.py:134
 msgid "Tools"
 msgstr "工具"
 
@@ -92,15 +93,15 @@ msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr "此功能已經被反對將於未來新版本上移除"
 
-#: literals.py:29
+#: literals.py:30
 msgid "Days"
 msgstr "天"
 
-#: literals.py:30
+#: literals.py:31
 msgid "Hours"
 msgstr "时"
 
-#: literals.py:31
+#: literals.py:32
 msgid "Minutes"
 msgstr "分"
 
@@ -132,75 +133,78 @@ msgstr "返回"
 msgid "User"
 msgstr "用户"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Copy object"
 msgstr "複製物件"
 
-#: settings.py:23
+#: settings.py:24
 msgid ""
 "In list mode, show the \"list facet\" menu options as a dropdown menu "
 "instead of individual buttons."
 msgstr "此模式下, 顯示\"列出項目\"選單選項如拖拉選單來取代個別的按鈕"
 
-#: settings.py:31
+#: settings.py:33
 msgid ""
-"In list mode, show the \"object\" menu options as a dropdown menu instead of"
-" individual buttons."
+"In list mode, show the \"object\" menu options as a dropdown menu instead of "
+"individual buttons."
 msgstr "此模式下, 顯示\"列出物件\"選單選項如拖拉選單來取代個別的按鈕"
 
-#: settings.py:38
+#: settings.py:41
 msgid ""
 "Disables the use of the local `media` folder. When using this setting, all "
 "apps must be also configured via their respective storage backend settings "
 "to use alternate persistence."
 msgstr ""
 
-#: settings.py:46
+#: settings.py:49
 msgid ""
 "A list of strings designating all applications that are to be removed from "
 "the list normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. Example: ['app_1', 'app_2']"
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. Example: ['app_1', 'app_2']"
 msgstr ""
 "透過Mayan EDMS安裝的, 設計用來給所有應用程式的字串列表將將被移除.\n"
-"各個字串必須是虛擬的Python路徑. 各應用程式設定類別或含有其應用程式的封裝.例如['app_1', 'app_2']"
+"各個字串必須是虛擬的Python路徑. 各應用程式設定類別或含有其應用程式的封裝.例如"
+"['app_1', 'app_2']"
 
-#: settings.py:56
+#: settings.py:59
 msgid ""
 "A list of strings designating all applications that are installed beyond "
 "those normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. Example: ['app_1', 'app_2']"
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. Example: ['app_1', 'app_2']"
 msgstr ""
-"透過Mayan EDMS安裝的, 設計用來給所有應用程式的字串列表將被安裝.各個字串必須是虛擬的Python路徑(偏好的). "
-"各應用程式設定類別或含有其應用程式的封裝.例如['app_1', 'app_2']"
+"透過Mayan EDMS安裝的, 設計用來給所有應用程式的字串列表將被安裝.各個字串必須是"
+"虛擬的Python路徑(偏好的). 各應用程式設定類別或含有其應用程式的封裝.例如"
+"['app_1', 'app_2']"
 
-#: settings.py:67
+#: settings.py:70
 msgid ""
 "A list of strings designating all applications that are installed beyond "
 "those normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. These apps will be installed before the default "
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. These apps will be installed before the default "
 "apps. Example: ['app_1', 'app_2']"
 msgstr ""
-"設計用來給所有應用程式的字串列表將被安裝在透過Mayan EDMS安裝的字串之後, 各個字串必須是虛擬的Python路徑(偏好的). "
-"各應用程式設定類別或含有其應用程式的封裝.例如['app_1', 'app_2']"
+"設計用來給所有應用程式的字串列表將被安裝在透過Mayan EDMS安裝的字串之後, 各個"
+"字串必須是虛擬的Python路徑(偏好的). 各應用程式設定類別或含有其應用程式的封裝."
+"例如['app_1', 'app_2']"
 
-#: settings.py:78
+#: settings.py:81
 msgid ""
-"Name of the view attached to the brand anchor in the main menu. This is also"
-" the view to which users will be redirected after log in."
+"Name of the view attached to the brand anchor in the main menu. This is also "
+"the view to which users will be redirected after log in."
 msgstr "主選單商標錨點的名稱, 這也是使用者登入後會被轉指向的畫面"
 
-#: settings.py:87
+#: settings.py:90
 msgid "Name of the dashboard to display in the home view."
 msgstr "顯示於首頁的告示牌名稱"
 
-#: settings.py:92
+#: settings.py:95
 msgid "Sets the project's name."
 msgstr "設定專案名稱"
 
-#: settings.py:96
+#: settings.py:99
 msgid "URL of the project's homepage."
 msgstr "專案首頁的URL"
 
@@ -208,11 +212,11 @@ msgstr "專案首頁的URL"
 msgid "Click here to fix this."
 msgstr "单击此处修复此问题。"
 
-#: validators.py:40
+#: validators.py:41
 msgid "Enter a valid JSON value."
 msgstr "輸入有效的 JSON 值"
 
-#: validators.py:64
+#: validators.py:65
 msgid "Enter a valid YAML value."
 msgstr "输入有效的YAML值。"
 
@@ -254,14 +258,14 @@ msgstr "此处没有结果表示没有执行管理任务所需的权限。"
 msgid "No setup options available."
 msgstr "没有可用的设置选项。"
 
-#: views.py:115
-msgid "Setup items"
-msgstr "设置项目"
-
-#: views.py:117
+#: views.py:116
 msgid "Here you can configure all aspects of the system."
 msgstr "你可以對此系統各項的設定"
 
-#: views.py:133
+#: views.py:118
+msgid "Setup items"
+msgstr "设置项目"
+
+#: views.py:132
 msgid "These modules are used to do system maintenance."
 msgstr "這些模組通常用來做系統維護使用"

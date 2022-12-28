@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 15:50+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: apps.py:19 settings.py:61
+#: apps.py:18 settings.py:8
 msgid "Authentication OIDC"
 msgstr ""
 
-#: authentication_backends.py:34
+#: authentication_backends.py:97
 msgid "Login via OIDC"
 msgstr ""
 
@@ -32,37 +32,5 @@ msgid "OIDC user details"
 msgstr ""
 
 #: settings.py:14
-msgid "Mozilla Django OIDC"
-msgstr ""
-
-#: settings.py:20
-msgid "URL of your OpenID Connect provider authorization endpoint."
-msgstr ""
-
-#: settings.py:29
-msgid "URL of your OpenID Connect provider token endpoint."
-msgstr ""
-
-#: settings.py:35
-msgid "URL of your OpenID Connect provider userinfo endpoint."
-msgstr ""
-
-#: settings.py:42
-msgid "OpenID Connect client ID provided by your OP."
-msgstr ""
-
-#: settings.py:48
-msgid "OpenID Connect client secret provided by your OP"
-msgstr ""
-
-#: settings.py:53
-msgid "Sets the algorithm the IdP uses to sign ID tokens."
-msgstr ""
-
-#: settings.py:57
-msgid "Sets the algorithm to create the username."
-msgstr ""
-
-#: settings.py:67
 msgid "URL for the OIDC user profile page."
 msgstr ""

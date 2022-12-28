@@ -2,26 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Hmayag Antonian <hmayag@freemail.gr>, 2022
 # pyrotech <anastasios@tutamail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: pyrotech <anastasios@tutamail.com>, 2022\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:24 links.py:38 permissions.py:5
+#: apps.py:24 links.py:38 permissions.py:6
 msgid "Dependencies"
 msgstr "Εξαρτήσεις"
 
@@ -37,11 +37,11 @@ msgstr "Όνομα εσωτερικής αναφοράς"
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: apps.py:45 classes.py:214
+#: apps.py:45 classes.py:218
 msgid "Type"
 msgstr "Τύπος"
 
-#: apps.py:49 classes.py:216
+#: apps.py:49 classes.py:220
 msgid "Other data"
 msgstr "Λοιπά δεδομένα"
 
@@ -49,7 +49,7 @@ msgstr "Λοιπά δεδομένα"
 msgid "Declared by"
 msgstr "Δηλώθηκε από"
 
-#: apps.py:57 classes.py:214
+#: apps.py:57 classes.py:218
 msgid "Version"
 msgstr "Έκδοση"
 
@@ -57,137 +57,137 @@ msgstr "Έκδοση"
 msgid "Environment"
 msgstr "Περιβάλλον"
 
-#: apps.py:64 classes.py:216
+#: apps.py:64 classes.py:220
 msgid "Check"
 msgstr "Έλεγχος"
 
-#: classes.py:214
+#: classes.py:218
 msgid "Name"
 msgstr "Όνομα"
 
-#: classes.py:215
+#: classes.py:219
 msgid "App"
 msgstr "Εφαρμογή"
 
-#: classes.py:215 classes.py:862
+#: classes.py:219 classes.py:906
 msgid "Environments"
 msgstr ""
 
-#: classes.py:308
+#: classes.py:316
 msgid "Need to specify at least one: app_label or module."
 msgstr "Πρέπει να προσδιορίσετε τουλάχιστον ένα: app_label ή module."
 
-#: classes.py:313
+#: classes.py:321
 #, python-format
 msgid "Dependency \"%s\" already registered."
 msgstr "Η εξάρτηση \"%s\" είναι ήδη εγγεγραμμένη."
 
-#: classes.py:339
+#: classes.py:350
 #, python-format
 msgid "Installing package: %s... "
 msgstr "Εγκατάσταση πακέτου: %s ..."
 
-#: classes.py:344
+#: classes.py:357
 msgid "Already installed."
 msgstr "Ήδη εγκατεστημένο."
 
-#: classes.py:347 classes.py:352 classes.py:356
+#: classes.py:362 classes.py:369 classes.py:375
 msgid "Complete."
 msgstr "Ολοκληρώθηκε"
 
-#: classes.py:382
+#: classes.py:402
 msgid "Installed and correct version"
 msgstr "Εγκατεστημένη και σωστή έκδοση"
 
-#: classes.py:384
+#: classes.py:404
 msgid "Missing or incorrect version"
 msgstr "Μη εγκατεστημένη ή λανθασμένη έκδοση"
 
-#: classes.py:419
+#: classes.py:441
 msgid "None"
 msgstr "Κανένα"
 
-#: classes.py:428
+#: classes.py:450
 msgid "Not specified"
 msgstr "Μη καθορισμένο"
 
-#: classes.py:431
+#: classes.py:453
 msgid "Patching files... "
 msgstr "Επιδιόρθωση αρχείων ..."
 
-#: classes.py:459
+#: classes.py:481
 msgid "Executables that are called directly by the code."
 msgstr "Εκτελέσιμα που καλούνται απευθείας από τον κώδικα."
 
-#: classes.py:461
+#: classes.py:483
 msgid "Binary"
 msgstr "Εκτελέσιμο"
 
-#: classes.py:478
+#: classes.py:500
 msgid ""
-"JavaScript libraries downloaded the from NPM registry and used for front-end"
-" functionality."
+"JavaScript libraries downloaded the from NPM registry and used for front-end "
+"functionality."
 msgstr ""
 "Οι βιβλιοθήκες JavaScript ελήφθησαν από το μητρώο NPM και χρησιμοποιήθηκαν "
 "για λειτουργίες διεπαφής."
 
-#: classes.py:481
+#: classes.py:503
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: classes.py:511 classes.py:774
+#: classes.py:535 classes.py:812
 msgid "Downloading... "
 msgstr "Λήψη..."
 
-#: classes.py:514
+#: classes.py:540
 msgid "Verifying... "
 msgstr "Επαλήθευση..."
 
-#: classes.py:517 classes.py:777
+#: classes.py:545 classes.py:817
 msgid "Extracting... "
 msgstr "Εξαγωγή..."
 
-#: classes.py:716
+#: classes.py:751
 msgid "Python packages downloaded from PyPI."
 msgstr "Πακέτα Python ελήφθησαν από το PyPI."
 
-#: classes.py:718
+#: classes.py:753
 msgid "Python"
 msgstr "Python"
 
-#: classes.py:755
+#: classes.py:792
 msgid "Fonts downloaded from fonts.googleapis.com."
 msgstr "Ελήφθησαν γραμματοσειρές από το fonts.googleapis.com."
 
-#: classes.py:757
+#: classes.py:794
 msgid "Google font"
 msgstr "Γραμματοσειρά Google"
 
-#: classes.py:843
+#: classes.py:887
 msgid "Declared in app"
 msgstr "Δηλώθηκε στην εφαρμογή"
 
-#: classes.py:844
+#: classes.py:888
 msgid "Show dependencies by the app that declared them."
 msgstr "Εμφάνιση εξαρτήσεων από την εφαρμογή που τις δηλώνει."
 
-#: classes.py:848
+#: classes.py:892
 msgid "Class"
 msgstr "Κλάση"
 
-#: classes.py:849
+#: classes.py:893
 msgid ""
 "Show the different classes of dependencies. Classes are usually divided by "
 "language or the file types of the dependency."
 msgstr ""
-"Εμφάνιση των διαφορετικών κλάσεων εξαρτήσεων. Οι κλάσεις διαιρούνται συνήθως"
-" ανά γλώσσα ή τους τύπους αρχείων της εξάρτησης."
+"Εμφάνιση των διαφορετικών κλάσεων εξαρτήσεων. Οι κλάσεις διαιρούνται συνήθως "
+"ανά γλώσσα ή τους τύπους αρχείων της εξάρτησης."
 
-#: classes.py:854
+#: classes.py:898
 msgid "State"
 msgstr "Κατάσταση"
 
-#: classes.py:855
+#: classes.py:899
 msgid ""
 "Show the different states of the dependencies. True means that the "
 "dependencies is installed and is of a correct version. False means the "
@@ -197,7 +197,7 @@ msgstr ""
 "ότι οι εξαρτήσεις είναι εγκατεστημένες και έχουν σωστή έκδοση. Η τιμή False "
 "σημαίνει ότι λείπουν οι εξαρτήσεις ή υπάρχει λανθασμένη έκδοση."
 
-#: classes.py:863
+#: classes.py:907
 msgid ""
 "Dependencies required for an environment might not be required for another. "
 "Example environments: Production, Development."
@@ -205,7 +205,7 @@ msgstr ""
 "Εξαρτήσεις που απαιτούνται για ένα περιβάλλον μπορεί να μην απαιτούνται για "
 "κάποιο άλλο. Παραδείγματα περιβάλλοντος: Παραγωγή, Ανάπτυξη."
 
-#: environments.py:18
+#: environments.py:17
 msgid ""
 "Environment used for building distributable packages of the software. End "
 "users can ignore missing dependencies under this environment."
@@ -214,11 +214,11 @@ msgstr ""
 "διανομής του λογισμικού. Οι τελικοί χρήστες μπορούν να αγνοήσουν τις "
 "εξαρτήσεις που λείπουν σε αυτό το περιβάλλον."
 
-#: environments.py:21
+#: environments.py:20
 msgid "Build"
 msgstr "Έκδοση"
 
-#: environments.py:25
+#: environments.py:24
 msgid ""
 "Environment used for developers to make code changes. End users can ignore "
 "missing dependencies under this environment."
@@ -227,11 +227,11 @@ msgstr ""
 "τελικοί χρήστες μπορούν να αγνοήσουν τις εξαρτήσεις που λείπουν σε αυτό το "
 "περιβάλλον."
 
-#: environments.py:27
+#: environments.py:26
 msgid "Development"
 msgstr "Ανάπτυξη"
 
-#: environments.py:31
+#: environments.py:30
 msgid ""
 "Environment used for building the documentation. End users can ignore "
 "missing dependencies under this environment."
@@ -240,22 +240,22 @@ msgstr ""
 "τελικοί χρήστες μπορούν να αγνοήσουν τις εξαρτήσεις που λείπουν σε αυτό το "
 "περιβάλλον."
 
-#: environments.py:33
+#: environments.py:32
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: environments.py:37
+#: environments.py:36
 msgid ""
 "Environment used to specify direct documentation depedencies to workaround "
-"unpinned or immutable depedency bugs in third party libraries. End users can"
-" ignore missing dependencies under this environment."
+"unpinned or immutable depedency bugs in third party libraries. End users can "
+"ignore missing dependencies under this environment."
 msgstr ""
 
-#: environments.py:41
+#: environments.py:40
 msgid "Documentation (override)"
 msgstr ""
 
-#: environments.py:45
+#: environments.py:44
 msgid ""
 "Normal environment for end users. A missing dependency under this "
 "environment will result in issues and errors during normal use."
@@ -264,11 +264,11 @@ msgstr ""
 "το περιβάλλον θα έχει ως αποτέλεσμα ζητήματα και σφάλματα κατά την κανονική "
 "χρήση."
 
-#: environments.py:47
+#: environments.py:46
 msgid "Production"
 msgstr "Παραγωγή"
 
-#: environments.py:51
+#: environments.py:50
 msgid ""
 "Environment used running the test suit to verify the functionality of the "
 "code. Dependencies in this environment are not needed for normal production "
@@ -278,11 +278,11 @@ msgstr ""
 "την επαλήθευση της λειτουργικότητας του κώδικα. Δεν απαιτούνται εξαρτήσεις "
 "σε αυτό το περιβάλλον για κανονική χρήση παραγωγής."
 
-#: environments.py:54
+#: environments.py:53
 msgid "Testing"
 msgstr "Δοκιμή"
 
-#: links.py:14 views.py:24
+#: links.py:14 views.py:25
 msgid "Check for updates"
 msgstr "Έλεγχος για ενημερώσεις"
 
@@ -329,34 +329,34 @@ msgstr "Επεξεργασία συγκεκριμένης εφαρμογής."
 msgid "Force installation even if already installed."
 msgstr "Υποχρεωτική εγκατάσταση ακόμη και αν έχει ήδη εγκατασταθεί."
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "View dependencies"
 msgstr "Προβολή εξαρτήσεων"
 
-#: views.py:39
+#: views.py:40
 #, python-format
 msgid "Entries for dependency group: %s"
 msgstr "Καταχωρήσεις για ομάδα εξαρτήσεων: %s"
 
-#: views.py:52 views.py:99
+#: views.py:54 views.py:103
 #, python-format
 msgid "Group %s not found."
 msgstr "Η ομάδα %s δεν βρέθηκε."
 
-#: views.py:66
+#: views.py:68
 msgid "Dependency groups"
 msgstr "Ομάδες εξάρτησεων"
 
-#: views.py:87
+#: views.py:90
 #, python-format
 msgid "Dependency group and entry: %(group)s, %(entry)s"
 msgstr "Ομάδα εξαρτήσεων και είσοδος: %(group)s, %(entry)s"
 
-#: views.py:111
+#: views.py:115
 #, python-format
 msgid "Entry %s not found."
 msgstr "Η καταχώριση %s δεν βρέθηκε."
 
-#: views.py:130
+#: views.py:134
 msgid "Other packages licenses"
 msgstr "Άδειες χρήσης λοιπών πακέτων"

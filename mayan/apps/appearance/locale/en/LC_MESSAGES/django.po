@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2020-04-08 04:06+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:57 events.py:5 permissions.py:5 settings.py:10
+#: apps.py:57 events.py:6 permissions.py:6 settings.py:11
 msgid "Appearance"
 msgstr ""
 
@@ -70,15 +70,15 @@ msgstr ""
 msgid "URI.js"
 msgstr ""
 
-#: events.py:8
+#: events.py:10
 msgid "Theme created"
 msgstr ""
 
-#: events.py:11
+#: events.py:13
 msgid "Theme edited"
 msgstr ""
 
-#: events.py:14
+#: events.py:16
 msgid "User theme edited"
 msgstr ""
 
@@ -140,37 +140,35 @@ msgstr ""
 msgid "User theme settings"
 msgstr ""
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new themes"
 msgstr ""
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete themes"
 msgstr ""
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit themes"
 msgstr ""
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing themes"
 msgstr ""
 
-#: settings.py:15
+#: settings.py:17
 msgid "Custom HTTP response code for AJAX redirections."
 msgstr ""
 
-#: settings.py:21
+#: settings.py:23
 msgid "Maximum number of characters that will be displayed as the view title."
 msgstr ""
 
-#: settings.py:28
-msgid ""
-"Position where the system message will be displayed. Options are: top-left, "
-"top-center, top-right, bottom-left, bottom-center, bottom-right."
+#: settings.py:33
+msgid "Position where the system messages will be displayed."
 msgstr ""
 
-#: settings.py:36
+#: settings.py:39
 msgid ""
 "Delay in milliseconds after which the menus will be checked for updates."
 msgstr ""
@@ -358,8 +356,14 @@ msgstr ""
 msgid "Identifier"
 msgstr ""
 
-#: templates/appearance/generic_list_subtemplate.html:134
-msgid "Facets"
+#: templates/appearance/generic_list_subtemplate.html:85
+#: templates/appearance/partials/list_object_facet_links_column.html:8
+#: templates/appearance/partials/list_object_facet_links_column.html:39
+msgid "Views"
+msgstr ""
+
+#: templates/appearance/generic_list_subtemplate.html:91
+msgid "Actions"
 msgstr ""
 
 #: templates/appearance/home.html:27
@@ -399,21 +403,31 @@ msgstr ""
 msgid "Toggle list display mode"
 msgstr ""
 
-#: templates/appearance/partials/list_toolbar.html:63
+#: templates/appearance/partials/list_toolbar.html:31
 msgid ""
 "Select items to activate bulk actions. Use Shift + click to select many."
 msgstr ""
 
-#: templates/appearance/partials/list_toolbar.html:68
+#: templates/appearance/partials/list_toolbar.html:36
 msgid "Bulk actions"
 msgstr ""
 
-#: templates/appearance/partials/list_toolbar.html:70
+#: templates/appearance/partials/list_toolbar.html:38
 msgid "Toggle Dropdown"
 msgstr ""
 
 #: templates/appearance/partials/no_results.html:18
 msgid "No results"
+msgstr ""
+
+#: templates/appearance/partials/pagination.html:12
+#: templates/appearance/partials/pagination.html:14
+msgid "Previous page"
+msgstr ""
+
+#: templates/appearance/partials/pagination.html:30
+#: templates/appearance/partials/pagination.html:32
+msgid "Next page"
 msgstr ""
 
 #: templates/appearance/root.html:52

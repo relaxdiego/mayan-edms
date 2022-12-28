@@ -1,72 +1,73 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Māris Teivāns <maris.teivans@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:39+0000\n"
 "Last-Translator: Māris Teivāns <maris.teivans@gmail.com>, 2022\n"
 "Language-Team: Latvian (https://www.transifex.com/rosarior/teams/13584/lv/)\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lv\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
 
-#: apps.py:74 events.py:6 permissions.py:6
+#: apps.py:62 events.py:6 permissions.py:6
 msgid "User management"
 msgstr ""
 
-#: apps.py:89 search.py:10
+#: apps.py:77 search.py:10
 msgid "Group"
 msgstr ""
 
-#: apps.py:90 apps.py:117 links.py:56 links.py:70 links.py:99 search.py:34
-#: views/group_views.py:109
+#: apps.py:78 apps.py:107 links.py:56 links.py:70 links.py:99 search.py:34
+#: views/group_views.py:111
 msgid "Groups"
 msgstr "Grupas"
 
-#: apps.py:91 search.py:16
+#: apps.py:79 search.py:16
 msgid "Name"
 msgstr "Nosaukums"
 
-#: apps.py:111 models.py:20 search.py:22
+#: apps.py:99 models.py:20 search.py:22
 msgid "User"
 msgstr "Lietotājs"
 
-#: apps.py:112 apps.py:216 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:166
+#: apps.py:100 apps.py:219 links.py:61 links.py:102 links.py:120
+#: views/user_views.py:168
 msgid "Users"
 msgstr ""
 
-#: apps.py:115 search.py:31
+#: apps.py:103 search.py:31
 msgid "Email"
 msgstr "E-pasts"
 
-#: apps.py:116 search.py:28
+#: apps.py:106 search.py:28
 msgid "First name"
 msgstr ""
 
-#: apps.py:118
+#: apps.py:110
 msgid "Is active?"
 msgstr ""
 
-#: apps.py:119 search.py:37
+#: apps.py:113 search.py:37
 msgid "Last name"
 msgstr ""
 
-#: apps.py:120
+#: apps.py:116 serializers.py:72
 msgid "Password"
 msgstr "Parole"
 
-#: apps.py:121
+#: apps.py:119
 msgid "Username"
 msgstr "Lietotājvārds"
 
@@ -74,15 +75,15 @@ msgstr "Lietotājvārds"
 msgid "Last login"
 msgstr ""
 
-#: apps.py:146
+#: apps.py:148
 msgid "Has usable password?"
 msgstr ""
 
-#: apps.py:153
+#: apps.py:155
 msgid "All the groups."
 msgstr ""
 
-#: apps.py:157
+#: apps.py:159
 msgid "All the users."
 msgstr ""
 
@@ -94,7 +95,7 @@ msgstr "Kopā lietotāji"
 msgid "Total groups"
 msgstr "Kopā grupas"
 
-#: dashboards.py:5
+#: dashboards.py:6
 msgid "User dashboard"
 msgstr ""
 
@@ -126,7 +127,7 @@ msgstr ""
 msgid "User details"
 msgstr ""
 
-#: links.py:36 views/group_views.py:24
+#: links.py:36 views/group_views.py:25
 msgid "Create new group"
 msgstr ""
 
@@ -162,11 +163,11 @@ msgstr ""
 msgid "Forbid this user from changing their password."
 msgstr ""
 
-#: models.py:30
+#: models.py:31
 msgid "User settings"
 msgstr ""
 
-#: models.py:31
+#: models.py:32
 msgid "Users settings"
 msgstr ""
 
@@ -210,35 +211,55 @@ msgstr ""
 msgid "URL of the API endpoint showing the list users of this group."
 msgstr ""
 
-#: serializers.py:47
+#: serializers.py:18
+#, fuzzy
+#| msgid "User"
+msgid "Users URL"
+msgstr "Lietotājs"
+
+#: serializers.py:22
+msgid "Users add URL"
+msgstr ""
+
+#: serializers.py:26
+msgid "Users remove URL"
+msgstr ""
+
+#: serializers.py:33 serializers.py:80
+msgid "URL"
+msgstr ""
+
+#: serializers.py:48
 msgid "Primary key of the user to add to the group."
 msgstr ""
 
-#: serializers.py:56
+#: serializers.py:49 serializers.py:58
+#, fuzzy
+#| msgid "User"
+msgid "User ID"
+msgstr "Lietotājs"
+
+#: serializers.py:57
 msgid "Primary key of the user to remove from the group."
 msgstr ""
 
-#: serializers.py:65
+#: serializers.py:66
 msgid "URL of the API endpoint showing the list groups this user belongs to."
 msgstr ""
 
-#: utils.py:6
+#: serializers.py:68
+#, fuzzy
+#| msgid "Groups"
+msgid "Groups URL"
+msgstr "Grupas"
+
+#: utils.py:26
 msgid "Anonymous"
 msgstr ""
 
-#: views/group_views.py:38
+#: views/group_views.py:40
 #, python-format
 msgid "Error deleting group \"%(instance)s\"; %(exception)s"
-msgstr ""
-
-#: views/group_views.py:45
-#, python-format
-msgid "Group \"%(object)s\" deleted successfully."
-msgstr ""
-
-#: views/group_views.py:46
-#, python-format
-msgid "%(count)d group deleted successfully."
 msgstr ""
 
 #: views/group_views.py:47
@@ -248,12 +269,12 @@ msgstr ""
 
 #: views/group_views.py:48
 #, python-format
-msgid "Delete group: %(object)s."
+msgid "Group \"%(object)s\" deleted successfully."
 msgstr ""
 
 #: views/group_views.py:49
 #, python-format
-msgid "Delete the %(count)d selected group."
+msgid "%(count)d group deleted successfully."
 msgstr ""
 
 #: views/group_views.py:50
@@ -261,36 +282,46 @@ msgstr ""
 msgid "Delete the %(count)d selected groups."
 msgstr ""
 
-#: views/group_views.py:64
+#: views/group_views.py:51
+#, python-format
+msgid "Delete group: %(object)s."
+msgstr ""
+
+#: views/group_views.py:52
+#, python-format
+msgid "Delete the %(count)d selected group."
+msgstr ""
+
+#: views/group_views.py:66
 #, python-format
 msgid "Details of group: %s"
 msgstr ""
 
-#: views/group_views.py:81
+#: views/group_views.py:83
 #, python-format
 msgid "Edit group: %s"
 msgstr ""
 
-#: views/group_views.py:102
+#: views/group_views.py:104
 msgid ""
 "User groups are organizational units. They should mirror the organizational "
 "units of your organization. Groups can't be used for access control. Use "
 "roles for permissions and access control, add groups to them."
 msgstr ""
 
-#: views/group_views.py:108
+#: views/group_views.py:110
 msgid "There are no user groups"
 msgstr ""
 
-#: views/group_views.py:120
+#: views/group_views.py:116
 msgid "Available users"
 msgstr ""
 
-#: views/group_views.py:121
+#: views/group_views.py:117
 msgid "Group users"
 msgstr ""
 
-#: views/group_views.py:130
+#: views/group_views.py:132
 #, python-format
 msgid "Users of group: %s"
 msgstr ""
@@ -300,16 +331,6 @@ msgstr ""
 msgid "Error deleting user \"%(instance)s\"; %(exception)s"
 msgstr ""
 
-#: views/user_views.py:59
-#, python-format
-msgid "User \"%(object)s\" deleted successfully."
-msgstr ""
-
-#: views/user_views.py:60
-#, python-format
-msgid "%(count)d user deleted successfully."
-msgstr ""
-
 #: views/user_views.py:61
 #, python-format
 msgid "%(count)d users deleted successfully."
@@ -317,12 +338,12 @@ msgstr ""
 
 #: views/user_views.py:62
 #, python-format
-msgid "Delete user: %(object)s."
+msgid "User \"%(object)s\" deleted successfully."
 msgstr ""
 
 #: views/user_views.py:63
 #, python-format
-msgid "Delete the %(count)d selected user."
+msgid "%(count)d user deleted successfully."
 msgstr ""
 
 #: views/user_views.py:64
@@ -330,50 +351,60 @@ msgstr ""
 msgid "Delete the %(count)d selected users."
 msgstr ""
 
-#: views/user_views.py:71
-msgid ""
-"Warning! You are about to delete your own user account. You will lose access"
-" to the system. This process is not reversible."
+#: views/user_views.py:65
+#, python-format
+msgid "Delete user: %(object)s."
 msgstr ""
 
-#: views/user_views.py:89
+#: views/user_views.py:66
+#, python-format
+msgid "Delete the %(count)d selected user."
+msgstr ""
+
+#: views/user_views.py:73
+msgid ""
+"Warning! You are about to delete your own user account. You will lose access "
+"to the system. This process is not reversible."
+msgstr ""
+
+#: views/user_views.py:91
 #, python-format
 msgid "Details of user: %s"
 msgstr ""
 
-#: views/user_views.py:108
+#: views/user_views.py:110
 #, python-format
 msgid "Edit user: %s"
 msgstr ""
 
-#: views/user_views.py:125
+#: views/user_views.py:121
 msgid "Available groups"
 msgstr "Pieejamās grupas"
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:128
+#: views/user_views.py:124
 msgid "User groups"
 msgstr ""
 
-#: views/user_views.py:137
+#: views/user_views.py:139
 #, python-format
 msgid "Groups of user: %s"
 msgstr ""
 
-#: views/user_views.py:162
+#: views/user_views.py:164
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
 msgstr ""
-"No šī skata var izveidot lietotāju kontus. Pēc lietotāja konta izveidošanas,"
-"  jums tiks piedāvāts iestatīt paroli."
+"No šī skata var izveidot lietotāju kontus. Pēc lietotāja konta "
+"izveidošanas,  jums tiks piedāvāts iestatīt paroli."
 
-#: views/user_views.py:165
+#: views/user_views.py:167
 msgid "There are no user accounts"
 msgstr ""
 
-#: views/user_views.py:182
+#: views/user_views.py:187
 #, python-format
 msgid "Edit options for user: %s"
 msgstr ""

@@ -1,37 +1,34 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Roberto Rosario, 2022
 # 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2022
 # Pavlin Koldamov <pkoldamov@gmail.com>, 2022
 # Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
+"bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:23 settings.py:14
+#: apps.py:27 permissions.py:6 settings.py:15
 msgid "Storage"
 msgstr "Съхранение"
 
-#: apps.py:56
-msgid "Source object"
-msgstr "Изходен обект"
-
-#: classes.py:86 classes.py:107
+#: classes.py:88 classes.py:109
 #, python-format
 msgid ""
 "Unable to initialize storage: %(name)s. Check the storage backend dotted "
@@ -40,7 +37,7 @@ msgstr ""
 "Съхранението не може да бъде инициализирано: %(name)s. Проверете пътя и "
 "аргументите на бекенд скрипта на съхранението."
 
-#: events.py:6 links.py:19 models.py:64 storages.py:22
+#: events.py:6 links.py:20 models.py:56 storages.py:22
 msgid "Download files"
 msgstr "Изтеглете файлове"
 
@@ -91,41 +88,61 @@ msgstr ""
 msgid "Name of the storage to process."
 msgstr "Име на хранилището, което ще се обработва."
 
-#: model_mixins.py:13 models.py:119
+#: model_mixins.py:18 models.py:94
 msgid "Filename"
 msgstr "Име на файл"
 
-#: model_mixins.py:16
+#: model_mixins.py:21
 msgid "Date time"
 msgstr "Дата час"
 
-#: model_mixins.py:70
+#: model_mixins.py:75
 msgid "Unnamed file"
 msgstr "Файл без име"
 
-#: models.py:42 models.py:116
+#: model_mixins.py:94
+msgid "Size"
+msgstr ""
+
+#: model_mixins.py:101 models.py:48
+msgid "User"
+msgstr ""
+
+#: models.py:40 models.py:91
 msgid "File"
 msgstr "Файл"
 
-#: models.py:52
+#: models.py:43
 msgid "Label"
 msgstr "Етикет"
 
-#: models.py:56
-msgid "Permission"
-msgstr "Разрешение"
-
-#: models.py:63
+#: models.py:55
 msgid "Download file"
 msgstr "Изтегли файл"
 
-#: models.py:125
+#: models.py:100
 msgid "Shared uploaded file"
 msgstr "Споделен качен файл"
 
-#: models.py:126 storages.py:36
+#: models.py:101 storages.py:36
 msgid "Shared uploaded files"
 msgstr "Споделени качени файлове"
+
+#: permissions.py:10
+#, fuzzy
+#| msgid "Delete stale download files"
+msgid "Delete user files"
+msgstr "Изтрийте остарелите файлове за изтегляне"
+
+#: permissions.py:13
+#, fuzzy
+#| msgid "Download files"
+msgid "Download user files"
+msgstr "Изтеглете файлове"
+
+#: permissions.py:16
+msgid "View user files"
+msgstr ""
 
 #: queues.py:13
 msgid "Storage periodic"
@@ -139,11 +156,11 @@ msgstr "Изтриване на застояли качвания"
 msgid "Delete stale download files"
 msgstr "Изтрийте остарелите файлове за изтегляне"
 
-#: settings.py:19
+#: settings.py:21
 msgid "Time in seconds, after which download files will be deleted."
 msgstr ""
 
-#: settings.py:25
+#: settings.py:27
 msgid ""
 "A storage backend that all workers can use to generate and hold files for "
 "download."
@@ -151,13 +168,13 @@ msgstr ""
 "Бекенд за съхранение, който всички работници могат да използват за "
 "генериране и задържане на файлове за изтегляне."
 
-#: settings.py:36
+#: settings.py:38
 msgid "A storage backend that all workers can use to share files."
 msgstr ""
-"Бекенд за съхранение, който всички работници могат да използват за споделяне"
-" на файлове."
+"Бекенд за съхранение, който всички работници могат да използват за споделяне "
+"на файлове."
 
-#: settings.py:46
+#: settings.py:48
 msgid ""
 "Temporary directory used site wide to store thumbnails, previews and "
 "temporary files."
@@ -165,40 +182,46 @@ msgstr ""
 "Временна директория, използвана в целия сайт за съхранение на миниатюри, "
 "визуализации и временни файлове."
 
-#: settings.py:53
+#: settings.py:55
 msgid "Time in seconds, after which temporary uploaded files will be deleted."
 msgstr ""
 
 #: storages.py:15
 msgid ""
-"Unable to initialize the download file storage. Check the settings {} and {}"
-" for formatting errors."
+"Unable to initialize the download file storage. Check the settings {} and {} "
+"for formatting errors."
 msgstr ""
 "Не може да се инициализира хранилището на файла за изтегляне. Проверете "
 "настройките {} и {} за грешки при форматирането."
 
 #: storages.py:29
 msgid ""
-"Unable to initialize the shared uploaded file storage. Check the settings {}"
-" and {} for formatting errors."
+"Unable to initialize the shared uploaded file storage. Check the settings {} "
+"and {} for formatting errors."
 msgstr ""
 "Не може да се инициализира съхраняването на качени файлове. Проверете "
 "настройките {} и {} за форматиране на грешки."
 
-#: views.py:60
+#: views.py:67
 msgid ""
 "Download files are created as a results of a an external process like an "
 "export. Download files are retained over a span of time and then removed "
 "automatically."
 msgstr ""
 "Файловете за изтегляне се създават в резултат на външен процес като "
-"експортиране. Изтеглените файлове се запазват за определен период от време и"
-" след това се премахват автоматично."
+"експортиране. Изтеглените файлове се запазват за определен период от време и "
+"след това се премахват автоматично."
 
-#: views.py:64
+#: views.py:71
 msgid "There are no files to download."
 msgstr "Няма файлове за изтегляне."
 
-#: views.py:65
+#: views.py:72
 msgid "Downloads"
 msgstr "Изтегляния"
+
+#~ msgid "Source object"
+#~ msgstr "Изходен обект"
+
+#~ msgid "Permission"
+#~ msgstr "Разрешение"

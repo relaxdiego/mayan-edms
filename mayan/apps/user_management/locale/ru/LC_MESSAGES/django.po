@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Panasoft, 2022
@@ -9,68 +9,70 @@
 # Roberto Rosario, 2022
 # Sergey Glita <gsv70@mail.ru>, 2022
 # Ilya Pavlov <spirkaa@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:39+0000\n"
 "Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: apps.py:74 events.py:6 permissions.py:6
+#: apps.py:62 events.py:6 permissions.py:6
 msgid "User management"
 msgstr "Управление пользователями"
 
-#: apps.py:89 search.py:10
+#: apps.py:77 search.py:10
 msgid "Group"
 msgstr "Группа"
 
-#: apps.py:90 apps.py:117 links.py:56 links.py:70 links.py:99 search.py:34
-#: views/group_views.py:109
+#: apps.py:78 apps.py:107 links.py:56 links.py:70 links.py:99 search.py:34
+#: views/group_views.py:111
 msgid "Groups"
 msgstr "Группы"
 
-#: apps.py:91 search.py:16
+#: apps.py:79 search.py:16
 msgid "Name"
 msgstr "Имя"
 
-#: apps.py:111 models.py:20 search.py:22
+#: apps.py:99 models.py:20 search.py:22
 msgid "User"
 msgstr "Пользователь"
 
-#: apps.py:112 apps.py:216 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:166
+#: apps.py:100 apps.py:219 links.py:61 links.py:102 links.py:120
+#: views/user_views.py:168
 msgid "Users"
 msgstr "Пользователи"
 
-#: apps.py:115 search.py:31
+#: apps.py:103 search.py:31
 msgid "Email"
 msgstr "Электронная почта"
 
-#: apps.py:116 search.py:28
+#: apps.py:106 search.py:28
 msgid "First name"
 msgstr "Имя"
 
-#: apps.py:118
+#: apps.py:110
 msgid "Is active?"
 msgstr "Активен?"
 
-#: apps.py:119 search.py:37
+#: apps.py:113 search.py:37
 msgid "Last name"
 msgstr "Фамилия"
 
-#: apps.py:120
+#: apps.py:116 serializers.py:72
 msgid "Password"
 msgstr "Пароль"
 
-#: apps.py:121
+#: apps.py:119
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -78,15 +80,15 @@ msgstr "Имя пользователя"
 msgid "Last login"
 msgstr "Последний вход"
 
-#: apps.py:146
+#: apps.py:148
 msgid "Has usable password?"
 msgstr "Есть действующий пароль?"
 
-#: apps.py:153
+#: apps.py:155
 msgid "All the groups."
 msgstr "Все группы"
 
-#: apps.py:157
+#: apps.py:159
 msgid "All the users."
 msgstr "Все пользователи."
 
@@ -98,7 +100,7 @@ msgstr "Всего пользователей"
 msgid "Total groups"
 msgstr "Всего групп"
 
-#: dashboards.py:5
+#: dashboards.py:6
 msgid "User dashboard"
 msgstr ""
 
@@ -130,7 +132,7 @@ msgstr "Пользователь вышел из системы"
 msgid "User details"
 msgstr "Сведения о пользователе"
 
-#: links.py:36 views/group_views.py:24
+#: links.py:36 views/group_views.py:25
 msgid "Create new group"
 msgstr "Создать группу"
 
@@ -166,11 +168,11 @@ msgstr "Атрибуты"
 msgid "Forbid this user from changing their password."
 msgstr "Запретить этому пользователю изменять свой пароль."
 
-#: models.py:30
+#: models.py:31
 msgid "User settings"
 msgstr "Пользовательские настройки"
 
-#: models.py:31
+#: models.py:32
 msgid "Users settings"
 msgstr "Пользовательские настройки"
 
@@ -214,37 +216,57 @@ msgstr "имя пользователя"
 msgid "URL of the API endpoint showing the list users of this group."
 msgstr "URL-адрес API, показывающий список пользователей этой группы."
 
-#: serializers.py:47
+#: serializers.py:18
+#, fuzzy
+#| msgid "Users"
+msgid "Users URL"
+msgstr "Пользователи"
+
+#: serializers.py:22
+msgid "Users add URL"
+msgstr ""
+
+#: serializers.py:26
+msgid "Users remove URL"
+msgstr ""
+
+#: serializers.py:33 serializers.py:80
+msgid "URL"
+msgstr ""
+
+#: serializers.py:48
 msgid "Primary key of the user to add to the group."
 msgstr "Первичный ключ пользователя, которого нужно добавить в группу."
 
-#: serializers.py:56
+#: serializers.py:49 serializers.py:58
+#, fuzzy
+#| msgid "User"
+msgid "User ID"
+msgstr "Пользователь"
+
+#: serializers.py:57
 msgid "Primary key of the user to remove from the group."
 msgstr "Первичный ключ пользователя, которого нужно удалить из группы."
 
-#: serializers.py:65
+#: serializers.py:66
 msgid "URL of the API endpoint showing the list groups this user belongs to."
 msgstr ""
 "URL-адрес API, показывающий список групп, к которым принадлежит этот "
 "пользователь."
 
-#: utils.py:6
+#: serializers.py:68
+#, fuzzy
+#| msgid "Groups"
+msgid "Groups URL"
+msgstr "Группы"
+
+#: utils.py:26
 msgid "Anonymous"
 msgstr "Анонимно"
 
-#: views/group_views.py:38
+#: views/group_views.py:40
 #, python-format
 msgid "Error deleting group \"%(instance)s\"; %(exception)s"
-msgstr ""
-
-#: views/group_views.py:45
-#, python-format
-msgid "Group \"%(object)s\" deleted successfully."
-msgstr ""
-
-#: views/group_views.py:46
-#, python-format
-msgid "%(count)d group deleted successfully."
 msgstr ""
 
 #: views/group_views.py:47
@@ -254,12 +276,12 @@ msgstr ""
 
 #: views/group_views.py:48
 #, python-format
-msgid "Delete group: %(object)s."
+msgid "Group \"%(object)s\" deleted successfully."
 msgstr ""
 
 #: views/group_views.py:49
 #, python-format
-msgid "Delete the %(count)d selected group."
+msgid "%(count)d group deleted successfully."
 msgstr ""
 
 #: views/group_views.py:50
@@ -267,17 +289,27 @@ msgstr ""
 msgid "Delete the %(count)d selected groups."
 msgstr ""
 
-#: views/group_views.py:64
+#: views/group_views.py:51
+#, python-format
+msgid "Delete group: %(object)s."
+msgstr ""
+
+#: views/group_views.py:52
+#, python-format
+msgid "Delete the %(count)d selected group."
+msgstr ""
+
+#: views/group_views.py:66
 #, python-format
 msgid "Details of group: %s"
 msgstr ""
 
-#: views/group_views.py:81
+#: views/group_views.py:83
 #, python-format
 msgid "Edit group: %s"
 msgstr "Редактировать группу: %s"
 
-#: views/group_views.py:102
+#: views/group_views.py:104
 msgid ""
 "User groups are organizational units. They should mirror the organizational "
 "units of your organization. Groups can't be used for access control. Use "
@@ -288,19 +320,19 @@ msgstr ""
 "использовать для контроля доступа. Используйте роли для разрешений и "
 "контроля доступа, и добавляйте группы к ним."
 
-#: views/group_views.py:108
+#: views/group_views.py:110
 msgid "There are no user groups"
 msgstr "Нет групп пользователей"
 
-#: views/group_views.py:120
+#: views/group_views.py:116
 msgid "Available users"
 msgstr "Доступные пользователи"
 
-#: views/group_views.py:121
+#: views/group_views.py:117
 msgid "Group users"
 msgstr "Члены группы"
 
-#: views/group_views.py:130
+#: views/group_views.py:132
 #, python-format
 msgid "Users of group: %s"
 msgstr "Члены группы: %s"
@@ -310,16 +342,6 @@ msgstr "Члены группы: %s"
 msgid "Error deleting user \"%(instance)s\"; %(exception)s"
 msgstr ""
 
-#: views/user_views.py:59
-#, python-format
-msgid "User \"%(object)s\" deleted successfully."
-msgstr ""
-
-#: views/user_views.py:60
-#, python-format
-msgid "%(count)d user deleted successfully."
-msgstr ""
-
 #: views/user_views.py:61
 #, python-format
 msgid "%(count)d users deleted successfully."
@@ -327,12 +349,12 @@ msgstr ""
 
 #: views/user_views.py:62
 #, python-format
-msgid "Delete user: %(object)s."
+msgid "User \"%(object)s\" deleted successfully."
 msgstr ""
 
 #: views/user_views.py:63
 #, python-format
-msgid "Delete the %(count)d selected user."
+msgid "%(count)d user deleted successfully."
 msgstr ""
 
 #: views/user_views.py:64
@@ -340,38 +362,48 @@ msgstr ""
 msgid "Delete the %(count)d selected users."
 msgstr ""
 
-#: views/user_views.py:71
-msgid ""
-"Warning! You are about to delete your own user account. You will lose access"
-" to the system. This process is not reversible."
+#: views/user_views.py:65
+#, python-format
+msgid "Delete user: %(object)s."
 msgstr ""
 
-#: views/user_views.py:89
+#: views/user_views.py:66
+#, python-format
+msgid "Delete the %(count)d selected user."
+msgstr ""
+
+#: views/user_views.py:73
+msgid ""
+"Warning! You are about to delete your own user account. You will lose access "
+"to the system. This process is not reversible."
+msgstr ""
+
+#: views/user_views.py:91
 #, python-format
 msgid "Details of user: %s"
 msgstr "Подробности пользователя: %s"
 
-#: views/user_views.py:108
+#: views/user_views.py:110
 #, python-format
 msgid "Edit user: %s"
 msgstr "Редактировать пользователя: %s"
 
-#: views/user_views.py:125
+#: views/user_views.py:121
 msgid "Available groups"
 msgstr "Доступные группы"
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:128
+#: views/user_views.py:124
 msgid "User groups"
 msgstr "Член групп"
 
-#: views/user_views.py:137
+#: views/user_views.py:139
 #, python-format
 msgid "Groups of user: %s"
 msgstr "Член групп: %s"
 
-#: views/user_views.py:162
+#: views/user_views.py:164
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
@@ -380,11 +412,11 @@ msgstr ""
 "После создания учетной записи пользователя вам будет предложено установить "
 "для нее пароль."
 
-#: views/user_views.py:165
+#: views/user_views.py:167
 msgid "There are no user accounts"
 msgstr "Нет учетных записей пользователей"
 
-#: views/user_views.py:182
+#: views/user_views.py:187
 #, python-format
 msgid "Edit options for user: %s"
 msgstr "Настройки пользователя: %s"

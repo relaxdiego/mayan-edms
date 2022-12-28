@@ -1,55 +1,74 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # trendspotter <jirka.p@volny.cz>, 2022
 # Michal Švábík <snadno@lehce.cz>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: Michal Švábík <snadno@lehce.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/rosarior/teams/13584/cs/)\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
+"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: apps.py:21 permissions.py:6
+#: apps.py:24 permissions.py:6
 msgid "Smart settings"
 msgstr "Cyhtré nastavení"
 
-#: apps.py:30
+#: apps.py:33
 msgid "Setting count"
 msgstr "Počet nastavení"
 
-#: apps.py:35
+#: apps.py:38
 msgid "Name"
 msgstr "název"
 
-#: apps.py:39
+#: apps.py:42 forms.py:26
 msgid "Value"
 msgstr "Hodnota"
 
-#: classes.py:374
+#: classes.py:115
+#, fuzzy
+#| msgid "Setting namespaces"
+msgid "Settings namespace"
+msgstr "Nastavení oborů názvů"
+
+#: classes.py:393
+msgid "Choices"
+msgstr ""
+
+#: classes.py:395
+msgid "Possible values allowed for this setting."
+msgstr ""
+
+#: classes.py:401
+msgid "Default"
+msgstr ""
+
+#: classes.py:409
 msgid "Overridden"
 msgstr "Přepsáno"
 
-#: classes.py:376
+#: classes.py:411
 msgid "Is this settings being overridden by an environment variable?"
 msgstr "Je toto nastavení potlačeno proměnnou prostředí?"
 
-#: forms.py:12
+#: forms.py:28
 msgid "Enter the new setting value."
 msgstr "Zadejte novou hodnotu nastavení."
 
-#: forms.py:28
+#: forms.py:40
 #, python-format
 msgid "\"%s\" not a valid entry."
 msgstr "\"%s\" není platná položka."
@@ -74,21 +93,21 @@ msgstr "Upravit nastavení"
 msgid "View settings"
 msgstr "Zobrazit nastavení"
 
-#: settings.py:26
+#: settings.py:27
 msgid "Django"
 msgstr "Django"
 
-#: settings.py:30
+#: settings.py:32
 msgid ""
 "A list of strings representing the host/domain names that this site can "
-"serve. This is a security measure to prevent HTTP Host header attacks, which"
-" are possible even under many seemingly-safe web server configurations. "
+"serve. This is a security measure to prevent HTTP Host header attacks, which "
+"are possible even under many seemingly-safe web server configurations. "
 "Values in this list can be fully qualified names (e.g. 'www.example.com'), "
-"in which case they will be matched against the request's Host header exactly"
-" (case-insensitive, not including port). A value beginning with a period can"
-" be used as a subdomain wildcard: '.example.com' will match example.com, "
-"www.example.com, and any other subdomain of example.com. A value of '*' will"
-" match anything; in this case you are responsible to provide your own "
+"in which case they will be matched against the request's Host header exactly "
+"(case-insensitive, not including port). A value beginning with a period can "
+"be used as a subdomain wildcard: '.example.com' will match example.com, www."
+"example.com, and any other subdomain of example.com. A value of '*' will "
+"match anything; in this case you are responsible to provide your own "
 "validation of the Host header (perhaps in a middleware; if so this "
 "middleware must be listed first in MIDDLEWARE)."
 msgstr ""
@@ -99,44 +118,43 @@ msgstr ""
 "kvalifikované názvy (např. 'www.example.com'), v takovém případě budou "
 "přesně porovnány s hlavičkou Hostitele požadavku (bez rozlišování velkých a "
 "malých písmen, bez zahrnutí portu). Hodnotu začínající tečkou lze použít "
-"jako zástupný znak subdomény: '.example.com' bude odpovídat example.com, "
-"www.example.com a jakékoli jiné subdoméně example.com. Hodnota '*' bude "
+"jako zástupný znak subdomény: '.example.com' bude odpovídat example.com, www."
+"example.com a jakékoli jiné subdoméně example.com. Hodnota '*' bude "
 "odpovídat čemukoli; v tomto případě jste zodpovědní za zajištění vlastní "
 "validace hlavičky Host (možná v middlewaru; pokud ano, musí být tento "
 "middleware uveden na prvním místě v MIDDLEWARE)."
 
-#: settings.py:47
+#: settings.py:49
 msgid ""
 "When set to True, if the request URL does not match any of the patterns in "
-"the URLconf and it doesn't end in a slash, an HTTP redirect is issued to the"
-" same URL with a slash appended. Note that the redirect may cause any data "
+"the URLconf and it doesn't end in a slash, an HTTP redirect is issued to the "
+"same URL with a slash appended. Note that the redirect may cause any data "
 "submitted in a POST request to be lost. The APPEND_SLASH setting is only "
-"used if CommonMiddleware is installed (see Middleware). See also "
-"PREPEND_WWW."
+"used if CommonMiddleware is installed (see Middleware). See also PREPEND_WWW."
 msgstr ""
 "Pokud je nastaveno na hodnotu True, pokud adresa URL požadavku neodpovídá "
 "žádnému ze vzorů v souboru URLconf a nekončí lomítkem, je vydáno "
-"přesměrování HTTP na stejnou adresu URL s přidaným lomítkem. Všimněte si, že"
-" přesměrování může způsobit ztrátu všech dat odeslaných v požadavku POST. "
+"přesměrování HTTP na stejnou adresu URL s přidaným lomítkem. Všimněte si, že "
+"přesměrování může způsobit ztrátu všech dat odeslaných v požadavku POST. "
 "Nastavení APPEND_SLASH se používá pouze v případě, že je nainstalován "
 "CommonMiddleware (viz Middleware). Viz také PREPEND_WWW."
 
-#: settings.py:59
+#: settings.py:61
 msgid ""
 "The list of validators that are used to check the strength of user's "
 "passwords."
 msgstr ""
 "Seznam ověřovatelů, kteří se používají ke kontrole síly uživatelských hesel."
 
-#: settings.py:66
+#: settings.py:68
 msgid ""
-"A list of authentication backend classes (as strings) to use when attempting"
-" to authenticate a user."
+"A list of authentication backend classes (as strings) to use when attempting "
+"to authenticate a user."
 msgstr ""
-"Seznam tříd backendu autentizace (jako řetězce), které se použijí při pokusu"
-" o autentizaci uživatele."
+"Seznam tříd backendu autentizace (jako řetězce), které se použijí při pokusu "
+"o autentizaci uživatele."
 
-#: settings.py:72
+#: settings.py:74
 msgid ""
 "A dictionary containing the settings for all databases to be used with "
 "Django. It is a nested dictionary whose contents map a database alias to a "
@@ -150,22 +168,22 @@ msgstr ""
 "DATABASES musí konfigurovat výchozí databázi; lze zadat i libovolný počet "
 "dalších databází."
 
-#: settings.py:83
+#: settings.py:85
 msgid ""
 "Default: 2621440 (i.e. 2.5 MB). The maximum size in bytes that a request "
 "body may be before a SuspiciousOperation (RequestDataTooBig) is raised. The "
 "check is done when accessing request.body or request.POST and is calculated "
 "against the total request size excluding any file upload data. You can set "
-"this to None to disable the check. Applications that are expected to receive"
-" unusually large form posts should tune this setting. The amount of request "
-"data is correlated to the amount of memory needed to process the request and"
-" populate the GET and POST dictionaries. Large requests could be used as a "
+"this to None to disable the check. Applications that are expected to receive "
+"unusually large form posts should tune this setting. The amount of request "
+"data is correlated to the amount of memory needed to process the request and "
+"populate the GET and POST dictionaries. Large requests could be used as a "
 "denial-of-service attack vector if left unchecked. Since web servers don't "
 "typically perform deep request inspection, it's not possible to perform a "
 "similar check at that level. See also FILE_UPLOAD_MAX_MEMORY_SIZE."
 msgstr ""
-"Výchozí: 2621440 (tj. 2,5 MB). Maximální velikost v bajtech, kterou může být"
-" tělo požadavku před vyvoláním SuspiciousOperation (RequestDataTooBig). "
+"Výchozí: 2621440 (tj. 2,5 MB). Maximální velikost v bajtech, kterou může být "
+"tělo požadavku před vyvoláním SuspiciousOperation (RequestDataTooBig). "
 "Kontrola se provádí při přístupu k request.body nebo request.POST a počítá "
 "se z celkové velikosti požadavku bez jakýchkoli údajů o nahrávání souborů. "
 "Chcete -li zaškrtnutí deaktivovat, můžete toto nastavit na Žádné. Toto "
@@ -177,17 +195,17 @@ msgstr ""
 "hloubkovou kontrolu požadavků, není možné podobnou kontrolu na této úrovni "
 "provést. Viz také FILE_UPLOAD_MAX_MEMORY_SIZE."
 
-#: settings.py:102
+#: settings.py:104
 msgid ""
 "Default: 'webmaster@localhost' Default email address to use for various "
 "automated correspondence from the site manager(s). This doesn't include "
 "error messages sent to ADMINS and MANAGERS; for that, see SERVER_EMAIL."
 msgstr ""
-"Výchozí: 'webmaster@localhost'  Výchozí e -mailová adresa, kterou lze použít"
-" pro různé automatizované korespondence od správce(ů) webu. To nezahrnuje "
+"Výchozí: 'webmaster@localhost'  Výchozí e -mailová adresa, kterou lze použít "
+"pro různé automatizované korespondence od správce(ů) webu. To nezahrnuje "
 "chybové zprávy odeslané ADMINS a MANAGERS; viz SERVER_EMAIL."
 
-#: settings.py:111
+#: settings.py:113
 msgid ""
 "Default: [] (Empty list). List of compiled regular expression objects "
 "representing User-Agent strings that are not allowed to visit any page, "
@@ -200,7 +218,7 @@ msgstr ""
 "To se používá pouze v případě, že je nainstalován CommonMiddleware (viz "
 "Middleware)."
 
-#: settings.py:120
+#: settings.py:122
 msgid ""
 "Default: 'django.core.mail.backends.smtp.EmailBackend'. The backend to use "
 "for sending emails."
@@ -208,13 +226,13 @@ msgstr ""
 "Výchozí: &#39;django.core.mail.backends.smtp.EmailBackend&#39;. Backend, "
 "který se používá pro odesílání e-mailů."
 
-#: settings.py:126
+#: settings.py:128
 msgid "Default: 'localhost'. The host to use for sending email."
 msgstr ""
-"Výchozí: &#39;localhost&#39;. Hostitel, který má být použit pro odesílání "
-"e-mailů."
+"Výchozí: &#39;localhost&#39;. Hostitel, který má být použit pro odesílání e-"
+"mailů."
 
-#: settings.py:132
+#: settings.py:134
 msgid ""
 "Default: '' (Empty string). Password to use for the SMTP server defined in "
 "EMAIL_HOST. This setting is used in conjunction with EMAIL_HOST_USER when "
@@ -226,7 +244,7 @@ msgstr ""
 "autentizaci na server SMTP. Pokud je některé z těchto nastavení prázdné, "
 "Django se nepokusí o ověření."
 
-#: settings.py:142
+#: settings.py:144
 msgid ""
 "Default: '' (Empty string). Username to use for the SMTP server defined in "
 "EMAIL_HOST. If empty, Django won't attempt authentication."
@@ -234,13 +252,13 @@ msgstr ""
 "Výchozí: &#39;&#39; (prázdný řetězec). Uživatelské jméno pro server SMTP "
 "definované v EMAIL_HOST. Pokud je prázdný, Django se nepokouší o ověření."
 
-#: settings.py:149
+#: settings.py:151
 msgid "Default: 25. Port to use for the SMTP server defined in EMAIL_HOST."
 msgstr ""
 "Výchozí: 25. Port, který má být použit pro server SMTP definovaný v "
 "EMAIL_HOST."
 
-#: settings.py:154
+#: settings.py:156
 msgid ""
 "Default: None. Specifies a timeout in seconds for blocking operations like "
 "the connection attempt."
@@ -248,7 +266,7 @@ msgstr ""
 "Výchozí: None. Určuje časový limit v sekundách pro operace blokování, jako "
 "je pokus o připojení."
 
-#: settings.py:160
+#: settings.py:162
 msgid ""
 "Default: False. Whether to use an implicit TLS (secure) connection when "
 "talking to the SMTP server. In most email documentation this type of TLS "
@@ -257,27 +275,27 @@ msgid ""
 "that EMAIL_USE_TLS/EMAIL_USE_SSL are mutually exclusive, so only set one of "
 "those settings to True."
 msgstr ""
-"Výchozí nastavení: False. Zda má být při komunikaci se serverem SMTP použito"
-" implicitní spojení TLS (zabezpečené). Ve většině dokumentace k elektronické"
-" poště se tento typ spojení TLS označuje jako SSL. Obvykle se používá na "
+"Výchozí nastavení: False. Zda má být při komunikaci se serverem SMTP použito "
+"implicitní spojení TLS (zabezpečené). Ve většině dokumentace k elektronické "
+"poště se tento typ spojení TLS označuje jako SSL. Obvykle se používá na "
 "portu 465. Pokud se vyskytnou problémy, podívejte se na nastavení "
-"explicitního TLS EMAIL_USE_TLS. Všimněte si, že nastavení "
-"EMAIL_USE_TLS/EMAIL_USE_SSL se vzájemně vylučují, proto nastavte pouze jedno"
-" z těchto nastavení na hodnotu True."
+"explicitního TLS EMAIL_USE_TLS. Všimněte si, že nastavení EMAIL_USE_TLS/"
+"EMAIL_USE_SSL se vzájemně vylučují, proto nastavte pouze jedno z těchto "
+"nastavení na hodnotu True."
 
-#: settings.py:170
+#: settings.py:172
 msgid ""
-"Default: False. Whether to use a TLS (secure) connection when talking to the"
-" SMTP server. This is used for explicit TLS connections, generally on port "
+"Default: False. Whether to use a TLS (secure) connection when talking to the "
+"SMTP server. This is used for explicit TLS connections, generally on port "
 "587. If you are experiencing hanging connections, see the implicit TLS "
 "setting EMAIL_USE_SSL."
 msgstr ""
-"Výchozí nastavení: False. Zda má být při komunikaci se serverem SMTP použito"
-" zabezpečené připojení TLS (zabezpečené). Používá se pro explicitní "
-"připojení TLS, obvykle na portu 587. Pokud dochází k váznutí spojení, "
-"podívejte se na implicitní nastavení TLS EMAIL_USE_SSL"
+"Výchozí nastavení: False. Zda má být při komunikaci se serverem SMTP použito "
+"zabezpečené připojení TLS (zabezpečené). Používá se pro explicitní připojení "
+"TLS, obvykle na portu 587. Pokud dochází k váznutí spojení, podívejte se na "
+"implicitní nastavení TLS EMAIL_USE_SSL"
 
-#: settings.py:179
+#: settings.py:181
 msgid ""
 "Default: 2621440 (i.e. 2.5 MB). The maximum size (in bytes) that an upload "
 "will be before it gets streamed to the file system. See Managing files for "
@@ -288,10 +306,10 @@ msgstr ""
 "Podrobnosti naleznete v části Správa souborů. Viz také "
 "DATA_UPLOAD_MAX_MEMORY_SIZE."
 
-#: settings.py:187
+#: settings.py:189
 msgid ""
-"Default: '/accounts/login/' The URL where requests are redirected for login,"
-" especially when using the login_required() decorator. This setting also "
+"Default: '/accounts/login/' The URL where requests are redirected for login, "
+"especially when using the login_required() decorator. This setting also "
 "accepts named URL patterns which can be used to reduce configuration "
 "duplication since you don't have to define the URL in two places (settings "
 "and URLconf)."
@@ -302,7 +320,7 @@ msgstr ""
 "omezení duplikace konfigurace, protože nemusíte definovat URL na dvou "
 "místech (settings a URLconf)."
 
-#: settings.py:198
+#: settings.py:200
 msgid ""
 "Default: '/accounts/profile/' The URL where requests are redirected after "
 "login when the contrib.auth.login view gets no next parameter. This is used "
@@ -317,23 +335,23 @@ msgstr ""
 "duplikace konfigurace, protože nemusíte definovat URL na dvou místech "
 "(settings a URLconf)."
 
-#: settings.py:209
+#: settings.py:211
 msgid ""
 "Default: None. The URL where requests are redirected after a user logs out "
-"using LogoutView (if the view doesn't get a next_page argument). If None, no"
-" redirect will be performed and the logout view will be rendered. This "
+"using LogoutView (if the view doesn't get a next_page argument). If None, no "
+"redirect will be performed and the logout view will be rendered. This "
 "setting also accepts named URL patterns which can be used to reduce "
 "configuration duplication since you don't have to define the URL in two "
 "places (settings and URLconf)."
 msgstr ""
 "Výchozí nastavení: Žádné. Adresa URL, na kterou jsou přesměrovány požadavky "
-"po odhlášení uživatele pomocí LogoutView (pokud zobrazení nedostane argument"
-" next_page). Pokud je nastaveno None, nebude provedeno žádné přesměrování a "
+"po odhlášení uživatele pomocí LogoutView (pokud zobrazení nedostane argument "
+"next_page). Pokud je nastaveno None, nebude provedeno žádné přesměrování a "
 "bude vykresleno zobrazení odhlášení. Toto nastavení také akceptuje "
 "pojmenované vzory URL, které lze použít k omezení duplikace konfigurace, "
 "protože nemusíte definovat URL na dvou místech (settings a URLconf)."
 
-#: settings.py:220
+#: settings.py:222
 msgid ""
 "A list of IP addresses, as strings, that: Allow the debug() context "
 "processor to add some variables to the template context. Can use the "
@@ -345,7 +363,7 @@ msgstr ""
 "admindocs, i když není přihlášen jako uživatel staff. Jsou označeny jako "
 "\"interní\" (na rozdíl od \"EXTERNAL\") v e-mailech AdminEmailHandler."
 
-#: settings.py:229
+#: settings.py:231
 msgid ""
 "A list of all available languages. The list is a list of two-tuples in the "
 "format (language code, language name) for example, ('ja', 'Japanese'). This "
@@ -359,7 +377,7 @@ msgstr ""
 "hodnota. Toto nastavení nastavte pouze v případě, že chcete omezit výběr "
 "jazyka na podmnožinu jazyků nabízených Django. "
 
-#: settings.py:240
+#: settings.py:242
 msgid ""
 "A string representing the language code for this installation. This should "
 "be in standard language ID format. For example, U.S. English is \"en-us\". "
@@ -372,32 +390,32 @@ msgid ""
 msgstr ""
 "Řetězec představující kód jazyka pro tuto instalaci. Měl by být ve "
 "standardním formátu ID jazyka. Například americká angličtina je \"en-us\". "
-"Slouží ke dvěma účelům: Pokud se nepoužívá lokalizační middleware, rozhoduje"
-" o tom, který překlad bude servírován všem uživatelům. Pokud je locale "
-"middleware aktivní, poskytuje záložní jazyk pro případ, že preferovaný jazyk"
-" uživatele nelze určit nebo není webem podporován. Náhradní překlad "
-"poskytuje také v případě, že pro daný literál neexistuje překlad pro "
-"preferovaný jazyk uživatele."
+"Slouží ke dvěma účelům: Pokud se nepoužívá lokalizační middleware, rozhoduje "
+"o tom, který překlad bude servírován všem uživatelům. Pokud je locale "
+"middleware aktivní, poskytuje záložní jazyk pro případ, že preferovaný jazyk "
+"uživatele nelze určit nebo není webem podporován. Náhradní překlad poskytuje "
+"také v případě, že pro daný literál neexistuje překlad pro preferovaný jazyk "
+"uživatele."
 
-#: settings.py:254
+#: settings.py:256
 msgid ""
-"Default: 'sessionid'. The name of the cookie to use for sessions.This can be"
-" whatever you want (as long as it's different from the other cookie names in"
-" your application)."
+"Default: 'sessionid'. The name of the cookie to use for sessions.This can be "
+"whatever you want (as long as it's different from the other cookie names in "
+"your application)."
 msgstr ""
 "Výchozí: &#39;sessionid&#39;. Název souboru cookie, který se použije pro "
 "relace. Může to být cokoli chcete (pokud se liší od ostatních názvů souborů "
 "cookie v aplikaci)."
 
-#: settings.py:262
+#: settings.py:264
 msgid ""
-"Default: 'django.contrib.sessions.backends.db'. Controls where Django stores"
-" session data."
+"Default: 'django.contrib.sessions.backends.db'. Controls where Django stores "
+"session data."
 msgstr ""
 "Výchozí: &#39;django.contrib.sessions.backends.db&#39;. Určuje, kde Django "
 "ukládá data relace."
 
-#: settings.py:269
+#: settings.py:271
 msgid ""
 "A tuple representing a HTTP header/value combination that signifies a "
 "request is secure. This controls the behavior of the request object’s "
@@ -406,45 +424,45 @@ msgid ""
 msgstr ""
 "Tuple představující kombinaci záhlaví/hodnoty HTTP, která znamená, že "
 "požadavek je bezpečný. Toto řídí chování metody is_secure () objektu "
-"požadavku. Varování: Úprava tohoto nastavení může ohrozit zabezpečení vašeho"
-" webu. Před změnou se ujistěte, že svému nastavení plně rozumíte."
+"požadavku. Varování: Úprava tohoto nastavení může ohrozit zabezpečení vašeho "
+"webu. Před změnou se ujistěte, že svému nastavení plně rozumíte."
 
-#: settings.py:278
+#: settings.py:280
 msgid ""
 "URL to use when referring to static files located in STATIC_ROOT. Example: "
 "\"/static/\" or \"http://static.example.com/\" If not None, this will be "
 "used as the base path for asset definitions (the Media class) and the "
 "staticfiles app. It must end in a slash if set to a non-empty value."
 msgstr ""
-"Adresa URL, která se má použít při odkazování na statické soubory umístěné v"
-" STATIC_ROOT. Příklad: „/static/“ nebo „http://static.example.com/“ Pokud ne"
-" Žádný, použije se jako základní cesta pro definice aktiv (třída Media) a "
+"Adresa URL, která se má použít při odkazování na statické soubory umístěné v "
+"STATIC_ROOT. Příklad: „/static/“ nebo „http://static.example.com/“ Pokud ne "
+"Žádný, použije se jako základní cesta pro definice aktiv (třída Media) a "
 "aplikaci staticfiles. Pokud je nastaveno na neprázdnou hodnotu, musí končit "
 "lomítkem."
 
-#: settings.py:288
+#: settings.py:290
 msgid ""
 "The file storage engine to use when collecting static files with the "
 "collectstatic management command. A ready-to-use instance of the storage "
-"backend defined in this setting can be found at "
-"django.contrib.staticfiles.storage.staticfiles_storage."
+"backend defined in this setting can be found at django.contrib.staticfiles."
+"storage.staticfiles_storage."
 msgstr ""
 "Stroj pro ukládání souborů, který se má použít při shromažďování statických "
 "souborů pomocí příkazu collectstatic management. Instanci připravenou k "
-"použití backendu úložiště definovaného v tomto nastavení najdete na "
-"django.contrib.staticfiles.storage.staticfiles_storage."
+"použití backendu úložiště definovaného v tomto nastavení najdete na django."
+"contrib.staticfiles.storage.staticfiles_storage."
 
-#: settings.py:296
+#: settings.py:298
 msgid ""
 "A string representing the time zone for this installation. Note that this "
 "isn't necessarily the time zone of the server. For example, one server may "
 "serve multiple Django-powered sites, each with a separate time zone setting."
 msgstr ""
-"Řetězec představující časové pásmo této instalace. Všimněte si, že to nemusí"
-" být nutně časové pásmo serveru. Jeden server může například obsluhovat více"
-" webů s Django, přičemž každý z nich má nastaveno jiné časové pásmo."
+"Řetězec představující časové pásmo této instalace. Všimněte si, že to nemusí "
+"být nutně časové pásmo serveru. Jeden server může například obsluhovat více "
+"webů s Django, přičemž každý z nich má nastaveno jiné časové pásmo."
 
-#: settings.py:305
+#: settings.py:307
 msgid ""
 "A boolean that specifies whether to use the X-Forwarded-Host header in "
 "preference to the Host header. This should only be enabled if a proxy which "
@@ -454,19 +472,19 @@ msgstr ""
 "přednostně před hlavičkou Host. To by mělo být povoleno pouze v případě, že "
 "se používá proxy, který nastavuje toto záhlaví."
 
-#: settings.py:313
+#: settings.py:315
 msgid ""
 "A boolean that specifies whether to use the X-Forwarded-Port header in "
 "preference to the SERVER_PORT META variable. This should only be enabled if "
 "a proxy which sets this header is in use. USE_X_FORWARDED_HOST takes "
 "priority over this setting."
 msgstr ""
-"Logická hodnota, která určuje, zda se má přednostně používat hlavička "
-"X-Forwarded-Port před proměnnou SERVER_PORT META. To by mělo být povoleno "
+"Logická hodnota, která určuje, zda se má přednostně používat hlavička X-"
+"Forwarded-Port před proměnnou SERVER_PORT META. To by mělo být povoleno "
 "pouze v případě, že se používá proxy, který nastavuje toto záhlaví. "
 "USE_X_FORWARDED_HOST má přednost před tímto nastavením."
 
-#: settings.py:322
+#: settings.py:324
 msgid ""
 "The full Python path of the WSGI application object that Django's built-in "
 "servers (e.g. runserver) will use. The django-admin startproject management "
@@ -474,8 +492,8 @@ msgid ""
 "it, and point this setting to that application."
 msgstr ""
 "Úplná cesta v jazyce Python k objektu aplikace WSGI, kterou budou používat "
-"servery integrované v nástroji Django (např. runserver). Příkaz django-admin"
-" startproject management vytvoří jednoduchý soubor wsgi.py s volatelnou "
+"servery integrované v nástroji Django (např. runserver). Příkaz django-admin "
+"startproject management vytvoří jednoduchý soubor wsgi.py s volatelnou "
 "aplikací a odkáže toto nastavení na tuto aplikaci."
 
 #: templates/smart_settings/app/viewport.html:11
@@ -490,7 +508,7 @@ msgstr ""
 "Nastavení byla aktualizována, restartujte instalaci a aktualizujte "
 "prohlížeč, aby se změny projevily."
 
-#: tests/test_classes.py:162
+#: tests/test_classes.py:173
 msgid "English"
 msgstr "Angličtina"
 
@@ -500,16 +518,16 @@ msgid ""
 "saved or take effect."
 msgstr ""
 
-#: views.py:38
+#: views.py:40
 msgid "Setting updated successfully."
 msgstr "Nastavení bylo úspěšně aktualizováno."
 
-#: views.py:47
+#: views.py:51
 #, python-format
 msgid "Edit setting: %s"
 msgstr "Upravit nastavení: %s"
 
-#: views.py:73
+#: views.py:79
 msgid ""
 "Settings inherited from an environment variable take precedence and cannot "
 "be changed in this view. "
@@ -517,16 +535,16 @@ msgstr ""
 "Nastavení zděděná z proměnné prostředí mají přednost a nelze je v tomto "
 "pohledu změnit."
 
-#: views.py:76
+#: views.py:82
 #, python-format
 msgid "Settings in namespace: %s"
 msgstr "Nastavení v oboru názvů: %s"
 
-#: views.py:84
+#: views.py:92
 #, python-format
 msgid "Namespace: %s, not found"
 msgstr "Jmenný prostor: %s, nebyl nalezen"
 
-#: views.py:94
+#: views.py:102
 msgid "Setting namespaces"
 msgstr "Nastavení oborů názvů"

@@ -2,27 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # Marco Camplese <marco.camplese.mc@gmail.com>, 2022
 # Giovanni Tricarico <gtricarico92@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: Giovanni Tricarico <gtricarico92@gmail.com>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
-#: apps.py:39 events.py:5 permissions.py:5
+#: apps.py:39 events.py:6 permissions.py:6
 msgid "Messaging"
 msgstr ""
 
@@ -34,15 +35,15 @@ msgstr "Nessuno"
 msgid "Sender"
 msgstr ""
 
-#: events.py:8
+#: events.py:10
 msgid "Message created"
 msgstr "Messaggio creato"
 
-#: events.py:11
+#: events.py:13
 msgid "Message edited"
 msgstr "Messaggio modificato"
 
-#: forms.py:26 models.py:38 workflow_actions.py:55
+#: forms.py:26 models.py:37 workflow_actions.py:55
 msgid "Body"
 msgstr "Corpo"
 
@@ -54,80 +55,110 @@ msgstr "Crea messaggio"
 msgid "Delete"
 msgstr "Cancella"
 
-#: links.py:67 links.py:78
+#: links.py:68 links.py:79
 msgid "Mark as read"
 msgstr ""
 
-#: links.py:73 links.py:82
+#: links.py:74 links.py:83
 msgid "Mark as unread"
 msgstr ""
 
-#: links.py:86
+#: links.py:87
 msgid "Mark all as read"
 msgstr ""
 
-#: models.py:30
-msgid "User"
-msgstr "Utente"
-
-#: models.py:33
-msgid "Short description of this message."
-msgstr "Descrizione breve di questo messaggio"
-
-#: models.py:34 workflow_actions.py:38
-msgid "Subject"
-msgstr "Oggetto"
-
-#: models.py:37
-msgid "The actual content of the message."
-msgstr ""
-
-#: models.py:42
-msgid "This field determines if the message has been read or not."
-msgstr ""
-
-#: models.py:43
-msgid "Read"
-msgstr "Leggere"
-
-#: models.py:47
-msgid "Date and time of the message creation."
-msgstr ""
-
-#: models.py:48
-msgid "Creation date and time"
-msgstr ""
-
-#: models.py:53
-msgid "Message"
-msgstr "Messaggio"
-
-#: models.py:54 views.py:127
-msgid "Messages"
-msgstr "Messaggi"
-
-#: models.py:70
+#: model_mixins.py:16
 msgid "Label"
 msgstr "Etichetta"
 
-#: permissions.py:8
+#: models.py:19
+msgid "Sender content type"
+msgstr ""
+
+#: models.py:22
+msgid "Sender object ID"
+msgstr ""
+
+#: models.py:29
+msgid "User"
+msgstr "Utente"
+
+#: models.py:32
+msgid "Short description of this message."
+msgstr "Descrizione breve di questo messaggio"
+
+#: models.py:33 workflow_actions.py:38
+msgid "Subject"
+msgstr "Oggetto"
+
+#: models.py:36
+msgid "The actual content of the message."
+msgstr ""
+
+#: models.py:41
+msgid "This field determines if the message has been read or not."
+msgstr ""
+
+#: models.py:42
+msgid "Read"
+msgstr "Leggere"
+
+#: models.py:46
+msgid "Date and time of the message creation."
+msgstr ""
+
+#: models.py:47
+msgid "Creation date and time"
+msgstr ""
+
+#: models.py:52
+msgid "Message"
+msgstr "Messaggio"
+
+#: models.py:53 views.py:128
+msgid "Messages"
+msgstr "Messaggi"
+
+#: permissions.py:10
 msgid "Create messages"
 msgstr "Crea messaggi"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete messages"
 msgstr "Cancella messaggi"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit messages"
 msgstr "Modifica messaggi"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View messages"
 msgstr "Vedi messaggi"
 
-#: serializers.py:19
+#: serializers.py:15
+msgid "Sender app label"
+msgstr ""
+
+#: serializers.py:18
+msgid "Sender model name"
+msgstr ""
+
+#: serializers.py:21
+msgid "Sender URL"
+msgstr ""
+
+#: serializers.py:25
 msgid "Primary key of the recipient user of this message."
+msgstr ""
+
+#: serializers.py:26
+#, fuzzy
+#| msgid "User"
+msgid "User ID"
+msgstr "Utente"
+
+#: serializers.py:33
+msgid "URL"
 msgstr ""
 
 #: views.py:49
@@ -137,108 +168,113 @@ msgstr ""
 
 #: views.py:53
 #, python-format
-msgid "Message \"%(object)s\" deleted successfully."
+msgid "%(count)d messages deleted successfully."
 msgstr ""
 
 #: views.py:54
 #, python-format
-msgid "%(count)d message deleted successfully."
+msgid "Message \"%(object)s\" deleted successfully."
 msgstr ""
 
 #: views.py:55
 #, python-format
-msgid "%(count)d messages deleted successfully."
+msgid "%(count)d message deleted successfully."
 msgstr ""
 
 #: views.py:56
 #, python-format
-msgid "Delete message: %(object)s."
+msgid "Delete the %(count)d selected messages."
 msgstr ""
 
 #: views.py:57
 #, python-format
-msgid "Delete the %(count)d selected message."
+msgid "Delete message: %(object)s."
 msgstr ""
 
 #: views.py:58
 #, python-format
-msgid "Delete the %(count)d selected messages."
+msgid "Delete the %(count)d selected message."
 msgstr ""
 
-#: views.py:99
+#: views.py:100
 #, python-format
 msgid "Details of message: %s"
 msgstr ""
 
-#: views.py:123
+#: views.py:124
 msgid "Here you will find text messages from other users or from the system."
 msgstr ""
 
-#: views.py:126
+#: views.py:127
 msgid "There are no messages"
 msgstr ""
 
-#: views.py:136
+#: views.py:137
 #, python-format
 msgid "Error marking message \"%(instance)s\" as read; %(exception)s"
 msgstr ""
 
-#: views.py:142
-#, python-format
-msgid "Message \"%(object)s\" marked as read successfully."
-msgstr ""
-
-#: views.py:145
-#, python-format
-msgid "%(count)d message marked as read successfully."
-msgstr ""
-
-#: views.py:148
+#: views.py:143
 #, python-format
 msgid "%(count)d messages marked as read successfully."
 msgstr ""
 
-#: views.py:150
+#: views.py:146
 #, python-format
-msgid "Mark the message \"%(object)s\" as read."
+msgid "Message \"%(object)s\" marked as read successfully."
+msgstr ""
+
+#: views.py:149
+#, python-format
+msgid "%(count)d message marked as read successfully."
 msgstr ""
 
 #: views.py:151
 #, python-format
-msgid "Mark the %(count)d selected message as read."
+msgid "Mark the %(count)d selected messages as read."
 msgstr ""
 
 #: views.py:152
 #, python-format
-msgid "Mark the %(count)d selected messages as read."
+msgid "Mark the message \"%(object)s\" as read."
+msgstr ""
+
+#: views.py:153
+#, python-format
+msgid "Mark the %(count)d selected message as read."
 msgstr ""
 
 #: views.py:181
 msgid "Mark all message as read?"
 msgstr ""
 
-#: views.py:198
+#: views.py:197
 msgid "All messages marked as read."
 msgstr ""
 
-#: views.py:205
+#: views.py:204
 #, python-format
 msgid "Error marking message \"%(instance)s\" as unread; %(exception)s"
 msgstr ""
 
-#: views.py:211
+#: views.py:210
+#, python-format
+msgid "%(count)d messages marked as unread successfully."
+msgstr ""
+
+#: views.py:213
 #, python-format
 msgid "Message \"%(object)s\" marked as unread successfully."
 msgstr ""
 
-#: views.py:214
+#: views.py:216
 #, python-format
 msgid "%(count)d message marked as unread successfully."
 msgstr ""
 
-#: views.py:217
+#: views.py:218
 #, python-format
-msgid "%(count)d messages marked as unread successfully."
+msgid "Mark the %(count)d selected messages as unread."
 msgstr ""
 
 #: views.py:219
@@ -249,11 +285,6 @@ msgstr ""
 #: views.py:220
 #, python-format
 msgid "Mark the %(count)d selected message as unread."
-msgstr ""
-
-#: views.py:221
-#, python-format
-msgid "Mark the %(count)d selected messages as unread."
 msgstr ""
 
 #: workflow_actions.py:19

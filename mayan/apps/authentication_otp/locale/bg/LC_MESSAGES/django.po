@@ -2,23 +2,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Pavlin Koldamov <pkoldamov@gmail.com>, 2022
 # Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
 "Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
+"bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:23 events.py:6
@@ -41,19 +42,19 @@ msgstr "Маркерът е или невалиден, или изтекъл."
 msgid "TOTP token"
 msgstr "TOTP маркер"
 
-#: forms.py:84
+#: forms.py:86
 msgid "OTP enabled?"
 msgstr "Активиран ли е OTP?"
 
-#: forms.py:85
+#: forms.py:87
 msgid "Yes"
 msgstr "Да"
 
-#: forms.py:85
+#: forms.py:87
 msgid "No"
 msgstr "Не"
 
-#: forms.py:102
+#: forms.py:104
 msgid ""
 "Scan the QR code or enter the secret in your authentication device. Do not "
 "share this secret, treat it like a password."
@@ -61,22 +62,22 @@ msgstr ""
 "Сканирайте QR кода или въведете тайния код във вашето устройство за "
 "удостоверяване. Не споделяйте този таен код, третирайте го като парола."
 
-#: forms.py:104 forms.py:109
+#: forms.py:106 forms.py:111
 msgid "Secret"
 msgstr "Тайни"
 
-#: forms.py:115
+#: forms.py:117
 msgid ""
 "Enter the corresponding token to validate that the secret was saved correct."
 msgstr ""
 "Въведете съответния маркер, за да потвърдите, че тайният код е запазен "
 "правилно."
 
-#: forms.py:118
+#: forms.py:120
 msgid "Token"
 msgstr "Маркер"
 
-#: forms.py:152
+#: forms.py:155
 msgid "Token is incorrect for the specified secret."
 msgstr "Маркерът е неправилен за посоченият таен код."
 

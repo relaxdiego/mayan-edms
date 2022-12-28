@@ -2,30 +2,31 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:35+0000\n"
 "Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
+"bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: admin.py:13
 msgid "Label"
 msgstr "Етикет"
 
-#: apps.py:49 events.py:6 links.py:21 permissions.py:5 queues.py:7
+#: apps.py:49 events.py:6 links.py:21 permissions.py:6 queues.py:7
 #: settings.py:12
 msgid "File metadata"
 msgstr "Метаданни на файла"
@@ -38,11 +39,11 @@ msgstr "Ключ за метаданни на файл"
 msgid "File metadata value"
 msgstr "Стойност на метаданни на файл"
 
-#: apps.py:132
+#: apps.py:130
 msgid "Return the value of a specific file metadata."
 msgstr "Покажете стойността на определени метаданни на файла"
 
-#: apps.py:133
+#: apps.py:131
 msgid "File metadata value of"
 msgstr "Метаданни във файл за"
 
@@ -56,6 +57,10 @@ msgstr ""
 #: drivers/exiftool.py:19
 msgid "EXIF Tool"
 msgstr "EXIF инструмент"
+
+#: drivers/extract_msg.py:15
+msgid "Extract msg"
+msgstr ""
 
 #: events.py:10
 msgid "Document file submitted for file metadata processing"
@@ -93,88 +98,92 @@ msgstr "Покажете въведеното в метаданните на ф�
 msgid "Return the specified document file file metadata entry."
 msgstr "Върнете записаните метаданни на файла с документ."
 
-#: models.py:18
-msgid "Driver path"
-msgstr "Път към драйвера"
+#: model_mixins.py:9
+msgid "Attribute count"
+msgstr "Брой на характеристиките"
 
-#: models.py:22
-msgid "Internal name"
-msgstr "Вътрешно име"
-
-#: models.py:27 models.py:70
+#: models.py:17 models.py:96
 msgid "Driver"
 msgstr "Драйвер"
 
-#: models.py:28
-msgid "Drivers"
-msgstr "Драйвери"
+#: models.py:21
+msgid "Document file"
+msgstr "Файл на документа"
 
-#: models.py:48
+#: models.py:27 models.py:63
+msgid "Document file driver entry"
+msgstr "Запис на драйвер на файл с документи"
+
+#: models.py:28
+msgid "Document file driver entries"
+msgstr "Записи на драйвер на файл с документи"
+
+#: models.py:40
 msgid "Document type"
 msgstr "Тип документ"
 
-#: models.py:52
+#: models.py:44
 msgid "Automatically queue newly created documents for processing."
 msgstr ""
 "Автоматично добавяне в опашката на новосъздадените документи за обработка"
 
-#: models.py:59
+#: models.py:45
+msgid "Auto process"
+msgstr ""
+
+#: models.py:51
 msgid "Document type settings"
 msgstr "Настройки за тип на документ"
 
-#: models.py:60
+#: models.py:52
 msgid "Document types settings"
 msgstr "Настройки за типове документи"
 
-#: models.py:74
-msgid "Document file"
-msgstr "Файл на документа"
-
-#: models.py:80 models.py:95
-msgid "Document file driver entry"
-msgstr "Запис на драйвер на файл с документи"
-
-#: models.py:81
-msgid "Document file driver entries"
-msgstr "Записи на драйвер на файл с документи"
-
-#: models.py:88
-msgid "Attribute count"
-msgstr "Брой на характеристиките"
-
-#: models.py:99
+#: models.py:66
 msgid "Name of the file metadata entry."
 msgstr "Име на метаданните на файла"
 
-#: models.py:100
+#: models.py:67
 msgid "Key"
 msgstr "Ключ"
 
-#: models.py:103
+#: models.py:70
 msgid "Value of the file metadata entry."
 msgstr "Стойност на метаданните на файла"
 
-#: models.py:104
+#: models.py:71
 msgid "Value"
 msgstr "Стойност"
 
-#: models.py:109
+#: models.py:76
 msgid "File metadata entry"
 msgstr "Метаданни на файл"
 
-#: models.py:110
+#: models.py:77
 msgid "File metadata entries"
 msgstr "Метаданни на файл"
 
-#: permissions.py:8
+#: models.py:87
+msgid "Driver path"
+msgstr "Път към драйвера"
+
+#: models.py:91
+msgid "Internal name"
+msgstr "Вътрешно име"
+
+#: models.py:97
+msgid "Drivers"
+msgstr "Драйвери"
+
+#: permissions.py:10
 msgid "Change document type file metadata settings"
 msgstr "Промени настройките на метаданните на файл за тип документ"
 
-#: permissions.py:13
+#: permissions.py:15
 msgid "Submit document for file metadata processing"
 msgstr "Подайте документа за обработка на метаданните на файл"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View file metadata"
 msgstr "Виж метаданните на файла"
 
@@ -182,7 +191,7 @@ msgstr "Виж метаданните на файла"
 msgid "Process document file"
 msgstr "Обработка на файл с документи"
 
-#: settings.py:18
+#: settings.py:19
 msgid ""
 "Set new document types to perform file metadata processing automatically by "
 "default."
@@ -190,14 +199,14 @@ msgstr ""
 "Настройте новите типове документи да извършват обработка на метаданни на "
 "файл автоматично по подразбиране"
 
-#: settings.py:25
+#: settings.py:26
 msgid "Arguments to pass to the drivers."
 msgstr "Аргументи за подаване към драйверите"
 
 #: views.py:52
 msgid ""
-"File metadata are the attributes of the document's file. They can range from"
-" camera information used to take a photo to the author that created a file. "
+"File metadata are the attributes of the document's file. They can range from "
+"camera information used to take a photo to the author that created a file. "
 "File metadata are set when the document's file was first created. File "
 "metadata attributes reside in the file itself. They are not the same as the "
 "document metadata, which are user defined and reside in the database."
@@ -234,19 +243,18 @@ msgstr "Няма налични файлови метаданни за този 
 
 #: views.py:99
 #, python-format
-msgid ""
-"File metadata attributes for: %(document_file)s with driver: %(driver)s"
+msgid "File metadata attributes for: %(document_file)s with driver: %(driver)s"
 msgstr ""
 "Атрибути на метаданните на файла за: %(document_file)s с драйвер: %(driver)s"
 
 #: views.py:121
 #, python-format
-msgid "%(count)d document file submitted to the file metadata queue."
+msgid "%(count)d documents files submitted to the file metadata queue."
 msgstr ""
 
 #: views.py:124
 #, python-format
-msgid "%(count)d documents files submitted to the file metadata queue."
+msgid "%(count)d document file submitted to the file metadata queue."
 msgstr ""
 
 #: views.py:133

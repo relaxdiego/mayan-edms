@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # abc Def <hdogan1974@gmail.com>, 2022
@@ -9,31 +9,32 @@
 # Caner Başaran <basaran.caner@gmail.com>, 2022
 # serhatcan77 <serhat_can@yahoo.com>, 2022
 # Bedreddin Şahbaz, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
+"teams/13584/tr_TR/)\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps.py:57 events.py:5 links.py:141 menus.py:5 models.py:42 queues.py:7
-#: settings.py:13 views/source_views.py:173
+#: apps.py:53 events.py:6 links.py:144 menus.py:6 models.py:35 queues.py:7
+#: settings.py:13 views/source_views.py:177
 msgid "Sources"
 msgstr "Kaynaklar"
 
-#: apps.py:87
+#: apps.py:83
 msgid "Create a document source"
 msgstr "Belge kaynağı oluştur"
 
-#: apps.py:89
+#: apps.py:85
 msgid ""
 "Document sources are the way in which new documents are feed to Mayan EDMS, "
 "create at least a web form source to be able to upload documents from a "
@@ -43,11 +44,11 @@ msgstr ""
 "tarayıcıdan belge yükleyebilmek için en az bir web formu kaynağı "
 "oluşturmalısınız."
 
-#: apps.py:112
+#: apps.py:108
 msgid "Type"
 msgstr "Tür"
 
-#: classes.py:235
+#: classes.py:262
 msgid "Null backend"
 msgstr "Boş backend"
 
@@ -59,11 +60,11 @@ msgstr ""
 "SANE paketi tarafından sağlanan yardımcı program. Tarayıcıyı kontrol etmek "
 "ve taranan belge görüntüsünü almak için kullanılır."
 
-#: events.py:8
+#: events.py:10
 msgid "Source created"
 msgstr "Kaynak oluşturuldu"
 
-#: events.py:11
+#: events.py:13
 msgid "Source edited"
 msgstr "Kaynak düzenlendi"
 
@@ -75,68 +76,68 @@ msgstr "Yüklemeyi açıklamak için isteğe bağlı bir yorum."
 msgid "Comment"
 msgstr "Yorum"
 
-#: forms.py:31
+#: forms.py:33
 msgid "Action"
 msgstr "Eylem"
 
-#: forms.py:32
+#: forms.py:34
 msgid ""
 "The action to take in regards to the pages of the new file being uploaded."
 msgstr "Yüklenen yeni dosyanın sayfalarıyla ilgili olarak yapılacak işlem."
 
-#: forms.py:51
+#: forms.py:54
 msgid "The backend used to create the new source."
 msgstr "Yeni kaynağı oluşturmak için kullanılan backend."
 
-#: forms.py:52
+#: forms.py:55
 msgid "Backend"
 msgstr "Backend"
 
-#: forms.py:102
+#: forms.py:105
 msgid "File"
 msgstr "Dosya"
 
-#: handlers.py:15
+#: handlers.py:18
 msgid "Default"
 msgstr "Varsayılan"
 
-#: links.py:111
+#: links.py:115
 msgid "New document"
 msgstr "Yeni belge"
 
-#: links.py:118
+#: links.py:122
 msgid "Upload new file"
 msgstr "Yeni dosya yükle"
 
-#: links.py:126
+#: links.py:130
 msgid "Create source"
 msgstr "Kaynak oluştur"
 
-#: links.py:132 source_backends/staging_folder_backends.py:355
+#: links.py:135 source_backends/staging_folder_backends.py:367
 msgid "Delete"
 msgstr "Sil"
 
-#: links.py:136
+#: links.py:139
 msgid "Edit"
 msgstr "Düzenle"
 
-#: links.py:148
+#: links.py:151
 msgid "Test"
 msgstr "Test"
 
-#: models.py:32
+#: models.py:23
 msgid "A short text to describe this source."
 msgstr "Bu kaynağı açıklayan kısa bir metin."
 
-#: models.py:33
+#: models.py:24
 msgid "Label"
 msgstr "Etiket"
 
-#: models.py:35
+#: models.py:27
 msgid "Enabled"
 msgstr "Etkin"
 
-#: models.py:41
+#: models.py:34
 msgid "Source"
 msgstr "Kaynak"
 
@@ -176,16 +177,25 @@ msgstr "Kaynak aralığını kontrol edin"
 msgid "Handle upload"
 msgstr "Yüklemeyi işle"
 
-#: serializers.py:52
-msgid "Optional arguments for the action. Must be JSON formatted."
-msgstr ""
-"Eylem için isteğe bağlı bağımsız değişkenler. JSON formatlı olmalıdır."
+#: serializers.py:12
+#, fuzzy
+#| msgid "Action"
+msgid "Actions"
+msgstr "Eylem"
 
-#: serializers.py:53 source_backends/sane_scanner_backends.py:45
+#: serializers.py:18
+msgid "URL"
+msgstr ""
+
+#: serializers.py:55
+msgid "Optional arguments for the action. Must be JSON formatted."
+msgstr "Eylem için isteğe bağlı bağımsız değişkenler. JSON formatlı olmalıdır."
+
+#: serializers.py:56 source_backends/sane_scanner_backends.py:45
 msgid "Arguments"
 msgstr "Argümanlar"
 
-#: serializers.py:61
+#: serializers.py:66
 msgid "Binary content for the new file."
 msgstr "Yeni dosya için binary içerik."
 
@@ -251,11 +261,11 @@ msgstr ""
 "E-postanın \"kimden\" değerini depolamak için bir metaveri türü seçin. Daha "
 "önce seçilen belge türü için geçerli bir metaveri türü olmalıdır."
 
-#: source_backends/email_backends.py:112
+#: source_backends/email_backends.py:115
 msgid "From metadata type"
 msgstr "Metaveri türünden"
 
-#: source_backends/email_backends.py:120
+#: source_backends/email_backends.py:123
 msgid ""
 "Select a metadata type to store the email's subject value. Must be a valid "
 "metadata type for the document type selected previously."
@@ -263,11 +273,11 @@ msgstr ""
 "E-postanın konusunu saklamak için bir meta veri türü seçin. Daha önce "
 "seçilen belge türü için geçerli bir meta veri türü olmalıdır."
 
-#: source_backends/email_backends.py:130
+#: source_backends/email_backends.py:137
 msgid "Subject metadata type"
 msgstr "Konu metaveri türü"
 
-#: source_backends/email_backends.py:138
+#: source_backends/email_backends.py:145
 msgid ""
 "Select a metadata type to store the email's message ID value. Must be a "
 "valid metadata type for the document type selected previously."
@@ -275,19 +285,19 @@ msgstr ""
 "E-postanın mesaj ID değerini saklamak için bir meta veri türü seçin. Daha "
 "önce seçilen belge türü için geçerli bir meta veri türü olmalıdır."
 
-#: source_backends/email_backends.py:148
+#: source_backends/email_backends.py:159
 msgid "Message ID metadata type"
 msgstr "Mesaj ID metaveri türü"
 
-#: source_backends/email_backends.py:156
+#: source_backends/email_backends.py:167
 msgid "Store the body of the email as a text document."
 msgstr "E-postanın gövdesini bir metin belgesi olarak sakla."
 
-#: source_backends/email_backends.py:158
+#: source_backends/email_backends.py:169
 msgid "Store email body"
 msgstr "E-posta gövdesini saklayın"
 
-#: source_backends/email_backends.py:303
+#: source_backends/email_backends.py:321
 #, python-format
 msgid ""
 "\"From\" metadata type \"%(metadata_type)s\" is not valid for the document "
@@ -296,7 +306,7 @@ msgstr ""
 "\"Kimden\" metaveri türü \"%(metadata_type)s\" bu belge türü için geçerli "
 "değil: %(document_type)s"
 
-#: source_backends/email_backends.py:317
+#: source_backends/email_backends.py:336
 #, python-format
 msgid ""
 "Subject metadata type \"%(metadata_type)s\" is not valid for the document "
@@ -305,76 +315,74 @@ msgstr ""
 "Konu metaveri türü \"%(metadata_type)s\" bu belge türü için geçerli değil: "
 "%(document_type)s"
 
-#: source_backends/email_backends.py:331
+#: source_backends/email_backends.py:351
 #, python-format
 msgid ""
-"Message ID metadata type \"%(metadata_type)s\" is not valid for the document"
-" type: %(document_type)s"
+"Message ID metadata type \"%(metadata_type)s\" is not valid for the document "
+"type: %(document_type)s"
 msgstr ""
 "\"%(metadata_type)s\" mesaj ID metaveri türü, bu belge türü için geçerli "
 "değil: %(document_type)s"
 
-#: source_backends/email_backends.py:379
+#: source_backends/email_backends.py:400
 msgid "IMAP Mailbox from which to check for messages."
 msgstr "Mesajların kontrol edileceği IMAP Posta Kutusu."
 
-#: source_backends/email_backends.py:383
+#: source_backends/email_backends.py:404
 msgid "Mailbox"
 msgstr "Posta kutusu"
 
-#: source_backends/email_backends.py:390
+#: source_backends/email_backends.py:411
 msgid ""
 "Criteria to use when searching for messages to process. Use the format "
 "specified in https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 msgstr ""
-"İşlenecek iletileri ararken kullanılacak ölçütler. "
-"https://tools.ietf.org/html/rfc2060.html#section-6.4.4&#39 adresinde "
-"belirtilen biçimi kullanın"
+"İşlenecek iletileri ararken kullanılacak ölçütler. https://tools.ietf.org/"
+"html/rfc2060.html#section-6.4.4&#39 adresinde belirtilen biçimi kullanın"
 
-#: source_backends/email_backends.py:394
+#: source_backends/email_backends.py:415
 msgid "Search criteria"
 msgstr "Arama kriteri"
 
-#: source_backends/email_backends.py:402
+#: source_backends/email_backends.py:423
 msgid ""
 "IMAP STORE command to execute on messages after they are processed. One "
-"command per line. Use the commands specified in "
-"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 or the custom "
-"commands for your IMAP server."
+"command per line. Use the commands specified in https://tools.ietf.org/html/"
+"rfc2060.html#section-6.4.6 or the custom commands for your IMAP server."
 msgstr ""
 "Mesajlar işlendikten sonra yürütülecek IMAP STORE komutu. Satır başına bir "
 "komut. https://tools.ietf.org/html/rfc2060.html#section-6.4.6 içinde "
 "belirtilen komutları veya IMAP sunucunuz için özel komutları kullanın."
 
-#: source_backends/email_backends.py:407
+#: source_backends/email_backends.py:428
 msgid "Store commands"
 msgstr "Komutları depola"
 
-#: source_backends/email_backends.py:414
+#: source_backends/email_backends.py:435
 msgid "Execute the IMAP expunge command after processing each email message."
 msgstr "Her e-posta mesajını işledikten sonra IMAP silme komutunu yürüt."
 
-#: source_backends/email_backends.py:417
+#: source_backends/email_backends.py:438
 msgid "Execute expunge"
 msgstr "Yürütme silme"
 
-#: source_backends/email_backends.py:424
+#: source_backends/email_backends.py:445
 msgid "IMAP Mailbox to which processed messages will be copied."
 msgstr "İşlenen iletilerin kopyalanacağı IMAP Posta Kutusu."
 
-#: source_backends/email_backends.py:426
+#: source_backends/email_backends.py:447
 msgid "Destination mailbox"
 msgstr "Hedef posta kutusu"
 
-#: source_backends/email_backends.py:432
+#: source_backends/email_backends.py:453
 msgid "IMAP email"
 msgstr "IMAP e-postası"
 
-#: source_backends/email_backends.py:559
+#: source_backends/email_backends.py:599
 msgid "Timeout"
 msgstr "Zaman aşımı"
 
-#: source_backends/email_backends.py:562
+#: source_backends/email_backends.py:602
 msgid "POP3 email"
 msgstr "POP3 e-postası"
 
@@ -407,19 +415,19 @@ msgid "Upload a compressed file's contained files as individual documents."
 msgstr ""
 "Sıkıştırılmış bir dosyanın içerdiği dosyaları ayrı belgeler olarak yükleyin."
 
-#: source_backends/mixins.py:251
+#: source_backends/mixins.py:261
 msgid "Assign a document type to documents uploaded from this source."
 msgstr "Bu kaynaktan yüklenen dokümanlara bir doküman türü atayın."
 
-#: source_backends/mixins.py:257
+#: source_backends/mixins.py:269
 msgid "Document type"
 msgstr "Belge Türü"
 
-#: source_backends/mixins.py:264
+#: source_backends/mixins.py:276
 msgid "Interval in seconds between checks for new documents."
 msgstr "Yeni belgeler için kontroller arasındaki saniye cinsinden aralık."
 
-#: source_backends/mixins.py:270
+#: source_backends/mixins.py:282
 msgid "Interval"
 msgstr "Aralık"
 
@@ -445,54 +453,54 @@ msgstr ""
 msgid "SANE Scanner"
 msgstr "SANE Tarayıcı"
 
-#: source_backends/sane_scanner_backends.py:108
+#: source_backends/sane_scanner_backends.py:110
 msgid "Document properties"
 msgstr "Belge özellikleri"
 
-#: source_backends/sane_scanner_backends.py:109
+#: source_backends/sane_scanner_backends.py:111
 msgid "Scan"
 msgstr "Tara"
 
-#: source_backends/staging_folder_backends.py:232
-#: source_backends/staging_folder_backends.py:546
+#: source_backends/staging_folder_backends.py:244
+#: source_backends/staging_folder_backends.py:576
 msgid "Staging file"
 msgstr "Hazırlama dosyası"
 
-#: source_backends/staging_folder_backends.py:267
+#: source_backends/staging_folder_backends.py:279
 #: source_backends/watch_folder_backends.py:38
 msgid "Server side filesystem path."
 msgstr "Sunucu tarafı dosya sistemi yolu."
 
-#: source_backends/staging_folder_backends.py:272
+#: source_backends/staging_folder_backends.py:284
 #: source_backends/watch_folder_backends.py:43
 msgid "Folder path"
 msgstr "Klasör yolu"
 
-#: source_backends/staging_folder_backends.py:278
+#: source_backends/staging_folder_backends.py:290
 msgid "Width value to be passed to the converter backend."
 msgstr "Dönüştürücü uygulamasına iletilecek genişlik değeri."
 
-#: source_backends/staging_folder_backends.py:283
+#: source_backends/staging_folder_backends.py:295
 msgid "Preview width"
 msgstr "Önizleme genişliği"
 
-#: source_backends/staging_folder_backends.py:289
+#: source_backends/staging_folder_backends.py:301
 msgid "Height value to be passed to the converter backend."
 msgstr "Dönüştürücü uygulamasına iletilecek yükseklik değeri."
 
-#: source_backends/staging_folder_backends.py:294
+#: source_backends/staging_folder_backends.py:306
 msgid "Preview height"
 msgstr "Önizleme yüksekliği"
 
-#: source_backends/staging_folder_backends.py:300
+#: source_backends/staging_folder_backends.py:312
 msgid "Delete the file after is has been successfully uploaded."
 msgstr "Dosyayı başarıyla yükledikten sonra dosyayı sil."
 
-#: source_backends/staging_folder_backends.py:302
+#: source_backends/staging_folder_backends.py:314
 msgid "Delete after upload"
 msgstr "Yükledikten sonra sil"
 
-#: source_backends/staging_folder_backends.py:309
+#: source_backends/staging_folder_backends.py:321
 #: source_backends/watch_folder_backends.py:50
 msgid ""
 "If checked, not only will the folder path be scanned for files but also its "
@@ -501,74 +509,74 @@ msgstr ""
 "İşaretlenirse, yalnızca klasör yolundaki dosyalar değil, aynı zamanda alt "
 "dizinler de taranır."
 
-#: source_backends/staging_folder_backends.py:312
+#: source_backends/staging_folder_backends.py:324
 #: source_backends/watch_folder_backends.py:53
 msgid "Include subdirectories?"
 msgstr "Alt dizinler dahil edilsin mi?"
 
-#: source_backends/staging_folder_backends.py:319
+#: source_backends/staging_folder_backends.py:331
 #: source_backends/watch_folder_backends.py:60
 msgid "Regular expression used to select which files to upload."
 msgstr "Hangi dosyaların yükleneceğini seçmek için kullanılan düzenli ifade."
 
-#: source_backends/staging_folder_backends.py:321
+#: source_backends/staging_folder_backends.py:333
 #: source_backends/watch_folder_backends.py:62
 msgid "Include regular expression"
 msgstr "Düzenli ifadeyi dahil et"
 
-#: source_backends/staging_folder_backends.py:328
+#: source_backends/staging_folder_backends.py:340
 #: source_backends/watch_folder_backends.py:69
 msgid "Regular expression used to exclude which files to upload."
 msgstr ""
 "Hangi dosyaların yükleneceğini hariç tutmak için kullanılan düzenli ifade."
 
-#: source_backends/staging_folder_backends.py:330
+#: source_backends/staging_folder_backends.py:342
 #: source_backends/watch_folder_backends.py:71
 msgid "Exclude regular expression"
 msgstr "Düzenli ifadeyi hariç tut"
 
-#: source_backends/staging_folder_backends.py:341
+#: source_backends/staging_folder_backends.py:353
 msgid "Staging folder"
 msgstr "Hazırlama klasörü"
 
-#: source_backends/staging_folder_backends.py:361
+#: source_backends/staging_folder_backends.py:373
 msgid "Select"
 msgstr "Seçiniz"
 
-#: source_backends/staging_folder_backends.py:373
+#: source_backends/staging_folder_backends.py:385
 msgid "Created"
 msgstr "Oluşturuldu"
 
-#: source_backends/staging_folder_backends.py:377
+#: source_backends/staging_folder_backends.py:389
 msgid "Thumbnail"
 msgstr "Küçük Resim"
 
-#: source_backends/staging_folder_backends.py:526
+#: source_backends/staging_folder_backends.py:551
 #, python-format
 msgid "Error deleting staging file; %s"
 msgstr "Hazırlama dosyasını silinirken hata oluştu; %s"
 
-#: source_backends/staging_folder_backends.py:547
+#: source_backends/staging_folder_backends.py:577
 #, python-format
 msgid "Delete staging file \"%s\"?"
 msgstr "\"%s\" hazırlama dosyası silinsin mi?"
 
-#: source_backends/staging_folder_backends.py:612
+#: source_backends/staging_folder_backends.py:650
 #, python-format
 msgid "Unable get list of staging files; %s"
 msgstr "Hazırlama dosyalarının listesi alınamıyor; %s"
 
-#: source_backends/staging_folder_backends.py:630
+#: source_backends/staging_folder_backends.py:668
 msgid ""
 "This could mean that the staging folder is empty. It could also mean that "
-"the operating system user account being used for Mayan EDMS doesn't have the"
-" necessary file system permissions for the folder."
+"the operating system user account being used for Mayan EDMS doesn't have the "
+"necessary file system permissions for the folder."
 msgstr ""
 "Bu, hazırlama klasörünün boş olduğu anlamına gelebilir. Bu, Mayan EDMS için "
 "kullanılan işletim sistemi kullanıcı hesabının, klasör için gerekli dosya "
 "sistemi izinlerine sahip olmadığı anlamına da gelebilir."
 
-#: source_backends/staging_folder_backends.py:637
+#: source_backends/staging_folder_backends.py:675
 msgid "No staging files available"
 msgstr "Hazırlanacak dosya yok"
 
@@ -576,7 +584,7 @@ msgstr "Hazırlanacak dosya yok"
 msgid "Watch folder"
 msgstr "İzleme Klasörü"
 
-#: source_backends/web_form_backends.py:39
+#: source_backends/web_form_backends.py:40
 msgid "Web form"
 msgstr "Web formu"
 
@@ -592,80 +600,53 @@ msgstr ""
 msgid "Staging folder files"
 msgstr "Klasör dosyalarını hazırlama"
 
-#: templates/sources/app/foot.html:42
-msgid "Cancel upload"
-msgstr "Yüklemeyi iptal et"
-
-#: templates/sources/app/foot.html:43
-msgid "Are you sure you want to cancel this upload?"
-msgstr "Bu yüklemeyi iptal etmek istediğinizden emin misiniz?"
-
-#: templates/sources/app/foot.html:44
-msgid "Drop files or click here to upload files"
-msgstr "Dosyaları sürükleyip bırakın veya yükleme yapmak için buraya tıklayın"
-
-#: templates/sources/app/foot.html:45
-msgid "Your browser does not support drag and drop file uploads."
-msgstr "Tarayıcınız sürükle ve bırak dosya yüklemelerini desteklemiyor."
-
-#: templates/sources/app/foot.html:46
-msgid "Please use the fallback form below to upload your files."
-msgstr "Dosyalarınızı yüklemek için lütfen aşağıdaki formu kullanın."
-
-#: templates/sources/app/foot.html:47
-msgid "Clear"
-msgstr "Temizle"
-
-#: templates/sources/app/foot.html:48
-msgid "Server responded with {{statusCode}} code."
-msgstr "Sunucu {{statusCode}} koduyla yanıt verdi."
-
-#: views/base.py:54 wizards.py:58
+#: views/base.py:55 wizards.py:58
 msgid ""
-"No interactive document sources have been defined or none have been enabled,"
-" create one before proceeding."
+"No interactive document sources have been defined or none have been enabled, "
+"create one before proceeding."
 msgstr ""
 "Etkileşimli belge kaynakları tanımlanmamış veya hiçbiri etkinleştirilmemiş, "
 "devam etmeden önce bir tane oluşturun."
 
-#: views/document_file_views.py:52
+#: views/document_file_views.py:51
 #, python-format
 msgid "Unable to upload new files for document \"%(document)s\". %(exception)s"
-msgstr "\"%(document)s\" belgesi için yeni dosyalar yüklenemiyor. %(exception)s"
+msgstr ""
+"\"%(document)s\" belgesi için yeni dosyalar yüklenemiyor. %(exception)s"
 
 #: views/document_file_views.py:76
 #, python-format
 msgid "Error executing document file upload task; %(exception)s"
 msgstr "Belge dosyası yükleme görevi yürütülürken hata oluştu; %(exception)s"
 
-#: views/document_file_views.py:95
+#: views/document_file_views.py:97
 msgid "New document file queued for upload and will be available shortly."
 msgstr ""
-"Yeni belge dosyası yükleme için kuyruğa alındı ve kısa süre içinde kullanıma"
-" sunulacak."
+"Yeni belge dosyası yükleme için kuyruğa alındı ve kısa süre içinde kullanıma "
+"sunulacak."
 
-#: views/document_file_views.py:133
+#: views/document_file_views.py:136
 #, python-format
 msgid "Upload a new file for document \"%(document)s\" from source: %(source)s"
 msgstr ""
 "Kaynaktan \"%(document)s\" belgesi için yeni bir dosya yükleyin: %(source)s"
 
-#: views/document_file_views.py:139
+#: views/document_file_views.py:142
 msgid "Submit"
 msgstr "Gönder"
 
-#: views/document_views.py:41
+#: views/document_views.py:40
 #, python-format
 msgid "Error processing source document upload; %(exception)s"
 msgstr "Kaynak belge yüklemesi işlenirken hata oluştu; %(exception)s"
 
-#: views/document_views.py:60
+#: views/document_views.py:61
 msgid "New document queued for upload and will be available shortly."
 msgstr ""
 "Yeni belge yüklenmek üzere sıraya alındı ve kısa süre içinde kullanıma "
 "sunulacak."
 
-#: views/document_views.py:91
+#: views/document_views.py:92
 #, python-format
 msgid "Upload a document of type \"%(document_type)s\" from source: %(source)s"
 msgstr "Kaynaktan \"%(document_type)s\" türünde bir belge yükleyin: %(source)s"
@@ -674,22 +655,22 @@ msgstr "Kaynaktan \"%(document_type)s\" türünde bir belge yükleyin: %(source)
 msgid "New source backend selection"
 msgstr "Yeni kaynak backend seçimi"
 
-#: views/source_views.py:99
+#: views/source_views.py:103
 #, python-format
 msgid "Create a \"%s\" source"
 msgstr "Bir \"%s\" kaynağı oluşturun"
 
-#: views/source_views.py:125
+#: views/source_views.py:129
 #, python-format
 msgid "Delete the source: %s?"
 msgstr "Kaynağı sil: %s?"
 
-#: views/source_views.py:141
+#: views/source_views.py:145
 #, python-format
 msgid "Edit source: %s"
 msgstr "Kaynağı düzenle: %s"
 
-#: views/source_views.py:167
+#: views/source_views.py:171
 msgid ""
 "Sources provide the means to upload documents. Some sources are interactive "
 "and require user input to operate. Others are automatic and run in the "
@@ -699,14 +680,14 @@ msgstr ""
 "etkileşimlidir ve çalışması için kullanıcı girdisi gerektirir. Diğerleri "
 "otomatiktir ve kullanıcı müdahalesi olmadan arka planda çalışır."
 
-#: views/source_views.py:172
+#: views/source_views.py:176
 msgid "No sources available"
 msgstr "Uygun kaynak yok"
 
-#: views/source_views.py:191
+#: views/source_views.py:195
 msgid ""
-"This will execute the source code even if the source is not enabled. Sources"
-" that delete content after downloading will not do so while being tested. "
+"This will execute the source code even if the source is not enabled. Sources "
+"that delete content after downloading will not do so while being tested. "
 "Check the source's error log for information during testing. A successful "
 "test will clear the error log."
 msgstr ""
@@ -715,12 +696,12 @@ msgstr ""
 "sırasında bilgi için kaynağın hata günlüğünü kontrol edin. Başarılı bir "
 "test, hata günlüğünü temizleyecektir."
 
-#: views/source_views.py:197
+#: views/source_views.py:201
 #, python-format
 msgid "Trigger check for source \"%s\"?"
 msgstr "\"%s\" kaynağı için tetikleme kontrolü?"
 
-#: views/source_views.py:209
+#: views/source_views.py:213
 msgid "Source test queued."
 msgstr "Kaynak testi sıraya alındı."
 
@@ -733,18 +714,40 @@ msgstr "Belge türünü seçin"
 msgid "Step %(step)d of %(total_steps)d: %(step_label)s"
 msgstr "%(total_steps)d'ın %(step)d adımı: %(step_label)s"
 
-#: wizards.py:82
+#: wizards.py:83
 msgid "Document upload wizard"
 msgstr "Belge yükleme sihirbazı"
 
-#: wizards.py:91
+#: wizards.py:92
 msgid "First"
 msgstr "İlk"
 
-#: wizards.py:97
+#: wizards.py:98
 msgid "Previous"
 msgstr "Geri"
 
-#: wizards.py:104
+#: wizards.py:105
 msgid "Next"
 msgstr "İleri"
+
+#~ msgid "Cancel upload"
+#~ msgstr "Yüklemeyi iptal et"
+
+#~ msgid "Are you sure you want to cancel this upload?"
+#~ msgstr "Bu yüklemeyi iptal etmek istediğinizden emin misiniz?"
+
+#~ msgid "Drop files or click here to upload files"
+#~ msgstr ""
+#~ "Dosyaları sürükleyip bırakın veya yükleme yapmak için buraya tıklayın"
+
+#~ msgid "Your browser does not support drag and drop file uploads."
+#~ msgstr "Tarayıcınız sürükle ve bırak dosya yüklemelerini desteklemiyor."
+
+#~ msgid "Please use the fallback form below to upload your files."
+#~ msgstr "Dosyalarınızı yüklemek için lütfen aşağıdaki formu kullanın."
+
+#~ msgid "Clear"
+#~ msgstr "Temizle"
+
+#~ msgid "Server responded with {{statusCode}} code."
+#~ msgstr "Sunucu {{statusCode}} koduyla yanıt verdi."

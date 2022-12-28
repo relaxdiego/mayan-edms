@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2019-05-17 05:50+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -46,77 +46,81 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: links.py:31 models.py:46 permissions.py:5 search.py:12
+#: links.py:31 models.py:47 permissions.py:6 search.py:12
 msgid "Comments"
 msgstr ""
 
-#: models.py:30
-msgid "Document"
+#: model_mixins.py:10 models.py:33
+msgid "User"
 msgstr ""
 
-#: models.py:34 models.py:71
-msgid "User"
+#: models.py:29
+msgid "Document"
 msgstr ""
 
 #: models.py:36
 msgid "Text"
 msgstr ""
 
-#: models.py:39
+#: models.py:40
 msgid "Date time submitted"
 msgstr ""
 
-#: models.py:45
+#: models.py:46
 msgid "Comment"
 msgstr ""
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new comments"
 msgstr ""
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete comments"
 msgstr ""
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit comments"
 msgstr ""
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View comments"
 msgstr ""
 
-#: views.py:35
+#: serializers.py:12
+msgid "URL"
+msgstr ""
+
+#: views.py:37
 #, python-format
 msgid "Add comment to document: %s"
 msgstr ""
 
-#: views.py:64
+#: views.py:67
 #, python-format
 msgid "Delete comment: %s?"
 msgstr ""
 
-#: views.py:96
+#: views.py:99
 #, python-format
 msgid "Details for comment: %s?"
 msgstr ""
 
-#: views.py:116
+#: views.py:119
 #, python-format
 msgid "Edit comment: %s?"
 msgstr ""
 
-#: views.py:152
+#: views.py:158
 msgid ""
 "Document comments are timestamped text entries from users. They are great "
 "for collaboration."
 msgstr ""
 
-#: views.py:155
+#: views.py:161
 msgid "There are no comments"
 msgstr ""
 
-#: views.py:157
+#: views.py:163
 #, python-format
 msgid "Comments for document: %s"
 msgstr ""

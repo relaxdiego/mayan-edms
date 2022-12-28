@@ -1,29 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
 # e6bc1d20d3f0031709c3c11db1061ebc_be0a371 <8b4e580508477646e97982ebad39e3af_312311>, 2022
 # bwakkie <bwakkie@gmail.com>, 2022
 # Roberto Rosario, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
 "Last-Translator: Roberto Rosario, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:57 events.py:5 permissions.py:5 settings.py:10
+#: apps.py:57 events.py:6 permissions.py:6 settings.py:11
 msgid "Appearance"
 msgstr "Uiterlijk"
 
@@ -75,15 +75,15 @@ msgstr "Toastr"
 msgid "URI.js"
 msgstr "URI.js"
 
-#: events.py:8
+#: events.py:10
 msgid "Theme created"
 msgstr "Thema aangemaakt"
 
-#: events.py:11
+#: events.py:13
 msgid "Theme edited"
 msgstr "Thema bewerkt"
 
-#: events.py:14
+#: events.py:16
 msgid "User theme edited"
 msgstr "Gebruikersthema bewerkt"
 
@@ -145,39 +145,35 @@ msgstr "Gebruikers thema instelling"
 msgid "User theme settings"
 msgstr "Gebruikets thema instellingen"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new themes"
 msgstr "Maak nieuwe thema's"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete themes"
 msgstr "Verwijder thema's"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit themes"
 msgstr "Bewerk thema's"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing themes"
 msgstr "Bekijk bestaande thema's"
 
-#: settings.py:15
+#: settings.py:17
 msgid "Custom HTTP response code for AJAX redirections."
 msgstr "Aangepaste HTTP antwoordcode voor AJAX omleidingen."
 
-#: settings.py:21
+#: settings.py:23
 msgid "Maximum number of characters that will be displayed as the view title."
 msgstr "Mamximum aantal tekens dat in de titel wordt weergegeven."
 
-#: settings.py:28
-msgid ""
-"Position where the system message will be displayed. Options are: top-left, "
-"top-center, top-right, bottom-left, bottom-center, bottom-right."
+#: settings.py:33
+msgid "Position where the system messages will be displayed."
 msgstr ""
-"Positie waar systeemberichten worden weergegeven.\n"
-"Opties zijn: links-boven, rechts-boven, links-onder, midden-onder, rechts-onder."
 
-#: settings.py:36
+#: settings.py:39
 msgid ""
 "Delay in milliseconds after which the menus will be checked for updates."
 msgstr ""
@@ -220,8 +216,7 @@ msgstr ""
 "De locatie is juist, maar uw account mist de benodigde permissies om het te "
 "benaderen."
 
-#: templates/500.html:5 templates/500.html:30
-#: templates/appearance/root.html:47
+#: templates/500.html:5 templates/500.html:30 templates/appearance/root.html:47
 msgid "Server error"
 msgstr "Server fout"
 
@@ -246,8 +241,12 @@ msgid "Contact your system administrator."
 msgstr "Neem contact op met uw systeembeheerder."
 
 #: templates/500.html:47
-msgid "Check the logs for messages with the tags \"ERROR\", \"CRITICAL\" or \"FATAL\"."
-msgstr "Bekijk de logs voor berichten met de labels \"ERROR\", \"CRITICAL\" of \"FATAL\"."
+msgid ""
+"Check the logs for messages with the tags \"ERROR\", \"CRITICAL\" or "
+"\"FATAL\"."
+msgstr ""
+"Bekijk de logs voor berichten met de labels \"ERROR\", \"CRITICAL\" of "
+"\"FATAL\"."
 
 #: templates/500.html:48
 #, python-format
@@ -285,41 +284,61 @@ msgstr "Uitgegeven onder de licentie:"
 #, python-format
 msgid ""
 "\n"
-"                The complete list of changes is available via the <a class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index.html\">Release notes %(icon_documentation)s</a> or the short version <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
+"                The complete list of changes is available via the <a "
+"class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index."
+"html\">Release notes %(icon_documentation)s</a> or the short version <a "
+"class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/"
+"master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
 "            "
 msgstr ""
 "\n"
-"De complete lijst met aanpassingen is beschikbaar via de <a class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index.html\">Release notes %(icon_documentation)s</a> of de verkorte versie <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/master/HISTORY.rst\">Changelog %(icon_documentation)s</a>."
+"De complete lijst met aanpassingen is beschikbaar via de <a "
+"class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index."
+"html\">Release notes %(icon_documentation)s</a> of de verkorte versie <a "
+"class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/"
+"master/HISTORY.rst\">Changelog %(icon_documentation)s</a>."
 
 #: templates/appearance/about.html:104
 #, python-format
 msgid ""
 "\n"
-"                For questions check the <a class=\"new_window\" href=\"https://docs.mayan-edms.com\">Documentation %(icon_documentation)s</a>.\n"
+"                For questions check the <a class=\"new_window\" "
+"href=\"https://docs.mayan-edms.com\">Documentation %(icon_documentation)s</"
+"a>.\n"
 "            "
 msgstr ""
 "\n"
-"Voor vragen bekijk de  <a class=\"new_window\" href=\"https://docs.mayan-edms.com\">Documentatie %(icon_documentation)s</a>."
+"Voor vragen bekijk de  <a class=\"new_window\" href=\"https://docs.mayan-"
+"edms.com\">Documentatie %(icon_documentation)s</a>."
 
 #: templates/appearance/about.html:110
 #, python-format
 msgid ""
 "\n"
-"                If you found a bug or have a feature idea, visit the <a class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum %(icon_forum)s</a> or open a ticket in the <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms\">Source code repository %(icon_source_code)s</a>.\n"
+"                If you found a bug or have a feature idea, visit the <a "
+"class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum "
+"%(icon_forum)s</a> or open a ticket in the <a class=\"new_window\" "
+"href=\"https://gitlab.com/mayan-edms/mayan-edms\">Source code repository "
+"%(icon_source_code)s</a>.\n"
 "            "
 msgstr ""
 "\n"
-"Ziet u een fout of heeft u ideeën? Bezoek het <a class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum %(icon_forum)s</a> of open een melding via het <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms\">Broncode opslagplaats %(icon_source_code)s</a>."
+"Ziet u een fout of heeft u ideeën? Bezoek het <a class=\"new_window\" "
+"href=\"https://forum.mayan-edms.com\">Forum %(icon_forum)s</a> of open een "
+"melding via het <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/"
+"mayan-edms\">Broncode opslagplaats %(icon_source_code)s</a>."
 
 #: templates/appearance/about.html:115
 #, python-format
 msgid ""
 "\n"
-"                Spread the word. Talk to your friends and colleagues about how awesome %(project_title)s is!\n"
+"                Spread the word. Talk to your friends and colleagues about "
+"how awesome %(project_title)s is!\n"
 "            "
 msgstr ""
 "\n"
-"Vertel het verder. Laat je vrienden en collega's weten hoe fantastisch %(project_title)s is!"
+"Vertel het verder. Laat je vrienden en collega's weten hoe fantastisch "
+"%(project_title)s is!"
 
 #: templates/appearance/base.html:73
 msgid "Object"
@@ -367,9 +386,17 @@ msgstr "Annuleren"
 msgid "Identifier"
 msgstr "Identifier"
 
-#: templates/appearance/generic_list_subtemplate.html:134
-msgid "Facets"
-msgstr "Facetten"
+#: templates/appearance/generic_list_subtemplate.html:85
+#: templates/appearance/partials/list_object_facet_links_column.html:8
+#: templates/appearance/partials/list_object_facet_links_column.html:39
+msgid "Views"
+msgstr ""
+
+#: templates/appearance/generic_list_subtemplate.html:91
+#, fuzzy
+#| msgid "Bulk actions"
+msgid "Actions"
+msgstr "Bulk acties"
 
 #: templates/appearance/home.html:27
 msgid "Getting started"
@@ -412,24 +439,34 @@ msgstr "Alle selecteren/deselecteren"
 msgid "Toggle list display mode"
 msgstr "Wissel lijst modus"
 
-#: templates/appearance/partials/list_toolbar.html:63
+#: templates/appearance/partials/list_toolbar.html:31
 msgid ""
 "Select items to activate bulk actions. Use Shift + click to select many."
 msgstr ""
 "Selecteer onderdelen voor bulk acties. Gebruik Shift + Klik om meerdere te "
 "selecteren."
 
-#: templates/appearance/partials/list_toolbar.html:68
+#: templates/appearance/partials/list_toolbar.html:36
 msgid "Bulk actions"
 msgstr "Bulk acties"
 
-#: templates/appearance/partials/list_toolbar.html:70
+#: templates/appearance/partials/list_toolbar.html:38
 msgid "Toggle Dropdown"
 msgstr "Toggle Dropdown"
 
 #: templates/appearance/partials/no_results.html:18
 msgid "No results"
 msgstr "Geen resultaten"
+
+#: templates/appearance/partials/pagination.html:12
+#: templates/appearance/partials/pagination.html:14
+msgid "Previous page"
+msgstr ""
+
+#: templates/appearance/partials/pagination.html:30
+#: templates/appearance/partials/pagination.html:32
+msgid "Next page"
+msgstr ""
 
 #: templates/appearance/root.html:52
 msgid "Close"
@@ -477,3 +514,14 @@ msgstr "Thema-instellingen voor gebruiker: %s"
 #, python-format
 msgid "Edit theme settings for user: %s"
 msgstr "Bewerk thema-instellingen voor gebruiker: %s"
+
+#~ msgid ""
+#~ "Position where the system message will be displayed. Options are: top-"
+#~ "left, top-center, top-right, bottom-left, bottom-center, bottom-right."
+#~ msgstr ""
+#~ "Positie waar systeemberichten worden weergegeven.\n"
+#~ "Opties zijn: links-boven, rechts-boven, links-onder, midden-onder, rechts-"
+#~ "onder."
+
+#~ msgid "Facets"
+#~ msgstr "Facetten"

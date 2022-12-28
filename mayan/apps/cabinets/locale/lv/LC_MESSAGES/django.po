@@ -2,51 +2,58 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Māris Teivāns <maris.teivans@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Māris Teivāns <maris.teivans@gmail.com>, 2022\n"
 "Language-Team: Latvian (https://www.transifex.com/rosarior/teams/13584/lv/)\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lv\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
 
-#: apps.py:54 apps.py:161 apps.py:165 apps.py:169 apps.py:173 apps.py:177
-#: events.py:5 forms.py:14 links.py:30 menus.py:14 models.py:50 models.py:174
-#: permissions.py:5 search.py:61 views.py:168 workflow_actions.py:20
+#: apps.py:54 apps.py:164 apps.py:168 apps.py:172 apps.py:176 apps.py:180
+#: events.py:6 forms.py:14 links.py:30 menus.py:14 models.py:49 models.py:156
+#: permissions.py:6 search.py:52 views.py:169 workflow_actions.py:20
 msgid "Cabinets"
 msgstr "Kabineti"
 
-#: events.py:9
+#: events.py:11
 msgid "Cabinet created"
 msgstr "Izveidots kabinets"
 
-#: events.py:12
+#: events.py:14
+#, fuzzy
+#| msgid "Cabinet edited"
+msgid "Cabinet deleted"
+msgstr "Rediģēts kabinets"
+
+#: events.py:17
 msgid "Cabinet edited"
 msgstr "Rediģēts kabinets"
 
-#: events.py:15
+#: events.py:20
 msgid "Document added to cabinet"
 msgstr "Dokuments pievienots kabinetam"
 
-#: events.py:18
+#: events.py:23
 msgid "Document removed from cabinet"
 msgstr "Dokuments izņemts no kabineta"
 
-#: links.py:36 links.py:48 workflow_actions.py:72
+#: links.py:36 links.py:48 workflow_actions.py:76
 msgid "Remove from cabinets"
 msgstr "Noņemiet no kabinetiem"
 
-#: links.py:40 links.py:44 workflow_actions.py:29
+#: links.py:41 links.py:44 workflow_actions.py:29
 msgid "Add to cabinets"
 msgstr "Pievienot kabinetiem"
 
@@ -54,7 +61,7 @@ msgstr "Pievienot kabinetiem"
 msgid "Add new level"
 msgstr "Pievienot jaunu līmeni"
 
-#: links.py:64 views.py:46
+#: links.py:64 views.py:47
 msgid "Create cabinet"
 msgstr "Izveidot kabinetu"
 
@@ -74,100 +81,104 @@ msgstr "Visi"
 msgid "Details"
 msgstr "Detaļas"
 
-#: methods.py:20
+#: methods.py:21
 msgid "Return a list of cabinets containing the document."
 msgstr "Atgrieziet kabientu sarakstu, kas satur šo dokumentu"
 
-#: methods.py:22
+#: methods.py:23
 msgid "get_cabinets()"
 msgstr "get_cabinets ()"
 
-#: models.py:34
-msgid "A short text used to identify the cabinet."
-msgstr "Īss teksts, ko izmanto kabineta identificēšanai."
-
-#: models.py:35
-msgid "Label"
-msgstr "Etiķete"
-
-#: models.py:39
-msgid "Documents"
-msgstr "Dokumenti"
-
-#: models.py:49 models.py:148 models.py:173 workflow_actions.py:64
-msgid "Cabinet"
-msgstr "Kabinets"
-
-#: models.py:115
+#: model_mixins.py:50
 msgid "The path to the cabinet including all ancestors."
 msgstr "Ceļš uz kabinetu, ieskaitot visus senčus."
 
-#: models.py:117
+#: model_mixins.py:52 serializers.py:32
 msgid "Full path"
 msgstr "Pilns ceļš"
 
-#: models.py:149
+#: models.py:30 serializers.py:41
+msgid "Parent"
+msgstr ""
+
+#: models.py:33
+msgid "A short text used to identify the cabinet."
+msgstr "Īss teksts, ko izmanto kabineta identificēšanai."
+
+#: models.py:34
+msgid "Label"
+msgstr "Etiķete"
+
+#: models.py:38
+msgid "Documents"
+msgstr "Dokumenti"
+
+#: models.py:48 models.py:130 models.py:155 workflow_actions.py:68
+msgid "Cabinet"
+msgstr "Kabinets"
+
+#: models.py:131
 msgid "Parent and Label"
 msgstr "Mātes elements un etiķete"
 
-#: models.py:156
+#: models.py:138
 #, python-format
 msgid "%(model_name)s with this %(field_labels)s already exists."
 msgstr "%(model_name)s ar šo %(field_labels)s jau eksistē."
 
-#: models.py:185
+#: models.py:167
 msgid "Document cabinet"
 msgstr "Dokumentu kabinets"
 
-#: models.py:186 search.py:68 search.py:75 search.py:82 search.py:89
+#: models.py:168 search.py:59 search.py:66 search.py:73 search.py:80
 msgid "Document cabinets"
 msgstr "Dokumentu kabineti"
 
-#: permissions.py:10
+#: permissions.py:12
 msgid "Add documents to cabinets"
 msgstr "Pievienot dokumentus kabinetiem"
 
-#: permissions.py:13
+#: permissions.py:15
 msgid "Create cabinets"
 msgstr "Izveidot kabinetus"
 
-#: permissions.py:16
+#: permissions.py:18
 msgid "Delete cabinets"
 msgstr "Dzēst kabinetus"
 
-#: permissions.py:19
+#: permissions.py:21
 msgid "Edit cabinets"
 msgstr "Rediģēt kabinetus"
 
-#: permissions.py:22
+#: permissions.py:24
 msgid "Remove documents from cabinets"
 msgstr "Noņemt dokumentus no kabinetiem"
 
-#: permissions.py:25
+#: permissions.py:27
 msgid "View cabinets"
 msgstr "Skatīt kabinetus"
 
-#: search.py:36
+#: search.py:28
 msgid "Document type"
 msgstr "Dokumenta veids"
 
-#: search.py:39
+#: search.py:31
 msgid "Document label"
 msgstr "Dokumenta etiķete"
 
-#: search.py:42
+#: search.py:34
 msgid "Document description"
 msgstr "Dokumenta apraksts"
 
-#: search.py:45
+#: search.py:37
 msgid "Document UUID"
 msgstr "Dokumenta UUID"
 
-#: search.py:52
+#: search.py:43
 msgid "Document file checksum"
 msgstr ""
 
-#: search.py:55
+#: search.py:46
 msgid "Document file MIME type"
 msgstr ""
 
@@ -175,30 +186,63 @@ msgstr ""
 msgid "List of children cabinets."
 msgstr "Bērnu kabinetu saraksts."
 
-#: serializers.py:22
-msgid ""
-"URL of the API endpoint showing the list documents inside this cabinet."
+#: serializers.py:18
+msgid "Children"
+msgstr ""
+
+#: serializers.py:23
+msgid "URL of the API endpoint showing the list documents inside this cabinet."
 msgstr "API gala punkta URL, kurā redzami saraksta dokumenti šajā kabinetā."
 
-#: serializers.py:29
+#: serializers.py:25
+#, fuzzy
+#| msgid "Documents"
+msgid "Documents URL"
+msgstr "Dokumenti"
+
+#: serializers.py:30
 msgid "The name of this cabinet level appended to the names of its ancestors."
 msgstr "Šī kabineta līmeņa nosaukums pievienots to senču vārdiem."
+
+#: serializers.py:35
+msgid "Parents URL"
+msgstr ""
+
+#: serializers.py:51
+msgid "URL"
+msgstr ""
+
+#: serializers.py:84
+msgid "Primary key of the document to add to the cabinet."
+msgstr ""
+
+#: serializers.py:85 serializers.py:94
+#, fuzzy
+#| msgid "Document UUID"
+msgid "Document ID"
+msgstr "Dokumenta UUID"
+
+#: serializers.py:93
+#, fuzzy
+#| msgid "Document removed from cabinet"
+msgid "Primary key of the document to remove from the cabinet."
+msgstr "Dokuments izņemts no kabineta"
 
 #: templates/cabinets/cabinet_details.html:17
 msgid "Navigation:"
 msgstr "Navigācija:"
 
-#: views.py:63
+#: views.py:64
 #, python-format
 msgid "Add new level to: %s"
 msgstr "Pievienot jaunu līmeni: %s"
 
-#: views.py:88
+#: views.py:89
 #, python-format
 msgid "Delete the cabinet: %s?"
 msgstr "Dzēst kabinetu: %s?"
 
-#: views.py:127
+#: views.py:128
 msgid ""
 "Cabinet levels can contain documents or other cabinet sub levels. To add "
 "documents to a cabinet, select the cabinet view of a document view."
@@ -206,21 +250,21 @@ msgstr ""
 "Kabineta līmeņos var būt dokumenti vai citi kabineta apakšlīmeņi. Lai "
 "kabinetam pievienotu dokumentus, atlasiet dokumenta skatu kabineta skatam."
 
-#: views.py:131
+#: views.py:132
 msgid "This cabinet level is empty"
 msgstr "Šis kabineta līmenis ir tukšs"
 
-#: views.py:134
+#: views.py:135
 #, python-format
 msgid "Details of cabinet: %s"
 msgstr "Sīkāka informācija par kabinetu: %s"
 
-#: views.py:153
+#: views.py:154
 #, python-format
 msgid "Edit cabinet: %s"
 msgstr "Rediģēt kabinetu: %s"
 
-#: views.py:174
+#: views.py:175
 msgid ""
 "Cabinets are a multi-level method to organize documents. Each cabinet can "
 "contain documents as well as other sub level cabinets."
@@ -228,41 +272,41 @@ msgstr ""
 "Kabineti ir daudzlīmeņu metode dokumentu organizēšanai. Katrs kabinets var "
 "saturēt dokumentus, kā arī citus apakšlīmeņu kabinetus."
 
-#: views.py:178
+#: views.py:179
 msgid "No cabinets available"
 msgstr "Neviens kabinets nav pieejams"
 
-#: views.py:191
+#: views.py:192
 #, python-format
 msgid "Document \"%(object)s\" added to cabinets successfully."
 msgstr ""
 
-#: views.py:194
+#: views.py:195
 #, python-format
 msgid "%(count)d document added to cabinets successfully."
 msgstr ""
 
-#: views.py:197
+#: views.py:198
 #, python-format
 msgid "%(count)d documents added to cabinets successfully."
 msgstr ""
 
-#: views.py:199
-#, python-format
-msgid "Add document \"%(object)s\" to cabinets."
-msgstr ""
-
 #: views.py:200
-#, python-format
-msgid "Add %(count)d document to cabinets."
-msgstr ""
-
-#: views.py:201
 #, python-format
 msgid "Add %(count)d documents to cabinets."
 msgstr ""
 
-#: views.py:219
+#: views.py:201
+#, python-format
+msgid "Add document \"%(object)s\" to cabinets."
+msgstr ""
+
+#: views.py:202
+#, python-format
+msgid "Add %(count)d document to cabinets."
+msgstr ""
+
+#: views.py:220
 msgid "Cabinets to which the selected documents will be added."
 msgstr "Kabienti, kuriem iezīmētie dokumenti tiks pievienoti."
 
@@ -296,17 +340,17 @@ msgstr ""
 
 #: views.py:297
 #, python-format
-msgid "Remove document \"%(object)s\" from cabinets."
+msgid "Remove %(count)d documents from cabinets."
 msgstr ""
 
 #: views.py:298
 #, python-format
-msgid "Remove %(count)d document from cabinets."
+msgid "Remove document \"%(object)s\" from cabinets."
 msgstr ""
 
 #: views.py:299
 #, python-format
-msgid "Remove %(count)d documents from cabinets."
+msgid "Remove %(count)d document from cabinets."
 msgstr ""
 
 #: views.py:317
@@ -321,6 +365,6 @@ msgstr ""
 msgid "Cabinets to which the document will be added."
 msgstr ""
 
-#: workflow_actions.py:67
+#: workflow_actions.py:71
 msgid "Cabinets from which the document will be removed."
 msgstr ""

@@ -1,27 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # trendspotter <jirka.p@volny.cz>, 2022
 # Michal Švábík <snadno@lehce.cz>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Michal Švábík <snadno@lehce.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/rosarior/teams/13584/cs/)\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
+"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: apps.py:132 permissions.py:5 settings.py:16
+#: apps.py:131 permissions.py:6 settings.py:16
 msgid "Common"
 msgstr "Společný"
 
@@ -81,7 +82,7 @@ msgstr "Internetový obchod"
 msgid "Get support"
 msgstr "Získat podporu"
 
-#: links.py:69 queues.py:6 views.py:131
+#: links.py:69 queues.py:7 views.py:134
 msgid "Tools"
 msgstr "Nástroje"
 
@@ -90,15 +91,15 @@ msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr "Tato funkce byla ukončena a v budoucí verzi bude odstraněna."
 
-#: literals.py:29
+#: literals.py:30
 msgid "Days"
 msgstr "Dny"
 
-#: literals.py:30
+#: literals.py:31
 msgid "Hours"
 msgstr "Hodiny"
 
-#: literals.py:31
+#: literals.py:32
 msgid "Minutes"
 msgstr "Minuty"
 
@@ -130,11 +131,11 @@ msgstr "Návrat"
 msgid "User"
 msgstr "Uživatel"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Copy object"
 msgstr "Zkopírujte objekt"
 
-#: settings.py:23
+#: settings.py:24
 msgid ""
 "In list mode, show the \"list facet\" menu options as a dropdown menu "
 "instead of individual buttons."
@@ -142,71 +143,71 @@ msgstr ""
 "V režimu seznamu místo jednotlivých tlačítek zobrazte možnosti nabídky "
 "„seznam faset“ jako rozevírací nabídku."
 
-#: settings.py:31
+#: settings.py:33
 msgid ""
-"In list mode, show the \"object\" menu options as a dropdown menu instead of"
-" individual buttons."
+"In list mode, show the \"object\" menu options as a dropdown menu instead of "
+"individual buttons."
 msgstr ""
 "V režimu seznamu místo jednotlivých tlačítek zobrazte možnosti nabídky "
 "„objekt“ jako rozevírací nabídku."
 
-#: settings.py:38
+#: settings.py:41
 msgid ""
 "Disables the use of the local `media` folder. When using this setting, all "
 "apps must be also configured via their respective storage backend settings "
 "to use alternate persistence."
 msgstr ""
 
-#: settings.py:46
+#: settings.py:49
 msgid ""
 "A list of strings designating all applications that are to be removed from "
 "the list normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. Example: ['app_1', 'app_2']"
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. Example: ['app_1', 'app_2']"
 msgstr ""
 "Seznam řetězců označujících všechny aplikace, které mají být odebrány ze "
 "seznamu normálně nainstalovaného Mayan EDMS. Každý řetězec by měl být "
-"tečkovaná cesta Pythonu k: třídě konfigurace aplikace (upřednostňované) nebo"
-" balíčku, který obsahuje aplikaci. Příklad: ['app_1', 'app_2']"
+"tečkovaná cesta Pythonu k: třídě konfigurace aplikace (upřednostňované) nebo "
+"balíčku, který obsahuje aplikaci. Příklad: ['app_1', 'app_2']"
 
-#: settings.py:56
+#: settings.py:59
 msgid ""
 "A list of strings designating all applications that are installed beyond "
 "those normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. Example: ['app_1', 'app_2']"
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. Example: ['app_1', 'app_2']"
 msgstr ""
 "Seznam řetězců označujících všechny aplikace, které jsou nainstalovány nad "
-"rámec těch, které normálně nainstaloval Mayan EDMS. Každý řetězec by měl být"
-" tečkovaná cesta Pythonu k: třídě konfigurace aplikace (upřednostňované) "
-"nebo balíčku, který obsahuje aplikaci. Příklad:  ['app_1', 'app_2']"
+"rámec těch, které normálně nainstaloval Mayan EDMS. Každý řetězec by měl být "
+"tečkovaná cesta Pythonu k: třídě konfigurace aplikace (upřednostňované) nebo "
+"balíčku, který obsahuje aplikaci. Příklad:  ['app_1', 'app_2']"
 
-#: settings.py:67
+#: settings.py:70
 msgid ""
 "A list of strings designating all applications that are installed beyond "
 "those normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. These apps will be installed before the default "
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. These apps will be installed before the default "
 "apps. Example: ['app_1', 'app_2']"
 msgstr ""
 
-#: settings.py:78
+#: settings.py:81
 msgid ""
-"Name of the view attached to the brand anchor in the main menu. This is also"
-" the view to which users will be redirected after log in."
+"Name of the view attached to the brand anchor in the main menu. This is also "
+"the view to which users will be redirected after log in."
 msgstr ""
 "Název pohledu připojeného ke kotvě značky v hlavní nabídce. Toto je také "
 "pohled, na který budou uživatelé přesměrováni po přihlášení."
 
-#: settings.py:87
+#: settings.py:90
 msgid "Name of the dashboard to display in the home view."
 msgstr "Název řídicího panelu, který se má zobrazit v domovském zobrazení."
 
-#: settings.py:92
+#: settings.py:95
 msgid "Sets the project's name."
 msgstr "Nastavuje název projektu."
 
-#: settings.py:96
+#: settings.py:99
 msgid "URL of the project's homepage."
 msgstr "URL domovské stránky projektu."
 
@@ -214,11 +215,11 @@ msgstr "URL domovské stránky projektu."
 msgid "Click here to fix this."
 msgstr "Klepnutím sem to vyřešíte."
 
-#: validators.py:40
+#: validators.py:41
 msgid "Enter a valid JSON value."
 msgstr "Zadejte platnou hodnotu JSON."
 
-#: validators.py:64
+#: validators.py:65
 msgid "Enter a valid YAML value."
 msgstr "Zadejte platnou hodnotu YAML."
 
@@ -263,14 +264,14 @@ msgstr ""
 msgid "No setup options available."
 msgstr "Nejsou k dispozici žádné možnosti nastavení."
 
-#: views.py:115
-msgid "Setup items"
-msgstr "Položky nastavení"
-
-#: views.py:117
+#: views.py:116
 msgid "Here you can configure all aspects of the system."
 msgstr "Zde můžete nakonfigurovat všechny aspekty systému."
 
-#: views.py:133
+#: views.py:118
+msgid "Setup items"
+msgstr "Položky nastavení"
+
+#: views.py:132
 msgid "These modules are used to do system maintenance."
 msgstr "Tyto moduly se používají k údržbě systému."

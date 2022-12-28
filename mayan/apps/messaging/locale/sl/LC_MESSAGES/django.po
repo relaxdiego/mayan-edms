@@ -2,26 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # Jože Detečnik <joze.detecnik@3tav.si>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
-#: apps.py:39 events.py:5 permissions.py:5
+#: apps.py:39 events.py:6 permissions.py:6
 msgid "Messaging"
 msgstr "Sporočila"
 
@@ -33,15 +35,15 @@ msgstr "Nobenega"
 msgid "Sender"
 msgstr "Pošiljatelj"
 
-#: events.py:8
+#: events.py:10
 msgid "Message created"
 msgstr "Sporočilo ustvarjeno"
 
-#: events.py:11
+#: events.py:13
 msgid "Message edited"
 msgstr "Sporočilo urejeno"
 
-#: forms.py:26 models.py:38 workflow_actions.py:55
+#: forms.py:26 models.py:37 workflow_actions.py:55
 msgid "Body"
 msgstr "Telo"
 
@@ -53,81 +55,115 @@ msgstr "Ustvari sporočilo"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: links.py:67 links.py:78
+#: links.py:68 links.py:79
 msgid "Mark as read"
 msgstr "Označi kot prebrano"
 
-#: links.py:73 links.py:82
+#: links.py:74 links.py:83
 msgid "Mark as unread"
 msgstr "označi kot neprebrano"
 
-#: links.py:86
+#: links.py:87
 msgid "Mark all as read"
 msgstr "označi vse kot prebrano"
 
-#: models.py:30
-msgid "User"
-msgstr "Uporabnik"
-
-#: models.py:33
-msgid "Short description of this message."
-msgstr "Kratek opis tega sporočila."
-
-#: models.py:34 workflow_actions.py:38
-msgid "Subject"
-msgstr "Predmet"
-
-#: models.py:37
-msgid "The actual content of the message."
-msgstr "Dejanska vsebina sporočila."
-
-#: models.py:42
-msgid "This field determines if the message has been read or not."
-msgstr "To polje določa, ali je bilo sporočilo prebrano ali ne."
-
-#: models.py:43
-msgid "Read"
-msgstr "Preberi"
-
-#: models.py:47
-msgid "Date and time of the message creation."
-msgstr "Datum in čas nastanka sporočila."
-
-#: models.py:48
-msgid "Creation date and time"
-msgstr "Datum in čas ustvarjanja"
-
-#: models.py:53
-msgid "Message"
-msgstr "Sporočilo"
-
-#: models.py:54 views.py:127
-msgid "Messages"
-msgstr "Sporočila"
-
-#: models.py:70
+#: model_mixins.py:16
 msgid "Label"
 msgstr "Oznaka"
 
-#: permissions.py:8
+#: models.py:19
+msgid "Sender content type"
+msgstr ""
+
+#: models.py:22
+msgid "Sender object ID"
+msgstr ""
+
+#: models.py:29
+msgid "User"
+msgstr "Uporabnik"
+
+#: models.py:32
+msgid "Short description of this message."
+msgstr "Kratek opis tega sporočila."
+
+#: models.py:33 workflow_actions.py:38
+msgid "Subject"
+msgstr "Predmet"
+
+#: models.py:36
+msgid "The actual content of the message."
+msgstr "Dejanska vsebina sporočila."
+
+#: models.py:41
+msgid "This field determines if the message has been read or not."
+msgstr "To polje določa, ali je bilo sporočilo prebrano ali ne."
+
+#: models.py:42
+msgid "Read"
+msgstr "Preberi"
+
+#: models.py:46
+msgid "Date and time of the message creation."
+msgstr "Datum in čas nastanka sporočila."
+
+#: models.py:47
+msgid "Creation date and time"
+msgstr "Datum in čas ustvarjanja"
+
+#: models.py:52
+msgid "Message"
+msgstr "Sporočilo"
+
+#: models.py:53 views.py:128
+msgid "Messages"
+msgstr "Sporočila"
+
+#: permissions.py:10
 msgid "Create messages"
 msgstr "Ustvarite sporočila"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete messages"
 msgstr "Brisanje sporočil"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit messages"
 msgstr "Uredite sporočila"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View messages"
 msgstr "Oglejte si sporočila"
 
-#: serializers.py:19
+#: serializers.py:15
+msgid "Sender app label"
+msgstr ""
+
+#: serializers.py:18
+#, fuzzy
+#| msgid "Send user message"
+msgid "Sender model name"
+msgstr "Pošlji uporabniško sporočilo"
+
+#: serializers.py:21
+#, fuzzy
+#| msgid "Sender"
+msgid "Sender URL"
+msgstr "Pošiljatelj"
+
+#: serializers.py:25
 msgid "Primary key of the recipient user of this message."
 msgstr "Primarni ključ uporabnika prejemnika tega sporočila."
+
+#: serializers.py:26
+#, fuzzy
+#| msgid "User"
+msgid "User ID"
+msgstr "Uporabnik"
+
+#: serializers.py:33
+msgid "URL"
+msgstr ""
 
 #: views.py:49
 #, python-format
@@ -136,114 +172,119 @@ msgstr "Napaka pri brisanju sporočila &quot;%(instance)s&quot;; %(exception)s"
 
 #: views.py:53
 #, python-format
+msgid "%(count)d messages deleted successfully."
+msgstr "%(count)d sporočila uspešno izbrisana."
+
+#: views.py:54
+#, python-format
 msgid "Message \"%(object)s\" deleted successfully."
 msgstr "Sporočilo &quot;%(object)s&quot; je bilo uspešno izbrisano."
 
-#: views.py:54
+#: views.py:55
 #, python-format
 msgid "%(count)d message deleted successfully."
 msgstr "sporočilo %(count)d je bilo uspešno izbrisano."
 
-#: views.py:55
-#, python-format
-msgid "%(count)d messages deleted successfully."
-msgstr "%(count)d sporočila uspešno izbrisana."
-
 #: views.py:56
-#, python-format
-msgid "Delete message: %(object)s."
-msgstr "Izbriši sporočilo: %(object)s."
-
-#: views.py:57
-#, python-format
-msgid "Delete the %(count)d selected message."
-msgstr "Izbrišite %(count)d izbrano sporočilo."
-
-#: views.py:58
 #, python-format
 msgid "Delete the %(count)d selected messages."
 msgstr "Izbrišite %(count)d izbrana sporočila."
 
-#: views.py:99
+#: views.py:57
+#, python-format
+msgid "Delete message: %(object)s."
+msgstr "Izbriši sporočilo: %(object)s."
+
+#: views.py:58
+#, python-format
+msgid "Delete the %(count)d selected message."
+msgstr "Izbrišite %(count)d izbrano sporočilo."
+
+#: views.py:100
 #, python-format
 msgid "Details of message: %s"
 msgstr "Podrobnosti sporočila: %s"
 
-#: views.py:123
+#: views.py:124
 msgid "Here you will find text messages from other users or from the system."
 msgstr ""
 "Tukaj boste našli besedilna sporočila drugih uporabnikov ali iz sistema."
 
-#: views.py:126
+#: views.py:127
 msgid "There are no messages"
 msgstr "Ni sporočil"
 
-#: views.py:136
+#: views.py:137
 #, python-format
 msgid "Error marking message \"%(instance)s\" as read; %(exception)s"
 msgstr ""
 "Napaka pri označevanju sporočila &quot;%(instance)s&quot; kot prebranega; "
 "%(exception)s"
 
-#: views.py:142
-#, python-format
-msgid "Message \"%(object)s\" marked as read successfully."
-msgstr "Sporočilo &quot;%(object)s&quot; označeno kot uspešno prebrano."
-
-#: views.py:145
-#, python-format
-msgid "%(count)d message marked as read successfully."
-msgstr "%(count)d sporočilo označeno kot uspešno prebrano."
-
-#: views.py:148
+#: views.py:143
 #, python-format
 msgid "%(count)d messages marked as read successfully."
 msgstr "%(count)d sporočila označena kot uspešno prebrana."
 
-#: views.py:150
+#: views.py:146
+#, python-format
+msgid "Message \"%(object)s\" marked as read successfully."
+msgstr "Sporočilo &quot;%(object)s&quot; označeno kot uspešno prebrano."
+
+#: views.py:149
+#, python-format
+msgid "%(count)d message marked as read successfully."
+msgstr "%(count)d sporočilo označeno kot uspešno prebrano."
+
+#: views.py:151
+#, python-format
+msgid "Mark the %(count)d selected messages as read."
+msgstr "Označi %(count)d izbrana sporočila kot prebrana."
+
+#: views.py:152
 #, python-format
 msgid "Mark the message \"%(object)s\" as read."
 msgstr "Označite sporočilo &quot;%(object)s&quot; kot prebrano."
 
-#: views.py:151
+#: views.py:153
 #, python-format
 msgid "Mark the %(count)d selected message as read."
 msgstr "Označite %(count)d izbrano sporočilo kot prebrano."
-
-#: views.py:152
-#, python-format
-msgid "Mark the %(count)d selected messages as read."
-msgstr "Označi %(count)d izbrana sporočila kot prebrana."
 
 #: views.py:181
 msgid "Mark all message as read?"
 msgstr "Označiti vse sporočilo kot prebrano?"
 
-#: views.py:198
+#: views.py:197
 msgid "All messages marked as read."
 msgstr "Vsa sporočila označena kot prebrana."
 
-#: views.py:205
+#: views.py:204
 #, python-format
 msgid "Error marking message \"%(instance)s\" as unread; %(exception)s"
 msgstr ""
 "Napaka pri označevanju sporočila &quot;%(instance)s&quot; kot neprebranega; "
 "%(exception)s"
 
-#: views.py:211
+#: views.py:210
+#, python-format
+msgid "%(count)d messages marked as unread successfully."
+msgstr "%(count)d sporočila so bila uspešno označena kot neprebrana."
+
+#: views.py:213
 #, python-format
 msgid "Message \"%(object)s\" marked as unread successfully."
 msgstr "Sporočilo &quot;%(object)s&quot; je uspešno označeno kot neprebrano."
 
-#: views.py:214
+#: views.py:216
 #, python-format
 msgid "%(count)d message marked as unread successfully."
 msgstr "sporočilo %(count)d je bilo uspešno označeno kot neprebrano."
 
-#: views.py:217
+#: views.py:218
 #, python-format
-msgid "%(count)d messages marked as unread successfully."
-msgstr "%(count)d sporočila so bila uspešno označena kot neprebrana."
+msgid "Mark the %(count)d selected messages as unread."
+msgstr "Označi %(count)d izbrana sporočila kot neprebrana."
 
 #: views.py:219
 #, python-format
@@ -254,11 +295,6 @@ msgstr "Označi sporočilo &quot;%(object)s&quot; kot neprebrano."
 #, python-format
 msgid "Mark the %(count)d selected message as unread."
 msgstr "Označi %(count)d izbrano sporočilo kot neprebrano."
-
-#: views.py:221
-#, python-format
-msgid "Mark the %(count)d selected messages as unread."
-msgstr "Označi %(count)d izbrana sporočila kot neprebrana."
 
 #: workflow_actions.py:19
 msgid "Username list"

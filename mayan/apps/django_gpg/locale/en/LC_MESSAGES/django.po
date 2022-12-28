@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2020-04-14 08:31+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -22,31 +22,31 @@ msgstr ""
 msgid "Django GPG"
 msgstr ""
 
-#: apps.py:53 apps.py:59 forms.py:15
+#: apps.py:53 apps.py:59 forms.py:16
 msgid "Key ID"
 msgstr ""
 
-#: apps.py:63 forms.py:33 models.py:59
+#: apps.py:63 forms.py:42 models.py:50
 msgid "Type"
 msgstr ""
 
-#: apps.py:67 forms.py:21 models.py:40
+#: apps.py:67 forms.py:23 models.py:29
 msgid "Creation date"
 msgstr ""
 
-#: apps.py:71
+#: apps.py:72
 msgid "No expiration"
 msgstr ""
 
-#: apps.py:72 forms.py:25 models.py:44
+#: apps.py:73 forms.py:28 models.py:33
 msgid "Expiration date"
 msgstr ""
 
-#: apps.py:75 forms.py:30 models.py:51
+#: apps.py:77 forms.py:35 models.py:40
 msgid "Length"
 msgstr ""
 
-#: apps.py:80 forms.py:17 models.py:56
+#: apps.py:82 forms.py:20 models.py:46
 msgid "User ID"
 msgstr ""
 
@@ -54,35 +54,35 @@ msgstr ""
 msgid "GNU privacy guard - a PGP implementation."
 msgstr ""
 
-#: events.py:5 links.py:42 permissions.py:5
+#: events.py:6 links.py:42 permissions.py:6
 msgid "Key management"
 msgstr ""
 
-#: events.py:8
+#: events.py:10
 msgid "Key created"
 msgstr ""
 
-#: events.py:12
+#: events.py:14
 msgid "Key downloaded"
 msgstr ""
 
-#: forms.py:26
+#: forms.py:27
 msgid "None"
 msgstr ""
 
-#: forms.py:29 models.py:48
+#: forms.py:32 models.py:37
 msgid "Fingerprint"
 msgstr ""
 
-#: forms.py:31 models.py:54
+#: forms.py:38 models.py:43
 msgid "Algorithm"
 msgstr ""
 
-#: forms.py:48
+#: forms.py:56
 msgid "Term"
 msgstr ""
 
-#: forms.py:49
+#: forms.py:57
 msgid "Name, e-mail, key ID or key fingerprint to look for."
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: links.py:32 permissions.py:26
+#: links.py:32 permissions.py:28
 msgid "Query keyservers"
 msgstr ""
 
@@ -110,11 +110,11 @@ msgstr ""
 msgid "Upload key"
 msgstr ""
 
-#: links.py:50 views.py:201
+#: links.py:50 views.py:215
 msgid "Private keys"
 msgstr ""
 
-#: links.py:54 views.py:226
+#: links.py:54 views.py:240
 msgid "Public keys"
 msgstr ""
 
@@ -126,170 +126,174 @@ msgstr ""
 msgid "Secret"
 msgstr ""
 
-#: literals.py:40 literals.py:45
+#: literals.py:41 literals.py:50
 msgid "RSA"
 msgstr ""
 
-#: literals.py:41
+#: literals.py:44
 msgid "DSA"
 msgstr ""
 
-#: literals.py:46
+#: literals.py:53
 msgid "Elgamal"
 msgstr ""
 
-#: literals.py:62
+#: literals.py:70
 msgid "Bad signature."
 msgstr ""
 
-#: literals.py:65
+#: literals.py:73
 msgid "Document not signed or invalid signature."
 msgstr ""
 
-#: literals.py:68
+#: literals.py:76
 msgid "Signature error."
 msgstr ""
 
-#: literals.py:72
+#: literals.py:80
 msgid "Document is signed but no public key is available for verification."
 msgstr ""
 
-#: literals.py:77
+#: literals.py:85
 msgid "Document is signed, and signature is good."
 msgstr ""
 
-#: literals.py:80
+#: literals.py:88
 msgid "Document is signed with a valid signature."
 msgstr ""
 
-#: models.py:36
+#: models.py:25
 msgid "ASCII armored version of the key."
 msgstr ""
 
-#: models.py:37
+#: models.py:26
 msgid "Key data"
 msgstr ""
 
-#: models.py:65
+#: models.py:56
 msgid "Key"
 msgstr ""
 
-#: models.py:66
+#: models.py:57
 msgid "Keys"
 msgstr ""
 
-#: models.py:78
+#: models.py:72
 msgid "Invalid key data"
 msgstr ""
 
-#: models.py:81
+#: models.py:77
 msgid "Key already exists."
 msgstr ""
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Delete keys"
 msgstr ""
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Download keys"
 msgstr ""
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Import keys from keyservers"
 msgstr ""
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Use keys to sign content"
 msgstr ""
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "Upload keys"
 msgstr ""
 
-#: permissions.py:23
+#: permissions.py:25
 msgid "View keys"
 msgstr ""
 
-#: settings.py:10
+#: serializers.py:12
+msgid "URL"
+msgstr ""
+
+#: settings.py:11
 msgid "Signatures"
 msgstr ""
 
-#: settings.py:16
+#: settings.py:18
 msgid "Full path to the backend to be used to handle keys and signatures."
 msgstr ""
 
-#: settings.py:25
+#: settings.py:27
 msgid "Keyserver used to query for keys."
 msgstr ""
 
-#: views.py:41
+#: views.py:42
 #, python-format
 msgid "Delete key: %s"
 msgstr ""
 
-#: views.py:59
+#: views.py:61
 #, python-format
 msgid "Details for key: %s"
 msgstr ""
 
-#: views.py:89
+#: views.py:97
 #, python-format
 msgid "Import key ID: %s?"
 msgstr ""
 
-#: views.py:90
+#: views.py:98
 msgid "Import key"
 msgstr ""
 
-#: views.py:99
+#: views.py:109
 #, python-format
 msgid "Unable to import key: %(key_id)s; %(error)s"
 msgstr ""
 
-#: views.py:107
+#: views.py:117
 #, python-format
 msgid "Successfully received key: %(key_id)s"
 msgstr ""
 
-#: views.py:125
+#: views.py:135
 msgid ""
 "Use names, last names, key ids or emails to search public keys to import "
 "from the keyserver."
 msgstr ""
 
-#: views.py:129
+#: views.py:139
 msgid "No results returned"
 msgstr ""
 
-#: views.py:131
+#: views.py:141
 msgid "Key query results"
 msgstr ""
 
-#: views.py:152
+#: views.py:162
 msgid "Query key server"
 msgstr ""
 
-#: views.py:172
+#: views.py:186
 msgid "Upload new key"
 msgstr ""
 
-#: views.py:194
+#: views.py:208
 msgid ""
 "Private keys are used to signed documents. Private keys can only be uploaded "
 "by the user. The view to upload private and public keys is the same."
 msgstr ""
 
-#: views.py:199
+#: views.py:213
 msgid "There no private keys"
 msgstr ""
 
-#: views.py:218
+#: views.py:232
 msgid ""
 "Public keys are used to verify signed documents. Public keys can be uploaded "
 "by the user or downloaded from keyservers. The view to upload private and "
 "public keys is the same."
 msgstr ""
 
-#: views.py:224
+#: views.py:238
 msgid "There no public keys"
 msgstr ""

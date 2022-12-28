@@ -1,47 +1,49 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Badea Gabriel <gcbadea@gmail.com>, 2022
 # Harald Ersch, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Harald Ersch, 2022\n"
-"Language-Team: Romanian (Romania) (https://www.transifex.com/rosarior/teams/13584/ro_RO/)\n"
+"Language-Team: Romanian (Romania) (https://www.transifex.com/rosarior/"
+"teams/13584/ro_RO/)\n"
+"Language: ro_RO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro_RO\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
 
-#: apps.py:41 events.py:5 links.py:33
+#: apps.py:41 events.py:6 links.py:33
 msgid "Checkouts"
 msgstr "Consemnări intări/ieșiri"
 
-#: dashboard_widgets.py:14 views.py:183
+#: dashboard_widgets.py:14 views.py:185
 msgid "Checked out documents"
 msgstr "Documente consemnate ca ieșite"
 
-#: events.py:8
+#: events.py:10
 msgid "Document automatically checked in"
 msgstr "Document consemnat ca intrat în mod automat "
 
-#: events.py:12
+#: events.py:14
 msgid "Document checked in"
 msgstr "Document consemnat ca intrat"
 
-#: events.py:15
+#: events.py:17
 msgid "Document checked out"
 msgstr "Documentul consemnat ca ieșit"
 
-#: events.py:18
+#: events.py:20
 msgid "Document forcefully checked in"
 msgstr "Document consemnat forţat ca intrat"
 
@@ -57,7 +59,7 @@ msgstr "Document deja consemnat ca ieșit."
 msgid "Document status"
 msgstr "Starea documentului"
 
-#: forms.py:37 models.py:47 models.py:127
+#: forms.py:37 model_mixins.py:9 models.py:46 serializers.py:20
 msgid "User"
 msgstr "Utilizator"
 
@@ -109,7 +111,15 @@ msgstr "Consemnat ca ieșit"
 msgid "Checked in/available"
 msgstr "Consemnat ca intrat/disponibil"
 
-#: models.py:34
+#: model_mixins.py:14
+msgid "Checkout time and date"
+msgstr "Data și ora expirării consemnării ieșirii"
+
+#: model_mixins.py:19
+msgid "Checkout expiration"
+msgstr "Expirarea consemnării ca ieșit"
+
+#: models.py:34 serializers.py:17
 msgid "Document"
 msgstr "Document"
 
@@ -123,51 +133,43 @@ msgstr ""
 "Total timp alocat  în minute pentru a deține documentul în mod consemnat ca "
 "ieșit."
 
-#: models.py:43
+#: models.py:42
 msgid "Check out expiration date and time"
 msgstr "Data și ora expirării consemnării ieșirii"
 
-#: models.py:52
+#: models.py:50
 msgid "Do not allow new file of this document to be uploaded."
 msgstr "Nu permiteți încărcarea unui fișier nou din acest document."
 
-#: models.py:54
+#: models.py:51
 msgid "Block new file upload"
 msgstr "Blocați încărcarea de fișiere noi"
 
-#: models.py:62 permissions.py:5
+#: models.py:59 permissions.py:6
 msgid "Document checkout"
 msgstr "Document consemnat ca ieșit"
 
-#: models.py:63
+#: models.py:60
 msgid "Document checkouts"
 msgstr "Consemnări de ieșiri de documente"
 
-#: models.py:71
+#: models.py:69
 msgid "Check out expiration date and time must be in the future."
 msgstr "Data și ora expirării consemnării de ieșire trebuie să fie in viitor."
 
-#: models.py:132
-msgid "Checkout time and date"
-msgstr "Data și ora expirării consemnării ieșirii"
-
-#: models.py:137
-msgid "Checkout expiration"
-msgstr "Expirarea consemnării ca ieșit"
-
-#: permissions.py:8
+#: permissions.py:10
 msgid "Check in documents"
 msgstr "Consemnări intrări de documente"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Forcefully check in documents"
 msgstr "Forțati consemnarea intrărilor documentelelor"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Check out documents"
 msgstr "Consemnări de ieșire de documente"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Check out details view"
 msgstr "Vizualizarea detaliilor consemnărilor de ieșire"
 
@@ -177,12 +179,21 @@ msgstr "Consemnări de ieșire periodice"
 
 #: queues.py:16
 msgid "Check expired checkouts"
-msgstr ""
-"Consemnați drept intrate documentele cu consemnarea de ieșire expirată"
+msgstr "Consemnați drept intrate documentele cu consemnarea de ieșire expirată"
 
-#: serializers.py:39
+#: serializers.py:26
+msgid "URL"
+msgstr ""
+
+#: serializers.py:44
 msgid "Primary key of the document to be checked out."
 msgstr "Cheia primară a documentului care urmează să fie consemnat ca ieșit."
+
+#: serializers.py:45
+#, fuzzy
+#| msgid "Document"
+msgid "Document PK"
+msgstr "Document"
 
 #: views.py:28
 #, python-format
@@ -191,76 +202,75 @@ msgstr "Nu se poate înregistra documentul „%(instance)s”; %(exception)s"
 
 #: views.py:32
 #, python-format
+msgid "%(count)d documents checked in successfully."
+msgstr "%(count)d documente au fost consemnate ca intrate cu succes."
+
+#: views.py:35
+#, python-format
 msgid "Document \"%(object)s\" checked in successfully."
 msgstr "Documentul „%(object)s” a fost consemnat ca intrat cu succes."
 
-#: views.py:35
+#: views.py:38
 #, python-format
 msgid "%(count)d document checked in successfully."
 msgstr "Documentul  %(count)d a fost ca intrat cu succes."
 
-#: views.py:38
-#, python-format
-msgid "%(count)d documents checked in successfully."
-msgstr "%(count)d documente au fost consemnate ca intrate cu succes."
-
 #: views.py:40
-#, python-format
-msgid "Check in document \"%(object)s\"."
-msgstr "Consemnați documentul „%(object)s” ca intrat."
-
-#: views.py:41
-#, python-format
-msgid "Check in %(count)d document."
-msgstr "Consemnați documentul %(count)d ca fiind intrat."
-
-#: views.py:42
 #, python-format
 msgid "Check in %(count)d documents."
 msgstr "Consemnați %(count)d documente ca fiind intrate."
 
+#: views.py:41
+#, python-format
+msgid "Check in document \"%(object)s\"."
+msgstr "Consemnați documentul „%(object)s” ca intrat."
+
+#: views.py:42
+#, python-format
+msgid "Check in %(count)d document."
+msgstr "Consemnați documentul %(count)d ca fiind intrat."
+
 #: views.py:95
 #, python-format
 msgid "Unable to checkout document \"%(instance)s\"; %(exception)s"
-msgstr ""
-"Nu se poate consemna ca ieșit documentul „%(instance)s”; %(exception)s"
+msgstr "Nu se poate consemna ca ieșit documentul „%(instance)s”; %(exception)s"
 
 #: views.py:102
-#, python-format
-msgid "Document \"%(object)s\" checked out successfully."
-msgstr "Documentul „%(object)s” a fost consemnat ca ieșit cu succes."
-
-#: views.py:105
-#, python-format
-msgid "%(count)d document checked out successfully."
-msgstr "Documentul %(count)d a fost consemnat ca ieșit cu succes."
-
-#: views.py:108
 #, python-format
 msgid "%(count)d documents checked out successfully."
 msgstr "%(count)d documente au fost consemnate ca fiind ieșite, cu succes."
 
+#: views.py:105
+#, python-format
+msgid "Document \"%(object)s\" checked out successfully."
+msgstr "Documentul „%(object)s” a fost consemnat ca ieșit cu succes."
+
+#: views.py:108
+#, python-format
+msgid "%(count)d document checked out successfully."
+msgstr "Documentul %(count)d a fost consemnat ca ieșit cu succes."
+
 #: views.py:110
+#, python-format
+msgid "Checkout %(count)d documents."
+msgstr "Consemnați ca fiind ieșite %(count)d documente."
+
+#: views.py:111
 #, python-format
 msgid "Checkout document \"%(object)s\"."
 msgstr "Consemnați ca ieșit documentul „%(object)s”."
 
-#: views.py:111
+#: views.py:112
 #, python-format
 msgid "Checkout %(count)d document."
 msgstr "Consemnați ca ieșit documentul %(count)d."
-
-#: views.py:112
-#, python-format
-msgid "Checkout %(count)d documents."
-msgstr "Consemnați ca fiind ieșite %(count)d documente."
 
 #: views.py:160
 #, python-format
 msgid "Check out details for document: %s"
 msgstr "Verificat detaliile documentului:% s"
 
-#: views.py:179
+#: views.py:181
 msgid ""
 "Checking out a document, blocks certain operations for a predetermined "
 "amount of time."
@@ -268,10 +278,10 @@ msgstr ""
 "Consemnarea ca ieșit a unui document blochează anumite operațiuni pentru o "
 "perioadă de timp predeterminată."
 
-#: views.py:182
+#: views.py:184
 msgid "No documents have been checked out"
 msgstr "Nu sunt documente consemnate ca ieșite"
 
-#: widgets.py:23
+#: widgets.py:20
 msgid "Amount"
 msgstr "Cantitate"

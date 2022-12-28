@@ -2,54 +2,60 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # e6bc1d20d3f0031709c3c11db1061ebc_be0a371 <8b4e580508477646e97982ebad39e3af_312311>, 2022
 # bwakkie <bwakkie@gmail.com>, 2022
 # j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:54 apps.py:161 apps.py:165 apps.py:169 apps.py:173 apps.py:177
-#: events.py:5 forms.py:14 links.py:30 menus.py:14 models.py:50 models.py:174
-#: permissions.py:5 search.py:61 views.py:168 workflow_actions.py:20
+#: apps.py:54 apps.py:164 apps.py:168 apps.py:172 apps.py:176 apps.py:180
+#: events.py:6 forms.py:14 links.py:30 menus.py:14 models.py:49 models.py:156
+#: permissions.py:6 search.py:52 views.py:169 workflow_actions.py:20
 msgid "Cabinets"
 msgstr "Rekken"
 
-#: events.py:9
+#: events.py:11
 msgid "Cabinet created"
 msgstr "Rek aangemaakt"
 
-#: events.py:12
+#: events.py:14
+#, fuzzy
+#| msgid "Cabinet edited"
+msgid "Cabinet deleted"
+msgstr "Rek bewerkt"
+
+#: events.py:17
 msgid "Cabinet edited"
 msgstr "Rek bewerkt"
 
-#: events.py:15
+#: events.py:20
 msgid "Document added to cabinet"
 msgstr "Document aan rek toegevoegd"
 
-#: events.py:18
+#: events.py:23
 msgid "Document removed from cabinet"
 msgstr "Document uit rek verwijderd"
 
-#: links.py:36 links.py:48 workflow_actions.py:72
+#: links.py:36 links.py:48 workflow_actions.py:76
 msgid "Remove from cabinets"
 msgstr "Uit rekken verwijderen"
 
-#: links.py:40 links.py:44 workflow_actions.py:29
+#: links.py:41 links.py:44 workflow_actions.py:29
 msgid "Add to cabinets"
 msgstr "Aan rekken toevoegen"
 
@@ -57,7 +63,7 @@ msgstr "Aan rekken toevoegen"
 msgid "Add new level"
 msgstr "Nieuw niveau toevoegen"
 
-#: links.py:64 views.py:46
+#: links.py:64 views.py:47
 msgid "Create cabinet"
 msgstr "Rek aanmaken"
 
@@ -77,100 +83,104 @@ msgstr "Alle"
 msgid "Details"
 msgstr "Details"
 
-#: methods.py:20
+#: methods.py:21
 msgid "Return a list of cabinets containing the document."
 msgstr "Maak een lijst met rekken waarin het document voorkomt."
 
-#: methods.py:22
+#: methods.py:23
 msgid "get_cabinets()"
 msgstr "get_cabinets()"
 
-#: models.py:34
-msgid "A short text used to identify the cabinet."
-msgstr "Een korte tekst om het rek te herkennen."
-
-#: models.py:35
-msgid "Label"
-msgstr "Label"
-
-#: models.py:39
-msgid "Documents"
-msgstr "Documenten"
-
-#: models.py:49 models.py:148 models.py:173 workflow_actions.py:64
-msgid "Cabinet"
-msgstr "Rek"
-
-#: models.py:115
+#: model_mixins.py:50
 msgid "The path to the cabinet including all ancestors."
 msgstr "Het pad naar het rek inclusief alle bovenliggende rekken"
 
-#: models.py:117
+#: model_mixins.py:52 serializers.py:32
 msgid "Full path"
 msgstr "Volledig pad"
 
-#: models.py:149
+#: models.py:30 serializers.py:41
+msgid "Parent"
+msgstr ""
+
+#: models.py:33
+msgid "A short text used to identify the cabinet."
+msgstr "Een korte tekst om het rek te herkennen."
+
+#: models.py:34
+msgid "Label"
+msgstr "Label"
+
+#: models.py:38
+msgid "Documents"
+msgstr "Documenten"
+
+#: models.py:48 models.py:130 models.py:155 workflow_actions.py:68
+msgid "Cabinet"
+msgstr "Rek"
+
+#: models.py:131
 msgid "Parent and Label"
 msgstr "Bovenliggend rek en label"
 
-#: models.py:156
+#: models.py:138
 #, python-format
 msgid "%(model_name)s with this %(field_labels)s already exists."
 msgstr "%(model_name)s met deze %(field_labels)s bestaat al."
 
-#: models.py:185
+#: models.py:167
 msgid "Document cabinet"
 msgstr "Documentrek"
 
-#: models.py:186 search.py:68 search.py:75 search.py:82 search.py:89
+#: models.py:168 search.py:59 search.py:66 search.py:73 search.py:80
 msgid "Document cabinets"
 msgstr "Documentrekken"
 
-#: permissions.py:10
+#: permissions.py:12
 msgid "Add documents to cabinets"
 msgstr "Documenten aan rekken toevoegen"
 
-#: permissions.py:13
+#: permissions.py:15
 msgid "Create cabinets"
 msgstr "Rek aanmaken"
 
-#: permissions.py:16
+#: permissions.py:18
 msgid "Delete cabinets"
 msgstr "Rek verwijderen"
 
-#: permissions.py:19
+#: permissions.py:21
 msgid "Edit cabinets"
 msgstr "Rek bewerken"
 
-#: permissions.py:22
+#: permissions.py:24
 msgid "Remove documents from cabinets"
 msgstr "Documenten verwijderen uit rekken"
 
-#: permissions.py:25
+#: permissions.py:27
 msgid "View cabinets"
 msgstr "Rekken bekijken"
 
-#: search.py:36
+#: search.py:28
 msgid "Document type"
 msgstr "Documenttype"
 
-#: search.py:39
+#: search.py:31
 msgid "Document label"
 msgstr "Documentlabel"
 
-#: search.py:42
+#: search.py:34
 msgid "Document description"
 msgstr "Documentbeschrijving"
 
-#: search.py:45
+#: search.py:37
 msgid "Document UUID"
 msgstr "Document UUID"
 
-#: search.py:52
+#: search.py:43
 msgid "Document file checksum"
 msgstr "Controlesom documentbestand"
 
-#: search.py:55
+#: search.py:46
 msgid "Document file MIME type"
 msgstr "Documentbestand MIME-type"
 
@@ -178,33 +188,66 @@ msgstr "Documentbestand MIME-type"
 msgid "List of children cabinets."
 msgstr "Lijst van onderliggende rekken"
 
-#: serializers.py:22
-msgid ""
-"URL of the API endpoint showing the list documents inside this cabinet."
+#: serializers.py:18
+msgid "Children"
+msgstr ""
+
+#: serializers.py:23
+msgid "URL of the API endpoint showing the list documents inside this cabinet."
 msgstr ""
 "URL van het API-eindpunt om de documentenlijst binnen het rek te laten zien."
 
-#: serializers.py:29
+#: serializers.py:25
+#, fuzzy
+#| msgid "Documents"
+msgid "Documents URL"
+msgstr "Documenten"
+
+#: serializers.py:30
 msgid "The name of this cabinet level appended to the names of its ancestors."
 msgstr ""
 "De naam van dit rekniveau werd toegevoegd aan de namen van de bovenliggende "
 "rekken."
 
+#: serializers.py:35
+msgid "Parents URL"
+msgstr ""
+
+#: serializers.py:51
+msgid "URL"
+msgstr ""
+
+#: serializers.py:84
+msgid "Primary key of the document to add to the cabinet."
+msgstr ""
+
+#: serializers.py:85 serializers.py:94
+#, fuzzy
+#| msgid "Document UUID"
+msgid "Document ID"
+msgstr "Document UUID"
+
+#: serializers.py:93
+#, fuzzy
+#| msgid "Document removed from cabinet"
+msgid "Primary key of the document to remove from the cabinet."
+msgstr "Document uit rek verwijderd"
+
 #: templates/cabinets/cabinet_details.html:17
 msgid "Navigation:"
 msgstr "Navigatie:"
 
-#: views.py:63
+#: views.py:64
 #, python-format
 msgid "Add new level to: %s"
 msgstr "Nieuw niveau toevoegen aan: %s"
 
-#: views.py:88
+#: views.py:89
 #, python-format
 msgid "Delete the cabinet: %s?"
 msgstr "Rek verwijderen: %s?"
 
-#: views.py:127
+#: views.py:128
 msgid ""
 "Cabinet levels can contain documents or other cabinet sub levels. To add "
 "documents to a cabinet, select the cabinet view of a document view."
@@ -213,21 +256,21 @@ msgstr ""
 "document aan een rek toe te voegen selecteert u de rek weergave van een "
 "document weergave."
 
-#: views.py:131
+#: views.py:132
 msgid "This cabinet level is empty"
 msgstr "Dit rekniveau is leeg."
 
-#: views.py:134
+#: views.py:135
 #, python-format
 msgid "Details of cabinet: %s"
 msgstr "Rek details: %s"
 
-#: views.py:153
+#: views.py:154
 #, python-format
 msgid "Edit cabinet: %s"
 msgstr "Bewerk rek: %s"
 
-#: views.py:174
+#: views.py:175
 msgid ""
 "Cabinets are a multi-level method to organize documents. Each cabinet can "
 "contain documents as well as other sub level cabinets."
@@ -235,41 +278,41 @@ msgstr ""
 "Rekken zijn meerlaagse methodes om documenten te organiseren. Elk rek kan "
 "zowel documenten als andere subrekniveau's bevatten."
 
-#: views.py:178
+#: views.py:179
 msgid "No cabinets available"
 msgstr "Geen rek beschikbaar"
 
-#: views.py:191
+#: views.py:192
 #, python-format
 msgid "Document \"%(object)s\" added to cabinets successfully."
 msgstr "Document \"%(object)s\" succesvol toegevoegd aan rekken."
 
-#: views.py:194
+#: views.py:195
 #, python-format
 msgid "%(count)d document added to cabinets successfully."
 msgstr "%(count)d document succesvol toegevoegd aan rekken."
 
-#: views.py:197
+#: views.py:198
 #, python-format
 msgid "%(count)d documents added to cabinets successfully."
 msgstr "%(count)d documenten succesvol toegevoegd aan rekken."
 
-#: views.py:199
-#, python-format
-msgid "Add document \"%(object)s\" to cabinets."
-msgstr "Voeg document \"%(object)s\" toe aan rekken."
-
 #: views.py:200
-#, python-format
-msgid "Add %(count)d document to cabinets."
-msgstr "Voeg %(count)d document toe aan rekken."
-
-#: views.py:201
 #, python-format
 msgid "Add %(count)d documents to cabinets."
 msgstr "Voeg %(count)d documenten toe aan rekken."
 
-#: views.py:219
+#: views.py:201
+#, python-format
+msgid "Add document \"%(object)s\" to cabinets."
+msgstr "Voeg document \"%(object)s\" toe aan rekken."
+
+#: views.py:202
+#, python-format
+msgid "Add %(count)d document to cabinets."
+msgstr "Voeg %(count)d document toe aan rekken."
+
+#: views.py:220
 msgid "Cabinets to which the selected documents will be added."
 msgstr "Rekken waaraan de geselecteerde documenten worden toegevoegd."
 
@@ -303,18 +346,18 @@ msgstr "%(count)d documenten succesvol uit de rekken verwijderd."
 
 #: views.py:297
 #, python-format
-msgid "Remove document \"%(object)s\" from cabinets."
-msgstr "Verwijder document \"%(object)s\" uit de rekken."
+msgid "Remove %(count)d documents from cabinets."
+msgstr "Verwijder %(count)d documenten uit rekken."
 
 #: views.py:298
 #, python-format
-msgid "Remove %(count)d document from cabinets."
-msgstr "Verwijder %(count)d document uit rekken."
+msgid "Remove document \"%(object)s\" from cabinets."
+msgstr "Verwijder document \"%(object)s\" uit de rekken."
 
 #: views.py:299
 #, python-format
-msgid "Remove %(count)d documents from cabinets."
-msgstr "Verwijder %(count)d documenten uit rekken."
+msgid "Remove %(count)d document from cabinets."
+msgstr "Verwijder %(count)d document uit rekken."
 
 #: views.py:317
 msgid "Cabinets from which the selected documents will be removed."
@@ -328,6 +371,6 @@ msgstr "Rekken selecteren"
 msgid "Cabinets to which the document will be added."
 msgstr "Rekken waaraan het document wordt toegevoegd."
 
-#: workflow_actions.py:67
+#: workflow_actions.py:71
 msgid "Cabinets from which the document will be removed."
 msgstr "Rekken waaruit het document wordt verwijderd."

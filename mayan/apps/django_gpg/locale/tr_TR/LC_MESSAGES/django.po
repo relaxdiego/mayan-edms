@@ -1,56 +1,57 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Nurgül Özkan <nurgulozkan@hotmail.com>, 2022
 # serhatcan77 <serhat_can@yahoo.com>, 2022
 # Bedreddin Şahbaz, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
+"teams/13584/tr_TR/)\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: apps.py:31
 msgid "Django GPG"
 msgstr "Django GPG"
 
-#: apps.py:53 apps.py:59 forms.py:15
+#: apps.py:53 apps.py:59 forms.py:16
 msgid "Key ID"
 msgstr "Anahtar Kimliği"
 
-#: apps.py:63 forms.py:33 models.py:59
+#: apps.py:63 forms.py:42 models.py:50
 msgid "Type"
 msgstr "Tür"
 
-#: apps.py:67 forms.py:21 models.py:40
+#: apps.py:67 forms.py:23 models.py:29
 msgid "Creation date"
 msgstr "Oluşturulma tarihi"
 
-#: apps.py:71
+#: apps.py:72
 msgid "No expiration"
 msgstr "Süresiz"
 
-#: apps.py:72 forms.py:25 models.py:44
+#: apps.py:73 forms.py:28 models.py:33
 msgid "Expiration date"
 msgstr "Son kullanma tarihi"
 
-#: apps.py:75 forms.py:30 models.py:51
+#: apps.py:77 forms.py:35 models.py:40
 msgid "Length"
 msgstr "Uzunluk"
 
-#: apps.py:80 forms.py:17 models.py:56
+#: apps.py:82 forms.py:20 models.py:46
 msgid "User ID"
 msgstr "Kullanıcı ID"
 
@@ -58,35 +59,35 @@ msgstr "Kullanıcı ID"
 msgid "GNU privacy guard - a PGP implementation."
 msgstr "GNU gizlilik koruması - bir PGP uygulaması."
 
-#: events.py:5 links.py:42 permissions.py:5
+#: events.py:6 links.py:42 permissions.py:6
 msgid "Key management"
 msgstr "Anahtar yönetimi"
 
-#: events.py:8
+#: events.py:10
 msgid "Key created"
 msgstr "Anahtar oluşturuldu"
 
-#: events.py:12
+#: events.py:14
 msgid "Key downloaded"
 msgstr "Anahtar indirildi"
 
-#: forms.py:26
+#: forms.py:27
 msgid "None"
 msgstr "Yok"
 
-#: forms.py:29 models.py:48
+#: forms.py:32 models.py:37
 msgid "Fingerprint"
 msgstr "Parmakizi"
 
-#: forms.py:31 models.py:54
+#: forms.py:38 models.py:43
 msgid "Algorithm"
 msgstr "Algoritma"
 
-#: forms.py:48
+#: forms.py:56
 msgid "Term"
 msgstr "Terim"
 
-#: forms.py:49
+#: forms.py:57
 msgid "Name, e-mail, key ID or key fingerprint to look for."
 msgstr "İsim, e-posta, anahtar kimliği veya anahtar parmak izi arayın."
 
@@ -102,7 +103,7 @@ msgstr "Ayrıntılar"
 msgid "Download"
 msgstr "İndir"
 
-#: links.py:32 permissions.py:26
+#: links.py:32 permissions.py:28
 msgid "Query keyservers"
 msgstr "Sorgu anahtar sunucuları"
 
@@ -114,11 +115,11 @@ msgstr "İçeri Al"
 msgid "Upload key"
 msgstr "Anahtar yükle"
 
-#: links.py:50 views.py:201
+#: links.py:50 views.py:215
 msgid "Private keys"
 msgstr "Özel anahtarlar"
 
-#: links.py:54 views.py:226
+#: links.py:54 views.py:240
 msgid "Public keys"
 msgstr "Genel anahtarlar"
 
@@ -130,133 +131,137 @@ msgstr "Herkese açık"
 msgid "Secret"
 msgstr "Gizli"
 
-#: literals.py:40 literals.py:45
+#: literals.py:41 literals.py:50
 msgid "RSA"
 msgstr "RSA"
 
-#: literals.py:41
+#: literals.py:44
 msgid "DSA"
 msgstr "DSA"
 
-#: literals.py:46
+#: literals.py:53
 msgid "Elgamal"
 msgstr "Elgamal"
 
-#: literals.py:62
+#: literals.py:70
 msgid "Bad signature."
 msgstr "Kötü imza."
 
-#: literals.py:65
+#: literals.py:73
 msgid "Document not signed or invalid signature."
 msgstr "Belge imzalanmamış veya geçersiz imza."
 
-#: literals.py:68
+#: literals.py:76
 msgid "Signature error."
 msgstr "İmza hatası."
 
-#: literals.py:72
+#: literals.py:80
 msgid "Document is signed but no public key is available for verification."
 msgstr "Belge imzalanmış ancak doğrulama için genel anahtar bulunmamaktadır."
 
-#: literals.py:77
+#: literals.py:85
 msgid "Document is signed, and signature is good."
 msgstr "Belge imzalanmış ve imza iyi."
 
-#: literals.py:80
+#: literals.py:88
 msgid "Document is signed with a valid signature."
 msgstr "Belge geçerli bir imza ile imzalanmıştır."
 
-#: models.py:36
+#: models.py:25
 msgid "ASCII armored version of the key."
 msgstr "Anahtarın ASCII şifreli versiyonu."
 
-#: models.py:37
+#: models.py:26
 msgid "Key data"
 msgstr "Anahtar verisi"
 
-#: models.py:65
+#: models.py:56
 msgid "Key"
 msgstr "Anahtar"
 
-#: models.py:66
+#: models.py:57
 msgid "Keys"
 msgstr "Anahtarlar"
 
-#: models.py:78
+#: models.py:72
 msgid "Invalid key data"
 msgstr "Geçersiz anahtar verisi"
 
-#: models.py:81
+#: models.py:77
 msgid "Key already exists."
 msgstr "Anahtar zaten var."
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Delete keys"
 msgstr "Tuşları sil"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Download keys"
 msgstr "Tuşları indir"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Import keys from keyservers"
 msgstr "Anahtarları sunuculardan içe aktarma"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Use keys to sign content"
 msgstr "İçeriği imzalamak için anahtarları kullanın"
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "Upload keys"
 msgstr "Anahtarları yükle"
 
-#: permissions.py:23
+#: permissions.py:25
 msgid "View keys"
 msgstr "Anahtarları görüntüle"
 
-#: settings.py:10
+#: serializers.py:12
+msgid "URL"
+msgstr ""
+
+#: settings.py:11
 msgid "Signatures"
 msgstr "İmzalar"
 
-#: settings.py:16
+#: settings.py:18
 msgid "Full path to the backend to be used to handle keys and signatures."
 msgstr ""
 "Anahtarları ve imzaları işlemek için kullanılacak backende giden tam yol."
 
-#: settings.py:25
+#: settings.py:27
 msgid "Keyserver used to query for keys."
 msgstr "Anahtarları sorgulamak için kullanılan anahtar sunucusu."
 
-#: views.py:41
+#: views.py:42
 #, python-format
 msgid "Delete key: %s"
 msgstr "%s anahtarını sil"
 
-#: views.py:59
+#: views.py:61
 #, python-format
 msgid "Details for key: %s"
 msgstr "%s Anahtarın ayrıntıları: "
 
-#: views.py:89
+#: views.py:97
 #, python-format
 msgid "Import key ID: %s?"
 msgstr "İçe aktarılacak Anahtar ID: %s?"
 
-#: views.py:90
+#: views.py:98
 msgid "Import key"
 msgstr "Anahtarı içe aktar"
 
-#: views.py:99
+#: views.py:109
 #, python-format
 msgid "Unable to import key: %(key_id)s; %(error)s"
 msgstr "Anahtar içe aktarılamıyor: %(key_id)s; %(error)s"
 
-#: views.py:107
+#: views.py:117
 #, python-format
 msgid "Successfully received key: %(key_id)s"
 msgstr "Anahtar başarıyla alındı: %(key_id)s"
 
-#: views.py:125
+#: views.py:135
 msgid ""
 "Use names, last names, key ids or emails to search public keys to import "
 "from the keyserver."
@@ -264,45 +269,45 @@ msgstr ""
 "Anahtar sunucusundan içe aktarılacak ortak anahtarları aramak için ad, "
 "soyad, anahtar kimlikleri veya e-postaları kullanın."
 
-#: views.py:129
+#: views.py:139
 msgid "No results returned"
 msgstr "Sonuç döndürülmedi"
 
-#: views.py:131
+#: views.py:141
 msgid "Key query results"
 msgstr "Anahtar sorgu sonuçları"
 
-#: views.py:152
+#: views.py:162
 msgid "Query key server"
 msgstr "Anahtar sorgulama sunucusu"
 
-#: views.py:172
+#: views.py:186
 msgid "Upload new key"
 msgstr "Yeni anahtar yükle"
 
-#: views.py:194
+#: views.py:208
 msgid ""
-"Private keys are used to signed documents. Private keys can only be uploaded"
-" by the user. The view to upload private and public keys is the same."
+"Private keys are used to signed documents. Private keys can only be uploaded "
+"by the user. The view to upload private and public keys is the same."
 msgstr ""
 "Özel anahtarlar, imzalanmış belgeler için kullanılır. Özel anahtarlar "
 "yalnızca kullanıcı tarafından yüklenebilir. Özel ve genel anahtarları "
 "yükleme görünümü aynıdır."
 
-#: views.py:199
+#: views.py:213
 msgid "There no private keys"
 msgstr "Özel anahtar yok"
 
-#: views.py:218
+#: views.py:232
 msgid ""
-"Public keys are used to verify signed documents. Public keys can be uploaded"
-" by the user or downloaded from keyservers. The view to upload private and "
+"Public keys are used to verify signed documents. Public keys can be uploaded "
+"by the user or downloaded from keyservers. The view to upload private and "
 "public keys is the same."
 msgstr ""
 "Genel anahtarlar, imzalanmış belgeleri doğrulamak için kullanılır. Genel "
 "anahtarlar, kullanıcı tarafından yüklenebilir veya anahtar sunucularından "
 "indirilebilir. Özel ve genel anahtarları yükleme görünümü aynıdır."
 
-#: views.py:224
+#: views.py:238
 msgid "There no public keys"
 msgstr "Genel anahtar yok"

@@ -2,111 +2,110 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Ali Alahnomy <ashari@open-alt.com>, 2022
 # WM Shinkada <shinkadawasim@gmail.com>, 2022
 # Yaman Sanobar <yman.snober@gmail.com>, 2022
 # Roberto Rosario, 2022
 # Marwan Rahhal <Marwanr@sssit.net>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: apps.py:28 links.py:10 permissions.py:5
+#: apps.py:28 links.py:10 permissions.py:6
 msgid "Task manager"
 msgstr "مدير المهام "
 
-#: apps.py:97
+#: apps.py:99
 msgid "Label"
 msgstr "العنوان"
 
-#: apps.py:101
+#: apps.py:103
 msgid "Name"
 msgstr "اسم"
 
-#: apps.py:106
+#: apps.py:108
 msgid "Default queue?"
 msgstr "قائمة الانتظار"
 
-#: apps.py:111
+#: apps.py:113
 msgid "Is transient?"
 msgstr "هل تم الإضافة؟"
 
-#: apps.py:115
+#: apps.py:117
 msgid "Type"
 msgstr "النوع"
 
-#: apps.py:120
+#: apps.py:122
 msgid "Start time"
 msgstr "وقت البداية"
 
-#: apps.py:124
+#: apps.py:126
 msgid "Host"
 msgstr "مضيف"
 
-#: apps.py:128
+#: apps.py:130
 msgid "Arguments"
 msgstr "المحددات"
 
-#: apps.py:132
+#: apps.py:134
 msgid "Keyword arguments"
 msgstr "المحددات الرئيسية"
 
-#: apps.py:136
+#: apps.py:138
 msgid "Worker process ID"
 msgstr "رقم العمل للعميل"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "View tasks"
 msgstr "عرض المهام"
 
-#: settings.py:10
+#: settings.py:11
 msgid "Celery"
 msgstr "كرفس"
 
-#: settings.py:15
+#: settings.py:17
 msgid "Default: \"AMQPLAIN\". Set custom amqp login method."
 msgstr "الدخول المتخصص"
 
-#: settings.py:21
+#: settings.py:23
 msgid ""
-"Default: \"amqp://\". Default broker URL. This must be a URL in the form of:"
-" transport://userid:password@hostname:port/virtual_host Only the scheme part"
-" (transport://) is required, the rest is optional, and defaults to the "
+"Default: \"amqp://\". Default broker URL. This must be a URL in the form of: "
+"transport://userid:password@hostname:port/virtual_host Only the scheme part "
+"(transport://) is required, the rest is optional, and defaults to the "
 "specific transports default values."
 msgstr ""
 ": \"المكان الإفتراضي المحدد للنقل://\". Default broker URL. This must be a "
 "URL in the form of: transport://userid:password@hostname:port/virtual_host "
 "Only the scheme part (transport://) ."
 
-#: settings.py:30
+#: settings.py:32
 msgid ""
 "Default: \"Disabled\". Toggles SSL usage on broker connection and SSL "
 "settings. The valid values for this option vary by transport."
 msgstr "الغاء التفعيل الخيار الإفتراضي."
 
-#: settings.py:38
+#: settings.py:40
 msgid ""
 "Default: No result backend enabled by default. The backend used to store "
-"task results (tombstones). Refer to "
-"http://docs.celeryproject.org/en/v4.1.0/userguide/configuration.html#result-"
-"backend"
+"task results (tombstones). Refer to http://docs.celeryproject.org/en/v4.1.0/"
+"userguide/configuration.html#result-backend"
 msgstr ""
-": الخيار الافتراضي "
-"http://docs.celeryproject.org/en/v4.1.0/userguide/configuration.html#result-"
-"backend"
+": الخيار الافتراضي http://docs.celeryproject.org/en/v4.1.0/userguide/"
+"configuration.html#result-backend"
 
 #: tests/literals.py:11
 msgid "Test queue"

@@ -2,28 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Ford Guo <agile.guo@gmail.com>, 2022
 # Roberto Rosario, 2022
 # yan songwei <yansw@vip.163.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:37+0000\n"
 "Last-Translator: yan songwei <yansw@vip.163.com>, 2022\n"
-"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
+"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/"
+"teams/13584/zh-Hans/)\n"
+"Language: zh-Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh-Hans\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: apps.py:33 events.py:6 links.py:34 models.py:38 permissions.py:5
-#: views.py:144
+#: apps.py:33 events.py:6 links.py:34 models.py:31 permissions.py:6
+#: views.py:150
 msgid "Quotas"
 msgstr "配额"
 
@@ -31,11 +32,11 @@ msgstr "配额"
 msgid "none"
 msgstr "没有"
 
-#: classes.py:151
+#: classes.py:159
 msgid "Does not apply"
 msgstr "不适用"
 
-#: classes.py:155 classes.py:159
+#: classes.py:163 classes.py:167
 msgid "Null backend"
 msgstr "空后端"
 
@@ -47,7 +48,7 @@ msgstr "配额已创建"
 msgid "Quota edited"
 msgstr "配额已编辑"
 
-#: forms.py:15 models.py:63
+#: forms.py:15 model_mixins.py:16
 msgid "Backend"
 msgstr "后端"
 
@@ -134,55 +135,55 @@ msgstr "全部用户"
 msgid "groups: %(groups)s, users: %(users)s"
 msgstr ""
 
-#: models.py:23
-msgid "The dotted Python path to the backend class."
-msgstr ""
-
-#: models.py:24
-msgid "Backend path"
-msgstr "后端路径"
-
-#: models.py:27
-msgid "Backend data"
-msgstr "后端数据"
-
-#: models.py:31
-msgid "Allow quick disable or enable of the quota."
-msgstr ""
-
-#: models.py:32
-msgid "Enabled"
-msgstr "启用"
-
-#: models.py:37
-msgid "Quota"
-msgstr "配额"
-
-#: models.py:62
+#: model_mixins.py:15
 msgid "Driver used for this quota entry."
 msgstr "用于此配额条目的驱动程序。"
 
-#: models.py:67
+#: model_mixins.py:20
 msgid "Arguments"
 msgstr "参数"
 
-#: models.py:71
+#: model_mixins.py:24
 msgid "Usage"
 msgstr "用法"
 
-#: permissions.py:8
+#: models.py:16
+msgid "The dotted Python path to the backend class."
+msgstr ""
+
+#: models.py:17
+msgid "Backend path"
+msgstr "后端路径"
+
+#: models.py:20
+msgid "Backend data"
+msgstr "后端数据"
+
+#: models.py:24
+msgid "Allow quick disable or enable of the quota."
+msgstr ""
+
+#: models.py:25
+msgid "Enabled"
+msgstr "启用"
+
+#: models.py:30
+msgid "Quota"
+msgstr "配额"
+
+#: permissions.py:10
 msgid "Create a quota"
 msgstr "创建配额"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete a quota"
 msgstr "删除配额"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit a quota"
 msgstr "编辑配额"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View a quota"
 msgstr "查看配额"
 
@@ -207,20 +208,20 @@ msgstr "文件数量限制"
 msgid "document count: %(document_count)s"
 msgstr ""
 
-#: quota_backends.py:181 quota_backends.py:186
-msgid "Document size limit"
-msgstr "文件大小限制"
-
-#: quota_backends.py:183
+#: quota_backends.py:182
 msgid "Maximum document size in megabytes (MB)."
 msgstr ""
+
+#: quota_backends.py:183 quota_backends.py:186
+msgid "Document size limit"
+msgstr "文件大小限制"
 
 #: quota_backends.py:211
 #, python-format
 msgid "document size: %(formatted_file_size)s"
 msgstr ""
 
-#: quota_backends.py:231
+#: quota_backends.py:233
 msgid "Document size quota exceeded."
 msgstr ""
 
@@ -228,25 +229,25 @@ msgstr ""
 msgid "New quota backend selection"
 msgstr ""
 
-#: views.py:59
+#: views.py:65
 #, python-format
 msgid "Create a \"%s\" quota"
 msgstr ""
 
-#: views.py:92
+#: views.py:98
 #, python-format
 msgid "Delete quota: %s"
 msgstr "删除配额：%s"
 
-#: views.py:108
+#: views.py:114
 #, python-format
 msgid "Edit quota: %s"
 msgstr "编辑配额：%s"
 
-#: views.py:141
+#: views.py:147
 msgid "Quotas restrict usage of system resources. "
 msgstr "配额限制了系统资源的使用。"
 
-#: views.py:143
+#: views.py:149
 msgid "No quotas available"
 msgstr "没有配额"

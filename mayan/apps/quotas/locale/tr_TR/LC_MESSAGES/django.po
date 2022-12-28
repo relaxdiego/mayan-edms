@@ -2,29 +2,30 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # abc Def <hdogan1974@gmail.com>, 2022
 # Nurgül Özkan <nurgulozkan@hotmail.com>, 2022
 # serhatcan77 <serhat_can@yahoo.com>, 2022
 # Bedreddin Şahbaz, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:37+0000\n"
 "Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
+"teams/13584/tr_TR/)\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps.py:33 events.py:6 links.py:34 models.py:38 permissions.py:5
-#: views.py:144
+#: apps.py:33 events.py:6 links.py:34 models.py:31 permissions.py:6
+#: views.py:150
 msgid "Quotas"
 msgstr "Kotalar"
 
@@ -32,11 +33,11 @@ msgstr "Kotalar"
 msgid "none"
 msgstr "yok"
 
-#: classes.py:151
+#: classes.py:159
 msgid "Does not apply"
 msgstr "Geçerli değil"
 
-#: classes.py:155 classes.py:159
+#: classes.py:163 classes.py:167
 msgid "Null backend"
 msgstr "Boş backend"
 
@@ -48,7 +49,7 @@ msgstr "Kota oluşturuldu"
 msgid "Quota edited"
 msgstr "Kota düzenlendi"
 
-#: forms.py:15 models.py:63
+#: forms.py:15 model_mixins.py:16
 msgid "Backend"
 msgstr "Backend"
 
@@ -119,8 +120,8 @@ msgid ""
 "Enabling this option, the quota will ignore the indiviual user and group "
 "selection."
 msgstr ""
-"Kotayı yöneticiler ve personel hariç sistemdeki tüm kullanıcılara uygulayın."
-" Bu seçenek etkinleştirildiğinde, kota, bireysel kullanıcı ve grup seçimini "
+"Kotayı yöneticiler ve personel hariç sistemdeki tüm kullanıcılara uygulayın. "
+"Bu seçenek etkinleştirildiğinde, kota, bireysel kullanıcı ve grup seçimini "
 "yok sayar."
 
 #: mixins.py:115
@@ -140,57 +141,57 @@ msgstr "tüm kullanıcılar"
 msgid "groups: %(groups)s, users: %(users)s"
 msgstr "gruplar: %(groups)s, kullanıcılar: %(users)s"
 
-#: models.py:23
+#: model_mixins.py:15
+msgid "Driver used for this quota entry."
+msgstr "Bu kota girişi için kullanılan sürücü."
+
+#: model_mixins.py:20
+msgid "Arguments"
+msgstr "Argümanlar"
+
+#: model_mixins.py:24
+msgid "Usage"
+msgstr "Kullanım"
+
+#: models.py:16
 msgid "The dotted Python path to the backend class."
 msgstr "Backend sınıfına giden noktalı Python yolu."
 
-#: models.py:24
+#: models.py:17
 msgid "Backend path"
 msgstr "Backend yolu"
 
-#: models.py:27
+#: models.py:20
 msgid "Backend data"
 msgstr "Backend verisi"
 
-#: models.py:31
+#: models.py:24
 msgid "Allow quick disable or enable of the quota."
 msgstr ""
 "Kotanın hızlı bir şekilde devre dışı bırakılmasına veya etkinleştirilmesine "
 "izin verin."
 
-#: models.py:32
+#: models.py:25
 msgid "Enabled"
 msgstr "Etkin"
 
-#: models.py:37
+#: models.py:30
 msgid "Quota"
 msgstr "Kota"
 
-#: models.py:62
-msgid "Driver used for this quota entry."
-msgstr "Bu kota girişi için kullanılan sürücü."
-
-#: models.py:67
-msgid "Arguments"
-msgstr "Argümanlar"
-
-#: models.py:71
-msgid "Usage"
-msgstr "Kullanım"
-
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create a quota"
 msgstr "Kota oluştur"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete a quota"
 msgstr "Kotayı sil"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit a quota"
 msgstr "Kotayı düzenle"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View a quota"
 msgstr "Kotayı görüntüle"
 
@@ -215,20 +216,20 @@ msgstr "Belge sayısı sınırı"
 msgid "document count: %(document_count)s"
 msgstr "belge sayısı: %(document_count)s"
 
-#: quota_backends.py:181 quota_backends.py:186
-msgid "Document size limit"
-msgstr "Belge boyutu sınırı"
-
-#: quota_backends.py:183
+#: quota_backends.py:182
 msgid "Maximum document size in megabytes (MB)."
 msgstr "Megabayt (MB) cinsinden maksimum belge boyutu."
+
+#: quota_backends.py:183 quota_backends.py:186
+msgid "Document size limit"
+msgstr "Belge boyutu sınırı"
 
 #: quota_backends.py:211
 #, python-format
 msgid "document size: %(formatted_file_size)s"
 msgstr "belge boyutu: %(formatted_file_size)s"
 
-#: quota_backends.py:231
+#: quota_backends.py:233
 msgid "Document size quota exceeded."
 msgstr "Belge boyutu kotası aşıldı."
 
@@ -236,25 +237,25 @@ msgstr "Belge boyutu kotası aşıldı."
 msgid "New quota backend selection"
 msgstr "Yeni kota backend seçimi"
 
-#: views.py:59
+#: views.py:65
 #, python-format
 msgid "Create a \"%s\" quota"
 msgstr "Bir \"%s\" kotası oluşturun"
 
-#: views.py:92
+#: views.py:98
 #, python-format
 msgid "Delete quota: %s"
 msgstr "Kotayı sil: %s"
 
-#: views.py:108
+#: views.py:114
 #, python-format
 msgid "Edit quota: %s"
 msgstr "Kotayı düzenle: %s"
 
-#: views.py:141
+#: views.py:147
 msgid "Quotas restrict usage of system resources. "
 msgstr "Kotalar, sistem kaynaklarının kullanımını kısıtlar."
 
-#: views.py:143
+#: views.py:149
 msgid "No quotas available"
 msgstr "Mevcut kota yok"

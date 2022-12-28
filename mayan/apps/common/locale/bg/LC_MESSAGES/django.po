@@ -1,28 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Roberto Rosario, 2022
 # Lyudmil Antonov <lantonov.here@gmail.com>, 2022
 # Pavlin Koldamov <pkoldamov@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Pavlin Koldamov <pkoldamov@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
+"bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:132 permissions.py:5 settings.py:16
+#: apps.py:131 permissions.py:6 settings.py:16
 msgid "Common"
 msgstr "Общи"
 
@@ -82,7 +83,7 @@ msgstr "Онлайн магазин"
 msgid "Get support"
 msgstr "Поддръжка"
 
-#: links.py:69 queues.py:6 views.py:131
+#: links.py:69 queues.py:7 views.py:134
 msgid "Tools"
 msgstr "Инструменти"
 
@@ -91,15 +92,15 @@ msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr "Тази функция е оттеглена и ще бъде премахната в бъдеща версия."
 
-#: literals.py:29
+#: literals.py:30
 msgid "Days"
 msgstr "Дни"
 
-#: literals.py:30
+#: literals.py:31
 msgid "Hours"
 msgstr "Часове"
 
-#: literals.py:31
+#: literals.py:32
 msgid "Minutes"
 msgstr "Минути"
 
@@ -131,11 +132,11 @@ msgstr "Връщане"
 msgid "User"
 msgstr "Потребител"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Copy object"
 msgstr "Копиране на обект"
 
-#: settings.py:23
+#: settings.py:24
 msgid ""
 "In list mode, show the \"list facet\" menu options as a dropdown menu "
 "instead of individual buttons."
@@ -143,53 +144,53 @@ msgstr ""
 "В режим на списък покажете опциите на менюто &quot;фасет списък&quot; като "
 "падащо меню вместо отделни бутони."
 
-#: settings.py:31
+#: settings.py:33
 msgid ""
-"In list mode, show the \"object\" menu options as a dropdown menu instead of"
-" individual buttons."
+"In list mode, show the \"object\" menu options as a dropdown menu instead of "
+"individual buttons."
 msgstr ""
 "В режим на списък покажете опциите на менюто &quot;обект&quot; като падащо "
 "меню вместо отделни бутони."
 
-#: settings.py:38
+#: settings.py:41
 msgid ""
 "Disables the use of the local `media` folder. When using this setting, all "
 "apps must be also configured via their respective storage backend settings "
 "to use alternate persistence."
 msgstr ""
 
-#: settings.py:46
+#: settings.py:49
 msgid ""
 "A list of strings designating all applications that are to be removed from "
 "the list normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. Example: ['app_1', 'app_2']"
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. Example: ['app_1', 'app_2']"
 msgstr ""
 "Списък с низове, обозначаващи всички приложения, които трябва да бъдат "
 "премахнати от списъка, който обикновено се инсталира от Mayan EDMS. Всеки "
 "низ трябва да бъде точкуван Python път към: конфигурационен клас на "
-"приложение (за предпочитане) или пакет, съдържащ приложение. Пример: "
-"[&#39;app_1&#39;, &#39;app_2&#39;]"
+"приложение (за предпочитане) или пакет, съдържащ приложение. Пример: [&#39;"
+"app_1&#39;, &#39;app_2&#39;]"
 
-#: settings.py:56
+#: settings.py:59
 msgid ""
 "A list of strings designating all applications that are installed beyond "
 "those normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. Example: ['app_1', 'app_2']"
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. Example: ['app_1', 'app_2']"
 msgstr ""
 "Списък с низове, обозначаващи всички приложения, които са инсталирани извън "
 "тези, които обикновено са инсталирани от Mayan EDMS. Всеки низ трябва да "
 "бъде точкуван Python път към: конфигурационен клас на приложение (за "
-"предпочитане) или пакет, съдържащ приложение. Пример: [&#39;app_1&#39;, "
-"&#39;app_2&#39;]"
+"предпочитане) или пакет, съдържащ приложение. Пример: [&#39;app_1&#39;, &#39;"
+"app_2&#39;]"
 
-#: settings.py:67
+#: settings.py:70
 msgid ""
 "A list of strings designating all applications that are installed beyond "
 "those normally installed by Mayan EDMS. Each string should be a dotted "
-"Python path to: an application configuration class (preferred), or a package"
-" containing an application. These apps will be installed before the default "
+"Python path to: an application configuration class (preferred), or a package "
+"containing an application. These apps will be installed before the default "
 "apps. Example: ['app_1', 'app_2']"
 msgstr ""
 "Списък с низове, обозначаващи всички приложения, които са инсталирани извън "
@@ -199,23 +200,23 @@ msgstr ""
 "инсталирани преди приложенията по подразбиране. Пример: [&#39;app_1&#39;, "
 "&#39;app_2&#39;]"
 
-#: settings.py:78
+#: settings.py:81
 msgid ""
-"Name of the view attached to the brand anchor in the main menu. This is also"
-" the view to which users will be redirected after log in."
+"Name of the view attached to the brand anchor in the main menu. This is also "
+"the view to which users will be redirected after log in."
 msgstr ""
 "Име на изгледа, прикрепен към котвата на марката в главното меню. Това е и "
 "изгледът, към който потребителите ще бъдат пренасочени след влизане."
 
-#: settings.py:87
+#: settings.py:90
 msgid "Name of the dashboard to display in the home view."
 msgstr "Име на таблото за управление, което да се показва в началния изглед."
 
-#: settings.py:92
+#: settings.py:95
 msgid "Sets the project's name."
 msgstr "Задава името на проекта."
 
-#: settings.py:96
+#: settings.py:99
 msgid "URL of the project's homepage."
 msgstr "URL на началната страница на проекта."
 
@@ -223,11 +224,11 @@ msgstr "URL на началната страница на проекта."
 msgid "Click here to fix this."
 msgstr "Кликнете тук, за да поправите това."
 
-#: validators.py:40
+#: validators.py:41
 msgid "Enter a valid JSON value."
 msgstr "Въведете валидна JSON стойност."
 
-#: validators.py:64
+#: validators.py:65
 msgid "Enter a valid YAML value."
 msgstr "Въведете валидна YAML стойност."
 
@@ -272,14 +273,14 @@ msgstr ""
 msgid "No setup options available."
 msgstr "Няма опции за настройка."
 
-#: views.py:115
-msgid "Setup items"
-msgstr "Елементи за настройка"
-
-#: views.py:117
+#: views.py:116
 msgid "Here you can configure all aspects of the system."
 msgstr "Тук можете да конфигурирате всички аспекти на системата."
 
-#: views.py:133
+#: views.py:118
+msgid "Setup items"
+msgstr "Елементи за настройка"
+
+#: views.py:132
 msgid "These modules are used to do system maintenance."
 msgstr "Тези модули се използват за поддръжка на системата."

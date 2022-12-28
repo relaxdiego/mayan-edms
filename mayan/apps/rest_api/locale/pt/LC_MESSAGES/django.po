@@ -1,27 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Jadson Ribeiro <jadsonbr@outlook.com.br>, 2022
 # 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2022
 # Márcia Ferreira, 2022
 # Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/pt/)\n"
+"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/"
+"pt/)\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:23 links.py:17 settings.py:11
 msgid "REST API"
@@ -36,28 +38,104 @@ msgstr "Não foi possível encontrar a classe do serializador para: %s"
 msgid "API Documentation (Swagger)"
 msgstr "Documentação da API (Swagger)"
 
-#: links.py:27
+#: links.py:26
 msgid "API Documentation (ReDoc)"
 msgstr "Documentação da API (ReDoc)"
 
-#: relations.py:84
-msgid "This field is required."
-msgstr " Este campo é obrigatório."
-
-#: relations.py:85
+#: relations.py:33
 #, python-brace-format
 msgid "Invalid pk \"{pk_value}\" - object does not exist."
 msgstr "pk Inválido \"{pk_value}\" - objeto não existe"
 
-#: relations.py:86
+#: relations.py:36
 #, python-brace-format
 msgid "Incorrect type. Expected pk value, received {data_type}."
 msgstr "Tipo incorreto. Valor pk esperado recebido {data_type}."
+
+#: relations.py:38
+msgid "This field is required."
+msgstr " Este campo é obrigatório."
 
 #: schemas.py:11
 #, python-format
 msgid "%s API"
 msgstr "API %s"
+
+#: serializers.py:37
+msgid "Content"
+msgstr ""
+
+#: serializers.py:40
+msgid "Data"
+msgstr ""
+
+#: serializers.py:43
+msgid "Headers"
+msgstr ""
+
+#: serializers.py:46
+msgid "Name"
+msgstr ""
+
+#: serializers.py:49
+msgid "Status code"
+msgstr ""
+
+#: serializers.py:52
+msgid "Requests"
+msgstr ""
+
+#: serializers.py:75
+msgid "Label"
+msgstr ""
+
+#: serializers.py:78
+msgid "URL"
+msgstr ""
+
+#: serializers.py:106
+msgid "Author"
+msgstr ""
+
+#: serializers.py:109
+msgid "Author email"
+msgstr ""
+
+#: serializers.py:112
+msgid "Build"
+msgstr ""
+
+#: serializers.py:115
+msgid "Build string"
+msgstr ""
+
+#: serializers.py:118
+msgid "Copyright"
+msgstr ""
+
+#: serializers.py:121
+msgid "Description"
+msgstr ""
+
+#: serializers.py:124
+msgid "Django version"
+msgstr ""
+
+#: serializers.py:127
+msgid "License"
+msgstr ""
+
+#: serializers.py:130
+msgid "Title"
+msgstr ""
+
+#: serializers.py:133
+msgid "Version"
+msgstr ""
+
+#: serializers.py:136
+msgid "Website"
+msgstr ""
 
 #: settings.py:17
 msgid "Disable the REST API links in the tools menu."

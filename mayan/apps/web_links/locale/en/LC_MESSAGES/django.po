@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: apps.py:40
+#: apps.py:43
 msgid "Links"
 msgstr ""
 
-#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:42
-#: permissions.py:5 views.py:182
+#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:43
+#: permissions.py:6 views.py:169
 msgid "Web links"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Web link navigated"
 msgstr ""
 
-#: links.py:29 views.py:94
+#: links.py:29 views.py:81
 msgid "Create new web link"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: links.py:39 models.py:36
+#: links.py:39 models.py:37
 msgid "Document types"
 msgstr ""
 
@@ -57,19 +57,19 @@ msgstr ""
 msgid "Navigate"
 msgstr ""
 
-#: models.py:24
+#: models.py:23
 msgid "A short text describing the web link."
 msgstr ""
 
-#: models.py:25
+#: models.py:24
 msgid "Label"
 msgstr ""
 
-#: models.py:29
+#: models.py:28
 msgid "Template that will be used to craft the final URL of the web link."
 msgstr ""
 
-#: models.py:31
+#: models.py:30
 msgid "Template"
 msgstr ""
 
@@ -77,27 +77,27 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-#: models.py:41
+#: models.py:42
 msgid "Web link"
 msgstr ""
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new web links"
 msgstr ""
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete web links"
 msgstr ""
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit web links"
 msgstr ""
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing web links"
 msgstr ""
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "View web link instances"
 msgstr ""
 
@@ -105,61 +105,85 @@ msgstr ""
 msgid "Primary key of the document type to add to the web link."
 msgstr ""
 
+#: serializers.py:17 serializers.py:26
+msgid "Document type ID"
+msgstr ""
+
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
 msgstr ""
 
-#: views.py:38
-msgid "Available web links"
+#: serializers.py:33
+msgid "Document types add URL"
 msgstr ""
 
-#: views.py:39
+#: serializers.py:37
+msgid "Document types remove URL"
+msgstr ""
+
+#: serializers.py:41
+msgid "Document types URL"
+msgstr ""
+
+#: serializers.py:48 serializers.py:63
+msgid "URL"
+msgstr ""
+
+#: serializers.py:66
+msgid "Navigation URL"
+msgstr ""
+
+#: views.py:32
 msgid "Web links enabled"
 msgstr ""
 
-#: views.py:63
+#: views.py:33
+msgid "Available web links"
+msgstr ""
+
+#: views.py:50
 #, python-format
 msgid "Web links to enable for document type: %s"
 msgstr ""
 
-#: views.py:116
+#: views.py:103
 #, python-format
 msgid "Delete web link: %s"
 msgstr ""
 
-#: views.py:128
-msgid "Available document types"
-msgstr ""
-
-#: views.py:129
+#: views.py:108
 msgid "Document types enabled"
 msgstr ""
 
-#: views.py:139
+#: views.py:109
+msgid "Available document types"
+msgstr ""
+
+#: views.py:126
 #, python-format
 msgid "Document type for which to enable web link: %s"
 msgstr ""
 
-#: views.py:156
+#: views.py:143
 #, python-format
 msgid "Edit web link: %s"
 msgstr ""
 
-#: views.py:175 views.py:205
+#: views.py:162 views.py:192
 msgid ""
 "Web links allow generating HTTP links from documents to external resources. "
 "The link URL's can contain document properties values."
 msgstr ""
 
-#: views.py:180
+#: views.py:167
 msgid "There are no web links"
 msgstr ""
 
-#: views.py:210
+#: views.py:197
 msgid "There are no web links for this document"
 msgstr ""
 
-#: views.py:213
+#: views.py:200
 #, python-format
 msgid "Web links for document: %s"
 msgstr ""

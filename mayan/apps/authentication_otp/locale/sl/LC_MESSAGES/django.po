@@ -2,24 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # Jože Detečnik <joze.detecnik@3tav.si>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
 #: apps.py:23 events.py:6
 msgid "Authentication OTP"
@@ -41,19 +43,19 @@ msgstr "Žeton je neveljaven ali potekel."
 msgid "TOTP token"
 msgstr "TOTP žeton"
 
-#: forms.py:84
+#: forms.py:86
 msgid "OTP enabled?"
 msgstr "OTP omogočen?"
 
-#: forms.py:85
+#: forms.py:87
 msgid "Yes"
 msgstr "Da"
 
-#: forms.py:85
+#: forms.py:87
 msgid "No"
 msgstr "Ne"
 
-#: forms.py:102
+#: forms.py:104
 msgid ""
 "Scan the QR code or enter the secret in your authentication device. Do not "
 "share this secret, treat it like a password."
@@ -61,22 +63,21 @@ msgstr ""
 "Skenirajte kodo QR ali vnesite skrivnost v napravo za preverjanje "
 "pristnosti. Ne delite te skrivnosti, obravnavajte jo kot geslo."
 
-#: forms.py:104 forms.py:109
+#: forms.py:106 forms.py:111
 msgid "Secret"
 msgstr "Skrivnost"
 
-#: forms.py:115
+#: forms.py:117
 msgid ""
 "Enter the corresponding token to validate that the secret was saved correct."
 msgstr ""
-"Vnesite ustrezen žeton, da potrdite, da je bila skrivnost pravilno "
-"shranjena."
+"Vnesite ustrezen žeton, da potrdite, da je bila skrivnost pravilno shranjena."
 
-#: forms.py:118
+#: forms.py:120
 msgid "Token"
 msgstr "Žeton"
 
-#: forms.py:152
+#: forms.py:155
 msgid "Token is incorrect for the specified secret."
 msgstr "Žeton ni pravilen za navedeno skrivnost."
 

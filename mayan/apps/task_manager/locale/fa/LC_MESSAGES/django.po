@@ -2,101 +2,100 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # Mehdi Amani <MehdiAmani@toorintan.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: Mehdi Amani <MehdiAmani@toorintan.com>, 2022\n"
 "Language-Team: Persian (https://www.transifex.com/rosarior/teams/13584/fa/)\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps.py:28 links.py:10 permissions.py:5
+#: apps.py:28 links.py:10 permissions.py:6
 msgid "Task manager"
 msgstr "مدیر وظیفه"
 
-#: apps.py:97
+#: apps.py:99
 msgid "Label"
 msgstr "برچسب"
 
-#: apps.py:101
+#: apps.py:103
 msgid "Name"
 msgstr "نام"
 
-#: apps.py:106
+#: apps.py:108
 msgid "Default queue?"
 msgstr "صف پیشفرض؟"
 
-#: apps.py:111
+#: apps.py:113
 msgid "Is transient?"
 msgstr "آیا گذرا است؟"
 
-#: apps.py:115
+#: apps.py:117
 msgid "Type"
 msgstr "نوع"
 
-#: apps.py:120
+#: apps.py:122
 msgid "Start time"
 msgstr "زمان شروع"
 
-#: apps.py:124
+#: apps.py:126
 msgid "Host"
 msgstr "میزبان"
 
-#: apps.py:128
+#: apps.py:130
 msgid "Arguments"
 msgstr "استدلال"
 
-#: apps.py:132
+#: apps.py:134
 msgid "Keyword arguments"
 msgstr "آرگومان کلید واژه"
 
-#: apps.py:136
+#: apps.py:138
 msgid "Worker process ID"
 msgstr "شناسه روند کارگر"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "View tasks"
 msgstr "وظایف را مشاهده کنید"
 
-#: settings.py:10
+#: settings.py:11
 msgid "Celery"
 msgstr ""
 
-#: settings.py:15
+#: settings.py:17
 msgid "Default: \"AMQPLAIN\". Set custom amqp login method."
 msgstr ""
 
-#: settings.py:21
+#: settings.py:23
 msgid ""
-"Default: \"amqp://\". Default broker URL. This must be a URL in the form of:"
-" transport://userid:password@hostname:port/virtual_host Only the scheme part"
-" (transport://) is required, the rest is optional, and defaults to the "
+"Default: \"amqp://\". Default broker URL. This must be a URL in the form of: "
+"transport://userid:password@hostname:port/virtual_host Only the scheme part "
+"(transport://) is required, the rest is optional, and defaults to the "
 "specific transports default values."
 msgstr ""
 
-#: settings.py:30
+#: settings.py:32
 msgid ""
 "Default: \"Disabled\". Toggles SSL usage on broker connection and SSL "
 "settings. The valid values for this option vary by transport."
 msgstr ""
 
-#: settings.py:38
+#: settings.py:40
 msgid ""
 "Default: No result backend enabled by default. The backend used to store "
-"task results (tombstones). Refer to "
-"http://docs.celeryproject.org/en/v4.1.0/userguide/configuration.html#result-"
-"backend"
+"task results (tombstones). Refer to http://docs.celeryproject.org/en/v4.1.0/"
+"userguide/configuration.html#result-backend"
 msgstr ""
 
 #: tests/literals.py:11

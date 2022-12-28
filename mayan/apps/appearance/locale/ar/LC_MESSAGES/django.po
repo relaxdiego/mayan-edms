@@ -1,29 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Roberto Rosario, 2022
 # Mohammed ALDOUB <voulnet@gmail.com>, 2022
 # Marwan Rahhal <Marwanr@sssit.net>, 2022
 # Yaman Sanobar <yman.snober@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
 "Last-Translator: Yaman Sanobar <yman.snober@gmail.com>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: apps.py:57 events.py:5 permissions.py:5 settings.py:10
+#: apps.py:57 events.py:6 permissions.py:6 settings.py:11
 msgid "Appearance"
 msgstr "التفضيلات"
 
@@ -75,15 +76,15 @@ msgstr "توستر"
 msgid "URI.js"
 msgstr "URI.js"
 
-#: events.py:8
+#: events.py:10
 msgid "Theme created"
 msgstr "إنشاء قالب"
 
-#: events.py:11
+#: events.py:13
 msgid "Theme edited"
 msgstr "تعديل القالب"
 
-#: events.py:14
+#: events.py:16
 msgid "User theme edited"
 msgstr ""
 
@@ -145,39 +146,35 @@ msgstr "اعدادات القالب للمستخدم "
 msgid "User theme settings"
 msgstr "اعدادات قالب المستخدم "
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new themes"
 msgstr "إنشاء قوالب جديدة"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete themes"
 msgstr "حذف القوالب"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit themes"
 msgstr "تعديل القوالب"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing themes"
 msgstr "استعراض القالب الحالي"
 
-#: settings.py:15
+#: settings.py:17
 msgid "Custom HTTP response code for AJAX redirections."
 msgstr ""
 
-#: settings.py:21
+#: settings.py:23
 msgid "Maximum number of characters that will be displayed as the view title."
 msgstr "اكبر عدد من الحروف ستظهر "
 
-#: settings.py:28
-msgid ""
-"Position where the system message will be displayed. Options are: top-left, "
-"top-center, top-right, bottom-left, bottom-center, bottom-right."
+#: settings.py:33
+msgid "Position where the system messages will be displayed."
 msgstr ""
-"الموضع الذي سيتم فيه عرض رسالة النظام. الخيارات هي: أعلى اليسار ، أعلى الوسط"
-" ، أعلى اليمين ، أسفل اليسار ، أسفل الوسط ، أسفل اليمين."
 
-#: settings.py:36
+#: settings.py:39
 msgid ""
 "Delay in milliseconds after which the menus will be checked for updates."
 msgstr ""
@@ -216,8 +213,7 @@ msgid ""
 "permission to access it."
 msgstr "لا تملك الصلاحيات اللازمة للوصول ، مراجعة مدير النظام"
 
-#: templates/500.html:5 templates/500.html:30
-#: templates/appearance/root.html:47
+#: templates/500.html:5 templates/500.html:30 templates/appearance/root.html:47
 msgid "Server error"
 msgstr "مشكلة في الخوادم"
 
@@ -242,7 +238,9 @@ msgid "Contact your system administrator."
 msgstr "الرجاء مراجعة مدير النظام "
 
 #: templates/500.html:47
-msgid "Check the logs for messages with the tags \"ERROR\", \"CRITICAL\" or \"FATAL\"."
+msgid ""
+"Check the logs for messages with the tags \"ERROR\", \"CRITICAL\" or "
+"\"FATAL\"."
 msgstr "ظهور خطأ في النظام "
 
 #: templates/500.html:48
@@ -282,18 +280,28 @@ msgstr "الإصدار : رخص الاستخدام معتمدة"
 #, python-format
 msgid ""
 "\n"
-"                The complete list of changes is available via the <a class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index.html\">Release notes %(icon_documentation)s</a> or the short version <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
+"                The complete list of changes is available via the <a "
+"class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index."
+"html\">Release notes %(icon_documentation)s</a> or the short version <a "
+"class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/"
+"master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
 "            "
 msgstr ""
 "\n"
-"                The complete list of changes is available via the <a class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index.html\">Release notes %(icon_documentation)s</a> or the short version <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
+"                The complete list of changes is available via the <a "
+"class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index."
+"html\">Release notes %(icon_documentation)s</a> or the short version <a "
+"class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/"
+"master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
 "            "
 
 #: templates/appearance/about.html:104
 #, python-format
 msgid ""
 "\n"
-"                For questions check the <a class=\"new_window\" href=\"https://docs.mayan-edms.com\">Documentation %(icon_documentation)s</a>.\n"
+"                For questions check the <a class=\"new_window\" "
+"href=\"https://docs.mayan-edms.com\">Documentation %(icon_documentation)s</"
+"a>.\n"
 "            "
 msgstr ""
 "\n"
@@ -304,22 +312,29 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"                If you found a bug or have a feature idea, visit the <a class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum %(icon_forum)s</a> or open a ticket in the <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms\">Source code repository %(icon_source_code)s</a>.\n"
+"                If you found a bug or have a feature idea, visit the <a "
+"class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum "
+"%(icon_forum)s</a> or open a ticket in the <a class=\"new_window\" "
+"href=\"https://gitlab.com/mayan-edms/mayan-edms\">Source code repository "
+"%(icon_source_code)s</a>.\n"
 "            "
 msgstr ""
 "\n"
-"                إذا توجد مشكلة يرجى مراجعة الى %(icon_forum)s</a>  من  %(icon_source_code)s</a>.\n"
+"                إذا توجد مشكلة يرجى مراجعة الى %(icon_forum)s</a>  من  "
+"%(icon_source_code)s</a>.\n"
 "            "
 
 #: templates/appearance/about.html:115
 #, python-format
 msgid ""
 "\n"
-"                Spread the word. Talk to your friends and colleagues about how awesome %(project_title)s is!\n"
+"                Spread the word. Talk to your friends and colleagues about "
+"how awesome %(project_title)s is!\n"
 "            "
 msgstr ""
 "\n"
-"                Spread the word. Talk to your friends and colleagues about how awesome %(project_title)s is!\n"
+"                Spread the word. Talk to your friends and colleagues about "
+"how awesome %(project_title)s is!\n"
 "            "
 
 #: templates/appearance/base.html:73
@@ -368,9 +383,17 @@ msgstr "إلغاء"
 msgid "Identifier"
 msgstr "معرف"
 
-#: templates/appearance/generic_list_subtemplate.html:134
-msgid "Facets"
+#: templates/appearance/generic_list_subtemplate.html:85
+#: templates/appearance/partials/list_object_facet_links_column.html:8
+#: templates/appearance/partials/list_object_facet_links_column.html:39
+msgid "Views"
 msgstr ""
+
+#: templates/appearance/generic_list_subtemplate.html:91
+#, fuzzy
+#| msgid "Bulk actions"
+msgid "Actions"
+msgstr "الإعدادات "
 
 #: templates/appearance/home.html:27
 msgid "Getting started"
@@ -411,22 +434,32 @@ msgstr "تحديد/عدم تحديد الكل"
 msgid "Toggle list display mode"
 msgstr "طريقة العرض "
 
-#: templates/appearance/partials/list_toolbar.html:63
+#: templates/appearance/partials/list_toolbar.html:31
 msgid ""
 "Select items to activate bulk actions. Use Shift + click to select many."
 msgstr "تحديد الكل ، يرجى الضغط على زر Sheft+ اختيار العناصر المراد تحديدها"
 
-#: templates/appearance/partials/list_toolbar.html:68
+#: templates/appearance/partials/list_toolbar.html:36
 msgid "Bulk actions"
 msgstr "الإعدادات "
 
-#: templates/appearance/partials/list_toolbar.html:70
+#: templates/appearance/partials/list_toolbar.html:38
 msgid "Toggle Dropdown"
 msgstr "تغير القائمة المنسدلة"
 
 #: templates/appearance/partials/no_results.html:18
 msgid "No results"
 msgstr "لا يوجد نتائج"
+
+#: templates/appearance/partials/pagination.html:12
+#: templates/appearance/partials/pagination.html:14
+msgid "Previous page"
+msgstr ""
+
+#: templates/appearance/partials/pagination.html:30
+#: templates/appearance/partials/pagination.html:32
+msgid "Next page"
+msgstr ""
 
 #: templates/appearance/root.html:52
 msgid "Close"
@@ -472,3 +505,10 @@ msgstr ""
 #, python-format
 msgid "Edit theme settings for user: %s"
 msgstr ""
+
+#~ msgid ""
+#~ "Position where the system message will be displayed. Options are: top-"
+#~ "left, top-center, top-right, bottom-left, bottom-center, bottom-right."
+#~ msgstr ""
+#~ "الموضع الذي سيتم فيه عرض رسالة النظام. الخيارات هي: أعلى اليسار ، أعلى "
+#~ "الوسط ، أعلى اليمين ، أسفل اليسار ، أسفل الوسط ، أسفل اليمين."

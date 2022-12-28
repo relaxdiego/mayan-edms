@@ -2,25 +2,27 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:37+0000\n"
 "Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/teams/13584/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/"
+"teams/13584/pt_BR/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
-#: apps.py:34 apps.py:74 layers.py:15 permissions.py:5
+#: apps.py:34 apps.py:74 layers.py:15 permissions.py:6
 msgid "Redactions"
 msgstr "Supressões"
 
@@ -36,23 +38,23 @@ msgstr ""
 "As supressões permitem remover o acesso a informações confidenciais e "
 "sensíveis sem a necessidade de modificar o documento."
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new redactions"
 msgstr "Criar novas supressões"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete redactions"
 msgstr "Excluir supressões"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit redactions"
 msgstr "Editar supressões"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Exclude redactions"
 msgstr "Excluir supressões"
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "View existing redactions"
 msgstr "Ver supressões existentes"
 

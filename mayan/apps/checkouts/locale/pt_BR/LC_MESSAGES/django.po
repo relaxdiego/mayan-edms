@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatica@protonmail.com>, 2022
@@ -10,42 +10,44 @@
 # Aline Freitas <aline@alinefreitas.com.br>, 2022
 # Márcia Ferreira, 2022
 # Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/teams/13584/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/"
+"teams/13584/pt_BR/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
-#: apps.py:41 events.py:5 links.py:33
+#: apps.py:41 events.py:6 links.py:33
 msgid "Checkouts"
 msgstr "Retiradas"
 
-#: dashboard_widgets.py:14 views.py:183
+#: dashboard_widgets.py:14 views.py:185
 msgid "Checked out documents"
 msgstr "Documentos retirados"
 
-#: events.py:8
+#: events.py:10
 msgid "Document automatically checked in"
 msgstr "Documento devolvido automaticamente"
 
-#: events.py:12
+#: events.py:14
 msgid "Document checked in"
 msgstr "Documento devolvido"
 
-#: events.py:15
+#: events.py:17
 msgid "Document checked out"
 msgstr "Documento retirado"
 
-#: events.py:18
+#: events.py:20
 msgid "Document forcefully checked in"
 msgstr "Documento devolvido forçosamente"
 
@@ -61,7 +63,7 @@ msgstr "Documento já foi retirado"
 msgid "Document status"
 msgstr "Status do documento"
 
-#: forms.py:37 models.py:47 models.py:127
+#: forms.py:37 model_mixins.py:9 models.py:46 serializers.py:20
 msgid "User"
 msgstr "Usuário"
 
@@ -113,7 +115,15 @@ msgstr "Retirado"
 msgid "Checked in/available"
 msgstr "Devolvido/disponível"
 
-#: models.py:34
+#: model_mixins.py:14
+msgid "Checkout time and date"
+msgstr "Data e hora da retirada"
+
+#: model_mixins.py:19
+msgid "Checkout expiration"
+msgstr "Expiração da retirada"
+
+#: models.py:34 serializers.py:17
 msgid "Document"
 msgstr "Documento"
 
@@ -125,51 +135,43 @@ msgstr "Data e hora da retirada"
 msgid "Amount of time to hold the document checked out in minutes."
 msgstr "Tempo para manter o documento retirado em minutos."
 
-#: models.py:43
+#: models.py:42
 msgid "Check out expiration date and time"
 msgstr "Data e hora da expiração da retirada."
 
-#: models.py:52
+#: models.py:50
 msgid "Do not allow new file of this document to be uploaded."
 msgstr "Não permitir que nova versão deste documento seja submetida."
 
-#: models.py:54
+#: models.py:51
 msgid "Block new file upload"
 msgstr "Bloquear submissão de novos ficheiros."
 
-#: models.py:62 permissions.py:5
+#: models.py:59 permissions.py:6
 msgid "Document checkout"
 msgstr "Reserva de documentos"
 
-#: models.py:63
+#: models.py:60
 msgid "Document checkouts"
 msgstr "Retiradas de documentos"
 
-#: models.py:71
+#: models.py:69
 msgid "Check out expiration date and time must be in the future."
 msgstr "Data e hora da expiração da retirada deve ser no futuro."
 
-#: models.py:132
-msgid "Checkout time and date"
-msgstr "Data e hora da retirada"
-
-#: models.py:137
-msgid "Checkout expiration"
-msgstr "Expiração da retirada"
-
-#: permissions.py:8
+#: permissions.py:10
 msgid "Check in documents"
 msgstr "Devolver documentos"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Forcefully check in documents"
 msgstr "Devolver documentos forçosamente"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Check out documents"
 msgstr "Retirar documentos"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Check out details view"
 msgstr "Detalhes da retirada"
 
@@ -181,9 +183,19 @@ msgstr "Retiradas periódicas"
 msgid "Check expired checkouts"
 msgstr "Verificar retiradas expiradas"
 
-#: serializers.py:39
+#: serializers.py:26
+msgid "URL"
+msgstr ""
+
+#: serializers.py:44
 msgid "Primary key of the document to be checked out."
 msgstr "Chave primária do documento que será retirado."
+
+#: serializers.py:45
+#, fuzzy
+#| msgid "Document"
+msgid "Document PK"
+msgstr "Documento"
 
 #: views.py:28
 #, python-format
@@ -192,33 +204,33 @@ msgstr "Erro ao devolver documento \"%(instance)s\"; %(exception)s"
 
 #: views.py:32
 #, python-format
+msgid "%(count)d documents checked in successfully."
+msgstr "%(count)d documentos devolvidos com sucesso."
+
+#: views.py:35
+#, python-format
 msgid "Document \"%(object)s\" checked in successfully."
 msgstr "Documento \"%(object)s\" devolvidos com sucesso"
 
-#: views.py:35
+#: views.py:38
 #, python-format
 msgid "%(count)d document checked in successfully."
 msgstr "%(count)d documento devolvido com sucesso."
 
-#: views.py:38
-#, python-format
-msgid "%(count)d documents checked in successfully."
-msgstr "%(count)d documentos devolvidos com sucesso."
-
 #: views.py:40
+#, python-format
+msgid "Check in %(count)d documents."
+msgstr "Devolver %(count)d documentos."
+
+#: views.py:41
 #, python-format
 msgid "Check in document \"%(object)s\"."
 msgstr "Devolver documento %(object)s."
 
-#: views.py:41
+#: views.py:42
 #, python-format
 msgid "Check in %(count)d document."
 msgstr "Devolver %(count)d documento."
-
-#: views.py:42
-#, python-format
-msgid "Check in %(count)d documents."
-msgstr "Devolver %(count)d documentos."
 
 #: views.py:95
 #, python-format
@@ -227,32 +239,32 @@ msgstr "Erro ao requisitar documento \"%(instance)s \"; %(exception)s"
 
 #: views.py:102
 #, python-format
+msgid "%(count)d documents checked out successfully."
+msgstr "%(count)d documentos requisitados com sucesso."
+
+#: views.py:105
+#, python-format
 msgid "Document \"%(object)s\" checked out successfully."
 msgstr "Documento \" 1%(object)s \" requisitado com sucesso."
 
-#: views.py:105
+#: views.py:108
 #, python-format
 msgid "%(count)d document checked out successfully."
 msgstr "%(count)d documento requisitado com sucesso."
 
-#: views.py:108
-#, python-format
-msgid "%(count)d documents checked out successfully."
-msgstr "%(count)d documentos requisitados com sucesso."
-
 #: views.py:110
+#, python-format
+msgid "Checkout %(count)d documents."
+msgstr "Requisitar %(count)d documentos"
+
+#: views.py:111
 #, python-format
 msgid "Checkout document \"%(object)s\"."
 msgstr "Requisitar documento \" %(object)s \""
 
-#: views.py:111
-#, python-format
-msgid "Checkout %(count)d document."
-msgstr "Requisitar %(count)d documentos"
-
 #: views.py:112
 #, python-format
-msgid "Checkout %(count)d documents."
+msgid "Checkout %(count)d document."
 msgstr "Requisitar %(count)d documentos"
 
 #: views.py:160
@@ -260,7 +272,7 @@ msgstr "Requisitar %(count)d documentos"
 msgid "Check out details for document: %s"
 msgstr "Detalhes da retirada para o documento: %s "
 
-#: views.py:179
+#: views.py:181
 msgid ""
 "Checking out a document, blocks certain operations for a predetermined "
 "amount of time."
@@ -268,10 +280,10 @@ msgstr ""
 "Retirar um documento bloqueia certas operações por uma quantidade de tempo "
 "predeterminada."
 
-#: views.py:182
+#: views.py:184
 msgid "No documents have been checked out"
 msgstr "Nenhum documento foi retirado."
 
-#: widgets.py:23
+#: widgets.py:20
 msgid "Amount"
 msgstr "Montante"

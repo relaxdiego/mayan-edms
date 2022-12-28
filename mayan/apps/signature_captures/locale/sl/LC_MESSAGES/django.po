@@ -2,26 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # Jože Detečnik <joze.detecnik@3tav.si>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
-#: apps.py:41 events.py:6 links.py:34 models.py:83 permissions.py:6
+#: apps.py:41 events.py:6 links.py:34 models.py:71 permissions.py:6
 #: settings.py:13
 msgid "Signature captures"
 msgstr "Zajem podpisa"
@@ -58,47 +60,51 @@ msgstr "Izbriši"
 msgid "Edit"
 msgstr "Uredi"
 
-#: models.py:39
+#: model_mixins.py:89
+msgid "Creation date and time"
+msgstr "Datum in čas ustvarjanja"
+
+#: models.py:27
 msgid "Document"
 msgstr "Dokument"
 
-#: models.py:43
+#: models.py:31
 msgid "Data representing the handwritten signature."
 msgstr "Podatek, ki predstavlja lastnoročni podpis."
 
-#: models.py:44
+#: models.py:32
 msgid "Signature capture data"
 msgstr "Podatki za zajem podpisa"
 
-#: models.py:48
+#: models.py:36
 msgid "Vector representation of the handwritten signature."
 msgstr "Vektorski prikaz lastnoročnega podpisa."
 
-#: models.py:49
+#: models.py:37
 msgid "SVG signature capture data"
 msgstr "Podatki za zajem podpisa SVG"
 
-#: models.py:52
+#: models.py:40
 msgid "Print version of the captured signature."
 msgstr "Tiskana različica zajetega podpisa."
 
-#: models.py:53
+#: models.py:41
 msgid "Text"
 msgstr "Besedilo"
 
-#: models.py:57
+#: models.py:45
 msgid "User"
 msgstr "Uporabnik"
 
-#: models.py:61
+#: models.py:49
 msgid "Date and time created"
 msgstr "Datum in ura ustvarjenega"
 
-#: models.py:65
+#: models.py:53
 msgid "Date and time edited"
 msgstr "Datum in ura urejena"
 
-#: models.py:69
+#: models.py:57
 msgid ""
 "This value will be used when referencing this signature capture in "
 "relationship to the document. Can only contain letters, numbers, and "
@@ -107,17 +113,13 @@ msgstr ""
 "Ta vrednost bo uporabljena pri sklicevanju na ta zajem podpisa v zvezi z "
 "dokumentom. Vsebuje lahko samo črke, številke in podčrtaje."
 
-#: models.py:73 transformations.py:40
+#: models.py:61 transformations.py:40
 msgid "Internal name"
 msgstr "Interno ime"
 
-#: models.py:82
+#: models.py:70
 msgid "Signature capture"
 msgstr "Zajem podpisa"
-
-#: models.py:167
-msgid "Creation date and time"
-msgstr "Datum in čas ustvarjanja"
 
 #: permissions.py:10
 msgid "Create signature captures"
@@ -171,19 +173,32 @@ msgstr "Priimek uporabnika"
 msgid "User username"
 msgstr "Uporabniško uporabniško ime"
 
+#: serializers.py:11
+#, fuzzy
+#| msgid "Document"
+msgid "Document URL"
+msgstr "Dokument"
+
+#: serializers.py:15
+msgid "Image URL"
+msgstr ""
+
+#: serializers.py:27
+msgid "URL"
+msgstr ""
+
 #: settings.py:21
 msgid ""
 "The threshold at which the "
 "SIGNATURE_CAPTURES_SIGNATURE_CAPTURE_CACHE_STORAGE_BACKEND will start "
-"deleting the oldest signature capture cache files. Specify the size in "
-"bytes."
+"deleting the oldest signature capture cache files. Specify the size in bytes."
 msgstr ""
 "Prag, pri katerem bo "
 "SIGNATURE_CAPTURES_SIGNATURE_CAPTURE_CACHE_STORAGE_BACKEND začel brisati "
-"najstarejše datoteke predpomnilnika za zajemanje podpisov. Določite velikost"
-" v bajtih."
+"najstarejše datoteke predpomnilnika za zajemanje podpisov. Določite velikost "
+"v bajtih."
 
-#: settings.py:29
+#: settings.py:30
 msgid ""
 "Path to the Storage subclass to use when storing the cached signature "
 "capture files."
@@ -191,7 +206,7 @@ msgstr ""
 "Pot do podrazreda Storage za uporabo pri shranjevanju predpomnjenih datotek "
 "za zajemanje podpisov."
 
-#: settings.py:37
+#: settings.py:38
 msgid ""
 "Arguments to pass to the "
 "SIGNATURE_CAPTURES_SIGNATURE_CAPTURE_CACHE_STORAGE_BACKEND."
@@ -201,8 +216,8 @@ msgstr ""
 
 #: storages.py:15
 msgid ""
-"Unable to initialize the converter signature capture cachestorage. Check the"
-" settings {} and {} for formatting errors."
+"Unable to initialize the converter signature capture cachestorage. Check the "
+"settings {} and {} for formatting errors."
 msgstr ""
 "Ni mogoče inicializirati predpomnilnika za zajemanje podpisov pretvornika. "
 "Preverite nastavitve {} in {} za napake pri oblikovanju."
@@ -243,17 +258,17 @@ msgstr "Podrobnosti o: %s"
 msgid "Edit document signature capture: %s"
 msgstr "Uredite zajem podpisa dokumenta: %s"
 
-#: views.py:144
+#: views.py:145
 msgid ""
 "Signature captures are electronic versions of a persons's handwritten "
 "signature."
 msgstr "Zajem podpisov je elektronska različica lastnoročnega podpisa osebe."
 
-#: views.py:147
+#: views.py:148
 msgid "Document has no signature captures"
 msgstr "Dokument nima zajetja podpisa"
 
-#: views.py:150
+#: views.py:151
 #, python-format
 msgid "Signature captures for document: %s"
 msgstr "Zajem podpisa za dokument: %s"

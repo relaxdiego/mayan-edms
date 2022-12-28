@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
@@ -10,42 +10,43 @@
 # Mathias Behrle <mathiasb@m9s.biz>, 2022
 # Marvin Haschker <marvin@haschker.me>, 2022
 # Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
+"teams/13584/de_DE/)\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:41 events.py:5 links.py:33
+#: apps.py:41 events.py:6 links.py:33
 msgid "Checkouts"
 msgstr "Ausbuchungen"
 
-#: dashboard_widgets.py:14 views.py:183
+#: dashboard_widgets.py:14 views.py:185
 msgid "Checked out documents"
 msgstr "Ausgebuchte Dokumente"
 
-#: events.py:8
+#: events.py:10
 msgid "Document automatically checked in"
 msgstr "Dokument automatisch eingebucht"
 
-#: events.py:12
+#: events.py:14
 msgid "Document checked in"
 msgstr "Dokument eingebucht"
 
-#: events.py:15
+#: events.py:17
 msgid "Document checked out"
 msgstr "Dokument ausgebucht"
 
-#: events.py:18
+#: events.py:20
 msgid "Document forcefully checked in"
 msgstr "Dokument zwingend eingebucht"
 
@@ -61,7 +62,7 @@ msgstr "Dokument bereits ausgebucht."
 msgid "Document status"
 msgstr "Dokumentenstatus"
 
-#: forms.py:37 models.py:47 models.py:127
+#: forms.py:37 model_mixins.py:9 models.py:46 serializers.py:20
 msgid "User"
 msgstr "Benutzer"
 
@@ -113,7 +114,15 @@ msgstr "Ausgebucht"
 msgid "Checked in/available"
 msgstr "Eingebucht/Verfügbar"
 
-#: models.py:34
+#: model_mixins.py:14
+msgid "Checkout time and date"
+msgstr "Ausbuchungszeit"
+
+#: model_mixins.py:19
+msgid "Checkout expiration"
+msgstr "Ausbuchungsende"
+
+#: models.py:34 serializers.py:17
 msgid "Document"
 msgstr "Dokument"
 
@@ -125,51 +134,43 @@ msgstr "Ausbuchungszeit"
 msgid "Amount of time to hold the document checked out in minutes."
 msgstr "Zeitdauer, die das Dokument ausgebucht bleiben soll."
 
-#: models.py:43
+#: models.py:42
 msgid "Check out expiration date and time"
 msgstr "Ausbuchungsende"
 
-#: models.py:52
+#: models.py:50
 msgid "Do not allow new file of this document to be uploaded."
 msgstr ""
 
-#: models.py:54
+#: models.py:51
 msgid "Block new file upload"
 msgstr "Hochladen neuer Dateien sperren"
 
-#: models.py:62 permissions.py:5
+#: models.py:59 permissions.py:6
 msgid "Document checkout"
 msgstr "Ausbuchung"
 
-#: models.py:63
+#: models.py:60
 msgid "Document checkouts"
 msgstr "Ausbuchungen"
 
-#: models.py:71
+#: models.py:69
 msgid "Check out expiration date and time must be in the future."
 msgstr "Ausbuchungsende muss in der Zukunft liegen."
 
-#: models.py:132
-msgid "Checkout time and date"
-msgstr "Ausbuchungszeit"
-
-#: models.py:137
-msgid "Checkout expiration"
-msgstr "Ausbuchungsende"
-
-#: permissions.py:8
+#: permissions.py:10
 msgid "Check in documents"
 msgstr "Dokumente einbuchen"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Forcefully check in documents"
 msgstr "Dokumente zwingend einbuchen"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Check out documents"
 msgstr "Dokumente ausbuchen"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Check out details view"
 msgstr "Ansicht der Ausbuchungsdetails"
 
@@ -181,9 +182,19 @@ msgstr "Ausbuchungen regelmäßig"
 msgid "Check expired checkouts"
 msgstr "Prüfe abgelaufene Ausbuchungen"
 
-#: serializers.py:39
+#: serializers.py:26
+msgid "URL"
+msgstr ""
+
+#: serializers.py:44
 msgid "Primary key of the document to be checked out."
 msgstr "Primärschlüssel des auszubuchenden Dokuments."
+
+#: serializers.py:45
+#, fuzzy
+#| msgid "Document"
+msgid "Document PK"
+msgstr "Dokument"
 
 #: views.py:28
 #, python-format
@@ -192,32 +203,32 @@ msgstr ""
 
 #: views.py:32
 #, python-format
-msgid "Document \"%(object)s\" checked in successfully."
+msgid "%(count)d documents checked in successfully."
 msgstr ""
 
 #: views.py:35
 #, python-format
-msgid "%(count)d document checked in successfully."
+msgid "Document \"%(object)s\" checked in successfully."
 msgstr ""
 
 #: views.py:38
 #, python-format
-msgid "%(count)d documents checked in successfully."
+msgid "%(count)d document checked in successfully."
 msgstr ""
 
 #: views.py:40
 #, python-format
-msgid "Check in document \"%(object)s\"."
+msgid "Check in %(count)d documents."
 msgstr ""
 
 #: views.py:41
 #, python-format
-msgid "Check in %(count)d document."
+msgid "Check in document \"%(object)s\"."
 msgstr ""
 
 #: views.py:42
 #, python-format
-msgid "Check in %(count)d documents."
+msgid "Check in %(count)d document."
 msgstr ""
 
 #: views.py:95
@@ -227,32 +238,32 @@ msgstr ""
 
 #: views.py:102
 #, python-format
-msgid "Document \"%(object)s\" checked out successfully."
+msgid "%(count)d documents checked out successfully."
 msgstr ""
 
 #: views.py:105
 #, python-format
-msgid "%(count)d document checked out successfully."
+msgid "Document \"%(object)s\" checked out successfully."
 msgstr ""
 
 #: views.py:108
 #, python-format
-msgid "%(count)d documents checked out successfully."
+msgid "%(count)d document checked out successfully."
 msgstr ""
 
 #: views.py:110
 #, python-format
-msgid "Checkout document \"%(object)s\"."
+msgid "Checkout %(count)d documents."
 msgstr ""
 
 #: views.py:111
 #, python-format
-msgid "Checkout %(count)d document."
+msgid "Checkout document \"%(object)s\"."
 msgstr ""
 
 #: views.py:112
 #, python-format
-msgid "Checkout %(count)d documents."
+msgid "Checkout %(count)d document."
 msgstr ""
 
 #: views.py:160
@@ -260,18 +271,18 @@ msgstr ""
 msgid "Check out details for document: %s"
 msgstr "Ausbuchungsdetails für Dokument %s"
 
-#: views.py:179
+#: views.py:181
 msgid ""
 "Checking out a document, blocks certain operations for a predetermined "
 "amount of time."
 msgstr ""
-"Durch Ausbuchen eines Dokuments werden bestimmte Vorgänge für eine bestimmte"
-" Zeitspanne gesperrt."
+"Durch Ausbuchen eines Dokuments werden bestimmte Vorgänge für eine bestimmte "
+"Zeitspanne gesperrt."
 
-#: views.py:182
+#: views.py:184
 msgid "No documents have been checked out"
 msgstr "Keine Dokumente ausgebucht"
 
-#: widgets.py:23
+#: widgets.py:20
 msgid "Amount"
 msgstr "Anzahl"

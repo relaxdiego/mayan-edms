@@ -1,46 +1,46 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # René Rovsing Bach <reroba@outlook.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: René Rovsing Bach <reroba@outlook.com>, 2022\n"
 "Language-Team: Danish (https://www.transifex.com/rosarior/teams/13584/da/)\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:41 events.py:5 links.py:33
+#: apps.py:41 events.py:6 links.py:33
 msgid "Checkouts"
 msgstr ""
 
-#: dashboard_widgets.py:14 views.py:183
+#: dashboard_widgets.py:14 views.py:185
 msgid "Checked out documents"
 msgstr ""
 
-#: events.py:8
+#: events.py:10
 msgid "Document automatically checked in"
 msgstr ""
 
-#: events.py:12
+#: events.py:14
 msgid "Document checked in"
 msgstr ""
 
-#: events.py:15
+#: events.py:17
 msgid "Document checked out"
 msgstr ""
 
-#: events.py:18
+#: events.py:20
 msgid "Document forcefully checked in"
 msgstr ""
 
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Document status"
 msgstr ""
 
-#: forms.py:37 models.py:47 models.py:127
+#: forms.py:37 model_mixins.py:9 models.py:46 serializers.py:20
 msgid "User"
 msgstr "Bruger"
 
@@ -108,7 +108,15 @@ msgstr ""
 msgid "Checked in/available"
 msgstr ""
 
-#: models.py:34
+#: model_mixins.py:14
+msgid "Checkout time and date"
+msgstr ""
+
+#: model_mixins.py:19
+msgid "Checkout expiration"
+msgstr ""
+
+#: models.py:34 serializers.py:17
 msgid "Document"
 msgstr ""
 
@@ -120,51 +128,43 @@ msgstr ""
 msgid "Amount of time to hold the document checked out in minutes."
 msgstr ""
 
-#: models.py:43
+#: models.py:42
 msgid "Check out expiration date and time"
 msgstr ""
 
-#: models.py:52
+#: models.py:50
 msgid "Do not allow new file of this document to be uploaded."
 msgstr ""
 
-#: models.py:54
+#: models.py:51
 msgid "Block new file upload"
 msgstr ""
 
-#: models.py:62 permissions.py:5
+#: models.py:59 permissions.py:6
 msgid "Document checkout"
 msgstr ""
 
-#: models.py:63
+#: models.py:60
 msgid "Document checkouts"
 msgstr ""
 
-#: models.py:71
+#: models.py:69
 msgid "Check out expiration date and time must be in the future."
 msgstr ""
 
-#: models.py:132
-msgid "Checkout time and date"
-msgstr ""
-
-#: models.py:137
-msgid "Checkout expiration"
-msgstr ""
-
-#: permissions.py:8
+#: permissions.py:10
 msgid "Check in documents"
 msgstr ""
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Forcefully check in documents"
 msgstr ""
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Check out documents"
 msgstr ""
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Check out details view"
 msgstr ""
 
@@ -176,8 +176,16 @@ msgstr ""
 msgid "Check expired checkouts"
 msgstr ""
 
-#: serializers.py:39
+#: serializers.py:26
+msgid "URL"
+msgstr ""
+
+#: serializers.py:44
 msgid "Primary key of the document to be checked out."
+msgstr ""
+
+#: serializers.py:45
+msgid "Document PK"
 msgstr ""
 
 #: views.py:28
@@ -187,32 +195,32 @@ msgstr ""
 
 #: views.py:32
 #, python-format
-msgid "Document \"%(object)s\" checked in successfully."
+msgid "%(count)d documents checked in successfully."
 msgstr ""
 
 #: views.py:35
 #, python-format
-msgid "%(count)d document checked in successfully."
+msgid "Document \"%(object)s\" checked in successfully."
 msgstr ""
 
 #: views.py:38
 #, python-format
-msgid "%(count)d documents checked in successfully."
+msgid "%(count)d document checked in successfully."
 msgstr ""
 
 #: views.py:40
 #, python-format
-msgid "Check in document \"%(object)s\"."
+msgid "Check in %(count)d documents."
 msgstr ""
 
 #: views.py:41
 #, python-format
-msgid "Check in %(count)d document."
+msgid "Check in document \"%(object)s\"."
 msgstr ""
 
 #: views.py:42
 #, python-format
-msgid "Check in %(count)d documents."
+msgid "Check in %(count)d document."
 msgstr ""
 
 #: views.py:95
@@ -222,32 +230,32 @@ msgstr ""
 
 #: views.py:102
 #, python-format
-msgid "Document \"%(object)s\" checked out successfully."
+msgid "%(count)d documents checked out successfully."
 msgstr ""
 
 #: views.py:105
 #, python-format
-msgid "%(count)d document checked out successfully."
+msgid "Document \"%(object)s\" checked out successfully."
 msgstr ""
 
 #: views.py:108
 #, python-format
-msgid "%(count)d documents checked out successfully."
+msgid "%(count)d document checked out successfully."
 msgstr ""
 
 #: views.py:110
 #, python-format
-msgid "Checkout document \"%(object)s\"."
+msgid "Checkout %(count)d documents."
 msgstr ""
 
 #: views.py:111
 #, python-format
-msgid "Checkout %(count)d document."
+msgid "Checkout document \"%(object)s\"."
 msgstr ""
 
 #: views.py:112
 #, python-format
-msgid "Checkout %(count)d documents."
+msgid "Checkout %(count)d document."
 msgstr ""
 
 #: views.py:160
@@ -255,16 +263,16 @@ msgstr ""
 msgid "Check out details for document: %s"
 msgstr ""
 
-#: views.py:179
+#: views.py:181
 msgid ""
 "Checking out a document, blocks certain operations for a predetermined "
 "amount of time."
 msgstr ""
 
-#: views.py:182
+#: views.py:184
 msgid "No documents have been checked out"
 msgstr ""
 
-#: widgets.py:23
+#: widgets.py:20
 msgid "Amount"
 msgstr ""

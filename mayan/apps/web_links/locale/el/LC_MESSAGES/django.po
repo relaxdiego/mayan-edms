@@ -2,31 +2,31 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Hmayag Antonian <hmayag@freemail.gr>, 2022
 # pyrotech <anastasios@tutamail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:39+0000\n"
 "Last-Translator: pyrotech <anastasios@tutamail.com>, 2022\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:40
+#: apps.py:43
 msgid "Links"
 msgstr "Σύνδεσμοι"
 
-#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:42
-#: permissions.py:5 views.py:182
+#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:43
+#: permissions.py:6 views.py:169
 msgid "Web links"
 msgstr "Διαδυκτιακοί σύνδεσμοι"
 
@@ -42,7 +42,7 @@ msgstr "Διαδυκτιακός σύνδεσμος τροποποιήθηκε"
 msgid "Web link navigated"
 msgstr "Πραγματοποιήθηκε πλοήγηση σε διαδυκτιακό σύνδεσμο"
 
-#: links.py:29 views.py:94
+#: links.py:29 views.py:81
 msgid "Create new web link"
 msgstr "Δημιουργία νέου διαδικτυακού συνδέσμου"
 
@@ -50,7 +50,7 @@ msgstr "Δημιουργία νέου διαδικτυακού συνδέσμο�
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: links.py:39 models.py:36
+#: links.py:39 models.py:37
 msgid "Document types"
 msgstr "Τύποι εγγράφων"
 
@@ -62,21 +62,21 @@ msgstr "Τροποποίηση"
 msgid "Navigate"
 msgstr "Πλοήγηση"
 
-#: models.py:24
+#: models.py:23
 msgid "A short text describing the web link."
 msgstr "Σύντομο κείμενο που περιγράφει τον διαδικτυακό σύνδεσμο."
 
-#: models.py:25
+#: models.py:24
 msgid "Label"
 msgstr "Ετικέτα"
 
-#: models.py:29
+#: models.py:28
 msgid "Template that will be used to craft the final URL of the web link."
 msgstr ""
 "Το υπόδειγμα που θα χρησιμοποιηθεί για την δημιουργία του τελικού URL του "
 "διαδικτυακού συνδέσμου."
 
-#: models.py:31
+#: models.py:30
 msgid "Template"
 msgstr "Πρότυπο"
 
@@ -84,27 +84,27 @@ msgstr "Πρότυπο"
 msgid "Enabled"
 msgstr "Ενεργοποιημένο"
 
-#: models.py:41
+#: models.py:42
 msgid "Web link"
 msgstr "Διαδικτυακός σύνδεσμος"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new web links"
 msgstr "Δημιουργία νέων διαδικτυακών συνδέσμων"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete web links"
 msgstr "Διαγραφή διαδικτυακών συνδέσμων"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit web links"
 msgstr "Τροποποίηση διαδικτυακών συνδέσμων"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing web links"
 msgstr "Προβολή υπαρχόντων διαδικτυακών συνδέσμων"
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "View web link instances"
 msgstr "Προβολή στιγμιοτύπων διαδικτυακών συνδέσμων"
 
@@ -112,49 +112,82 @@ msgstr "Προβολή στιγμιοτύπων διαδικτυακών συν�
 msgid "Primary key of the document type to add to the web link."
 msgstr ""
 
+#: serializers.py:17 serializers.py:26
+#, fuzzy
+#| msgid "Document types"
+msgid "Document type ID"
+msgstr "Τύποι εγγράφων"
+
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
 msgstr ""
 
-#: views.py:38
-msgid "Available web links"
-msgstr "Διαθέσιμοι διαδικτυακοί σύνδεσμοι"
+#: serializers.py:33
+#, fuzzy
+#| msgid "Document types"
+msgid "Document types add URL"
+msgstr "Τύποι εγγράφων"
 
-#: views.py:39
+#: serializers.py:37
+#, fuzzy
+#| msgid "Document types enabled"
+msgid "Document types remove URL"
+msgstr "Ενεργοποιημένοι τύποι εγγράφων"
+
+#: serializers.py:41
+#, fuzzy
+#| msgid "Document types"
+msgid "Document types URL"
+msgstr "Τύποι εγγράφων"
+
+#: serializers.py:48 serializers.py:63
+msgid "URL"
+msgstr ""
+
+#: serializers.py:66
+#, fuzzy
+#| msgid "Navigate"
+msgid "Navigation URL"
+msgstr "Πλοήγηση"
+
+#: views.py:32
 msgid "Web links enabled"
 msgstr "Διαδικτυακοί σύνδεσμοι ενεργοποιήθηκαν"
 
-#: views.py:63
+#: views.py:33
+msgid "Available web links"
+msgstr "Διαθέσιμοι διαδικτυακοί σύνδεσμοι"
+
+#: views.py:50
 #, python-format
 msgid "Web links to enable for document type: %s"
 msgstr "Διαδυκτιακοί σύνδεσμοι προς ενεργοποίηση για έγγραφα του τύπου: %s"
 
-#: views.py:116
+#: views.py:103
 #, python-format
 msgid "Delete web link: %s"
 msgstr "Διαγραφή διαδικτυακού συνδέσμου: %s"
 
-#: views.py:128
-msgid "Available document types"
-msgstr "Διαθέσιμοι τύποι εγγράφων"
-
-#: views.py:129
+#: views.py:108
 msgid "Document types enabled"
 msgstr "Ενεργοποιημένοι τύποι εγγράφων"
 
-#: views.py:139
+#: views.py:109
+msgid "Available document types"
+msgstr "Διαθέσιμοι τύποι εγγράφων"
+
+#: views.py:126
 #, python-format
 msgid "Document type for which to enable web link: %s"
 msgstr ""
-"Τύποι εγγράφων για τους οποίους να ενεργοποιηθεί ο διαδικτυακός σύνδεσμος: "
-"%s"
+"Τύποι εγγράφων για τους οποίους να ενεργοποιηθεί ο διαδικτυακός σύνδεσμος: %s"
 
-#: views.py:156
+#: views.py:143
 #, python-format
 msgid "Edit web link: %s"
 msgstr "Τροποποίηση διαδικτυακού συνδέσμου: %s"
 
-#: views.py:175 views.py:205
+#: views.py:162 views.py:192
 msgid ""
 "Web links allow generating HTTP links from documents to external resources. "
 "The link URL's can contain document properties values."
@@ -163,15 +196,15 @@ msgstr ""
 "έγγραφα σε εξωτερικές πηγές. Οι σύνδεσμοι URL μπορούν να περιέχουν τιμές "
 "ιδιοτήτων του εγγράφου."
 
-#: views.py:180
+#: views.py:167
 msgid "There are no web links"
 msgstr "Δεν υπάρχουν διαδικτυακοί σύνδεσμοι"
 
-#: views.py:210
+#: views.py:197
 msgid "There are no web links for this document"
 msgstr "Δεν υπάρχουν διαδικτυακοί σύνδεσμοι για αυτό το έγγραφο"
 
-#: views.py:213
+#: views.py:200
 #, python-format
 msgid "Web links for document: %s"
 msgstr "Διαδικτυακοί σύνδεσμοι για το έγγραφο: %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2020-04-04 05:54+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -18,58 +18,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:26
+#: apps.py:27
 msgid "Dynamic search"
 msgstr ""
 
-#: classes.py:432
-#, python-format
-msgid ""
-"Search backend error. Verify that the search service is available and that "
-"the search syntax is valid for the active search backend; %s"
-msgstr ""
-
-#: classes.py:584
-#, python-format
-msgid "Unknown search model `%s`."
-msgstr ""
-
-#: classes.py:640
-msgid "ID"
-msgstr ""
-
-#: forms.py:9
+#: forms.py:15
 msgid "Match all"
 msgstr ""
 
-#: forms.py:10
-msgid ""
-"When checked, only results that match all fields will be returned. When "
-"unchecked results that match at least one field will be returned."
+#: forms.py:16
+msgid "Return only results that match all fields."
 msgstr ""
 
-#: forms.py:31 templates/dynamic_search/search_box.html:41
+#: forms.py:33 templates/dynamic_search/search_box.html:43
+#: templates/dynamic_search/search_box_toolbar.html:25
 msgid "Search terms"
 msgstr ""
 
-#: links.py:13 permissions.py:5 queues.py:7 settings.py:11
-#: templates/dynamic_search/search_box.html:45 views.py:133 views.py:147
-msgid "Search"
+#: links.py:20
+msgid "Basic search"
 msgstr ""
 
-#: links.py:17 templates/dynamic_search/search_box.html:47 views.py:171
+#: links.py:24 templates/dynamic_search/search_box.html:49
+#: templates/dynamic_search/search_box_toolbar.html:33
 msgid "Advanced search"
 msgstr ""
 
-#: links.py:21
+#: links.py:28
 msgid "Search again"
 msgstr ""
 
-#: links.py:25 views.py:110
+#: links.py:33 views.py:62
 msgid "Reindex search backend"
 msgstr ""
 
-#: permissions.py:8
+#: literals.py:17
+msgid "Yes"
+msgstr ""
+
+#: literals.py:18
+msgid "No"
+msgstr ""
+
+#: permissions.py:6 queues.py:7 settings.py:14
+#: templates/dynamic_search/search_box.html:47
+#: templates/dynamic_search/search_box_toolbar.html:30 views.py:108
+msgid "Search"
+msgstr ""
+
+#: permissions.py:10
 msgid "Execute search tools"
 msgstr ""
 
@@ -98,69 +95,229 @@ msgstr ""
 msgid "Reset the search backend indices and index all instances again."
 msgstr ""
 
-#: settings.py:16
+#: scoped_queries.py:352
+msgid ""
+"Search results exceed limit setting. Results might not be reliable if "
+"multiple scopes are used. Narrow down the search criteria or increase the "
+"value of the results limit setting."
+msgstr ""
+
+#: scoped_queries.py:368
+#, python-format
+msgid ""
+"Search backend error. Verify that the search service is available and that "
+"the search syntax is valid for the active search backend; %s"
+msgstr ""
+
+#: search_fields.py:289
+msgid "ANY"
+msgstr ""
+
+#: search_models.py:42
+#, python-format
+msgid "Unknown search model `%s`."
+msgstr ""
+
+#: search_models.py:108
+msgid "All content"
+msgstr ""
+
+#: search_query_types.py:163
+msgid "Exact"
+msgstr ""
+
+#: search_query_types.py:169
+msgid "Fuzzy"
+msgstr ""
+
+#: search_query_types.py:175
+msgid "Greater than"
+msgstr ""
+
+#: search_query_types.py:181
+msgid "Greater than or equal"
+msgstr ""
+
+#: search_query_types.py:187
+msgid "Less than"
+msgstr ""
+
+#: search_query_types.py:193
+msgid "Less than or equal"
+msgstr ""
+
+#: search_query_types.py:199
+msgid "Partial"
+msgstr ""
+
+#: search_query_types.py:205
+msgid "Range"
+msgstr ""
+
+#: search_query_types.py:240
+msgid "Range exclusive"
+msgstr ""
+
+#: search_query_types.py:246
+msgid "Regular expression"
+msgstr ""
+
+#: serializers.py:14
+msgid "Field name"
+msgstr ""
+
+#: serializers.py:17
+msgid "Label"
+msgstr ""
+
+#: serializers.py:23
+msgid "App label"
+msgstr ""
+
+#: serializers.py:26
+msgid "Model name"
+msgstr ""
+
+#: serializers.py:29
+msgid "Primary key"
+msgstr ""
+
+#: serializers.py:32
+msgid "Search fields"
+msgstr ""
+
+#: settings.py:20
 msgid "Full path to the backend to be used to handle the search."
 msgstr ""
 
-#: settings.py:23
+#: settings.py:27
 msgid ""
 "Arguments to pass to the search backend. For example values to change the "
 "behavior, host names, or authentication arguments."
 msgstr ""
 
-#: settings.py:30
+#: settings.py:36
+msgid "The search operator to use when none is specified."
+msgstr ""
+
+#: settings.py:43
 msgid ""
 "Disables the single term bar search leaving only the advanced search button."
 msgstr ""
 
-#: settings.py:38
+#: settings.py:51
 msgid "Amount of objects to process when performing bulk indexing."
 msgstr ""
 
-#: settings.py:44
+#: settings.py:57
 msgid "Sets the default state of the \"Match all\" checkbox."
 msgstr ""
 
-#: settings.py:48
+#: settings.py:63
+msgid "Hard limit of number search results to fetch and display."
+msgstr ""
+
+#: settings.py:68
 msgid "Maximum number search results to fetch and display."
 msgstr ""
 
-#: templates/dynamic_search/app/list_toolbar.html:13
-msgid "List filter"
+#: templates/dynamic_search/app/list_toolbar.html:17
+msgid "Filter terms"
 msgstr ""
 
-#: templates/dynamic_search/search_box.html:47
+#: templates/dynamic_search/search_box.html:49
+#: templates/dynamic_search/search_box_toolbar.html:33
 msgid "Advanced"
 msgstr ""
 
-#: views.py:48
-msgid "Try again using different terms. "
+#: value_transformations.py:37
+msgid "Replace accents"
 msgstr ""
 
-#: views.py:50
-msgid "No search results"
+#: value_transformations.py:49
+msgid "@ sign replace"
 msgstr ""
 
-#: views.py:52
-#, python-format
-msgid "Search results for: %s"
+#: value_transformations.py:59
+msgid "Case fold"
 msgstr ""
 
-#: views.py:106
+#: value_transformations.py:69 value_transformations.py:79
+msgid "Hyphen replace"
+msgstr ""
+
+#: value_transformations.py:89
+msgid "To boolean"
+msgstr ""
+
+#: value_transformations.py:102
+msgid "To date time"
+msgstr ""
+
+#: value_transformations.py:124
+msgid "Date time ISO format"
+msgstr ""
+
+#: value_transformations.py:134
+msgid "Date time simple format"
+msgstr ""
+
+#: value_transformations.py:144
+msgid "Date time timestamp format"
+msgstr ""
+
+#: value_transformations.py:158
+msgid "To integer"
+msgstr ""
+
+#: value_transformations.py:168
+msgid "To string"
+msgstr ""
+
+#: views.py:59
+msgid "This tool erases and populates the search backend's internal index."
+msgstr ""
+
+#: views.py:69
 msgid ""
 "This tool is required only for some search backends. Search results will be "
 "affected while the backend is being reindexed."
 msgstr ""
 
-#: views.py:112
-msgid "This tool erases and populates the search backend's internal index."
+#: views.py:75
+msgid ""
+"The currently selected search backend does not support or required "
+"reindexing."
 msgstr ""
 
-#: views.py:126
+#: views.py:88
 msgid "Search backend reindexing queued."
 msgstr ""
 
-#: views.py:149
+#: views.py:110
 #, python-format
 msgid "Search for: %s"
+msgstr ""
+
+#: views.py:139
+#, python-format
+msgid "Advanced search for: %s"
+msgstr ""
+
+#: views.py:174
+msgid "Try again using different terms. "
+msgstr ""
+
+#: views.py:176
+msgid "No search results"
+msgstr ""
+
+#: views.py:179
+#, python-format
+msgid "Search query: %s"
+msgstr ""
+
+#: views.py:181
+#, python-format
+msgid "Search results for: %s"
 msgstr ""

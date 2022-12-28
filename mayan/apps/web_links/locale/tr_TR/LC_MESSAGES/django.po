@@ -2,32 +2,33 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # serhatcan77 <serhat_can@yahoo.com>, 2022
 # abc Def <hdogan1974@gmail.com>, 2022
 # Bedreddin Şahbaz, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:39+0000\n"
 "Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
+"teams/13584/tr_TR/)\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps.py:40
+#: apps.py:43
 msgid "Links"
 msgstr "Bağlantılar"
 
-#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:42
-#: permissions.py:5 views.py:182
+#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:43
+#: permissions.py:6 views.py:169
 msgid "Web links"
 msgstr "Web bağlantıları"
 
@@ -43,7 +44,7 @@ msgstr "Web bağlantısı düzenlendi"
 msgid "Web link navigated"
 msgstr "Web bağlantısında gezinildi"
 
-#: links.py:29 views.py:94
+#: links.py:29 views.py:81
 msgid "Create new web link"
 msgstr "Yeni web bağlantısı oluştur"
 
@@ -51,7 +52,7 @@ msgstr "Yeni web bağlantısı oluştur"
 msgid "Delete"
 msgstr "Sil"
 
-#: links.py:39 models.py:36
+#: links.py:39 models.py:37
 msgid "Document types"
 msgstr "Belge türleri"
 
@@ -63,19 +64,19 @@ msgstr "Düzenle"
 msgid "Navigate"
 msgstr "Gezinti"
 
-#: models.py:24
+#: models.py:23
 msgid "A short text describing the web link."
 msgstr "Web bağlantısını açıklayan kısa bir metin."
 
-#: models.py:25
+#: models.py:24
 msgid "Label"
 msgstr "Etiket"
 
-#: models.py:29
+#: models.py:28
 msgid "Template that will be used to craft the final URL of the web link."
 msgstr "Web bağlantısının nihai URL'sini oluşturmak için kullanılacak şablon."
 
-#: models.py:31
+#: models.py:30
 msgid "Template"
 msgstr "Şablon"
 
@@ -83,27 +84,27 @@ msgstr "Şablon"
 msgid "Enabled"
 msgstr "Etkin"
 
-#: models.py:41
+#: models.py:42
 msgid "Web link"
 msgstr "Web bağlantısı"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new web links"
 msgstr "Yeni web bağlantıları oluştur"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete web links"
 msgstr "Web bağlantılarını sil"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit web links"
 msgstr "Web bağlantılarını düzenle"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing web links"
 msgstr "Mevcut web bağlantılarını görüntüle"
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "View web link instances"
 msgstr "Web bağlantısı örneklerini görüntüleyin"
 
@@ -111,47 +112,81 @@ msgstr "Web bağlantısı örneklerini görüntüleyin"
 msgid "Primary key of the document type to add to the web link."
 msgstr "Web bağlantısına eklenecek belge türünün birincil anahtarı."
 
+#: serializers.py:17 serializers.py:26
+#, fuzzy
+#| msgid "Document types"
+msgid "Document type ID"
+msgstr "Belge türleri"
+
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
 msgstr "Web bağlantısından kaldırılacak belge türünün birincil anahtarı."
 
-#: views.py:38
-msgid "Available web links"
-msgstr "Kullanılabilir web bağlantıları"
+#: serializers.py:33
+#, fuzzy
+#| msgid "Document types"
+msgid "Document types add URL"
+msgstr "Belge türleri"
 
-#: views.py:39
+#: serializers.py:37
+#, fuzzy
+#| msgid "Document types enabled"
+msgid "Document types remove URL"
+msgstr "Belge türleri etkinleştirildi"
+
+#: serializers.py:41
+#, fuzzy
+#| msgid "Document types"
+msgid "Document types URL"
+msgstr "Belge türleri"
+
+#: serializers.py:48 serializers.py:63
+msgid "URL"
+msgstr ""
+
+#: serializers.py:66
+#, fuzzy
+#| msgid "Navigate"
+msgid "Navigation URL"
+msgstr "Gezinti"
+
+#: views.py:32
 msgid "Web links enabled"
 msgstr "Web bağlantıları etkinleştirildi"
 
-#: views.py:63
+#: views.py:33
+msgid "Available web links"
+msgstr "Kullanılabilir web bağlantıları"
+
+#: views.py:50
 #, python-format
 msgid "Web links to enable for document type: %s"
 msgstr "Belge türünü etkinleştirmek için web bağlantıları: %s"
 
-#: views.py:116
+#: views.py:103
 #, python-format
 msgid "Delete web link: %s"
 msgstr "Şu web bağlantısını sil: %s"
 
-#: views.py:128
-msgid "Available document types"
-msgstr "Kullanılabilir belge türleri"
-
-#: views.py:129
+#: views.py:108
 msgid "Document types enabled"
 msgstr "Belge türleri etkinleştirildi"
 
-#: views.py:139
+#: views.py:109
+msgid "Available document types"
+msgstr "Kullanılabilir belge türleri"
+
+#: views.py:126
 #, python-format
 msgid "Document type for which to enable web link: %s"
 msgstr "Web bağlantısının etkinleştirileceği belge türü: %s"
 
-#: views.py:156
+#: views.py:143
 #, python-format
 msgid "Edit web link: %s"
 msgstr "Web bağlantısını düzenleyin: %s"
 
-#: views.py:175 views.py:205
+#: views.py:162 views.py:192
 msgid ""
 "Web links allow generating HTTP links from documents to external resources. "
 "The link URL's can contain document properties values."
@@ -160,15 +195,15 @@ msgstr ""
 "oluşturmaya izin verir. Bağlantı URL'leri, belge özellikleri değerleri "
 "içerebilir."
 
-#: views.py:180
+#: views.py:167
 msgid "There are no web links"
 msgstr "Web bağlantıları yok"
 
-#: views.py:210
+#: views.py:197
 msgid "There are no web links for this document"
 msgstr "Bu belge için web bağlantısı yok"
 
-#: views.py:213
+#: views.py:200
 #, python-format
 msgid "Web links for document: %s"
 msgstr "Bu belge için web bağlantıları: %s"

@@ -1,27 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Marwan Rahhal <Marwanr@sssit.net>, 2022
 # Mohammed ALDOUB <voulnet@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:37+0000\n"
 "Last-Translator: Mohammed ALDOUB <voulnet@gmail.com>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: apps.py:55 events.py:5 links.py:54 links.py:80 permissions.py:5 queues.py:6
+#: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
 #: search.py:18 settings.py:11
 msgid "OCR"
 msgstr "نص الوثيقة"
@@ -38,35 +39,35 @@ msgstr "منشئ يعيد محتوى صفحات نص الوثيقة"
 msgid "OCR content"
 msgstr "محتوى التعرف الضوئي على الحروف"
 
-#: backends/tesseract.py:86
+#: backends/tesseract.py:84
 msgid "Tesseract OCR not found."
 msgstr "لم يتم العثور على المطلوب"
 
-#: dependencies.py:23
+#: dependencies.py:24
 msgid "Free Open Source OCR Engine"
 msgstr "النص التلقائي "
 
-#: events.py:8
+#: events.py:10
 msgid "Document version OCR content deleted"
 msgstr ""
 
-#: events.py:12
+#: events.py:14
 msgid "Document version page OCR content edited"
 msgstr ""
 
-#: events.py:16
+#: events.py:18
 msgid "Document version submitted for OCR"
 msgstr "إرسال نص الوثيقة "
 
-#: events.py:20
+#: events.py:22
 msgid "Document version OCR finished"
 msgstr "الإصدار النهائي لنص الوثيقة"
 
-#: forms.py:14 forms.py:43 forms.py:63
+#: forms.py:13 forms.py:44 forms.py:64
 msgid "Contents"
 msgstr "المحتويات"
 
-#: forms.py:94
+#: forms.py:99
 #, python-format
 msgid "Page %(page_number)d"
 msgstr "الصفحة %(page_number)d"
@@ -95,13 +96,19 @@ msgstr "اعتماد نص الوثيقة"
 msgid "Edit OCR"
 msgstr ""
 
-#: models.py:23
+#: models.py:22
 msgid "Document type"
 msgstr "نوع الوثيقة"
 
-#: models.py:27
+#: models.py:26
 msgid "Automatically queue newly created documents for OCR."
 msgstr "التحويل التلقائي للوثيقة الى نص "
+
+#: models.py:27
+#, fuzzy
+#| msgid "Submit for OCR"
+msgid "Auto OCR"
+msgstr "اعتماد نص الوثيقة"
 
 #: models.py:33
 msgid "Document type settings"
@@ -131,19 +138,19 @@ msgstr ""
 msgid "Document version pages OCR contents"
 msgstr ""
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Submit documents for OCR"
 msgstr "ارسال نص الوثيقة"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Edit the transcribed text from document"
 msgstr ""
 
-#: permissions.py:15
+#: permissions.py:17
 msgid "View the transcribed text from document"
 msgstr "عرض النص المكتوب من المستند"
 
-#: permissions.py:19
+#: permissions.py:21
 msgid "Change document type OCR settings"
 msgstr "تغيير إعدادات نوع نص الوثيقة"
 
@@ -163,11 +170,11 @@ msgstr ""
 msgid "Document version OCR"
 msgstr "نسخة نص الوثيقة"
 
-#: settings.py:17
+#: settings.py:18
 msgid "Set new document types to perform OCR automatically by default."
 msgstr "التحويل التلقائي الى النص بعد إنشاء وثائق جديدة"
 
-#: settings.py:22
+#: settings.py:23
 msgid "Full path to the backend to be used to do OCR."
 msgstr ""
 "المسار الكامل للواجهة الخلفية لاستخدامه للقيام بالتعرف الضوئي على الحروف."
@@ -193,32 +200,32 @@ msgstr ""
 
 #: views.py:112
 #, python-format
-msgid "OCR content of \"%(object)s\" deleted successfully."
+msgid "OCR content of %(count)d document versions deleted successfully."
 msgstr ""
 
 #: views.py:115
 #, python-format
-msgid "OCR content of %(count)d document version deleted successfully."
+msgid "OCR content of \"%(object)s\" deleted successfully."
 msgstr ""
 
 #: views.py:118
 #, python-format
-msgid "OCR content of %(count)d document versions deleted successfully."
+msgid "OCR content of %(count)d document version deleted successfully."
 msgstr ""
 
-#: views.py:120
+#: views.py:121
+#, python-format
+msgid "Delete the OCR content of the %(count)d selected document versions."
+msgstr ""
+
+#: views.py:123
 #, python-format
 msgid "Delete the OCR content of: %(object)s."
 msgstr ""
 
-#: views.py:122
-#, python-format
-msgid "Delete the OCR content of the %(count)d selected document version."
-msgstr ""
-
 #: views.py:125
 #, python-format
-msgid "Delete the OCR content of the %(count)d selected document versions."
+msgid "Delete the OCR content of the %(count)d selected document version."
 msgstr ""
 
 #: views.py:156
@@ -269,9 +276,9 @@ msgid ""
 "any other value is considered to be the logical true."
 msgstr ""
 "الشرط الذي سيحدد ما إذا كان سيتم تعديل محتوى OCR لصفحة المستند أم لا. يتم "
-"تقييم الشرط مقابل صفحة المستند المتكرر. تعتبر الشروط التي لا تُرجع أي قيمة ،"
-" أو التي تُرجع قيمة Python المنطقية ، أو سلسلة فارغة (&#39;&#39;) خطأ "
-"منطقيًا ، وتعتبر أي قيمة أخرى هي الحقيقة المنطقية."
+"تقييم الشرط مقابل صفحة المستند المتكرر. تعتبر الشروط التي لا تُرجع أي قيمة ، "
+"أو التي تُرجع قيمة Python المنطقية ، أو سلسلة فارغة (&#39;&#39;) خطأ منطقيًا ، "
+"وتعتبر أي قيمة أخرى هي الحقيقة المنطقية."
 
 #: workflow_actions.py:31
 msgid "Page content"

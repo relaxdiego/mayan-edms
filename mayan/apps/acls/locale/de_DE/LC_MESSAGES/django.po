@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # tetjarediske <tetja.rediske@googlemail.com>, 2022
@@ -11,22 +11,23 @@
 # Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
 # Mathias Behrle <mathiasb@m9s.biz>, 2022
 # Marvin Haschker <marvin@haschker.me>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
 "Last-Translator: Marvin Haschker <marvin@haschker.me>, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
+"teams/13584/de_DE/)\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:26 classes.py:182 links.py:27
+#: apps.py:26 classes.py:200 links.py:27
 msgid "ACLs"
 msgstr "Zugriffsberechtigungen"
 
@@ -40,7 +41,7 @@ msgstr ""
 msgid "Object"
 msgstr "Objekt"
 
-#: events.py:6 permissions.py:5
+#: events.py:6 permissions.py:6
 msgid "Access control lists"
 msgstr "Zugriffsberechtigungen"
 
@@ -56,7 +57,7 @@ msgstr "Zugriffsberechtigung gelöscht"
 msgid "ACL edited"
 msgstr "Zugriffsberechtigung bearbeitet"
 
-#: forms.py:13 models.py:51 views.py:71
+#: forms.py:13 models.py:56 serializers.py:79 views.py:73
 msgid "Role"
 msgstr "Rolle"
 
@@ -68,7 +69,7 @@ msgstr "Neue Berechtigung"
 msgid "Delete"
 msgstr "Löschen"
 
-#: links.py:32 models.py:45 workflow_actions.py:46 workflow_actions.py:159
+#: links.py:32 models.py:50 workflow_actions.py:46 workflow_actions.py:166
 msgid "Permissions"
 msgstr "Berechtigungen"
 
@@ -76,48 +77,98 @@ msgstr "Berechtigungen"
 msgid "Global ACLs"
 msgstr "Globale Zugriffsberechtigungen"
 
-#: managers.py:243
+#: managers.py:267
 #, python-format
 msgid "Object \"%s\" is not a model and cannot be checked for access."
 msgstr ""
 "Objekt \"%s\" ist kein Modell und kann nicht auf Zugriffsberechtigungen "
 "überprüft werden."
 
-#: managers.py:263
+#: managers.py:287
 #, python-format
 msgid "Insufficient access for: %s"
 msgstr "Unzureichende Berechtigung für: %s"
 
-#: models.py:49
+#: model_mixins.py:23
+#, fuzzy
+#| msgid "Permissions"
+msgid "Permission count"
+msgstr "Berechtigungen"
+
+#: models.py:40 serializers.py:16
+#, fuzzy
+#| msgid "Object type"
+msgid "Content type"
+msgstr "Objekttyp"
+
+#: models.py:43 workflow_actions.py:32
+msgid "Object ID"
+msgstr "Objekt ID"
+
+#: models.py:54
 msgid "Role to which the access is granted for the specified object."
 msgstr ""
 
-#: models.py:59
+#: models.py:64
 msgid "Access entry"
 msgstr "Berechtigungseintrag"
 
-#: models.py:60
+#: models.py:65
 msgid "Access entries"
 msgstr "Berechtigungseinträge"
 
-#: models.py:64
+#: models.py:69
 #, python-format
 msgid "Role \"%(role)s\" permission's for \"%(object)s\""
 msgstr "Berechtigungen von Rolle \"%(role)s\" für \"%(object)s\""
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Edit ACLs"
 msgstr "Zugriffsberechtigungen bearbeiten"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "View ACLs"
 msgstr "Zugriffsberechtigungen anzeigen"
 
-#: serializers.py:116
+#: serializers.py:19
+#, fuzzy
+#| msgid "Permissions"
+msgid "Permissions add URL"
+msgstr "Berechtigungen"
+
+#: serializers.py:39
+#, fuzzy
+#| msgid "Permissions"
+msgid "Permissions remove URL"
+msgstr "Berechtigungen"
+
+#: serializers.py:59
+#, fuzzy
+#| msgid "Permissions"
+msgid "Permissions URL"
+msgstr "Berechtigungen"
+
+#: serializers.py:82
+#, fuzzy
+#| msgid "Role"
+msgid "Role ID"
+msgstr "Rolle"
+
+#: serializers.py:85
+msgid "URL"
+msgstr ""
+
+#: serializers.py:118
 msgid "Primary key of the permission to add to the ACL."
 msgstr ""
 
-#: serializers.py:123
+#: serializers.py:119 serializers.py:126
+#, fuzzy
+#| msgid "Permissions"
+msgid "Permission ID"
+msgstr "Berechtigungen"
+
+#: serializers.py:125
 msgid "Primary key of the permission to remove from the ACL."
 msgstr ""
 
@@ -130,50 +181,50 @@ msgstr ""
 "Eine Zugriffsberechtigung für \"%(object)s\" über die Rolle \"%(role)s\" "
 "existiert bereits. Bearbeiten Sie bitte den bestehenden Eintrag."
 
-#: views.py:57
+#: views.py:59
 #, python-format
 msgid "New access control lists for: %s"
 msgstr "Neue Zugriffsberechtigunglisten für %s"
 
-#: views.py:101
+#: views.py:103
 #, python-format
 msgid "Delete ACL: %s"
 msgstr "Zugriffsberechtigung \"%s\" löschen"
 
-#: views.py:147
+#: views.py:149
 msgid "There are no ACLs for this object"
 msgstr "Keine Zugriffsberechtigungen für dieses Objekt verfügbar"
 
-#: views.py:150 views.py:269
+#: views.py:152 views.py:272
 msgid ""
 "ACL stands for Access Control List and is a precise method to control user "
 "access to objects in the system. ACLs allow granting a permission to a role "
 "but only for a specific object or set of objects."
 msgstr ""
-"Über Zugriffsberechtigungen wird der Zugriff von Benutzern zu Systemobjekten"
-" kontrolliert. Dadurch können einzelne Berechtigungen einer bestimmten Rolle"
-" zugewiesen werden, jedoch nur für ein bestimmtes Objekt oder einer Menge "
-"von Objekten. "
+"Über Zugriffsberechtigungen wird der Zugriff von Benutzern zu Systemobjekten "
+"kontrolliert. Dadurch können einzelne Berechtigungen einer bestimmten Rolle "
+"zugewiesen werden, jedoch nur für ein bestimmtes Objekt oder einer Menge von "
+"Objekten. "
 
-#: views.py:157
+#: views.py:159
 #, python-format
 msgid "Access control lists for: %s"
 msgstr "Zugriffsberechtigungen für %s"
 
-#: views.py:171
+#: views.py:168
 msgid "Granted permissions"
 msgstr "Erteilte Berechtigungen"
 
-#: views.py:172
+#: views.py:169
 msgid "Available permissions"
 msgstr "Verfügbare Berechtigungen"
 
-#: views.py:217
+#: views.py:219
 #, python-format
 msgid "Role \"%(role)s\" permission's for \"%(object)s\"."
 msgstr "Berechtigungen von Rolle \"%(role)s\" für \"%(object)s\"."
 
-#: views.py:226
+#: views.py:228
 msgid ""
 "Disabled permissions are inherited from a parent object or directly granted "
 "to the role and can't be removed from this view. Inherited permissions need "
@@ -186,11 +237,11 @@ msgstr ""
 "übergeordneten Objekt oder für die Rolle über das Einrichtungsmenü "
 "eingestellt werden."
 
-#: views.py:266
+#: views.py:269
 msgid "There are no ACLs"
 msgstr "Keine Zugriffsberechtigungen vorhanden"
 
-#: views.py:275
+#: views.py:278
 msgid "Global access control lists"
 msgstr "Globale Zugriffsberechtigungen"
 
@@ -202,24 +253,19 @@ msgstr "Objekttyp"
 msgid "Type of the object for which the access will be modified."
 msgstr "Objekttyp für den der Zugang bearbeitet wird."
 
-#: workflow_actions.py:32
-msgid "Object ID"
-msgstr "Objekt ID"
-
 #: workflow_actions.py:35
-msgid ""
-"Numeric identifier of the object for which the access will be modified."
+msgid "Numeric identifier of the object for which the access will be modified."
 msgstr "Numerischer Identifikator des Objekts"
 
-#: workflow_actions.py:40 workflow_actions.py:153
+#: workflow_actions.py:40 workflow_actions.py:160
 msgid "Roles"
 msgstr "Rollen"
 
-#: workflow_actions.py:42 workflow_actions.py:155
+#: workflow_actions.py:42 workflow_actions.py:162
 msgid "Roles whose access will be modified."
 msgstr "Rollen deren Zugang bearbeitet wird."
 
-#: workflow_actions.py:49 workflow_actions.py:162
+#: workflow_actions.py:49 workflow_actions.py:169
 msgid ""
 "Permissions to grant/revoke to/from the role for the object selected above."
 msgstr ""
@@ -230,14 +276,14 @@ msgstr ""
 msgid "Grant object access"
 msgstr "Objektzugriff gewähren"
 
-#: workflow_actions.py:138
+#: workflow_actions.py:145
 msgid "Revoke object access"
 msgstr "Objektzugriff entziehen"
 
-#: workflow_actions.py:170
+#: workflow_actions.py:177
 msgid "Grant document access"
 msgstr "Dokumentenzugriff gewähren"
 
-#: workflow_actions.py:209
+#: workflow_actions.py:218
 msgid "Revoke document access"
 msgstr "Dokumentenzugriff entziehen"

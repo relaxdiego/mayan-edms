@@ -2,25 +2,26 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Thierry Schott <DarkDare@users.noreply.github.com>, 2022
 # Roberto Rosario, 2022
 # Frédéric Sheedy <sheedf@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
 "Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:23 events.py:6
 msgid "Authentication OTP"
@@ -42,19 +43,19 @@ msgstr "Le jeton n'est pas valide ou a expiré."
 msgid "TOTP token"
 msgstr "Jeton TOTP"
 
-#: forms.py:84
+#: forms.py:86
 msgid "OTP enabled?"
 msgstr "OTP activé?"
 
-#: forms.py:85
+#: forms.py:87
 msgid "Yes"
 msgstr "Oui"
 
-#: forms.py:85
+#: forms.py:87
 msgid "No"
 msgstr "Non"
 
-#: forms.py:102
+#: forms.py:104
 msgid ""
 "Scan the QR code or enter the secret in your authentication device. Do not "
 "share this secret, treat it like a password."
@@ -63,22 +64,22 @@ msgstr ""
 "d'authentification. Ne partagez pas ce secret, traitez-le comme un mot de "
 "passe."
 
-#: forms.py:104 forms.py:109
+#: forms.py:106 forms.py:111
 msgid "Secret"
 msgstr "Secret"
 
-#: forms.py:115
+#: forms.py:117
 msgid ""
 "Enter the corresponding token to validate that the secret was saved correct."
 msgstr ""
 "Entrez le jeton correspondant pour valider que le secret a été enregistré "
 "correctement."
 
-#: forms.py:118
+#: forms.py:120
 msgid "Token"
 msgstr "Jeton"
 
-#: forms.py:152
+#: forms.py:155
 msgid "Token is incorrect for the specified secret."
 msgstr "Le jeton est incorrect pour le secret spécifié."
 

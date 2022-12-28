@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2020-01-31 04:43+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -31,27 +31,103 @@ msgstr ""
 msgid "API Documentation (Swagger)"
 msgstr ""
 
-#: links.py:27
+#: links.py:26
 msgid "API Documentation (ReDoc)"
 msgstr ""
 
-#: relations.py:84
-msgid "This field is required."
-msgstr ""
-
-#: relations.py:85
+#: relations.py:33
 #, python-brace-format
 msgid "Invalid pk \"{pk_value}\" - object does not exist."
 msgstr ""
 
-#: relations.py:86
+#: relations.py:36
 #, python-brace-format
 msgid "Incorrect type. Expected pk value, received {data_type}."
+msgstr ""
+
+#: relations.py:38
+msgid "This field is required."
 msgstr ""
 
 #: schemas.py:11
 #, python-format
 msgid "%s API"
+msgstr ""
+
+#: serializers.py:37
+msgid "Content"
+msgstr ""
+
+#: serializers.py:40
+msgid "Data"
+msgstr ""
+
+#: serializers.py:43
+msgid "Headers"
+msgstr ""
+
+#: serializers.py:46
+msgid "Name"
+msgstr ""
+
+#: serializers.py:49
+msgid "Status code"
+msgstr ""
+
+#: serializers.py:52
+msgid "Requests"
+msgstr ""
+
+#: serializers.py:75
+msgid "Label"
+msgstr ""
+
+#: serializers.py:78
+msgid "URL"
+msgstr ""
+
+#: serializers.py:106
+msgid "Author"
+msgstr ""
+
+#: serializers.py:109
+msgid "Author email"
+msgstr ""
+
+#: serializers.py:112
+msgid "Build"
+msgstr ""
+
+#: serializers.py:115
+msgid "Build string"
+msgstr ""
+
+#: serializers.py:118
+msgid "Copyright"
+msgstr ""
+
+#: serializers.py:121
+msgid "Description"
+msgstr ""
+
+#: serializers.py:124
+msgid "Django version"
+msgstr ""
+
+#: serializers.py:127
+msgid "License"
+msgstr ""
+
+#: serializers.py:130
+msgid "Title"
+msgstr ""
+
+#: serializers.py:133
+msgid "Version"
+msgstr ""
+
+#: serializers.py:136
+msgid "Website"
 msgstr ""
 
 #: settings.py:17

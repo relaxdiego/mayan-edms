@@ -1,26 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Alex Chigrin <chalex84@mail.ru>, 2022
 # lilo.panic, 2022
 # Ilya Pavlov <spirkaa@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:35+0000\n"
 "Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: apps.py:28 apps.py:54 links.py:14 queues.py:9
 msgid "Duplicates"
@@ -42,7 +44,7 @@ msgstr "Точная контрольная сумма файла докумен
 msgid "Exact document label"
 msgstr "Точный заголовок документа"
 
-#: links.py:18 models.py:41 views.py:79
+#: links.py:18 models.py:37 views.py:79
 msgid "Duplicated documents"
 msgstr "Дубликаты документов"
 
@@ -50,23 +52,23 @@ msgstr "Дубликаты документов"
 msgid "Duplicated document scan"
 msgstr "Поиск дубликатов документов"
 
-#: models.py:23 models.py:33
+#: models.py:19 models.py:29
 msgid "Stored duplicate backend"
 msgstr "Сохраненный бэкэнд дубликата"
 
-#: models.py:24
+#: models.py:20
 msgid "Stored duplicate backends"
 msgstr "Сохраненные бэкэнды дубликата"
 
-#: models.py:37
+#: models.py:33
 msgid "Document"
 msgstr "Документ"
 
-#: models.py:49
+#: models.py:45
 msgid "Duplicated backend entry"
 msgstr "Дубликат"
 
-#: models.py:50
+#: models.py:46
 msgid "Duplicated backend entries"
 msgstr "Дубликаты"
 
@@ -94,8 +96,8 @@ msgstr "Дубликаты документа: %s"
 #: views.py:70
 msgid ""
 "Duplicates are documents that are composed of the exact same file, down to "
-"the last byte. Files that have the same text or OCR but are not identical or"
-" were saved using a different file format will not appear as duplicates."
+"the last byte. Files that have the same text or OCR but are not identical or "
+"were saved using a different file format will not appear as duplicates."
 msgstr ""
 "Дубликаты документа - это одинаковые файлы, вплоть до последнего байта. "
 "Файлы, имеющие один и тот же текст или распознанное содержимое, но "

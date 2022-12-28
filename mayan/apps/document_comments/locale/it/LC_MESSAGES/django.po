@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Marco Camplese <marco.camplese.mc@gmail.com>, 2022
@@ -9,20 +9,21 @@
 # Roberto Rosario, 2022
 # Daniele Bortoluzzi <daniele@elkos.it>, 2022
 # Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
 #: apps.py:32 events.py:6 search.py:19 search.py:26 search.py:33 search.py:40
 msgid "Document comments"
@@ -52,79 +53,83 @@ msgstr "Cancella"
 msgid "Edit"
 msgstr "Modifica"
 
-#: links.py:31 models.py:46 permissions.py:5 search.py:12
+#: links.py:31 models.py:47 permissions.py:6 search.py:12
 msgid "Comments"
 msgstr "Commenti "
 
-#: models.py:30
-msgid "Document"
-msgstr "Documento"
-
-#: models.py:34 models.py:71
+#: model_mixins.py:10 models.py:33
 msgid "User"
 msgstr "Utente"
+
+#: models.py:29
+msgid "Document"
+msgstr "Documento"
 
 #: models.py:36
 msgid "Text"
 msgstr "Testo"
 
-#: models.py:39
+#: models.py:40
 msgid "Date time submitted"
 msgstr "Data e ora di invio"
 
-#: models.py:45
+#: models.py:46
 msgid "Comment"
 msgstr "Commento"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new comments"
 msgstr "Crea nuovo commento"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete comments"
 msgstr "Cancella commenti"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit comments"
 msgstr "Modifica commenti"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View comments"
 msgstr "Visualizza commenti"
 
-#: views.py:35
+#: serializers.py:12
+msgid "URL"
+msgstr ""
+
+#: views.py:37
 #, python-format
 msgid "Add comment to document: %s"
 msgstr "Aggiungi un comento al documento: %s"
 
-#: views.py:64
+#: views.py:67
 #, python-format
 msgid "Delete comment: %s?"
 msgstr "Cancellare il commento: %s?"
 
-#: views.py:96
+#: views.py:99
 #, python-format
 msgid "Details for comment: %s?"
 msgstr "Dettagli del commento: %s?"
 
-#: views.py:116
+#: views.py:119
 #, python-format
 msgid "Edit comment: %s?"
 msgstr "Modifica commento: %s?"
 
-#: views.py:152
+#: views.py:158
 msgid ""
 "Document comments are timestamped text entries from users. They are great "
 "for collaboration."
 msgstr ""
-"I commenti al documento sono dei testi con data e ora da parte degli utenti."
-" Sono ottimi per la collaborazione."
+"I commenti al documento sono dei testi con data e ora da parte degli utenti. "
+"Sono ottimi per la collaborazione."
 
-#: views.py:155
+#: views.py:161
 msgid "There are no comments"
 msgstr "Non ci sono commenti"
 
-#: views.py:157
+#: views.py:163
 #, python-format
 msgid "Comments for document: %s"
 msgstr "Commenti al documento: %s"

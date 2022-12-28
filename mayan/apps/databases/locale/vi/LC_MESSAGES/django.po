@@ -2,37 +2,38 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Language-Team: Vietnamese (https://www.transifex.com/rosarior/teams/13584/vi/)\n"
+"Language-Team: Vietnamese (https://www.transifex.com/rosarior/teams/13584/"
+"vi/)\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps.py:16
 msgid "Databases"
 msgstr ""
 
-#: classes.py:199
+#: classes.py:205
 msgid "Model fields"
 msgstr ""
 
-#: classes.py:242
+#: classes.py:253
 msgid "Model related fields"
 msgstr ""
 
-#: classes.py:247
+#: classes.py:258
 msgid "Model properties"
 msgstr ""
 
-#: classes.py:252
+#: classes.py:263
 msgid "Model reverse fields"
 msgstr ""
 

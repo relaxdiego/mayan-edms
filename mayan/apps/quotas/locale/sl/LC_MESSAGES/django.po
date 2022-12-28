@@ -2,27 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # Jože Detečnik <joze.detecnik@3tav.si>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:37+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
-#: apps.py:33 events.py:6 links.py:34 models.py:38 permissions.py:5
-#: views.py:144
+#: apps.py:33 events.py:6 links.py:34 models.py:31 permissions.py:6
+#: views.py:150
 msgid "Quotas"
 msgstr "Kvote"
 
@@ -30,11 +32,11 @@ msgstr "Kvote"
 msgid "none"
 msgstr "nič"
 
-#: classes.py:151
+#: classes.py:159
 msgid "Does not apply"
 msgstr "Ne velja"
 
-#: classes.py:155 classes.py:159
+#: classes.py:163 classes.py:167
 msgid "Null backend"
 msgstr "Null backend"
 
@@ -46,7 +48,7 @@ msgstr "Kvota ustvarjena"
 msgid "Quota edited"
 msgstr "Kvota urejena"
 
-#: forms.py:15 models.py:63
+#: forms.py:15 model_mixins.py:16
 msgid "Backend"
 msgstr "Zaledje"
 
@@ -138,55 +140,55 @@ msgstr "vsi uporabniki"
 msgid "groups: %(groups)s, users: %(users)s"
 msgstr "skupine: %(groups)s, uporabniki: %(users)s"
 
-#: models.py:23
-msgid "The dotted Python path to the backend class."
-msgstr "Pikčasta pot Python do zalednega razreda."
-
-#: models.py:24
-msgid "Backend path"
-msgstr "Zaledna pot"
-
-#: models.py:27
-msgid "Backend data"
-msgstr "Zaledni podatki"
-
-#: models.py:31
-msgid "Allow quick disable or enable of the quota."
-msgstr "Dovoli hitro onemogočanje ali omogočanje kvote."
-
-#: models.py:32
-msgid "Enabled"
-msgstr "Omogočeno"
-
-#: models.py:37
-msgid "Quota"
-msgstr "Kvota"
-
-#: models.py:62
+#: model_mixins.py:15
 msgid "Driver used for this quota entry."
 msgstr "Gonilnik, uporabljen za ta vnos kvote."
 
-#: models.py:67
+#: model_mixins.py:20
 msgid "Arguments"
 msgstr "Argumenti"
 
-#: models.py:71
+#: model_mixins.py:24
 msgid "Usage"
 msgstr "Uporaba"
 
-#: permissions.py:8
+#: models.py:16
+msgid "The dotted Python path to the backend class."
+msgstr "Pikčasta pot Python do zalednega razreda."
+
+#: models.py:17
+msgid "Backend path"
+msgstr "Zaledna pot"
+
+#: models.py:20
+msgid "Backend data"
+msgstr "Zaledni podatki"
+
+#: models.py:24
+msgid "Allow quick disable or enable of the quota."
+msgstr "Dovoli hitro onemogočanje ali omogočanje kvote."
+
+#: models.py:25
+msgid "Enabled"
+msgstr "Omogočeno"
+
+#: models.py:30
+msgid "Quota"
+msgstr "Kvota"
+
+#: permissions.py:10
 msgid "Create a quota"
 msgstr "Ustvarite kvoto"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete a quota"
 msgstr "Izbriši kvoto"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit a quota"
 msgstr "Uredite kvoto"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View a quota"
 msgstr "Oglejte si kvoto"
 
@@ -211,20 +213,20 @@ msgstr "Omejitev števila dokumentov"
 msgid "document count: %(document_count)s"
 msgstr "število dokumentov: %(document_count)s"
 
-#: quota_backends.py:181 quota_backends.py:186
-msgid "Document size limit"
-msgstr "Omejitev velikosti dokumenta"
-
-#: quota_backends.py:183
+#: quota_backends.py:182
 msgid "Maximum document size in megabytes (MB)."
 msgstr "Največja velikost dokumenta v megabajtih (MB)."
+
+#: quota_backends.py:183 quota_backends.py:186
+msgid "Document size limit"
+msgstr "Omejitev velikosti dokumenta"
 
 #: quota_backends.py:211
 #, python-format
 msgid "document size: %(formatted_file_size)s"
 msgstr "velikost dokumenta: %(formatted_file_size)s"
 
-#: quota_backends.py:231
+#: quota_backends.py:233
 msgid "Document size quota exceeded."
 msgstr "Kvota velikosti dokumenta je presežena."
 
@@ -232,25 +234,25 @@ msgstr "Kvota velikosti dokumenta je presežena."
 msgid "New quota backend selection"
 msgstr "Nova izbira zaledja kvote"
 
-#: views.py:59
+#: views.py:65
 #, python-format
 msgid "Create a \"%s\" quota"
 msgstr "Ustvarite kvoto &quot;%s&quot;."
 
-#: views.py:92
+#: views.py:98
 #, python-format
 msgid "Delete quota: %s"
 msgstr "Izbriši kvoto: %s"
 
-#: views.py:108
+#: views.py:114
 #, python-format
 msgid "Edit quota: %s"
 msgstr "Uredi kvoto: %s"
 
-#: views.py:141
+#: views.py:147
 msgid "Quotas restrict usage of system resources. "
 msgstr "Kvote omejujejo uporabo sistemskih virov."
 
-#: views.py:143
+#: views.py:149
 msgid "No quotas available"
 msgstr "Kvote niso na voljo"

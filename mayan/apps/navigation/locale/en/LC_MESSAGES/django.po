@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,14 +20,14 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: classes.py:867
+#: classes.py:930
 msgid "Unnamed function"
 msgstr ""
 
-#: templates/navigation/actions_dropdown.html:9
+#: templates/navigation/actions_dropdown.html:5
 msgid "Actions"
 msgstr ""
 
-#: templates/navigation/actions_dropdown.html:12
+#: templates/navigation/actions_dropdown.html:18
 msgid "Toggle Dropdown"
 msgstr ""

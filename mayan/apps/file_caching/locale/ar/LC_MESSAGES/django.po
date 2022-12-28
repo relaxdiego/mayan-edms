@@ -2,27 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
 # Mohammed ALDOUB <voulnet@gmail.com>, 2022
 # Marwan Rahhal <Marwanr@sssit.net>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:35+0000\n"
 "Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: apps.py:26 events.py:6 permissions.py:5 queues.py:8 settings.py:10
+#: apps.py:26 events.py:6 permissions.py:6 queues.py:8 settings.py:11
 msgid "File caching"
 msgstr "الحفظ المؤقت"
 
@@ -42,103 +43,121 @@ msgstr "الغاء الحفظ المؤقت"
 msgid "Cache partition purged"
 msgstr ""
 
-#: links.py:24
+#: links.py:26
 msgid "File caches"
 msgstr "تخزين مؤقت"
 
-#: links.py:29 links.py:35 links.py:39
+#: links.py:31 links.py:37 links.py:41
 msgid "Purge cache"
 msgstr "ازالة التخزين المؤقت"
 
-#: models.py:41
-msgid "Internal name of the defined storage for this cache."
-msgstr "تعريف الذاكرة المؤقتة"
-
-#: models.py:42
-msgid "Defined storage name"
-msgstr "التخزين المحدد"
-
-#: models.py:45
-msgid "Maximum size of the cache in bytes."
-msgstr "الحد الأقصى لملف التخزين المؤقت"
-
-#: models.py:47 models.py:74
-msgid "Maximum size"
-msgstr "أكبر حجم للملف"
-
-#: models.py:52 models.py:207
-msgid "Cache"
-msgstr "ملف مؤقت"
-
-#: models.py:53
-msgid "Caches"
-msgstr "الملفات المؤقتة"
-
-#: models.py:72
+#: model_mixins.py:45
 msgid "Size at which the cache will start deleting old entries."
 msgstr "الحجم الإفتراضي لملف التخزين المؤقت"
 
-#: models.py:81
+#: model_mixins.py:47 models.py:27
+msgid "Maximum size"
+msgstr "أكبر حجم للملف"
+
+#: model_mixins.py:54
 msgid "Unknown"
 msgstr "غير معرف"
 
-#: models.py:98 models.py:312
+#: model_mixins.py:64
+msgid "Partition count"
+msgstr ""
+
+#: model_mixins.py:65
+msgid "Total cached objects."
+msgstr ""
+
+#: model_mixins.py:70
+#, fuzzy
+#| msgid "Cache partition file"
+msgid "Partition file count"
+msgstr "قسم الذاكرة المؤقتة"
+
+#: model_mixins.py:71
+msgid "Total cached files."
+msgstr ""
+
+#: model_mixins.py:88 model_mixins.py:274
 msgid "Current size"
 msgstr "الحجم الحالي"
 
-#: models.py:99
+#: model_mixins.py:89
 msgid "Current size of the cache."
 msgstr "الحجم الحالي للملف المؤقت"
 
-#: models.py:210
-msgid "Name"
-msgstr "اسم"
-
-#: models.py:215 models.py:332
-msgid "Cache partition"
-msgstr "تقسيم الملف المؤقت"
-
-#: models.py:216
-msgid "Cache partitions"
-msgstr "تقسيم الملفات المؤقتة"
-
-#: models.py:314
+#: model_mixins.py:276
 msgid "Current size of the cache partition."
 msgstr ""
 
-#: models.py:335
+#: models.py:21
+msgid "Internal name of the defined storage for this cache."
+msgstr "تعريف الذاكرة المؤقتة"
+
+#: models.py:22
+msgid "Defined storage name"
+msgstr "التخزين المحدد"
+
+#: models.py:25
+msgid "Maximum size of the cache in bytes."
+msgstr "الحد الأقصى لملف التخزين المؤقت"
+
+#: models.py:32 models.py:72
+msgid "Cache"
+msgstr "ملف مؤقت"
+
+#: models.py:33
+msgid "Caches"
+msgstr "الملفات المؤقتة"
+
+#: models.py:75
+msgid "Name"
+msgstr "اسم"
+
+#: models.py:80 models.py:103
+msgid "Cache partition"
+msgstr "تقسيم الملف المؤقت"
+
+#: models.py:81
+msgid "Cache partitions"
+msgstr "تقسيم الملفات المؤقتة"
+
+#: models.py:106
 msgid "Date time"
 msgstr "التاريخ والوقت"
 
-#: models.py:337
+#: models.py:109
 msgid "Filename"
 msgstr "اسم الملف"
 
-#: models.py:339
+#: models.py:112
 msgid "File size"
 msgstr "حجم الملف"
 
-#: models.py:343
+#: models.py:116
 msgid "Times this cache partition file has been accessed."
 msgstr ""
 
-#: models.py:350
+#: models.py:123
 msgid "Cache partition file"
 msgstr "قسم الذاكرة المؤقتة"
 
-#: models.py:351
+#: models.py:124
 msgid "Cache partition files"
 msgstr "قسم الملفات المؤقتة"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Purge an object cache"
 msgstr ""
 
-#: permissions.py:11 queues.py:18
+#: permissions.py:14 queues.py:18
 msgid "Purge a file cache"
 msgstr "إزالة ملفات الذاكرة"
 
-#: permissions.py:14
+#: permissions.py:17
 msgid "View a file cache"
 msgstr "إستعراض ملفات الذاكرة المؤقتة"
 
@@ -146,16 +165,16 @@ msgstr "إستعراض ملفات الذاكرة المؤقتة"
 msgid "Purge a file cache partition"
 msgstr ""
 
-#: settings.py:15
+#: settings.py:17
 msgid ""
-"Number of times a cache will retry failed attempts to prune files to free up"
-" space for new a file being requested, before giving up."
+"Number of times a cache will retry failed attempts to prune files to free up "
+"space for new a file being requested, before giving up."
 msgstr ""
 
-#: settings.py:23
+#: settings.py:25
 msgid ""
-"Number of times a cache will attempt to prune files to free up space for new"
-" a file being requested, before giving up."
+"Number of times a cache will attempt to prune files to free up space for new "
+"a file being requested, before giving up."
 msgstr ""
 
 #: views.py:50
@@ -172,26 +191,26 @@ msgstr "حفظ الملفات المؤقتة"
 msgid "Details cache: %s"
 msgstr ""
 
-#: views.py:100
+#: views.py:101
 #, python-format
 msgid "Purge cache partitions of \"%s\"?"
 msgstr ""
 
-#: views.py:116
+#: views.py:118
 msgid "Object cache partitions submitted for purging."
 msgstr ""
 
-#: views.py:125
-#, python-format
-msgid "%(count)d cache submitted for purging."
-msgstr ""
-
-#: views.py:126
+#: views.py:127
 #, python-format
 msgid "%(count)d caches submitted for purging."
 msgstr ""
 
-#: views.py:134
+#: views.py:128
+#, python-format
+msgid "%(count)d cache submitted for purging."
+msgstr ""
+
+#: views.py:136
 msgid "Submit the selected cache for purging?"
 msgid_plural "Submit the selected caches for purging?"
 msgstr[0] ""

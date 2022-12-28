@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2020-08-18 07:14+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -18,29 +18,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:46 apps.py:130 apps.py:134 apps.py:138 apps.py:143 apps.py:147
-#: events.py:5 forms.py:27 links.py:28 menus.py:14 models.py:39
-#: permissions.py:5 views.py:181 workflow_actions.py:18 workflow_actions.py:61
+#: apps.py:46 apps.py:133 apps.py:137 apps.py:141 apps.py:146 apps.py:150
+#: events.py:6 forms.py:27 links.py:28 menus.py:14 models.py:35
+#: permissions.py:6 views.py:180 workflow_actions.py:18 workflow_actions.py:67
 msgid "Tags"
 msgstr ""
 
-#: apps.py:168 models.py:33
+#: apps.py:171 models.py:29
 msgid "Documents"
 msgstr ""
 
-#: events.py:8
+#: events.py:10
 msgid "Tag attached to document"
 msgstr ""
 
-#: events.py:11
+#: events.py:13
 msgid "Tag created"
 msgstr ""
 
-#: events.py:14
+#: events.py:16
 msgid "Tag edited"
 msgstr ""
 
-#: events.py:17
+#: events.py:19
 msgid "Tag removed from document"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Attach tags"
 msgstr ""
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:74
 msgid "Remove tag"
 msgstr ""
 
@@ -72,151 +72,168 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: methods.py:18
+#: methods.py:19
 msgid "Return the tags attached to the document."
 msgstr ""
 
-#: methods.py:20
+#: methods.py:21
 msgid "get_tags()"
 msgstr ""
 
-#: models.py:25
-msgid "A short text used as the tag name."
-msgstr ""
-
-#: models.py:26
-msgid "Label"
-msgstr ""
-
-#: models.py:29
-msgid "The RGB color values for the tag."
-msgstr ""
-
-#: models.py:30
-msgid "Color"
-msgstr ""
-
-#: models.py:38
-msgid "Tag"
-msgstr ""
-
-#: models.py:83
+#: model_mixins.py:63
 msgid "Preview"
 msgstr ""
 
-#: models.py:112
+#: models.py:21
+msgid "A short text used as the tag name."
+msgstr ""
+
+#: models.py:22
+msgid "Label"
+msgstr ""
+
+#: models.py:25
+msgid "The RGB color values for the tag."
+msgstr ""
+
+#: models.py:26
+msgid "Color"
+msgstr ""
+
+#: models.py:34
+msgid "Tag"
+msgstr ""
+
+#: models.py:63
 msgid "Document tag"
 msgstr ""
 
-#: models.py:113 search.py:33 search.py:39 search.py:45 search.py:51
+#: models.py:64 search.py:24 search.py:30 search.py:36 search.py:42
 msgid "Document tags"
 msgstr ""
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new tags"
 msgstr ""
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete tags"
 msgstr ""
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "View tags"
 msgstr ""
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "Edit tags"
 msgstr ""
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "Attach tags to documents"
 msgstr ""
 
-#: permissions.py:23
+#: permissions.py:25
 msgid "Remove tags from documents"
 msgstr ""
 
-#: search.py:24
+#: search.py:15
 msgid "Tag label"
 msgstr ""
 
-#: search.py:27
+#: search.py:18
 msgid "Tag color"
 msgstr ""
 
-#: search.py:65
+#: search.py:56
 msgid "Document type"
 msgstr ""
 
-#: search.py:68
+#: search.py:59
 msgid "Document label"
 msgstr ""
 
-#: search.py:71
+#: search.py:62
 msgid "Document description"
 msgstr ""
 
-#: search.py:74
+#: search.py:65
 msgid "Document UUID"
 msgstr ""
 
-#: search.py:79
+#: search.py:69
 msgid "Document file checksum"
 msgstr ""
 
-#: search.py:82
+#: search.py:72
 msgid "Document file MIME type"
 msgstr ""
 
-#: serializers.py:32
+#: serializers.py:12
+msgid "Documents URL"
+msgstr ""
+
+#: serializers.py:19
+msgid "URL"
+msgstr ""
+
+#: serializers.py:33
 msgid "Primary key of the tag to add to the document."
 msgstr ""
 
-#: serializers.py:40
+#: serializers.py:34 serializers.py:43
+msgid "Tag ID"
+msgstr ""
+
+#: serializers.py:42
 msgid "Primary key of the tag to remove from the document."
 msgstr ""
 
 #: views.py:43
 #, python-format
-msgid "Tags attached to document \"%(object)s\" successfully."
+msgid "Tags attached to %(count)d documents successfully."
 msgstr ""
 
 #: views.py:46
 #, python-format
-msgid "Tags attached to %(count)d document successfully."
+msgid "Tags attached to document \"%(object)s\" successfully."
 msgstr ""
 
 #: views.py:49
 #, python-format
-msgid "Tags attached to %(count)d documents successfully."
+msgid "Tags attached to %(count)d document successfully."
 msgstr ""
 
 #: views.py:51
 #, python-format
-msgid "Attach tags to document: %(object)s"
+msgid "Attach tags to %(count)d documents."
 msgstr ""
 
 #: views.py:52
 #, python-format
-msgid "Attach tags to %(count)d document."
+msgid "Attach tags to document: %(object)s"
 msgstr ""
 
 #: views.py:53
 #, python-format
-msgid "Attach tags to %(count)d documents."
+msgid "Attach tags to %(count)d document."
 msgstr ""
 
-#: views.py:70 wizard_steps.py:27
+#: views.py:70 wizard_steps.py:28
 msgid "Tags to be attached."
 msgstr ""
 
-#: views.py:109
+#: views.py:108
 msgid "Create tag"
 msgstr ""
 
-#: views.py:122
+#: views.py:121
 #, python-format
 msgid "Error deleting tag \"%(instance)s\"; %(exception)s"
+msgstr ""
+
+#: views.py:126
+#, python-format
+msgid "%(count)d tags deleted successfully."
 msgstr ""
 
 #: views.py:127
@@ -231,7 +248,7 @@ msgstr ""
 
 #: views.py:129
 #, python-format
-msgid "%(count)d tags deleted successfully."
+msgid "Delete the %(count)d selected tags"
 msgstr ""
 
 #: views.py:130
@@ -244,27 +261,22 @@ msgstr ""
 msgid "Delete the %(count)d selected tag"
 msgstr ""
 
-#: views.py:132
-#, python-format
-msgid "Delete the %(count)d selected tags"
-msgstr ""
-
-#: views.py:138
+#: views.py:137
 msgid "Will be removed from all documents."
 msgstr ""
 
-#: views.py:154
+#: views.py:153
 #, python-format
 msgid "Edit tag: %s"
 msgstr ""
 
-#: views.py:177
+#: views.py:176
 msgid ""
 "Tags are color coded properties that can be attached or removed from "
 "documents."
 msgstr ""
 
-#: views.py:180
+#: views.py:179
 msgid "No tags available"
 msgstr ""
 
@@ -273,46 +285,46 @@ msgstr ""
 msgid "Documents with the tag: %s"
 msgstr ""
 
-#: views.py:236
+#: views.py:237
 msgid "Document has no tags attached"
 msgstr ""
 
-#: views.py:239
+#: views.py:240
 #, python-format
 msgid "Tags for document: %s"
 msgstr ""
 
-#: views.py:257
-#, python-format
-msgid "Tags removed from document \"%(object)s\" successfully."
-msgstr ""
-
-#: views.py:260
-#, python-format
-msgid "Tags removed from %(count)d document successfully."
-msgstr ""
-
-#: views.py:263
+#: views.py:258
 #, python-format
 msgid "Tags removed from %(count)d documents successfully."
 msgstr ""
 
-#: views.py:265
+#: views.py:261
 #, python-format
-msgid "Remove tags from document: %(object)s"
+msgid "Tags removed from document \"%(object)s\" successfully."
+msgstr ""
+
+#: views.py:264
+#, python-format
+msgid "Tags removed from %(count)d document successfully."
 msgstr ""
 
 #: views.py:266
 #, python-format
-msgid "Remove tags from %(count)d document."
+msgid "Remove tags from %(count)d documents."
 msgstr ""
 
 #: views.py:267
 #, python-format
-msgid "Remove tags from %(count)d documents."
+msgid "Remove tags from document: %(object)s"
 msgstr ""
 
-#: views.py:284
+#: views.py:268
+#, python-format
+msgid "Remove tags from %(count)d document."
+msgstr ""
+
+#: views.py:285
 msgid "Tags to be removed."
 msgstr ""
 
@@ -328,6 +340,6 @@ msgstr ""
 msgid "Attach tag"
 msgstr ""
 
-#: workflow_actions.py:63
+#: workflow_actions.py:69
 msgid "Tags to remove from the document"
 msgstr ""

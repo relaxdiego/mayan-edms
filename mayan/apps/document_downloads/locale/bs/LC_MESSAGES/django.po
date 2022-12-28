@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-25 07:02+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,19 +88,9 @@ msgid ""
 "Unable to queued document \"%(instance)s\" for file download; %(exception)s."
 msgstr ""
 
-#: views.py:32
-#, python-format
-msgid "Operation performed on %(object)s."
-msgstr ""
-
 #: views.py:33
 #, python-format
-msgid "Operation performed on %(count)d object."
-msgstr ""
-
-#: views.py:34
-#, python-format
-msgid "Operation performed on %(count)d objects."
+msgid "%(count)d document files queued for download."
 msgstr ""
 
 #: views.py:36
@@ -113,27 +103,22 @@ msgstr ""
 msgid "%(count)d document file queued for download."
 msgstr ""
 
-#: views.py:42
-#, python-format
-msgid "%(count)d document files queued for download."
-msgstr ""
-
-#: views.py:44
-#, python-format
-msgid "Download files of document: %(object)s"
-msgstr ""
-
-#: views.py:45
-#, python-format
-msgid "Download files of %(count)d document"
-msgstr ""
-
-#: views.py:46
+#: views.py:41
 #, python-format
 msgid "Download files of %(count)d documents"
 msgstr ""
 
-#: views.py:53
+#: views.py:42
+#, python-format
+msgid "Download files of document: %(object)s"
+msgstr ""
+
+#: views.py:43
+#, python-format
+msgid "Download files of %(count)d document"
+msgstr ""
+
+#: views.py:50
 msgid ""
 "The process will be performed in the background. The document files will be "
 "available in the downloads area."

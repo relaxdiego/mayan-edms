@@ -2,35 +2,36 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roberto Rosario, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: Roberto Rosario, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/rosarior/teams/13584/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
-#: apps.py:52 events.py:6 permissions.py:6 settings.py:10
+#: apps.py:51 events.py:6 permissions.py:6 settings.py:11
 msgid "Document parsing"
 msgstr "Extracción de contenido de documentos"
 
-#: apps.py:108
+#: apps.py:107
 msgid "A generator returning the document file's pages parsed content."
 msgstr ""
 "Un generador que devuelve el contenido extraido de las páginas del archivo "
 "del documento."
 
-#: apps.py:109 links.py:26 links.py:49 models.py:23 search.py:11
+#: apps.py:108 links.py:26 links.py:49 models.py:25 search.py:11
 msgid "Content"
 msgstr "Contenido"
 
@@ -83,47 +84,52 @@ msgstr "Configurar extracción de texto"
 msgid "Parse documents per type"
 msgstr "Extracción de contenido por tipo de documento"
 
-#: models.py:17
+#: models.py:19
 msgid "Document file page"
 msgstr "Página de archivo de documento"
 
-#: models.py:21
+#: models.py:23
 msgid "The actual text content as extracted by the document parsing backend."
 msgstr ""
-"El contenido de texto real extraído por el documento que analiza el "
-"servidor."
+"El contenido de texto real extraído por el documento que analiza el servidor."
 
-#: models.py:29
+#: models.py:31
 msgid "Document file page content"
 msgstr "Contenido de la página del archivo de documento"
 
-#: models.py:30
+#: models.py:32
 msgid "Document file page contents"
 msgstr "Contenido de la página del archivo de documento"
 
-#: models.py:42
+#: models.py:44
 msgid "Document type"
 msgstr "Tipo de documento"
 
-#: models.py:46
+#: models.py:48
 msgid "Automatically queue newly created documents for parsing."
 msgstr ""
 "Someter automática de documentos recién creados para extracción de texto."
 
-#: models.py:57
+#: models.py:49
+#, fuzzy
+#| msgid "Submit for parsing"
+msgid "Auto parsing"
+msgstr "Enviar para extracción de contenido"
+
+#: models.py:59
 msgid "Document type settings"
 msgstr "Configuración del tipo de documento"
 
-#: models.py:58
+#: models.py:60
 msgid "Document types settings"
 msgstr "Configuraciones de tipos de documento"
 
-#: parsers.py:94
+#: parsers.py:106
 #, python-format
 msgid "Exception parsing page; %s"
 msgstr "Error extrayendo el contenido de la página: %s "
 
-#: parsers.py:120
+#: parsers.py:132
 #, python-format
 msgid "Cannot find pdftotext executable at: %s"
 msgstr "No se encontró el ejecutable pdftotext en: %s"
@@ -152,16 +158,15 @@ msgstr "Extracción de contenido de archivos de documentos"
 msgid "Document file content"
 msgstr "Contenido del archivo de documento"
 
-#: settings.py:15
+#: settings.py:18
 msgid "Set new document types to perform parsing automatically by default."
 msgstr ""
 "Establezca nuevos tipos de documentos para realizar la extracción de texto "
 "de forma automática de forma predeterminada."
 
-#: settings.py:21
+#: settings.py:24
 msgid ""
-"File path to poppler's pdftotext program used to extract text from PDF "
-"files."
+"File path to poppler's pdftotext program used to extract text from PDF files."
 msgstr ""
 "Ruta de acceso al programa de poppler llamado pdftotext utilizado para "
 "extraer texto de archivos PDF."
@@ -173,63 +178,63 @@ msgstr ""
 "Error eliminando el contenido de la versión del documento \"%(instance)s\"; "
 "%(exception)s"
 
-#: views.py:43
-#, python-format
-msgid "Content of \"%(object)s\" deleted successfully."
-msgstr "El contenido de \"%(object)s\" se eliminó con éxito."
-
-#: views.py:46
-#, python-format
-msgid "Content of %(count)d document version deleted successfully."
-msgstr "El contenido de %(count)d versión del documento se eliminó con éxito."
-
-#: views.py:49
+#: views.py:44
 #, python-format
 msgid "Content of %(count)d document versions deleted successfully."
 msgstr ""
 "El contenido de las %(count)d versiones del documento se eliminó "
 "correctamente."
 
-#: views.py:51
+#: views.py:47
+#, python-format
+msgid "Content of \"%(object)s\" deleted successfully."
+msgstr "El contenido de \"%(object)s\" se eliminó con éxito."
+
+#: views.py:50
+#, python-format
+msgid "Content of %(count)d document version deleted successfully."
+msgstr "El contenido de %(count)d versión del documento se eliminó con éxito."
+
+#: views.py:52
 #, python-format
 msgid "Delete the content of: %(object)s."
 msgstr "Eliminar el contenido de: %(object)s."
 
-#: views.py:53
+#: views.py:54
 #, python-format
 msgid "Delete the content of the %(count)d selected document version."
 msgstr "Eliminar contenido de %(count)d versión de documento seleccionada."
 
-#: views.py:56
+#: views.py:57
 #, python-format
 msgid "Delete the content of the %(count)d selected document versions."
 msgstr ""
 "Eliminar el contenido de las %(count)d versiones de documento seleccionadas."
 
-#: views.py:97
+#: views.py:98
 #, python-format
 msgid "Content for document file: %s"
 msgstr "Contenido del archivo de documento: %s"
 
-#: views.py:119
+#: views.py:120
 #, python-format
 msgid "Content for document file page: %s"
 msgstr "Contenido de la página del archivo del documento: %s"
 
-#: views.py:134
+#: views.py:135
 #, python-format
 msgid "%(count)d document file added to the parsing queue"
 msgstr ""
 "%(count)d archivo de documento agregado a la cola de extracción de contenido"
 
-#: views.py:137
+#: views.py:138
 #, python-format
 msgid "%(count)d documents files added to the parsing queue"
 msgstr ""
 "%(count)d documenta los archivos agregados a la cola de extracción de "
 "contenido"
 
-#: views.py:146
+#: views.py:147
 #, python-format
 msgid "Submit %(count)d document file to the parsing queue?"
 msgid_plural "Submit %(count)d documents files to the parsing queue?"
@@ -237,24 +242,24 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: views.py:159
+#: views.py:160
 #, python-format
 msgid "Submit document file \"%s\" to the parsing queue"
 msgstr ""
 "Enviar el archivo de documento \"%s\" a la cola de extracción de contenido"
 
-#: views.py:187
+#: views.py:190
 #, python-format
 msgid "Edit parsing settings for document type: %s."
 msgstr ""
-"Edite la configuración de extracción de contenido para el tipo de documento:"
-" %s."
+"Edite la configuración de extracción de contenido para el tipo de documento: "
+"%s."
 
-#: views.py:197
+#: views.py:200
 msgid "Submit all documents of a type for parsing"
 msgstr "Enviar todos los documentos de un tipo para extracción de contenido"
 
-#: views.py:219
+#: views.py:222
 #, python-format
 msgid "%(count)d documents added to the parsing queue."
 msgstr "%(count)d documentos agregados a la cola de extracción de contenido."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-11 07:56+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Document exports"
 msgstr ""
 
-#: classes.py:61
+#: classes.py:59
 msgid "Document version export to PDF"
 msgstr ""
 
@@ -55,6 +55,10 @@ msgstr ""
 msgid "Export document versions"
 msgstr ""
 
+#: queues.py:7
+msgid "Export a document version to a PDF"
+msgstr ""
+
 #: views.py:17
 #, python-format
 msgid "Document version \"%(object)s\" export successfully queued."
@@ -72,17 +76,17 @@ msgstr ""
 
 #: views.py:25
 #, python-format
-msgid "Export document version \"%(object)s\"."
+msgid "Export %(count)d document versions."
 msgstr ""
 
 #: views.py:26
 #, python-format
-msgid "Export %(count)d document version."
+msgid "Export document version \"%(object)s\"."
 msgstr ""
 
 #: views.py:27
 #, python-format
-msgid "Export %(count)d document versions."
+msgid "Export %(count)d document version."
 msgstr ""
 
 #: views.py:33

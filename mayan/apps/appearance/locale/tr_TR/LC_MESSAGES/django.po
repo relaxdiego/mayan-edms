@@ -1,29 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Nurgül Özkan <nurgulozkan@hotmail.com>, 2022
 # Caner Başaran <basaran.caner@gmail.com>, 2022
 # serhatcan77 <serhat_can@yahoo.com>, 2022
 # Bedreddin Şahbaz, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
 "Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
+"teams/13584/tr_TR/)\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps.py:57 events.py:5 permissions.py:5 settings.py:10
+#: apps.py:57 events.py:6 permissions.py:6 settings.py:11
 msgid "Appearance"
 msgstr "Görünüm"
 
@@ -75,15 +76,15 @@ msgstr ""
 msgid "URI.js"
 msgstr "URI.js"
 
-#: events.py:8
+#: events.py:10
 msgid "Theme created"
 msgstr "Tema oluşturuldu"
 
-#: events.py:11
+#: events.py:13
 msgid "Theme edited"
 msgstr "Tema düzenlendi"
 
-#: events.py:14
+#: events.py:16
 msgid "User theme edited"
 msgstr ""
 
@@ -145,37 +146,35 @@ msgstr "Kullanıcı teması ayarı"
 msgid "User theme settings"
 msgstr "Kullanıcı teması ayarları"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new themes"
 msgstr "Yeni temalar oluşturun"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete themes"
 msgstr "Temaları sil"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit themes"
 msgstr "Temaları düzenle"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing themes"
 msgstr "Mevcut temaları görüntüle"
 
-#: settings.py:15
+#: settings.py:17
 msgid "Custom HTTP response code for AJAX redirections."
 msgstr ""
 
-#: settings.py:21
+#: settings.py:23
 msgid "Maximum number of characters that will be displayed as the view title."
 msgstr "Görünüm başlığı olarak görüntülenecek maksimum karakter sayısı."
 
-#: settings.py:28
-msgid ""
-"Position where the system message will be displayed. Options are: top-left, "
-"top-center, top-right, bottom-left, bottom-center, bottom-right."
+#: settings.py:33
+msgid "Position where the system messages will be displayed."
 msgstr ""
 
-#: settings.py:36
+#: settings.py:39
 msgid ""
 "Delay in milliseconds after which the menus will be checked for updates."
 msgstr ""
@@ -215,8 +214,7 @@ msgid ""
 "permission to access it."
 msgstr ""
 
-#: templates/500.html:5 templates/500.html:30
-#: templates/appearance/root.html:47
+#: templates/500.html:5 templates/500.html:30 templates/appearance/root.html:47
 msgid "Server error"
 msgstr "Server hatası"
 
@@ -241,7 +239,9 @@ msgid "Contact your system administrator."
 msgstr "Sistem yöneticinize başvurun."
 
 #: templates/500.html:47
-msgid "Check the logs for messages with the tags \"ERROR\", \"CRITICAL\" or \"FATAL\"."
+msgid ""
+"Check the logs for messages with the tags \"ERROR\", \"CRITICAL\" or "
+"\"FATAL\"."
 msgstr ""
 "\"ERROR\", \"CRITICAL\" veya \"FATAL\" etiketli mesajlar için logları "
 "kontrol edin."
@@ -280,7 +280,11 @@ msgstr "Şu lisans altında yayınlandı:"
 #, python-format
 msgid ""
 "\n"
-"                The complete list of changes is available via the <a class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index.html\">Release notes %(icon_documentation)s</a> or the short version <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
+"                The complete list of changes is available via the <a "
+"class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index."
+"html\">Release notes %(icon_documentation)s</a> or the short version <a "
+"class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/"
+"master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
 "            "
 msgstr ""
 
@@ -288,7 +292,9 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"                For questions check the <a class=\"new_window\" href=\"https://docs.mayan-edms.com\">Documentation %(icon_documentation)s</a>.\n"
+"                For questions check the <a class=\"new_window\" "
+"href=\"https://docs.mayan-edms.com\">Documentation %(icon_documentation)s</"
+"a>.\n"
 "            "
 msgstr ""
 
@@ -296,7 +302,11 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"                If you found a bug or have a feature idea, visit the <a class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum %(icon_forum)s</a> or open a ticket in the <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms\">Source code repository %(icon_source_code)s</a>.\n"
+"                If you found a bug or have a feature idea, visit the <a "
+"class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum "
+"%(icon_forum)s</a> or open a ticket in the <a class=\"new_window\" "
+"href=\"https://gitlab.com/mayan-edms/mayan-edms\">Source code repository "
+"%(icon_source_code)s</a>.\n"
 "            "
 msgstr ""
 
@@ -304,7 +314,8 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"                Spread the word. Talk to your friends and colleagues about how awesome %(project_title)s is!\n"
+"                Spread the word. Talk to your friends and colleagues about "
+"how awesome %(project_title)s is!\n"
 "            "
 msgstr ""
 
@@ -354,9 +365,17 @@ msgstr "İptal"
 msgid "Identifier"
 msgstr "Tanımlayıcı"
 
-#: templates/appearance/generic_list_subtemplate.html:134
-msgid "Facets"
-msgstr "Yönler"
+#: templates/appearance/generic_list_subtemplate.html:85
+#: templates/appearance/partials/list_object_facet_links_column.html:8
+#: templates/appearance/partials/list_object_facet_links_column.html:39
+msgid "Views"
+msgstr ""
+
+#: templates/appearance/generic_list_subtemplate.html:91
+#, fuzzy
+#| msgid "Bulk actions"
+msgid "Actions"
+msgstr "Toplu eylemler"
 
 #: templates/appearance/home.html:27
 msgid "Getting started"
@@ -397,24 +416,34 @@ msgstr "Tümünü Seç/Seçme"
 msgid "Toggle list display mode"
 msgstr "Liste görüntüleme modunu değiştir"
 
-#: templates/appearance/partials/list_toolbar.html:63
+#: templates/appearance/partials/list_toolbar.html:31
 msgid ""
 "Select items to activate bulk actions. Use Shift + click to select many."
 msgstr ""
 "Toplu işlemler için işlem yapmak istediğiniz öğeleri seçin. Çoklu seçim "
 "yapmak için Shift + fare sol tuşunu kullanın."
 
-#: templates/appearance/partials/list_toolbar.html:68
+#: templates/appearance/partials/list_toolbar.html:36
 msgid "Bulk actions"
 msgstr "Toplu eylemler"
 
-#: templates/appearance/partials/list_toolbar.html:70
+#: templates/appearance/partials/list_toolbar.html:38
 msgid "Toggle Dropdown"
 msgstr "Açılır Menüyü Aç/Kapat"
 
 #: templates/appearance/partials/no_results.html:18
 msgid "No results"
 msgstr "Sonuç yok"
+
+#: templates/appearance/partials/pagination.html:12
+#: templates/appearance/partials/pagination.html:14
+msgid "Previous page"
+msgstr ""
+
+#: templates/appearance/partials/pagination.html:30
+#: templates/appearance/partials/pagination.html:32
+msgid "Next page"
+msgstr ""
 
 #: templates/appearance/root.html:52
 msgid "Close"
@@ -462,3 +491,6 @@ msgstr ""
 #, python-format
 msgid "Edit theme settings for user: %s"
 msgstr ""
+
+#~ msgid "Facets"
+#~ msgstr "Yönler"

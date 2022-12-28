@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Olivier W, 2022
 # Yves Dubois <ydubois@gmail.com>, 2022
@@ -12,26 +12,27 @@
 # 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2022
 # Thierry Schott <DarkDare@users.noreply.github.com>, 2022
 # Frédéric Sheedy <sheedf@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:36+0000\n"
 "Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
-#: apps.py:23 events.py:5 permissions.py:5 settings.py:10
+#: apps.py:23 events.py:6 permissions.py:6 settings.py:11
 msgid "Logging"
 msgstr "Événements"
 
-#: events.py:8
+#: events.py:10
 msgid "Error log deleted"
 msgstr "Journal des erreurs supprimé"
 
@@ -51,74 +52,90 @@ msgstr "Erreurs"
 msgid "Clear errors"
 msgstr "Effacer les erreurs"
 
-#: models.py:16 models.py:44
-msgid "Internal name"
-msgstr "Nom interne"
-
-#: models.py:21 models.py:41
-msgid "Error log"
-msgstr "Journal d'erreur"
-
-#: models.py:22
-msgid "Error logs"
-msgstr "Journal des erreurs"
-
-#: models.py:31
-msgid "App label"
-msgstr "Étiquette de l'application"
-
-#: models.py:58 models.py:68
-msgid "Error log partition"
-msgstr "Partition du journal des erreurs"
-
-#: models.py:59
-msgid "Error log partitions"
-msgstr "Erreur d'enregistrement d'énévement"
-
-#: models.py:71
-msgid "Date and time"
-msgstr "Date et heure"
-
-#: models.py:73
-msgid "Text"
-msgstr "Texte"
-
-#: models.py:80
-msgid "Error log partition entry"
-msgstr "Entrée de partition du journal des erreurs"
-
-#: models.py:81
-msgid "Error log partition entries"
-msgstr "Entrées de partition du journal des erreurs"
-
-#: models.py:97
+#: model_mixins.py:10
 msgid "Object"
 msgstr "Objet"
 
-#: permissions.py:8
+#: model_mixins.py:18
+msgid "App label"
+msgstr "Étiquette de l'application"
+
+#: models.py:19 models.py:37
+msgid "Internal name"
+msgstr "Nom interne"
+
+#: models.py:24 models.py:34
+msgid "Error log"
+msgstr "Journal d'erreur"
+
+#: models.py:25
+msgid "Error logs"
+msgstr "Journal des erreurs"
+
+#: models.py:51 models.py:63
+msgid "Error log partition"
+msgstr "Partition du journal des erreurs"
+
+#: models.py:52
+msgid "Error log partitions"
+msgstr "Erreur d'enregistrement d'énévement"
+
+#: models.py:66
+msgid "Date and time"
+msgstr "Date et heure"
+
+#: models.py:68
+msgid "Text"
+msgstr "Texte"
+
+#: models.py:75
+msgid "Error log partition entry"
+msgstr "Entrée de partition du journal des erreurs"
+
+#: models.py:76
+msgid "Error log partition entries"
+msgstr "Entrées de partition du journal des erreurs"
+
+#: permissions.py:10
 msgid "Delete error log"
 msgstr "Supprimer le journal des erreurs"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "View error log"
 msgstr "Afficher le journal des erreurs"
 
-#: settings.py:14
+#: serializers.py:12
+msgid "Content type"
+msgstr ""
+
+#: serializers.py:16
+#, fuzzy
+#| msgid "Object"
+msgid "Object ID"
+msgstr "Objet"
+
+#: serializers.py:19
+msgid "URL"
+msgstr ""
+
+#: settings.py:18
 msgid "Automatically enable logging to all apps."
 msgstr "Activation automatique de la trace pour toutes les applications."
 
-#: settings.py:19
-msgid ""
-"List of handlers to which logging messages will be sent. Options are: {}"
+#: settings.py:25
+#, fuzzy
+#| msgid ""
+#| "List of handlers to which logging messages will be sent. Options are: {}"
+msgid "List of handlers to which logging messages will be sent."
 msgstr ""
 "Liste des gestionnaires auxquels les messages de journalisation seront "
 "envoyés. Les options sont : {}"
 
-#: settings.py:25
+#: settings.py:30
 msgid "Level for the logging system."
 msgstr "Niveau pour le système d'événements."
 
-#: settings.py:31
+#: settings.py:36
 msgid "Path to the logfile that will track errors during production."
 msgstr ""
 "Chemin d'accès au fichier journal qui enregistrera les erreurs pendant la "
@@ -151,8 +168,7 @@ msgstr "Supprimer l'entrée du journal des erreurs: %s"
 
 #: views.py:97
 msgid ""
-"This view displays the error log of an object. An empty list is a good "
-"thing."
+"This view displays the error log of an object. An empty list is a good thing."
 msgstr ""
 "Cette vue affiche le journal des erreurs d'un objet. Une liste vide est une "
 "bonne chose."

@@ -2,34 +2,35 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Giovanni Tricarico <gtricarico92@gmail.com>, 2022
 # Roberto Rosario, 2022
 # Marco Camplese <marco.camplese.mc@gmail.com>, 2022
 # valleymanbs <mrvalleyman@gmail.com>, 2022
 # Paul Audhep <audhep@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:39+0000\n"
 "Last-Translator: Paul Audhep <audhep@gmail.com>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
-#: apps.py:40
+#: apps.py:43
 msgid "Links"
 msgstr ""
 
-#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:42
-#: permissions.py:5 views.py:182
+#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:43
+#: permissions.py:6 views.py:169
 msgid "Web links"
 msgstr ""
 
@@ -45,7 +46,7 @@ msgstr ""
 msgid "Web link navigated"
 msgstr ""
 
-#: links.py:29 views.py:94
+#: links.py:29 views.py:81
 msgid "Create new web link"
 msgstr "Crea nuovo collegamento web"
 
@@ -53,7 +54,7 @@ msgstr "Crea nuovo collegamento web"
 msgid "Delete"
 msgstr "Cancella"
 
-#: links.py:39 models.py:36
+#: links.py:39 models.py:37
 msgid "Document types"
 msgstr "Tipi documento"
 
@@ -65,20 +66,20 @@ msgstr "Modifica"
 msgid "Navigate"
 msgstr "Navigare"
 
-#: models.py:24
+#: models.py:23
 msgid "A short text describing the web link."
 msgstr " Un breve testo che descrive il collegamento Web."
 
-#: models.py:25
+#: models.py:24
 msgid "Label"
 msgstr "Etichetta"
 
-#: models.py:29
+#: models.py:28
 msgid "Template that will be used to craft the final URL of the web link."
 msgstr ""
 "Modello che verrà utilizzato per creare l'URL finale del collegamento Web."
 
-#: models.py:31
+#: models.py:30
 msgid "Template"
 msgstr "Modello"
 
@@ -86,33 +87,33 @@ msgstr "Modello"
 msgid "Enabled"
 msgstr "Abilitato"
 
-#: models.py:41
+#: models.py:42
 msgid "Web link"
 msgstr ""
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new web links"
 msgstr ""
 "Crea nuovi collegamenti web\n"
 " "
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete web links"
 msgstr ""
 "Cancella collegamenti web\n"
 " "
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit web links"
 msgstr ""
 "Edita collegamenti web\n"
 " "
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing web links"
 msgstr " Visualizza i collegamenti Web esistenti"
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "View web link instances"
 msgstr ""
 
@@ -120,63 +121,99 @@ msgstr ""
 msgid "Primary key of the document type to add to the web link."
 msgstr ""
 
+#: serializers.py:17 serializers.py:26
+#, fuzzy
+#| msgid "Document types"
+msgid "Document type ID"
+msgstr "Tipi documento"
+
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
 msgstr ""
 
-#: views.py:38
-msgid "Available web links"
+#: serializers.py:33
+#, fuzzy
+#| msgid "Document types"
+msgid "Document types add URL"
+msgstr "Tipi documento"
+
+#: serializers.py:37
+#, fuzzy
+#| msgid "Document types enabled"
+msgid "Document types remove URL"
+msgstr "Tipi documento abilitati"
+
+#: serializers.py:41
+#, fuzzy
+#| msgid "Document types"
+msgid "Document types URL"
+msgstr "Tipi documento"
+
+#: serializers.py:48 serializers.py:63
+msgid "URL"
 msgstr ""
 
-#: views.py:39
+#: serializers.py:66
+#, fuzzy
+#| msgid "Navigate"
+msgid "Navigation URL"
+msgstr "Navigare"
+
+#: views.py:32
 msgid "Web links enabled"
 msgstr ""
 
-#: views.py:63
+#: views.py:33
+msgid "Available web links"
+msgstr ""
+
+#: views.py:50
 #, python-format
 msgid "Web links to enable for document type: %s"
 msgstr ""
 
-#: views.py:116
+#: views.py:103
 #, python-format
 msgid "Delete web link: %s"
 msgstr ""
 
-#: views.py:128
-msgid "Available document types"
-msgstr "Tipi di documento disponibili"
-
-#: views.py:129
+#: views.py:108
 msgid "Document types enabled"
 msgstr "Tipi documento abilitati"
 
-#: views.py:139
+#: views.py:109
+msgid "Available document types"
+msgstr "Tipi di documento disponibili"
+
+#: views.py:126
 #, python-format
 msgid "Document type for which to enable web link: %s"
 msgstr ""
 
-#: views.py:156
+#: views.py:143
 #, python-format
 msgid "Edit web link: %s"
 msgstr ""
 
-#: views.py:175 views.py:205
+#: views.py:162 views.py:192
 msgid ""
 "Web links allow generating HTTP links from documents to external resources. "
 "The link URL's can contain document properties values."
 msgstr ""
-" I collegamenti Web consentono di generare collegamenti HTTP tra i documenti  e le risorse esterne. Gli URL dei collegamenti possono contenere valori delle proprietà del documento.\n"
+" I collegamenti Web consentono di generare collegamenti HTTP tra i "
+"documenti  e le risorse esterne. Gli URL dei collegamenti possono contenere "
+"valori delle proprietà del documento.\n"
 " "
 
-#: views.py:180
+#: views.py:167
 msgid "There are no web links"
 msgstr "Non ci sono collegamenti web"
 
-#: views.py:210
+#: views.py:197
 msgid "There are no web links for this document"
 msgstr ""
 
-#: views.py:213
+#: views.py:200
 #, python-format
 msgid "Web links for document: %s"
 msgstr ""

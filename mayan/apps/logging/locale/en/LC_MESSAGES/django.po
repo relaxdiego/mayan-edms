@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:23 events.py:5 permissions.py:5 settings.py:10
+#: apps.py:23 events.py:6 permissions.py:6 settings.py:11
 msgid "Logging"
 msgstr ""
 
-#: events.py:8
+#: events.py:10
 msgid "Error log deleted"
 msgstr ""
 
@@ -41,72 +41,83 @@ msgstr ""
 msgid "Clear errors"
 msgstr ""
 
-#: models.py:16 models.py:44
-msgid "Internal name"
-msgstr ""
-
-#: models.py:21 models.py:41
-msgid "Error log"
-msgstr ""
-
-#: models.py:22
-msgid "Error logs"
-msgstr ""
-
-#: models.py:31
-msgid "App label"
-msgstr ""
-
-#: models.py:58 models.py:68
-msgid "Error log partition"
-msgstr ""
-
-#: models.py:59
-msgid "Error log partitions"
-msgstr ""
-
-#: models.py:71
-msgid "Date and time"
-msgstr ""
-
-#: models.py:73
-msgid "Text"
-msgstr ""
-
-#: models.py:80
-msgid "Error log partition entry"
-msgstr ""
-
-#: models.py:81
-msgid "Error log partition entries"
-msgstr ""
-
-#: models.py:97
+#: model_mixins.py:10
 msgid "Object"
 msgstr ""
 
-#: permissions.py:8
+#: model_mixins.py:18
+msgid "App label"
+msgstr ""
+
+#: models.py:19 models.py:37
+msgid "Internal name"
+msgstr ""
+
+#: models.py:24 models.py:34
+msgid "Error log"
+msgstr ""
+
+#: models.py:25
+msgid "Error logs"
+msgstr ""
+
+#: models.py:51 models.py:63
+msgid "Error log partition"
+msgstr ""
+
+#: models.py:52
+msgid "Error log partitions"
+msgstr ""
+
+#: models.py:66
+msgid "Date and time"
+msgstr ""
+
+#: models.py:68
+msgid "Text"
+msgstr ""
+
+#: models.py:75
+msgid "Error log partition entry"
+msgstr ""
+
+#: models.py:76
+msgid "Error log partition entries"
+msgstr ""
+
+#: permissions.py:10
 msgid "Delete error log"
 msgstr ""
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "View error log"
 msgstr ""
 
-#: settings.py:14
+#: serializers.py:12
+msgid "Content type"
+msgstr ""
+
+#: serializers.py:16
+msgid "Object ID"
+msgstr ""
+
+#: serializers.py:19
+msgid "URL"
+msgstr ""
+
+#: settings.py:18
 msgid "Automatically enable logging to all apps."
 msgstr ""
 
-#: settings.py:19
-msgid ""
-"List of handlers to which logging messages will be sent. Options are: {}"
+#: settings.py:25
+msgid "List of handlers to which logging messages will be sent."
 msgstr ""
 
-#: settings.py:25
+#: settings.py:30
 msgid "Level for the logging system."
 msgstr ""
 
-#: settings.py:31
+#: settings.py:36
 msgid "Path to the logfile that will track errors during production."
 msgstr ""
 

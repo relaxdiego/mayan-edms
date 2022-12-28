@@ -2,31 +2,32 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Pavlin Koldamov <pkoldamov@gmail.com>, 2022
 # Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:39+0000\n"
 "Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
+"bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:40
+#: apps.py:43
 msgid "Links"
 msgstr "Връзки"
 
-#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:42
-#: permissions.py:5 views.py:182
+#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:43
+#: permissions.py:6 views.py:169
 msgid "Web links"
 msgstr "Уеб връзки"
 
@@ -42,7 +43,7 @@ msgstr "Редактирана уеб връзка"
 msgid "Web link navigated"
 msgstr "Навигирана уеб връзка"
 
-#: links.py:29 views.py:94
+#: links.py:29 views.py:81
 msgid "Create new web link"
 msgstr "Създайте нова уеб връзка"
 
@@ -50,7 +51,7 @@ msgstr "Създайте нова уеб връзка"
 msgid "Delete"
 msgstr "Изтрийте"
 
-#: links.py:39 models.py:36
+#: links.py:39 models.py:37
 msgid "Document types"
 msgstr "Типове документи"
 
@@ -62,21 +63,21 @@ msgstr "Редактиране"
 msgid "Navigate"
 msgstr "Навигация"
 
-#: models.py:24
+#: models.py:23
 msgid "A short text describing the web link."
 msgstr "Кратък текст, описващ уеб връзката."
 
-#: models.py:25
+#: models.py:24
 msgid "Label"
 msgstr "Етикет"
 
-#: models.py:29
+#: models.py:28
 msgid "Template that will be used to craft the final URL of the web link."
 msgstr ""
 "Шаблон, който ще бъде използван за изработване на крайния URL адрес на уеб "
 "връзката."
 
-#: models.py:31
+#: models.py:30
 msgid "Template"
 msgstr "Шаблон"
 
@@ -84,27 +85,27 @@ msgstr "Шаблон"
 msgid "Enabled"
 msgstr "Активиран"
 
-#: models.py:41
+#: models.py:42
 msgid "Web link"
 msgstr "Уеб връзка"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Create new web links"
 msgstr "Създайте нови уеб връзки"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Delete web links"
 msgstr "Изтриване на уеб връзки"
 
-#: permissions.py:14
+#: permissions.py:16
 msgid "Edit web links"
 msgstr "Редактиране на уеб връзки"
 
-#: permissions.py:17
+#: permissions.py:19
 msgid "View existing web links"
 msgstr "Вижте съществуващите уеб връзки"
 
-#: permissions.py:20
+#: permissions.py:22
 msgid "View web link instances"
 msgstr "Вижте случаи на уеб връзки"
 
@@ -112,47 +113,81 @@ msgstr "Вижте случаи на уеб връзки"
 msgid "Primary key of the document type to add to the web link."
 msgstr "Основен ключ от типа документ, който да се добави към уеб връзката."
 
+#: serializers.py:17 serializers.py:26
+#, fuzzy
+#| msgid "Document types"
+msgid "Document type ID"
+msgstr "Типове документи"
+
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
 msgstr "Основен ключ от типа документ, който да се премахне от уеб връзката."
 
-#: views.py:38
-msgid "Available web links"
-msgstr "Налични уеб връзки"
+#: serializers.py:33
+#, fuzzy
+#| msgid "Document types"
+msgid "Document types add URL"
+msgstr "Типове документи"
 
-#: views.py:39
+#: serializers.py:37
+#, fuzzy
+#| msgid "Document types enabled"
+msgid "Document types remove URL"
+msgstr "Активирани типове документи"
+
+#: serializers.py:41
+#, fuzzy
+#| msgid "Document types"
+msgid "Document types URL"
+msgstr "Типове документи"
+
+#: serializers.py:48 serializers.py:63
+msgid "URL"
+msgstr ""
+
+#: serializers.py:66
+#, fuzzy
+#| msgid "Navigate"
+msgid "Navigation URL"
+msgstr "Навигация"
+
+#: views.py:32
 msgid "Web links enabled"
 msgstr "Активирани уеб връзки"
 
-#: views.py:63
+#: views.py:33
+msgid "Available web links"
+msgstr "Налични уеб връзки"
+
+#: views.py:50
 #, python-format
 msgid "Web links to enable for document type: %s"
 msgstr "Уеб връзки за активиране на тип документ: %s"
 
-#: views.py:116
+#: views.py:103
 #, python-format
 msgid "Delete web link: %s"
 msgstr "Изтриване на уеб връзка: %s"
 
-#: views.py:128
-msgid "Available document types"
-msgstr "Налични типове документи"
-
-#: views.py:129
+#: views.py:108
 msgid "Document types enabled"
 msgstr "Активирани типове документи"
 
-#: views.py:139
+#: views.py:109
+msgid "Available document types"
+msgstr "Налични типове документи"
+
+#: views.py:126
 #, python-format
 msgid "Document type for which to enable web link: %s"
 msgstr "Тип документ, за който да се активира уеб връзка: %s"
 
-#: views.py:156
+#: views.py:143
 #, python-format
 msgid "Edit web link: %s"
 msgstr "Редактиране на уеб връзка: %s"
 
-#: views.py:175 views.py:205
+#: views.py:162 views.py:192
 msgid ""
 "Web links allow generating HTTP links from documents to external resources. "
 "The link URL's can contain document properties values."
@@ -161,15 +196,15 @@ msgstr ""
 "ресурси. URL адресът на връзката може да съдържа стойности на свойствата на "
 "документа."
 
-#: views.py:180
+#: views.py:167
 msgid "There are no web links"
 msgstr "Няма уеб връзки"
 
-#: views.py:210
+#: views.py:197
 msgid "There are no web links for this document"
 msgstr "Няма уеб връзки за този документ"
 
-#: views.py:213
+#: views.py:200
 #, python-format
 msgid "Web links for document: %s"
 msgstr "Уеб връзки за документ: %s"

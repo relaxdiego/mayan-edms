@@ -2,25 +2,27 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Jože Detečnik <joze.detecnik@3tav.si>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 
-#: apps.py:13 settings.py:7
+#: apps.py:13 settings.py:8
 msgid "Auto administrator"
 msgstr "Samodejni skrbnik"
 
@@ -40,27 +42,27 @@ msgstr "Uporabniški račun"
 msgid "Password"
 msgstr "Geslo"
 
-#: models.py:19
+#: models.py:20
 msgid "Password hash"
 msgstr "Geslo koda"
 
-#: models.py:25
+#: models.py:26
 msgid "Autoadmin properties"
 msgstr "Lastnosti samodejnega skrbnika"
 
-#: settings.py:11
+#: settings.py:13
 msgid "Sets the email of the automatically created super user account."
 msgstr "Nastavi e-pošto samodejno ustvarjenega računa super uporabnika."
 
-#: settings.py:16
+#: settings.py:18
 msgid ""
-"The password of the automatically created super user account. If it is equal"
-" to None, the password is randomly generated."
+"The password of the automatically created super user account. If it is equal "
+"to None, the password is randomly generated."
 msgstr ""
 "Geslo samodejno ustvarjenega računa super uporabnika. Če je enako None, se "
 "geslo ustvari naključno."
 
-#: settings.py:22
+#: settings.py:24
 msgid "The username of the automatically created super user account."
 msgstr "Uporabniško ime samodejno ustvarjenega računa super uporabnika."
 

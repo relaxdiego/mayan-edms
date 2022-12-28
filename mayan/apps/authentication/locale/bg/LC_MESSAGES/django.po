@@ -1,28 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Lyudmil Antonov <lantonov.here@gmail.com>, 2022
 # Roberto Rosario, 2022
 # Pavlin Koldamov <pkoldamov@gmail.com>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:32+0000\n"
 "Last-Translator: Pavlin Koldamov <pkoldamov@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
+"bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:36 events.py:6 permissions.py:6 settings.py:10
+#: apps.py:36 events.py:6 permissions.py:6 settings.py:11
 msgid "Authentication"
 msgstr "Удостоверяване"
 
@@ -82,7 +83,7 @@ msgstr "Задаване на парола"
 msgid "Impersonate users"
 msgstr "Представяне на потребители"
 
-#: settings.py:15
+#: settings.py:17
 msgid ""
 "Remove the \"Forgot your password?\" link on the login form used to trigger "
 "the password reset."
@@ -90,13 +91,13 @@ msgstr ""
 "Премахнете връзката „Забравена парола?“ използвана за нулиране на паролата "
 "от входящия формуляр."
 
-#: settings.py:23
+#: settings.py:25
 msgid "Dotted path to the backend used to process user authentication."
 msgstr ""
 "Път с точки до бекенда, използван за обработка на удостоверяване на "
 "потребителя."
 
-#: settings.py:29
+#: settings.py:31
 msgid "Arguments for the AUTHENTICATION_BACKEND."
 msgstr "Аргументи за AUTHENTICATION_BACKEND."
 
@@ -123,17 +124,25 @@ msgstr "Влизане"
 msgid "Sign in"
 msgstr "Вписване"
 
-#: templates/authentication/login.html:57
+#: templates/authentication/login.html:62
+#: templates/authentication/login.html:72
+#: templates/authentication/login.html:86
 msgid "Save"
 msgstr "Запазване"
 
-#: templates/authentication/login.html:57
+#: templates/authentication/login.html:62
+#: templates/authentication/login.html:72
+#: templates/authentication/login.html:86
 #: templates/authentication/password_reset_confirm.html:29
 #: templates/authentication/password_reset_form.html:29
 msgid "Submit"
 msgstr "Подаване"
 
-#: templates/authentication/login.html:67
+#: templates/authentication/login.html:76
+msgid "Cancel"
+msgstr ""
+
+#: templates/authentication/login.html:98
 msgid "Forgot your password?"
 msgstr "Забравена парола?"
 
@@ -160,54 +169,54 @@ msgstr "Страница за вход"
 msgid "Password reset email sent!"
 msgstr "Изпратен имейл за нулиране на парола!"
 
-#: views/authentication_views.py:155
+#: views/authentication_views.py:159
 msgid "Next"
 msgstr "Следваща"
 
-#: views/authentication_views.py:161
+#: views/authentication_views.py:165
 #, python-format
 msgid "Step %(step)d of %(total_steps)d: %(step_label)s"
 msgstr "Стъпка %(step)d от %(total_steps)d: %(step_label)s"
 
-#: views/authentication_views.py:223
+#: views/authentication_views.py:235
 msgid "Your password has been successfully changed."
 msgstr "Вашата парола е сменена успешно."
 
-#: views/authentication_views.py:230
+#: views/authentication_views.py:245
 msgid "Current user password change"
 msgstr "Промяна паролата на текущия потребител"
 
-#: views/authentication_views.py:239
+#: views/authentication_views.py:257
 msgid "Changing the password is not allowed for this account."
 msgstr "Промяната на паролата не е разрешена за този акаунт."
 
-#: views/authentication_views.py:311
+#: views/authentication_views.py:329
 #, python-format
 msgid "Password change request performed on %(count)d user"
 msgstr "Заявка за промяна на парола, изпълнена за%(count)d потребител"
 
-#: views/authentication_views.py:314
+#: views/authentication_views.py:332
 #, python-format
 msgid "Password change request performed on %(count)d users"
 msgstr "Заявка за промяна на парола, изпълнена за %(count)d потребител"
 
-#: views/authentication_views.py:323
+#: views/authentication_views.py:341
 msgid "Change user password"
 msgid_plural "Change users passwords"
 msgstr[0] ""
 msgstr[1] ""
 
-#: views/authentication_views.py:334
+#: views/authentication_views.py:352
 #, python-format
 msgid "Change password for user: %s"
 msgstr "Промяна на паролата за потребителя: %s"
 
-#: views/authentication_views.py:356
+#: views/authentication_views.py:376
 #, python-format
 msgid "Successful password reset for user: %s."
 msgstr "Успешно нулиране на паролата за потребителя: %s."
 
-#: views/authentication_views.py:362
+#: views/authentication_views.py:382
 #, python-format
 msgid "Error reseting password for user \"%(user)s\": %(error)s"
 msgstr "Грешка при промяна на парола на потребител \"%(user)s\": %(error)s"

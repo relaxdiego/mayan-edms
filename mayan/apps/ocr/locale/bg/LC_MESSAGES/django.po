@@ -1,28 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Roberto Rosario, 2022
 # Lyudmil Antonov <lantonov.here@gmail.com>, 2022
 # 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2022-12-28 07:33+0000\n"
 "PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
+"Last-Translator: 295005be79b88987cac803400975dbae_87f6b64 "
+"<412e4e8df9c702a35ac89972be5f12ff_27148>, 2022\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
+"bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:55 events.py:5 links.py:54 links.py:80 permissions.py:5 queues.py:6
+#: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
 #: search.py:18 settings.py:11
 msgid "OCR"
 msgstr "OCR"
@@ -39,35 +41,35 @@ msgstr "Генератор, връщащ OCR съдържанието на ст�
 msgid "OCR content"
 msgstr "OCR съдържание"
 
-#: backends/tesseract.py:86
+#: backends/tesseract.py:84
 msgid "Tesseract OCR not found."
 msgstr "Tesseract OCR не е намерен."
 
-#: dependencies.py:23
+#: dependencies.py:24
 msgid "Free Open Source OCR Engine"
 msgstr "Безплатна OCR машина с отворен код"
 
-#: events.py:8
+#: events.py:10
 msgid "Document version OCR content deleted"
 msgstr "Изтрито е OCR съдържанието на версията на документа"
 
-#: events.py:12
+#: events.py:14
 msgid "Document version page OCR content edited"
 msgstr "Редактирано OCR съдържание на страницата с версия на документа"
 
-#: events.py:16
+#: events.py:18
 msgid "Document version submitted for OCR"
 msgstr "Версия на документа, представена за OCR"
 
-#: events.py:20
+#: events.py:22
 msgid "Document version OCR finished"
 msgstr "OCR на версия на документ приключи"
 
-#: forms.py:14 forms.py:43 forms.py:63
+#: forms.py:13 forms.py:44 forms.py:64
 msgid "Contents"
 msgstr "Съдържание"
 
-#: forms.py:94
+#: forms.py:99
 #, python-format
 msgid "Page %(page_number)d"
 msgstr "Страница %(page_number)d"
@@ -96,13 +98,19 @@ msgstr "Изпращане за OCR"
 msgid "Edit OCR"
 msgstr "Редактиране на OCR"
 
-#: models.py:23
+#: models.py:22
 msgid "Document type"
 msgstr "Тип документ"
 
-#: models.py:27
+#: models.py:26
 msgid "Automatically queue newly created documents for OCR."
 msgstr "Автоматично поставете на опашка новосъздадените документи за OCR."
+
+#: models.py:27
+#, fuzzy
+#| msgid "Submit for OCR"
+msgid "Auto OCR"
+msgstr "Изпращане за OCR"
 
 #: models.py:33
 msgid "Document type settings"
@@ -132,19 +140,19 @@ msgstr "Съдържание на OCR на страницата с версия 
 msgid "Document version pages OCR contents"
 msgstr "Страници с OCR съдържание на версията на документа"
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "Submit documents for OCR"
 msgstr "Подаване на документи за OCR"
 
-#: permissions.py:11
+#: permissions.py:13
 msgid "Edit the transcribed text from document"
 msgstr "Редактирайте транскрибирания текст от документа"
 
-#: permissions.py:15
+#: permissions.py:17
 msgid "View the transcribed text from document"
 msgstr "Преглед на транскрибирания текст от документ"
 
-#: permissions.py:19
+#: permissions.py:21
 msgid "Change document type OCR settings"
 msgstr "Промяна на настройките на OCR за типа документ"
 
@@ -164,13 +172,13 @@ msgstr "OCR на файла с документа"
 msgid "Document version OCR"
 msgstr "OCR за версия на документа"
 
-#: settings.py:17
+#: settings.py:18
 msgid "Set new document types to perform OCR automatically by default."
 msgstr ""
 "Задайте нови типове документи за автоматично изпълнение на OCR по "
 "подразбиране."
 
-#: settings.py:22
+#: settings.py:23
 msgid "Full path to the backend to be used to do OCR."
 msgstr "Пълен път към бекенда, за да се използва OCR."
 
@@ -197,33 +205,33 @@ msgstr ""
 
 #: views.py:112
 #, python-format
+msgid "OCR content of %(count)d document versions deleted successfully."
+msgstr "OCR съдържанието на %(count)d версии на документи е изтрито успешно."
+
+#: views.py:115
+#, python-format
 msgid "OCR content of \"%(object)s\" deleted successfully."
 msgstr "OCR съдържанието на „%(object)s“ е изтрито успешно."
 
-#: views.py:115
+#: views.py:118
 #, python-format
 msgid "OCR content of %(count)d document version deleted successfully."
 msgstr "OCR съдържанието на %(count)d версия на документа е изтрито успешно."
 
-#: views.py:118
+#: views.py:121
 #, python-format
-msgid "OCR content of %(count)d document versions deleted successfully."
-msgstr "OCR съдържанието на %(count)d версии на документи е изтрито успешно."
+msgid "Delete the OCR content of the %(count)d selected document versions."
+msgstr "Изтрийте OCR съдържанието на  %(count)dизбрани версии."
 
-#: views.py:120
+#: views.py:123
 #, python-format
 msgid "Delete the OCR content of: %(object)s."
 msgstr "Изтрийте съдържанието на OCR на: %(object)s."
 
-#: views.py:122
+#: views.py:125
 #, python-format
 msgid "Delete the OCR content of the %(count)d selected document version."
 msgstr "Изтрийте OCR съдържанието на  на %(count)dизбрана версия."
-
-#: views.py:125
-#, python-format
-msgid "Delete the OCR content of the %(count)d selected document versions."
-msgstr "Изтрийте OCR съдържанието на  %(count)dизбрани версии."
 
 #: views.py:156
 #, python-format
@@ -268,8 +276,8 @@ msgid ""
 "logical None, or an empty string ('') are considered to be logical false, "
 "any other value is considered to be the logical true."
 msgstr ""
-"Състоянието, което ще определи дали извлечения текст от страница на документ"
-" ще бъде променен или не. Условието се оценява спрямо последователната "
+"Състоянието, което ще определи дали извлечения текст от страница на документ "
+"ще бъде променен или не. Условието се оценява спрямо последователната "
 "страница на документа. Условия, които не връщат никаква стойност, които "
 "връщат логическо НЕ в Python, или празен низ (&#39;&#39;) се считат за "
 "логическа неистина, всяка друга стойност се счита за логическа истина."

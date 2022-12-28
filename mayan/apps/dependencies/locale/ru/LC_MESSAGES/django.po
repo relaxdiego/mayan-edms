@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Roman Z <clubtat@mail.ru>, 2022
 # Panasoft, 2022
@@ -12,22 +12,24 @@
 # Roberto Rosario, 2022
 # Ilya Pavlov <spirkaa@gmail.com>, 2022
 # lilo.panic, 2022
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2022-12-28 07:32+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: lilo.panic, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: apps.py:24 links.py:38 permissions.py:5
+#: apps.py:24 links.py:38 permissions.py:6
 msgid "Dependencies"
 msgstr "Зависимости"
 
@@ -43,11 +45,11 @@ msgstr "Внутреннее имя"
 msgid "Description"
 msgstr "Описание"
 
-#: apps.py:45 classes.py:214
+#: apps.py:45 classes.py:218
 msgid "Type"
 msgstr "Тип"
 
-#: apps.py:49 classes.py:216
+#: apps.py:49 classes.py:220
 msgid "Other data"
 msgstr "Прочие данные"
 
@@ -55,7 +57,7 @@ msgstr "Прочие данные"
 msgid "Declared by"
 msgstr "Объявлено в"
 
-#: apps.py:57 classes.py:214
+#: apps.py:57 classes.py:218
 msgid "Version"
 msgstr "Версия"
 
@@ -63,125 +65,125 @@ msgstr "Версия"
 msgid "Environment"
 msgstr "Среда"
 
-#: apps.py:64 classes.py:216
+#: apps.py:64 classes.py:220
 msgid "Check"
 msgstr "Проверять"
 
-#: classes.py:214
+#: classes.py:218
 msgid "Name"
 msgstr "Имя"
 
-#: classes.py:215
+#: classes.py:219
 msgid "App"
 msgstr "Приложение"
 
-#: classes.py:215 classes.py:862
+#: classes.py:219 classes.py:906
 msgid "Environments"
 msgstr "Среды"
 
-#: classes.py:308
+#: classes.py:316
 msgid "Need to specify at least one: app_label or module."
 msgstr "Необходимо указать хотя бы одно: app_label или module."
 
-#: classes.py:313
+#: classes.py:321
 #, python-format
 msgid "Dependency \"%s\" already registered."
 msgstr "Зависимость \"%s\" уже зарегистрирована."
 
-#: classes.py:339
+#: classes.py:350
 #, python-format
 msgid "Installing package: %s... "
 msgstr "Установка пакета: %s ..."
 
-#: classes.py:344
+#: classes.py:357
 msgid "Already installed."
 msgstr "Уже установлено."
 
-#: classes.py:347 classes.py:352 classes.py:356
+#: classes.py:362 classes.py:369 classes.py:375
 msgid "Complete."
 msgstr "Завершено."
 
-#: classes.py:382
+#: classes.py:402
 msgid "Installed and correct version"
 msgstr "Установленная и правильная версия"
 
-#: classes.py:384
+#: classes.py:404
 msgid "Missing or incorrect version"
 msgstr "Версия отсутствует или неверна"
 
-#: classes.py:419
+#: classes.py:441
 msgid "None"
 msgstr "Нет"
 
-#: classes.py:428
+#: classes.py:450
 msgid "Not specified"
 msgstr "Не указано"
 
-#: classes.py:431
+#: classes.py:453
 msgid "Patching files... "
 msgstr "Патчинг файлов..."
 
-#: classes.py:459
+#: classes.py:481
 msgid "Executables that are called directly by the code."
 msgstr "Исполняемые файлы, вызываемые непосредственно из кода."
 
-#: classes.py:461
+#: classes.py:483
 msgid "Binary"
 msgstr "Binary"
 
-#: classes.py:478
+#: classes.py:500
 msgid ""
-"JavaScript libraries downloaded the from NPM registry and used for front-end"
-" functionality."
+"JavaScript libraries downloaded the from NPM registry and used for front-end "
+"functionality."
 msgstr ""
 "Библиотеки JavaScript, загруженные из реестра NPM и используемые для "
 "функциональных возможностей интерфейса."
 
-#: classes.py:481
+#: classes.py:503
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: classes.py:511 classes.py:774
+#: classes.py:535 classes.py:812
 msgid "Downloading... "
 msgstr "Скачивание..."
 
-#: classes.py:514
+#: classes.py:540
 msgid "Verifying... "
 msgstr "Проверка..."
 
-#: classes.py:517 classes.py:777
+#: classes.py:545 classes.py:817
 msgid "Extracting... "
 msgstr "Извлечение..."
 
-#: classes.py:716
+#: classes.py:751
 msgid "Python packages downloaded from PyPI."
 msgstr "Пакеты Python, загруженные из PyPI."
 
-#: classes.py:718
+#: classes.py:753
 msgid "Python"
 msgstr "Python"
 
-#: classes.py:755
+#: classes.py:792
 msgid "Fonts downloaded from fonts.googleapis.com."
 msgstr "Шрифты, загруженные с fonts.googleapis.com."
 
-#: classes.py:757
+#: classes.py:794
 msgid "Google font"
 msgstr "Шрифты Google"
 
-#: classes.py:843
+#: classes.py:887
 msgid "Declared in app"
 msgstr "Объявлено в приложении"
 
-#: classes.py:844
+#: classes.py:888
 msgid "Show dependencies by the app that declared them."
 msgstr "Показать зависимости по объявившему их приложению."
 
-#: classes.py:848
+#: classes.py:892
 msgid "Class"
 msgstr "Класс"
 
-#: classes.py:849
+#: classes.py:893
 msgid ""
 "Show the different classes of dependencies. Classes are usually divided by "
 "language or the file types of the dependency."
@@ -189,11 +191,11 @@ msgstr ""
 "Показать разные классы зависимостей. Классы обычно делятся по языку или "
 "типам файлов зависимости."
 
-#: classes.py:854
+#: classes.py:898
 msgid "State"
 msgstr "Состояние"
 
-#: classes.py:855
+#: classes.py:899
 msgid ""
 "Show the different states of the dependencies. True means that the "
 "dependencies is installed and is of a correct version. False means the "
@@ -203,15 +205,15 @@ msgstr ""
 "установлены и имеют правильную версию. Ложь означает, что зависимости "
 "отсутствуют или присутствует неправильная версия."
 
-#: classes.py:863
+#: classes.py:907
 msgid ""
 "Dependencies required for an environment might not be required for another. "
 "Example environments: Production, Development."
 msgstr ""
-"Зависимости, необходимые для одной среды, могут не потребоваться для другой."
-" Примеры сред: Production, Development."
+"Зависимости, необходимые для одной среды, могут не потребоваться для другой. "
+"Примеры сред: Production, Development."
 
-#: environments.py:18
+#: environments.py:17
 msgid ""
 "Environment used for building distributable packages of the software. End "
 "users can ignore missing dependencies under this environment."
@@ -220,11 +222,11 @@ msgstr ""
 "обеспечения. Конечные пользователи могут игнорировать недостающие "
 "зависимости в этой среде."
 
-#: environments.py:21
+#: environments.py:20
 msgid "Build"
 msgstr "Build"
 
-#: environments.py:25
+#: environments.py:24
 msgid ""
 "Environment used for developers to make code changes. End users can ignore "
 "missing dependencies under this environment."
@@ -232,11 +234,11 @@ msgstr ""
 "Среда, используемая разработчиками для внесения изменений в код. Конечные "
 "пользователи могут игнорировать недостающие зависимости в этой среде."
 
-#: environments.py:27
+#: environments.py:26
 msgid "Development"
 msgstr "Development"
 
-#: environments.py:31
+#: environments.py:30
 msgid ""
 "Environment used for building the documentation. End users can ignore "
 "missing dependencies under this environment."
@@ -244,22 +246,22 @@ msgstr ""
 "Среда, используемая для создания документации. Конечные пользователи могут "
 "игнорировать недостающие зависимости в этой среде."
 
-#: environments.py:33
+#: environments.py:32
 msgid "Documentation"
 msgstr "Документация"
 
-#: environments.py:37
+#: environments.py:36
 msgid ""
 "Environment used to specify direct documentation depedencies to workaround "
-"unpinned or immutable depedency bugs in third party libraries. End users can"
-" ignore missing dependencies under this environment."
+"unpinned or immutable depedency bugs in third party libraries. End users can "
+"ignore missing dependencies under this environment."
 msgstr ""
 
-#: environments.py:41
+#: environments.py:40
 msgid "Documentation (override)"
 msgstr ""
 
-#: environments.py:45
+#: environments.py:44
 msgid ""
 "Normal environment for end users. A missing dependency under this "
 "environment will result in issues and errors during normal use."
@@ -267,11 +269,11 @@ msgstr ""
 "Нормальная среда для конечных пользователей. Отсутствие зависимости в этой "
 "среде приведет к проблемам и ошибкам при нормальном использовании."
 
-#: environments.py:47
+#: environments.py:46
 msgid "Production"
 msgstr "Production"
 
-#: environments.py:51
+#: environments.py:50
 msgid ""
 "Environment used running the test suit to verify the functionality of the "
 "code. Dependencies in this environment are not needed for normal production "
@@ -281,11 +283,11 @@ msgstr ""
 "функциональности кода. Зависимости в этой среде не нужны для нормального "
 "производственного использования."
 
-#: environments.py:54
+#: environments.py:53
 msgid "Testing"
 msgstr "Testing"
 
-#: links.py:14 views.py:24
+#: links.py:14 views.py:25
 msgid "Check for updates"
 msgstr "Проверить обновления"
 
@@ -332,34 +334,34 @@ msgstr "Обработать конкретное приложение."
 msgid "Force installation even if already installed."
 msgstr "Принудительная установка, даже если она уже установлена."
 
-#: permissions.py:8
+#: permissions.py:10
 msgid "View dependencies"
 msgstr "Просмотр зависимостей"
 
-#: views.py:39
+#: views.py:40
 #, python-format
 msgid "Entries for dependency group: %s"
 msgstr "Записи для группы зависимостей: %s"
 
-#: views.py:52 views.py:99
+#: views.py:54 views.py:103
 #, python-format
 msgid "Group %s not found."
 msgstr "Группа %s не найдена."
 
-#: views.py:66
+#: views.py:68
 msgid "Dependency groups"
 msgstr "Зависимости по группам"
 
-#: views.py:87
+#: views.py:90
 #, python-format
 msgid "Dependency group and entry: %(group)s, %(entry)s"
 msgstr "Группа зависимостей и запись: %(group)s, %(entry)s"
 
-#: views.py:111
+#: views.py:115
 #, python-format
 msgid "Entry %s not found."
 msgstr "Запись %s не найдена."
 
-#: views.py:130
+#: views.py:134
 msgid "Other packages licenses"
 msgstr "Лицензии других пакетов"
