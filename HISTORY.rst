@@ -266,6 +266,8 @@
     file object to the subclass.
   - Move OCR finished event commit from the task to the manager.
 
+- Restore object event attributes when the event is ignored.
+
 4.3.4 (2022-12-19)
 ==================
 - Merge fixes from version 4.2.13.

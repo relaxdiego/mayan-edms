@@ -144,13 +144,14 @@ class EventManager:
     def commit(self):
         if not self.instance_event_attributes['ignore']:
             self._commit()
-        #TODO:Add test and test all instances where an even is ignored.
-        #else:
-        #    for key, value in self.instance_event_attributes.items():
-        #        if key not in ('ignore', 'type'):
-        #            setattr(
-        #                self.instance, '_event_{}'.format(key), value
-        #            )
+        else:
+            # If the event is ignored, restore the event related attributes
+            # that were removed via .pop().
+            for key, value in self.instance_event_attributes.items():
+                if key not in ('ignore', 'type'):
+                    setattr(
+                        self.instance, '_event_{}'.format(key), value
+                    )
 
     def get_event_arguments(self, argument_map):
         result = {}

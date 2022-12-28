@@ -34,5 +34,3 @@ class TrashedDocumentBusinessLogicMixin:
         self.save(
             update_fields=('in_trash',)
         )
-        #TODO: remove this after events ignore patch
-        self._event_actor = user
