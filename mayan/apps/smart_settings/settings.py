@@ -20,7 +20,7 @@ from .literals import (
     DEFAULT_WSGI_APPLICATION
 )
 
-# Don't import anything on start import, we just want to make it easy
+# Don't import anything on star imports, we just want to make it easy
 # for apps.py to activate the settings in this module.
 __all__ = ()
 namespace = SettingNamespace(

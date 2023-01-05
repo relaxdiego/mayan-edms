@@ -278,6 +278,10 @@
 - Remove the ``home_view`` setting from the default Template context.
   Template instances need to include their own context using the new
   ``context`` argument.
+- Add templating support to bootstrap settings. Template names are the same
+  as the bootstrap setting but include the ``SETTING_TEMPLATE_`` prefix.
+  Environment variales, Python global and config file values are available
+  to the template.
 
 4.3.4 (2022-12-19)
 ==================

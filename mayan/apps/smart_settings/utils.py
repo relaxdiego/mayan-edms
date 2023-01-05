@@ -4,6 +4,7 @@ import os
 import yaml
 
 from mayan.apps.common.serialization import yaml_load
+from mayan.apps.templating.classes import Template
 
 from .literals import (
     CONFIGURATION_FILENAME, CONFIGURATION_LAST_GOOD_FILENAME
@@ -51,6 +52,7 @@ class SettingNamespaceSingleton:
     def __init__(self, global_symbol_table):
         self.global_symbol_table = global_symbol_table
         self.settings = {}
+
         for name, klass in self.__class__._settings.items():
             kwargs = self.__class__._setting_kwargs[name].copy()
             kwargs['name'] = name
@@ -58,10 +60,7 @@ class SettingNamespaceSingleton:
             setting.namespace = self
             self.settings[name] = setting
 
-    def get_config_file_setting(self, name):
-        """
-        Wrapper for load_config_file to cache the result.
-        """
+    def get_config_file_content(self):
         if hasattr(self, '_cache_file_data'):
             file_data = self._cache_file_data
         else:
@@ -72,10 +71,7 @@ class SettingNamespaceSingleton:
             file_data = self.load_config_file(filepath=filepath) or {}
             self._cache_file_data = file_data
 
-        try:
-            return file_data[name]
-        except KeyError:
-            raise SettingNamespaceSingleton.SettingNotFound
+        return file_data
 
     def get_setting_value(self, name):
         """
@@ -123,26 +119,20 @@ class SettingNamespaceSingleton:
 
 
 class BaseSetting:
+    @staticmethod
+    def safe_string_value_to_string(value):
+        return value.encode('utf-8').decode()
+
     def __init__(
-        self, name, critical=False, default_value=None, has_default=False
+        self, name, critical=False, default_value=None,
+        has_default=False
     ):
         self.critical = critical
-        self.name = name
-        self.has_default = has_default
         self.default_value = default_value
+        self.has_default = has_default
+        self.name = name
 
-    def _get_environment_value(self):
-        return os.environ.get(
-            self.get_environment_name()
-        )
-
-    def get_default_value(self):
-        return self.default_value
-
-    def get_environment_name(self):
-        return 'MAYAN_{}'.format(self.name)
-
-    def get_value(self):
+    def _get_value(self):
         """
         By default will try to get the value from the namespace symbol table,
         then the configuration file, and finally from the environment.
@@ -153,23 +143,90 @@ class BaseSetting:
         # 3 - Global
         # 4 - Default
         try:
-            return self.load_environment_value()
+            return self.load_value_from_environment()
         except SettingNamespaceSingleton.SettingNotFound:
             try:
-                return self.namespace.get_config_file_setting(name=self.name)
+                return self.load_value_from_config_file()
             except SettingNamespaceSingleton.SettingNotFound:
                 try:
-                    return self.namespace.global_symbol_table[self.name]
+                    return self.load_value_from_global_system_table()
                 except KeyError:
                     if self.has_default:
                         return self.get_default_value()
                     else:
                         raise SettingNamespaceSingleton.SettingNotFound
 
-    def load_environment_value(self):
-        value = self._get_environment_value()
+    def get_default_value(self):
+        return self.default_value
 
-        if value:
+    def get_environment_name(self):
+        return 'MAYAN_{}'.format(self.name)
+
+    def get_template_environment_name(self):
+        return 'MAYAN_{}'.format(
+            self.get_template_name()
+        )
+
+    def get_template_name(self):
+        return 'SETTING_TEMPLATE_{}'.format(self.name)
+
+    def get_template_string(self):
+        try:
+            return self.get_template_string_from_environment()
+        except KeyError:
+            try:
+                return self.get_template_string_from_config_file()
+            except KeyError:
+                return self.get_template_string_from_global_system_table()
+
+    def get_template_string_from_config_file(self):
+        self.namespace.get_config_file_content()[
+            self.get_template_name()
+        ]
+
+    def get_template_string_from_environment(self):
+        return os.environ[
+            self.get_template_environment_name()
+        ]
+
+    def get_template_string_from_global_system_table(self):
+        return self.namespace.global_symbol_table[
+            self.get_template_name()
+        ]
+
+    def get_value(self):
+        try:
+            template_string = self.get_template_string()
+        except KeyError:
+            return self._get_value()
+        else:
+            setting_template = Template(template_string=template_string)
+            context = {}
+            context.update(self.namespace.global_symbol_table)
+            context.update(
+                self.namespace.get_config_file_content()
+            )
+            context.update(os.environ)
+
+            value = setting_template.render(context=context)
+            value = BaseSetting.safe_string_value_to_string(value=value)
+
+            return value
+
+    def load_value_from_config_file(self):
+        try:
+            return self.namespace.get_config_file_content()[self.name]
+        except KeyError:
+            raise SettingNamespaceSingleton.SettingNotFound
+
+    def load_value_from_environment(self):
+        try:
+            value = os.environ[
+                self.get_environment_name()
+            ]
+        except KeyError:
+            raise SettingNamespaceSingleton.SettingNotFound
+        else:
             try:
                 return yaml_load(stream=value)
             except yaml.YAMLError as exception:
@@ -179,8 +236,9 @@ class BaseSetting:
                         self.name, value, exception
                     )
                 )
-        else:
-            raise SettingNamespaceSingleton.SettingNotFound
+
+    def load_value_from_global_system_table(self):
+        return self.namespace.global_symbol_table[self.name]
 
 
 class FilesystemBootstrapSetting(BaseSetting):
@@ -189,6 +247,20 @@ class FilesystemBootstrapSetting(BaseSetting):
         self.has_default = True
         self.name = name
         self.path_parts = path_parts
+
+    def _get_value(self):
+        """
+        It is not possible to look for this setting in the config file
+        because not even the config file setup has completed.
+        This setting only supports being set from the environment.
+        """
+        try:
+            return self.load_value_from_environment()
+        except SettingNamespaceSingleton.SettingNotFound:
+            if self.has_default:
+                return self.get_default_value()
+            else:
+                raise SettingNamespaceSingleton.SettingNotFound
 
     def get_default_value(self):
         """
@@ -201,19 +273,11 @@ class FilesystemBootstrapSetting(BaseSetting):
             *self.path_parts
         )
 
-    def get_value(self):
-        """
-        It is not possible to look for this setting in the config file
-        because not even the config file setup has completed.
-        This setting only supports being set from the environment.
-        """
+    def get_template_string(self):
         try:
-            return self.load_environment_value()
-        except SettingNamespaceSingleton.SettingNotFound:
-            if self.has_default:
-                return self.get_default_value()
-            else:
-                raise SettingNamespaceSingleton.SettingNotFound
+            return self.get_template_string_from_environment()
+        except KeyError:
+            return self.get_template_string_from_global_system_table()
 
 
 class MediaBootstrapSetting(FilesystemBootstrapSetting):
