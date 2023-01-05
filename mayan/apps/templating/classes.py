@@ -4,8 +4,6 @@ from django.template import Context, Engine, Template as DjangoTemplate
 from django.template.response import TemplateResponse
 from django.urls import reverse
 
-from mayan.apps.common.settings import setting_home_view
-
 
 class AJAXTemplate:
     _registry = {}
@@ -26,7 +24,8 @@ class AJAXTemplate:
     def get(cls, name):
         return cls._registry[name]
 
-    def __init__(self, name, template_name):
+    def __init__(self, name, template_name, context=None):
+        self.context = context or None
         self.name = name
         self.template_name = template_name
         self.__class__._registry[name] = self
@@ -37,13 +36,9 @@ class AJAXTemplate:
         )
 
     def render(self, request):
-        context = {
-            'home_view': setting_home_view.value,
-        }
         result = TemplateResponse(
-            request=request,
-            template=self.template_name,
-            context=context,
+            context=self.context, request=request,
+            template=self.template_name
         ).render()
 
         # Calculate the hash of the bytes version but return the unicode

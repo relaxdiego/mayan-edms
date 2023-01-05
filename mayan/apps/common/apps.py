@@ -18,6 +18,7 @@ from .links import (
 )
 
 from .menus import menu_about, menu_topbar, menu_user
+from .settings import setting_home_view
 from .signals import signal_pre_initial_setup, signal_pre_upgrade
 
 logger = logging.getLogger(name=__name__)
@@ -139,6 +140,7 @@ class CommonApp(MayanAppConfig):
             name='menu_main', template_name='appearance/menus/menu_main.html'
         )
         AJAXTemplate(
+            context={'home_view': setting_home_view.value},
             name='menu_topbar',
             template_name='appearance/menus/menu_topbar.html'
         )

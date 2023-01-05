@@ -275,6 +275,10 @@
     found.
   - Don't obscure errors when reading the secret key file.
 
+- Remove the ``home_view`` setting from the default Template context.
+  Template instances need to include their own context using the new
+  ``context`` argument.
+
 4.3.4 (2022-12-19)
 ==================
 - Merge fixes from version 4.2.13.
