@@ -268,6 +268,12 @@
 
 - Restore object event attributes when the event is ignored.
 - Error log registration now register error log permissions too by default.
+- Improve base settings initialization:
+
+  - Replace ``os.path`` with ``pathlib.Path`` to do path manipulation.
+  - Use the default secret key value only if the secret key file is not
+    found.
+  - Don't obscure errors when reading the secret key file.
 
 4.3.4 (2022-12-19)
 ==================
