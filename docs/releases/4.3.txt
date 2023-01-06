@@ -748,7 +748,7 @@ Deprecations
 - The ``WorkflowInstanceSerializer`` field named ``workflow_template_url``
   will be removed in version 5.0. Use the ``url`` attribute of the
   ``workflow_template`` instead.
-- Several management command will be remove in the next minor release. Use
+- Several management command will be removed in the next minor release. Use
   the corresponding replacement commands instead:
 
     - ``checkdependencies`` replaced by ``dependencies_check``.
