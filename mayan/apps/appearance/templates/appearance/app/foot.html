@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 
 {% load smart_settings_tags %}
@@ -32,6 +33,8 @@
 
     {% smart_setting "APPEARANCE_AJAX_REDIRECTION_CODE" as appearance_ajax_redirection_code %}
     {% smart_setting "APPEARANCE_MENU_POLLING_INTERVAL" as appearance_menu_polling_interval %}
+    {% smart_setting "APPEARANCE_THROTTLING_MAXIMUM_REQUESTS" as appearance_throttling_maximum_requests %}
+    {% smart_setting "APPEARANCE_THROTTLING_TIMEOUT" as appearance_throttling_timeout %}
     {% smart_setting "COMMON_HOME_VIEW" as common_home_view %}
 
     const app = new MayanApp({
@@ -61,7 +64,10 @@
             'btn-multi-item-action', 'disabled', 'pagination-disabled'
         ],
         excludeAnchorClasses: ['fancybox', 'new_window', 'non-ajax'],
-        redirectionCode: {{ appearance_ajax_redirection_code }}
+        redirectionCode: {{ appearance_ajax_redirection_code }},
+        maximumAjaxRequests: {{ appearance_throttling_maximum_requests }},
+        ajaxRequestTimeout: {{ appearance_throttling_timeout }},
+        ajaxThrottlingMessage: '{% trans "Too many pending requests. Additional requests will be blocked until a pending one is completed or after the cooling off period ends." %}'
     });
 
     app.addAfterBaseLoadCallback({func: app.doToastrMessages, self: app});

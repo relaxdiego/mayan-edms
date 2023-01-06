@@ -403,7 +403,10 @@
 - Support AJAX request throttling. Prevents users from requesting too many
   consecutive page loads. Defaults to a maximum of 10 requests in 5 seconds
   of less. This applies only to the user interface. The AJAX throttling
-  resets the moment the last pending AJAX request is completed.
+  resets when a pending request is completed. Added the settings
+  ``APPEARANCE_THROTTLING_MAXIMUM_REQUESTS`` and
+  ``APPEARANCE_THROTTLING_TIMEOUT``. Display a message notifying users when
+  throttling is in effect.
 - ``BaseBackend`` class improvements.
 
   - Selectable identifier via the ``_backend_identifier`` property. Defaults

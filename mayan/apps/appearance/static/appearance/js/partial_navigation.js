@@ -49,6 +49,7 @@ class PartialNavigation {
         // Default is 10 requests in 5 seconds of less.
         this.maximumAjaxRequests = parameters.maximumAjaxRequests || 10;
         this.ajaxRequestTimeout = parameters.ajaxRequestTimeout || 5000;
+        this.ajaxThrottlingMessage = parameters.ajaxThrottlingMessage || 'Too many requests.';
 
         this.currentAjaxRequest = null;
         this.AjaxRequestTimeOutList = [];
@@ -96,19 +97,24 @@ class PartialNavigation {
         this.AjaxRequestTimeOutList.push(
             setTimeout(function() {
                 app.AjaxRequestTimeOutList.shift();
-            }, 5000)
+            }, app.ajaxRequestTimeout)
         );
 
         // Request exceeded maximum, ignoring.
-        if (this.AjaxRequestTimeOutList.length >= 10) {
+        if (this.AjaxRequestTimeOutList.length > app.maximumAjaxRequests) {
+            let options = {};
+
+            options['timeOut'] = 10000;
+
+            toastr['warning'](app.ajaxThrottlingMessage, '', options);
             return;
         }
 
-        // Another Ajax request is being processed. Cancel them previous
+        // Another AJAX request is being processed. Cancel the previous
         // one.
         if (this.currentAjaxRequest) {
             this.currentAjaxRequest.abort();
-            // Clear the content area to avoid an '0' status server error
+            // Clear the content area to avoid a '0' status server error
             // message.
             $('#ajax-content').empty('');
         }
