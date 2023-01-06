@@ -13,6 +13,12 @@ ifndef SETTINGS
 override SETTINGS = mayan.settings.testing.development
 endif
 
+SENTRY_COMMAND = \
+	if [ $(SENTRY_DSN) ]; then \
+	export MAYAN_PLATFORM_CLIENT_BACKEND_ENABLED='["mayan.apps.platform.client_backends.ClientBackendSentry"]'; \
+	export MAYAN_PLATFORM_CLIENT_BACKEND_ARGUMENTS='{"mayan.apps.platform.client_backends.ClientBackendSentry":{"dsn":"$(SENTRY_DSN)","environment":"development"}}'; \
+	fi
+
 TEST_COMMAND = ./manage.py test $(MODULE) --settings=$(SETTINGS) $(SKIPMIGRATIONS) $(DEBUG) $(ARGUMENTS)
 
 TEST_ELASTIC_CONTAINER_NAME = mayan-test-elastic
@@ -390,10 +396,10 @@ manage-with-postgresql: ## Run the development server using a Docker PostgreSQL 
 	./manage.py $(filter-out $@,$(MAKECMDGOALS)) --settings=mayan.settings.development
 
 runserver: ## Run the development server.
-	./manage.py runserver --settings=mayan.settings.development $(ADDRPORT)
+	$(SENTRY_COMMAND); ./manage.py runserver --settings=mayan.settings.development $(ADDRPORT)
 
 runserver-plus: ## Run the Django extension's development server.
-	./manage.py runserver_plus --settings=mayan.settings.development $(ADDRPORT)
+	$(SENTRY_COMMAND); ./manage.py runserver_plus --settings=mayan.settings.development $(ADDRPORT)
 
 shell-plus: ## Run the shell_plus command.
 	./manage.py shell_plus --settings=mayan.settings.development
@@ -469,7 +475,7 @@ staging-stop: docker-postgresql-stop docker-redis-stop
 
 staging-frontend: ## Launch a front end instance that uses the production-like services.
 	export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'$(DEFAULT_DATABASE_NAME)','PASSWORD':'$(DEFAULT_DATABASE_PASSWORD)','USER':'$(DEFAULT_DATABASE_USER)','HOST':'127.0.0.1'}}"; \
-	./manage.py runserver --settings=mayan.settings.staging.docker
+	$(SENTRY_COMMAND); ./manage.py runserver --settings=mayan.settings.staging.docker
 
 staging-worker: ## Launch a worker instance that uses the production-like services.
 	export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'$(DEFAULT_DATABASE_NAME)','PASSWORD':'$(DEFAULT_DATABASE_PASSWORD)','USER':'$(DEFAULT_DATABASE_USER)','HOST':'127.0.0.1'}}"; \

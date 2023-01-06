@@ -303,6 +303,10 @@
   - ``showsettings`` replaced by ``settings_show``.
   - ``showversion`` replaced by ``dependencies_show_version``.
 
+- Update the makefile to enable the Sentry client if the ``SENTRY_DSN``
+  value is passed to the ``runserver``, ``runserver-plus``, or
+  ``staging-frontend`` targets.
+
 4.3.4 (2022-12-19)
 ==================
 - Merge fixes from version 4.2.13.
