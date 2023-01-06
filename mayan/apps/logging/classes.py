@@ -1,5 +1,3 @@
-import logging
-
 from django.apps import apps
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models.signals import post_save, pre_delete
@@ -14,8 +12,6 @@ from .literals import DEFAULT_ERROR_LOG_PARTITION_ENTRY_LIMIT
 from .permissions import (
     permission_error_log_entry_delete, permission_error_log_entry_view
 )
-
-logger = logging.getLogger(name=__name__)
 
 
 class ErrorLog:
