@@ -294,13 +294,13 @@ generate-setup: generate-requirements
 	@echo "Complete."
 
 generate-requirements: ## Generate all requirements files from the project depedency declarations.
-	@./manage.py generaterequirements build > requirements/build.txt
-	@./manage.py generaterequirements development > requirements/development.txt
-	@./manage.py generaterequirements documentation > requirements/documentation.txt
-	@./manage.py generaterequirements documentation_override > requirements/documentation_override.txt
-	@./manage.py generaterequirements testing > requirements/testing-base.txt
-	@./manage.py generaterequirements production --exclude=django > requirements/base.txt
-	@./manage.py generaterequirements production --only=django > requirements/common.txt
+	@./manage.py dependencies_generate_requirements build > requirements/build.txt
+	@./manage.py dependencies_generate_requirements development > requirements/development.txt
+	@./manage.py dependencies_generate_requirements documentation > requirements/documentation.txt
+	@./manage.py dependencies_generate_requirements documentation_override > requirements/documentation_override.txt
+	@./manage.py dependencies_generate_requirements testing > requirements/testing-base.txt
+	@./manage.py dependencies_generate_requirements production --exclude=django > requirements/base.txt
+	@./manage.py dependencies_generate_requirements production --only=django > requirements/common.txt
 
 # Major releases
 
