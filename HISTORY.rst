@@ -14,6 +14,7 @@
   - djangorestframework from 3.13.1 to 3.14.0.
   - drf-yasg from 1.20.0 to 1.21.4.
   - sentry-sdk from 1.5.8 to 1.21.1.
+  - Pillow from 9.2.0 to 9.4.0.
 
 - Increase compatibility of the file caching storage usage with more S3
   object storage implementations.
