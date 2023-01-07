@@ -306,6 +306,8 @@
 - Update the makefile to enable the Sentry client if the ``SENTRY_DSN``
   value is passed to the ``runserver``, ``runserver-plus``, or
   ``staging-frontend`` targets.
+- Add new setting to disable logging message ANSI color codes. The setting
+  is named ``LOGGING_DISABLE_COLOR_FORMATTER`` and defauls to ``False``.
 
 4.3.4 (2022-12-19)
 ==================
