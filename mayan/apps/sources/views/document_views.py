@@ -46,7 +46,7 @@ class DocumentUploadInteractiveView(ExternalObjectViewMixin, UploadBaseView):
             if self.request.is_ajax():
                 return JsonResponse(
                     data={
-                        'error': str(s=message)
+                        'error': str(message)
                     }, status=500
                 )
             else:
