@@ -309,6 +309,8 @@
   ``staging-frontend`` targets.
 - Add new setting to disable logging message ANSI color codes. The setting
   is named ``LOGGING_DISABLE_COLOR_FORMATTER`` and defauls to ``False``.
+- Standardize management command testing.
+- Move management command names to the ``literals`` module of each app.
 
 4.3.4 (2022-12-19)
 ==================
@@ -337,7 +339,7 @@
   are only downloaded from authoritative locations and each dependency is
   pinned to a specific version to guarantee immutable releases.
 
-  Due to all these factors surface of attack of this vulnerability is
+  Due to all these factors, surface of attack of this vulnerability is
   very limited for older versions of Mayan EDMS, it is also very improbable,
   very difficulty to accomplish and very difficult to remain undetected.
 

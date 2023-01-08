@@ -25,7 +25,7 @@ job_docker_build:
     paths:
       - ~/.cache/pip/
       - /var/cache/apk
-  image: docker:20-dind
+  image: docker:20.10.21-dind
   only:
     - releases/all_major
     - releases/all_minor
@@ -34,8 +34,6 @@ job_docker_build:
     - tests/all
     - tests/docker
   script:
-    - mkdir -p /etc/docker
-    - if [ "${REGISTRY_MIRRORS}" ]; then echo "{\"registry-mirrors\":\[\"${REGISTRY_MIRRORS}\"\]}" > /etc/docker/daemon.json; fi
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
     - make docker-build
@@ -46,8 +44,8 @@ job_docker_build:
     - docker push "$CI_REGISTRY_IMAGE:$DOCKER_VERSION"
     - docker logout $CI_REGISTRY
   services:
-    - docker:20-dind
-    - postgres:12.11-alpine
+    - docker:20.10.21-dind
+    - postgres:13.8-alpine
   stage: stage_build_docker
   tags:
     - postgres
@@ -61,7 +59,7 @@ job_docker_push_major:
   before_script:
     - apk add --no-cache python3
     - docker login --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-  image: docker:20-dind
+  image: docker:20.10.21-dind
   only:
     - releases/all_major
     - releases/docker_major
@@ -83,7 +81,7 @@ job_docker_push_major:
     - docker push registry-1.docker.io/mayanedms/mayanedms:s"$MAJOR_VERSION"
     - docker push registry-1.docker.io/mayanedms/mayanedms:s"$MINOR_VERSION"
   services:
-    - docker:20-dind
+    - docker:20.10.21-dind
   stage: stage_push_docker
   variables:
     DOCKER_DRIVER: overlay2
@@ -92,7 +90,7 @@ job_docker_push_minor:
   before_script:
     - apk add --no-cache python3
     - docker login --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-  image: docker:20-dind
+  image: docker:20.10.21-dind
   only:
     - releases/all_minor
     - releases/docker_minor
@@ -109,7 +107,7 @@ job_docker_push_minor:
     - docker push registry-1.docker.io/mayanedms/mayanedms:v"$DOCKER_VERSION"
     - docker push registry-1.docker.io/mayanedms/mayanedms:s"$MINOR_VERSION"
   services:
-    - docker:20-dind
+    - docker:20.10.21-dind
   stage: stage_push_docker
   variables:
     DOCKER_DRIVER: overlay2
@@ -129,13 +127,11 @@ job_docker_nightly:
     paths:
       - ~/.cache/pip/
       - /var/cache/apk
-  image: docker:20-dind
+  image: docker:20.10.21-dind
   only:
     - releases/nightly
     - releases/staging
   script:
-    - mkdir -p /etc/docker
-    - if [ "${REGISTRY_MIRRORS}" ]; then echo "{\"registry-mirrors\":\[\"${REGISTRY_MIRRORS}\"\]}" > /etc/docker/daemon.json; fi
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
     - make docker-build
@@ -143,7 +139,7 @@ job_docker_nightly:
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
     - docker logout $CI_REGISTRY
   services:
-    - docker:20-dind
+    - docker:20.10.21-dind
   stage: stage_build_docker
   variables:
     DOCKER_DRIVER: overlay2
@@ -163,13 +159,11 @@ job_docker_testing:
     paths:
       - ~/.cache/pip/
       - /var/cache/apk
-  image: docker:20-dind
+  image: docker:20.10.21-dind
   only:
     - releases/testing
     - releases/testing_docker
   script:
-    - mkdir -p /etc/docker
-    - if [ "${REGISTRY_MIRRORS}" ]; then echo "{\"registry-mirrors\":\[\"${REGISTRY_MIRRORS}\"\]}" > /etc/docker/daemon.json; fi
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
     - make docker-build
@@ -177,7 +171,7 @@ job_docker_testing:
     - docker push "$CI_REGISTRY_IMAGE:$DOCKER_VERSION"
     - docker logout $CI_REGISTRY
   services:
-    - docker:20-dind
+    - docker:20.10.21-dind
   stage: stage_build_docker
   variables:
     DOCKER_DRIVER: overlay2
@@ -195,7 +189,7 @@ job_documentation_build:
     - apt-get install --yes enchant-2 gcc make libjpeg-dev libpng-dev python3-venv python3-dev zlib1g-dev
     - python3 -m venv venv
     - . venv/bin/activate
-  image: debian:11.4-slim
+  image: debian:11.5-slim
   only:
     - releases/all_major
     - releases/documentation
@@ -217,7 +211,7 @@ job_documentation_push:
     - 'which ssh-agent || ( apt-get update --yes && apt-get install --yes openssh-client rsync )'
     - eval $(ssh-agent -s)
     - echo "$DOCUMENTATION_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-  image: debian:11.4-slim
+  image: debian:11.5-slim
   only:
     - releases/all_major
     - releases/documentation
@@ -241,7 +235,7 @@ job_python_build:
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==$PYTHON_PIP_VERSION
-  image: debian:11.4-slim
+  image: debian:11.5-slim
   only:
     - releases/all_major
     - releases/all_minor
@@ -263,7 +257,7 @@ job_python_push_pypi:
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==$PYTHON_PIP_VERSION
-  image: debian:11.4-slim
+  image: debian:11.5-slim
   only:
     - releases/all_major
     - releases/all_minor
@@ -295,7 +289,7 @@ job_python_push_pypi:
     paths:
       - ~/.cache/pip/
       - /var/cache/apt/archives/
-  image: debian:11.4-slim
+  image: debian:11.5-slim
   only:
     - releases/all_major
     - releases/all_minor
@@ -315,7 +309,7 @@ job_postgres_upgrade_test:
     - apt-get install --yes libpq-dev
     - pip install psycopg2==$PYTHON_PSYCOPG2_VERSION_PREVIOUS
     - export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'mayan','PASSWORD':'mayanuserpass','USER':'mayan','HOST':'postgres'}}"
-    - mayan-edms.py initialsetup --no-dependencies
+    - mayan-edms.py common_initial_setup --no-dependencies
     - echo "from mayan.apps.documents.models import DocumentType;from mayan.apps.documents.tests.literals import TEST_FILE_SMALL_PATH;DocumentType.objects.first().new_document(file_object=open(file=TEST_FILE_SMALL_PATH, mode='rb'))" | mayan-edms.py shell
     - pip install --requirement requirements/build.txt --requirement requirements/testing-base.txt
     - pip install psycopg2==$PYTHON_PSYCOPG2_VERSION
@@ -323,7 +317,7 @@ job_postgres_upgrade_test:
     - pip install dist/mayan_edms-*.whl
     - mayan-edms.py common_perform_upgrade --no-dependencies
   services:
-    - postgres:12.11-alpine
+    - postgres:13.8-alpine
   tags:
     - postgres
   variables:
@@ -334,7 +328,7 @@ job_postgres_upgrade_test:
 job_sqlite_upgrade_test:
   <<: *job_base_upgrade_test
   script:
-    - mayan-edms.py initialsetup --no-dependencies
+    - mayan-edms.py common_initial_setup --no-dependencies
     - echo "from mayan.apps.documents.models import DocumentType;from mayan.apps.documents.tests.literals import TEST_FILE_SMALL_PATH;DocumentType.objects.first().new_document(file_object=open(file=TEST_FILE_SMALL_PATH, mode='rb'))" | mayan-edms.py shell
     - pip install --requirement requirements/build.txt --requirement requirements/testing-base.txt
     - make python-wheel
@@ -357,7 +351,7 @@ job_sqlite_upgrade_test:
     paths:
       - ~/.cache/pip/
       - /var/cache/apt/archives/
-  image: debian:11.4-slim
+  image: debian:11.5-slim
   only:
     - releases/all_major
     - releases/all_minor
@@ -381,7 +375,7 @@ job_postgres_test:
     - make test-all SETTINGS=mayan.settings.testing.gitlab-ci
     - make test-all-migrations SETTINGS=mayan.settings.testing.gitlab-ci
   services:
-    - postgres:12.11-alpine
+    - postgres:13.8-alpine
   tags:
     - postgres
   variables:

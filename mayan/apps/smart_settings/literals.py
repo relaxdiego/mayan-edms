@@ -1,5 +1,8 @@
 from django.conf import global_settings
 
+COMMAND_NAME_SETTINGS_REVERT = 'settings_revert'
+COMMAND_NAME_SETTINGS_SAVE = 'settings_save'
+
 CONFIGURATION_FILENAME = 'config.yml'
 CONFIGURATION_LAST_GOOD_FILENAME = 'config_backup.yml'
 

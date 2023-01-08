@@ -1,24 +1,28 @@
-from django.core import management
-
+from mayan.apps.common.tests.mixins import ManagementCommandTestMixin
 from mayan.apps.documents.tests.base import GenericDocumentTestCase
 from mayan.apps.documents.storages import storage_document_files
 from mayan.apps.mime_types.tests.mixins import MIMETypeBackendMixin
+
+from ..literals import COMMAND_NAME_STORAGE_PROCESS
 
 from .mixins import StorageProcessorTestMixin
 
 
 class StorageProcessManagementCommandTestCase(
-    MIMETypeBackendMixin, StorageProcessorTestMixin, GenericDocumentTestCase
+    MIMETypeBackendMixin, ManagementCommandTestMixin,
+    StorageProcessorTestMixin, GenericDocumentTestCase
 ):
-    def _call_command(self, reverse=None):
-        options = {
+    _test_management_command_name = COMMAND_NAME_STORAGE_PROCESS
+
+    def _get_test_management_command_keyword_arguments(self, reverse=None):
+        keyword_arguments = {
             'app_label': 'documents',
             'defined_storage_name': storage_document_files.name,
             'log_file': str(self.path_test_file),
             'model_name': 'DocumentFile',
             'reverse': reverse
         }
-        management.call_command(command_name='storage_process', **options)
+        return keyword_arguments
 
     def _upload_and_call(self):
         self.defined_storage.dotted_path = 'django.core.files.storage.FileSystemStorage'
@@ -36,7 +40,9 @@ class StorageProcessManagementCommandTestCase(
             }
         }
 
-        self._call_command()
+        self._call_test_management_command(
+            **self._get_test_management_command_keyword_arguments()
+        )
 
     def test_storage_processor_command_forwards(self):
         self._upload_and_call()
@@ -56,7 +62,11 @@ class StorageProcessManagementCommandTestCase(
     def test_processor_forwards_and_reverse(self):
         self._upload_and_call()
 
-        self._call_command(reverse=True)
+        self._call_test_management_command(
+            **self._get_test_management_command_keyword_arguments(
+                reverse=True
+            )
+        )
 
         self.defined_storage.dotted_path = 'django.core.files.storage.FileSystemStorage'
         self.defined_storage.kwargs = {

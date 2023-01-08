@@ -4,6 +4,10 @@ from django.utils.translation import ugettext_lazy as _
 
 import mayan
 
+COMMAND_NAME_COMMON_INITIAL_SETUP = 'common_initial_setup'
+COMMAND_NAME_COMMON_PERFORM_UPGRADE = 'common_perform_upgrade'
+COMMAND_NAME_MIGRATE = 'migrate'
+
 DEFAULT_COMMON_COLLAPSE_LIST_MENU_LIST_FACET = True
 DEFAULT_COMMON_COLLAPSE_LIST_MENU_OBJECT = True
 DEFAULT_COMMON_DISABLE_LOCAL_STORAGE = False

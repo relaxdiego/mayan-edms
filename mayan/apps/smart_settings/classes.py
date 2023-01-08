@@ -18,7 +18,8 @@ from mayan.apps.common.serialization import yaml_dump, yaml_load
 
 from .exceptions import BaseSettingsException
 from .literals import (
-    NAMESPACE_VERSION_INITIAL, SMART_SETTINGS_NAMESPACES_NAME
+    COMMAND_NAME_SETTINGS_REVERT, NAMESPACE_VERSION_INITIAL,
+    SMART_SETTINGS_NAMESPACES_NAME
 )
 
 logger = logging.getLogger(name=__name__)
@@ -297,7 +298,7 @@ class Setting:
     def save_last_known_good(cls):
         # Don't write over the last good configuration if we are trying
         # to restore the last good configuration
-        if 'revertsettings' not in sys.argv:
+        if COMMAND_NAME_SETTINGS_REVERT not in sys.argv:
             cls.save_configuration(
                 path=settings.CONFIGURATION_LAST_GOOD_FILEPATH
             )

@@ -1,19 +1,21 @@
 import os
 
-from django.core import management
 from django.utils.module_loading import import_string
 
+from mayan.apps.common.tests.mixins import ManagementCommandTestMixin
 from mayan.apps.smart_settings.classes import SettingNamespace
 
 from ..exceptions import LockError
-from ..literals import PURGE_LOCKS_COMMAND
+from ..literals import COMMAND_NAME_LOCK_MANAGER_PURGE_LOCKS
 from ..settings import setting_default_lock_timeout
 
 from .literals import TEST_LOCK_1
 
 
-class LockBackendManagementCommandTestCaseMixin:
-    def test_purgelocks_command(self):
+class LockBackendManagementCommandTestCaseMixin(ManagementCommandTestMixin):
+    _test_management_command_name = COMMAND_NAME_LOCK_MANAGER_PURGE_LOCKS
+
+    def test_purge_locks_command(self):
         self._test_locking_backend.acquire_lock(name=TEST_LOCK_1, timeout=20)
 
         # lock_1 not release and not expired, should raise LockError
@@ -22,7 +24,7 @@ class LockBackendManagementCommandTestCaseMixin:
 
         os.environ['MAYAN_LOCK_MANAGER_BACKEND'] = self._test_locking_backend_string
         SettingNamespace.invalidate_cache_all()
-        management.call_command(command_name=PURGE_LOCKS_COMMAND)
+        self._call_test_management_command()
 
         # lock_1 not release but has expired, should not raise LockError
         lock_2 = self._test_locking_backend.acquire_lock(name=TEST_LOCK_1)

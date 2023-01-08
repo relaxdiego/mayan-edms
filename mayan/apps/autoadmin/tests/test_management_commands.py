@@ -1,25 +1,25 @@
 from django.contrib.auth import get_user_model
-from django.core import management
 
+from mayan.apps.common.tests.mixins import ManagementCommandTestMixin
 from mayan.apps.testing.tests.base import BaseTestCase
-from mayan.apps.testing.tests.utils import mute_stdout
 
+from ..literals import COMMAND_NAME_AUTOADMIN_CREATE
 from ..models import AutoAdminSingleton
 
 
-class AutoAdminManagementCommandTestCase(BaseTestCase):
+class AutoAdminManagementCommandTestCase(
+    ManagementCommandTestMixin, BaseTestCase
+):
+    _test_management_command_name = COMMAND_NAME_AUTOADMIN_CREATE
     create_test_case_user = False
-
-    def setUp(self):
-        super().setUp()
-        with mute_stdout():
-            management.call_command('createautoadmin')
 
     def tearDown(self):
         AutoAdminSingleton.objects.all().delete()
         super().tearDown()
 
     def test_autoadmin_creation(self):
+        self._call_test_management_command()
+
         autoadmin = AutoAdminSingleton.objects.get()
         user = get_user_model().objects.first()
 

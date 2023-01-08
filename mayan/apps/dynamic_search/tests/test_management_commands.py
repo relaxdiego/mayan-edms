@@ -1,11 +1,12 @@
-from io import StringIO
 from unittest import skip
 
-from django.core import management
-
+from mayan.apps.common.tests.mixins import ManagementCommandTestMixin
 from mayan.apps.testing.tests.base import BaseTestCase
-from mayan.apps.testing.tests.utils import mute_stdout
 
+from ..literals import (
+    COMMAND_NAME_SEARCH_INDEX_OBJECTS, COMMAND_NAME_SEARCH_REINDEX,
+    COMMAND_NAME_SEARCH_STATUS
+)
 from ..search_backends import SearchBackend
 
 from .mixins.backend_mixins import BackendSearchTestMixin
@@ -13,14 +14,15 @@ from .mixins.base import SearchTestMixin, TestSearchObjectSimpleTestMixin
 
 
 class SearchReindexManagementCommandTestCaseMixin(
-    BackendSearchTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin
+    BackendSearchTestMixin, ManagementCommandTestMixin,
+    TestSearchObjectSimpleTestMixin, SearchTestMixin
 ):
-    def _call_command(self):
-        with mute_stdout():
-            management.call_command(command_name='search_reindex')
+    _test_management_command_name = COMMAND_NAME_SEARCH_REINDEX
 
     def _create_test_search_objects(self):
-        self._create_test_object(instance_kwargs={'char': 'abc'})
+        self._create_test_object(
+            instance_kwargs={'char': 'abc'}
+        )
 
     def test_artifacts(self):
         self._test_search_backend.reset()
@@ -30,7 +32,7 @@ class SearchReindexManagementCommandTestCaseMixin(
         )
         self.assertTrue(self._test_objects[0] not in queryset)
 
-        self._call_command()
+        self._call_test_management_command()
 
         queryset = self._do_search(
             query={'char': self._test_objects[0].char}
@@ -38,7 +40,7 @@ class SearchReindexManagementCommandTestCaseMixin(
         self.assertTrue(self._test_objects[0] in queryset)
 
     def test_calling(self):
-        self._call_command()
+        self._call_test_management_command()
 
 
 class DjangoSearchReindexManagementCommandTestCase(
@@ -68,14 +70,10 @@ class WhooshSearchReindexManagementCommandTestCase(
 
 
 class SearchIndexObjectManagementCommandTestCaseMixin(
-    BackendSearchTestMixin, TestSearchObjectSimpleTestMixin, SearchTestMixin
+    BackendSearchTestMixin, ManagementCommandTestMixin,
+    TestSearchObjectSimpleTestMixin, SearchTestMixin
 ):
-    def _call_command(self, id_range_string):
-        with mute_stdout():
-            management.call_command(
-                'search_index_objects',
-                self._test_search_model.full_name, id_range_string
-            )
+    _test_management_command_name = COMMAND_NAME_SEARCH_INDEX_OBJECTS
 
     def _create_test_search_objects(self):
         self._create_test_object(instance_kwargs={'char': 'abc'})
@@ -105,7 +103,9 @@ class SearchIndexObjectManagementCommandTestCaseMixin(
         )
         self.assertTrue(self._test_objects[1] not in queryset)
 
-        self._call_command(id_range_string=self._test_objects[0].pk)
+        self._call_test_management_command(
+            self._test_search_model.full_name, self._test_objects[0].pk
+        )
 
         queryset = self._do_search(
             query={'char': self._test_objects[0].char}
@@ -117,7 +117,9 @@ class SearchIndexObjectManagementCommandTestCaseMixin(
         )
         self.assertTrue(self._test_objects[1] not in queryset)
 
-        self._call_command(id_range_string=self._test_objects[1].pk)
+        self._call_test_management_command(
+            self._test_search_model.full_name, self._test_objects[1].pk
+        )
 
         queryset = self._do_search(
             query={'char': self._test_objects[0].char}
@@ -130,7 +132,9 @@ class SearchIndexObjectManagementCommandTestCaseMixin(
         self.assertTrue(self._test_objects[1] in queryset)
 
     def test_calling(self):
-        self._call_command(id_range_string=self._test_objects[0].pk)
+        self._call_test_management_command(
+            self._test_search_model.full_name, self._test_objects[0].pk
+        )
 
 
 class DjangoSearchIndexObjectManagementCommandTestCase(
@@ -160,25 +164,25 @@ class WhooshSearchIndexObjectManagementCommandTestCase(
 
 
 class SearchStatusManagementCommandTestCaseMixin(
-    TestSearchObjectSimpleTestMixin, SearchTestMixin
+    ManagementCommandTestMixin, TestSearchObjectSimpleTestMixin,
+    SearchTestMixin
 ):
+    _test_management_command_name = COMMAND_NAME_SEARCH_STATUS
+
     def _create_test_search_objects(self):
-        self._create_test_object(instance_kwargs={'char': 'abc'})
-        self._create_test_object(instance_kwargs={'char': 'xyz'})
+        self._create_test_object(
+            instance_kwargs={'char': 'abc'}
+        )
+        self._create_test_object(
+            instance_kwargs={'char': 'xyz'}
+        )
 
     def test_artifacts(self):
-        output = StringIO()
-        options = {
-            'stdout': output
-        }
-
-        management.call_command(command_name='search_status', **options)
-        output.seek(0)
+        stdout, stderr = self._call_test_management_command()
 
         count = 0
 
-        lines = output.readlines()
-        for line in lines:
+        for line in stdout.split('\n'):
             if self._test_search_model.model_name in line.lower():
                 model_name, count = line.split(':')
                 count = int(count)

@@ -70,7 +70,7 @@ MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'${
 MAYAN_LOCK_MANAGER_BACKEND="mayan.apps.lock_manager.backends.redis_lock.RedisLock" \
 MAYAN_LOCK_MANAGER_BACKEND_ARGUMENTS="{'redis_url':'redis://:${DEFAULT_REDIS_PASSWORD}@${REDIS_HOST}:6379/2'}" \
 DEFAULT_DIRECTORY_MEDIA_ROOT="${DEFAULT_DIRECTORY_MEDIA_ROOT}" \
-${BINARY_MAYAN} initialsetup
+${BINARY_MAYAN} common_initial_setup
 
 echo -e "12. Create the Supervisord file at /etc/supervisor/conf.d/mayan-edms.conf \n"
 sudo -u mayan DEFAULT_DIRECTORY_MEDIA_ROOT="${DEFAULT_DIRECTORY_MEDIA_ROOT}" ${DEFAULT_DIRECTORY_INSTALLATION}bin/mayan-edms.py platformtemplate supervisord | sudo sh -c "cat > /etc/supervisor/conf.d/mayan-edms.conf"

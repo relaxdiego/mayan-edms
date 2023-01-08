@@ -1,3 +1,9 @@
+from io import StringIO
+
+from django.core import management
+
+from mayan.apps.testing.tests.utils import mute_stdout
+
 from ..classes import ModelCopy
 from ..links import link_object_copy
 
@@ -10,6 +16,24 @@ class CommonAPITestMixin:
 class CommonViewTestMixin:
     def _request_about_view(self):
         return self.get(viewname='common:about_view')
+
+
+class ManagementCommandTestMixin:
+    def _call_test_management_command(self, *args, **kwargs):
+        stderr = StringIO()
+        stdout = StringIO()
+
+        kwargs['stderr'] = stderr
+        kwargs['stdout'] = stdout
+
+        with mute_stdout():
+            management.call_command(
+                self._test_management_command_name, *args, **kwargs
+            )
+
+        return (
+            stdout.getvalue(), stderr.getvalue()
+        )
 
 
 class ObjectCopyLinkTestMixin:

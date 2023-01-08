@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from mayan.apps.common.apps import MayanAppConfig
 
 from .backends.base import LockingBackend
-from .literals import PURGE_LOCKS_COMMAND, TEST_LOCK_NAME
+from .literals import COMMAND_NAME_LOCK_MANAGER_PURGE_LOCKS, TEST_LOCK_NAME
 from .settings import setting_backend
 
 logger = logging.getLogger(name=__name__)
@@ -20,7 +20,7 @@ class LockManagerApp(MayanAppConfig):
     def ready(self):
         super().ready()
 
-        if PURGE_LOCKS_COMMAND not in sys.argv:
+        if COMMAND_NAME_LOCK_MANAGER_PURGE_LOCKS not in sys.argv:
             logger.debug('Starting lock backend connectivity test')
             # Don't test for locks during the `task_manager_purge_locks`
             # command as there may be some stuck locks which will block

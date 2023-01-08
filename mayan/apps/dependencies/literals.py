@@ -1,3 +1,7 @@
+COMMAND_NAME_DEPENDENCIES_CHECK_VERSION = 'dependencies_check_version'
+COMMAND_NAME_DEPENDENCIES_INSTALL = 'dependencies_install'
+COMMAND_NAME_DEPENDENCIES_SHOW_VERSION = 'dependencies_show_version'
+
 MAYAN_PYPI_NAME = 'mayan-edms'
 
 MESSAGE_NOT_LATEST = '''The version you are using is outdated. The latest

@@ -4,6 +4,10 @@ from django.conf import settings
 from django.core import management
 from django.core.management.utils import get_random_secret_key
 
+from mayan.apps.appearance.literals import COMMAND_NAME_APPEARANCE_PREPARE_STATIC
+from mayan.apps.autoadmin.literals import COMMAND_NAME_AUTOADMIN_CREATE
+from mayan.apps.dependencies.literals import COMMAND_NAME_DEPENDENCIES_INSTALL
+from mayan.apps.smart_settings.literals import COMMAND_NAME_SETTINGS_SAVE
 from mayan.settings.literals import (
     DEFAULT_SECRET_KEY, DEFAULT_USER_SETTINGS_FOLDER, SECRET_KEY_FILENAME,
     SYSTEM_DIR
@@ -78,18 +82,21 @@ class CommonAppManagementCommand:
         if not no_dependencies:
             self.do_install_dependencies()
 
-        management.call_command(command_name='autoadmin_create')
+        management.call_command(command_name=COMMAND_NAME_AUTOADMIN_CREATE)
 
         if not settings.COMMON_DISABLE_LOCAL_STORAGE:
-            management.call_command(command_name='settings_save')
+            management.call_command(command_name=COMMAND_NAME_SETTINGS_SAVE)
 
         signal_post_initial_setup.send(sender=self)
 
     def do_install_dependencies(self):
         if not settings.COMMON_DISABLE_LOCAL_STORAGE:
-            management.call_command(command_name='dependencies_install')
             management.call_command(
-                command_name='appearance_prepare_static', interactive=False
+                command_name=COMMAND_NAME_DEPENDENCIES_INSTALL
+            )
+            management.call_command(
+                command_name=COMMAND_NAME_APPEARANCE_PREPARE_STATIC,
+                interactive=False
             )
 
     def do_perform_upgrade(self, no_dependencies=False):

@@ -1,55 +1,65 @@
-from io import StringIO
 from unittest import mock
-
-from django.core import management
 
 import mayan
 
+from mayan.apps.common.tests.mixins import ManagementCommandTestMixin
 from mayan.apps.testing.tests.base import BaseTestCase
 
+from ..literals import (
+    COMMAND_NAME_DEPENDENCIES_CHECK_VERSION,
+    COMMAND_NAME_DEPENDENCIES_SHOW_VERSION
+)
 from ..utils import (
     MESSAGE_NOT_LATEST, MESSAGE_UNKNOWN_VERSION, MESSAGE_UP_TO_DATE
 )
 
 
-class ShowVersionManagementCommandTestCase(BaseTestCase):
-    create_test_case_user = False
-
-    def test_version_command_base(self):
-        out = StringIO()
-        management.call_command(command_name='showversion', stdout=out)
-        self.assertIn(mayan.__version__, out.getvalue())
-
-    def test_version_command_build_string(self):
-        out = StringIO()
-        management.call_command(
-            command_name='showversion', build_string=True, stdout=out
-        )
-        self.assertIn(mayan.__build_string__, out.getvalue())
-
-
-class CheckVersionManagementCommandTestCase(BaseTestCase):
-    def _call_command(self):
-        out = StringIO()
-        management.call_command(
-            command_name='checkversion', stdout=out
-        )
-        return out.getvalue()
+class CheckVersionManagementCommandTestCase(
+    ManagementCommandTestMixin, BaseTestCase
+):
+    _test_management_command_name = COMMAND_NAME_DEPENDENCIES_CHECK_VERSION
 
     @mock.patch('mayan.apps.dependencies.utils.PyPIClient.get_versions', autospec=True)
     def test_check_version_not_latest_version(self, mock_package_releases):
         mock_package_releases.return_value = ('0.0.0',)
-        text = self._call_command()
-        self.assertTrue(text.startswith(MESSAGE_NOT_LATEST[:-2]))
+        stdout, stderr = self._call_test_management_command()
+        self.assertTrue(
+            stdout.startswith(
+                MESSAGE_NOT_LATEST[:-2]
+            )
+        )
 
     @mock.patch('mayan.apps.dependencies.utils.PyPIClient.get_versions', autospec=True)
     def test_check_version_unknown_version(self, mock_package_releases):
         mock_package_releases.return_value = None
-        text = self._call_command()
-        self.assertTrue(text.startswith(MESSAGE_UNKNOWN_VERSION))
+        stdout, stderr = self._call_test_management_command()
+        self.assertTrue(
+            stdout.startswith(MESSAGE_UNKNOWN_VERSION)
+        )
 
     @mock.patch('mayan.apps.dependencies.utils.PyPIClient.get_versions', autospec=True)
     def test_check_version_correct_version(self, mock_package_releases):
         mock_package_releases.return_value = (mayan.__version__,)
-        text = self._call_command()
-        self.assertTrue(text.startswith(MESSAGE_UP_TO_DATE))
+        stdout, stderr = self._call_test_management_command()
+        self.assertTrue(
+            stdout.startswith(MESSAGE_UP_TO_DATE)
+        )
+
+
+class ShowVersionManagementCommandTestCase(
+    ManagementCommandTestMixin, BaseTestCase
+):
+    _test_management_command_name = COMMAND_NAME_DEPENDENCIES_SHOW_VERSION
+    create_test_case_user = False
+
+    def test_version_command_base(self):
+        stdout, stderr = self._call_test_management_command()
+        self.assertIn(
+            mayan.__version__, stdout
+        )
+
+    def test_version_command_build_string(self):
+        stdout, stderr = self._call_test_management_command(build_string=True)
+        self.assertIn(
+            mayan.__build_string__, stdout
+        )

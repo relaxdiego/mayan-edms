@@ -1,10 +1,8 @@
-from io import StringIO
-
-from django.core import management
-
+from mayan.apps.common.tests.mixins import ManagementCommandTestMixin
 from mayan.apps.testing.tests.base import BaseTestCase
 
 from ..classes import PlatformTemplate
+from ..literals import COMMAND_NAME_PLATFORM_TEMPLATE
 
 from .literals import (
     TEST_TEMPLATE_LABEL, TEST_TEMPLATE_NAME, TEST_TEMPLATE_STRING,
@@ -23,26 +21,24 @@ class TestPlatformTemplate(PlatformTemplate):
 PlatformTemplate.register(klass=TestPlatformTemplate)
 
 
-class PlatformTemplateManagementCommandTestCase(BaseTestCase):
+class PlatformTemplateManagementCommandTestCase(
+    ManagementCommandTestMixin, BaseTestCase
+):
+    _test_management_command_name = COMMAND_NAME_PLATFORM_TEMPLATE
+
     def test_platform_template_simple(self):
-        output = StringIO()
-        args = (TEST_TEMPLATE_NAME,)
-        options = {
-            'stdout': output
-        }
-        management.call_command('platformtemplate', *args, **options)
-        self.assertEqual(output.getvalue(), TEST_TEMPLATE_STRING_RENDER)
+        stdout, stderr = self._call_test_management_command(
+            TEST_TEMPLATE_NAME
+        )
+        self.assertEqual(stdout, TEST_TEMPLATE_STRING_RENDER)
 
     def test_platform_template_context(self):
-        output = StringIO()
         args = (
             TEST_TEMPLATE_NAME, '--context',
             'test_template_variable: {}'.format(
                 TEST_TEMPLATE_VARIABLE_VALUE_ALT
             )
         )
-        options = {
-            'stdout': output
-        }
-        management.call_command('platformtemplate', *args, **options)
-        self.assertEqual(output.getvalue(), TEST_TEMPLATE_STRING_RENDER_ALT)
+
+        stdout, stderr = self._call_test_management_command(*args)
+        self.assertEqual(stdout, TEST_TEMPLATE_STRING_RENDER_ALT)

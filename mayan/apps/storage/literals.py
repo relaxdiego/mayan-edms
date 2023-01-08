@@ -3,6 +3,8 @@ import tempfile
 
 from django.conf import settings
 
+COMMAND_NAME_STORAGE_PROCESS = 'storage_process'
+
 DEFAULT_STORAGE_BACKEND = 'django.core.files.storage.FileSystemStorage'
 DEFAULT_STORAGE_DOWNLOAD_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DEFAULT_STORAGE_DOWNLOAD_FILE_STORAGE_ARGUMENTS = {

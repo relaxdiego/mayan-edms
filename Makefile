@@ -271,7 +271,7 @@ python-sdist-test-suit: python-sdist
 	sh -c '\
 	. _virtualenv/bin/activate; \
 	pip install `ls dist/*.gz`; \
-	_virtualenv/bin/mayan-edms.py initialsetup; \
+	_virtualenv/bin/mayan-edms.py common_initial_setup; \
 	pip install --requirement requirements/testing.txt; \
 	_virtualenv/bin/mayan-edms.py test --mayan-apps \
 	'
@@ -283,7 +283,7 @@ python-wheel-test-suit: wheel
 	sh -c '\
 	. _virtualenv/bin/activate; \
 	pip install `ls dist/*.whl`; \
-	_virtualenv/bin/mayan-edms.py initialsetup; \
+	_virtualenv/bin/mayan-edms.py common_initial_setup; \
 	pip install mock==2.0.0; \
 	_virtualenv/bin/mayan-edms.py test --mayan-apps \
 	'
@@ -468,7 +468,7 @@ docker-redis-stop:
 staging-start: ## Launch and initialize production-like services using Docker (PostgreSQL and Redis).
 staging-start: staging-stop docker-postgresql-start docker-redis-start
 	export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'$(DEFAULT_DATABASE_NAME)','PASSWORD':'$(DEFAULT_DATABASE_PASSWORD)','USER':'$(DEFAULT_DATABASE_USER)','HOST':'127.0.0.1'}}"; \
-	./manage.py initialsetup --settings=mayan.settings.staging.docker
+	./manage.py common_initial_setup --settings=mayan.settings.staging.docker
 
 staging-stop: ## Stop and delete the Docker production-like services.
 staging-stop: docker-postgresql-stop docker-redis-stop

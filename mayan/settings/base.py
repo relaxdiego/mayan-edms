@@ -5,6 +5,7 @@ import sys
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import ugettext_lazy as _
 
+from mayan.apps.smart_settings.literals import COMMAND_NAME_SETTINGS_REVERT
 from mayan.apps.smart_settings.utils import SettingNamespaceSingleton
 
 from .literals import DEFAULT_SECRET_KEY, SECRET_KEY_FILENAME, SYSTEM_DIR
@@ -17,7 +18,7 @@ setting_namespace = SettingNamespaceSingleton(
     global_symbol_table=globals()
 )
 
-if 'revertsettings' in sys.argv:
+if COMMAND_NAME_SETTINGS_REVERT in sys.argv:
     setting_namespace.update_globals(only_critical=True)
     DATABASES = {
         'default': {

@@ -1,5 +1,9 @@
 from django.utils.translation import ugettext_lazy as _
 
+COMMAND_NAME_SEARCH_INDEX_OBJECTS = 'search_index_objects'
+COMMAND_NAME_SEARCH_REINDEX = 'search_reindex'
+COMMAND_NAME_SEARCH_STATUS = 'search_status'
+
 DEFAULT_SEARCH_BACKEND = 'mayan.apps.dynamic_search.backends.whoosh.WhooshSearchBackend'
 DEFAULT_SEARCH_BACKEND_ARGUMENTS = {}
 DEFAULT_SEARCH_DISABLE_SIMPLE_SEARCH = False
