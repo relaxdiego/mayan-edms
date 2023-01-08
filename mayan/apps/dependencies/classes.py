@@ -776,7 +776,9 @@ class PythonDependency(Dependency):
     def get_latest_version(self):
         url = 'https://pypi.python.org/pypi/{}/json'.format(self.name)
         response = requests.get(url=url)
-        versions = list(response.json()['releases'])
+        versions = list(
+            response.json()['releases']
+        )
         versions.sort(key=PythonVersion)
         return versions[-1]
 
@@ -832,20 +834,19 @@ class GoogleFontDependency(Dependency):
 
         with self.path_import_file.open(mode='w') as file_object:
             for agent_name, agent_string in self.user_agents.items():
-                import_file = str(
-                    requests.get(
-                        self.url, headers={
-                            'User-Agent': agent_string
-                        }
-                    ).content
+                response = requests.get(
+                    self.url, headers={
+                        'User-Agent': agent_string
+                    }
                 )
+
+                import_file = response.text
 
                 for line in import_file.split('\n'):
                     if 'url' in line:
                         font_url = line.split(' ')[-2][4:-1]
-                        url = furl(str(font_url))
+                        url = furl(font_url)
                         font_filename = url.path.segments[-1]
-
                         path_font_filename = self.path_cache / font_filename
                         with path_font_filename.open(mode='wb') as font_file_object:
                             with requests.get(font_url, stream=True) as response:
@@ -867,12 +868,16 @@ class GoogleFontDependency(Dependency):
         path_install = self.get_install_path()
 
         # Clear the installation path of previous content
-        shutil.rmtree(path=str(path_install), ignore_errors=True)
+        shutil.rmtree(
+            path=str(path_install), ignore_errors=True
+        )
 
         shutil.copytree(
             src=str(self.path_cache), dst=str(path_install)
         )
-        shutil.rmtree(path=str(self.path_cache), ignore_errors=True)
+        shutil.rmtree(
+            path=str(self.path_cache), ignore_errors=True
+        )
 
     def get_install_path(self):
         app = apps.get_app_config(app_label=self.app_label)
