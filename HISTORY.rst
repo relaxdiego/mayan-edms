@@ -181,7 +181,7 @@
   - Add collapsed views and actions icons.
   - Move views and actions markup to their own respective partial templates.
     This reduces duplication and improves usability of the markup.
-  - Lower the z-index of the sidebar to avoid menus to display behing it.
+  - Lower the z-index of the sidebar to avoid menus to display behind it.
   - Add simulated horizontal rulers to the body of tables.
   - Support slim dropdown menus.
   - Move navigation to the card footer.
@@ -211,7 +211,7 @@
   - Remove many instances of ``force_text``.
   - Move several ``upload_to`` functions to their corresponding app's
     ``utils`` module.
-  - Promote private ``_user`` argument to official argument.
+  - Promote private ``_user`` argument to an official argument.
 
 - API views refactor.
   - Remove injected objects on API views. Each API view needs to query the
@@ -308,7 +308,7 @@
   value is passed to the ``runserver``, ``runserver-plus``, or
   ``staging-frontend`` targets.
 - Add new setting to disable logging message ANSI color codes. The setting
-  is named ``LOGGING_DISABLE_COLOR_FORMATTER`` and defauls to ``False``.
+  is named ``LOGGING_DISABLE_COLOR_FORMATTER`` and defaults to ``False``.
 - Standardize management command testing.
 - Move management command names to the ``literals`` module of each app.
 
