@@ -633,5 +633,4 @@ Issues closed
 - :gitlab-issue:`1129` MAYAN_WORKER_CUSTOM_QUEUE_LIST variable is not set
 
 
-
 .. _PyPI: https://pypi.python.org/pypi/mayan-edms/
