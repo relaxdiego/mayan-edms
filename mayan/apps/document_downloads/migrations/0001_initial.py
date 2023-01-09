@@ -38,7 +38,7 @@ def code_document_file_download_event_and_permission_update(apps, schema_editor)
         ).get(
             namespace='document_downloads', name='document_file_download'
         )
-    except StoredPermission.DoestNotExist:
+    except StoredPermission.DoesNotExist:
         """Raised on initial migrations. Can be ignored."""
     else:
         AccessControlList.permissions.through.objects.using(
