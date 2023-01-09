@@ -73,7 +73,7 @@ DEFAULT_DIRECTORY_MEDIA_ROOT="${DEFAULT_DIRECTORY_MEDIA_ROOT}" \
 ${BINARY_MAYAN} common_initial_setup
 
 echo -e "12. Create the Supervisord file at /etc/supervisor/conf.d/mayan-edms.conf \n"
-sudo -u mayan DEFAULT_DIRECTORY_MEDIA_ROOT="${DEFAULT_DIRECTORY_MEDIA_ROOT}" ${DEFAULT_DIRECTORY_INSTALLATION}bin/mayan-edms.py platformtemplate supervisord | sudo sh -c "cat > /etc/supervisor/conf.d/mayan-edms.conf"
+sudo -u mayan DEFAULT_DIRECTORY_MEDIA_ROOT="${DEFAULT_DIRECTORY_MEDIA_ROOT}" ${DEFAULT_DIRECTORY_INSTALLATION}bin/mayan-edms.py platform_template supervisord | sudo sh -c "cat > /etc/supervisor/conf.d/mayan-edms.conf"
 
 echo -e "13. Enable and restart the services \n"
 sudo systemctl enable supervisor
