@@ -1,4 +1,4 @@
-4.4 (2022-XX-XX)
+4.4 (2023-01-XX)
 ================
 - Update Docker image tags:
 
@@ -311,6 +311,9 @@
   is named ``LOGGING_DISABLE_COLOR_FORMATTER`` and defaults to ``False``.
 - Standardize management command testing.
 - Move management command names to the ``literals`` module of each app.
+
+4.3.5 (2023-01-10)
+==================
 - Fix error when deleting a user form the user interface. Closes GitLab
   issue #1125. Thanks to friki67 (@friki67) for the report and
   Jan Przychodniak (@janprzychodniak) for the additional debug information.
