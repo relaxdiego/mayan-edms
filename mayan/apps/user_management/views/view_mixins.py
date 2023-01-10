@@ -7,7 +7,9 @@ from ..literals import FIELDS_ALL, FIELDS_USER, FIELDSETS_ALL, FIELDSETS_USER
 
 class DynamicUserViewMixin:
     def dispatch(self, request, *args, **kwargs):
-        object_raw = self.get_object(queryset=self.get_source_queryset())
+        object_raw = self.get_object(
+            queryset=self.get_source_queryset()
+        )
         self.is_current_user = object_raw == self.request.user
 
         queryset = AccessControlList.objects.restrict_queryset(

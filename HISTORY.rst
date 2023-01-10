@@ -311,6 +311,9 @@
   is named ``LOGGING_DISABLE_COLOR_FORMATTER`` and defaults to ``False``.
 - Standardize management command testing.
 - Move management command names to the ``literals`` module of each app.
+- Fix error when deleting a user form the user interface. Closes GitLab
+  issue #1125. Thanks to friki67 (@friki67) for the report and
+  Jan Przychodniak (@janprzychodniak) for the additional debug information.
 
 4.3.4 (2022-12-19)
 ==================

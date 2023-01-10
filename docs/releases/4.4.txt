@@ -628,6 +628,7 @@ Issues closed
 -------------
 
 - :gitlab-issue:`1095` Feature Request: Cabinet Filesystem
+- :gitlab-issue:`1125` Error deleting user
 - :gitlab-issue:`1126` Files not saving to S3-compatible storage
 - :gitlab-issue:`1127` "Self-documenting" API is not self-documenting
 - :gitlab-issue:`1129` MAYAN_WORKER_CUSTOM_QUEUE_LIST variable is not set

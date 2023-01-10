@@ -428,13 +428,26 @@ class UserViewTestMixin:
         ).first()
         return reponse
 
-    def _request_test_user_single_delete_view(self):
+    def _request_test_user_single_delete_get_view(self):
+        return self.get(
+            viewname='user_management:user_single_delete',
+            kwargs={'user_id': self._test_user.pk}
+        )
+
+    def _request_test_user_single_delete_post_view(self):
         return self.post(
             viewname='user_management:user_single_delete',
             kwargs={'user_id': self._test_user.pk}
         )
 
-    def _request_test_user_multiple_delete_view(self):
+    def _request_test_user_multiple_delete_get_view(self):
+        return self.get(
+            viewname='user_management:user_multiple_delete', data={
+                'id_list': self._test_user.pk
+            }
+        )
+
+    def _request_test_user_multiple_delete_post_view(self):
         return self.post(
             viewname='user_management:user_multiple_delete', data={
                 'id_list': self._test_user.pk
