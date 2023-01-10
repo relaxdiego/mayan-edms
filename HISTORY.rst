@@ -1,3 +1,9 @@
+4.3.5 (2023-01-10)
+==================
+- Fix error when deleting a user form the user interface. Closes GitLab
+  issue #1125. Thanks to friki67 (@friki67) for the report and
+  Jan Przychodniak (@janprzychodniak) for the additional debug information.
+
 4.3.4 (2022-12-19)
 ==================
 - Merge fixes from version 4.2.13.

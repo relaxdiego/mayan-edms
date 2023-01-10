@@ -73,6 +73,8 @@ class UserDeleteView(MultipleObjectDeleteView):
                     'process is not reversible.'
                 )
             }
+        else:
+            return {}
 
     def get_source_queryset(self):
         return get_user_queryset(user=self.request.user)
