@@ -213,7 +213,8 @@
     ``utils`` module.
   - Promote private ``_user`` argument to an official argument.
 
-- API views refactor.
+- API views refactor:
+
   - Remove injected objects on API views. Each API view needs to query the
     object explicitly. This is change is less efficient but was made to
     mirror how upstream DRF works.
