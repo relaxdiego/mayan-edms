@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:51+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: models.py:49
 msgid "Auto parsing"
-msgstr ""
+msgstr "Extracción de texto automática"
 
 #: models.py:59
 msgid "Document type settings"
@@ -238,8 +238,11 @@ msgstr ""
 msgid "Submit %(count)d document file to the parsing queue?"
 msgid_plural "Submit %(count)d documents files to the parsing queue?"
 msgstr[0] ""
+"¿Enviar el archivo de documento %(count)d a la cola de extracción de texto?"
 msgstr[1] ""
+"¿Enviar archivos de documentos %(count)d a la cola de extracción de texto?"
 msgstr[2] ""
+"¿Enviar archivos de documentos %(count)d a la cola de extracción de texto?"
 
 #: views.py:160
 #, python-format

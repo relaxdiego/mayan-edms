@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:53+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -418,9 +418,9 @@ msgstr ""
 #: views/document_views.py:57
 msgid "Add metadata types to document"
 msgid_plural "Add metadata types to documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Agregar tipos de metadatos al documento"
+msgstr[1] "Agregar tipos de metadatos a los documentos"
+msgstr[2] "Agregar tipos de metadatos a los documentos"
 
 #: views/document_views.py:68
 #, python-format
@@ -478,9 +478,9 @@ msgstr "No hay metadatos para editar"
 #: views/document_views.py:229
 msgid "Edit document metadata"
 msgid_plural "Edit documents metadata"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Editar metadatos del documento"
+msgstr[1] "Editar metadatos de documentos"
+msgstr[2] "Editar metadatos de documentos"
 
 #: views/document_views.py:240
 #, python-format
@@ -532,9 +532,9 @@ msgstr ""
 #: views/document_views.py:404
 msgid "Remove metadata types from the document"
 msgid_plural "Remove metadata types from the documents"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Eliminar tipos de metadatos del documento"
+msgstr[1] "Eliminar tipos de metadatos de los documentos"
+msgstr[2] "Eliminar tipos de metadatos de los documentos"
 
 #: views/document_views.py:415
 #, python-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
 "PO-Revision-Date: 2020-04-28 03:38+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -183,7 +183,7 @@ msgid "Primary key of the document to be checked out."
 msgstr ""
 
 #: serializers.py:45
-msgid "Document PK"
+msgid "Document ID"
 msgstr ""
 
 #: views.py:28

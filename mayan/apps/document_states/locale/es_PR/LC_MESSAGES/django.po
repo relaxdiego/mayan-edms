@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:52+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -870,7 +870,7 @@ msgstr ""
 #: serializers/workflow_template_serializers.py:66
 #: serializers/workflow_template_serializers.py:75
 msgid "Document type ID"
-msgstr "ID del tipo de documento"
+msgstr "Identificación del tipo de documento"
 
 #: serializers/workflow_template_serializers.py:74
 msgid "Primary key of the document type to remove from the workflow."
@@ -907,7 +907,7 @@ msgstr "URL de acciones"
 
 #: serializers/workflow_template_state_serializers.py:23
 msgid "Escalations URL"
-msgstr ""
+msgstr "URL de escalamientos"
 
 #: serializers/workflow_template_transition_serializers.py:49
 #: serializers/workflow_template_transition_serializers.py:226
@@ -941,7 +941,7 @@ msgstr "ID del estado de origen"
 
 #: serializers/workflow_template_transition_serializers.py:105
 msgid "Trigger list URL"
-msgstr ""
+msgstr "URL de la lista de activadores"
 
 #: serializers/workflow_template_transition_serializers.py:198
 msgid "Event Type ID"

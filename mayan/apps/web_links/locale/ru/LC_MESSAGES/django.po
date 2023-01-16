@@ -5,8 +5,8 @@
 # 
 # Translators:
 # Sergey Glita <gsv70@mail.ru>, 2023
-# lilo.panic, 2023
 # Panasoft, 2023
+# lilo.panic, 2023
 # Alex Chigrin <chalex84@mail.ru>, 2023
 # Ilya Pavlov <spirkaa@gmail.com>, 2023
 # 
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:56+0000\n"
 "Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2023\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -24,12 +24,8 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: apps.py:43
-msgid "Links"
-msgstr "Ссылки"
-
-#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:43
-#: permissions.py:6 views.py:169
+#: apps.py:43 events.py:6 links.py:19 links.py:24 links.py:54 links.py:59
+#: models.py:43 permissions.py:6 views.py:169
 msgid "Web links"
 msgstr "Веб-ссылки"
 

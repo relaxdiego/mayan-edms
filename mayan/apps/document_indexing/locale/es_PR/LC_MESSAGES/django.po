@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:51+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -356,7 +356,7 @@ msgstr "Descripción del documento"
 
 #: search.py:33
 msgid "Document UUID"
-msgstr "UUID de Documento"
+msgstr "UUID del Documento"
 
 #: search.py:36
 msgid "Document checksum"
@@ -621,17 +621,17 @@ msgstr "Plantilla de índice en cola para reconstrucción."
 #, python-format
 msgid "%(count)d index template queued for rebuild."
 msgid_plural "%(count)d index templates queued for rebuild."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)d plantilla de índice en cola para reconstruir."
+msgstr[1] "%(count)d plantillas de índice en cola para reconstruir."
+msgstr[2] "%(count)d plantillas de índice en cola para reconstruir."
 
 #: views/index_template_views.py:465
 #, python-format
 msgid "%(count)d index reset."
 msgid_plural "%(count)d indexes reset."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)d índice reiniciado."
+msgstr[1] "%(count)d índices reiniciados."
+msgstr[2] "%(count)d índices reiniciados."
 
 #: views/index_template_views.py:478
 msgid "Index templates for which their instances will be deleted."

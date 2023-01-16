@@ -5,18 +5,18 @@
 # 
 # Translators:
 # Giovanni Tricarico <gtricarico92@gmail.com>, 2023
-# valleymanbs <mrvalleyman@gmail.com>, 2023
 # Marco Camplese <marco.camplese.mc@gmail.com>, 2023
 # Paul Audhep <audhep@gmail.com>, 2023
 # Roberto Rosario, 2023
+# valleymanbs <mrvalleyman@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:55+0000\n"
-"Last-Translator: Roberto Rosario, 2023\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:56+0000\n"
+"Last-Translator: valleymanbs <mrvalleyman@gmail.com>, 2023\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,12 +24,8 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: apps.py:43
-msgid "Links"
-msgstr ""
-
-#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:43
-#: permissions.py:6 views.py:169
+#: apps.py:43 events.py:6 links.py:19 links.py:24 links.py:54 links.py:59
+#: models.py:43 permissions.py:6 views.py:169
 msgid "Web links"
 msgstr ""
 

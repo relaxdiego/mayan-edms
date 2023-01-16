@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:52+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -189,7 +189,7 @@ msgstr "Lista de cachés de archivos"
 #: views.py:83
 #, python-format
 msgid "Details of cache partition: %s"
-msgstr ""
+msgstr "Detalles de la partición de caché: %s"
 
 #: views.py:101
 #, python-format
@@ -213,6 +213,6 @@ msgstr "%(count)d caché enviado para purgar."
 #: views.py:136
 msgid "Submit the selected cache for purging?"
 msgid_plural "Submit the selected caches for purging?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "¿Enviar el caché seleccionado para purgar?"
+msgstr[1] "¿Enviar los cachés seleccionados para purgar?"
+msgstr[2] "¿Enviar los cachés seleccionados para purgar?"

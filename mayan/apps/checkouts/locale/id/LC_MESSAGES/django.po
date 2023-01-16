@@ -4,16 +4,16 @@
 # 
 # Translators:
 # Translators:
-# Adek Lanin, 2023
 # Dzikri Hakim <dzikers@gmail.com>, 2023
+# Adek Lanin, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:44+0000\n"
-"PO-Revision-Date: 2023-01-16 06:47+0000\n"
-"Last-Translator: Dzikri Hakim <dzikers@gmail.com>, 2023\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:50+0000\n"
+"Last-Translator: Adek Lanin, 2023\n"
 "Language-Team: Indonesian (https://www.transifex.com/rosarior/teams/13584/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -186,7 +186,7 @@ msgid "Primary key of the document to be checked out."
 msgstr ""
 
 #: serializers.py:45
-msgid "Document PK"
+msgid "Document ID"
 msgstr ""
 
 #: views.py:28

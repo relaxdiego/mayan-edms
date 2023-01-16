@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:56+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "Apellido"
 msgid "Password"
 msgstr "Contraseña"
 
-#: apps.py:119
+#: apps.py:119 search.py:40
 msgid "Username"
 msgstr "Nombre de usuario"
 
@@ -202,25 +202,21 @@ msgstr "Editar usuarios existentes"
 msgid "View existing users"
 msgstr "Ver usuarios existentes"
 
-#: search.py:40
-msgid "username"
-msgstr "Nombre de usuario"
-
 #: serializers.py:16
 msgid "URL of the API endpoint showing the list users of this group."
 msgstr "URL de la API que muestra la lista de usuarios de este grupo."
 
 #: serializers.py:18
 msgid "Users URL"
-msgstr ""
+msgstr "URL de usuarios"
 
 #: serializers.py:22
 msgid "Users add URL"
-msgstr ""
+msgstr "URL para agregar usuarios"
 
 #: serializers.py:26
 msgid "Users remove URL"
-msgstr ""
+msgstr "URL para eliminar usuarios"
 
 #: serializers.py:33 serializers.py:80
 msgid "URL"

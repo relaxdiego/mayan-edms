@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:56+0000\n"
 "Last-Translator: Hmayag Antonian <hmayag@freemail.gr>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgstr "Επώνυμο"
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
-#: apps.py:119
+#: apps.py:119 search.py:40
 msgid "Username"
 msgstr "Όνομα χρήστη"
 
@@ -203,10 +203,6 @@ msgstr "Τροποποίηση υπαρχόντων χρηστών"
 #: permissions.py:31
 msgid "View existing users"
 msgstr "Εμφάνιση υπαρχόντων χρηστών"
-
-#: search.py:40
-msgid "username"
-msgstr "Όνομα χρήστη"
 
 #: serializers.py:16
 msgid "URL of the API endpoint showing the list users of this group."

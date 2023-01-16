@@ -5,18 +5,18 @@
 # 
 # Translators:
 # Roberto Rosario, 2023
+# Berny <berny@bernhard-marx.de>, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
 # Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
 # Tobias Paepke <tobias.paepke@paepke.net>, 2023
-# Mathias Behrle <mathiasb@m9s.biz>, 2023
-# Berny <berny@bernhard-marx.de>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:52+0000\n"
-"Last-Translator: Berny <berny@bernhard-marx.de>, 2023\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:53+0000\n"
+"Last-Translator: Tobias Paepke <tobias.paepke@paepke.net>, 2023\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

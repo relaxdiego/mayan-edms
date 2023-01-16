@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:44+0000\n"
-"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2023\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -187,7 +187,7 @@ msgid "Primary key of the document to be checked out."
 msgstr "المفتاح الأساسي للمستند المراد سحبه."
 
 #: serializers.py:45
-msgid "Document PK"
+msgid "Document ID"
 msgstr ""
 
 #: views.py:28

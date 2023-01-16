@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:54+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,8 @@ msgstr "El contenido OCR."
 #: apps.py:121
 msgid "A generator returning the document's version pages OCR content."
 msgstr ""
+"Un generador que devuelve el contenido de OCR de las páginas de la versión "
+"del documento."
 
 #: apps.py:123
 msgid "OCR content"
@@ -246,9 +248,9 @@ msgstr "%(count)d versiones de documentos enviadas a la cola de OCR."
 #: views.py:190
 msgid "Submit the selected document version to the OCR queue?"
 msgid_plural "Submit the selected document versions to the OCR queue?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "¿Enviar la versión del documento seleccionado a la cola de OCR?"
+msgstr[1] "¿Enviar las versiones del documento seleccionado a la cola de OCR?"
+msgstr[2] "¿Enviar las versiones del documento seleccionado a la cola de OCR?"
 
 #: views.py:226
 #, python-format

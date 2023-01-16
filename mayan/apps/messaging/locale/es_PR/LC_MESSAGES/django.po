@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:53+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -290,10 +290,11 @@ msgstr "Lista de nombres de usuario"
 #: workflow_actions.py:26
 msgid "Comma separated list of usernames that will receive the message."
 msgstr ""
+"Lista separada por comas de nombres de usuario que recibirán el mensaje."
 
 #: workflow_actions.py:45
 msgid "Subject of the message to be sent."
-msgstr ""
+msgstr "Sujeto del mensaje a enviar."
 
 #: workflow_actions.py:62
 msgid "The actual text to send."

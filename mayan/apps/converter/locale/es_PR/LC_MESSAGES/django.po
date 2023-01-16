@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:44+0000\n"
-"PO-Revision-Date: 2023-01-16 06:48+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -666,9 +666,9 @@ msgstr "Solicitud de eliminación realizada en %(count)d activos"
 #: views/asset_views.py:60
 msgid "Delete the selected asset?"
 msgid_plural "Delete the selected assets?"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "¿Eliminar el activo seleccionado?"
+msgstr[1] "¿Eliminar los activos seleccionados?"
+msgstr[2] "¿Eliminar los activos seleccionados?"
 
 #: views/asset_views.py:70
 #, python-format

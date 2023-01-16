@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:56+0000\n"
 "Last-Translator: Mehdi Amani <MehdiAmani@toorintan.com>, 2023\n"
 "Language-Team: Persian (https://www.transifex.com/rosarior/teams/13584/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgstr "نام خانوادگی"
 msgid "Password"
 msgstr "کلمه عبور"
 
-#: apps.py:119
+#: apps.py:119 search.py:40
 msgid "Username"
 msgstr "نام کاربری"
 
@@ -204,10 +204,6 @@ msgstr "ویرایش کاربران موجود"
 #: permissions.py:31
 msgid "View existing users"
 msgstr "مشاهده کاربران موجود"
-
-#: search.py:40
-msgid "username"
-msgstr "نام کاربری"
 
 #: serializers.py:16
 msgid "URL of the API endpoint showing the list users of this group."

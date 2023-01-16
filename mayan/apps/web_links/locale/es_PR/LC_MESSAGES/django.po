@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:56+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -20,12 +20,8 @@ msgstr ""
 "Language: es_PR\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: apps.py:43
-msgid "Links"
-msgstr "Enlaces"
-
-#: events.py:6 links.py:19 links.py:24 links.py:54 links.py:59 models.py:43
-#: permissions.py:6 views.py:169
+#: apps.py:43 events.py:6 links.py:19 links.py:24 links.py:54 links.py:59
+#: models.py:43 permissions.py:6 views.py:169
 msgid "Web links"
 msgstr "Enlaces web"
 
@@ -111,7 +107,7 @@ msgstr "Llave principal del tipo de documento para agregar al enlace web."
 
 #: serializers.py:17 serializers.py:26
 msgid "Document type ID"
-msgstr "ID del tipo de documento"
+msgstr "Identificación del tipo de documento"
 
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
@@ -136,7 +132,7 @@ msgstr "URL"
 
 #: serializers.py:66
 msgid "Navigation URL"
-msgstr ""
+msgstr "URL de navegación"
 
 #: views.py:32
 msgid "Web links enabled"
@@ -158,7 +154,7 @@ msgstr "Eliminar enlace web: %s"
 
 #: views.py:108
 msgid "Document types enabled"
-msgstr "Tipos de documentos habilitados"
+msgstr "Tipos de documentos seleccionados"
 
 #: views.py:109
 msgid "Available document types"

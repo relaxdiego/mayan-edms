@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:55+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgstr "Descripción del documento"
 
 #: search.py:65
 msgid "Document UUID"
-msgstr "UUID de Documento"
+msgstr "Documento"
 
 #: search.py:69
 msgid "Document file checksum"
@@ -184,7 +184,7 @@ msgstr "Llave principal de la etiqueta para agregar al documento."
 
 #: serializers.py:34 serializers.py:43
 msgid "Tag ID"
-msgstr ""
+msgstr "ID de etiqueta"
 
 #: serializers.py:42
 msgid "Primary key of the tag to remove from the document."

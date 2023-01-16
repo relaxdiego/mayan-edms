@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:52+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
@@ -126,7 +126,7 @@ msgstr ""
 
 #: search_fields.py:289
 msgid "Any"
-msgstr ""
+msgstr "Cualquiera"
 
 #: search_models.py:42
 #, python-format
@@ -137,43 +137,43 @@ msgstr "Modelo de búsqueda desconocido `%s`."
 msgid "All content"
 msgstr "Todo el contenido"
 
-#: search_query_types.py:163
+#: search_query_types.py:167
 msgid "Exact"
 msgstr "Exacto"
 
-#: search_query_types.py:169
+#: search_query_types.py:173
 msgid "Fuzzy"
 msgstr "Difuso"
 
-#: search_query_types.py:175
+#: search_query_types.py:179
 msgid "Greater than"
 msgstr "Mayor que"
 
-#: search_query_types.py:181
+#: search_query_types.py:185
 msgid "Greater than or equal"
 msgstr "Mayor o igual"
 
-#: search_query_types.py:187
+#: search_query_types.py:191
 msgid "Less than"
 msgstr "Menos que"
 
-#: search_query_types.py:193
+#: search_query_types.py:197
 msgid "Less than or equal"
 msgstr "Menor o igual"
 
-#: search_query_types.py:199
+#: search_query_types.py:203
 msgid "Partial"
 msgstr "Parcial"
 
-#: search_query_types.py:205
+#: search_query_types.py:209
 msgid "Range"
 msgstr "Rango"
 
-#: search_query_types.py:240
+#: search_query_types.py:244
 msgid "Range exclusive"
 msgstr "Rango exclusivo"
 
-#: search_query_types.py:246
+#: search_query_types.py:250
 msgid "Regular expression"
 msgstr "Expresión regular"
 
@@ -237,12 +237,15 @@ msgstr ""
 " con todos\"."
 
 #: settings.py:63
-msgid "Hard limit of number of search results to fetch and display."
+msgid ""
+"Maximum number of search results to fetch and display per search query unit."
 msgstr ""
+"Número máximo de resultados de búsqueda para obtener y mostrar por unidad de"
+" consulta de búsqueda."
 
-#: settings.py:68
+#: settings.py:69
 msgid "Maximum number of search results to fetch and display."
-msgstr ""
+msgstr "Número máximo de resultados de búsqueda para obtener y mostrar."
 
 #: templates/dynamic_search/app/list_toolbar.html:17
 msgid "Filter terms"
@@ -316,6 +319,8 @@ msgid ""
 "The currently selected search backend does not support or requires "
 "reindexing."
 msgstr ""
+"El backend de búsqueda seleccionado actualmente no admite o requiere "
+"reindexación."
 
 #: views.py:88
 msgid "Search backend reindexing queued."

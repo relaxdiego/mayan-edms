@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:56+0000\n"
 "Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2023\n"
 "Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgstr "Фамилия"
 msgid "Password"
 msgstr "Парола"
 
-#: apps.py:119
+#: apps.py:119 search.py:40
 msgid "Username"
 msgstr "Име на потребител"
 
@@ -204,10 +204,6 @@ msgstr "Редактиране на съществуващи потребите�
 #: permissions.py:31
 msgid "View existing users"
 msgstr "Преглед на съществуващи потребители"
-
-#: search.py:40
-msgid "username"
-msgstr "потребителско име"
 
 #: serializers.py:16
 msgid "URL of the API endpoint showing the list users of this group."

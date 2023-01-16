@@ -4,17 +4,17 @@
 # 
 # Translators:
 # Translators:
-# Mehdi Amani <MehdiAmani@toorintan.com>, 2023
 # Nima Towhidi <nima.towhidi@gmail.com>, 2023
 # Roberto Rosario, 2023
+# Mehdi Amani <MehdiAmani@toorintan.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:45+0000\n"
-"PO-Revision-Date: 2023-01-16 06:50+0000\n"
-"Last-Translator: Roberto Rosario, 2023\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:52+0000\n"
+"Last-Translator: Mehdi Amani <MehdiAmani@toorintan.com>, 2023\n"
 "Language-Team: Persian (https://www.transifex.com/rosarior/teams/13584/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,43 +126,43 @@ msgstr ""
 msgid "All content"
 msgstr ""
 
-#: search_query_types.py:163
+#: search_query_types.py:167
 msgid "Exact"
 msgstr ""
 
-#: search_query_types.py:169
+#: search_query_types.py:173
 msgid "Fuzzy"
 msgstr ""
 
-#: search_query_types.py:175
+#: search_query_types.py:179
 msgid "Greater than"
 msgstr ""
 
-#: search_query_types.py:181
+#: search_query_types.py:185
 msgid "Greater than or equal"
 msgstr ""
 
-#: search_query_types.py:187
+#: search_query_types.py:191
 msgid "Less than"
 msgstr ""
 
-#: search_query_types.py:193
+#: search_query_types.py:197
 msgid "Less than or equal"
 msgstr ""
 
-#: search_query_types.py:199
+#: search_query_types.py:203
 msgid "Partial"
 msgstr ""
 
-#: search_query_types.py:205
+#: search_query_types.py:209
 msgid "Range"
 msgstr ""
 
-#: search_query_types.py:240
+#: search_query_types.py:244
 msgid "Range exclusive"
 msgstr ""
 
-#: search_query_types.py:246
+#: search_query_types.py:250
 msgid "Regular expression"
 msgstr ""
 
@@ -218,10 +218,11 @@ msgid "Sets the default state of the \"Match all\" checkbox."
 msgstr ""
 
 #: settings.py:63
-msgid "Hard limit of number of search results to fetch and display."
+msgid ""
+"Maximum number of search results to fetch and display per search query unit."
 msgstr ""
 
-#: settings.py:68
+#: settings.py:69
 msgid "Maximum number of search results to fetch and display."
 msgstr ""
 

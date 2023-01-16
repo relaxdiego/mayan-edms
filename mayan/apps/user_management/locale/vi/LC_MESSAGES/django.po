@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 06:46+0000\n"
-"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"PO-Revision-Date: 2023-01-05 02:56+0000\n"
 "Last-Translator: Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2023\n"
 "Language-Team: Vietnamese (https://www.transifex.com/rosarior/teams/13584/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: apps.py:119
+#: apps.py:119 search.py:40
 msgid "Username"
 msgstr ""
 
@@ -200,10 +200,6 @@ msgstr ""
 
 #: permissions.py:31
 msgid "View existing users"
-msgstr ""
-
-#: search.py:40
-msgid "username"
 msgstr ""
 
 #: serializers.py:16
