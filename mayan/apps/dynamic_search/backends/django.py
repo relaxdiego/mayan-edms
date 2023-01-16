@@ -3,7 +3,7 @@ import itertools
 from django.core.exceptions import ValidationError
 from django.db import connection, models
 from django.db.models import Q, Value
-from django.db.models.functions import Replace
+from django.db.models.functions import Cast, Replace
 
 from ..exceptions import DynamicSearchValueTransformationError
 from ..search_backends import SearchBackend
@@ -227,12 +227,27 @@ class DjangoSearchBackend(SearchBackend):
     field_type_mapping = DJANGO_TO_DJANGO_FIELD_MAP
 
     def _do_search_model_filter(self, filter_kwargs, limit, search_field):
+        if search_field.field_class == models.UUIDField:
+            # Remove hyphens when searching UUID fields.
+            replace_function = Replace(
+                expression=Cast(
+                    expression=search_field.field_name,
+                    output_field=models.CharField()
+                ), text=Value('-'), replacement=Value(''),
+                output_field=models.CharField()
+            )
+        else:
+            replace_function = Replace(
+                expression=Cast(
+                    expression=search_field.field_name,
+                    output_field=models.CharField()
+                ), text=Value('-'), replacement=Value('_'),
+                output_field=models.CharField()
+            )
+
         queryset = search_field.search_model.get_queryset().annotate(
             **{
-                '{}_clean'.format(search_field.field_name): Replace(
-                    search_field.field_name, Value('-'),
-                    Value('_'), output_field=models.CharField()
-                )
+                '{}_clean'.format(search_field.field_name): replace_function
             }
         )
 
