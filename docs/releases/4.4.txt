@@ -596,6 +596,14 @@ The base backend class now prepares the image to be processed for OCR and
 passes the file object to the subclass.
 
 
+Search
+^^^^^^
+
+In addition to the search system refactor, new search indexes were added.
+The search backend needs to be reindexed to ensure these new indexes are
+populated.
+
+
 Settings
 ^^^^^^^^
 
