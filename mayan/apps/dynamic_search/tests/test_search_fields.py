@@ -68,4 +68,6 @@ class SearchFieldRelatedDectionTestCase(
             search_backend=self._test_search_backend
         )
 
-        self.assertEqual(result, self._test_object_parent.label)
+        self.assertEqual(
+            result, [self._test_object_parent.label]
+        )

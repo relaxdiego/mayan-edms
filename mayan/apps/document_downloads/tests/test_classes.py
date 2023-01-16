@@ -9,6 +9,8 @@ from ..classes import DocumentFileCompressor
 from ..events import event_document_file_downloaded
 from ..literals import DOCUMENT_FILE_DOWNLOAD_MESSAGE_SUBJECT
 
+from .literals import TEST_DOCUMENT_FILE_DOWNLOAD_MESSAGE_SUBJECT
+
 
 class DocumentFileCompressorClassTestCase(GenericDocumentTestCase):
     def test_document_file_download(self):
@@ -40,7 +42,7 @@ class DocumentFileCompressorClassTestCase(GenericDocumentTestCase):
         test_message = Message.objects.first()
 
         self.assertEqual(
-            test_message.subject, DOCUMENT_FILE_DOWNLOAD_MESSAGE_SUBJECT
+            test_message.subject, TEST_DOCUMENT_FILE_DOWNLOAD_MESSAGE_SUBJECT
         )
 
         events = self._get_test_events()
