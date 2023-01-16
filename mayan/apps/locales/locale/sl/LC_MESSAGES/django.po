@@ -2,61 +2,59 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Jože Detečnik <joze.detecnik@3tav.si>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:51+0000\n"
+"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: apps.py:28 events.py:6
 msgid "Locales"
-msgstr "Locales"
+msgstr ""
 
 #: events.py:10
 msgid "User locale profile edited"
-msgstr "Uporabniški področni profil je urejen"
+msgstr ""
 
 #: links.py:15
 msgid "Locale profile"
-msgstr "Lokalni profil"
+msgstr ""
 
 #: links.py:20
 msgid "Edit locale profile"
-msgstr "Uredi področni profil"
+msgstr ""
 
 #: models.py:21
 msgid "User"
-msgstr "Uporabnik"
+msgstr ""
 
 #: models.py:25
 msgid "Timezone"
-msgstr "Časovni pas"
+msgstr ""
 
 #: models.py:28
 msgid "Language"
-msgstr "Jezik"
+msgstr ""
 
 #: models.py:34
 msgid "User locale profile"
-msgstr "Področni profil uporabnika"
+msgstr ""
 
 #: models.py:35
 msgid "User locale profiles"
-msgstr "Področni profili uporabnikov"
+msgstr ""
 
 #: models.py:39
 msgid "None"
@@ -65,9 +63,9 @@ msgstr "Nobenega"
 #: views.py:40
 #, python-format
 msgid "Locale profile for user: %s"
-msgstr "Lokalni profil za uporabnika: %s"
+msgstr ""
 
 #: views.py:88
 #, python-format
 msgid "Edit locale profile for user: %s"
-msgstr "Urejanje področnega profila za uporabnika: %s"
+msgstr ""

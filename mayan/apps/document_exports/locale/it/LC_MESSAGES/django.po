@@ -2,57 +2,58 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: apps.py:20 permissions.py:6
+#: apps.py:20 events.py:6 permissions.py:6
 msgid "Document exports"
 msgstr ""
 
 #: classes.py:59
 msgid "Document version export to PDF"
-msgstr ""
-
-#: events.py:6
-msgid "Documents exports"
-msgstr ""
+msgstr "Esportazione della versione del documento in PDF"
 
 #: events.py:10
 msgid "Document version exported"
-msgstr ""
+msgstr "Versione documento esportata"
 
 #: links.py:11
 msgid "Export"
-msgstr ""
+msgstr "Esportare"
 
 #: literals.py:4
 #, python-format
 msgid ""
-"Document version \"%(document_version)s\" has been exported and is available "
-"for download using the link: %(download_url)s or from the downloads area "
+"Document version \"%(document_version)s\" has been exported and is available"
+" for download using the link: %(download_url)s or from the downloads area "
 "(%(download_list_url)s)."
 msgstr ""
+"La versione del documento \"%(document_version)s\" è stata esportata ed è "
+"disponibile per il download tramite il collegamento: %(download_url)s o "
+"dall'area download (%(download_list_url)s)."
 
 #: literals.py:9
 msgid "Document version exported."
-msgstr ""
+msgstr "Versione documento esportata."
 
 #: permissions.py:10
 msgid "Export document versions"
-msgstr ""
+msgstr "Esporta le versioni del documento"
 
 #: queues.py:7
 msgid "Export a document version to a PDF"

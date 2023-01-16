@@ -1,32 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Olivier W, 2022
-# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2022
-# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Roberto Rosario, 2022
-# Guillaume Trottier <gui.trottier@gmail.com>, 2022
-# Yves Dubois <ydubois@gmail.com>, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-#
+# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2023
+# Olivier W, 2023
+# Guillaume Trottier <gui.trottier@gmail.com>, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Yves Dubois <ydubois@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:36+0000\n"
-"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:70 apps.py:208 apps.py:214 apps.py:218 apps.py:223 apps.py:227
 #: events.py:6 links.py:52 permissions.py:6 queues.py:7
@@ -283,7 +282,8 @@ msgstr "Arguments du validateur"
 
 #: models.py:73
 msgid ""
-"The parser will reformat the value entered to conform to the expected format."
+"The parser will reformat the value entered to conform to the expected "
+"format."
 msgstr ""
 "L'analyseur syntaxique reformatera la valeur saisie pour la rendre conforme "
 "au format attendu."
@@ -397,7 +397,7 @@ msgstr "Valeur de la métadonnée de document"
 
 #: serializers.py:28 serializers.py:57 serializers.py:111
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:52
 msgid "Primary key of the metadata type to be added."
@@ -424,9 +424,9 @@ msgstr "Demande d'ajout de métadonnées effectuée sur %(count)d documents"
 #: views/document_views.py:57
 msgid "Add metadata types to document"
 msgid_plural "Add metadata types to documents"
-msgstr[0] "Ajouter des types de métadonnées au document"
-msgstr[1] "Ajouter des types de métadonnées aux documents"
-msgstr[2] "Ajouter des types de métadonnées aux documents"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: views/document_views.py:68
 #, python-format
@@ -445,7 +445,8 @@ msgstr ""
 #: views/document_views.py:161
 #, python-format
 msgid ""
-"Metadata type: %(metadata_type)s successfully added to document %(document)s."
+"Metadata type: %(metadata_type)s successfully added to document "
+"%(document)s."
 msgstr ""
 "Le type de métadonnées : %(metadata_type)s a été ajouté avec succès au "
 "document %(document)s."
@@ -455,8 +456,8 @@ msgstr ""
 msgid ""
 "Metadata type: %(metadata_type)s already present in document %(document)s."
 msgstr ""
-"Le type de métadonnées : %(metadata_type)s est déjà présent dans le document "
-"%(document)s."
+"Le type de métadonnées : %(metadata_type)s est déjà présent dans le document"
+" %(document)s."
 
 #: views/document_views.py:188
 #, python-format
@@ -485,9 +486,9 @@ msgstr "Il n'y a pas de métadonnées à modifier"
 #: views/document_views.py:229
 msgid "Edit document metadata"
 msgid_plural "Edit documents metadata"
-msgstr[0] "Modifier les métadonnées du document"
-msgstr[1] "Modifier les métadonnées des documents"
-msgstr[2] "Modifier les métadonnées des documents"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: views/document_views.py:240
 #, python-format
@@ -508,12 +509,13 @@ msgstr "Métadonnées pour le document %s modifiées avec succès."
 
 #: views/document_views.py:368
 msgid ""
-"Add metadata types this document's type to be able to add them to individual "
-"documents. Once added to individual document, you can then edit their values."
+"Add metadata types this document's type to be able to add them to individual"
+" documents. Once added to individual document, you can then edit their "
+"values."
 msgstr ""
 "Ajoutez des types de métadonnées de ce type de document pour pouvoir les "
-"ajouter à des documents individuels. Une fois ajouté au document individuel, "
-"vous pouvez ensuite modifier leurs valeurs."
+"ajouter à des documents individuels. Une fois ajouté au document individuel,"
+" vous pouvez ensuite modifier leurs valeurs."
 
 #: views/document_views.py:374
 msgid "This document doesn't have any metadata"
@@ -527,7 +529,8 @@ msgstr "Métadonnées du document: %s"
 #: views/document_views.py:391
 #, python-format
 msgid "Metadata remove request performed on %(count)d document"
-msgstr "Demande de suppression de métadonnées effectuée sur %(count)d document"
+msgstr ""
+"Demande de suppression de métadonnées effectuée sur %(count)d document"
 
 #: views/document_views.py:394
 #, python-format
@@ -538,9 +541,9 @@ msgstr ""
 #: views/document_views.py:404
 msgid "Remove metadata types from the document"
 msgid_plural "Remove metadata types from the documents"
-msgstr[0] "Supprimer les types de métadonnées du document"
-msgstr[1] "Supprimer les types de métadonnées des documents"
-msgstr[2] "Supprimer les types de métadonnées des documents"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: views/document_views.py:415
 #, python-format
@@ -611,8 +614,8 @@ msgstr "Modifier le type de métadonnées : %s"
 
 #: views/metadata_type_views.py:107
 msgid ""
-"Metadata types are user defined properties that can be assigned values. Once "
-"created they must be associated to document types, either as optional or "
+"Metadata types are user defined properties that can be assigned values. Once"
+" created they must be associated to document types, either as optional or "
 "required, for each. Setting a metadata type as required for a document type "
 "will block the upload of documents of that type until a metadata value is "
 "provided."

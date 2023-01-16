@@ -1,30 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Yves Dubois <ydubois@gmail.com>, 2022
-# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Benoît GROUSSET <benoit@grousset.xyz>, 2022
-#
+# Yves Dubois <ydubois@gmail.com>, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Benoît GROUSSET <benoit@grousset.xyz>, 2023
+# Roberto Rosario, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Benoît GROUSSET <benoit@grousset.xyz>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:24 permissions.py:6
 msgid "Smart settings"
@@ -42,29 +41,27 @@ msgstr "Nom"
 msgid "Value"
 msgstr "Valeur"
 
-#: classes.py:115
-#, fuzzy
-#| msgid "Setting namespaces"
+#: classes.py:116
 msgid "Settings namespace"
-msgstr "Espaces de noms des paramètres"
+msgstr ""
 
-#: classes.py:393
+#: classes.py:394
 msgid "Choices"
 msgstr ""
 
-#: classes.py:395
+#: classes.py:396
 msgid "Possible values allowed for this setting."
 msgstr ""
 
-#: classes.py:401
+#: classes.py:402
 msgid "Default"
-msgstr ""
+msgstr "Défaut"
 
-#: classes.py:409
+#: classes.py:410
 msgid "Overridden"
 msgstr "Remplacé"
 
-#: classes.py:411
+#: classes.py:412
 msgid "Is this settings being overridden by an environment variable?"
 msgstr ""
 "Est-ce que ces paramètres sont remplacés par une variable d'environnement?"
@@ -105,14 +102,14 @@ msgstr "Django"
 #: settings.py:32
 msgid ""
 "A list of strings representing the host/domain names that this site can "
-"serve. This is a security measure to prevent HTTP Host header attacks, which "
-"are possible even under many seemingly-safe web server configurations. "
+"serve. This is a security measure to prevent HTTP Host header attacks, which"
+" are possible even under many seemingly-safe web server configurations. "
 "Values in this list can be fully qualified names (e.g. 'www.example.com'), "
-"in which case they will be matched against the request's Host header exactly "
-"(case-insensitive, not including port). A value beginning with a period can "
-"be used as a subdomain wildcard: '.example.com' will match example.com, www."
-"example.com, and any other subdomain of example.com. A value of '*' will "
-"match anything; in this case you are responsible to provide your own "
+"in which case they will be matched against the request's Host header exactly"
+" (case-insensitive, not including port). A value beginning with a period can"
+" be used as a subdomain wildcard: '.example.com' will match example.com, "
+"www.example.com, and any other subdomain of example.com. A value of '*' will"
+" match anything; in this case you are responsible to provide your own "
 "validation of the Host header (perhaps in a middleware; if so this "
 "middleware must be listed first in MIDDLEWARE)."
 msgstr ""
@@ -123,9 +120,9 @@ msgstr ""
 "peuvent être des noms complets (par exemple «www.example.com»), auquel cas "
 "ils seront mis en correspondance avec l'en-tête Host de la demande "
 "exactement (insensible à la casse, sans inclure le port). Une valeur "
-"commençant par un point peut être utilisée comme caractère générique de sous-"
-"domaine: «.example.com» correspondra à example.com, www.example.com et à "
-"tout autre sous-domaine example.com. Une valeur '*' correspondra à tout; "
+"commençant par un point peut être utilisée comme caractère générique de "
+"sous-domaine: «.example.com» correspondra à example.com, www.example.com et "
+"à tout autre sous-domaine example.com. Une valeur '*' correspondra à tout; "
 "dans ce cas, vous êtes responsable de fournir votre propre validation de "
 "l'en-tête Host (peut-être dans un middleware; si tel est le cas, ce "
 "middleware doit être répertorié en premier dans MIDDLEWARE)."
@@ -133,10 +130,11 @@ msgstr ""
 #: settings.py:49
 msgid ""
 "When set to True, if the request URL does not match any of the patterns in "
-"the URLconf and it doesn't end in a slash, an HTTP redirect is issued to the "
-"same URL with a slash appended. Note that the redirect may cause any data "
+"the URLconf and it doesn't end in a slash, an HTTP redirect is issued to the"
+" same URL with a slash appended. Note that the redirect may cause any data "
 "submitted in a POST request to be lost. The APPEND_SLASH setting is only "
-"used if CommonMiddleware is installed (see Middleware). See also PREPEND_WWW."
+"used if CommonMiddleware is installed (see Middleware). See also "
+"PREPEND_WWW."
 msgstr ""
 "Lorsque défini à \"True\", si l'URL demandé ne correspond à aucun des "
 "modèles configuré dans \"URLconf\" et ne se termine pas par une barre "
@@ -156,8 +154,8 @@ msgstr ""
 
 #: settings.py:68
 msgid ""
-"A list of authentication backend classes (as strings) to use when attempting "
-"to authenticate a user."
+"A list of authentication backend classes (as strings) to use when attempting"
+" to authenticate a user."
 msgstr ""
 "Une liste des méthodes d'authentification (sous forme de chaînes de "
 "caractères) à utiliser lors d'une tentative d'authentification d'un "
@@ -184,10 +182,10 @@ msgid ""
 "body may be before a SuspiciousOperation (RequestDataTooBig) is raised. The "
 "check is done when accessing request.body or request.POST and is calculated "
 "against the total request size excluding any file upload data. You can set "
-"this to None to disable the check. Applications that are expected to receive "
-"unusually large form posts should tune this setting. The amount of request "
-"data is correlated to the amount of memory needed to process the request and "
-"populate the GET and POST dictionaries. Large requests could be used as a "
+"this to None to disable the check. Applications that are expected to receive"
+" unusually large form posts should tune this setting. The amount of request "
+"data is correlated to the amount of memory needed to process the request and"
+" populate the GET and POST dictionaries. Large requests could be used as a "
 "denial-of-service attack vector if left unchecked. Since web servers don't "
 "typically perform deep request inspection, it's not possible to perform a "
 "similar check at that level. See also FILE_UPLOAD_MAX_MEMORY_SIZE."
@@ -266,8 +264,8 @@ msgstr ""
 
 #: settings.py:172
 msgid ""
-"Default: False. Whether to use a TLS (secure) connection when talking to the "
-"SMTP server. This is used for explicit TLS connections, generally on port "
+"Default: False. Whether to use a TLS (secure) connection when talking to the"
+" SMTP server. This is used for explicit TLS connections, generally on port "
 "587. If you are experiencing hanging connections, see the implicit TLS "
 "setting EMAIL_USE_SSL."
 msgstr ""
@@ -289,16 +287,16 @@ msgstr ""
 
 #: settings.py:189
 msgid ""
-"Default: '/accounts/login/' The URL where requests are redirected for login, "
-"especially when using the login_required() decorator. This setting also "
+"Default: '/accounts/login/' The URL where requests are redirected for login,"
+" especially when using the login_required() decorator. This setting also "
 "accepts named URL patterns which can be used to reduce configuration "
 "duplication since you don't have to define the URL in two places (settings "
 "and URLconf)."
 msgstr ""
-"Par défaut: '/accounts/login/' L'URL où les demandes sont redirigées pour la "
-"connexion, en particulier lors de l'utilisation de login_required(). Ce "
-"paramètre accepte également les modèles d'URL qui peuvent être utilisés pour "
-"réduire la duplication de la configuration, car vous n'avez pas à définir "
+"Par défaut: '/accounts/login/' L'URL où les demandes sont redirigées pour la"
+" connexion, en particulier lors de l'utilisation de login_required(). Ce "
+"paramètre accepte également les modèles d'URL qui peuvent être utilisés pour"
+" réduire la duplication de la configuration, car vous n'avez pas à définir "
 "l'URL à deux endroits (paramètres et configuration d'URL)."
 
 #: settings.py:200
@@ -309,19 +307,18 @@ msgid ""
 "named URL patterns which can be used to reduce configuration duplication "
 "since you don't have to define the URL in two places (settings and URLconf)."
 msgstr ""
-"Défault : '/account/profile/' L'URL sur laquelle les requêtes sont "
-"redirigées après l'authentification lorsque la vue contrib.auth.login ne "
-"reçois pas le paramètre suivant. C'est utilisé par le décorateur "
-"login_required() par exemple. Ce paramètre accepte aussi les noms des URL "
-"qui peuvent être utilisé pour réduire la duplication des configurations en "
-"permettant de ne pas saisir l'URL à plusieurs endroit différent (paramètres "
-"et URLconf)"
+"Défaut : '/account/profile/' L'URL sur laquelle les requêtes sont redirigées"
+" après l'authentification lorsque la vue contrib.auth.login ne reçois pas le"
+" paramètre suivant. C'est utilisé par le décorateur login_required() par "
+"exemple. Ce paramètre accepte aussi les noms des URL qui peuvent être "
+"utilisé pour réduire la duplication des configurations en permettant de ne "
+"pas saisir l'URL à plusieurs endroit différent (paramètres et URLconf)"
 
 #: settings.py:211
 msgid ""
 "Default: None. The URL where requests are redirected after a user logs out "
-"using LogoutView (if the view doesn't get a next_page argument). If None, no "
-"redirect will be performed and the logout view will be rendered. This "
+"using LogoutView (if the view doesn't get a next_page argument). If None, no"
+" redirect will be performed and the logout view will be rendered. This "
 "setting also accepts named URL patterns which can be used to reduce "
 "configuration duplication since you don't have to define the URL in two "
 "places (settings and URLconf)."
@@ -347,8 +344,8 @@ msgstr ""
 "langues au format (code de langue, nom de langue) par exemple ('ja', "
 "'japonais'). Ceci spécifie les langues disponibles pour la sélection de la "
 "langue. Généralement, la valeur par défaut devrait suffire. Définissez ce "
-"paramètre uniquement si vous souhaitez restreindre la sélection de la langue "
-"à un sous-ensemble des langues fournies par Django."
+"paramètre uniquement si vous souhaitez restreindre la sélection de la langue"
+" à un sous-ensemble des langues fournies par Django."
 
 #: settings.py:242
 msgid ""
@@ -364,9 +361,9 @@ msgstr ""
 
 #: settings.py:256
 msgid ""
-"Default: 'sessionid'. The name of the cookie to use for sessions.This can be "
-"whatever you want (as long as it's different from the other cookie names in "
-"your application)."
+"Default: 'sessionid'. The name of the cookie to use for sessions.This can be"
+" whatever you want (as long as it's different from the other cookie names in"
+" your application)."
 msgstr ""
 "Défaut : 'sessionid'. Le nom du cookie à utiliser pour les sessions. "
 "N'importe quel nom (à condition qu'il soit différent des autres noms de "
@@ -374,11 +371,11 @@ msgstr ""
 
 #: settings.py:264
 msgid ""
-"Default: 'django.contrib.sessions.backends.db'. Controls where Django stores "
-"session data."
+"Default: 'django.contrib.sessions.backends.db'. Controls where Django stores"
+" session data."
 msgstr ""
-"Valeur par défaut: 'django.contrib.sessions.backends.db'. Contrôle où Django "
-"stocke les données de session."
+"Valeur par défaut: 'django.contrib.sessions.backends.db'. Contrôle où Django"
+" stocke les données de session."
 
 #: settings.py:271
 msgid ""
@@ -400,11 +397,11 @@ msgstr ""
 msgid ""
 "The file storage engine to use when collecting static files with the "
 "collectstatic management command. A ready-to-use instance of the storage "
-"backend defined in this setting can be found at django.contrib.staticfiles."
-"storage.staticfiles_storage."
+"backend defined in this setting can be found at "
+"django.contrib.staticfiles.storage.staticfiles_storage."
 msgstr ""
-"Le moteur de stockage de fichiers à utiliser lors de la collecte de fichiers "
-"statiques avec la commande de gestion collectstatic. Une instance prête à "
+"Le moteur de stockage de fichiers à utiliser lors de la collecte de fichiers"
+" statiques avec la commande de gestion collectstatic. Une instance prête à "
 "l'emploi du processus de stockage défini dans ce paramètre se trouve sur "
 "django.contrib.staticfiles.storage.staticfiles_storage."
 
@@ -443,8 +440,8 @@ msgid ""
 msgstr ""
 "Le chemin Python complet de l'objet d'application WSGI que les serveurs "
 "intégrés de Django (par exemple runserver) utiliseront. La commande de "
-"gestion django-admin startproject créera un simple fichier wsgi.py contenant "
-"une application appelable et pointera ce paramètre vers cette application."
+"gestion django-admin startproject créera un simple fichier wsgi.py contenant"
+" une application appelable et pointera ce paramètre vers cette application."
 
 #: templates/smart_settings/app/viewport.html:11
 msgid "Warning"

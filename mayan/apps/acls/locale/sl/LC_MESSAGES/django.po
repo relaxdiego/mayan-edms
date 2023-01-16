@@ -1,27 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Jože Detečnik <joze.detecnik@3tav.si>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:46+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: apps.py:26 classes.py:200 links.py:27
 msgid "ACLs"
@@ -32,8 +30,6 @@ msgid ""
 "Object for which the access is granted. When sorting objects, only the type "
 "is used and not the actual label of the object."
 msgstr ""
-"Objekt, za katerega je odobren dostop. Pri razvrščanju predmetov se "
-"uporablja samo vrsta in ne dejanska oznaka predmeta."
 
 #: apps.py:65
 msgid "Object"
@@ -45,15 +41,15 @@ msgstr "Seznami za nadzor dostopa"
 
 #: events.py:10
 msgid "ACL created"
-msgstr "ACL ustvarjen"
+msgstr ""
 
 #: events.py:13
 msgid "ACL deleted"
-msgstr "ACL izbrisan"
+msgstr ""
 
 #: events.py:16
 msgid "ACL edited"
-msgstr "ACL urejen"
+msgstr ""
 
 #: forms.py:13 models.py:56 serializers.py:79 views.py:73
 msgid "Role"
@@ -73,13 +69,12 @@ msgstr "Pravice"
 
 #: links.py:35
 msgid "Global ACLs"
-msgstr "Globalni ACL-ji"
+msgstr ""
 
 #: managers.py:267
 #, python-format
 msgid "Object \"%s\" is not a model and cannot be checked for access."
 msgstr ""
-"Objekt &quot;%s&quot; ni model in do njega ni mogoče preveriti dostopa."
 
 #: managers.py:287
 #, python-format
@@ -87,16 +82,12 @@ msgid "Insufficient access for: %s"
 msgstr "Nezadosten dostop za: %s"
 
 #: model_mixins.py:23
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permission count"
-msgstr "Pravice"
+msgstr ""
 
 #: models.py:40 serializers.py:16
-#, fuzzy
-#| msgid "Object type"
 msgid "Content type"
-msgstr "Vrsta objekta"
+msgstr ""
 
 #: models.py:43 workflow_actions.py:32
 msgid "Object ID"
@@ -104,7 +95,7 @@ msgstr "ID objekta"
 
 #: models.py:54
 msgid "Role to which the access is granted for the specified object."
-msgstr "Vloga, ki ji je odobren dostop za navedeni objekt."
+msgstr ""
 
 #: models.py:64
 msgid "Access entry"
@@ -128,28 +119,20 @@ msgid "View ACLs"
 msgstr "Preglej dostopne pravice"
 
 #: serializers.py:19
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions add URL"
-msgstr "Pravice"
+msgstr ""
 
 #: serializers.py:39
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions remove URL"
-msgstr "Pravice"
+msgstr ""
 
 #: serializers.py:59
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions URL"
-msgstr "Pravice"
+msgstr ""
 
 #: serializers.py:82
-#, fuzzy
-#| msgid "Role"
 msgid "Role ID"
-msgstr "Vloga"
+msgstr ""
 
 #: serializers.py:85
 msgid "URL"
@@ -157,17 +140,15 @@ msgstr ""
 
 #: serializers.py:118
 msgid "Primary key of the permission to add to the ACL."
-msgstr "Primarni ključ dovoljenja za dodajanje v ACL."
+msgstr ""
 
 #: serializers.py:119 serializers.py:126
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permission ID"
-msgstr "Pravice"
+msgstr ""
 
 #: serializers.py:125
 msgid "Primary key of the permission to remove from the ACL."
-msgstr "Primarni ključ dovoljenja za odstranitev iz ACL."
+msgstr ""
 
 #: views.py:44
 #, python-format
@@ -175,8 +156,6 @@ msgid ""
 "An ACL for \"%(object)s\" using role \"%(role)s\" already exists. Edit that "
 "ACL entry instead."
 msgstr ""
-"ACL za &quot;%(object)s&quot;, ki uporablja vlogo &quot;%(role)s&quot;, že "
-"obstaja. Namesto tega uredite ta vnos ACL."
 
 #: views.py:59
 #, python-format
@@ -190,7 +169,7 @@ msgstr "Brisanje ACL: %s"
 
 #: views.py:149
 msgid "There are no ACLs for this object"
-msgstr "Za ta predmet ni ACL-jev"
+msgstr ""
 
 #: views.py:152 views.py:272
 msgid ""
@@ -198,9 +177,6 @@ msgid ""
 "access to objects in the system. ACLs allow granting a permission to a role "
 "but only for a specific object or set of objects."
 msgstr ""
-"ACL pomeni seznam za nadzor dostopa in je natančna metoda za nadzor "
-"uporabniškega dostopa do objektov v sistemu. ACL-ji omogočajo podelitev "
-"dovoljenja za vlogo, vendar le za določen predmet ali niz predmetov."
 
 #: views.py:159
 #, python-format
@@ -218,7 +194,7 @@ msgstr "Razpoložljiva dovoljenja"
 #: views.py:219
 #, python-format
 msgid "Role \"%(role)s\" permission's for \"%(object)s\"."
-msgstr "Dovoljenja vloge &quot;%(role)s&quot; za &quot;%(object)s&quot;."
+msgstr ""
 
 #: views.py:228
 msgid ""
@@ -234,11 +210,11 @@ msgstr ""
 
 #: views.py:269
 msgid "There are no ACLs"
-msgstr "ACL ni"
+msgstr ""
 
 #: views.py:278
 msgid "Global access control lists"
-msgstr "Globalni seznami za nadzor dostopa"
+msgstr ""
 
 #: workflow_actions.py:23
 msgid "Object type"
@@ -249,7 +225,8 @@ msgid "Type of the object for which the access will be modified."
 msgstr "Vrsta predmeta, za katerega bo dostop spremenjen."
 
 #: workflow_actions.py:35
-msgid "Numeric identifier of the object for which the access will be modified."
+msgid ""
+"Numeric identifier of the object for which the access will be modified."
 msgstr "Številčni identifikator predmeta, za katerega bo dostop spremenjen."
 
 #: workflow_actions.py:40 workflow_actions.py:160
@@ -267,16 +244,16 @@ msgstr "Dovoljenja za odobritev/preklic v/iz vlog za zgoraj izbrani objekt."
 
 #: workflow_actions.py:57
 msgid "Grant object access"
-msgstr "Omogočite dostop do objekta"
+msgstr ""
 
 #: workflow_actions.py:145
 msgid "Revoke object access"
-msgstr "Preklic dostopa do objekta"
+msgstr ""
 
 #: workflow_actions.py:177
 msgid "Grant document access"
-msgstr "Dovolite dostop do dokumenta"
+msgstr ""
 
 #: workflow_actions.py:218
 msgid "Revoke document access"
-msgstr "Prekliči dostop do dokumenta"
+msgstr ""

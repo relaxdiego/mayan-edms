@@ -1,25 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Bosnian (https://www.transifex.com/rosarior/teams/13584/bs/)\n"
-"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: bs\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: admin.py:24
 msgid "None"
@@ -159,8 +158,8 @@ msgid ""
 "Error indexing document: %(document)s; expression: %(expression)s; "
 "%(exception)s"
 msgstr ""
-"Greška u indeksiranju dokumenta:%(document)s; izraz:%(expression)s;"
-"%(exception)s"
+"Greška u indeksiranju dokumenta:%(document)s; "
+"izraz:%(expression)s;%(exception)s"
 
 #: models/index_instance_model_mixins.py:212
 msgid "Total number of nodes with unique values this item contains."
@@ -232,10 +231,11 @@ msgid "Slug"
 msgstr "Slug"
 
 #: models/index_template_models.py:44
-msgid "Causes this index to be visible and updated when document data changes."
+msgid ""
+"Causes this index to be visible and updated when document data changes."
 msgstr ""
-"Uzrokuje da će ovaj indeks biti vidljiv i update-ovan kad se promjene podaci "
-"dokumenta."
+"Uzrokuje da će ovaj indeks biti vidljiv i update-ovan kad se promjene podaci"
+" dokumenta."
 
 #: models/index_template_models.py:57 models/index_template_models.py:98
 msgid "Index template"
@@ -277,8 +277,8 @@ msgstr ""
 
 #: models/index_template_models.py:169
 msgid ""
-"Check this option to have this node act as a container for documents and not "
-"as a parent for further nodes."
+"Check this option to have this node act as a container for documents and not"
+" as a parent for further nodes."
 msgstr ""
 "Označite ovu opciju da ovaj nod služi kao kontejner za dokumente a ne kao "
 "parent za buduće nodove."
@@ -362,7 +362,7 @@ msgstr ""
 #: serializers.py:18 serializers.py:58 serializers.py:124 serializers.py:185
 #: serializers.py:275
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:21 serializers.py:264
 msgid "Nodes URL"
@@ -373,16 +373,12 @@ msgid "Children URL"
 msgstr ""
 
 #: serializers.py:49
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Dokumenti"
+msgstr ""
 
 #: serializers.py:52 serializers.py:118 serializers.py:176
-#, fuzzy
-#| msgid "Index"
 msgid "Index URL"
-msgstr "Indeks"
+msgstr ""
 
 #: serializers.py:55 serializers.py:121 serializers.py:182
 msgid "Parent URL"
@@ -398,25 +394,21 @@ msgstr ""
 
 #: serializers.py:237
 msgid ""
-"URL of the API endpoint showing the list document types associated with this "
-"index template."
+"URL of the API endpoint showing the list document types associated with this"
+" index template."
 msgstr ""
 
 #: serializers.py:239
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Tipovi dokumenta"
+msgstr ""
 
 #: serializers.py:245
 msgid "URL of the API endpoint to add document types to this index template."
 msgstr ""
 
 #: serializers.py:247
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Tipovi dokumenta"
+msgstr ""
 
 #: serializers.py:253
 msgid ""
@@ -424,22 +416,16 @@ msgid ""
 msgstr ""
 
 #: serializers.py:255
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Tipovi dokumenta"
+msgstr ""
 
 #: serializers.py:260
-#, fuzzy
-#| msgid "Index template node"
 msgid "Index template root node ID"
-msgstr "Index template node"
+msgstr ""
 
 #: serializers.py:267
-#, fuzzy
-#| msgid "Rebuild index"
 msgid "Rebuild URL"
-msgstr "Obnoviti indeks"
+msgstr ""
 
 #: serializers.py:271
 msgid "Reset URL"
@@ -450,10 +436,8 @@ msgid "Primary key of the document type to add to the index template."
 msgstr ""
 
 #: serializers.py:318 serializers.py:327
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type ID"
-msgstr "Tip dokumenta"
+msgstr ""
 
 #: serializers.py:326
 msgid "Primary key of the document type to remove from the index template."
@@ -517,8 +501,8 @@ msgstr ""
 #: views/index_template_views.py:88
 msgid ""
 "Indexes group document automatically into levels. Indexes are defined using "
-"template whose markers are replaced with direct properties of documents like "
-"label or description, or that of extended properties like metadata."
+"template whose markers are replaced with direct properties of documents like"
+" label or description, or that of extended properties like metadata."
 msgstr ""
 
 #: views/index_template_views.py:94

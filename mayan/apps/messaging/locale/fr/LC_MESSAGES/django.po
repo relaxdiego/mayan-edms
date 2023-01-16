@@ -2,28 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Baptiste GAILLET <baptiste.gaillet@cstb.fr>, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-#
+# Roberto Rosario, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Yves Dubois <ydubois@gmail.com>, 2023
+# Baptiste GAILLET <baptiste.gaillet@cstb.fr>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:36+0000\n"
-"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:39 events.py:6 permissions.py:6
 msgid "Messaging"
@@ -142,36 +142,29 @@ msgid "Sender app label"
 msgstr ""
 
 #: serializers.py:18
-#, fuzzy
-#| msgid "Send user message"
 msgid "Sender model name"
-msgstr "Envoyer un message utilisateur"
+msgstr ""
 
 #: serializers.py:21
-#, fuzzy
-#| msgid "Sender"
 msgid "Sender URL"
-msgstr "Expéditeur"
+msgstr ""
 
 #: serializers.py:25
 msgid "Primary key of the recipient user of this message."
 msgstr "Clé primaire de l'utilisateur destinataire de ce message."
 
 #: serializers.py:26
-#, fuzzy
-#| msgid "User"
 msgid "User ID"
-msgstr "Utilisateur"
+msgstr "ID Utilisateur"
 
 #: serializers.py:33
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: views.py:49
 #, python-format
 msgid "Error deleting message \"%(instance)s\"; %(exception)s"
-msgstr ""
-"Erreur lors de la suppression du message \"%(instance)s\"; %(exception)s"
+msgstr "Erreur lors de la suppression du message \"%(instance)s\"; %(exception)s"
 
 #: views.py:53
 #, python-format
@@ -302,14 +295,12 @@ msgid "Username list"
 msgstr "Liste des nom d'utilisateurs"
 
 #: workflow_actions.py:26
-msgid "Comma separated list of username that will receive the message."
+msgid "Comma separated list of usernames that will receive the message."
 msgstr ""
-"Liste séparée par des virgules des noms d'tilisateur qui recevront le "
-"message."
 
 #: workflow_actions.py:45
-msgid "Topic of the message to be sent."
-msgstr "Sujet du message à envoyer."
+msgid "Subject of the message to be sent."
+msgstr ""
 
 #: workflow_actions.py:62
 msgid "The actual text to send."

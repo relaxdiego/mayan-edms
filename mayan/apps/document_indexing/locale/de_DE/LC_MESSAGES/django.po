@@ -1,32 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Björn E <b1pum@web.de>, 2022
-# Ingo Buchholz <ingo.buchholz@takwa.de>, 2022
-# Robin Schubert <robin.schubert@gmx.de>, 2022
-# Marvin Haschker <marvin@haschker.me>, 2022
-# Jesaja Everling <jeverling@gmail.com>, 2022
-# Berny <berny@bernhard-marx.de>, 2022
-# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
-# Mathias Behrle <mathiasb@m9s.biz>, 2022
-# Roberto Rosario, 2022
-#
+# Jesaja Everling <jeverling@gmail.com>, 2023
+# Ingo Buchholz <ingo.buchholz@takwa.de>, 2023
+# Marvin Haschker <marvin@haschker.me>, 2023
+# Roberto Rosario, 2023
+# Björn E <b1pum@web.de>, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
+# Berny <berny@bernhard-marx.de>, 2023
+# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
+# Robin Schubert <robin.schubert@gmx.de>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
-"teams/13584/de_DE/)\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Robin Schubert <robin.schubert@gmx.de>, 2023\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: admin.py:24
@@ -239,7 +238,8 @@ msgid "Slug"
 msgstr "Webkürzel"
 
 #: models/index_template_models.py:44
-msgid "Causes this index to be visible and updated when document data changes."
+msgid ""
+"Causes this index to be visible and updated when document data changes."
 msgstr ""
 "Bewirkt Sichtbarkeit und Aktualisierung des Index, wenn Dokumente geändert "
 "werden."
@@ -284,8 +284,8 @@ msgstr ""
 
 #: models/index_template_models.py:169
 msgid ""
-"Check this option to have this node act as a container for documents and not "
-"as a parent for further nodes."
+"Check this option to have this node act as a container for documents and not"
+" as a parent for further nodes."
 msgstr ""
 "Wählen Sie diese Option, wenn Dokumente in diesem Knoten dargestellt werden "
 "sollen (und dieser Knoten nicht als Eltern-Knoten für weitere Kind-"
@@ -370,7 +370,7 @@ msgstr "Dokumentenprüfsumme"
 #: serializers.py:18 serializers.py:58 serializers.py:124 serializers.py:185
 #: serializers.py:275
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:21 serializers.py:264
 msgid "Nodes URL"
@@ -381,16 +381,12 @@ msgid "Children URL"
 msgstr ""
 
 #: serializers.py:49
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Dokumente"
+msgstr ""
 
 #: serializers.py:52 serializers.py:118 serializers.py:176
-#, fuzzy
-#| msgid "Index"
 msgid "Index URL"
-msgstr "Index"
+msgstr ""
 
 #: serializers.py:55 serializers.py:121 serializers.py:182
 msgid "Parent URL"
@@ -406,25 +402,21 @@ msgstr ""
 
 #: serializers.py:237
 msgid ""
-"URL of the API endpoint showing the list document types associated with this "
-"index template."
+"URL of the API endpoint showing the list document types associated with this"
+" index template."
 msgstr ""
 
 #: serializers.py:239
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:245
 msgid "URL of the API endpoint to add document types to this index template."
 msgstr ""
 
 #: serializers.py:247
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:253
 msgid ""
@@ -432,22 +424,16 @@ msgid ""
 msgstr ""
 
 #: serializers.py:255
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:260
-#, fuzzy
-#| msgid "Index template node"
 msgid "Index template root node ID"
-msgstr "Index Knotenpunkt"
+msgstr ""
 
 #: serializers.py:267
-#, fuzzy
-#| msgid "Rebuild index"
 msgid "Rebuild URL"
-msgstr "Index neu erstellen"
+msgstr ""
 
 #: serializers.py:271
 msgid "Reset URL"
@@ -458,10 +444,8 @@ msgid "Primary key of the document type to add to the index template."
 msgstr ""
 
 #: serializers.py:318 serializers.py:327
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type ID"
-msgstr "Dokumententyp"
+msgstr ""
 
 #: serializers.py:326
 msgid "Primary key of the document type to remove from the index template."
@@ -532,13 +516,13 @@ msgstr "Indices verknüpft mit Dokumententyp: %s"
 #: views/index_template_views.py:88
 msgid ""
 "Indexes group document automatically into levels. Indexes are defined using "
-"template whose markers are replaced with direct properties of documents like "
-"label or description, or that of extended properties like metadata."
+"template whose markers are replaced with direct properties of documents like"
+" label or description, or that of extended properties like metadata."
 msgstr ""
-"Indiziert das Gruppendokument automatisch in Ebenen. Indizes werden mithilfe "
-"einer Vorlage definiert, deren Markierungen durch direkte Eigenschaften von "
-"Dokumenten wie Beschriftung oder Beschreibung, oder erweiterte Eigenschaften "
-"wie Metadaten ersetzt werden."
+"Indiziert das Gruppendokument automatisch in Ebenen. Indizes werden mithilfe"
+" einer Vorlage definiert, deren Markierungen durch direkte Eigenschaften von"
+" Dokumenten wie Beschriftung oder Beschreibung, oder erweiterte "
+"Eigenschaften wie Metadaten ersetzt werden."
 
 #: views/index_template_views.py:94
 msgid "There are no index templates."

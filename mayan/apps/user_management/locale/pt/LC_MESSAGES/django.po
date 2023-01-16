@@ -1,31 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2022
-# Vítor Figueiró <vfigueiro@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2022
-# Márcia Ferreira, 2022
-#
+# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2023
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023
+# Vítor Figueiró <vfigueiro@gmail.com>, 2023
+# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2023
+# Roberto Rosario, 2023
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2023
+# Márcia Ferreira, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Márcia Ferreira, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/"
-"pt/)\n"
-"Language: pt\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Márcia Ferreira, 2023\n"
+"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:62 events.py:6 permissions.py:6
 msgid "User management"
@@ -49,7 +48,7 @@ msgid "User"
 msgstr "Utilizador"
 
 #: apps.py:100 apps.py:219 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:168
+#: views/user_views.py:170
 msgid "Users"
 msgstr "Utilizadores"
 
@@ -218,10 +217,8 @@ msgid "URL of the API endpoint showing the list users of this group."
 msgstr "URL do endpoint API que mostra a lista de utilizadores deste grupo. "
 
 #: serializers.py:18
-#, fuzzy
-#| msgid "Users"
 msgid "Users URL"
-msgstr "Utilizadores"
+msgstr ""
 
 #: serializers.py:22
 msgid "Users add URL"
@@ -233,17 +230,15 @@ msgstr ""
 
 #: serializers.py:33 serializers.py:80
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:48
 msgid "Primary key of the user to add to the group."
 msgstr "Chave primária do utilizador utilizada para adicionar a grupo."
 
 #: serializers.py:49 serializers.py:58
-#, fuzzy
-#| msgid "User"
 msgid "User ID"
-msgstr "Utilizador"
+msgstr "ID de utilizador"
 
 #: serializers.py:57
 msgid "Primary key of the user to remove from the group."
@@ -256,10 +251,8 @@ msgstr ""
 "pertence. "
 
 #: serializers.py:68
-#, fuzzy
-#| msgid "Groups"
 msgid "Groups URL"
-msgstr "Grupos"
+msgstr ""
 
 #: utils.py:26
 msgid "Anonymous"
@@ -317,9 +310,9 @@ msgid ""
 "roles for permissions and access control, add groups to them."
 msgstr ""
 "Grupos de usuários são unidades organizacionais. Eles devem espelhar as "
-"unidades reais de sua organização. Grupos não podem ser usados para controle "
-"de acesso. Use papéis para controle de permissões e acesso e adicione grupos "
-"a esses."
+"unidades reais de sua organização. Grupos não podem ser usados para controle"
+" de acesso. Use papéis para controle de permissões e acesso e adicione "
+"grupos a esses."
 
 #: views/group_views.py:110
 msgid "There are no user groups"
@@ -375,48 +368,48 @@ msgstr "Eliminar o %(count)dutilizador selecionado."
 
 #: views/user_views.py:73
 msgid ""
-"Warning! You are about to delete your own user account. You will lose access "
-"to the system. This process is not reversible."
+"Warning! You are about to delete your own user account. You will lose access"
+" to the system. This process is not reversible."
 msgstr ""
 
-#: views/user_views.py:91
+#: views/user_views.py:93
 #, python-format
 msgid "Details of user: %s"
 msgstr "Detalhes do usuários: %s"
 
-#: views/user_views.py:110
+#: views/user_views.py:112
 #, python-format
 msgid "Edit user: %s"
 msgstr "Editar utilizador: %s"
 
-#: views/user_views.py:121
+#: views/user_views.py:123
 msgid "Available groups"
 msgstr "Grupos disponíveis"
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:124
+#: views/user_views.py:126
 msgid "User groups"
 msgstr "Utilizador de grupos"
 
-#: views/user_views.py:139
+#: views/user_views.py:141
 #, python-format
 msgid "Groups of user: %s"
 msgstr "Grupos do utilizador: %s"
 
-#: views/user_views.py:164
+#: views/user_views.py:166
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
 msgstr ""
-"Contas de utilizador podem ser criadas através desta visualização. Depois de "
-"criar uma conta de utilizador será necessário criar uma palavra-passe."
+"Contas de utilizador podem ser criadas através desta visualização. Depois de"
+" criar uma conta de utilizador será necessário criar uma palavra-passe."
 
-#: views/user_views.py:167
+#: views/user_views.py:169
 msgid "There are no user accounts"
 msgstr "Não existem contas de utilizador"
 
-#: views/user_views.py:187
+#: views/user_views.py:189
 #, python-format
 msgid "Edit options for user: %s"
 msgstr "Editar opções para o usuário: %s"

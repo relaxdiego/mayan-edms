@@ -2,25 +2,25 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Roberto Rosario, 2022
-# e6bc1d20d3f0031709c3c11db1061ebc_be0a371 <8b4e580508477646e97982ebad39e3af_312311>, 2022
-# bwakkie <bwakkie@gmail.com>, 2022
-# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
-#
+# Roberto Rosario, 2023
+# e6bc1d20d3f0031709c3c11db1061ebc_be0a371 <8b4e580508477646e97982ebad39e3af_312311>, 2023
+# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2023
+# bwakkie <bwakkie@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"Last-Translator: bwakkie <bwakkie@gmail.com>, 2023\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:54 apps.py:164 apps.py:168 apps.py:172 apps.py:176 apps.py:180
@@ -34,10 +34,8 @@ msgid "Cabinet created"
 msgstr "Rek aangemaakt"
 
 #: events.py:14
-#, fuzzy
-#| msgid "Cabinet edited"
 msgid "Cabinet deleted"
-msgstr "Rek bewerkt"
+msgstr ""
 
 #: events.py:17
 msgid "Cabinet edited"
@@ -193,15 +191,14 @@ msgid "Children"
 msgstr ""
 
 #: serializers.py:23
-msgid "URL of the API endpoint showing the list documents inside this cabinet."
+msgid ""
+"URL of the API endpoint showing the list documents inside this cabinet."
 msgstr ""
 "URL van het API-eindpunt om de documentenlijst binnen het rek te laten zien."
 
 #: serializers.py:25
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Documenten"
+msgstr ""
 
 #: serializers.py:30
 msgid "The name of this cabinet level appended to the names of its ancestors."
@@ -215,23 +212,19 @@ msgstr ""
 
 #: serializers.py:51
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:84
 msgid "Primary key of the document to add to the cabinet."
 msgstr ""
 
 #: serializers.py:85 serializers.py:94
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document ID"
-msgstr "Document UUID"
+msgstr ""
 
 #: serializers.py:93
-#, fuzzy
-#| msgid "Document removed from cabinet"
 msgid "Primary key of the document to remove from the cabinet."
-msgstr "Document uit rek verwijderd"
+msgstr ""
 
 #: templates/cabinets/cabinet_details.html:17
 msgid "Navigation:"

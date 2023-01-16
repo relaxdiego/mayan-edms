@@ -1,27 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Giovanni Tricarico <gtricarico92@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Marco Camplese <marco.camplese.mc@gmail.com>, 2022
-#
+# Giovanni Tricarico <gtricarico92@gmail.com>, 2023
+# Marco Camplese <marco.camplese.mc@gmail.com>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Marco Camplese <marco.camplese.mc@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:51+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:45
 msgid "Linking"
@@ -200,8 +199,8 @@ msgstr "Attributo documento esterno"
 
 #: models.py:101
 msgid ""
-"The expression using document properties to be evaluated against the foreign "
-"document field."
+"The expression using document properties to be evaluated against the foreign"
+" document field."
 msgstr ""
 "L'espressione che utilizza le proprietà del documento da valutare rispetto "
 "al campo del documento esterno."
@@ -247,72 +246,56 @@ msgid "View existing smart links"
 msgstr "Vista  intelligente dei link esistenti"
 
 #: serializers.py:20 serializers.py:132
-#, fuzzy
-#| msgid "Smart link"
 msgid "Smart link URL"
-msgstr "Collegamento intelligente"
+msgstr ""
 
 #: serializers.py:24 serializers.py:86 serializers.py:135
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:49
 msgid "Primary key of the document type to add to the smart link."
 msgstr ""
 
 #: serializers.py:50 serializers.py:59
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Tipi documento"
+msgstr ""
 
 #: serializers.py:58
 msgid "Primary key of the document type to remove from the smart link."
 msgstr ""
 
 #: serializers.py:66
-#, fuzzy
-#| msgid "Conditions"
 msgid "Conditions URL"
-msgstr "Condizioni"
+msgstr ""
 
 #: serializers.py:70
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Tipi documento"
+msgstr ""
 
 #: serializers.py:74
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Tipi documento"
+msgstr ""
 
 #: serializers.py:78
-#, fuzzy
-#| msgid "Document types enabled"
 msgid "Document types remove URL"
-msgstr "Tipi documento abilitati"
+msgstr ""
 
 #: serializers.py:105
-#, fuzzy
-#| msgid "Delete smart links"
 msgid "Resolved smart link URL"
-msgstr "Cancella link intelligenti"
+msgstr ""
 
 #: serializers.py:126
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Documenti"
+msgstr ""
 
 #: views/smart_link_condition_views.py:47
 msgid ""
 "Conditions are small logic units that when combined define how the smart "
 "link will behave."
 msgstr ""
-"Le condizioni sono piccole unità logiche che, se combinate, definiscono come "
-"si comporterà lo collegamento intelligente."
+"Le condizioni sono piccole unità logiche che, se combinate, definiscono come"
+" si comporterà lo collegamento intelligente."
 
 #: views/smart_link_condition_views.py:51
 msgid "There are no conditions for this smart link"

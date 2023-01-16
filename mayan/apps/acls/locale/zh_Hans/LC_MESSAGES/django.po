@@ -1,27 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Ford Guo <agile.guo@gmail.com>, 2022
-# Roberto Rosario, 2022
-# yan songwei <yansw@vip.163.com>, 2022
-# Leon Chu, 2022
-#
+# yan songwei <yansw@vip.163.com>, 2023
+# Leon Chu, 2023
+# Roberto Rosario, 2023
+# Ford Guo <agile.guo@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Leon Chu, 2022\n"
-"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/"
-"teams/13584/zh-Hans/)\n"
-"Language: zh-Hans\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:46+0000\n"
+"Last-Translator: Ford Guo <agile.guo@gmail.com>, 2023\n"
+"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh-Hans\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps.py:26 classes.py:200 links.py:27
@@ -85,16 +84,12 @@ msgid "Insufficient access for: %s"
 msgstr "访问权限不足：%s"
 
 #: model_mixins.py:23
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permission count"
-msgstr "权限"
+msgstr ""
 
 #: models.py:40 serializers.py:16
-#, fuzzy
-#| msgid "Object type"
 msgid "Content type"
-msgstr "对象类型"
+msgstr ""
 
 #: models.py:43 workflow_actions.py:32
 msgid "Object ID"
@@ -126,42 +121,32 @@ msgid "View ACLs"
 msgstr "查看访问控制列表"
 
 #: serializers.py:19
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions add URL"
-msgstr "权限"
+msgstr ""
 
 #: serializers.py:39
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions remove URL"
-msgstr "权限"
+msgstr ""
 
 #: serializers.py:59
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions URL"
-msgstr "权限"
+msgstr ""
 
 #: serializers.py:82
-#, fuzzy
-#| msgid "Role"
 msgid "Role ID"
-msgstr "角色"
+msgstr ""
 
 #: serializers.py:85
 msgid "URL"
-msgstr ""
+msgstr "网址"
 
 #: serializers.py:118
 msgid "Primary key of the permission to add to the ACL."
 msgstr "允許新增ACL存取權限的主要金鑰"
 
 #: serializers.py:119 serializers.py:126
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permission ID"
-msgstr "权限"
+msgstr ""
 
 #: serializers.py:125
 msgid "Primary key of the permission to remove from the ACL."
@@ -193,9 +178,7 @@ msgid ""
 "ACL stands for Access Control List and is a precise method to control user "
 "access to objects in the system. ACLs allow granting a permission to a role "
 "but only for a specific object or set of objects."
-msgstr ""
-"ACL代表访问控制列表，是控制用户对系统中对象的访问的精确方法。 ACL允许授予角色"
-"权限，但只能授予特定对象或一组对象的权限。"
+msgstr "ACL代表访问控制列表，是控制用户对系统中对象的访问的精确方法。 ACL允许授予角色权限，但只能授予特定对象或一组对象的权限。"
 
 #: views.py:159
 #, python-format
@@ -221,9 +204,7 @@ msgid ""
 "to the role and can't be removed from this view. Inherited permissions need "
 "to be removed from the parent object's ACL or from them role via the Setup "
 "menu."
-msgstr ""
-"禁用的权限是从父对象继承或直接授予角色的，不能从此视图中删除。需要通过“设"
-"置”菜单从父对象的ACL或角色中删除继承的权限。"
+msgstr "禁用的权限是从父对象继承或直接授予角色的，不能从此视图中删除。需要通过“设置”菜单从父对象的ACL或角色中删除继承的权限。"
 
 #: views.py:269
 msgid "There are no ACLs"
@@ -242,7 +223,8 @@ msgid "Type of the object for which the access will be modified."
 msgstr "要为其修改访问权限的对象的类型。"
 
 #: workflow_actions.py:35
-msgid "Numeric identifier of the object for which the access will be modified."
+msgid ""
+"Numeric identifier of the object for which the access will be modified."
 msgstr "要为其修改访问权限的对象的数字标识符。"
 
 #: workflow_actions.py:40 workflow_actions.py:160

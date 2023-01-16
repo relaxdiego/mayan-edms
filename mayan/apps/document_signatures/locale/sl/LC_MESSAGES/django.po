@@ -1,39 +1,37 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Jože Detečnik <joze.detecnik@3tav.si>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: apps.py:54 events.py:6 permissions.py:6 settings.py:12
 msgid "Document signatures"
-msgstr "Podpisi dokumentov"
+msgstr ""
 
 #: apps.py:112
 msgid "Date and time"
-msgstr "Datum in čas"
+msgstr ""
 
 #: apps.py:116 models.py:52 serializers.py:61
 msgid "Key ID"
-msgstr "ID ključa"
+msgstr ""
 
 #: apps.py:120 forms.py:78
 msgid "None"
@@ -41,95 +39,93 @@ msgstr "Nobenega"
 
 #: apps.py:121 forms.py:65 models.py:57
 msgid "Signature ID"
-msgstr "ID podpisa"
+msgstr ""
 
 #: apps.py:126
 msgid "Type"
-msgstr "Vrsta"
+msgstr ""
 
 #: events.py:10
 msgid "Detached signature created"
-msgstr "Ustvarjen ločen podpis"
+msgstr ""
 
 #: events.py:13
 msgid "Detached signature deleted"
-msgstr "Odstranjeni podpis izbrisan"
+msgstr ""
 
 #: events.py:16
 msgid "Detached signature uploaded"
-msgstr "Ločen podpis je naložen"
+msgstr ""
 
 #: events.py:20
 msgid "Embedded signature created"
-msgstr "Ustvarjen vdelan podpis"
+msgstr ""
 
 #: forms.py:17 forms.py:31 workflow_actions.py:19
 msgid "Key"
-msgstr "Ključ"
+msgstr ""
 
 #: forms.py:22 serializers.py:66 workflow_actions.py:30
 msgid ""
 "The passphrase to unlock the key and allow it to be used to sign the "
 "document file."
 msgstr ""
-"Geslo za odklepanje ključa in omogočanje njegove uporabe za podpis datoteke "
-"dokumenta."
 
 #: forms.py:24 serializers.py:68 workflow_actions.py:27
 msgid "Passphrase"
-msgstr "Geslo"
+msgstr ""
 
 #: forms.py:33
 msgid "Private key that will be used to sign this document file."
-msgstr "Zasebni ključ, ki bo uporabljen za podpis te datoteke dokumenta."
+msgstr ""
 
 #: forms.py:45
 msgid "Signature is embedded?"
-msgstr "Podpis je vdelan?"
+msgstr ""
 
 #: forms.py:48
 msgid "Signature date"
-msgstr "Datum podpisa"
+msgstr ""
 
 #: forms.py:52
 msgid "Signature key ID"
-msgstr "ID ključa podpisa"
+msgstr ""
 
 #: forms.py:55
 msgid "Signature key present?"
-msgstr "Prisoten ključ podpisa?"
+msgstr ""
 
 #: forms.py:68
 msgid "Key fingerprint"
-msgstr "Prstni odtis ključa"
+msgstr ""
 
 #: forms.py:72
 msgid "Key creation date"
-msgstr "Datum izdelave ključa"
+msgstr ""
 
 #: forms.py:77
 msgid "Key expiration date"
-msgstr "Datum poteka ključa"
+msgstr ""
 
 #: forms.py:82
 msgid "Key length"
-msgstr "Dolžina ključa"
+msgstr ""
 
 #: forms.py:86
 msgid "Key algorithm"
-msgstr "Ključni algoritem"
+msgstr ""
 
 #: forms.py:90
 msgid "Key user ID"
-msgstr "ID ključnega uporabnika"
+msgstr ""
 
 #: forms.py:94
 msgid "Key type"
-msgstr "Vrsta ključa"
+msgstr ""
 
 #: links.py:44
 msgid "Sign detached"
-msgstr "Znak odstranjen"
+msgstr ""
 
 #: links.py:51
 msgid "Delete"
@@ -141,11 +137,11 @@ msgstr "Prenos"
 
 #: links.py:66
 msgid "Upload signature"
-msgstr "Naloži podpis"
+msgstr ""
 
 #: links.py:76
 msgid "Sign embedded"
-msgstr "Vdelan znak"
+msgstr ""
 
 #: links.py:86
 msgid "Details"
@@ -153,138 +149,135 @@ msgstr "Podrobnosti"
 
 #: links.py:92 queues.py:8
 msgid "Signatures"
-msgstr "Podpisi"
+msgstr ""
 
 #: links.py:100
 msgid "Refresh all signatures"
-msgstr "Osveži vse podpise"
+msgstr ""
 
 #: links.py:106
 msgid "Verify all documents"
-msgstr "Preverite vse dokumente"
+msgstr ""
 
 #: managers.py:94
 msgid "signed"
-msgstr "podpisan"
+msgstr ""
 
 #: model_mixins.py:15
 msgid "Detached"
-msgstr "Ločeno"
+msgstr ""
 
 #: model_mixins.py:17
 msgid "Embedded"
-msgstr "Vdelano"
+msgstr ""
 
 #: models.py:42
 msgid "Document file"
-msgstr "Datoteka dokumenta"
+msgstr ""
 
 #: models.py:47
 msgid "Date and time signed"
-msgstr "Datum in čas podpisa"
+msgstr ""
 
 #: models.py:51
 msgid "ID of the key that will be used to sign the document."
-msgstr "ID ključa, ki bo uporabljen za podpis dokumenta."
+msgstr ""
 
 #: models.py:61
 msgid "Public key fingerprint"
-msgstr "Prstni odtis javnega ključa"
+msgstr ""
 
 #: models.py:68
 msgid "Document file signature"
-msgstr "Podpis datoteke dokumenta"
+msgstr ""
 
 #: models.py:69
 msgid "Document file signatures"
-msgstr "Podpisi datotek dokumentov"
+msgstr ""
 
 #: models.py:86
 msgid "Signature file previously generated."
-msgstr "Prej ustvarjena podpisna datoteka."
+msgstr ""
 
 #: models.py:89
 msgid "Signature file"
-msgstr "Podpisna datoteka"
+msgstr ""
 
 #: models.py:95
 msgid "Document file detached signature"
-msgstr "Odstranjen podpis datoteke dokumenta"
+msgstr ""
 
 #: models.py:96
 msgid "Document file detached signatures"
-msgstr "Odstranjeni podpisi datoteke dokumenta"
+msgstr ""
 
 #: models.py:100
 msgid "signature"
-msgstr "podpis"
+msgstr ""
 
 #: models.py:151
 msgid "Document file embedded signature"
-msgstr "Datoteka dokumenta z vdelanim podpisom"
+msgstr ""
 
 #: models.py:152
 msgid "Document file embedded signatures"
-msgstr "Vdelani podpisi v datoteko dokumenta"
+msgstr ""
 
 #: permissions.py:10
 msgid "Sign documents with detached signatures"
-msgstr "Dokumente podpisujte z ločenimi podpisi"
+msgstr ""
 
 #: permissions.py:14
 msgid "Sign documents with embedded signatures"
-msgstr "Podpisujte dokumente z vdelanimi podpisi"
+msgstr ""
 
 #: permissions.py:18
 msgid "Delete detached signatures"
-msgstr "Izbriši ločene podpise"
+msgstr ""
 
 #: permissions.py:22
 msgid "Download detached document signatures"
-msgstr "Prenesite ločene podpise dokumentov"
+msgstr ""
 
 #: permissions.py:26
 msgid "Upload detached document signatures"
-msgstr "Naloži ločene podpise dokumentov"
+msgstr ""
 
 #: permissions.py:30
 msgid "Verify document signatures"
-msgstr "Preverite podpise dokumentov"
+msgstr ""
 
 #: permissions.py:34
 msgid "View document signatures"
-msgstr "Oglejte si podpise dokumentov"
+msgstr ""
 
 #: queues.py:13
 msgid "Verify key signatures"
-msgstr "Preverite podpise ključev"
+msgstr ""
 
 #: queues.py:17
 msgid "Unverify key signatures"
-msgstr "Prekliči preverjanje podpisov ključev"
+msgstr ""
 
 #: queues.py:21
 msgid "Verify document file"
-msgstr "Preverite datoteko dokumenta"
+msgstr ""
 
 #: queues.py:26
 msgid "Verify missing embedded signature"
-msgstr "Preverite manjkajoči vdelani podpis"
+msgstr ""
 
 #: queues.py:30
 msgid "Refresh existing signature information"
-msgstr "Osveži podatke o obstoječem podpisu"
+msgstr ""
 
 #: serializers.py:17
-#, fuzzy
-#| msgid "Document file"
 msgid "Document file URL"
-msgstr "Datoteka dokumenta"
+msgstr ""
 
 #: serializers.py:59
 msgid "Primary key of the secret key used to sign the document file."
 msgstr ""
-"Primarni ključ tajnega ključa, ki se uporablja za podpis datoteke dokumenta."
 
 #: serializers.py:110
 msgid "URL"
@@ -293,60 +286,57 @@ msgstr ""
 #: settings.py:20
 msgid "Path to the Storage subclass to use when storing detached signatures."
 msgstr ""
-"Pot do podrazreda Storage za uporabo pri shranjevanju ločenih podpisov."
 
 #: settings.py:27
 msgid "Arguments to pass to the SIGNATURE_STORAGE_BACKEND."
-msgstr "Argumenti za posredovanje v SIGNATURE_STORAGE_BACKEND."
+msgstr ""
 
 #: storages.py:13
 msgid ""
 "Unable to initialize the detached signatures storage. Check the settings {} "
 "and {} for formatting errors."
 msgstr ""
-"Ni mogoče inicializirati ločenega pomnilnika podpisov. Preverite nastavitve "
-"{} in {} za napake pri oblikovanju."
 
 #: storages.py:20
 msgid "Detached signatures"
-msgstr "Ločeni podpisi"
+msgstr ""
 
 #: views.py:75 views.py:145
 msgid "Passphrase is needed to unlock this key."
-msgstr "Za odklepanje tega ključa je potrebno geslo."
+msgstr ""
 
 #: views.py:88 views.py:158
 msgid "Passphrase is incorrect."
-msgstr "Geslo ni pravilno."
+msgstr ""
 
 #: views.py:101 views.py:171
 msgid "Document file signed successfully."
-msgstr "Datoteka dokumenta je uspešno podpisana."
+msgstr ""
 
 #: views.py:111
 #, python-format
 msgid "Sign document file \"%s\" with a detached signature"
-msgstr "Podpišite datoteko dokumenta &quot;%s&quot; z ločenim podpisom"
+msgstr ""
 
 #: views.py:188
 #, python-format
 msgid "Sign document file \"%s\" with a embedded signature"
-msgstr "Podpišite datoteko dokumenta &quot;%s&quot; z vdelanim podpisom"
+msgstr ""
 
 #: views.py:205
 #, python-format
 msgid "Delete detached signature: %s"
-msgstr "Izbriši ločen podpis: %s"
+msgstr ""
 
 #: views.py:257
 #, python-format
 msgid "Upload detached signature for document file: %s"
-msgstr "Naloži ločen podpis za datoteko dokumenta: %s"
+msgstr ""
 
 #: views.py:287
 #, python-format
 msgid "Details for signature: %s"
-msgstr "Podatki za podpis: %s"
+msgstr ""
 
 #: views.py:312
 msgid ""
@@ -354,55 +344,51 @@ msgid ""
 "very secure and hard to forge. A signature can be embedded as part of the "
 "document itself or uploaded as a separate file."
 msgstr ""
-"Podpisi pomagajo pri zagotavljanju dokazov o avtorstvu in odkrivanju "
-"posegov. So zelo varni in jih je težko ponarediti. Podpis je mogoče vdelati "
-"kot del samega dokumenta ali naložiti kot ločeno datoteko."
 
 #: views.py:341
 msgid "There are no signatures for this document file."
-msgstr "Za to datoteko dokumenta ni podpisov."
+msgstr ""
 
 #: views.py:345
 #, python-format
 msgid "Signatures for document file: %s"
-msgstr "Podpisi za datoteko dokumenta: %s"
+msgstr ""
 
 #: views.py:356 views.py:377
 msgid "On large databases this operation may take some time to execute."
-msgstr "Če je baza velika lahko operacija zahteva nekaj več časa da se izvrši."
+msgstr ""
+"Če je baza velika lahko operacija zahteva nekaj več časa da se izvrši."
 
 #: views.py:358
 msgid "Refresh all signatures information?"
-msgstr "Osvežiti vse informacije o podpisih?"
+msgstr ""
 
 #: views.py:369
 msgid "Signature information refresh queued successfully."
-msgstr "Osvežitev informacij o podpisu je uspešno postavljena v čakalno vrsto."
+msgstr ""
 
 #: views.py:379
 msgid "Verify all document for signatures?"
-msgstr "Ali želite vse dokumente preveriti glede podpisov?"
+msgstr ""
 
 #: views.py:390
 msgid "Signature verification queued successfully."
-msgstr "Preverjanje podpisa je uspešno v čakalni vrsti."
+msgstr ""
 
 #: workflow_actions.py:22
 msgid "Private key that will be used to sign the document file."
-msgstr "Zasebni ključ, ki bo uporabljen za podpis datoteke dokumenta."
+msgstr ""
 
 #: workflow_actions.py:37
 msgid "Sign document (detached)"
-msgstr "Podpišite dokument (odstranjen)"
+msgstr ""
 
 #: workflow_actions.py:49
 msgid ""
 "Document has no file to sign. You might be trying to use this action in an "
 "initial state before the created document is yet to be processed."
 msgstr ""
-"Dokument nima datoteke za podpis. Morda poskušate uporabiti to dejanje v "
-"začetnem stanju, preden je treba ustvarjeni dokument še obdelati."
 
 #: workflow_actions.py:82
 msgid "Sign document (embedded)"
-msgstr "Podpišite dokument (vdelan)"
+msgstr ""

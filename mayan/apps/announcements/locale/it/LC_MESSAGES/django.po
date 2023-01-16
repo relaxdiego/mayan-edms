@@ -1,29 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Giovanni Tricarico <gtricarico92@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Marco Camplese <marco.camplese.mc@gmail.com>, 2022
-# Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022
-# Daniele Bortoluzzi <daniele@elkos.it>, 2022
-#
+# Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2023
+# Giovanni Tricarico <gtricarico92@gmail.com>, 2023
+# Marco Camplese <marco.camplese.mc@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Daniele Bortoluzzi <daniele@elkos.it>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:46+0000\n"
+"Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2023\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:36 events.py:6 links.py:42 models.py:43 permissions.py:6
 #: templates/announcements/announcements.html:8 views.py:126
@@ -112,7 +111,7 @@ msgstr "Vedi avvisi"
 
 #: serializers.py:12
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: views.py:45
 #, python-format
@@ -132,7 +131,7 @@ msgstr "Avviso \"%(object)s\" cancellato correttamente."
 #: views.py:60
 #, python-format
 msgid "%(count)d announcement deleted successfully."
-msgstr "%(count)d avvisi cancellati correttamente."
+msgstr "%(count)d avviso cancellato correttamente."
 
 #: views.py:62
 #, python-format
@@ -160,8 +159,8 @@ msgid ""
 "convery information about your organzation, announcements or usage "
 "guidelines for your users."
 msgstr ""
-"Gli avvisi sono visualizzati nella schermata di login. Puoi usare gli avvisi "
-"per trasmettere informazioni sulla tua azienda, annunci vari o linee guida "
+"Gli avvisi sono visualizzati nella schermata di login. Puoi usare gli avvisi"
+" per comunicare informazioni sulla tua azienda, annunci vari o linee guida "
 "di utilizzo per gli utenti."
 
 #: views.py:125

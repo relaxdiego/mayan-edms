@@ -2,25 +2,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# serhatcan77 <serhat_can@yahoo.com>, 2022
-# abc Def <hdogan1974@gmail.com>, 2022
-# Bedreddin Şahbaz, 2022
-#
+# serhatcan77 <serhat_can@yahoo.com>, 2023
+# Bedreddin Şahbaz, 2023
+# abc Def <hdogan1974@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
-"teams/13584/tr_TR/)\n"
-"Language: tr_TR\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: abc Def <hdogan1974@gmail.com>, 2023\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: apps.py:43
@@ -113,42 +112,32 @@ msgid "Primary key of the document type to add to the web link."
 msgstr "Web bağlantısına eklenecek belge türünün birincil anahtarı."
 
 #: serializers.py:17 serializers.py:26
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Belge türleri"
+msgstr ""
 
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
 msgstr "Web bağlantısından kaldırılacak belge türünün birincil anahtarı."
 
 #: serializers.py:33
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Belge türleri"
+msgstr ""
 
 #: serializers.py:37
-#, fuzzy
-#| msgid "Document types enabled"
 msgid "Document types remove URL"
-msgstr "Belge türleri etkinleştirildi"
+msgstr ""
 
 #: serializers.py:41
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Belge türleri"
+msgstr ""
 
 #: serializers.py:48 serializers.py:63
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:66
-#, fuzzy
-#| msgid "Navigate"
 msgid "Navigation URL"
-msgstr "Gezinti"
+msgstr ""
 
 #: views.py:32
 msgid "Web links enabled"

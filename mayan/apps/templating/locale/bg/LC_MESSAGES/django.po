@@ -2,23 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-#
+# Roberto Rosario, 2023
+# Lyudmil Antonov <lantonov.here@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
-"bg/)\n"
-"Language: bg\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2023\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:19 permissions.py:6
@@ -28,22 +28,23 @@ msgstr "Шаблониране"
 #: fields.py:19
 #, python-format
 msgid ""
-"Use Django's default templating language (https://docs.djangoproject.com/en/"
-"%(django_version)s/ref/templates/builtins/). "
+"Use Django's default templating language "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+" "
 msgstr ""
-"Използвайте езика за шаблониране по подразбиране на Django (https://docs."
-"djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+"Използвайте езика за шаблониране по подразбиране на Django "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
 
 #: fields.py:37
 #, python-format
 msgid ""
-"Use Django's default templating language (https://docs.djangoproject.com/en/"
-"%(django_version)s/ref/templates/builtins/). The {{ %(variable)s }} variable "
-"is available to the template."
+"Use Django's default templating language "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+" The {{ %(variable)s }} variable is available to the template."
 msgstr ""
-"Използвайте езика за шаблони по подразбиране на Django (https://docs."
-"djangoproject.com/en/%(django_version)s/ref/templates/builtins/). "
-"Променливата {{%(variable)s}} е достъпна за шаблона."
+"Използвайте езика за шаблони по подразбиране на Django "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+" Променливата {{%(variable)s}} е достъпна за шаблона."
 
 #: forms.py:9
 msgid "Resulting text from the evaluated template."
@@ -75,7 +76,7 @@ msgstr ""
 
 #: serializers.py:11
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: serializers.py:14
 msgid "HTML"
@@ -83,7 +84,7 @@ msgstr ""
 
 #: serializers.py:17
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: views.py:44
 #, python-format

@@ -2,38 +2,36 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Roberto Rosario, 2022
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Jože Detečnik <joze.detecnik@3tav.si>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:36+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:51+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: apps.py:23 events.py:6 permissions.py:6 settings.py:11
+#: apps.py:23 events.py:6 permissions.py:6 settings.py:12
 msgid "Logging"
 msgstr "Logiranje"
 
 #: events.py:10
 msgid "Error log deleted"
-msgstr "Dnevnik napak izbrisan"
+msgstr ""
 
 #: links.py:15 views.py:36
 msgid "Global error log"
-msgstr "Globalni dnevnik napak"
+msgstr ""
 
 #: links.py:26
 msgid "Delete"
@@ -41,11 +39,11 @@ msgstr "Izbriši"
 
 #: links.py:31
 msgid "Errors"
-msgstr "Napake"
+msgstr ""
 
 #: links.py:37
 msgid "Clear errors"
-msgstr "Počisti napake"
+msgstr ""
 
 #: model_mixins.py:10
 msgid "Object"
@@ -53,120 +51,115 @@ msgstr "Predmet"
 
 #: model_mixins.py:18
 msgid "App label"
-msgstr "Oznaka aplikacije"
+msgstr ""
 
 #: models.py:19 models.py:37
 msgid "Internal name"
-msgstr "Interno ime"
+msgstr ""
 
 #: models.py:24 models.py:34
 msgid "Error log"
-msgstr "Dnevnik napak"
+msgstr ""
 
 #: models.py:25
 msgid "Error logs"
-msgstr "Dnevniki napak"
+msgstr ""
 
 #: models.py:51 models.py:63
 msgid "Error log partition"
-msgstr "Particija dnevnika napak"
+msgstr ""
 
 #: models.py:52
 msgid "Error log partitions"
-msgstr "Particije dnevnika napak"
+msgstr ""
 
 #: models.py:66
 msgid "Date and time"
-msgstr "Datum in čas"
+msgstr ""
 
 #: models.py:68
 msgid "Text"
-msgstr "Besedilo"
+msgstr ""
 
 #: models.py:75
 msgid "Error log partition entry"
-msgstr "Vnos v particijo dnevnika napak"
+msgstr ""
 
 #: models.py:76
 msgid "Error log partition entries"
-msgstr "Vnosi v particijo dnevnika napak"
+msgstr ""
 
 #: permissions.py:10
 msgid "Delete error log"
-msgstr "Izbriši dnevnik napak"
+msgstr ""
 
 #: permissions.py:13
 msgid "View error log"
-msgstr "Oglejte si dnevnik napak"
+msgstr ""
 
 #: serializers.py:12
 msgid "Content type"
 msgstr ""
 
 #: serializers.py:16
-#, fuzzy
-#| msgid "Object"
 msgid "Object ID"
-msgstr "Predmet"
+msgstr "ID objekta"
 
 #: serializers.py:19
 msgid "URL"
 msgstr ""
 
 #: settings.py:18
-msgid "Automatically enable logging to all apps."
-msgstr "Samodejno omogoči beleženje v vse aplikacije."
-
-#: settings.py:25
-#, fuzzy
-#| msgid ""
-#| "List of handlers to which logging messages will be sent. Options are: {}"
-msgid "List of handlers to which logging messages will be sent."
+msgid "Disable logging message ANSI color codes."
 msgstr ""
-"Seznam upravljavcev, katerim bodo poslana sporočila beleženja. Možnosti so: "
-"{}"
+
+#: settings.py:24
+msgid "Automatically enable logging to all apps."
+msgstr ""
 
 #: settings.py:30
-msgid "Level for the logging system."
-msgstr "Raven za sistem beleženja."
+msgid "List of handlers to which logging messages will be sent."
+msgstr ""
 
-#: settings.py:36
+#: settings.py:35
+msgid "Level for the logging system."
+msgstr ""
+
+#: settings.py:41
 msgid "Path to the logfile that will track errors during production."
-msgstr "Pot do datoteke dnevnika, ki bo spremljala napake med proizvodnjo."
+msgstr ""
 
 #: views.py:30
 msgid ""
 "This view displays the error log of different objects. An empty list is a "
 "good thing."
 msgstr ""
-"Ta pogled prikazuje dnevnik napak različnih objektov. Prazen seznam je dobra "
-"stvar."
 
 #: views.py:34 views.py:101
 msgid "There are no error log entries"
-msgstr "V dnevniku napak ni vnosov"
+msgstr ""
 
 #: views.py:50
 #, python-format
 msgid "Clear error log entries for: %s"
-msgstr "Počisti vnose v dnevniku napak za: %s"
+msgstr ""
 
 #: views.py:57
 msgid "Object error log cleared successfully"
-msgstr "Dnevnik napak objekta je bil uspešno izbrisan"
+msgstr ""
 
 #: views.py:74
 #, python-format
 msgid "Delete error log entry: %s"
-msgstr "Izbrišite vnos v dnevnik napak: %s"
+msgstr ""
 
 #: views.py:97
 msgid ""
-"This view displays the error log of an object. An empty list is a good thing."
+"This view displays the error log of an object. An empty list is a good "
+"thing."
 msgstr ""
-"Ta pogled prikazuje dnevnik napak predmeta. Prazen seznam je dobra stvar."
 
 #: views.py:104
 #, python-format
 msgid "Error log entries for: %s"
-msgstr "Vnosi v dnevnik napak za: %s"
+msgstr ""

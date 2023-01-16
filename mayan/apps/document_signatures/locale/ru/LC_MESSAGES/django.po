@@ -1,31 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Panasoft, 2022
-# Alex Chigrin <chalex84@mail.ru>, 2022
-# Sergey Glita <gsv70@mail.ru>, 2022
-# lilo.panic, 2022
-# Ilya Pavlov <spirkaa@gmail.com>, 2022
-#
+# Panasoft, 2023
+# Sergey Glita <gsv70@mail.ru>, 2023
+# Alex Chigrin <chalex84@mail.ru>, 2023
+# Roberto Rosario, 2023
+# Ilya Pavlov <spirkaa@gmail.com>, 2023
+# lilo.panic, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: lilo.panic, 2023\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: apps.py:54 events.py:6 permissions.py:6 settings.py:12
 msgid "Document signatures"
@@ -282,10 +280,8 @@ msgid "Refresh existing signature information"
 msgstr "Обновить информацию о существующей подписи"
 
 #: serializers.py:17
-#, fuzzy
-#| msgid "Document file"
 msgid "Document file URL"
-msgstr "Файл документа"
+msgstr ""
 
 #: serializers.py:59
 msgid "Primary key of the secret key used to sign the document file."
@@ -293,7 +289,7 @@ msgstr ""
 
 #: serializers.py:110
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: settings.py:20
 msgid "Path to the Storage subclass to use when storing detached signatures."
@@ -361,8 +357,8 @@ msgid ""
 "document itself or uploaded as a separate file."
 msgstr ""
 "Подписи служат для обеспечения целостности и подтверждения авторства и "
-"актуальности. Они очень безопасны, и их сложно подделать. Подпись может быть "
-"присоединенной к документу или выгруженной отдельным файлом, т.е. "
+"актуальности. Они очень безопасны, и их сложно подделать. Подпись может быть"
+" присоединенной к документу или выгруженной отдельным файлом, т.е. "
 "отсоединенной. "
 
 #: views.py:341

@@ -2,28 +2,27 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Marco Camplese <marco.camplese.mc@gmail.com>, 2022
-# Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Giovanni Tricarico <gtricarico92@gmail.com>, 2022
-# Daniele Bortoluzzi <daniele@elkos.it>, 2022
-#
+# Marco Camplese <marco.camplese.mc@gmail.com>, 2023
+# Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Giovanni Tricarico <gtricarico92@gmail.com>, 2023
+# Daniele Bortoluzzi <daniele@elkos.it>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2023\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:54 apps.py:164 apps.py:168 apps.py:172 apps.py:176 apps.py:180
 #: events.py:6 forms.py:14 links.py:30 menus.py:14 models.py:49 models.py:156
@@ -36,10 +35,8 @@ msgid "Cabinet created"
 msgstr "Cartella creata"
 
 #: events.py:14
-#, fuzzy
-#| msgid "Cabinet edited"
 msgid "Cabinet deleted"
-msgstr "Cartella modificata"
+msgstr ""
 
 #: events.py:17
 msgid "Cabinet edited"
@@ -195,15 +192,14 @@ msgid "Children"
 msgstr ""
 
 #: serializers.py:23
-msgid "URL of the API endpoint showing the list documents inside this cabinet."
+msgid ""
+"URL of the API endpoint showing the list documents inside this cabinet."
 msgstr ""
 "URL dell'endpoint API che mostra i documenti all'interno di questa cartella."
 
 #: serializers.py:25
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Documenti"
+msgstr ""
 
 #: serializers.py:30
 msgid "The name of this cabinet level appended to the names of its ancestors."
@@ -215,23 +211,19 @@ msgstr ""
 
 #: serializers.py:51
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:84
 msgid "Primary key of the document to add to the cabinet."
 msgstr ""
 
 #: serializers.py:85 serializers.py:94
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document ID"
-msgstr "UUID del documento"
+msgstr ""
 
 #: serializers.py:93
-#, fuzzy
-#| msgid "Document removed from cabinet"
 msgid "Primary key of the document to remove from the cabinet."
-msgstr "Documento rimosso dalla cartella"
+msgstr ""
 
 #: templates/cabinets/cabinet_details.html:17
 msgid "Navigation:"

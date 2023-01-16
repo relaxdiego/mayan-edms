@@ -1,28 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Mehdi Amani <MehdiAmani@toorintan.com>, 2022
-#
+# Roberto Rosario, 2023
+# Mehdi Amani <MehdiAmani@toorintan.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Mehdi Amani <MehdiAmani@toorintan.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: Mehdi Amani <MehdiAmani@toorintan.com>, 2023\n"
 "Language-Team: Persian (https://www.transifex.com/rosarior/teams/13584/fa/)\n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps.py:212 apps.py:653 events.py:6 menus.py:8 models/document_models.py:103
-#: permissions.py:6 queues.py:21 settings.py:33 statistics.py:286
+#: apps.py:212 apps.py:653 events.py:6 menus.py:8
+#: models/document_models.py:103 permissions.py:6 queues.py:21 settings.py:33
+#: statistics.py:286
 msgid "Documents"
 msgstr "اسناد"
 
@@ -134,8 +135,8 @@ msgstr ""
 
 #: classes.py:92
 msgid ""
-"Generates an immutable, random UUID (RFC 4122) for each file and appends the "
-"original filename of the uploaded file."
+"Generates an immutable, random UUID (RFC 4122) for each file and appends the"
+" original filename of the uploaded file."
 msgstr ""
 
 #: dashboard_widgets.py:32
@@ -393,10 +394,8 @@ msgid "Target page number can't be repeated."
 msgstr ""
 
 #: forms/misc_forms.py:10
-#, fuzzy
-#| msgid "Page range"
 msgid "Page group"
-msgstr "محدوده صفحات"
+msgstr ""
 
 #: forms/misc_forms.py:13 literals.py:91
 msgid "Page range"
@@ -447,19 +446,23 @@ msgstr "پاک کردن تبدیلات"
 msgid "Clone transformations"
 msgstr ""
 
-#: links/document_file_page_links.py:46 links/document_version_page_links.py:62
+#: links/document_file_page_links.py:46
+#: links/document_version_page_links.py:62
 msgid "First page"
 msgstr "اولین صفحه"
 
-#: links/document_file_page_links.py:52 links/document_version_page_links.py:68
+#: links/document_file_page_links.py:52
+#: links/document_version_page_links.py:68
 msgid "Last page"
 msgstr "آخرین صفحه"
 
-#: links/document_file_page_links.py:60 links/document_version_page_links.py:76
+#: links/document_file_page_links.py:60
+#: links/document_version_page_links.py:76
 msgid "Previous page"
 msgstr "صفحه قبلی"
 
-#: links/document_file_page_links.py:66 links/document_version_page_links.py:82
+#: links/document_file_page_links.py:66
+#: links/document_version_page_links.py:82
 msgid "Next page"
 msgstr "صفحه بعدی"
 
@@ -562,7 +565,8 @@ msgstr ""
 msgid "Remap pages"
 msgstr ""
 
-#: links/document_version_page_links.py:96 models/document_version_models.py:51
+#: links/document_version_page_links.py:96
+#: models/document_version_models.py:51
 #: models/document_version_page_models.py:32 search.py:123
 msgid "Document version"
 msgstr "نسخه سند"
@@ -694,8 +698,8 @@ msgstr "نام فایل"
 
 #: models/document_file_models.py:79
 msgid ""
-"The document file's file mimetype. MIME types are a standard way to describe "
-"the format of a file, in this case the file format of the document. Some "
+"The document file's file mimetype. MIME types are a standard way to describe"
+" the format of a file, in this case the file format of the document. Some "
 "examples: \"text/plain\" or \"image/jpeg\". "
 msgstr ""
 
@@ -793,7 +797,8 @@ msgstr ""
 
 #: models/document_type_models.py:42
 msgid ""
-"Amount of time after which documents of this type will be moved to the trash."
+"Amount of time after which documents of this type will be moved to the "
+"trash."
 msgstr ""
 
 #: models/document_type_models.py:44
@@ -926,10 +931,8 @@ msgid "Recently accessed documents"
 msgstr ""
 
 #: permissions.py:12
-#, fuzzy
-#| msgid "Create documents"
 msgid "Change type of documents"
-msgstr "ایجاد اسناد"
+msgstr ""
 
 #: permissions.py:15
 msgid "Create documents"
@@ -1108,10 +1111,8 @@ msgid "Document version comment"
 msgstr ""
 
 #: serializers/document_file_serializers.py:13
-#, fuzzy
-#| msgid "Document edited"
 msgid "Document file URL"
-msgstr "سند ویرایش شد."
+msgstr ""
 
 #: serializers/document_file_serializers.py:25
 #: serializers/document_version_serializers.py:57
@@ -1129,20 +1130,16 @@ msgstr ""
 #: serializers/favorite_document_serializers.py:26
 #: serializers/trashed_document_serializers.py:23
 msgid "URL"
-msgstr ""
+msgstr "نشانی اینترنتی"
 
 #: serializers/document_file_serializers.py:70
-#, fuzzy
-#| msgid "Active"
 msgid "Action"
-msgstr "فعال"
+msgstr "عمل"
 
 #: serializers/document_file_serializers.py:74
 #: serializers/document_version_serializers.py:104
-#, fuzzy
-#| msgid "Document"
 msgid "Document URL"
-msgstr "سند"
+msgstr ""
 
 #: serializers/document_file_serializers.py:78
 msgid "Download URL"
@@ -1153,10 +1150,8 @@ msgid "Binary content for the new file."
 msgstr ""
 
 #: serializers/document_file_serializers.py:91
-#, fuzzy
-#| msgid "Filename"
 msgid "File new"
-msgstr "نام فایل"
+msgstr ""
 
 #: serializers/document_file_serializers.py:94
 #: serializers/document_version_serializers.py:120
@@ -1165,10 +1160,8 @@ msgstr ""
 
 #: serializers/document_file_serializers.py:106
 #: serializers/document_version_serializers.py:132
-#, fuzzy
-#| msgid "Pages"
 msgid "Pages first"
-msgstr "صفحات"
+msgstr ""
 
 #: serializers/document_serializers.py:19
 #: serializers/document_version_serializers.py:14
@@ -1181,38 +1174,28 @@ msgstr ""
 
 #: serializers/document_serializers.py:32
 #: serializers/document_serializers.py:78
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type ID"
-msgstr "نوع سند"
+msgstr ""
 
 #: serializers/document_serializers.py:35
-#, fuzzy
-#| msgid "Document type"
 msgid "Document change type URL"
-msgstr "نوع سند"
+msgstr ""
 
 #: serializers/document_serializers.py:39
-#, fuzzy
-#| msgid "Filename"
 msgid "File latest"
-msgstr "نام فایل"
+msgstr ""
 
 #: serializers/document_serializers.py:42
 msgid "File list URL"
 msgstr ""
 
 #: serializers/document_serializers.py:46
-#, fuzzy
-#| msgid "Versions"
 msgid "Version active"
-msgstr "نسخه ها"
+msgstr ""
 
 #: serializers/document_serializers.py:49
-#, fuzzy
-#| msgid "Versions"
 msgid "Version list URL"
-msgstr "نسخه ها"
+msgstr ""
 
 #: serializers/document_serializers.py:79
 msgid ""
@@ -1220,10 +1203,8 @@ msgid ""
 msgstr ""
 
 #: serializers/document_type_serializers.py:11
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type URL"
-msgstr "نوع سند"
+msgstr ""
 
 #: serializers/document_type_serializers.py:35
 msgid "Quick label list URL"
@@ -1242,26 +1223,20 @@ msgid "Content type ID of the source object for the page."
 msgstr ""
 
 #: serializers/document_version_serializers.py:45
-#, fuzzy
-#| msgid "Document version"
 msgid "Document version URL"
-msgstr "نسخه سند"
+msgstr ""
 
 #: serializers/document_version_serializers.py:108
-#, fuzzy
-#| msgid "Export"
 msgid "Export URL"
-msgstr "صادر کردن"
+msgstr ""
 
 #: serializers/favorite_document_serializers.py:16
 msgid "Document ID for the new favorite document."
 msgstr ""
 
 #: serializers/favorite_document_serializers.py:17
-#, fuzzy
-#| msgid "Document"
 msgid "Document ID"
-msgstr "سند"
+msgstr ""
 
 #: serializers/trashed_document_serializers.py:16
 msgid "Restore URL"
@@ -1270,8 +1245,8 @@ msgstr ""
 #: settings.py:49
 msgid ""
 "The threshold at which the DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"will start deleting the oldest document file page image cache files. Specify "
-"the size in bytes."
+"will start deleting the oldest document file page image cache files. Specify"
+" the size in bytes."
 msgstr ""
 
 #: settings.py:57
@@ -1299,9 +1274,9 @@ msgstr ""
 
 #: settings.py:90
 msgid ""
-"Size of blocks to use when calculating the document file's checksum. A value "
-"of 0 disables the block calculation and the entire file will be loaded into "
-"memory."
+"Size of blocks to use when calculating the document file's checksum. A value"
+" of 0 disables the block calculation and the entire file will be loaded into"
+" memory."
 msgstr ""
 
 #: settings.py:97
@@ -1314,15 +1289,15 @@ msgstr ""
 
 #: settings.py:107
 msgid ""
-"The threshold at which the DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"will start deleting the oldest document version page image cache versions. "
+"The threshold at which the DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND"
+" will start deleting the oldest document version page image cache versions. "
 "Specify the size in bytes."
 msgstr ""
 
 #: settings.py:116
 msgid ""
-"Path to the Storage subclass to use when storing the cached document version "
-"page image versions."
+"Path to the Storage subclass to use when storing the cached document version"
+" page image versions."
 msgstr ""
 
 #: settings.py:124
@@ -1398,16 +1373,12 @@ msgid "Total document pages at each month"
 msgstr ""
 
 #: statistics.py:332
-#, fuzzy
-#| msgid "Delete document types"
 msgid "Total documents per document type"
-msgstr "حذف انواع سند"
+msgstr ""
 
 #: statistics.py:339
-#, fuzzy
-#| msgid "Delete document types"
 msgid "Total document files per document type"
-msgstr "حذف انواع سند"
+msgstr ""
 
 #: statistics.py:346
 msgid "Total document file pages per document type"
@@ -1415,8 +1386,8 @@ msgstr ""
 
 #: storages.py:21
 msgid ""
-"Unable to initialize the document file storage. Check the settings {} and {} "
-"for formatting errors."
+"Unable to initialize the document file storage. Check the settings {} and {}"
+" for formatting errors."
 msgstr ""
 
 #: storages.py:35
@@ -1499,8 +1470,8 @@ msgstr ""
 
 #: views/document_file_page_views.py:104
 msgid ""
-"This could mean that the document file is of a format that is not supported, "
-"that it is corrupted or that the upload process was interrupted. Use the "
+"This could mean that the document file is of a format that is not supported,"
+" that it is corrupted or that the upload process was interrupted. Use the "
 "document file page recalculation action to attempt to introspect the page "
 "count again."
 msgstr ""
@@ -1633,8 +1604,8 @@ msgstr ""
 #: views/document_file_views.py:342
 #, python-format
 msgid ""
-"Error cloning the page transformations for document file: %(document_file)s; "
-"%(error)s."
+"Error cloning the page transformations for document file: %(document_file)s;"
+" %(error)s."
 msgstr ""
 
 #: views/document_file_views.py:351 views/document_version_views.py:411
@@ -1654,8 +1625,8 @@ msgstr ""
 #: views/document_type_views.py:75
 msgid ""
 "Document types are the most basic units of configuration. Everything in the "
-"system will depend on them. Define a document type for each type of physical "
-"document you intend to upload. Example document types: invoice, receipt, "
+"system will depend on them. Define a document type for each type of physical"
+" document you intend to upload. Example document types: invoice, receipt, "
 "manual, prescription, balance sheet."
 msgstr ""
 
@@ -1699,8 +1670,7 @@ msgstr ""
 
 #: views/document_type_views.py:246
 #, python-format
-msgid ""
-"Edit quick label \"%(filename)s\" from document type \"%(document_type)s\""
+msgid "Edit quick label \"%(filename)s\" from document type \"%(document_type)s\""
 msgstr ""
 
 #: views/document_type_views.py:285
@@ -1856,7 +1826,8 @@ msgstr ""
 
 #: views/document_version_views.py:329
 #, python-format
-msgid "Transformation clear request processed for %(count)d document versions."
+msgid ""
+"Transformation clear request processed for %(count)d document versions."
 msgstr ""
 
 #: views/document_version_views.py:337
@@ -2002,8 +1973,8 @@ msgstr "چاپ : %s"
 
 #: views/recently_accessed_document_views.py:23
 msgid ""
-"This view will list the latest documents viewed or manipulated in any way by "
-"this user account."
+"This view will list the latest documents viewed or manipulated in any way by"
+" this user account."
 msgstr ""
 
 #: views/recently_accessed_document_views.py:27

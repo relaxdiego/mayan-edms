@@ -1,31 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2022
-# Vítor Figueiró <vfigueiro@gmail.com>, 2022
-# Emerson Soares <on.emersonsoares@gmail.com>, 2022
-# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2022
-# Márcia Ferreira, 2022
-#
+# Emerson Soares <on.emersonsoares@gmail.com>, 2023
+# Vítor Figueiró <vfigueiro@gmail.com>, 2023
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023
+# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2023
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2023
+# Márcia Ferreira, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Márcia Ferreira, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/"
-"pt/)\n"
-"Language: pt\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"Last-Translator: Márcia Ferreira, 2023\n"
+"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:36 events.py:6 permissions.py:6 settings.py:11
 msgid "Authentication"
@@ -143,7 +141,7 @@ msgstr "Submeter"
 
 #: templates/authentication/login.html:76
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: templates/authentication/login.html:98
 msgid "Forgot your password?"
@@ -196,7 +194,8 @@ msgstr "Alteração de palavra-passe não é permitida para este utilizador."
 #: views/authentication_views.py:329
 #, python-format
 msgid "Password change request performed on %(count)d user"
-msgstr "Pedido de alteração de palavra-passe realizado em %(count)d utilizador"
+msgstr ""
+"Pedido de alteração de palavra-passe realizado em %(count)d utilizador"
 
 #: views/authentication_views.py:332
 #, python-format

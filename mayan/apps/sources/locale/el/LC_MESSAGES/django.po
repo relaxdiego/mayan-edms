@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# pyrotech <anastasios@tutamail.com>, 2022
-# Hmayag Antonian <hmayag@freemail.gr>, 2022
-#
+# pyrotech <anastasios@tutamail.com>, 2023
+# Hmayag Antonian <hmayag@freemail.gr>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Hmayag Antonian <hmayag@freemail.gr>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Hmayag Antonian <hmayag@freemail.gr>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:53 events.py:6 links.py:144 menus.py:6 models.py:35 queues.py:7
@@ -53,8 +53,8 @@ msgid ""
 "Utility provided by the SANE package. Used to control the scanner and "
 "obtained the scanned document image."
 msgstr ""
-"Βοηθητικό πρόγραμμα που παρέχεται από το πακέτο SANE. Χρησιμοποιήται για τον "
-"έλεγχο του σαρωτή και την λήψη της εικόνας του σαρωμένου εγγράφου."
+"Βοηθητικό πρόγραμμα που παρέχεται από το πακέτο SANE. Χρησιμοποιήται για τον"
+" έλεγχο του σαρωτή και την λήψη της εικόνας του σαρωμένου εγγράφου."
 
 #: events.py:10
 msgid "Source created"
@@ -174,14 +174,12 @@ msgid "Handle upload"
 msgstr "Διαχείριση ανάρτησης"
 
 #: serializers.py:12
-#, fuzzy
-#| msgid "Action"
 msgid "Actions"
-msgstr "Ενέργεια"
+msgstr "Ενέργειες"
 
 #: serializers.py:18
 msgid "URL"
-msgstr ""
+msgstr "Διεύθυνση URL"
 
 #: serializers.py:55
 msgid "Optional arguments for the action. Must be JSON formatted."
@@ -312,8 +310,8 @@ msgstr ""
 #: source_backends/email_backends.py:351
 #, python-format
 msgid ""
-"Message ID metadata type \"%(metadata_type)s\" is not valid for the document "
-"type: %(document_type)s"
+"Message ID metadata type \"%(metadata_type)s\" is not valid for the document"
+" type: %(document_type)s"
 msgstr ""
 
 #: source_backends/email_backends.py:400
@@ -330,8 +328,8 @@ msgid ""
 "specified in https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 msgstr ""
 "Κριτήρια για χρήση κατά την αναζήτηση μηνυμάτων για επεξεργασία. "
-"Χρησιμοποιήστε τη μορφή που καθορίζεται στο https://tools.ietf.org/html/"
-"rfc2060.html#section-6.4.4"
+"Χρησιμοποιήστε τη μορφή που καθορίζεται στο "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 
 #: source_backends/email_backends.py:415
 msgid "Search criteria"
@@ -340,13 +338,14 @@ msgstr "Κριτήρια αναζήτησης"
 #: source_backends/email_backends.py:423
 msgid ""
 "IMAP STORE command to execute on messages after they are processed. One "
-"command per line. Use the commands specified in https://tools.ietf.org/html/"
-"rfc2060.html#section-6.4.6 or the custom commands for your IMAP server."
+"command per line. Use the commands specified in "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 or the custom "
+"commands for your IMAP server."
 msgstr ""
 "Εντολή IMAP STORE για εκτέλεση σε μηνύματα μετά την επεξεργασία τους. Μία "
-"εντολή ανά γραμμή. Χρησιμοποιήστε τις εντολές που καθορίζονται στο https://"
-"tools.ietf.org/html/rfc2060.html#section-6.4.6 ή τις προσαρμοσμένες εντολές "
-"για τον διακομιστή IMAP."
+"εντολή ανά γραμμή. Χρησιμοποιήστε τις εντολές που καθορίζονται στο "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 ή τις προσαρμοσμένες "
+"εντολές για τον διακομιστή IMAP."
 
 #: source_backends/email_backends.py:428
 msgid "Store commands"
@@ -566,8 +565,8 @@ msgstr ""
 #: source_backends/staging_folder_backends.py:668
 msgid ""
 "This could mean that the staging folder is empty. It could also mean that "
-"the operating system user account being used for Mayan EDMS doesn't have the "
-"necessary file system permissions for the folder."
+"the operating system user account being used for Mayan EDMS doesn't have the"
+" necessary file system permissions for the folder."
 msgstr ""
 "Αυτό θα μπορούσε να σημαίνει ότι ο φάκελος ενδιάμεσου σταδίου είναι κενός. "
 "Θα μπορούσε επίσης να σημαίνει ότι ο λογαριασμός χρήστη του λειτουργικού "
@@ -601,8 +600,8 @@ msgstr "Αρχεία φακέλου ενδιάμεσου σταδίου"
 
 #: views/base.py:55 wizards.py:58
 msgid ""
-"No interactive document sources have been defined or none have been enabled, "
-"create one before proceeding."
+"No interactive document sources have been defined or none have been enabled,"
+" create one before proceeding."
 msgstr ""
 "Δεν έχουν καθοριστεί αλληλεπιδραστικές πηγές εγγράφων ή δεν έχει "
 "ενεργοποιηθεί κάποια, δημιουργήστε μία πριν συνεχίσετε."
@@ -677,8 +676,8 @@ msgstr "Δεν υπάρχουν διαθέσιμες πηγές"
 
 #: views/source_views.py:195
 msgid ""
-"This will execute the source code even if the source is not enabled. Sources "
-"that delete content after downloading will not do so while being tested. "
+"This will execute the source code even if the source is not enabled. Sources"
+" that delete content after downloading will not do so while being tested. "
 "Check the source's error log for information during testing. A successful "
 "test will clear the error log."
 msgstr ""
@@ -716,27 +715,3 @@ msgstr ""
 #: wizards.py:105
 msgid "Next"
 msgstr ""
-
-#~ msgid "Cancel upload"
-#~ msgstr "Ακύρωση ανάρτησης"
-
-#~ msgid "Are you sure you want to cancel this upload?"
-#~ msgstr "Είστε βέβαιοι ότι θέλετε να ακυρώσετε αυτήν την ανάρτηση;"
-
-#~ msgid "Drop files or click here to upload files"
-#~ msgstr "Αποθέστε αρχεία ή κάντε κλικ εδώ για την ανάρτησή τους"
-
-#~ msgid "Your browser does not support drag and drop file uploads."
-#~ msgstr ""
-#~ "Το πρόγραμμα περιήγησής σας δεν υποστηρίζει αναρτήσεις αρχείων με επιλογή "
-#~ "και σύρσιμο."
-
-#~ msgid "Please use the fallback form below to upload your files."
-#~ msgstr ""
-#~ "Παρακαλώ χρησιμοποιήστε την παρακάτω εναλλακτική φόρμα ανάρτησης αρχείων."
-
-#~ msgid "Clear"
-#~ msgstr "Εκκαθάριση"
-
-#~ msgid "Server responded with {{statusCode}} code."
-#~ msgstr "Ο διακομιστής απάντησε με κωδικό {{statusCode}}."

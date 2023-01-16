@@ -1,25 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Nima Towhidi <nima.towhidi@gmail.com>, 2022
-# Mehdi Amani <MehdiAmani@toorintan.com>, 2022
-#
+# Mehdi Amani <MehdiAmani@toorintan.com>, 2023
+# Nima Towhidi <nima.towhidi@gmail.com>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Mehdi Amani <MehdiAmani@toorintan.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Persian (https://www.transifex.com/rosarior/teams/13584/fa/)\n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: apps.py:27
@@ -40,10 +40,8 @@ msgid "Search terms"
 msgstr "عبارات جستجو"
 
 #: links.py:20
-#, fuzzy
-#| msgid "Dynamic search"
 msgid "Basic search"
-msgstr "جستجوی پویا"
+msgstr ""
 
 #: links.py:24 templates/dynamic_search/search_box.html:49
 #: templates/dynamic_search/search_box_toolbar.html:33
@@ -58,13 +56,13 @@ msgstr "جستجوی دوباره"
 msgid "Reindex search backend"
 msgstr ""
 
-#: literals.py:17
+#: literals.py:21
 msgid "Yes"
-msgstr ""
+msgstr "بله"
 
-#: literals.py:18
+#: literals.py:22
 msgid "No"
-msgstr ""
+msgstr "نه"
 
 #: permissions.py:6 queues.py:7 settings.py:14
 #: templates/dynamic_search/search_box.html:47
@@ -116,7 +114,7 @@ msgid ""
 msgstr ""
 
 #: search_fields.py:289
-msgid "ANY"
+msgid "Any"
 msgstr ""
 
 #: search_models.py:42
@@ -174,7 +172,7 @@ msgstr ""
 
 #: serializers.py:17
 msgid "Label"
-msgstr ""
+msgstr "برچسب"
 
 #: serializers.py:23
 msgid "App label"
@@ -189,10 +187,8 @@ msgid "Primary key"
 msgstr ""
 
 #: serializers.py:32
-#, fuzzy
-#| msgid "Search terms"
 msgid "Search fields"
-msgstr "عبارات جستجو"
+msgstr ""
 
 #: settings.py:20
 msgid "Full path to the backend to be used to handle the search."
@@ -222,18 +218,16 @@ msgid "Sets the default state of the \"Match all\" checkbox."
 msgstr ""
 
 #: settings.py:63
-msgid "Hard limit of number search results to fetch and display."
+msgid "Hard limit of number of search results to fetch and display."
 msgstr ""
 
 #: settings.py:68
-msgid "Maximum number search results to fetch and display."
+msgid "Maximum number of search results to fetch and display."
 msgstr ""
 
 #: templates/dynamic_search/app/list_toolbar.html:17
-#, fuzzy
-#| msgid "Search terms"
 msgid "Filter terms"
-msgstr "عبارات جستجو"
+msgstr ""
 
 #: templates/dynamic_search/search_box.html:49
 #: templates/dynamic_search/search_box_toolbar.html:33
@@ -296,7 +290,7 @@ msgstr ""
 
 #: views.py:75
 msgid ""
-"The currently selected search backend does not support or required "
+"The currently selected search backend does not support or requires "
 "reindexing."
 msgstr ""
 
@@ -310,10 +304,9 @@ msgid "Search for: %s"
 msgstr "جستجو برای: %s"
 
 #: views.py:139
-#, fuzzy, python-format
-#| msgid "Advanced search"
+#, python-format
 msgid "Advanced search for: %s"
-msgstr "جستجوی پیشرفته"
+msgstr ""
 
 #: views.py:174
 msgid "Try again using different terms. "
@@ -324,23 +317,11 @@ msgid "No search results"
 msgstr ""
 
 #: views.py:179
-#, fuzzy, python-format
-#| msgid "Search for: %s"
+#, python-format
 msgid "Search query: %s"
-msgstr "جستجو برای: %s"
+msgstr ""
 
 #: views.py:181
 #, python-format
 msgid "Search results for: %s"
 msgstr "جواب جستجو برای  : %s"
-
-#~ msgid "ID"
-#~ msgstr "شناسه"
-
-#~ msgid ""
-#~ "When checked, only results that match all fields will be returned. When "
-#~ "unchecked results that match at least one field will be returned."
-#~ msgstr ""
-#~ "با انتخاب این گزینه، فقط نتایجی که با همه‌ی فیلدها منطبق باشند برگردانده "
-#~ "می‌شوند. وقتی این گزینه انتخاب نشده باشد، نتایجی که دست کم با یک فیلد "
-#~ "منطبق باشند برگردانده می‌شوند."

@@ -1,28 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Yaman Sanobar <yman.snober@gmail.com>, 2022
-# Marwan Rahhal <Marwanr@sssit.net>, 2022
-# Ayoub BENSAKHRIA <bensakhria.ayoub@gmail.com>, 2022
-#
+# Yaman Sanobar <yman.snober@gmail.com>, 2023
+# Ayoub BENSAKHRIA <bensakhria.ayoub@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Marwan Rahhal <Marwanr@sssit.net>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: Ayoub BENSAKHRIA <bensakhria.ayoub@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2023\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: apps.py:44 events.py:6 models.py:31 models.py:84 permissions.py:6
 msgid "Permissions"
@@ -77,10 +76,9 @@ msgid "Permission count"
 msgstr "عدد الأذونات"
 
 #: model_mixins.py:88
-#, fuzzy, python-format
-#| msgid "Role permissions"
+#, python-format
 msgid "Unknown or obsolete permission: %s"
-msgstr "أذونات الدور"
+msgstr ""
 
 #: model_mixins.py:100
 #, python-format
@@ -140,10 +138,8 @@ msgid "Primary key of the group to add to the role."
 msgstr ""
 
 #: serializers.py:37 serializers.py:45
-#, fuzzy
-#| msgid "Groups"
 msgid "Group ID"
-msgstr "المجموعات"
+msgstr ""
 
 #: serializers.py:44
 msgid "Primary key of the group to remove from the role."
@@ -154,54 +150,40 @@ msgid "Primary key of the permission to add to the role."
 msgstr ""
 
 #: serializers.py:53 serializers.py:61
-#, fuzzy
-#| msgid "Permission"
 msgid "Permission ID"
-msgstr "الإذن"
+msgstr ""
 
 #: serializers.py:60
 msgid "Primary key of the permission to remove from the role."
 msgstr ""
 
 #: serializers.py:67
-#, fuzzy
-#| msgid "Groups"
 msgid "Groups URL"
-msgstr "المجموعات"
+msgstr ""
 
 #: serializers.py:71
-#, fuzzy
-#| msgid "Groups"
 msgid "Groups add URL"
-msgstr "المجموعات"
+msgstr ""
 
 #: serializers.py:75
-#, fuzzy
-#| msgid "Group roles"
 msgid "Groups remove URL"
-msgstr "أدوار المجموعة"
+msgstr ""
 
 #: serializers.py:79
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions URL"
-msgstr "الصلاحيات"
+msgstr ""
 
 #: serializers.py:83
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions add URL"
-msgstr "الصلاحيات"
+msgstr ""
 
 #: serializers.py:87
-#, fuzzy
-#| msgid "Permissions for role: %s"
 msgid "Permissions remove URL"
-msgstr "أذونات الدور: %s"
+msgstr ""
 
 #: serializers.py:94
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: views.py:27
 msgid "Group roles"

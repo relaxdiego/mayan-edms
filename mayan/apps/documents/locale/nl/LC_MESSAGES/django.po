@@ -1,29 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# bwakkie <bwakkie@gmail.com>, 2022
-# Roberto Rosario, 2022
-# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
-#
+# Roberto Rosario, 2023
+# bwakkie <bwakkie@gmail.com>, 2023
+# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2023\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:212 apps.py:653 events.py:6 menus.py:8 models/document_models.py:103
-#: permissions.py:6 queues.py:21 settings.py:33 statistics.py:286
+#: apps.py:212 apps.py:653 events.py:6 menus.py:8
+#: models/document_models.py:103 permissions.py:6 queues.py:21 settings.py:33
+#: statistics.py:286
 msgid "Documents"
 msgstr "Documenten"
 
@@ -40,8 +41,8 @@ msgid ""
 "Every uploaded document must be assigned a document type, it is the basic "
 "way Mayan EDMS categorizes documents."
 msgstr ""
-"Ieder geüpload document krijgt een documenttype toegewezen, dit is de manier "
-"waarop MAYAN EDMS documenten indeelt."
+"Ieder geüpload document krijgt een documenttype toegewezen, dit is de manier"
+" waarop MAYAN EDMS documenten indeelt."
 
 #: apps.py:399
 msgid "File comments"
@@ -130,7 +131,8 @@ msgstr "UUID"
 #: classes.py:79
 msgid "Generates an immutable, random UUID (RFC 4122) for each file."
 msgstr ""
-"Genereert een onveranderlijke, willekeurige UUID (RFC 4122) voor elk bestand."
+"Genereert een onveranderlijke, willekeurige UUID (RFC 4122) voor elk "
+"bestand."
 
 #: classes.py:90
 msgid "UUID plus original"
@@ -138,11 +140,11 @@ msgstr "UUID plus origineel"
 
 #: classes.py:92
 msgid ""
-"Generates an immutable, random UUID (RFC 4122) for each file and appends the "
-"original filename of the uploaded file."
+"Generates an immutable, random UUID (RFC 4122) for each file and appends the"
+" original filename of the uploaded file."
 msgstr ""
-"Genereert een onveranderlijke, willekeurige UUID (RFC 4122) voor elk bestand "
-"en voegt de originele bestandsnaam van het geüploade bestand toe."
+"Genereert een onveranderlijke, willekeurige UUID (RFC 4122) voor elk bestand"
+" en voegt de originele bestandsnaam van het geüploade bestand toe."
 
 #: dashboard_widgets.py:32
 msgid "Total pages"
@@ -407,10 +409,8 @@ msgid "Target page number can't be repeated."
 msgstr "Het doelpaginanummer kan niet worden herhaald."
 
 #: forms/misc_forms.py:10
-#, fuzzy
-#| msgid "Page range"
 msgid "Page group"
-msgstr "Paginabereik"
+msgstr ""
 
 #: forms/misc_forms.py:13 literals.py:91
 msgid "Page range"
@@ -463,19 +463,23 @@ msgstr "Transformaties wissen"
 msgid "Clone transformations"
 msgstr "Transformaties klonen"
 
-#: links/document_file_page_links.py:46 links/document_version_page_links.py:62
+#: links/document_file_page_links.py:46
+#: links/document_version_page_links.py:62
 msgid "First page"
 msgstr "Eerste pagina"
 
-#: links/document_file_page_links.py:52 links/document_version_page_links.py:68
+#: links/document_file_page_links.py:52
+#: links/document_version_page_links.py:68
 msgid "Last page"
 msgstr "Laatste pagina"
 
-#: links/document_file_page_links.py:60 links/document_version_page_links.py:76
+#: links/document_file_page_links.py:60
+#: links/document_version_page_links.py:76
 msgid "Previous page"
 msgstr "Vorige pagina"
 
-#: links/document_file_page_links.py:66 links/document_version_page_links.py:82
+#: links/document_file_page_links.py:66
+#: links/document_version_page_links.py:82
 msgid "Next page"
 msgstr "Volgende pagina"
 
@@ -578,7 +582,8 @@ msgstr ""
 msgid "Remap pages"
 msgstr "Pagina's opnieuw toewijzen"
 
-#: links/document_version_page_links.py:96 models/document_version_models.py:51
+#: links/document_version_page_links.py:96
+#: models/document_version_models.py:51
 #: models/document_version_page_models.py:32 search.py:123
 msgid "Document version"
 msgstr "Documentversie"
@@ -710,13 +715,13 @@ msgstr "Bestandsnaam"
 
 #: models/document_file_models.py:79
 msgid ""
-"The document file's file mimetype. MIME types are a standard way to describe "
-"the format of a file, in this case the file format of the document. Some "
+"The document file's file mimetype. MIME types are a standard way to describe"
+" the format of a file, in this case the file format of the document. Some "
 "examples: \"text/plain\" or \"image/jpeg\". "
 msgstr ""
 "Het mimetype van het documentbestand. MIME-typen is een standaardmanier om "
-"het formaat van een bestand te beschrijven, in dit geval het bestandsformaat "
-"van het document. Enkele voorbeelden: \"text/plain\" of \"image/jpeg\"."
+"het formaat van een bestand te beschrijven, in dit geval het bestandsformaat"
+" van het document. Enkele voorbeelden: \"text/plain\" of \"image/jpeg\"."
 
 #: models/document_file_models.py:87
 msgid ""
@@ -762,8 +767,8 @@ msgid ""
 "A short text identifying the document. By default, will be set to the "
 "filename of the first file uploaded to the document."
 msgstr ""
-"Een korte tekst die het document identificeert. Wordt standaard ingesteld op "
-"de bestandsnaam van het eerste bestand dat naar het document is geüpload."
+"Een korte tekst die het document identificeert. Wordt standaard ingesteld op"
+" de bestandsnaam van het eerste bestand dat naar het document is geüpload."
 
 #: models/document_models.py:64
 msgid "An optional short text describing a document."
@@ -809,9 +814,9 @@ msgid ""
 "uploaded. This could be an interrupted upload or a deferred upload via the "
 "API."
 msgstr ""
-"Een document stub is een document met een invoer in de database, maar zonder "
-"geüpload document. Dit kan gebeuren door een afgebroken upload en een upload "
-"via de API."
+"Een document stub is een document met een invoer in de database, maar zonder"
+" geüpload document. Dit kan gebeuren door een afgebroken upload en een "
+"upload via de API."
 
 #: models/document_models.py:93
 msgid "Is stub?"
@@ -823,7 +828,8 @@ msgstr ""
 
 #: models/document_type_models.py:42
 msgid ""
-"Amount of time after which documents of this type will be moved to the trash."
+"Amount of time after which documents of this type will be moved to the "
+"trash."
 msgstr ""
 "Tijdsperiode waarna documenten van dit type naar de prullenbak worden "
 "verplaatst."
@@ -965,10 +971,8 @@ msgid "Recently accessed documents"
 msgstr "Recent geopende documenten"
 
 #: permissions.py:12
-#, fuzzy
-#| msgid "Change the type of the document: %s"
 msgid "Change type of documents"
-msgstr "Wijzig het type van het document: %s"
+msgstr ""
 
 #: permissions.py:15
 msgid "Create documents"
@@ -1147,10 +1151,8 @@ msgid "Document version comment"
 msgstr "Opmerking documentversie"
 
 #: serializers/document_file_serializers.py:13
-#, fuzzy
-#| msgid "Document file"
 msgid "Document file URL"
-msgstr "Document bestand"
+msgstr ""
 
 #: serializers/document_file_serializers.py:25
 #: serializers/document_version_serializers.py:57
@@ -1168,20 +1170,16 @@ msgstr ""
 #: serializers/favorite_document_serializers.py:26
 #: serializers/trashed_document_serializers.py:23
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers/document_file_serializers.py:70
-#, fuzzy
-#| msgid "Active"
 msgid "Action"
-msgstr "Actief"
+msgstr "Actie"
 
 #: serializers/document_file_serializers.py:74
 #: serializers/document_version_serializers.py:104
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document URL"
-msgstr "Document UUID"
+msgstr ""
 
 #: serializers/document_file_serializers.py:78
 msgid "Download URL"
@@ -1192,10 +1190,8 @@ msgid "Binary content for the new file."
 msgstr "Binaire inhoud voor het nieuwe bestand."
 
 #: serializers/document_file_serializers.py:91
-#, fuzzy
-#| msgid "Filename"
 msgid "File new"
-msgstr "Bestandsnaam"
+msgstr ""
 
 #: serializers/document_file_serializers.py:94
 #: serializers/document_version_serializers.py:120
@@ -1204,10 +1200,8 @@ msgstr ""
 
 #: serializers/document_file_serializers.py:106
 #: serializers/document_version_serializers.py:132
-#, fuzzy
-#| msgid "Pages"
 msgid "Pages first"
-msgstr "Pagina's"
+msgstr ""
 
 #: serializers/document_serializers.py:19
 #: serializers/document_version_serializers.py:14
@@ -1220,38 +1214,28 @@ msgstr "Documenttype-ID voor het nieuwe document."
 
 #: serializers/document_serializers.py:32
 #: serializers/document_serializers.py:78
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type ID"
-msgstr "Documenttype"
+msgstr ""
 
 #: serializers/document_serializers.py:35
-#, fuzzy
-#| msgid "Document type"
 msgid "Document change type URL"
-msgstr "Documenttype"
+msgstr ""
 
 #: serializers/document_serializers.py:39
-#, fuzzy
-#| msgid "File timestamps"
 msgid "File latest"
-msgstr "Tijdstempels bestand"
+msgstr ""
 
 #: serializers/document_serializers.py:42
 msgid "File list URL"
 msgstr ""
 
 #: serializers/document_serializers.py:46
-#, fuzzy
-#| msgid "Make active"
 msgid "Version active"
-msgstr "Maak actief"
+msgstr ""
 
 #: serializers/document_serializers.py:49
-#, fuzzy
-#| msgid "Versions"
 msgid "Version list URL"
-msgstr "Versies"
+msgstr ""
 
 #: serializers/document_serializers.py:79
 msgid ""
@@ -1259,16 +1243,12 @@ msgid ""
 msgstr ""
 
 #: serializers/document_type_serializers.py:11
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type URL"
-msgstr "Documenttype"
+msgstr ""
 
 #: serializers/document_type_serializers.py:35
-#, fuzzy
-#| msgid "Quick labels"
 msgid "Quick label list URL"
-msgstr "Snel labels"
+msgstr ""
 
 #: serializers/document_version_serializers.py:26
 msgid "Backend ID"
@@ -1283,41 +1263,33 @@ msgid "Content type ID of the source object for the page."
 msgstr "Inhoudstype-ID van het bronobject voor de pagina."
 
 #: serializers/document_version_serializers.py:45
-#, fuzzy
-#| msgid "Document version"
 msgid "Document version URL"
-msgstr "Documentversie"
+msgstr ""
 
 #: serializers/document_version_serializers.py:108
-#, fuzzy
-#| msgid "Export"
 msgid "Export URL"
-msgstr "Exporteren"
+msgstr ""
 
 #: serializers/favorite_document_serializers.py:16
 msgid "Document ID for the new favorite document."
 msgstr "Document-ID voor het nieuwe favoriete document."
 
 #: serializers/favorite_document_serializers.py:17
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document ID"
-msgstr "Document UUID"
+msgstr ""
 
 #: serializers/trashed_document_serializers.py:16
-#, fuzzy
-#| msgid "Restore"
 msgid "Restore URL"
-msgstr "Herstellen"
+msgstr ""
 
 #: settings.py:49
 msgid ""
 "The threshold at which the DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"will start deleting the oldest document file page image cache files. Specify "
-"the size in bytes."
+"will start deleting the oldest document file page image cache files. Specify"
+" the size in bytes."
 msgstr ""
-"De drempel waarbij de DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND begint "
-"met het verwijderen van de cachebestanden van de oudste "
+"De drempel waarbij de DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND begint"
+" met het verwijderen van de cachebestanden van de oudste "
 "documentbestandspagina's. Geef de grootte op in bytes."
 
 #: settings.py:57
@@ -1335,8 +1307,8 @@ msgid ""
 "Path to the Storage subclass to use when storing the cached document file "
 "page image files."
 msgstr ""
-"Pad naar de subklasse Opslag die moet worden gebruikt bij het opslaan van de "
-"paginabeeldbestanden van het documentbestand in de cache."
+"Pad naar de subklasse Opslag die moet worden gebruikt bij het opslaan van de"
+" paginabeeldbestanden van het documentbestand in de cache."
 
 #: settings.py:78
 msgid ""
@@ -1351,9 +1323,9 @@ msgstr "Maximale aantal favoriete documenten om te onthouden per gebruiker."
 
 #: settings.py:90
 msgid ""
-"Size of blocks to use when calculating the document file's checksum. A value "
-"of 0 disables the block calculation and the entire file will be loaded into "
-"memory."
+"Size of blocks to use when calculating the document file's checksum. A value"
+" of 0 disables the block calculation and the entire file will be loaded into"
+" memory."
 msgstr ""
 "Blokgrootte om te gebruiken bij het berekenen van de controlesom van het "
 "bestandsdocument. Een waarde van 0 schakelt de blokberekening uit en laadt "
@@ -1369,21 +1341,21 @@ msgstr "Lijst met ondersteunde talen voor documenten. In ISO639-3 opmaak."
 
 #: settings.py:107
 msgid ""
-"The threshold at which the DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"will start deleting the oldest document version page image cache versions. "
+"The threshold at which the DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND"
+" will start deleting the oldest document version page image cache versions. "
 "Specify the size in bytes."
 msgstr ""
 "De drempel waarbij de DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"begint met het verwijderen van de cacheversies van de paginaafbeeldingen met "
-"de oudste documentversie. Geef de grootte op in bytes."
+"begint met het verwijderen van de cacheversies van de paginaafbeeldingen met"
+" de oudste documentversie. Geef de grootte op in bytes."
 
 #: settings.py:116
 msgid ""
-"Path to the Storage subclass to use when storing the cached document version "
-"page image versions."
+"Path to the Storage subclass to use when storing the cached document version"
+" page image versions."
 msgstr ""
-"Pad naar de subklasse Opslag die moet worden gebruikt bij het opslaan van de "
-"pagina-afbeeldingsversies van de documentversie in de cache."
+"Pad naar de subklasse Opslag die moet worden gebruikt bij het opslaan van de"
+" pagina-afbeeldingsversies van de documentversie in de cache."
 
 #: settings.py:124
 msgid ""
@@ -1460,27 +1432,21 @@ msgid "Total document pages at each month"
 msgstr "Totaal aantal documentpagina's voor iedere maand"
 
 #: statistics.py:332
-#, fuzzy
-#| msgid "Total documents at each month"
 msgid "Total documents per document type"
-msgstr "Totaal aantal documenten voor iedere maand"
+msgstr ""
 
 #: statistics.py:339
-#, fuzzy
-#| msgid "Total document files at each month"
 msgid "Total document files per document type"
-msgstr "Totaal aantal documentbestanden per maand"
+msgstr ""
 
 #: statistics.py:346
-#, fuzzy
-#| msgid "Append all document file pages to a document version"
 msgid "Total document file pages per document type"
-msgstr "Voeg alle documentbestandspagina's toe aan een documentversie"
+msgstr ""
 
 #: storages.py:21
 msgid ""
-"Unable to initialize the document file storage. Check the settings {} and {} "
-"for formatting errors."
+"Unable to initialize the document file storage. Check the settings {} and {}"
+" for formatting errors."
 msgstr ""
 "Kan de opslag van het documentbestand niet initialiseren. Controleer de "
 "instellingen {} en {} op opmaakfouten."
@@ -1559,8 +1525,8 @@ msgstr ""
 #, python-format
 msgid "%(count)d document files queued for page count recalculation."
 msgstr ""
-"%(count)d documentbestanden in de wachtrij voor herberekening van het aantal "
-"pagina's."
+"%(count)d documentbestanden in de wachtrij voor herberekening van het aantal"
+" pagina's."
 
 #: views/document_file_page_views.py:60
 msgid "Recalculate the page count of the selected document file?"
@@ -1575,8 +1541,8 @@ msgstr "Herbereken het aantal pagina's van het documentbestand: %s?"
 
 #: views/document_file_page_views.py:104
 msgid ""
-"This could mean that the document file is of a format that is not supported, "
-"that it is corrupted or that the upload process was interrupted. Use the "
+"This could mean that the document file is of a format that is not supported,"
+" that it is corrupted or that the upload process was interrupted. Use the "
 "document file page recalculation action to attempt to introspect the page "
 "count again."
 msgstr ""
@@ -1723,8 +1689,8 @@ msgstr ""
 #: views/document_file_views.py:342
 #, python-format
 msgid ""
-"Error cloning the page transformations for document file: %(document_file)s; "
-"%(error)s."
+"Error cloning the page transformations for document file: %(document_file)s;"
+" %(error)s."
 msgstr ""
 "Fout bij het klonen van de paginatransformaties voor documentbestand: "
 "%(document_file)s; %(error)s."
@@ -1746,8 +1712,8 @@ msgstr "Document van type: %s"
 #: views/document_type_views.py:75
 msgid ""
 "Document types are the most basic units of configuration. Everything in the "
-"system will depend on them. Define a document type for each type of physical "
-"document you intend to upload. Example document types: invoice, receipt, "
+"system will depend on them. Define a document type for each type of physical"
+" document you intend to upload. Example document types: invoice, receipt, "
 "manual, prescription, balance sheet."
 msgstr ""
 "Documenttypen zijn de basiseenheden voor een juiste instelling. Alle "
@@ -1797,10 +1763,8 @@ msgstr ""
 
 #: views/document_type_views.py:246
 #, python-format
-msgid ""
-"Edit quick label \"%(filename)s\" from document type \"%(document_type)s\""
-msgstr ""
-"Snel label \"%(filename)s\" voor documenttype \"%(document_type)s\" bewerken"
+msgid "Edit quick label \"%(filename)s\" from document type \"%(document_type)s\""
+msgstr "Snel label \"%(filename)s\" voor documenttype \"%(document_type)s\" bewerken"
 
 #: views/document_type_views.py:285
 msgid ""
@@ -1809,8 +1773,8 @@ msgid ""
 "can also be used after the documents have been uploaded."
 msgstr ""
 "Snel labels zijn vooraf vastgestelde bestandsnamen die snel hernoemen van "
-"documenten bij upload mogelijk maken, omdat ze gekozen kunnen worden uit een "
-"lijst. Snel labels kunnen ook worden gebuikt nadat de documenten zijn "
+"documenten bij upload mogelijk maken, omdat ze gekozen kunnen worden uit een"
+" lijst. Snel labels kunnen ook worden gebuikt nadat de documenten zijn "
 "geüpload. "
 
 #: views/document_type_views.py:291
@@ -1973,7 +1937,8 @@ msgstr ""
 
 #: views/document_version_views.py:329
 #, python-format
-msgid "Transformation clear request processed for %(count)d document versions."
+msgid ""
+"Transformation clear request processed for %(count)d document versions."
 msgstr ""
 "Verzoek om transformatie wissen verwerkt voor %(count)d documentversies."
 
@@ -2129,8 +2094,8 @@ msgstr "Afdrukken: %s"
 
 #: views/recently_accessed_document_views.py:23
 msgid ""
-"This view will list the latest documents viewed or manipulated in any way by "
-"this user account."
+"This view will list the latest documents viewed or manipulated in any way by"
+" this user account."
 msgstr ""
 "Dit overzicht geeft de laatst bekeken of bewerkte documenten door dit "
 "gebruikersaccount."
@@ -2171,7 +2136,7 @@ msgstr ""
 
 #: views/trashed_document_views.py:46
 msgid "Move the selected document to the trash?"
-msgstr ""
+msgstr "Het geselecteerde document naar de prullenbak verplaatsen?"
 
 #: views/trashed_document_views.py:47
 #, python-format
@@ -2213,7 +2178,7 @@ msgstr ""
 
 #: views/trashed_document_views.py:111
 msgid "Delete the selected trashed document?"
-msgstr ""
+msgstr "Het geselecteerde document in de prullenbak verwijderen?"
 
 #: views/trashed_document_views.py:149
 msgid ""
@@ -2256,7 +2221,7 @@ msgstr ""
 
 #: views/trashed_document_views.py:177
 msgid "Restore the selected trashed document?"
-msgstr ""
+msgstr "Het geselecteerde document in de prullenbak herstellen?"
 
 #: workflow_actions.py:14
 msgid "New document type for the workflow document."
@@ -2269,69 +2234,3 @@ msgstr "Wijzig documenttype"
 #: workflow_actions.py:40
 msgid "Send document to trash"
 msgstr "Document naar prullenbak sturen"
-
-#~ msgid "Document file downloaded"
-#~ msgstr "Documentbestand gedownload"
-
-#~ msgid "Document version exported"
-#~ msgstr "Documentversie geëxporteerd"
-
-#~ msgid "Quick download"
-#~ msgstr "Snelle download"
-
-#, python-format
-#~ msgid ""
-#~ "Document version \"%(document_version)s\" has been exported and is "
-#~ "available for download using the link: %(download_url)s or from the "
-#~ "downloads area (%(download_list_url)s)."
-#~ msgstr ""
-#~ "Documentversie \"%(document_version)s\" is geëxporteerd en kan worden "
-#~ "gedownload via de link: %(download_url)s of vanuit het downloadgedeelte "
-#~ "(%(download_list_url)s)."
-
-#~ msgid "Document version exported."
-#~ msgstr "Documentversie geëxporteerd."
-
-#~ msgid "Document version export to PDF"
-#~ msgstr "Documentversie exporteren naar PDF"
-
-#~ msgid "Download document files"
-#~ msgstr "Documentbestanden downloaden"
-
-#~ msgid "Export document versions"
-#~ msgstr "Documentversies exporteren"
-
-#, python-format
-#~ msgid "Document version \"%(object)s\" export successfully queued."
-#~ msgstr ""
-#~ "Documentversie \"%(object)s\" export succesvol in wachtrij geplaatst."
-
-#, python-format
-#~ msgid "%(count)d document version export successfully queued."
-#~ msgstr ""
-#~ "%(count)d export van documentversie succesvol in wachtrij geplaatst."
-
-#, python-format
-#~ msgid "%(count)d document versions exports successfully queued."
-#~ msgstr ""
-#~ "%(count)d export van documentversies is succesvol in de wachtrij "
-#~ "geplaatst."
-
-#, python-format
-#~ msgid "Export document version \"%(object)s\"."
-#~ msgstr "Exportdocumentversie \"%(object)s\"."
-
-#, python-format
-#~ msgid "Export %(count)d document version."
-#~ msgstr "Documentversie %(count)d exporteren."
-
-#, python-format
-#~ msgid "Export %(count)d document versions."
-#~ msgstr "Exporteer %(count)d documentversies."
-
-#~ msgid ""
-#~ "The process will be performed in the background. The exported file will "
-#~ "be available in the downloads area."
-#~ msgstr ""
-#~ "Het proces wordt op de achtergrond uitgevoerd. Het geëxporteerde bestand "
-#~ "zal beschikbaar zijn in het downloadgedeelte."

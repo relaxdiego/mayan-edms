@@ -1,25 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Adek Lanin, 2022
-# Faiqul Azmi <kasempurnaningurip@gmail.com>, 2022
-#
+# Adek Lanin, 2023
+# Faiqul Azmi <kasempurnaningurip@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Faiqul Azmi <kasempurnaningurip@gmail.com>, 2022\n"
-"Language-Team: Indonesian (https://www.transifex.com/rosarior/teams/13584/"
-"id/)\n"
-"Language: id\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:46+0000\n"
+"Last-Translator: Faiqul Azmi <kasempurnaningurip@gmail.com>, 2023\n"
+"Language-Team: Indonesian (https://www.transifex.com/rosarior/teams/13584/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps.py:26 classes.py:200 links.py:27
@@ -83,16 +82,12 @@ msgid "Insufficient access for: %s"
 msgstr "Akses tidak memenuhi untuk: %s"
 
 #: model_mixins.py:23
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permission count"
-msgstr "Izin"
+msgstr ""
 
 #: models.py:40 serializers.py:16
-#, fuzzy
-#| msgid "Object type"
 msgid "Content type"
-msgstr "Tipe objek"
+msgstr ""
 
 #: models.py:43 workflow_actions.py:32
 msgid "Object ID"
@@ -124,28 +119,20 @@ msgid "View ACLs"
 msgstr "Lihat daftar akses kontrol"
 
 #: serializers.py:19
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions add URL"
-msgstr "Izin"
+msgstr ""
 
 #: serializers.py:39
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions remove URL"
-msgstr "Izin"
+msgstr ""
 
 #: serializers.py:59
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions URL"
-msgstr "Izin"
+msgstr ""
 
 #: serializers.py:82
-#, fuzzy
-#| msgid "Role"
 msgid "Role ID"
-msgstr "Peranan"
+msgstr ""
 
 #: serializers.py:85
 msgid "URL"
@@ -156,10 +143,8 @@ msgid "Primary key of the permission to add to the ACL."
 msgstr ""
 
 #: serializers.py:119 serializers.py:126
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permission ID"
-msgstr "Izin"
+msgstr ""
 
 #: serializers.py:125
 msgid "Primary key of the permission to remove from the ACL."
@@ -196,8 +181,8 @@ msgid ""
 msgstr ""
 "ACL singkatan dari Access Control List merupakas daftar akses kontrol dan "
 "metode yang tepat untuk mengontrol akses pengguna ke objek-objek dalam "
-"sistem. ACLs memperbolehkan memberikan izin ke peran namun hanya untuk objek "
-"yang spesifik atau kumpulan objek."
+"sistem. ACLs memperbolehkan memberikan izin ke peran namun hanya untuk objek"
+" yang spesifik atau kumpulan objek."
 
 #: views.py:159
 #, python-format
@@ -246,7 +231,8 @@ msgid "Type of the object for which the access will be modified."
 msgstr "Tipe objek yang aksesnya akan diubah."
 
 #: workflow_actions.py:35
-msgid "Numeric identifier of the object for which the access will be modified."
+msgid ""
+"Numeric identifier of the object for which the access will be modified."
 msgstr "Pengidentifikasi numerik objek yang aksesnya akan diubah."
 
 #: workflow_actions.py:40 workflow_actions.py:160

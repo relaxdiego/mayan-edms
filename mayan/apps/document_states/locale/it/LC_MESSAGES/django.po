@@ -1,29 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2022
-# Giovanni Tricarico <gtricarico92@gmail.com>, 2022
-# Marco Camplese <marco.camplese.mc@gmail.com>, 2022
-# Daniele Bortoluzzi <daniele@elkos.it>, 2022
-# Roberto Rosario, 2022
-#
+# Giovanni Tricarico <gtricarico92@gmail.com>, 2023
+# Pierpaolo Baldan <pierpaolo.baldan@gmail.com>, 2023
+# Daniele Bortoluzzi <daniele@elkos.it>, 2023
+# Roberto Rosario, 2023
+# Marco Camplese <marco.camplese.mc@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Marco Camplese <marco.camplese.mc@gmail.com>, 2023\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:91 events.py:6 forms.py:44 links.py:52 links.py:93 links.py:281
 #: links.py:305 models/workflow_models.py:56 settings.py:14
@@ -53,8 +52,8 @@ msgid ""
 "following fields: datetime, transition, user, and comment."
 msgstr ""
 "Restituisce l'ultima voce di log dell'istanza del flusso di lavoro. La "
-"stessa voce di registro ha i seguenti campi: datetime, transizione, utente e "
-"commento."
+"stessa voce di registro ha i seguenti campi: datetime, transizione, utente e"
+" commento."
 
 #: apps.py:293
 msgid "Get last log entry"
@@ -65,8 +64,8 @@ msgid ""
 "Return the current context dictionary which includes runtime data from the "
 "workflow transition fields."
 msgstr ""
-"Restituisce il dizionario di contesto corrente che include i dati di runtime "
-"dai campi di transizione del flusso di lavoro."
+"Restituisce il dizionario di contesto corrente che include i dati di runtime"
+" dai campi di transizione del flusso di lavoro."
 
 #: apps.py:300
 msgid "Get the context"
@@ -173,8 +172,9 @@ msgstr "Azione"
 msgid "Namespace"
 msgstr "Namespace"
 
-#: forms.py:162 models/workflow_models.py:43 models/workflow_state_models.py:50
-#: models/workflow_state_models.py:120 models/workflow_transition_models.py:38
+#: forms.py:162 models/workflow_models.py:43
+#: models/workflow_state_models.py:50 models/workflow_state_models.py:120
+#: models/workflow_transition_models.py:38
 #: models/workflow_transition_models.py:116
 msgid "Label"
 msgstr "Etichetta"
@@ -185,7 +185,7 @@ msgstr "No"
 
 #: forms.py:170
 msgid "Yes"
-msgstr "Si"
+msgstr "Sì"
 
 #: forms.py:171 models/workflow_state_escalation_models.py:47
 #: models/workflow_state_models.py:122
@@ -226,7 +226,8 @@ msgstr "Cancella"
 msgid "Document types"
 msgstr "Tipi documento"
 
-#: links.py:82 links.py:116 links.py:154 links.py:184 links.py:213 links.py:259
+#: links.py:82 links.py:116 links.py:154 links.py:184 links.py:213
+#: links.py:259
 msgid "Edit"
 msgstr "Modifica"
 
@@ -307,8 +308,8 @@ msgid ""
 "Can be a static value or a template. In addition to the workflow instance, "
 "the template receives the workflow instance context which itself includes "
 "the \"entry_log\" (containing \"workflow_instance\", \"datetime\", "
-"\"transition\", \"user\", \"comment\") and any values from workflow template "
-"fields."
+"\"transition\", \"user\", \"comment\") and any values from workflow template"
+" fields."
 msgstr ""
 
 #: literals.py:29
@@ -525,8 +526,8 @@ msgstr "Dati per l'inizio dell'azione"
 #: models/workflow_state_models.py:139
 msgid ""
 "The condition that will determine if this state action is executed or not. "
-"The condition is evaluated against the workflow instance. Conditions that do "
-"not return any value, that return the Python logical None, or an empty "
+"The condition is evaluated against the workflow instance. Conditions that do"
+" not return any value, that return the Python logical None, or an empty "
 "string ('') are considered to be logical false, any other value is "
 "considered to be the logical true."
 msgstr ""
@@ -596,10 +597,10 @@ msgstr "Stato di destinazione"
 #: models/workflow_transition_models.py:50
 msgid ""
 "The condition that will determine if this transition is enabled or not. The "
-"condition is evaluated against the workflow instance. Conditions that do not "
-"return any value, that return the Python logical None, or an empty string "
-"('') are considered to be logical false, any other value is considered to be "
-"the logical true."
+"condition is evaluated against the workflow instance. Conditions that do not"
+" return any value, that return the Python logical None, or an empty string "
+"('') are considered to be logical false, any other value is considered to be"
+" the logical true."
 msgstr ""
 "La condizione che determinerà se questa transizione è abilitata o meno. La "
 "condizione viene valutata rispetto all'istanza del flusso di lavoro. Le "
@@ -659,8 +660,8 @@ msgstr "Classe di widget"
 #: models/workflow_transition_models.py:135
 msgid "A group of keyword arguments to customize the widget. Use YAML format."
 msgstr ""
-"Un gruppo di argomenti di parole chiave per personalizzare il widget. Usa il "
-"formato YAML."
+"Un gruppo di argomenti di parole chiave per personalizzare il widget. Usa il"
+" formato YAML."
 
 #: models/workflow_transition_models.py:138
 msgid "Widget keyword arguments"
@@ -754,27 +755,21 @@ msgstr ""
 #: serializers/workflow_instance_serializers.py:25
 #: serializers/workflow_template_state_serializers.py:47
 #: serializers/workflow_template_transition_serializers.py:111
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template ID"
-msgstr "Stato workflow"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:37
 #: serializers/workflow_instance_serializers.py:132
-#, fuzzy
-#| msgid "Document"
 msgid "Document URL"
-msgstr "Documento"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:49
 msgid "Primary key of the transition to be added."
 msgstr "Chiave primaria della transizione da aggiungere."
 
 #: serializers/workflow_instance_serializers.py:50
-#, fuzzy
-#| msgid "Transition"
 msgid "Transition ID"
-msgstr "Transizione"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:55
 #: serializers/workflow_instance_serializers.py:151
@@ -790,10 +785,8 @@ msgid "URL"
 msgstr "URL"
 
 #: serializers/workflow_instance_serializers.py:74
-#, fuzzy
-#| msgid "Workflow instance"
 msgid "Workflow instance URL"
-msgstr "Istanza workflow"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:86
 #: serializers/workflow_instance_serializers.py:148
@@ -801,22 +794,16 @@ msgstr "Istanza workflow"
 #: serializers/workflow_template_transition_serializers.py:41
 #: serializers/workflow_template_transition_serializers.py:114
 #: serializers/workflow_template_transition_serializers.py:218
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template URL"
-msgstr "Stato workflow"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:123
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template"
-msgstr "Stato workflow"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:135
-#, fuzzy
-#| msgid "Get last log entry"
 msgid "Last log entry"
-msgstr "Ottieni l'ultima voce di registro"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:139
 msgid "Log entries URL"
@@ -827,10 +814,8 @@ msgid "A link to the entire history of this workflow."
 msgstr "Un collegamento all'intera storia di questo flusso di lavoro."
 
 #: serializers/workflow_instance_serializers.py:144
-#, fuzzy
-#| msgid "Last transition"
 msgid "Log entry transitions URL"
-msgstr "Ultima transizione"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:152
 msgid ""
@@ -841,38 +826,28 @@ msgstr ""
 "allegato. Questo URL è diverso dall'URL canonico del flusso di lavoro."
 
 #: serializers/workflow_template_serializers.py:13
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Tipi documento"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:18
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Tipi documento"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:23
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Tipi documento"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:28
 msgid "Image URL"
 msgstr ""
 
 #: serializers/workflow_template_serializers.py:32
-#, fuzzy
-#| msgid "States"
 msgid "States URL"
-msgstr "Stati"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:36
-#, fuzzy
-#| msgid "Transitions"
 msgid "Transitions URL"
-msgstr "Transizioni"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:65
 msgid "Primary key of the document type to add to the workflow."
@@ -880,10 +855,8 @@ msgstr ""
 
 #: serializers/workflow_template_serializers.py:66
 #: serializers/workflow_template_serializers.py:75
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Tipi documento"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:74
 msgid "Primary key of the document type to remove from the workflow."
@@ -891,17 +864,13 @@ msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:32
 #: serializers/workflow_template_state_serializers.py:87
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template state ID"
-msgstr "Stato workflow"
+msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:36
 #: serializers/workflow_template_state_serializers.py:91
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template state URL"
-msgstr "Stato workflow"
+msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:49
 msgid "Primary key of the workflow template transition to be added."
@@ -912,16 +881,12 @@ msgid "Workflow template transition ID"
 msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:55
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow template transition URL"
-msgstr "Transizione workflow"
+msgstr ""
 
 #: serializers/workflow_template_state_serializers.py:11
-#, fuzzy
-#| msgid "Actions"
 msgid "Actions URL"
-msgstr "Azioni "
+msgstr ""
 
 #: serializers/workflow_template_state_serializers.py:23
 msgid "Escalations URL"
@@ -929,49 +894,37 @@ msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:49
 #: serializers/workflow_template_transition_serializers.py:226
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow transition ID"
-msgstr "Transizione workflow"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:53
 #: serializers/workflow_template_transition_serializers.py:230
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow transition URL"
-msgstr "Transizione workflow"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:86
 msgid "Primary key of the destination state to be added."
 msgstr "Chiave primaria dello stato di destinazione da aggiungere."
 
 #: serializers/workflow_template_transition_serializers.py:87
-#, fuzzy
-#| msgid "Destination state"
 msgid "Destination state ID"
-msgstr "Stato di destinazione"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:92
-#, fuzzy
-#| msgid "Fields"
 msgid "Field list URL"
-msgstr "Campi"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:99
 msgid "Primary key of the origin state to be added."
 msgstr "Chiave primaria dello stato di origine da aggiungere."
 
 #: serializers/workflow_template_transition_serializers.py:100
-#, fuzzy
-#| msgid "Origin state"
 msgid "Origin state ID"
-msgstr "Stato originale"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:105
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger list URL"
-msgstr "Triggers (azioni innescate)"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:198
 msgid "Event Type ID"
@@ -1018,8 +971,8 @@ msgstr ""
 
 #: storages.py:14
 msgid ""
-"Unable to initialize the workflow preview storage. Check the settings {} and "
-"{} for formatting errors."
+"Unable to initialize the workflow preview storage. Check the settings {} and"
+" {} for formatting errors."
 msgstr ""
 "Impossibile inizializzare l'archiviazione dell'anteprima del flusso di "
 "lavoro. Controlla le impostazioni {} e {} per errori di formattazione."
@@ -1030,11 +983,11 @@ msgstr "Immagini di anteprima del flusso di lavoro"
 
 #: views/workflow_instance_views.py:40
 msgid ""
-"Assign workflows to the document type of this document to have this document "
-"execute those workflows. "
+"Assign workflows to the document type of this document to have this document"
+" execute those workflows. "
 msgstr ""
-"Assegna i flussi di lavoro al tipo di documento di questo documento affinché "
-"questo documento esegua quei flussi di lavoro."
+"Assegna i flussi di lavoro al tipo di documento di questo documento affinché"
+" questo documento esegua quei flussi di lavoro."
 
 #: views/workflow_instance_views.py:44
 msgid "There are no workflows for this document"
@@ -1047,7 +1000,8 @@ msgstr "Workflow per il documento: %s"
 
 #: views/workflow_instance_views.py:74
 msgid ""
-"This view will show the state changes as a workflow instance is transitioned."
+"This view will show the state changes as a workflow instance is "
+"transitioned."
 msgstr ""
 "Questa visualizzazione mostrerà i cambiamenti di stato durante la "
 "transizione di un'istanza del flusso di lavoro."
@@ -1083,8 +1037,7 @@ msgstr "Seleziona"
 
 #: views/workflow_instance_views.py:225
 #, python-format
-msgid ""
-"Select transition for workflow \"%(workflow)s\" of document \"%(document)s\""
+msgid "Select transition for workflow \"%(workflow)s\" of document \"%(document)s\""
 msgstr ""
 
 #: views/workflow_proxy_views.py:37
@@ -1109,9 +1062,9 @@ msgid ""
 "Create some workflows and associated them with a document type. Active "
 "workflows will be shown here and the documents for which they are executing."
 msgstr ""
-"Creare alcuni flussi di lavoro e associarli a un tipo di documento. I flussi "
-"di lavoro attivi verranno visualizzati qui e i documenti per i quali sono in "
-"esecuzione."
+"Creare alcuni flussi di lavoro e associarli a un tipo di documento. I flussi"
+" di lavoro attivi verranno visualizzati qui e i documenti per i quali sono "
+"in esecuzione."
 
 #: views/workflow_proxy_views.py:69
 msgid "There are no workflows"
@@ -1126,7 +1079,8 @@ msgstr "Non sono presenti documenti in questo stato del flusso di lavoro"
 msgid "Documents in the workflow \"%s\", state \"%s\""
 msgstr "Documenti nel flusso di lavoro \"%s\", stato \"%s\""
 
-#: views/workflow_proxy_views.py:126 views/workflow_template_state_views.py:357
+#: views/workflow_proxy_views.py:126
+#: views/workflow_template_state_views.py:357
 msgid "Create states and link them using transitions."
 msgstr "Crea stati e collegali usando le transizioni."
 
@@ -1134,7 +1088,8 @@ msgstr "Crea stati e collegali usando le transizioni."
 msgid "This workflow doesn't have any state"
 msgstr "Questo flusso di lavoro non ha alcuno stato"
 
-#: views/workflow_proxy_views.py:132 views/workflow_template_state_views.py:363
+#: views/workflow_proxy_views.py:132
+#: views/workflow_template_state_views.py:363
 #, python-format
 msgid "States of workflow: %s"
 msgstr "Stati del workflow: %s"
@@ -1186,8 +1141,8 @@ msgstr "Modifica azione dello stato del flusso di lavoro: %s"
 
 #: views/workflow_template_state_views.py:194
 msgid ""
-"Workflow state actions are macros that get executed when documents enters or "
-"leaves the state in which they reside."
+"Workflow state actions are macros that get executed when documents enters or"
+" leaves the state in which they reside."
 msgstr ""
 "Le azioni di stato del flusso di lavoro sono macro che vengono eseguite "
 "quando i documenti entrano o escono dallo stato in cui risiedono."
@@ -1242,7 +1197,8 @@ msgstr "Modifica la transizione del flusso di lavoro: %s"
 
 #: views/workflow_template_transition_views.py:165
 msgid ""
-"Create a transition and use it to move a workflow from  one state to another."
+"Create a transition and use it to move a workflow from  one state to "
+"another."
 msgstr ""
 "Crea una transizione e usala per spostare un flusso di lavoro da uno stato "
 "all'altro."
@@ -1273,12 +1229,12 @@ msgstr "Modifica campo di transizione del flusso di lavoro: %s"
 
 #: views/workflow_template_transition_views.py:309
 msgid ""
-"Workflow transition fields allow adding data to the workflow's context. This "
-"additional context data can then be used by other elements of the workflow "
+"Workflow transition fields allow adding data to the workflow's context. This"
+" additional context data can then be used by other elements of the workflow "
 "system like the workflow state actions."
 msgstr ""
-"I campi di transizione del flusso di lavoro consentono di aggiungere dati al "
-"contesto del flusso di lavoro. Questi dati di contesto aggiuntivi possono "
+"I campi di transizione del flusso di lavoro consentono di aggiungere dati al"
+" contesto del flusso di lavoro. Questi dati di contesto aggiuntivi possono "
 "quindi essere utilizzati da altri elementi del sistema del flusso di lavoro "
 "come le azioni dello stato del flusso di lavoro."
 
@@ -1295,8 +1251,8 @@ msgstr "Campi per la transizione del flusso di lavoro: %s"
 #, python-format
 msgid "Error updating workflow transition trigger events; %s"
 msgstr ""
-"Errore durante l'aggiornamento degli eventi di attivazione della transizione "
-"del flusso di lavoro; %s"
+"Errore durante l'aggiornamento degli eventi di attivazione della transizione"
+" del flusso di lavoro; %s"
 
 #: views/workflow_template_transition_views.py:355
 msgid "Workflow transition trigger events updated successfully"
@@ -1489,8 +1445,8 @@ msgid ""
 "This will launch all workflows created after documents have already been "
 "uploaded."
 msgstr ""
-"Questo avvierà tutti i flussi di lavoro creati dopo che i documenti sono già "
-"stati caricati."
+"Questo avvierà tutti i flussi di lavoro creati dopo che i documenti sono già"
+" stati caricati."
 
 #: views/workflow_template_views.py:304
 msgid "Launch all workflows?"

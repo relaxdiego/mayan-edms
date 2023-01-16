@@ -2,30 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Marvin Haschker <marvin@haschker.me>, 2022
-# Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2022
-# Berny <berny@bernhard-marx.de>, 2022
-# Roberto Rosario, 2022
-# Björn E <b1pum@web.de>, 2022
-# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
-# Jesaja Everling <jeverling@gmail.com>, 2022
-# Mathias Behrle <mathiasb@m9s.biz>, 2022
-#
+# Björn E <b1pum@web.de>, 2023
+# Roberto Rosario, 2023
+# Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2023
+# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
+# Jesaja Everling <jeverling@gmail.com>, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
+# Berny <berny@bernhard-marx.de>, 2023
+# Marvin Haschker <marvin@haschker.me>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
-"teams/13584/de_DE/)\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"Last-Translator: Marvin Haschker <marvin@haschker.me>, 2023\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:54 apps.py:164 apps.py:168 apps.py:172 apps.py:176 apps.py:180
@@ -39,10 +38,8 @@ msgid "Cabinet created"
 msgstr "Aktenschrank angelegt"
 
 #: events.py:14
-#, fuzzy
-#| msgid "Cabinet edited"
 msgid "Cabinet deleted"
-msgstr "Aktenschrank bearbeitet"
+msgstr ""
 
 #: events.py:17
 msgid "Cabinet edited"
@@ -199,16 +196,15 @@ msgid "Children"
 msgstr ""
 
 #: serializers.py:23
-msgid "URL of the API endpoint showing the list documents inside this cabinet."
+msgid ""
+"URL of the API endpoint showing the list documents inside this cabinet."
 msgstr ""
 "Die URL dieses API-Endpunkts zeigt eine Liste der Dokumente in diesem "
 "Aktenschrank."
 
 #: serializers.py:25
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Dokumente"
+msgstr ""
 
 #: serializers.py:30
 msgid "The name of this cabinet level appended to the names of its ancestors."
@@ -222,23 +218,19 @@ msgstr ""
 
 #: serializers.py:51
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:84
 msgid "Primary key of the document to add to the cabinet."
 msgstr ""
 
 #: serializers.py:85 serializers.py:94
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document ID"
-msgstr "Dokumenten-UUID"
+msgstr ""
 
 #: serializers.py:93
-#, fuzzy
-#| msgid "Document removed from cabinet"
 msgid "Primary key of the document to remove from the cabinet."
-msgstr "Dokument aus Aktenschrank entfernt"
+msgstr ""
 
 #: templates/cabinets/cabinet_details.html:17
 msgid "Navigation:"

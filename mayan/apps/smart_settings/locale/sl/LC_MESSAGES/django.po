@@ -1,35 +1,33 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Roberto Rosario, 2023
+# Jože Detečnik <joze.detecnik@3tav.si>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: apps.py:24 permissions.py:6
 msgid "Smart settings"
-msgstr "Pametne nastavitve"
+msgstr ""
 
 #: apps.py:33
 msgid "Setting count"
-msgstr "Število nastavitev"
+msgstr ""
 
 #: apps.py:38
 msgid "Name"
@@ -37,125 +35,101 @@ msgstr "Ime"
 
 #: apps.py:42 forms.py:26
 msgid "Value"
-msgstr "Vrednost"
+msgstr ""
 
-#: classes.py:115
-#, fuzzy
-#| msgid "Setting namespaces"
+#: classes.py:116
 msgid "Settings namespace"
-msgstr "Nastavitev imenskih prostorov"
+msgstr ""
 
-#: classes.py:393
+#: classes.py:394
 msgid "Choices"
 msgstr ""
 
-#: classes.py:395
+#: classes.py:396
 msgid "Possible values allowed for this setting."
 msgstr ""
 
-#: classes.py:401
+#: classes.py:402
 msgid "Default"
 msgstr ""
 
-#: classes.py:409
+#: classes.py:410
 msgid "Overridden"
-msgstr "Preglašeno"
+msgstr ""
 
-#: classes.py:411
+#: classes.py:412
 msgid "Is this settings being overridden by an environment variable?"
-msgstr "Ali te nastavitve preglasi spremenljivka okolja?"
+msgstr ""
 
 #: forms.py:28
 msgid "Enter the new setting value."
-msgstr "Vnesite novo vrednost nastavitve."
+msgstr ""
 
 #: forms.py:40
 #, python-format
 msgid "\"%s\" not a valid entry."
-msgstr "&quot;%s&quot; ni veljaven vnos."
+msgstr ""
 
 #: links.py:20 links.py:24
 msgid "Settings"
-msgstr "nastavitve"
+msgstr ""
 
 #: links.py:31
 msgid "Namespaces"
-msgstr "Imenski prostori"
+msgstr ""
 
 #: links.py:36
 msgid "Edit"
-msgstr "Uredi"
+msgstr ""
 
 #: permissions.py:10
 msgid "Edit settings"
-msgstr "Uredi nastavitve"
+msgstr ""
 
 #: permissions.py:13
 msgid "View settings"
-msgstr "Ogled nastavitev"
+msgstr ""
 
 #: settings.py:27
 msgid "Django"
-msgstr "Django"
+msgstr ""
 
 #: settings.py:32
 msgid ""
 "A list of strings representing the host/domain names that this site can "
-"serve. This is a security measure to prevent HTTP Host header attacks, which "
-"are possible even under many seemingly-safe web server configurations. "
+"serve. This is a security measure to prevent HTTP Host header attacks, which"
+" are possible even under many seemingly-safe web server configurations. "
 "Values in this list can be fully qualified names (e.g. 'www.example.com'), "
-"in which case they will be matched against the request's Host header exactly "
-"(case-insensitive, not including port). A value beginning with a period can "
-"be used as a subdomain wildcard: '.example.com' will match example.com, www."
-"example.com, and any other subdomain of example.com. A value of '*' will "
-"match anything; in this case you are responsible to provide your own "
+"in which case they will be matched against the request's Host header exactly"
+" (case-insensitive, not including port). A value beginning with a period can"
+" be used as a subdomain wildcard: '.example.com' will match example.com, "
+"www.example.com, and any other subdomain of example.com. A value of '*' will"
+" match anything; in this case you are responsible to provide your own "
 "validation of the Host header (perhaps in a middleware; if so this "
 "middleware must be listed first in MIDDLEWARE)."
 msgstr ""
-"Seznam nizov, ki predstavljajo imena gostiteljev/domen, ki jih lahko služi "
-"to spletno mesto. To je varnostni ukrep za preprečevanje napadov na glavo "
-"gostitelja HTTP, ki so možni celo v številnih na videz varnih konfiguracijah "
-"spletnega strežnika. Vrednosti na tem seznamu so lahko popolnoma "
-"kvalificirana imena (npr. &#39;www.example.com&#39;), v tem primeru se bodo "
-"natančno ujemale z glavo gostitelja zahteve (ne razlikuje med velikimi in "
-"malimi črkami, ne vključuje vrat). Vrednost, ki se začne s piko, lahko "
-"uporabite kot nadomestni znak poddomene: &#39;.example.com&#39; se bo ujemal "
-"z example.com, www.example.com in katero koli drugo poddomeno example.com. "
-"Vrednost &#39;*&#39; bo ustrezala vsem; v tem primeru ste sami odgovorni za "
-"zagotavljanje lastne potrditve glave gostitelja (morda v vmesni programski "
-"opremi; če je tako, mora biti ta vmesna programska oprema prva navedena v "
-"MIDDLEWARE)."
 
 #: settings.py:49
 msgid ""
 "When set to True, if the request URL does not match any of the patterns in "
-"the URLconf and it doesn't end in a slash, an HTTP redirect is issued to the "
-"same URL with a slash appended. Note that the redirect may cause any data "
+"the URLconf and it doesn't end in a slash, an HTTP redirect is issued to the"
+" same URL with a slash appended. Note that the redirect may cause any data "
 "submitted in a POST request to be lost. The APPEND_SLASH setting is only "
-"used if CommonMiddleware is installed (see Middleware). See also PREPEND_WWW."
-msgstr ""
-"Če je nastavljeno na True, če se URL zahteve ne ujema z nobenim vzorcem v "
-"URLconf in se ne konča s poševnico, se na isti URL izda preusmeritev HTTP z "
-"dodano poševnico. Upoštevajte, da lahko preusmeritev povzroči izgubo vseh "
-"podatkov, predloženih v zahtevi POST. Nastavitev APPEND_SLASH se uporablja "
-"samo, če je nameščena CommonMiddleware (glejte Middleware). Glej tudi "
+"used if CommonMiddleware is installed (see Middleware). See also "
 "PREPEND_WWW."
+msgstr ""
 
 #: settings.py:61
 msgid ""
 "The list of validators that are used to check the strength of user's "
 "passwords."
 msgstr ""
-"Seznam validatorjev, ki se uporabljajo za preverjanje trdnosti uporabniških "
-"gesel."
 
 #: settings.py:68
 msgid ""
-"A list of authentication backend classes (as strings) to use when attempting "
-"to authenticate a user."
+"A list of authentication backend classes (as strings) to use when attempting"
+" to authenticate a user."
 msgstr ""
-"Seznam zalednih razredov za preverjanje pristnosti (kot nizi), ki se "
-"uporabljajo pri poskusu preverjanja pristnosti uporabnika."
 
 #: settings.py:74
 msgid ""
@@ -165,11 +139,6 @@ msgid ""
 "setting must configure a default database; any number of additional "
 "databases may also be specified."
 msgstr ""
-"Slovar, ki vsebuje nastavitve za vse baze podatkov za uporabo z Django. Je "
-"ugnezdeni slovar, katerega vsebina preslika vzdevek baze podatkov v slovar, "
-"ki vsebuje možnosti za posamezno bazo podatkov. Nastavitev DATABASES mora "
-"konfigurirati privzeto bazo podatkov; lahko se določi tudi poljubno število "
-"dodatnih baz podatkov."
 
 #: settings.py:85
 msgid ""
@@ -177,26 +146,14 @@ msgid ""
 "body may be before a SuspiciousOperation (RequestDataTooBig) is raised. The "
 "check is done when accessing request.body or request.POST and is calculated "
 "against the total request size excluding any file upload data. You can set "
-"this to None to disable the check. Applications that are expected to receive "
-"unusually large form posts should tune this setting. The amount of request "
-"data is correlated to the amount of memory needed to process the request and "
-"populate the GET and POST dictionaries. Large requests could be used as a "
+"this to None to disable the check. Applications that are expected to receive"
+" unusually large form posts should tune this setting. The amount of request "
+"data is correlated to the amount of memory needed to process the request and"
+" populate the GET and POST dictionaries. Large requests could be used as a "
 "denial-of-service attack vector if left unchecked. Since web servers don't "
 "typically perform deep request inspection, it's not possible to perform a "
 "similar check at that level. See also FILE_UPLOAD_MAX_MEMORY_SIZE."
 msgstr ""
-"Privzeto: 2621440 (tj. 2,5 MB). Največja velikost v bajtih, ki je lahko telo "
-"zahteve, preden se sproži SuspiciousOperation (RequestDataTooBig). "
-"Preverjanje se izvede pri dostopu do request.body ali request.POST in se "
-"izračuna glede na skupno velikost zahteve brez kakršnih koli podatkov o "
-"nalaganju datotek. To lahko nastavite na Brez, da onemogočite preverjanje. "
-"Aplikacije, za katere se pričakuje, da bodo prejemale neobičajno velike "
-"objave obrazcev, morajo prilagoditi to nastavitev. Količina podatkov o "
-"zahtevi je povezana s količino pomnilnika, potrebnega za obdelavo zahteve in "
-"zapolnitev slovarjev GET in POST. Velike zahteve bi se lahko uporabile kot "
-"vektor napadov zavrnitve storitve, če jih ne označite. Ker spletni strežniki "
-"običajno ne izvajajo poglobljenega pregleda zahtev, podobnega preverjanja na "
-"tej ravni ni mogoče izvesti. Glej tudi FILE_UPLOAD_MAX_MEMORY_SIZE."
 
 #: settings.py:104
 msgid ""
@@ -204,10 +161,6 @@ msgid ""
 "automated correspondence from the site manager(s). This doesn't include "
 "error messages sent to ADMINS and MANAGERS; for that, see SERVER_EMAIL."
 msgstr ""
-"Privzeto: &#39;webmaster@localhost&#39; Privzeti e-poštni naslov za uporabo "
-"za različne avtomatizirane korespondence upravitelja(-ov) mesta. To ne "
-"vključuje sporočil o napakah, poslanih SKRBNIKOM in VODJEM; za to glejte "
-"SERVER_EMAIL."
 
 #: settings.py:113
 msgid ""
@@ -216,24 +169,16 @@ msgid ""
 "systemwide. Use this for bad robots/crawlers. This is only used if "
 "CommonMiddleware is installed (see Middleware)."
 msgstr ""
-"Privzeto: [] (prazen seznam). Seznam prevedenih objektov regularnega izraza, "
-"ki predstavljajo nize User-Agent, ki jim ni dovoljeno obiskati nobene strani "
-"v celotnem sistemu. Uporabite to za slabe robote/pajke. To se uporablja le, "
-"če je nameščena CommonMiddleware (glejte Middleware)."
 
 #: settings.py:122
 msgid ""
 "Default: 'django.core.mail.backends.smtp.EmailBackend'. The backend to use "
 "for sending emails."
 msgstr ""
-"Privzeto: &#39;django.core.mail.backends.smtp.EmailBackend&#39;. Zaledje za "
-"pošiljanje e-pošte."
 
 #: settings.py:128
 msgid "Default: 'localhost'. The host to use for sending email."
 msgstr ""
-"Privzeto: &#39;localhost&#39;. Gostitelj, ki bo uporabljen za pošiljanje e-"
-"pošte."
 
 #: settings.py:134
 msgid ""
@@ -242,32 +187,22 @@ msgid ""
 "authenticating to the SMTP server. If either of these settings is empty, "
 "Django won't attempt authentication."
 msgstr ""
-"Privzeto: &#39;&#39; (Prazen niz). Geslo za uporabo strežnika SMTP, "
-"definiranega v EMAIL_HOST. Ta nastavitev se uporablja v povezavi z "
-"EMAIL_HOST_USER pri preverjanju pristnosti na strežniku SMTP. Če je katera "
-"od teh nastavitev prazna, Django ne bo poskušal preveriti pristnosti."
 
 #: settings.py:144
 msgid ""
 "Default: '' (Empty string). Username to use for the SMTP server defined in "
 "EMAIL_HOST. If empty, Django won't attempt authentication."
 msgstr ""
-"Privzeto: &#39;&#39; (Prazen niz). Uporabniško ime za strežnik SMTP, "
-"definiran v EMAIL_HOST. Če je prazno, Django ne bo poskušal preveriti "
-"pristnosti."
 
 #: settings.py:151
 msgid "Default: 25. Port to use for the SMTP server defined in EMAIL_HOST."
 msgstr ""
-"Privzeto: 25. Vrata za uporabo strežnika SMTP, definiranega v EMAIL_HOST."
 
 #: settings.py:156
 msgid ""
 "Default: None. Specifies a timeout in seconds for blocking operations like "
 "the connection attempt."
 msgstr ""
-"Privzeto: Brez. Določa časovno omejitev v sekundah za blokiranje operacij, "
-"kot je poskus povezave."
 
 #: settings.py:162
 msgid ""
@@ -278,24 +213,14 @@ msgid ""
 "that EMAIL_USE_TLS/EMAIL_USE_SSL are mutually exclusive, so only set one of "
 "those settings to True."
 msgstr ""
-"Privzeto: False. Ali naj se pri pogovoru s strežnikom SMTP uporabi "
-"implicitna (varna) povezava TLS. V večini elektronske dokumentacije se ta "
-"vrsta povezave TLS imenuje SSL. Običajno se uporablja na vratih 465. Če "
-"imate težave, glejte izrecno nastavitev TLS EMAIL_USE_TLS. Upoštevajte, da "
-"se EMAIL_USE_TLS/EMAIL_USE_SSL med seboj izključujeta, zato nastavite samo "
-"eno od teh nastavitev na True."
 
 #: settings.py:172
 msgid ""
-"Default: False. Whether to use a TLS (secure) connection when talking to the "
-"SMTP server. This is used for explicit TLS connections, generally on port "
+"Default: False. Whether to use a TLS (secure) connection when talking to the"
+" SMTP server. This is used for explicit TLS connections, generally on port "
 "587. If you are experiencing hanging connections, see the implicit TLS "
 "setting EMAIL_USE_SSL."
 msgstr ""
-"Privzeto: False. Ali naj se pri pogovoru s strežnikom SMTP uporabi TLS "
-"(varna) povezava. To se uporablja za eksplicitne povezave TLS, običajno na "
-"vratih 587. Če imate viseče povezave, si oglejte implicitno nastavitev TLS "
-"EMAIL_USE_SSL."
 
 #: settings.py:181
 msgid ""
@@ -303,23 +228,15 @@ msgid ""
 "will be before it gets streamed to the file system. See Managing files for "
 "details. See also DATA_UPLOAD_MAX_MEMORY_SIZE."
 msgstr ""
-"Privzeto: 2621440 (tj. 2,5 MB). Največja velikost (v bajtih) nalaganja, "
-"preden se pretoči v datotečni sistem. Za podrobnosti glejte Upravljanje "
-"datotek. Glejte tudi DATA_UPLOAD_MAX_MEMORY_SIZE."
 
 #: settings.py:189
 msgid ""
-"Default: '/accounts/login/' The URL where requests are redirected for login, "
-"especially when using the login_required() decorator. This setting also "
+"Default: '/accounts/login/' The URL where requests are redirected for login,"
+" especially when using the login_required() decorator. This setting also "
 "accepts named URL patterns which can be used to reduce configuration "
 "duplication since you don't have to define the URL in two places (settings "
 "and URLconf)."
 msgstr ""
-"Privzeto: &#39;/accounts/login/&#39; URL, kamor so preusmerjene zahteve za "
-"prijavo, zlasti pri uporabi dekoraterja login_required(). Ta nastavitev "
-"sprejema tudi poimenovane vzorce URL-jev, ki jih je mogoče uporabiti za "
-"zmanjšanje podvajanja konfiguracije, saj vam URL-ja ni treba definirati na "
-"dveh mestih (nastavitvah in URLconf)."
 
 #: settings.py:200
 msgid ""
@@ -329,28 +246,16 @@ msgid ""
 "named URL patterns which can be used to reduce configuration duplication "
 "since you don't have to define the URL in two places (settings and URLconf)."
 msgstr ""
-"Privzeto: &#39;/accounts/profile/&#39; URL, kamor so zahteve preusmerjene po "
-"prijavi, ko pogled contrib.auth.login ne dobi nobenega naslednjega "
-"parametra. To uporablja na primer dekorater login_required(). Ta nastavitev "
-"sprejema tudi poimenovane vzorce URL-jev, ki jih je mogoče uporabiti za "
-"zmanjšanje podvajanja konfiguracije, saj vam URL-ja ni treba definirati na "
-"dveh mestih (nastavitvah in URLconf)."
 
 #: settings.py:211
 msgid ""
 "Default: None. The URL where requests are redirected after a user logs out "
-"using LogoutView (if the view doesn't get a next_page argument). If None, no "
-"redirect will be performed and the logout view will be rendered. This "
+"using LogoutView (if the view doesn't get a next_page argument). If None, no"
+" redirect will be performed and the logout view will be rendered. This "
 "setting also accepts named URL patterns which can be used to reduce "
 "configuration duplication since you don't have to define the URL in two "
 "places (settings and URLconf)."
 msgstr ""
-"Privzeto: Brez. URL, kamor so zahteve preusmerjene, potem ko se uporabnik "
-"odjavi z LogoutView (če pogled ne dobi argumenta next_page). Če ni, "
-"preusmeritev ne bo izvedena in prikazan bo pogled odjave. Ta nastavitev "
-"sprejema tudi poimenovane vzorce URL-jev, ki jih je mogoče uporabiti za "
-"zmanjšanje podvajanja konfiguracije, saj vam URL-ja ni treba definirati na "
-"dveh mestih (nastavitvah in URLconf)."
 
 #: settings.py:222
 msgid ""
@@ -359,11 +264,6 @@ msgid ""
 "admindocs bookmarklets even if not logged in as a staff user. Are marked as "
 "\"internal\" (as opposed to \"EXTERNAL\") in AdminEmailHandler emails."
 msgstr ""
-"Seznam naslovov IP v obliki nizov, ki: Omogočajo, da kontekstni procesor "
-"debug() doda nekaj spremenljivk v kontekst predloge. Lahko uporablja "
-"zaznamke admindocs, tudi če ni prijavljen kot osebni uporabnik. So v e-"
-"poštnih sporočilih AdminEmailHandler označeni kot &quot;notranji&quot; (v "
-"nasprotju z &quot;ZUNANJIM&quot;)."
 
 #: settings.py:231
 msgid ""
@@ -373,12 +273,6 @@ msgid ""
 "the default value should suffice. Only set this setting if you want to "
 "restrict language selection to a subset of the Django-provided languages. "
 msgstr ""
-"Seznam vseh razpoložljivih jezikov. Seznam je seznam dveh dvojnikov v "
-"formatu (koda jezika, ime jezika), na primer (&#39;ja&#39;, &#39;"
-"japonsko&#39;). To določa, kateri jeziki so na voljo za izbiro jezika. Na "
-"splošno bi morala zadostovati privzeta vrednost. To nastavitev nastavite "
-"samo, če želite omejiti izbiro jezika na podnabor jezikov, ki jih ponuja "
-"Django."
 
 #: settings.py:242
 msgid ""
@@ -391,31 +285,19 @@ msgid ""
 "provides the fallback translation when a translation for a given literal "
 "doesn't exist for the user's preferred language."
 msgstr ""
-"Niz, ki predstavlja kodo jezika za to namestitev. To mora biti v standardnem "
-"formatu ID-ja jezika. Ameriška angleščina je na primer &quot;en-us&quot;. "
-"Služi dvema namenoma: če vmesna programska oprema področnih nastavitev ni v "
-"uporabi, se odloči, kateri prevod bo na voljo vsem uporabnikom. Če je "
-"področna vmesna programska oprema aktivna, zagotavlja nadomestni jezik v "
-"primeru, da uporabnikovega želenega jezika ni mogoče določiti ali ga spletno "
-"mesto ne podpira. Zagotavlja tudi nadomestni prevod, ko prevod za dani "
-"literal ne obstaja za uporabnikov želeni jezik."
 
 #: settings.py:256
 msgid ""
-"Default: 'sessionid'. The name of the cookie to use for sessions.This can be "
-"whatever you want (as long as it's different from the other cookie names in "
-"your application)."
+"Default: 'sessionid'. The name of the cookie to use for sessions.This can be"
+" whatever you want (as long as it's different from the other cookie names in"
+" your application)."
 msgstr ""
-"Privzeto: &#39;sessionid&#39;. Ime piškotka, ki se uporablja za seje. To je "
-"lahko poljubno (če se razlikuje od drugih imen piškotkov v vaši aplikaciji)."
 
 #: settings.py:264
 msgid ""
-"Default: 'django.contrib.sessions.backends.db'. Controls where Django stores "
-"session data."
+"Default: 'django.contrib.sessions.backends.db'. Controls where Django stores"
+" session data."
 msgstr ""
-"Privzeto: &#39;django.contrib.sessions.backends.db&#39;. Nadzoruje, kje "
-"Django shranjuje podatke o seji."
 
 #: settings.py:271
 msgid ""
@@ -424,11 +306,6 @@ msgid ""
 "is_secure() method. Warning: Modifying this setting can compromise your "
 "site’s security. Ensure you fully understand your setup before changing it."
 msgstr ""
-"Torka, ki predstavlja kombinacijo glave/vrednosti HTTP, ki označuje, da je "
-"zahteva varna. To nadzira vedenje metode is_secure() objekta zahteve. "
-"Opozorilo: Spreminjanje te nastavitve lahko ogrozi varnost vašega spletnega "
-"mesta. Prepričajte se, da v celoti razumete svojo nastavitev, preden jo "
-"spremenite."
 
 #: settings.py:280
 msgid ""
@@ -446,13 +323,9 @@ msgstr ""
 msgid ""
 "The file storage engine to use when collecting static files with the "
 "collectstatic management command. A ready-to-use instance of the storage "
-"backend defined in this setting can be found at django.contrib.staticfiles."
-"storage.staticfiles_storage."
+"backend defined in this setting can be found at "
+"django.contrib.staticfiles.storage.staticfiles_storage."
 msgstr ""
-"Mehanizem za shranjevanje datotek, ki se uporablja pri zbiranju statičnih "
-"datotek z ukazom za upravljanje collectstatic. Primerek ozadja za "
-"shranjevanje, ki je pripravljen za uporabo, definiran v tej nastavitvi, "
-"lahko najdete na django.contrib.staticfiles.storage.staticfiles_storage."
 
 #: settings.py:298
 msgid ""
@@ -460,9 +333,6 @@ msgid ""
 "isn't necessarily the time zone of the server. For example, one server may "
 "serve multiple Django-powered sites, each with a separate time zone setting."
 msgstr ""
-"Niz, ki predstavlja časovni pas za to namestitev. Upoštevajte, da to ni "
-"nujno časovni pas strežnika. Na primer, en strežnik lahko služi več spletnim "
-"mestom, ki jih poganja Django, vsako z ločeno nastavitvijo časovnega pasu."
 
 #: settings.py:307
 msgid ""
@@ -470,9 +340,6 @@ msgid ""
 "preference to the Host header. This should only be enabled if a proxy which "
 "sets this header is in use."
 msgstr ""
-"Logična vrednost, ki določa, ali naj se glava X-Forwarded-Host uporablja "
-"namesto glave Host. To naj bo omogočeno le, če je v uporabi proxy, ki "
-"nastavi to glavo."
 
 #: settings.py:315
 msgid ""
@@ -481,10 +348,6 @@ msgid ""
 "a proxy which sets this header is in use. USE_X_FORWARDED_HOST takes "
 "priority over this setting."
 msgstr ""
-"Logična vrednost, ki določa, ali naj se glava X-Forwarded-Port uporablja "
-"namesto META spremenljivke SERVER_PORT. To naj bo omogočeno le, če je v "
-"uporabi proxy, ki nastavi to glavo. USE_X_FORWARDED_HOST ima prednost pred "
-"to nastavitvijo."
 
 #: settings.py:324
 msgid ""
@@ -493,62 +356,52 @@ msgid ""
 "command will create a simple wsgi.py file with an application callable in "
 "it, and point this setting to that application."
 msgstr ""
-"Celotna pot v Pythonu aplikacijskega predmeta WSGI, ki ga bodo uporabljali "
-"vgrajeni strežniki Django (npr. runserver). Ukaz za upravljanje startproject "
-"django-admin bo ustvaril preprosto datoteko wsgi.py z aplikacijo, ki jo je "
-"mogoče priklicati v njej, in to nastavitev usmeril na to aplikacijo."
 
 #: templates/smart_settings/app/viewport.html:11
 msgid "Warning"
-msgstr "Opozorilo"
+msgstr ""
 
 #: templates/smart_settings/app/viewport.html:11
 msgid ""
 "Settings updated, restart your installation and refresh your browser for "
 "changes to take effect."
 msgstr ""
-"Nastavitve posodobljene, znova zaženite namestitev in osvežite brskalnik, da "
-"spremembe začnejo veljati."
 
 #: tests/test_classes.py:173
 msgid "English"
-msgstr "angleščina"
+msgstr ""
 
 #: views.py:27
 msgid ""
 "Local storage is currently disabled, changes to setting values will not be "
 "saved or take effect."
 msgstr ""
-"Lokalno shranjevanje je trenutno onemogočeno, spremembe vrednosti nastavitev "
-"ne bodo shranjene ali veljavne."
 
 #: views.py:40
 msgid "Setting updated successfully."
-msgstr "Nastavitev je bila uspešno posodobljena."
+msgstr ""
 
 #: views.py:51
 #, python-format
 msgid "Edit setting: %s"
-msgstr "Uredi nastavitev: %s"
+msgstr ""
 
 #: views.py:79
 msgid ""
 "Settings inherited from an environment variable take precedence and cannot "
 "be changed in this view. "
 msgstr ""
-"Nastavitve, podedovane iz spremenljivke okolja, imajo prednost in jih v tem "
-"pogledu ni mogoče spreminjati."
 
 #: views.py:82
 #, python-format
 msgid "Settings in namespace: %s"
-msgstr "Nastavitve v imenskem prostoru: %s"
+msgstr ""
 
 #: views.py:92
 #, python-format
 msgid "Namespace: %s, not found"
-msgstr "Imenski prostor: %s, ni bilo mogoče najti"
+msgstr ""
 
 #: views.py:102
 msgid "Setting namespaces"
-msgstr "Nastavitev imenskih prostorov"
+msgstr ""

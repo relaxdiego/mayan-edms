@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Hmayag Antonian <hmayag@freemail.gr>, 2022
-# pyrotech <anastasios@tutamail.com>, 2022
-#
+# Hmayag Antonian <hmayag@freemail.gr>, 2023
+# pyrotech <anastasios@tutamail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: pyrotech <anastasios@tutamail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: pyrotech <anastasios@tutamail.com>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:91 events.py:6 forms.py:44 links.py:52 links.py:93 links.py:281
@@ -169,8 +169,9 @@ msgstr "Ενέργεια"
 msgid "Namespace"
 msgstr "Χώρος ονομάτων"
 
-#: forms.py:162 models/workflow_models.py:43 models/workflow_state_models.py:50
-#: models/workflow_state_models.py:120 models/workflow_transition_models.py:38
+#: forms.py:162 models/workflow_models.py:43
+#: models/workflow_state_models.py:50 models/workflow_state_models.py:120
+#: models/workflow_transition_models.py:38
 #: models/workflow_transition_models.py:116
 msgid "Label"
 msgstr "Ετικέτα"
@@ -222,7 +223,8 @@ msgstr "Διαγραφή"
 msgid "Document types"
 msgstr "Τύποι εγγράφων"
 
-#: links.py:82 links.py:116 links.py:154 links.py:184 links.py:213 links.py:259
+#: links.py:82 links.py:116 links.py:154 links.py:184 links.py:213
+#: links.py:259
 msgid "Edit"
 msgstr "Τροποποίηση"
 
@@ -303,8 +305,8 @@ msgid ""
 "Can be a static value or a template. In addition to the workflow instance, "
 "the template receives the workflow instance context which itself includes "
 "the \"entry_log\" (containing \"workflow_instance\", \"datetime\", "
-"\"transition\", \"user\", \"comment\") and any values from workflow template "
-"fields."
+"\"transition\", \"user\", \"comment\") and any values from workflow template"
+" fields."
 msgstr ""
 
 #: literals.py:29
@@ -523,16 +525,16 @@ msgstr "Δεδομένα ενέργειας εισόδου"
 #: models/workflow_state_models.py:139
 msgid ""
 "The condition that will determine if this state action is executed or not. "
-"The condition is evaluated against the workflow instance. Conditions that do "
-"not return any value, that return the Python logical None, or an empty "
+"The condition is evaluated against the workflow instance. Conditions that do"
+" not return any value, that return the Python logical None, or an empty "
 "string ('') are considered to be logical false, any other value is "
 "considered to be the logical true."
 msgstr ""
 "Η συνθήκη που θα καθορίσει εάν θα εκτελεστεί η ενέργεια κατάστασης ή όχι. Η "
-"συνθήκη αξιολογείται έναντι του στιγμιοτύπου ροής εργασίας. Συνθήκες που δεν "
-"επιστρέφουν καμία τιμή, που επιστρέφουν τη λογική τιμή None της Python ή μια "
-"κενή συμβολοσειρά (\"\") θεωρούνται λογικώς ψευδείς, οποιαδήποτε άλλη τιμή "
-"θεωρείται λογικώς αληθής."
+"συνθήκη αξιολογείται έναντι του στιγμιοτύπου ροής εργασίας. Συνθήκες που δεν"
+" επιστρέφουν καμία τιμή, που επιστρέφουν τη λογική τιμή None της Python ή "
+"μια κενή συμβολοσειρά (\"\") θεωρούνται λογικώς ψευδείς, οποιαδήποτε άλλη "
+"τιμή θεωρείται λογικώς αληθής."
 
 #: models/workflow_state_models.py:145 models/workflow_transition_models.py:56
 msgid "Condition"
@@ -554,7 +556,8 @@ msgstr "Άγνωστος τύπος ενέργειας"
 msgid ""
 "The state action will be executed, depending on the condition return value."
 msgstr ""
-"Η ενέργεια κατάστασης θα εκτελεστεί, ανάλογα με την τιμή επιστροφής συνθήκης."
+"Η ενέργεια κατάστασης θα εκτελεστεί, ανάλογα με την τιμή επιστροφής "
+"συνθήκης."
 
 #: models/workflow_state_models.py:221
 #: models/workflow_transition_model_mixins.py:51
@@ -592,16 +595,16 @@ msgstr "Κατάσταση προορισμού"
 #: models/workflow_transition_models.py:50
 msgid ""
 "The condition that will determine if this transition is enabled or not. The "
-"condition is evaluated against the workflow instance. Conditions that do not "
-"return any value, that return the Python logical None, or an empty string "
-"('') are considered to be logical false, any other value is considered to be "
-"the logical true."
+"condition is evaluated against the workflow instance. Conditions that do not"
+" return any value, that return the Python logical None, or an empty string "
+"('') are considered to be logical false, any other value is considered to be"
+" the logical true."
 msgstr ""
-"Η συνθήκη που θα καθορίσει εάν αυτή η μετάβαση είναι ενεργοποιημένη ή όχι. Η "
-"συνθήκη αξιολογείται έναντι του στιγμιοτύπου ροής εργασίας. Συνθήκες που δεν "
-"επιστρέφουν καμία τιμή, που επιστρέφουν τη λογική τιμή None της Python ή μια "
-"κενή συμβολοσειρά (\"\") θεωρούνται λογικώς ψευδείς, οποιαδήποτε άλλη τιμή "
-"θεωρείται λογικώς αληθής."
+"Η συνθήκη που θα καθορίσει εάν αυτή η μετάβαση είναι ενεργοποιημένη ή όχι. Η"
+" συνθήκη αξιολογείται έναντι του στιγμιοτύπου ροής εργασίας. Συνθήκες που "
+"δεν επιστρέφουν καμία τιμή, που επιστρέφουν τη λογική τιμή None της Python ή"
+" μια κενή συμβολοσειρά (\"\") θεωρούνται λογικώς ψευδείς, οποιαδήποτε άλλη "
+"τιμή θεωρείται λογικώς αληθής."
 
 #: models/workflow_transition_models.py:64
 msgid "Workflow transition"
@@ -656,8 +659,8 @@ msgstr "Γραφικό στοιχείο κλάσης"
 #: models/workflow_transition_models.py:135
 msgid "A group of keyword arguments to customize the widget. Use YAML format."
 msgstr ""
-"Μια ομάδα ορισμάτων λέξεων-κλειδιών για την παραμετροποίηση του του γραφικού "
-"στοιχείου. Χρησιμοποιήστε τη μορφή YAML."
+"Μια ομάδα ορισμάτων λέξεων-κλειδιών για την παραμετροποίηση του του γραφικού"
+" στοιχείου. Χρησιμοποιήστε τη μορφή YAML."
 
 #: models/workflow_transition_models.py:138
 msgid "Widget keyword arguments"
@@ -751,27 +754,21 @@ msgstr ""
 #: serializers/workflow_instance_serializers.py:25
 #: serializers/workflow_template_state_serializers.py:47
 #: serializers/workflow_template_transition_serializers.py:111
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template ID"
-msgstr "Κατάσταση ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:37
 #: serializers/workflow_instance_serializers.py:132
-#, fuzzy
-#| msgid "Document"
 msgid "Document URL"
-msgstr "Έγγραφο"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:49
 msgid "Primary key of the transition to be added."
 msgstr "Πρωτεύον κλειδί της μετάβασης που θα  προστεθεί."
 
 #: serializers/workflow_instance_serializers.py:50
-#, fuzzy
-#| msgid "Transition"
 msgid "Transition ID"
-msgstr "Μετάβαση"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:55
 #: serializers/workflow_instance_serializers.py:151
@@ -787,10 +784,8 @@ msgid "URL"
 msgstr "Διεύθυνση URL"
 
 #: serializers/workflow_instance_serializers.py:74
-#, fuzzy
-#| msgid "Workflow instance"
 msgid "Workflow instance URL"
-msgstr "Περιστατικό ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:86
 #: serializers/workflow_instance_serializers.py:148
@@ -798,22 +793,16 @@ msgstr "Περιστατικό ροής εργασίας"
 #: serializers/workflow_template_transition_serializers.py:41
 #: serializers/workflow_template_transition_serializers.py:114
 #: serializers/workflow_template_transition_serializers.py:218
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template URL"
-msgstr "Κατάσταση ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:123
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template"
-msgstr "Κατάσταση ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:135
-#, fuzzy
-#| msgid "Get last log entry"
 msgid "Last log entry"
-msgstr "Λήψη τελευταίας καταχώρησης καταγραφής συμβάντων"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:139
 msgid "Log entries URL"
@@ -824,10 +813,8 @@ msgid "A link to the entire history of this workflow."
 msgstr "Σύνδεσμος στο πλήρες ιστορικό αυτής της ροής εργασίας."
 
 #: serializers/workflow_instance_serializers.py:144
-#, fuzzy
-#| msgid "Last transition"
 msgid "Log entry transitions URL"
-msgstr "Τελευταία μετάβαση"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:152
 msgid ""
@@ -839,38 +826,28 @@ msgstr ""
 "εργασίας."
 
 #: serializers/workflow_template_serializers.py:13
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:18
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:23
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:28
 msgid "Image URL"
 msgstr ""
 
 #: serializers/workflow_template_serializers.py:32
-#, fuzzy
-#| msgid "States"
 msgid "States URL"
-msgstr "Καταστάσεις"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:36
-#, fuzzy
-#| msgid "Transitions"
 msgid "Transitions URL"
-msgstr "Μεταβάσεις"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:65
 msgid "Primary key of the document type to add to the workflow."
@@ -878,10 +855,8 @@ msgstr ""
 
 #: serializers/workflow_template_serializers.py:66
 #: serializers/workflow_template_serializers.py:75
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:74
 msgid "Primary key of the document type to remove from the workflow."
@@ -889,17 +864,13 @@ msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:32
 #: serializers/workflow_template_state_serializers.py:87
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template state ID"
-msgstr "Κατάσταση ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:36
 #: serializers/workflow_template_state_serializers.py:91
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template state URL"
-msgstr "Κατάσταση ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:49
 msgid "Primary key of the workflow template transition to be added."
@@ -910,16 +881,12 @@ msgid "Workflow template transition ID"
 msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:55
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow template transition URL"
-msgstr "Μετάβαση ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_template_state_serializers.py:11
-#, fuzzy
-#| msgid "Actions"
 msgid "Actions URL"
-msgstr "Ενέργειες"
+msgstr ""
 
 #: serializers/workflow_template_state_serializers.py:23
 msgid "Escalations URL"
@@ -927,49 +894,37 @@ msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:49
 #: serializers/workflow_template_transition_serializers.py:226
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow transition ID"
-msgstr "Μετάβαση ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:53
 #: serializers/workflow_template_transition_serializers.py:230
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow transition URL"
-msgstr "Μετάβαση ροής εργασίας"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:86
 msgid "Primary key of the destination state to be added."
 msgstr "Πρωτεύον κλειδί της κατάστασης προορισμού προς προσθήκη."
 
 #: serializers/workflow_template_transition_serializers.py:87
-#, fuzzy
-#| msgid "Destination state"
 msgid "Destination state ID"
-msgstr "Κατάσταση προορισμού"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:92
-#, fuzzy
-#| msgid "Fields"
 msgid "Field list URL"
-msgstr "Πεδία"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:99
 msgid "Primary key of the origin state to be added."
 msgstr "Πρωτεύον κλειδί της κατάστασης προέλευσης προς προσθήκη."
 
 #: serializers/workflow_template_transition_serializers.py:100
-#, fuzzy
-#| msgid "Origin state"
 msgid "Origin state ID"
-msgstr "Κατάσταση προέλευσης"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:105
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger list URL"
-msgstr "Εκκινητές"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:198
 msgid "Event Type ID"
@@ -1016,8 +971,8 @@ msgstr ""
 
 #: storages.py:14
 msgid ""
-"Unable to initialize the workflow preview storage. Check the settings {} and "
-"{} for formatting errors."
+"Unable to initialize the workflow preview storage. Check the settings {} and"
+" {} for formatting errors."
 msgstr ""
 "Δεν είναι δυνατή η προετοιμασία του χώρου αποθήκευσης προεπισκόπησης της "
 "ροής εργασίας. Ελέγξτε τις ρυθμίσεις {} και {} για σφάλματα μορφοποίησης."
@@ -1028,8 +983,8 @@ msgstr "Εικόνες προεπισκόπησης ροής εργασίας"
 
 #: views/workflow_instance_views.py:40
 msgid ""
-"Assign workflows to the document type of this document to have this document "
-"execute those workflows. "
+"Assign workflows to the document type of this document to have this document"
+" execute those workflows. "
 msgstr ""
 "Αντιστοιχίστε ροές εργασίας στον τύπο εγγράφου αυτού του εγγράφου, ώστε να "
 "εκτελεστούν σε αυτό οι συγκεκριμένες ροές εργασίας."
@@ -1045,7 +1000,8 @@ msgstr "Ροές εργασίας για έγγραφο: %s"
 
 #: views/workflow_instance_views.py:74
 msgid ""
-"This view will show the state changes as a workflow instance is transitioned."
+"This view will show the state changes as a workflow instance is "
+"transitioned."
 msgstr ""
 "Σε αυτήν την προβολή θα εμφανιστούν οι αλλαγές κατάστασης καθώς "
 "πραγματοποιείται μία μετάβαση στο στιγμιότυπο ροής εργασίας."
@@ -1079,8 +1035,7 @@ msgstr "Επιλογή"
 
 #: views/workflow_instance_views.py:225
 #, python-format
-msgid ""
-"Select transition for workflow \"%(workflow)s\" of document \"%(document)s\""
+msgid "Select transition for workflow \"%(workflow)s\" of document \"%(document)s\""
 msgstr ""
 
 #: views/workflow_proxy_views.py:37
@@ -1105,8 +1060,8 @@ msgid ""
 "Create some workflows and associated them with a document type. Active "
 "workflows will be shown here and the documents for which they are executing."
 msgstr ""
-"Δημιουργήστε ροές εργασίας και συσχετίστε τες με έναν τύπο εγγράφου. Ενεργές "
-"ροές εργασίας θα εμφανίζονται εδώ και τα έγγραφα για τα οποία εκτελούνται."
+"Δημιουργήστε ροές εργασίας και συσχετίστε τες με έναν τύπο εγγράφου. Ενεργές"
+" ροές εργασίας θα εμφανίζονται εδώ και τα έγγραφα για τα οποία εκτελούνται."
 
 #: views/workflow_proxy_views.py:69
 msgid "There are no workflows"
@@ -1121,7 +1076,8 @@ msgstr "Δεν υπάρχουν έγγραφα σε αυτήν την κατάσ
 msgid "Documents in the workflow \"%s\", state \"%s\""
 msgstr "Έγραφα στην ροή εργασίας \"%s\", κατάσταση \"%s\""
 
-#: views/workflow_proxy_views.py:126 views/workflow_template_state_views.py:357
+#: views/workflow_proxy_views.py:126
+#: views/workflow_template_state_views.py:357
 msgid "Create states and link them using transitions."
 msgstr "Δημιουργήστε καταστάσεις και συνδέστε τες χρησιμοποιώντας μεταβάσεις."
 
@@ -1129,7 +1085,8 @@ msgstr "Δημιουργήστε καταστάσεις και συνδέστε 
 msgid "This workflow doesn't have any state"
 msgstr "Αυτή η ροή εργασίας δεν έχει καμία κατάσταση"
 
-#: views/workflow_proxy_views.py:132 views/workflow_template_state_views.py:363
+#: views/workflow_proxy_views.py:132
+#: views/workflow_template_state_views.py:363
 #, python-format
 msgid "States of workflow: %s"
 msgstr "Κατάστασεις της ροής εργασίας: %s"
@@ -1181,8 +1138,8 @@ msgstr "Τροποποίηση ενέργειας κατάστασης ροής 
 
 #: views/workflow_template_state_views.py:194
 msgid ""
-"Workflow state actions are macros that get executed when documents enters or "
-"leaves the state in which they reside."
+"Workflow state actions are macros that get executed when documents enters or"
+" leaves the state in which they reside."
 msgstr ""
 "Οι ενέργειες κατάστασης ροών εργασίας είναι μακροεντολές που εκτελούνται "
 "όταν έγγραφα εισέρχονται στην ή εξέρχονται από την τρέχουσα κατάσταση."
@@ -1237,7 +1194,8 @@ msgstr "Επεξεργασία μετάβασης ροής εργασίας: %s"
 
 #: views/workflow_template_transition_views.py:165
 msgid ""
-"Create a transition and use it to move a workflow from  one state to another."
+"Create a transition and use it to move a workflow from  one state to "
+"another."
 msgstr ""
 "Δημιουργήστε μια μετάβαση και χρησιμοποιήστε την για την μετάβαση μιας ροή "
 "εργασίας από τη μία κατάσταση στην άλλη."
@@ -1268,8 +1226,8 @@ msgstr "Επεξεργασία πεδίου μετάβασης ροής εργα
 
 #: views/workflow_template_transition_views.py:309
 msgid ""
-"Workflow transition fields allow adding data to the workflow's context. This "
-"additional context data can then be used by other elements of the workflow "
+"Workflow transition fields allow adding data to the workflow's context. This"
+" additional context data can then be used by other elements of the workflow "
 "system like the workflow state actions."
 msgstr ""
 "Τα πεδία μετάβασης της ροής εργασίας επιτρέπουν την προσθήκη δεδομένων στο "

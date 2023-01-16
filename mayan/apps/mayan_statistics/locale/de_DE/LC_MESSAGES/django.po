@@ -1,27 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Berny <berny@bernhard-marx.de>, 2022
-# Mathias Behrle <mathiasb@m9s.biz>, 2022
-#
+# Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2023
+# Berny <berny@bernhard-marx.de>, 2023
+# Roberto Rosario, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:36+0000\n"
-"Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
-"teams/13584/de_DE/)\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2023\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:29 links.py:35 permissions.py:6 queues.py:7
@@ -30,7 +29,7 @@ msgstr "Statistiken"
 
 #: apps.py:38
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #. Translators: Schedule here is a noun, the 'schedule' at
 #. which the statistic will be updated
@@ -43,10 +42,8 @@ msgid "Last update"
 msgstr "Letzte Aktualisierung"
 
 #: classes.py:45
-#, fuzzy
-#| msgid "Statistics namespaces"
 msgid "Statistics namespace"
-msgstr "Statistiken Namensräume"
+msgstr ""
 
 #: classes.py:162
 msgid "Never"
@@ -127,10 +124,8 @@ msgid "Statistics namespaces group statistics into logical units. "
 msgstr ""
 
 #: views.py:26
-#, fuzzy
-#| msgid "Statistics namespaces"
 msgid "No statistic namespaces available"
-msgstr "Statistiken Namensräume"
+msgstr ""
 
 #: views.py:27
 msgid "Statistics namespaces"
@@ -141,10 +136,8 @@ msgid "Statistics are metrics and chart representations of existing data."
 msgstr ""
 
 #: views.py:53
-#, fuzzy
-#| msgid "No data available."
 msgid "No statistic available"
-msgstr "Keine Daten verfügbar."
+msgstr ""
 
 #: views.py:55
 #, python-format

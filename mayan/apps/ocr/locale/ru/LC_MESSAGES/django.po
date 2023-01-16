@@ -1,30 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Sergey Glita <gsv70@mail.ru>, 2022
-# mizhgan <i@mizhgan.ru>, 2022
-# Roberto Rosario, 2022
-# lilo.panic, 2022
-# Ilya Pavlov <spirkaa@gmail.com>, 2022
-#
+# mizhgan <i@mizhgan.ru>, 2023
+# Roberto Rosario, 2023
+# Sergey Glita <gsv70@mail.ru>, 2023
+# lilo.panic, 2023
+# Ilya Pavlov <spirkaa@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2023\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
 #: search.py:18 settings.py:11
@@ -36,10 +34,10 @@ msgid "The OCR content."
 msgstr "Распознанное содержимое."
 
 #: apps.py:121
-msgid "A generator returning the document's pages OCR content."
-msgstr "Генератор, возвращающий  распознанное содержимое страниц документа."
+msgid "A generator returning the document's version pages OCR content."
+msgstr ""
 
-#: apps.py:122
+#: apps.py:123
 msgid "OCR content"
 msgstr "Распознанное содержимое"
 
@@ -112,10 +110,8 @@ msgstr ""
 "Автоматически ставить вновь созданные документы в очередь для распознавания."
 
 #: models.py:27
-#, fuzzy
-#| msgid "Submit for OCR"
 msgid "Auto OCR"
-msgstr "Отправить на распознавание"
+msgstr ""
 
 #: models.py:33
 msgid "Document type settings"
@@ -162,18 +158,14 @@ msgid "Change document type OCR settings"
 msgstr "Изменить настройки распознавания для типа документа"
 
 #: queues.py:10
-msgid "Finish document file OCR"
-msgstr "Завершить распознавание файла документа"
+msgid "Finish document version OCR"
+msgstr "Завершить распознавание версии документа"
 
 #: queues.py:14
-msgid "Document file page OCR"
-msgstr "Распознать страницу файла документа"
+msgid "Document version page OCR"
+msgstr "Распознать страницу версии документа"
 
-#: queues.py:18
-msgid "Document file OCR"
-msgstr "Распознать файл документа"
-
-#: search.py:12 search.py:24
+#: queues.py:18 search.py:12 search.py:24
 msgid "Document version OCR"
 msgstr "Распознать версию документа"
 
@@ -186,7 +178,8 @@ msgstr ""
 #: settings.py:23
 msgid "Full path to the backend to be used to do OCR."
 msgstr ""
-"Полный путь к бэкэнду, который будет использоваться для распознавания текста."
+"Полный путь к бэкэнду, который будет использоваться для распознавания "
+"текста."
 
 #: views.py:57
 #, python-format
@@ -285,8 +278,8 @@ msgstr ""
 "Условие, которое определяет, будет ли изменено распознанное содержимое "
 "страницы или нет. Условие оценивается по итерированной странице документа. "
 "Условия, которые не возвращают никакого значения, которые возвращают "
-"логическое значение Python None или пустую строку (''), считаются логическим "
-"ЛОЖЬ, любое другое значение считается логическим ИСТИНА."
+"логическое значение Python None или пустую строку (''), считаются логическим"
+" ЛОЖЬ, любое другое значение считается логическим ИСТИНА."
 
 #: workflow_actions.py:31
 msgid "Page content"

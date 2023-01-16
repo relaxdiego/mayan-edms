@@ -1,27 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Ford Guo <agile.guo@gmail.com>, 2022
-# dave cheng, 2022
-# Leon Chu, 2022
-#
+# dave cheng, 2023
+# Ford Guo <agile.guo@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Leon Chu, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Leon Chu, 2022\n"
-"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/"
-"teams/13584/zh-Hans/)\n"
-"Language: zh-Hans\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:46+0000\n"
+"Last-Translator: Leon Chu, 2023\n"
+"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh-Hans\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps.py:36 events.py:6 links.py:42 models.py:43 permissions.py:6
@@ -111,7 +110,7 @@ msgstr "預覽公告"
 
 #: serializers.py:12
 msgid "URL"
-msgstr ""
+msgstr "网址"
 
 #: views.py:45
 #, python-format
@@ -158,9 +157,7 @@ msgid ""
 "Announcements are displayed in the login view. You can use announcements to "
 "convery information about your organzation, announcements or usage "
 "guidelines for your users."
-msgstr ""
-"公告欄將顯示於登入畫面, 你可以將你的組織與使用條款寫ˋ入公告欄的公告中, 提供給"
-"使用者."
+msgstr "公告欄將顯示於登入畫面, 你可以將你的組織與使用條款寫ˋ入公告欄的公告中, 提供給使用者."
 
 #: views.py:125
 msgid "No announcements available"

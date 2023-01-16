@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
 "PO-Revision-Date: 2020-04-08 04:06+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:57 events.py:6 permissions.py:6 settings.py:11
+#: apps.py:57 events.py:6 permissions.py:6 settings.py:12
 msgid "Appearance"
 msgstr ""
 
@@ -156,21 +156,32 @@ msgstr ""
 msgid "View existing themes"
 msgstr ""
 
-#: settings.py:17
+#: settings.py:18
 msgid "Custom HTTP response code for AJAX redirections."
 msgstr ""
 
-#: settings.py:23
+#: settings.py:24
 msgid "Maximum number of characters that will be displayed as the view title."
 msgstr ""
 
-#: settings.py:33
+#: settings.py:34
 msgid "Position where the system messages will be displayed."
 msgstr ""
 
-#: settings.py:39
+#: settings.py:40
 msgid ""
 "Delay in milliseconds after which the menus will be checked for updates."
+msgstr ""
+
+#: settings.py:47
+msgid ""
+"Maximum number of requests that can be made before throttling is enabled."
+msgstr ""
+
+#: settings.py:54
+msgid ""
+"Time in milliseconds after which a throttled request will clear allowing an "
+"additional request to be performed."
 msgstr ""
 
 #: templates/403.html:5 templates/403.html:30
@@ -308,6 +319,12 @@ msgid ""
 "                Spread the word. Talk to your friends and colleagues about "
 "how awesome %(project_title)s is!\n"
 "            "
+msgstr ""
+
+#: templates/appearance/app/foot.html:70
+msgid ""
+"Too many pending requests. Additional requests will be blocked until a "
+"pending one is completed or after the cooling off period ends."
 msgstr ""
 
 #: templates/appearance/base.html:73

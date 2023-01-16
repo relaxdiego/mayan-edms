@@ -1,34 +1,32 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: apps.py:27
 msgid "Dynamic search"
-msgstr "Dinamično iskanje"
+msgstr ""
 
 #: forms.py:15
 msgid "Match all"
-msgstr "Ujemaj vse"
+msgstr ""
 
 #: forms.py:16
 msgid "Return only results that match all fields."
@@ -37,72 +35,67 @@ msgstr ""
 #: forms.py:33 templates/dynamic_search/search_box.html:43
 #: templates/dynamic_search/search_box_toolbar.html:25
 msgid "Search terms"
-msgstr "Iskalni izrazi"
+msgstr ""
 
 #: links.py:20
-#, fuzzy
-#| msgid "Dynamic search"
 msgid "Basic search"
-msgstr "Dinamično iskanje"
+msgstr ""
 
 #: links.py:24 templates/dynamic_search/search_box.html:49
 #: templates/dynamic_search/search_box_toolbar.html:33
 msgid "Advanced search"
-msgstr "Napredno iskanje"
+msgstr ""
 
 #: links.py:28
 msgid "Search again"
-msgstr "Išči znova"
+msgstr ""
 
 #: links.py:33 views.py:62
 msgid "Reindex search backend"
-msgstr "Ponovno indeksiranje zaledja iskanja"
+msgstr ""
 
-#: literals.py:17
+#: literals.py:21
 msgid "Yes"
-msgstr ""
+msgstr "Da"
 
-#: literals.py:18
+#: literals.py:22
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: permissions.py:6 queues.py:7 settings.py:14
 #: templates/dynamic_search/search_box.html:47
 #: templates/dynamic_search/search_box_toolbar.html:30 views.py:108
 msgid "Search"
-msgstr "Iskanje"
+msgstr ""
 
 #: permissions.py:10
 msgid "Execute search tools"
-msgstr "Izvedite iskalna orodja"
+msgstr ""
 
 #: queues.py:10
 msgid "Search slow"
-msgstr "Išči počasi"
+msgstr ""
 
 #: queues.py:15
 msgid "Remove a model instance from the search engine."
-msgstr "Odstranite primerek modela iz iskalnika."
+msgstr ""
 
 #: queues.py:20
 msgid "Index a model instance to the search engine."
-msgstr "Indeksirajte primerek modela v iskalnik."
+msgstr ""
 
 #: queues.py:25
 msgid "Index all instances of a search model to the search engine."
-msgstr "Indeksirajte vse primerke iskalnega modela v iskalniku."
+msgstr ""
 
 #: queues.py:31
 msgid ""
 "Index all related instances of a search model after a many to many event."
 msgstr ""
-"Indeksirajte vse povezane primerke iskalnega modela po dogodku mnogo proti "
-"mnogo."
 
 #: queues.py:39
 msgid "Reset the search backend indices and index all instances again."
 msgstr ""
-"Ponastavite indekse iskalnega zaledja in znova indeksirajte vse primerke."
 
 #: scoped_queries.py:352
 msgid ""
@@ -117,17 +110,15 @@ msgid ""
 "Search backend error. Verify that the search service is available and that "
 "the search syntax is valid for the active search backend; %s"
 msgstr ""
-"Napaka v ozadju iskanja. Preverite, ali je iskalna storitev na voljo in ali "
-"je sintaksa iskanja veljavna za aktivno iskalno zaledje; %s"
 
 #: search_fields.py:289
-msgid "ANY"
+msgid "Any"
 msgstr ""
 
 #: search_models.py:42
 #, python-format
 msgid "Unknown search model `%s`."
-msgstr "Neznan iskalni model `%s`."
+msgstr ""
 
 #: search_models.py:108
 msgid "All content"
@@ -179,7 +170,7 @@ msgstr ""
 
 #: serializers.py:17
 msgid "Label"
-msgstr ""
+msgstr "Oznaka"
 
 #: serializers.py:23
 msgid "App label"
@@ -194,14 +185,12 @@ msgid "Primary key"
 msgstr ""
 
 #: serializers.py:32
-#, fuzzy
-#| msgid "Search terms"
 msgid "Search fields"
-msgstr "Iskalni izrazi"
+msgstr ""
 
 #: settings.py:20
 msgid "Full path to the backend to be used to handle the search."
-msgstr "Celotna pot do zaledja, ki bo uporabljena za upravljanje iskanja."
+msgstr ""
 
 #: settings.py:27
 msgid ""
@@ -217,37 +206,31 @@ msgstr ""
 msgid ""
 "Disables the single term bar search leaving only the advanced search button."
 msgstr ""
-"Onemogoči iskanje v vrstici z enim izrazom, ostane samo gumb za napredno "
-"iskanje."
 
 #: settings.py:51
 msgid "Amount of objects to process when performing bulk indexing."
-msgstr "Količina predmetov za obdelavo pri izvajanju množičnega indeksiranja."
+msgstr ""
 
 #: settings.py:57
 msgid "Sets the default state of the \"Match all\" checkbox."
-msgstr "Nastavi privzeto stanje potrditvenega polja »Ujemaj vse«."
+msgstr ""
 
 #: settings.py:63
-#, fuzzy
-#| msgid "Maximum number search results to fetch and display."
-msgid "Hard limit of number search results to fetch and display."
-msgstr "Največje število rezultatov iskanja za pridobitev in prikaz."
+msgid "Hard limit of number of search results to fetch and display."
+msgstr ""
 
 #: settings.py:68
-msgid "Maximum number search results to fetch and display."
-msgstr "Največje število rezultatov iskanja za pridobitev in prikaz."
+msgid "Maximum number of search results to fetch and display."
+msgstr ""
 
 #: templates/dynamic_search/app/list_toolbar.html:17
-#, fuzzy
-#| msgid "Search terms"
 msgid "Filter terms"
-msgstr "Iskalni izrazi"
+msgstr ""
 
 #: templates/dynamic_search/search_box.html:49
 #: templates/dynamic_search/search_box_toolbar.html:33
 msgid "Advanced"
-msgstr "Napredno"
+msgstr ""
 
 #: value_transformations.py:37
 msgid "Replace accents"
@@ -295,65 +278,48 @@ msgstr ""
 
 #: views.py:59
 msgid "This tool erases and populates the search backend's internal index."
-msgstr "To orodje izbriše in zapolni notranji indeks zaledja iskanja."
+msgstr ""
 
 #: views.py:69
 msgid ""
 "This tool is required only for some search backends. Search results will be "
 "affected while the backend is being reindexed."
 msgstr ""
-"To orodje je potrebno samo za nekatera iskalna zaledja. Med ponovnim "
-"indeksiranjem zaledja bo to vplivalo na rezultate iskanja."
 
 #: views.py:75
 msgid ""
-"The currently selected search backend does not support or required "
+"The currently selected search backend does not support or requires "
 "reindexing."
 msgstr ""
 
 #: views.py:88
 msgid "Search backend reindexing queued."
-msgstr "Ponovno indeksiranje zaledja iskanja je v čakalni vrsti."
+msgstr ""
 
 #: views.py:110
 #, python-format
 msgid "Search for: %s"
-msgstr "Iskanje: %s"
+msgstr ""
 
 #: views.py:139
-#, fuzzy, python-format
-#| msgid "Advanced search"
+#, python-format
 msgid "Advanced search for: %s"
-msgstr "Napredno iskanje"
+msgstr ""
 
 #: views.py:174
 msgid "Try again using different terms. "
-msgstr "Poskusite znova z drugimi izrazi."
+msgstr ""
 
 #: views.py:176
 msgid "No search results"
-msgstr "Ni rezultatov iskanja"
+msgstr ""
 
 #: views.py:179
-#, fuzzy, python-format
-#| msgid "Search for: %s"
+#, python-format
 msgid "Search query: %s"
-msgstr "Iskanje: %s"
+msgstr ""
 
 #: views.py:181
 #, python-format
 msgid "Search results for: %s"
-msgstr "Rezultati iskanja za: %s"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid ""
-#~ "When checked, only results that match all fields will be returned. When "
-#~ "unchecked results that match at least one field will be returned."
-#~ msgstr ""
-#~ "Ko je označeno, bodo vrnjeni le rezultati, ki se ujemajo z vsemi polji. "
-#~ "Če ni označeno, bodo vrnjeni rezultati, ki se ujemajo z vsaj enim poljem."
-
-#~ msgid "List filter"
-#~ msgstr "Filter seznama"
+msgstr ""

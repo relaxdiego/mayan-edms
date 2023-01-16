@@ -1,28 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Yves Dubois <ydubois@gmail.com>, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-# Benoît GROUSSET <benoit@grousset.xyz>, 2022
-#
+# Olivier W, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Benoît GROUSSET <benoit@grousset.xyz>, 2023
+# Yves Dubois <ydubois@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Benoît GROUSSET <benoit@grousset.xyz>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:23 links.py:17 settings.py:11
 msgid "REST API"
@@ -62,19 +64,19 @@ msgstr "API %s"
 
 #: serializers.py:37
 msgid "Content"
-msgstr ""
+msgstr "Contenu"
 
 #: serializers.py:40
 msgid "Data"
-msgstr ""
+msgstr "Données"
 
 #: serializers.py:43
 msgid "Headers"
-msgstr ""
+msgstr "En-têtes"
 
 #: serializers.py:46
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: serializers.py:49
 msgid "Status code"
@@ -86,11 +88,11 @@ msgstr ""
 
 #: serializers.py:75
 msgid "Label"
-msgstr ""
+msgstr "Étiquette"
 
 #: serializers.py:78
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:106
 msgid "Author"
@@ -102,7 +104,7 @@ msgstr ""
 
 #: serializers.py:112
 msgid "Build"
-msgstr ""
+msgstr "Build"
 
 #: serializers.py:115
 msgid "Build string"
@@ -114,7 +116,7 @@ msgstr ""
 
 #: serializers.py:121
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: serializers.py:124
 msgid "Django version"
@@ -122,15 +124,15 @@ msgstr ""
 
 #: serializers.py:127
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #: serializers.py:130
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: serializers.py:133
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: serializers.py:136
 msgid "Website"

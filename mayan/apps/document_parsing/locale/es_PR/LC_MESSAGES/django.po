@@ -2,25 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
-"Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/"
-"teams/13584/es_PR/)\n"
-"Language: es_PR\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: es_PR\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:51 events.py:6 permissions.py:6 settings.py:11
 msgid "Document parsing"
@@ -92,7 +90,8 @@ msgstr "Página de archivo de documento"
 #: models.py:23
 msgid "The actual text content as extracted by the document parsing backend."
 msgstr ""
-"El contenido de texto real extraído por el documento que analiza el servidor."
+"El contenido de texto real extraído por el documento que analiza el "
+"servidor."
 
 #: models.py:31
 msgid "Document file page content"
@@ -112,10 +111,8 @@ msgstr ""
 "Someter automática de documentos recién creados para extracción de texto."
 
 #: models.py:49
-#, fuzzy
-#| msgid "Submit for parsing"
 msgid "Auto parsing"
-msgstr "Enviar para extracción de contenido"
+msgstr ""
 
 #: models.py:59
 msgid "Document type settings"
@@ -167,7 +164,8 @@ msgstr ""
 
 #: settings.py:24
 msgid ""
-"File path to poppler's pdftotext program used to extract text from PDF files."
+"File path to poppler's pdftotext program used to extract text from PDF "
+"files."
 msgstr ""
 "Ruta de acceso al programa de poppler llamado pdftotext utilizado para "
 "extraer texto de archivos PDF."
@@ -239,9 +237,9 @@ msgstr ""
 #, python-format
 msgid "Submit %(count)d document file to the parsing queue?"
 msgid_plural "Submit %(count)d documents files to the parsing queue?"
-msgstr[0] "¿Enviar %(count)d archivo de documento a la cola de análisis?"
-msgstr[1] "¿Enviar %(count)d archivos de documentos a la cola de análisis?"
-msgstr[2] "¿Enviar %(count)d archivos de documentos  a la cola de análisis?"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: views.py:160
 #, python-format
@@ -253,8 +251,8 @@ msgstr ""
 #, python-format
 msgid "Edit parsing settings for document type: %s."
 msgstr ""
-"Edite la configuración de extracción de contenido para el tipo de documento: "
-"%s."
+"Edite la configuración de extracción de contenido para el tipo de documento:"
+" %s."
 
 #: views.py:200
 msgid "Submit all documents of a type for parsing"

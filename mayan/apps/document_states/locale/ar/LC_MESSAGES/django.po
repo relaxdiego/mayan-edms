@@ -1,30 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# WM Shinkada <shinkadawasim@gmail.com>, 2022
-# Bashar Al-Abdulhadi, 2022
-# Mohammed ALDOUB <voulnet@gmail.com>, 2022
-# Yaman Sanobar <yman.snober@gmail.com>, 2022
-# Marwan Rahhal <Marwanr@sssit.net>, 2022
-#
+# Roberto Rosario, 2023
+# Mohammed ALDOUB <voulnet@gmail.com>, 2023
+# Yaman Sanobar <yman.snober@gmail.com>, 2023
+# WM Shinkada <shinkadawasim@gmail.com>, 2023
+# Bashar Al-Abdulhadi, 2023
+# Marwan Rahhal <Marwanr@sssit.net>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2023\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: apps.py:91 events.py:6 forms.py:44 links.py:52 links.py:93 links.py:281
 #: links.py:305 models/workflow_models.py:56 settings.py:14
@@ -169,8 +168,9 @@ msgstr "إجراء"
 msgid "Namespace"
 msgstr "مساحة الاسم"
 
-#: forms.py:162 models/workflow_models.py:43 models/workflow_state_models.py:50
-#: models/workflow_state_models.py:120 models/workflow_transition_models.py:38
+#: forms.py:162 models/workflow_models.py:43
+#: models/workflow_state_models.py:50 models/workflow_state_models.py:120
+#: models/workflow_transition_models.py:38
 #: models/workflow_transition_models.py:116
 msgid "Label"
 msgstr "العنوان"
@@ -222,7 +222,8 @@ msgstr "حذف"
 msgid "Document types"
 msgstr "أنواع الوثائق"
 
-#: links.py:82 links.py:116 links.py:154 links.py:184 links.py:213 links.py:259
+#: links.py:82 links.py:116 links.py:154 links.py:184 links.py:213
+#: links.py:259
 msgid "Edit"
 msgstr "تعديل"
 
@@ -303,8 +304,8 @@ msgid ""
 "Can be a static value or a template. In addition to the workflow instance, "
 "the template receives the workflow instance context which itself includes "
 "the \"entry_log\" (containing \"workflow_instance\", \"datetime\", "
-"\"transition\", \"user\", \"comment\") and any values from workflow template "
-"fields."
+"\"transition\", \"user\", \"comment\") and any values from workflow template"
+" fields."
 msgstr ""
 
 #: literals.py:29
@@ -521,8 +522,8 @@ msgstr "بيانات إجراء الإدخال"
 #: models/workflow_state_models.py:139
 msgid ""
 "The condition that will determine if this state action is executed or not. "
-"The condition is evaluated against the workflow instance. Conditions that do "
-"not return any value, that return the Python logical None, or an empty "
+"The condition is evaluated against the workflow instance. Conditions that do"
+" not return any value, that return the Python logical None, or an empty "
 "string ('') are considered to be logical false, any other value is "
 "considered to be the logical true."
 msgstr ""
@@ -586,14 +587,14 @@ msgstr "الهدف"
 #: models/workflow_transition_models.py:50
 msgid ""
 "The condition that will determine if this transition is enabled or not. The "
-"condition is evaluated against the workflow instance. Conditions that do not "
-"return any value, that return the Python logical None, or an empty string "
-"('') are considered to be logical false, any other value is considered to be "
-"the logical true."
+"condition is evaluated against the workflow instance. Conditions that do not"
+" return any value, that return the Python logical None, or an empty string "
+"('') are considered to be logical false, any other value is considered to be"
+" the logical true."
 msgstr ""
-"الشرط الذي سيحدد ما إذا كان هذا الانتقال ممكّنًا أم لا. يتم تقييم الشرط مقابل "
-"مثيل سير العمل. تعتبر الشروط التي لا تُرجع أي قيمة  ، وتعتبر أي قيمة أخرى هي "
-"الحقيقة المنطقية."
+"الشرط الذي سيحدد ما إذا كان هذا الانتقال ممكّنًا أم لا. يتم تقييم الشرط "
+"مقابل مثيل سير العمل. تعتبر الشروط التي لا تُرجع أي قيمة  ، وتعتبر أي قيمة "
+"أخرى هي الحقيقة المنطقية."
 
 #: models/workflow_transition_models.py:64
 msgid "Workflow transition"
@@ -738,27 +739,21 @@ msgstr ""
 #: serializers/workflow_instance_serializers.py:25
 #: serializers/workflow_template_state_serializers.py:47
 #: serializers/workflow_template_transition_serializers.py:111
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template ID"
-msgstr "حالة المسار"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:37
 #: serializers/workflow_instance_serializers.py:132
-#, fuzzy
-#| msgid "Document"
 msgid "Document URL"
-msgstr "الوثيقة"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:49
 msgid "Primary key of the transition to be added."
 msgstr "سيتم إضافة المفتاح الأساسي للانتقال."
 
 #: serializers/workflow_instance_serializers.py:50
-#, fuzzy
-#| msgid "Transition"
 msgid "Transition ID"
-msgstr "انتقال"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:55
 #: serializers/workflow_instance_serializers.py:151
@@ -774,10 +769,8 @@ msgid "URL"
 msgstr "URL"
 
 #: serializers/workflow_instance_serializers.py:74
-#, fuzzy
-#| msgid "Workflow instance"
 msgid "Workflow instance URL"
-msgstr "المسار المشابه"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:86
 #: serializers/workflow_instance_serializers.py:148
@@ -785,22 +778,16 @@ msgstr "المسار المشابه"
 #: serializers/workflow_template_transition_serializers.py:41
 #: serializers/workflow_template_transition_serializers.py:114
 #: serializers/workflow_template_transition_serializers.py:218
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template URL"
-msgstr "حالة المسار"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:123
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template"
-msgstr "حالة المسار"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:135
-#, fuzzy
-#| msgid "Get last log entry"
 msgid "Last log entry"
-msgstr "احصل على آخر إدخال في السجل"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:139
 msgid "Log entries URL"
@@ -811,52 +798,40 @@ msgid "A link to the entire history of this workflow."
 msgstr "ربط سجل المسار"
 
 #: serializers/workflow_instance_serializers.py:144
-#, fuzzy
-#| msgid "Last transition"
 msgid "Log entry transitions URL"
-msgstr "الانتقال الأخير"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:152
 msgid ""
 "API URL pointing to a workflow in relation to the document to which it is "
 "attached. This URL is different than the canonical workflow URL."
 msgstr ""
-"يشير عنوان URL الخاص بواجهة برمجة التطبيقات إلى سير عمل يتعلق بالوثيقةالمرفق "
-"به. يختلف عنوان URL هذا عن عنوان URL الأساسي لسير العمل."
+"يشير عنوان URL الخاص بواجهة برمجة التطبيقات إلى سير عمل يتعلق بالوثيقةالمرفق"
+" به. يختلف عنوان URL هذا عن عنوان URL الأساسي لسير العمل."
 
 #: serializers/workflow_template_serializers.py:13
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "أنواع الوثائق"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:18
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "أنواع الوثائق"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:23
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "أنواع الوثائق"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:28
 msgid "Image URL"
 msgstr ""
 
 #: serializers/workflow_template_serializers.py:32
-#, fuzzy
-#| msgid "States"
 msgid "States URL"
-msgstr "تنص على"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:36
-#, fuzzy
-#| msgid "Transitions"
 msgid "Transitions URL"
-msgstr "الانتقالات"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:65
 msgid "Primary key of the document type to add to the workflow."
@@ -864,10 +839,8 @@ msgstr ""
 
 #: serializers/workflow_template_serializers.py:66
 #: serializers/workflow_template_serializers.py:75
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "أنواع الوثائق"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:74
 msgid "Primary key of the document type to remove from the workflow."
@@ -875,17 +848,13 @@ msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:32
 #: serializers/workflow_template_state_serializers.py:87
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template state ID"
-msgstr "حالة المسار"
+msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:36
 #: serializers/workflow_template_state_serializers.py:91
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template state URL"
-msgstr "حالة المسار"
+msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:49
 msgid "Primary key of the workflow template transition to be added."
@@ -896,16 +865,12 @@ msgid "Workflow template transition ID"
 msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:55
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow template transition URL"
-msgstr "تغير المسار"
+msgstr ""
 
 #: serializers/workflow_template_state_serializers.py:11
-#, fuzzy
-#| msgid "Actions"
 msgid "Actions URL"
-msgstr "الإجراءات"
+msgstr ""
 
 #: serializers/workflow_template_state_serializers.py:23
 msgid "Escalations URL"
@@ -913,49 +878,37 @@ msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:49
 #: serializers/workflow_template_transition_serializers.py:226
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow transition ID"
-msgstr "تغير المسار"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:53
 #: serializers/workflow_template_transition_serializers.py:230
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow transition URL"
-msgstr "تغير المسار"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:86
 msgid "Primary key of the destination state to be added."
 msgstr "المفتاح الأساسي للدولة الوجهة المراد إضافتها."
 
 #: serializers/workflow_template_transition_serializers.py:87
-#, fuzzy
-#| msgid "Destination state"
 msgid "Destination state ID"
-msgstr "الهدف"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:92
-#, fuzzy
-#| msgid "Fields"
 msgid "Field list URL"
-msgstr "مجالات"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:99
 msgid "Primary key of the origin state to be added."
 msgstr "المفتاح الأساسي لحالة الأصل المراد إضافتها."
 
 #: serializers/workflow_template_transition_serializers.py:100
-#, fuzzy
-#| msgid "Origin state"
 msgid "Origin state ID"
-msgstr "المنشأ"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:105
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger list URL"
-msgstr "محفزات"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:198
 msgid "Event Type ID"
@@ -976,8 +929,8 @@ msgid ""
 "The threshold at which the WORKFLOWS_IMAGE_CACHE_STORAGE_BACKEND will start "
 "deleting the oldest workflow image cache files. Specify the size in bytes."
 msgstr ""
-"الحد الذي سيبدأ عنده WORKFLOWS_IMAGE_CACHE_STORAGE_BACKEND في حذف أقدم ملفات "
-"ذاكرة التخزين المؤقت لصورة مسار العمل. حدد الحجم بالبايت."
+"الحد الذي سيبدأ عنده WORKFLOWS_IMAGE_CACHE_STORAGE_BACKEND في حذف أقدم ملفات"
+" ذاكرة التخزين المؤقت لصورة مسار العمل. حدد الحجم بالبايت."
 
 #: settings.py:37
 msgid ""
@@ -999,8 +952,8 @@ msgstr ""
 
 #: storages.py:14
 msgid ""
-"Unable to initialize the workflow preview storage. Check the settings {} and "
-"{} for formatting errors."
+"Unable to initialize the workflow preview storage. Check the settings {} and"
+" {} for formatting errors."
 msgstr ""
 "غير قادر على تهيئة تخزين معاينةالمسار. تحقق من إعدادات {} و {} لأخطاء "
 "التنسيق."
@@ -1011,8 +964,8 @@ msgstr "معاينة المسار"
 
 #: views/workflow_instance_views.py:40
 msgid ""
-"Assign workflows to the document type of this document to have this document "
-"execute those workflows. "
+"Assign workflows to the document type of this document to have this document"
+" execute those workflows. "
 msgstr "يجب تحديد مسارات الوثيقة أولاً ! لتفعيل المسارات للوثيقة"
 
 #: views/workflow_instance_views.py:44
@@ -1026,7 +979,8 @@ msgstr "سير عمل الوثيقة: %s"
 
 #: views/workflow_instance_views.py:74
 msgid ""
-"This view will show the state changes as a workflow instance is transitioned."
+"This view will show the state changes as a workflow instance is "
+"transitioned."
 msgstr "ستُظهر طريقة العرض هذه التغييرات حال انتقال المسار."
 
 #: views/workflow_instance_views.py:78
@@ -1058,8 +1012,7 @@ msgstr "إختيار"
 
 #: views/workflow_instance_views.py:225
 #, python-format
-msgid ""
-"Select transition for workflow \"%(workflow)s\" of document \"%(document)s\""
+msgid "Select transition for workflow \"%(workflow)s\" of document \"%(document)s\""
 msgstr ""
 
 #: views/workflow_proxy_views.py:37
@@ -1096,7 +1049,8 @@ msgstr "لا توجد وثائق في المسار"
 msgid "Documents in the workflow \"%s\", state \"%s\""
 msgstr "الوثائق الموجودة في المسار &quot;%s&quot; ، الحالة &quot;%s&quot;"
 
-#: views/workflow_proxy_views.py:126 views/workflow_template_state_views.py:357
+#: views/workflow_proxy_views.py:126
+#: views/workflow_template_state_views.py:357
 msgid "Create states and link them using transitions."
 msgstr "إنشاء حالات وربطها باستخدام التحولات."
 
@@ -1104,7 +1058,8 @@ msgstr "إنشاء حالات وربطها باستخدام التحولات."
 msgid "This workflow doesn't have any state"
 msgstr "المسار هذا ليس له أي حالة"
 
-#: views/workflow_proxy_views.py:132 views/workflow_template_state_views.py:363
+#: views/workflow_proxy_views.py:132
+#: views/workflow_template_state_views.py:363
 #, python-format
 msgid "States of workflow: %s"
 msgstr "حالات المسار: %s"
@@ -1156,8 +1111,8 @@ msgstr "تعديل إجراء حالة المسار: %s"
 
 #: views/workflow_template_state_views.py:194
 msgid ""
-"Workflow state actions are macros that get executed when documents enters or "
-"leaves the state in which they reside."
+"Workflow state actions are macros that get executed when documents enters or"
+" leaves the state in which they reside."
 msgstr ""
 "إجراءات حالة المسار هي وحدات ماكرو يتم تنفيذها عند دخول الوثائق أو حذف "
 "حالتها."
@@ -1212,7 +1167,8 @@ msgstr "تعديل انتقال المسار: %s"
 
 #: views/workflow_template_transition_views.py:165
 msgid ""
-"Create a transition and use it to move a workflow from  one state to another."
+"Create a transition and use it to move a workflow from  one state to "
+"another."
 msgstr "إنشاء انتقال واستخدمه لنقل المسار"
 
 #: views/workflow_template_transition_views.py:169
@@ -1241,8 +1197,8 @@ msgstr "تعديل حقل انتقال المسار: %s"
 
 #: views/workflow_template_transition_views.py:309
 msgid ""
-"Workflow transition fields allow adding data to the workflow's context. This "
-"additional context data can then be used by other elements of the workflow "
+"Workflow transition fields allow adding data to the workflow's context. This"
+" additional context data can then be used by other elements of the workflow "
 "system like the workflow state actions."
 msgstr ""
 "تسمح حقول انتقال سير العمل بإضافة البيانات إلى سياق سير العمل. يمكن بعد ذلك "

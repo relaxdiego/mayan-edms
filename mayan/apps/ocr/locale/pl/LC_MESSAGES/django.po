@@ -1,29 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Tomasz Szymanowicz <alakdae@gmail.com>, 2022
-# Wojciech Warczakowski <w.warczakowski@gmail.com>, 2022
-# mic <winterfall24@gmail.com>, 2022
-#
+# mic <winterfall24@gmail.com>, 2023
+# Wojciech Warczakowski <w.warczakowski@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Tomasz Szymanowicz <alakdae@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: mic <winterfall24@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Tomasz Szymanowicz <alakdae@gmail.com>, 2023\n"
 "Language-Team: Polish (https://www.transifex.com/rosarior/teams/13584/pl/)\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
-"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
-"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
 #: search.py:18 settings.py:11
@@ -35,10 +33,10 @@ msgid "The OCR content."
 msgstr "Zawartość OCR."
 
 #: apps.py:121
-msgid "A generator returning the document's pages OCR content."
-msgstr "Generator zwracający treść dokumentu OCR."
+msgid "A generator returning the document's version pages OCR content."
+msgstr ""
 
-#: apps.py:122
+#: apps.py:123
 msgid "OCR content"
 msgstr "Treść OCR"
 
@@ -108,10 +106,8 @@ msgid "Automatically queue newly created documents for OCR."
 msgstr "Automatically queue newly created documents for OCR."
 
 #: models.py:27
-#, fuzzy
-#| msgid "Submit for OCR"
 msgid "Auto OCR"
-msgstr "Zgłoś do OCR"
+msgstr ""
 
 #: models.py:33
 msgid "Document type settings"
@@ -158,24 +154,21 @@ msgid "Change document type OCR settings"
 msgstr "Zmień ustawienia OCR typu dokumentu"
 
 #: queues.py:10
-msgid "Finish document file OCR"
-msgstr ""
+msgid "Finish document version OCR"
+msgstr "Zakończ wersję dokumentu OCR"
 
 #: queues.py:14
-msgid "Document file page OCR"
-msgstr ""
+msgid "Document version page OCR"
+msgstr "Wersja dokumentu OCR"
 
-#: queues.py:18
-msgid "Document file OCR"
-msgstr ""
-
-#: search.py:12 search.py:24
+#: queues.py:18 search.py:12 search.py:24
 msgid "Document version OCR"
 msgstr "OCR wersji dokumentu"
 
 #: settings.py:18
 msgid "Set new document types to perform OCR automatically by default."
-msgstr "Ustaw nowe typy dokumentów, aby domyślnie wykonywać OCR automatycznie."
+msgstr ""
+"Ustaw nowe typy dokumentów, aby domyślnie wykonywać OCR automatycznie."
 
 #: settings.py:23
 msgid "Full path to the backend to be used to do OCR."

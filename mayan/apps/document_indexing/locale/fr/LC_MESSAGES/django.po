@@ -1,31 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Olivier W, 2022
-# Guillaume Trottier <gui.trottier@gmail.com>, 2022
-# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2022
-# Yves Dubois <ydubois@gmail.com>, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Roberto Rosario, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-#
+# Guillaume Trottier <gui.trottier@gmail.com>, 2023
+# Olivier W, 2023
+# Roberto Rosario, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Yves Dubois <ydubois@gmail.com>, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: admin.py:24
 msgid "None"
@@ -240,7 +239,8 @@ msgid "Slug"
 msgstr "Jeton"
 
 #: models/index_template_models.py:44
-msgid "Causes this index to be visible and updated when document data changes."
+msgid ""
+"Causes this index to be visible and updated when document data changes."
 msgstr ""
 "Permet à cet index d'être à la fois visible et mis à jour quand le contenu "
 "d'un document est modifié."
@@ -282,13 +282,13 @@ msgstr "Expression d'indexation"
 #: models/index_template_models.py:161
 msgid "Causes this node to be visible and updated when document data changes."
 msgstr ""
-"Permet à ce nœud d'être visible et mis à jour quand le contenu d'un document "
-"est modifié."
+"Permet à ce nœud d'être visible et mis à jour quand le contenu d'un document"
+" est modifié."
 
 #: models/index_template_models.py:169
 msgid ""
-"Check this option to have this node act as a container for documents and not "
-"as a parent for further nodes."
+"Check this option to have this node act as a container for documents and not"
+" as a parent for further nodes."
 msgstr ""
 "Cochez cette option pour permettre à ce nœud d'être un conteneur de "
 "documents et pas seulement un nœud parent d'autres nœuds enfants."
@@ -372,29 +372,23 @@ msgstr "Somme de contrôle du document"
 #: serializers.py:18 serializers.py:58 serializers.py:124 serializers.py:185
 #: serializers.py:275
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:21 serializers.py:264
-#, fuzzy
-#| msgid "Nodes"
 msgid "Nodes URL"
-msgstr "Noeuds"
+msgstr ""
 
 #: serializers.py:46
 msgid "Children URL"
 msgstr ""
 
 #: serializers.py:49
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Documents"
+msgstr ""
 
 #: serializers.py:52 serializers.py:118 serializers.py:176
-#, fuzzy
-#| msgid "Index"
 msgid "Index URL"
-msgstr "Index"
+msgstr ""
 
 #: serializers.py:55 serializers.py:121 serializers.py:182
 msgid "Parent URL"
@@ -410,25 +404,21 @@ msgstr ""
 
 #: serializers.py:237
 msgid ""
-"URL of the API endpoint showing the list document types associated with this "
-"index template."
+"URL of the API endpoint showing the list document types associated with this"
+" index template."
 msgstr ""
 
 #: serializers.py:239
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Types de documents"
+msgstr ""
 
 #: serializers.py:245
 msgid "URL of the API endpoint to add document types to this index template."
 msgstr ""
 
 #: serializers.py:247
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Types de documents"
+msgstr ""
 
 #: serializers.py:253
 msgid ""
@@ -436,22 +426,16 @@ msgid ""
 msgstr ""
 
 #: serializers.py:255
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Types de documents"
+msgstr ""
 
 #: serializers.py:260
-#, fuzzy
-#| msgid "Index template node"
 msgid "Index template root node ID"
-msgstr "Nœud de modèle d'index"
+msgstr ""
 
 #: serializers.py:267
-#, fuzzy
-#| msgid "Rebuild index"
 msgid "Rebuild URL"
-msgstr "Reconstruire l'index"
+msgstr ""
 
 #: serializers.py:271
 msgid "Reset URL"
@@ -462,10 +446,8 @@ msgid "Primary key of the document type to add to the index template."
 msgstr "Clé primaire du type de document à ajouter au modèle d'index."
 
 #: serializers.py:318 serializers.py:327
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type ID"
-msgstr "Type de document"
+msgstr ""
 
 #: serializers.py:326
 msgid "Primary key of the document type to remove from the index template."
@@ -476,8 +458,8 @@ msgid ""
 "This could mean that no index templates have been created or that there are "
 "index templates but they are no properly defined."
 msgstr ""
-"Cela peut signifier qu'aucun modèle d'index n'a été créé ou qu'il existe des "
-"modèles d'index mais qu'ils ne sont pas correctement définis."
+"Cela peut signifier qu'aucun modèle d'index n'a été créé ou qu'il existe des"
+" modèles d'index mais qu'ils ne sont pas correctement définis."
 
 #: views/index_instance_views.py:41
 msgid "There are no index instances available."
@@ -536,8 +518,8 @@ msgstr "Index liés au type de document: %s"
 #: views/index_template_views.py:88
 msgid ""
 "Indexes group document automatically into levels. Indexes are defined using "
-"template whose markers are replaced with direct properties of documents like "
-"label or description, or that of extended properties like metadata."
+"template whose markers are replaced with direct properties of documents like"
+" label or description, or that of extended properties like metadata."
 msgstr ""
 
 #: views/index_template_views.py:94
@@ -563,8 +545,8 @@ msgid ""
 "built. Only the events of the documents of the types select will trigger "
 "updates in the index."
 msgstr ""
-"Seuls les documents des types sélectionnés seront affichés dans l'index lors "
-"de la construction. Seuls les événements des documents des types "
+"Seuls les documents des types sélectionnés seront affichés dans l'index lors"
+" de la construction. Seuls les événements des documents des types "
 "sélectionnés déclencheront des mises à jour dans l'index."
 
 #: views/index_template_views.py:154

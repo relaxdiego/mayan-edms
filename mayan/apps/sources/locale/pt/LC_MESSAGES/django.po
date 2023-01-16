@@ -1,36 +1,35 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Aline Freitas <aline@alinefreitas.com.br>, 2022
-# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2022
-# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatica@protonmail.com>, 2022
-# Jadson Ribeiro <jadsonbr@outlook.com.br>, 2022
-# Emerson Soares <on.emersonsoares@gmail.com>, 2022
-# Renata Oliveira <renatabels@gmail.com>, 2022
-# Vítor Figueiró <vfigueiro@gmail.com>, 2022
-# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-# Roberto Rosario, 2022
-# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2022
-# Márcia Ferreira, 2022
-#
+# Renata Oliveira <renatabels@gmail.com>, 2023
+# Vítor Figueiró <vfigueiro@gmail.com>, 2023
+# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2023
+# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2023
+# Jadson Ribeiro <jadsonbr@outlook.com.br>, 2023
+# Aline Freitas <aline@alinefreitas.com.br>, 2023
+# Emerson Soares <on.emersonsoares@gmail.com>, 2023
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2023
+# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatica@protonmail.com>, 2023
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023
+# Márcia Ferreira, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Márcia Ferreira, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/"
-"pt/)\n"
-"Language: pt\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:53 events.py:6 links.py:144 menus.py:6 models.py:35 queues.py:7
 #: settings.py:13 views/source_views.py:177
@@ -47,8 +46,8 @@ msgid ""
 "create at least a web form source to be able to upload documents from a "
 "browser."
 msgstr ""
-"Fontes de documentos são a forma como os novos documentos são alimentados ao "
-"Mayan EDMS. Crie pelo menos uma fonte de formulário da web para poder "
+"Fontes de documentos são a forma como os novos documentos são alimentados ao"
+" Mayan EDMS. Crie pelo menos uma fonte de formulário da web para poder "
 "carregar documentos a partir de um navegador."
 
 #: apps.py:108
@@ -187,14 +186,12 @@ msgid "Handle upload"
 msgstr "Manusear upload"
 
 #: serializers.py:12
-#, fuzzy
-#| msgid "Action"
 msgid "Actions"
-msgstr "Ação"
+msgstr "Ações"
 
 #: serializers.py:18
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:55
 msgid "Optional arguments for the action. Must be JSON formatted."
@@ -215,8 +212,8 @@ msgstr "Argumentos a utilizar quando se cria fontes de backends."
 #: settings.py:26
 msgid "Path to the Storage subclass used to store cached source image files."
 msgstr ""
-"Caminho para a subclasse de Armazenamento utilizado para armazenar fontes de "
-"ficheiros de imagens em cache."
+"Caminho para a subclasse de Armazenamento utilizado para armazenar fontes de"
+" ficheiros de imagens em cache."
 
 #: settings.py:34
 msgid "Arguments to pass to the SOURCES_SOURCE_CACHE_STORAGE_BACKEND."
@@ -267,8 +264,8 @@ msgid ""
 "Select a metadata type to store the email's \"from\" value. Must be a valid "
 "metadata type for the document type selected previously."
 msgstr ""
-"Selecione um tipo de metadado para armazenar o \"de\" do e-mail. Deve ser um "
-"tipo de metadado válido para o tipo de documento previamente selecionado."
+"Selecione um tipo de metadado para armazenar o \"de\" do e-mail. Deve ser um"
+" tipo de metadado válido para o tipo de documento previamente selecionado."
 
 #: source_backends/email_backends.py:115
 msgid "From metadata type"
@@ -328,11 +325,11 @@ msgstr ""
 #: source_backends/email_backends.py:351
 #, python-format
 msgid ""
-"Message ID metadata type \"%(metadata_type)s\" is not valid for the document "
-"type: %(document_type)s"
+"Message ID metadata type \"%(metadata_type)s\" is not valid for the document"
+" type: %(document_type)s"
 msgstr ""
-"Tipo de metadata do ID de mensagem \"%(metadata_type)s\" não é válido para o "
-"tipo de documento: %(document_type)s"
+"Tipo de metadata do ID de mensagem \"%(metadata_type)s\" não é válido para o"
+" tipo de documento: %(document_type)s"
 
 #: source_backends/email_backends.py:400
 msgid "IMAP Mailbox from which to check for messages."
@@ -348,8 +345,8 @@ msgid ""
 "specified in https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 msgstr ""
 "Critérios a serem usados ao buscar mensagens para processamento. Use o "
-"formato especificado em https://tools.ietf.org/html/rfc2060."
-"html#section-6.4.4"
+"formato especificado em "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 
 #: source_backends/email_backends.py:415
 msgid "Search criteria"
@@ -358,13 +355,14 @@ msgstr "Critérios de pesquisa"
 #: source_backends/email_backends.py:423
 msgid ""
 "IMAP STORE command to execute on messages after they are processed. One "
-"command per line. Use the commands specified in https://tools.ietf.org/html/"
-"rfc2060.html#section-6.4.6 or the custom commands for your IMAP server."
+"command per line. Use the commands specified in "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 or the custom "
+"commands for your IMAP server."
 msgstr ""
 "Comando IMAP STORE a ser executado em mensagens após seu processamento. Um "
-"comando por linha. Use os comandos especificados em https://tools.ietf.org/"
-"html/rfc2060.html#section-6.4.6 ou comandos customizados do seu servidor "
-"IMAP."
+"comando por linha. Use os comandos especificados em "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 ou comandos "
+"customizados do seu servidor IMAP."
 
 #: source_backends/email_backends.py:428
 msgid "Store commands"
@@ -373,8 +371,8 @@ msgstr "Armazenar comandos"
 #: source_backends/email_backends.py:435
 msgid "Execute the IMAP expunge command after processing each email message."
 msgstr ""
-"Executar o comando IMAP expunge após o processamento de cada mensagem de e-"
-"mail."
+"Executar o comando IMAP expunge após o processamento de cada mensagem de "
+"e-mail."
 
 #: source_backends/email_backends.py:438
 msgid "Execute expunge"
@@ -463,8 +461,8 @@ msgid ""
 "name=DEVICE` for the list of supported arguments."
 msgstr ""
 "Argumentos YAML formatados a passar à ordem `scanimage`. Os argumentos irão "
-"ser modificados dependendo do dispositivo. Executar `scanimage --ajuda --"
-"dispositivo-nome=DISPOSITIVO` para a lista de argumentos suportados."
+"ser modificados dependendo do dispositivo. Executar `scanimage --ajuda "
+"--dispositivo-nome=DISPOSITIVO` para a lista de argumentos suportados."
 
 #: source_backends/sane_scanner_backends.py:49
 msgid "SANE Scanner"
@@ -587,8 +585,8 @@ msgstr ""
 #: source_backends/staging_folder_backends.py:668
 msgid ""
 "This could mean that the staging folder is empty. It could also mean that "
-"the operating system user account being used for Mayan EDMS doesn't have the "
-"necessary file system permissions for the folder."
+"the operating system user account being used for Mayan EDMS doesn't have the"
+" necessary file system permissions for the folder."
 msgstr ""
 "Isso pode significar que a pasta temporária está vazia. Também pode "
 "significar que o usuário do sistema operacional usado para o Mayan EDMS nao "
@@ -620,8 +618,8 @@ msgstr "Arquivos de pasta temporária"
 
 #: views/base.py:55 wizards.py:58
 msgid ""
-"No interactive document sources have been defined or none have been enabled, "
-"create one before proceeding."
+"No interactive document sources have been defined or none have been enabled,"
+" create one before proceeding."
 msgstr ""
 "Nenhuma fonte interativa de documentos fora definida ou nenhum foi ativada. "
 "Criar uma antes de prosseguir."
@@ -667,8 +665,7 @@ msgstr "O novo documento enfileirado para upload estará disponível em breve."
 #: views/document_views.py:92
 #, python-format
 msgid "Upload a document of type \"%(document_type)s\" from source: %(source)s"
-msgstr ""
-"Carregue um documento do tipo \"%(document_type)s\" da fonte: %(source)s"
+msgstr "Carregue um documento do tipo \"%(document_type)s\" da fonte: %(source)s"
 
 #: views/source_views.py:40
 msgid "New source backend selection"
@@ -705,8 +702,8 @@ msgstr "Não há fontes disponíveis"
 
 #: views/source_views.py:195
 msgid ""
-"This will execute the source code even if the source is not enabled. Sources "
-"that delete content after downloading will not do so while being tested. "
+"This will execute the source code even if the source is not enabled. Sources"
+" that delete content after downloading will not do so while being tested. "
 "Check the source's error log for information during testing. A successful "
 "test will clear the error log."
 msgstr ""
@@ -748,24 +745,3 @@ msgstr "Anterior"
 #: wizards.py:105
 msgid "Next"
 msgstr "Seguinte"
-
-#~ msgid "Cancel upload"
-#~ msgstr "Cancelar carregamento"
-
-#~ msgid "Are you sure you want to cancel this upload?"
-#~ msgstr "Tem a certeza que quer cancelar este carregamento?"
-
-#~ msgid "Drop files or click here to upload files"
-#~ msgstr "Solte os arquivos ou clique aqui para carregá-los"
-
-#~ msgid "Your browser does not support drag and drop file uploads."
-#~ msgstr "Seu navegador não suporta uploads de arquivos com drag and drop."
-
-#~ msgid "Please use the fallback form below to upload your files."
-#~ msgstr "Por favor use o formulário abaixo para carregar seus arquivos."
-
-#~ msgid "Clear"
-#~ msgstr "Limpar"
-
-#~ msgid "Server responded with {{statusCode}} code."
-#~ msgstr "O servidor responder com o código {{statusCode}}."

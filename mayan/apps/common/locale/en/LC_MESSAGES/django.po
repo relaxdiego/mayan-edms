@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
 "PO-Revision-Date: 2020-07-09 04:05+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:131 permissions.py:6 settings.py:16
+#: apps.py:132 permissions.py:6 settings.py:16
 msgid "Common"
 msgstr ""
 
@@ -82,20 +82,20 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: literals.py:21
+#: literals.py:25
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr ""
 
-#: literals.py:30
+#: literals.py:34
 msgid "Days"
 msgstr ""
 
-#: literals.py:31
+#: literals.py:35
 msgid "Hours"
 msgstr ""
 
-#: literals.py:32
+#: literals.py:36
 msgid "Minutes"
 msgstr ""
 

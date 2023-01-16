@@ -1,31 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# mic <winterfall24@gmail.com>, 2022
-# kicior kicior <kiciorek+github@gmail.com>, 2022
-# Marcin Lozynski <mlozynski@wp.pl>, 2022
-# Tomasz Szymanowicz <alakdae@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Wojciech Warczakowski <w.warczakowski@gmail.com>, 2022
-#
+# mic <winterfall24@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Marcin Lozynski <mlozynski@wp.pl>, 2023
+# Tomasz Szymanowicz <alakdae@gmail.com>, 2023
+# Wojciech Warczakowski <w.warczakowski@gmail.com>, 2023
+# kicior kicior <kiciorek+github@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Wojciech Warczakowski <w.warczakowski@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"Last-Translator: kicior kicior <kiciorek+github@gmail.com>, 2023\n"
 "Language-Team: Polish (https://www.transifex.com/rosarior/teams/13584/pl/)\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
-"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
-"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: apps.py:36 events.py:6 permissions.py:6 settings.py:11
 msgid "Authentication"
@@ -139,7 +137,7 @@ msgstr "Wykonaj"
 
 #: templates/authentication/login.html:76
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: templates/authentication/login.html:98
 msgid "Forgot your password?"
@@ -156,7 +154,8 @@ msgstr "Reset hasła"
 
 #: templates/authentication/password_reset_complete.html:15
 msgid "Password reset complete! Click the link below to login."
-msgstr "Reset hasła wykonano pomyślnie! Kliknij na link poniżej i zaloguj się."
+msgstr ""
+"Reset hasła wykonano pomyślnie! Kliknij na link poniżej i zaloguj się."
 
 #: templates/authentication/password_reset_complete.html:17
 msgid "Login page"

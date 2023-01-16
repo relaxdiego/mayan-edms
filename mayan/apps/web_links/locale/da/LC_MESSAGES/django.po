@@ -2,23 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Allan Møller <it@brandts.dk>, 2022
-# Rasmus Kierudsen <tebrasso@gmail.com>, 2022
-#
+# Allan Møller <it@brandts.dk>, 2023
+# Rasmus Kierudsen <tebrasso@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Rasmus Kierudsen <tebrasso@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Rasmus Kierudsen <tebrasso@gmail.com>, 2023\n"
 "Language-Team: Danish (https://www.transifex.com/rosarior/teams/13584/da/)\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:43
@@ -111,32 +111,24 @@ msgid "Primary key of the document type to add to the web link."
 msgstr ""
 
 #: serializers.py:17 serializers.py:26
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Dokumenttyper"
+msgstr ""
 
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
 msgstr ""
 
 #: serializers.py:33
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Dokumenttyper"
+msgstr ""
 
 #: serializers.py:37
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Dokumenttyper"
+msgstr ""
 
 #: serializers.py:41
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Dokumenttyper"
+msgstr ""
 
 #: serializers.py:48 serializers.py:63
 msgid "URL"

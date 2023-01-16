@@ -1,25 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# bwakkie <bwakkie@gmail.com>, 2022
-# Roberto Rosario, 2022
-# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
-#
+# bwakkie <bwakkie@gmail.com>, 2023
+# Roberto Rosario, 2023
+# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:48+0000\n"
+"Last-Translator: j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2023\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:35 events.py:6 permissions.py:6 queues.py:7 settings.py:21
@@ -180,13 +180,11 @@ msgstr "Opgeslagen lagen"
 
 #: models.py:111
 msgid "Content type"
-msgstr ""
+msgstr "Inhoudstype"
 
 #: models.py:114
-#, fuzzy
-#| msgid "Object layer"
 msgid "Object ID"
-msgstr "Object laag"
+msgstr "Object ID"
 
 #: models.py:120 models.py:170
 msgid "Enabled"
@@ -270,7 +268,7 @@ msgstr ""
 
 #: serializers.py:17
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: settings.py:30
 msgid ""
@@ -327,8 +325,8 @@ msgstr ""
 
 #: storages.py:28
 msgid ""
-"Unable to initialize the converter asset cachestorage. Check the settings {} "
-"and {} for formatting errors."
+"Unable to initialize the converter asset cachestorage. Check the settings {}"
+" and {} for formatting errors."
 msgstr ""
 
 #: storages.py:34
@@ -677,7 +675,8 @@ msgstr ""
 
 #: views/asset_views.py:140
 msgid ""
-"Assets are files that can be used in conjuction with certain transformations."
+"Assets are files that can be used in conjuction with certain "
+"transformations."
 msgstr ""
 
 #: views/asset_views.py:143
@@ -738,8 +737,8 @@ msgstr "Pagina's"
 
 #: workflow_actions.py:25
 msgid ""
-"Pages to which the new transformations will be added. Separate by commas and/"
-"or use a dashes for a ranges. Leave blank to select all pages."
+"Pages to which the new transformations will be added. Separate by commas "
+"and/or use a dashes for a ranges. Leave blank to select all pages."
 msgstr ""
 
 #: workflow_actions.py:32

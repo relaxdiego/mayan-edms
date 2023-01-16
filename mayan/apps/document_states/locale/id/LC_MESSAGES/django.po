@@ -1,26 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Dzikri Hakim <dzikers@gmail.com>, 2022
-# Sehat <sehat75@yahoo.com>, 2022
-# Adek Lanin, 2022
-#
+# Sehat <sehat75@yahoo.com>, 2023
+# Dzikri Hakim <dzikers@gmail.com>, 2023
+# Adek Lanin, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Adek Lanin, 2022\n"
-"Language-Team: Indonesian (https://www.transifex.com/rosarior/teams/13584/"
-"id/)\n"
-"Language: id\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Adek Lanin, 2023\n"
+"Language-Team: Indonesian (https://www.transifex.com/rosarior/teams/13584/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps.py:91 events.py:6 forms.py:44 links.py:52 links.py:93 links.py:281
@@ -162,8 +161,9 @@ msgstr "Tindakan"
 msgid "Namespace"
 msgstr ""
 
-#: forms.py:162 models/workflow_models.py:43 models/workflow_state_models.py:50
-#: models/workflow_state_models.py:120 models/workflow_transition_models.py:38
+#: forms.py:162 models/workflow_models.py:43
+#: models/workflow_state_models.py:50 models/workflow_state_models.py:120
+#: models/workflow_transition_models.py:38
 #: models/workflow_transition_models.py:116
 msgid "Label"
 msgstr "Label"
@@ -215,7 +215,8 @@ msgstr "Hapus"
 msgid "Document types"
 msgstr "Tipe dokumen"
 
-#: links.py:82 links.py:116 links.py:154 links.py:184 links.py:213 links.py:259
+#: links.py:82 links.py:116 links.py:154 links.py:184 links.py:213
+#: links.py:259
 msgid "Edit"
 msgstr "Sunting"
 
@@ -296,8 +297,8 @@ msgid ""
 "Can be a static value or a template. In addition to the workflow instance, "
 "the template receives the workflow instance context which itself includes "
 "the \"entry_log\" (containing \"workflow_instance\", \"datetime\", "
-"\"transition\", \"user\", \"comment\") and any values from workflow template "
-"fields."
+"\"transition\", \"user\", \"comment\") and any values from workflow template"
+" fields."
 msgstr ""
 
 #: literals.py:29
@@ -508,8 +509,8 @@ msgstr ""
 #: models/workflow_state_models.py:139
 msgid ""
 "The condition that will determine if this state action is executed or not. "
-"The condition is evaluated against the workflow instance. Conditions that do "
-"not return any value, that return the Python logical None, or an empty "
+"The condition is evaluated against the workflow instance. Conditions that do"
+" not return any value, that return the Python logical None, or an empty "
 "string ('') are considered to be logical false, any other value is "
 "considered to be the logical true."
 msgstr ""
@@ -570,10 +571,10 @@ msgstr "Tujuan kondisi"
 #: models/workflow_transition_models.py:50
 msgid ""
 "The condition that will determine if this transition is enabled or not. The "
-"condition is evaluated against the workflow instance. Conditions that do not "
-"return any value, that return the Python logical None, or an empty string "
-"('') are considered to be logical false, any other value is considered to be "
-"the logical true."
+"condition is evaluated against the workflow instance. Conditions that do not"
+" return any value, that return the Python logical None, or an empty string "
+"('') are considered to be logical false, any other value is considered to be"
+" the logical true."
 msgstr ""
 
 #: models/workflow_transition_models.py:64
@@ -716,27 +717,21 @@ msgstr ""
 #: serializers/workflow_instance_serializers.py:25
 #: serializers/workflow_template_state_serializers.py:47
 #: serializers/workflow_template_transition_serializers.py:111
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template ID"
-msgstr "Kondisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:37
 #: serializers/workflow_instance_serializers.py:132
-#, fuzzy
-#| msgid "Document"
 msgid "Document URL"
-msgstr "Dokumen"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:49
 msgid "Primary key of the transition to be added."
 msgstr "Kunci utama dari transisi yang ditambahkan."
 
 #: serializers/workflow_instance_serializers.py:50
-#, fuzzy
-#| msgid "Transition"
 msgid "Transition ID"
-msgstr "Transisi"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:55
 #: serializers/workflow_instance_serializers.py:151
@@ -752,10 +747,8 @@ msgid "URL"
 msgstr ""
 
 #: serializers/workflow_instance_serializers.py:74
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow instance URL"
-msgstr "Kondisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:86
 #: serializers/workflow_instance_serializers.py:148
@@ -763,16 +756,12 @@ msgstr "Kondisi alur kerja"
 #: serializers/workflow_template_transition_serializers.py:41
 #: serializers/workflow_template_transition_serializers.py:114
 #: serializers/workflow_template_transition_serializers.py:218
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template URL"
-msgstr "Kondisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:123
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template"
-msgstr "Kondisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:135
 msgid "Last log entry"
@@ -787,10 +776,8 @@ msgid "A link to the entire history of this workflow."
 msgstr "Tautan ke seluruh sejarah alur kerja ini"
 
 #: serializers/workflow_instance_serializers.py:144
-#, fuzzy
-#| msgid "Last transition"
 msgid "Log entry transitions URL"
-msgstr "Transisi terakhir"
+msgstr ""
 
 #: serializers/workflow_instance_serializers.py:152
 msgid ""
@@ -799,38 +786,28 @@ msgid ""
 msgstr ""
 
 #: serializers/workflow_template_serializers.py:13
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Tipe dokumen"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:18
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Tipe dokumen"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:23
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Tipe dokumen"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:28
 msgid "Image URL"
 msgstr ""
 
 #: serializers/workflow_template_serializers.py:32
-#, fuzzy
-#| msgid "States"
 msgid "States URL"
-msgstr "Kondisi"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:36
-#, fuzzy
-#| msgid "Transitions"
 msgid "Transitions URL"
-msgstr "Transisi"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:65
 msgid "Primary key of the document type to add to the workflow."
@@ -838,10 +815,8 @@ msgstr ""
 
 #: serializers/workflow_template_serializers.py:66
 #: serializers/workflow_template_serializers.py:75
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Tipe dokumen"
+msgstr ""
 
 #: serializers/workflow_template_serializers.py:74
 msgid "Primary key of the document type to remove from the workflow."
@@ -849,17 +824,13 @@ msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:32
 #: serializers/workflow_template_state_serializers.py:87
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template state ID"
-msgstr "Kondisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:36
 #: serializers/workflow_template_state_serializers.py:91
-#, fuzzy
-#| msgid "Workflow state"
 msgid "Workflow template state URL"
-msgstr "Kondisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:49
 msgid "Primary key of the workflow template transition to be added."
@@ -870,16 +841,12 @@ msgid "Workflow template transition ID"
 msgstr ""
 
 #: serializers/workflow_template_state_escalation_serializers.py:55
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow template transition URL"
-msgstr "Transisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_template_state_serializers.py:11
-#, fuzzy
-#| msgid "Actions"
 msgid "Actions URL"
-msgstr "Aksi"
+msgstr ""
 
 #: serializers/workflow_template_state_serializers.py:23
 msgid "Escalations URL"
@@ -887,27 +854,21 @@ msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:49
 #: serializers/workflow_template_transition_serializers.py:226
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow transition ID"
-msgstr "Transisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:53
 #: serializers/workflow_template_transition_serializers.py:230
-#, fuzzy
-#| msgid "Workflow transition"
 msgid "Workflow transition URL"
-msgstr "Transisi alur kerja"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:86
 msgid "Primary key of the destination state to be added."
 msgstr "Kunci utama dari kondisi tujuan yang ditambahkan"
 
 #: serializers/workflow_template_transition_serializers.py:87
-#, fuzzy
-#| msgid "Destination state"
 msgid "Destination state ID"
-msgstr "Tujuan kondisi"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:92
 msgid "Field list URL"
@@ -918,16 +879,12 @@ msgid "Primary key of the origin state to be added."
 msgstr "Kunci utama dari kondisi asli yang ditambahkan"
 
 #: serializers/workflow_template_transition_serializers.py:100
-#, fuzzy
-#| msgid "Origin state"
 msgid "Origin state ID"
-msgstr "Kondisi asli"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:105
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger list URL"
-msgstr "Pemicu"
+msgstr ""
 
 #: serializers/workflow_template_transition_serializers.py:198
 msgid "Event Type ID"
@@ -967,8 +924,8 @@ msgstr ""
 
 #: storages.py:14
 msgid ""
-"Unable to initialize the workflow preview storage. Check the settings {} and "
-"{} for formatting errors."
+"Unable to initialize the workflow preview storage. Check the settings {} and"
+" {} for formatting errors."
 msgstr ""
 
 #: storages.py:21
@@ -977,8 +934,8 @@ msgstr ""
 
 #: views/workflow_instance_views.py:40
 msgid ""
-"Assign workflows to the document type of this document to have this document "
-"execute those workflows. "
+"Assign workflows to the document type of this document to have this document"
+" execute those workflows. "
 msgstr ""
 
 #: views/workflow_instance_views.py:44
@@ -992,7 +949,8 @@ msgstr "Alur kerja untuk dokumen: %s"
 
 #: views/workflow_instance_views.py:74
 msgid ""
-"This view will show the state changes as a workflow instance is transitioned."
+"This view will show the state changes as a workflow instance is "
+"transitioned."
 msgstr ""
 
 #: views/workflow_instance_views.py:78
@@ -1024,8 +982,7 @@ msgstr ""
 
 #: views/workflow_instance_views.py:225
 #, python-format
-msgid ""
-"Select transition for workflow \"%(workflow)s\" of document \"%(document)s\""
+msgid "Select transition for workflow \"%(workflow)s\" of document \"%(document)s\""
 msgstr ""
 
 #: views/workflow_proxy_views.py:37
@@ -1062,7 +1019,8 @@ msgstr ""
 msgid "Documents in the workflow \"%s\", state \"%s\""
 msgstr ""
 
-#: views/workflow_proxy_views.py:126 views/workflow_template_state_views.py:357
+#: views/workflow_proxy_views.py:126
+#: views/workflow_template_state_views.py:357
 msgid "Create states and link them using transitions."
 msgstr "Buat kondisi dan tautkan ke transisi."
 
@@ -1070,7 +1028,8 @@ msgstr "Buat kondisi dan tautkan ke transisi."
 msgid "This workflow doesn't have any state"
 msgstr "Alur kerja ini tidak memiliki kondisi"
 
-#: views/workflow_proxy_views.py:132 views/workflow_template_state_views.py:363
+#: views/workflow_proxy_views.py:132
+#: views/workflow_template_state_views.py:363
 #, python-format
 msgid "States of workflow: %s"
 msgstr "Kondisi alur kerja: %s"
@@ -1122,8 +1081,8 @@ msgstr ""
 
 #: views/workflow_template_state_views.py:194
 msgid ""
-"Workflow state actions are macros that get executed when documents enters or "
-"leaves the state in which they reside."
+"Workflow state actions are macros that get executed when documents enters or"
+" leaves the state in which they reside."
 msgstr ""
 
 #: views/workflow_template_state_views.py:198
@@ -1176,7 +1135,8 @@ msgstr ""
 
 #: views/workflow_template_transition_views.py:165
 msgid ""
-"Create a transition and use it to move a workflow from  one state to another."
+"Create a transition and use it to move a workflow from  one state to "
+"another."
 msgstr ""
 
 #: views/workflow_template_transition_views.py:169
@@ -1205,8 +1165,8 @@ msgstr ""
 
 #: views/workflow_template_transition_views.py:309
 msgid ""
-"Workflow transition fields allow adding data to the workflow's context. This "
-"additional context data can then be used by other elements of the workflow "
+"Workflow transition fields allow adding data to the workflow's context. This"
+" additional context data can then be used by other elements of the workflow "
 "system like the workflow state actions."
 msgstr ""
 

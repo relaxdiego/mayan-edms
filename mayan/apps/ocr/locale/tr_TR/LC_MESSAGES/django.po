@@ -1,25 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# serhatcan77 <serhat_can@yahoo.com>, 2022
-# Bedreddin Şahbaz, 2022
-#
+# serhatcan77 <serhat_can@yahoo.com>, 2023
+# Bedreddin Şahbaz, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
-"teams/13584/tr_TR/)\n"
-"Language: tr_TR\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Bedreddin Şahbaz, 2023\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
@@ -32,10 +31,10 @@ msgid "The OCR content."
 msgstr "OCR içeriği."
 
 #: apps.py:121
-msgid "A generator returning the document's pages OCR content."
-msgstr "Belgenin sayfalarının OCR içeriğini döndüren bir oluşturucu."
+msgid "A generator returning the document's version pages OCR content."
+msgstr ""
 
-#: apps.py:122
+#: apps.py:123
 msgid "OCR content"
 msgstr "OCR içeriği"
 
@@ -105,10 +104,8 @@ msgid "Automatically queue newly created documents for OCR."
 msgstr "Yeni oluşturulan belgeleri OCR için otomatik olarak kuyruğa al."
 
 #: models.py:27
-#, fuzzy
-#| msgid "Submit for OCR"
 msgid "Auto OCR"
-msgstr "OCR'a Gönder"
+msgstr ""
 
 #: models.py:33
 msgid "Document type settings"
@@ -155,18 +152,14 @@ msgid "Change document type OCR settings"
 msgstr "OCR belge türü ayarlarını değiştir"
 
 #: queues.py:10
-msgid "Finish document file OCR"
-msgstr "Belge dosyası OCR işlemini bitir"
+msgid "Finish document version OCR"
+msgstr ""
 
 #: queues.py:14
-msgid "Document file page OCR"
-msgstr "Belge dosyası sayfası OCR"
+msgid "Document version page OCR"
+msgstr ""
 
-#: queues.py:18
-msgid "Document file OCR"
-msgstr "Belge dosyası OCR'ı"
-
-#: search.py:12 search.py:24
+#: queues.py:18 search.py:12 search.py:24
 msgid "Document version OCR"
 msgstr "Belge sürümü OCR"
 
@@ -197,8 +190,7 @@ msgstr "%(count)d belgeleri OCR kuyruğuna eklendi."
 #: views.py:106
 #, python-format
 msgid "Error deleting document version OCR \"%(instance)s\"; %(exception)s"
-msgstr ""
-"OCR \"%(instance)s\" belge sürümü silinirken hata oluştu; %(exception)s"
+msgstr "OCR \"%(instance)s\" belge sürümü silinirken hata oluştu; %(exception)s"
 
 #: views.py:112
 #, python-format
@@ -248,8 +240,8 @@ msgstr "OCR kuyruğuna gönderilen %(count)d belge sürümleri."
 #: views.py:190
 msgid "Submit the selected document version to the OCR queue?"
 msgid_plural "Submit the selected document versions to the OCR queue?"
-msgstr[0] "Seçilen belge sürümü OCR kuyruğuna gönderilsin mi?"
-msgstr[1] "Seçilen belge sürümleri OCR kuyruğuna gönderilsin mi?"
+msgstr[0] ""
+msgstr[1] ""
 
 #: views.py:226
 #, python-format
@@ -275,8 +267,8 @@ msgid ""
 msgstr ""
 "Bir belge sayfasının OCR içeriğinin değiştirilip değiştirilmeyeceğini "
 "belirleyen koşul. Koşul, yinelenen belge sayfasına göre değerlendirilir. "
-"Herhangi bir değer döndürmeyen, Python mantıksal None veya boş bir dize ('') "
-"döndüren koşullar mantıksal yanlış olarak kabul edilir, diğer tüm değerler "
+"Herhangi bir değer döndürmeyen, Python mantıksal None veya boş bir dize ('')"
+" döndüren koşullar mantıksal yanlış olarak kabul edilir, diğer tüm değerler "
 "mantıksal doğru olarak kabul edilir."
 
 #: workflow_actions.py:31

@@ -1,29 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
-# Ingo Buchholz <ingo.buchholz@takwa.de>, 2022
-# Berny <berny@bernhard-marx.de>, 2022
-# Mathias Behrle <mathiasb@m9s.biz>, 2022
-# Marvin Haschker <marvin@haschker.me>, 2022
-# Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2022
-#
+# Marvin Haschker <marvin@haschker.me>, 2023
+# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
+# Ingo Buchholz <ingo.buchholz@takwa.de>, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
+# Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2023
+# Berny <berny@bernhard-marx.de>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Bjoern Kowarsch <bjoern.kowarsch@gmail.com>, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
-"teams/13584/de_DE/)\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"Last-Translator: Berny <berny@bernhard-marx.de>, 2023\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:41 events.py:6 links.py:33
@@ -184,17 +183,15 @@ msgstr "Prüfe abgelaufene Ausbuchungen"
 
 #: serializers.py:26
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:44
 msgid "Primary key of the document to be checked out."
 msgstr "Primärschlüssel des auszubuchenden Dokuments."
 
 #: serializers.py:45
-#, fuzzy
-#| msgid "Document"
 msgid "Document PK"
-msgstr "Dokument"
+msgstr ""
 
 #: views.py:28
 #, python-format
@@ -276,8 +273,8 @@ msgid ""
 "Checking out a document, blocks certain operations for a predetermined "
 "amount of time."
 msgstr ""
-"Durch Ausbuchen eines Dokuments werden bestimmte Vorgänge für eine bestimmte "
-"Zeitspanne gesperrt."
+"Durch Ausbuchen eines Dokuments werden bestimmte Vorgänge für eine bestimmte"
+" Zeitspanne gesperrt."
 
 #: views.py:184
 msgid "No documents have been checked out"

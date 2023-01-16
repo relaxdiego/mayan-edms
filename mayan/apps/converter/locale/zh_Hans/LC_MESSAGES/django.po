@@ -1,27 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# yan songwei <yansw@vip.163.com>, 2022
-# Roberto Rosario, 2022
-# Ford Guo <agile.guo@gmail.com>, 2022
-# Leon Chu, 2022
-#
+# Ford Guo <agile.guo@gmail.com>, 2023
+# yan songwei <yansw@vip.163.com>, 2023
+# Roberto Rosario, 2023
+# Leon Chu, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Leon Chu, 2022\n"
-"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/"
-"teams/13584/zh-Hans/)\n"
-"Language: zh-Hans\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:48+0000\n"
+"Last-Translator: Leon Chu, 2023\n"
+"Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh-Hans\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps.py:35 events.py:6 permissions.py:6 queues.py:7 settings.py:21
@@ -68,8 +67,7 @@ msgstr "来自poppler-utils软件包的实用程序，用于检查PDF文件。"
 msgid ""
 "Utility from the popper-utils package used to extract pages from PDF files "
 "into PPM format images."
-msgstr ""
-"popper-utils软件包中的实用程序，用于将PDF文件中的页面提取为PPM格式的图像。"
+msgstr "popper-utils软件包中的实用程序，用于将PDF文件中的页面提取为PPM格式的图像。"
 
 #: events.py:10
 msgid "Asset created"
@@ -180,10 +178,8 @@ msgid "Content type"
 msgstr ""
 
 #: models.py:114
-#, fuzzy
-#| msgid "Object layer"
 msgid "Object ID"
-msgstr "对象图层"
+msgstr "对象ID"
 
 #: models.py:120 models.py:170
 msgid "Enabled"
@@ -263,7 +259,7 @@ msgstr ""
 
 #: serializers.py:17
 msgid "URL"
-msgstr ""
+msgstr "网址"
 
 #: settings.py:30
 msgid ""
@@ -320,8 +316,8 @@ msgstr ""
 
 #: storages.py:28
 msgid ""
-"Unable to initialize the converter asset cachestorage. Check the settings {} "
-"and {} for formatting errors."
+"Unable to initialize the converter asset cachestorage. Check the settings {}"
+" and {} for formatting errors."
 msgstr ""
 
 #: storages.py:34
@@ -669,7 +665,8 @@ msgstr "編輯資源項目 : %s"
 
 #: views/asset_views.py:140
 msgid ""
-"Assets are files that can be used in conjuction with certain transformations."
+"Assets are files that can be used in conjuction with certain "
+"transformations."
 msgstr "資源項目是依些可以用來連接特定轉變"
 
 #: views/asset_views.py:143
@@ -727,8 +724,8 @@ msgstr "页面"
 
 #: workflow_actions.py:25
 msgid ""
-"Pages to which the new transformations will be added. Separate by commas and/"
-"or use a dashes for a ranges. Leave blank to select all pages."
+"Pages to which the new transformations will be added. Separate by commas "
+"and/or use a dashes for a ranges. Leave blank to select all pages."
 msgstr ""
 
 #: workflow_actions.py:32

@@ -2,30 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Panasoft, 2022
-# Alex Chigrin <chalex84@mail.ru>, 2022
-# Oleg Sizov <olegsm35@gmail.com>, 2022
-# Daler Abdulloev <abdulloevdaler@gmail.com>, 2022
-# Ilya Pavlov <spirkaa@gmail.com>, 2022
-# Sergey Glita <gsv70@mail.ru>, 2022
-#
+# Panasoft, 2023
+# Daler Abdulloev <abdulloevdaler@gmail.com>, 2023
+# Alex Chigrin <chalex84@mail.ru>, 2023
+# Oleg Sizov <olegsm35@gmail.com>, 2023
+# Sergey Glita <gsv70@mail.ru>, 2023
+# Ilya Pavlov <spirkaa@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Sergey Glita <gsv70@mail.ru>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2023\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: apps.py:54 apps.py:164 apps.py:168 apps.py:172 apps.py:176 apps.py:180
 #: events.py:6 forms.py:14 links.py:30 menus.py:14 models.py:49 models.py:156
@@ -38,10 +36,8 @@ msgid "Cabinet created"
 msgstr "Кабинет создан"
 
 #: events.py:14
-#, fuzzy
-#| msgid "Cabinet edited"
 msgid "Cabinet deleted"
-msgstr "Кабинет изменен"
+msgstr ""
 
 #: events.py:17
 msgid "Cabinet edited"
@@ -197,14 +193,13 @@ msgid "Children"
 msgstr ""
 
 #: serializers.py:23
-msgid "URL of the API endpoint showing the list documents inside this cabinet."
+msgid ""
+"URL of the API endpoint showing the list documents inside this cabinet."
 msgstr "URL-адрес API, показывающий список документов внутри этого кабинета."
 
 #: serializers.py:25
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Документы"
+msgstr ""
 
 #: serializers.py:30
 msgid "The name of this cabinet level appended to the names of its ancestors."
@@ -216,23 +211,19 @@ msgstr ""
 
 #: serializers.py:51
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:84
 msgid "Primary key of the document to add to the cabinet."
 msgstr ""
 
 #: serializers.py:85 serializers.py:94
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document ID"
-msgstr "UUID документа"
+msgstr ""
 
 #: serializers.py:93
-#, fuzzy
-#| msgid "Document removed from cabinet"
 msgid "Primary key of the document to remove from the cabinet."
-msgstr "Документ удален из кабинета"
+msgstr ""
 
 #: templates/cabinets/cabinet_details.html:17
 msgid "Navigation:"

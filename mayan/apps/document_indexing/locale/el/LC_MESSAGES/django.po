@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# pyrotech <anastasios@tutamail.com>, 2022
-# Hmayag Antonian <hmayag@freemail.gr>, 2022
-#
+# Hmayag Antonian <hmayag@freemail.gr>, 2023
+# pyrotech <anastasios@tutamail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Hmayag Antonian <hmayag@freemail.gr>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: pyrotech <anastasios@tutamail.com>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: admin.py:24
@@ -234,7 +234,8 @@ msgid "Slug"
 msgstr "Slug"
 
 #: models/index_template_models.py:44
-msgid "Causes this index to be visible and updated when document data changes."
+msgid ""
+"Causes this index to be visible and updated when document data changes."
 msgstr ""
 "Κάνει το ευρετήριο ορατό και το ενημερώνει όταν αλλάζουν τα δεδομένα των "
 "εγγράφων."
@@ -274,13 +275,13 @@ msgstr "Έκφραση ευρετηριασμού"
 #: models/index_template_models.py:161
 msgid "Causes this node to be visible and updated when document data changes."
 msgstr ""
-"Κάνει αυτόν τον κόμβο ορατό και τον ενημερώνει όταν αλλάζουν τα δεδομένα των "
-"εγγράφων."
+"Κάνει αυτόν τον κόμβο ορατό και τον ενημερώνει όταν αλλάζουν τα δεδομένα των"
+" εγγράφων."
 
 #: models/index_template_models.py:169
 msgid ""
-"Check this option to have this node act as a container for documents and not "
-"as a parent for further nodes."
+"Check this option to have this node act as a container for documents and not"
+" as a parent for further nodes."
 msgstr ""
 "Επιλέξτε εδώ αν θέλετε ο κόμβος να περιλαμβάνει έγγραφα και να μην "
 "χρησιμοποιηθεί ως γονέας για άλλους κόμβους."
@@ -364,7 +365,7 @@ msgstr "Άθροισμα ελέγχου εγγράφου"
 #: serializers.py:18 serializers.py:58 serializers.py:124 serializers.py:185
 #: serializers.py:275
 msgid "URL"
-msgstr ""
+msgstr "Διεύθυνση URL"
 
 #: serializers.py:21 serializers.py:264
 msgid "Nodes URL"
@@ -375,16 +376,12 @@ msgid "Children URL"
 msgstr ""
 
 #: serializers.py:49
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Έγγραφα"
+msgstr ""
 
 #: serializers.py:52 serializers.py:118 serializers.py:176
-#, fuzzy
-#| msgid "Index"
 msgid "Index URL"
-msgstr "Ευρετήριο"
+msgstr ""
 
 #: serializers.py:55 serializers.py:121 serializers.py:182
 msgid "Parent URL"
@@ -400,25 +397,21 @@ msgstr ""
 
 #: serializers.py:237
 msgid ""
-"URL of the API endpoint showing the list document types associated with this "
-"index template."
+"URL of the API endpoint showing the list document types associated with this"
+" index template."
 msgstr ""
 
 #: serializers.py:239
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers.py:245
 msgid "URL of the API endpoint to add document types to this index template."
 msgstr ""
 
 #: serializers.py:247
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers.py:253
 msgid ""
@@ -426,22 +419,16 @@ msgid ""
 msgstr ""
 
 #: serializers.py:255
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers.py:260
-#, fuzzy
-#| msgid "Index template node"
 msgid "Index template root node ID"
-msgstr "Κόμβος υποδείγματος ευρετηρίου"
+msgstr ""
 
 #: serializers.py:267
-#, fuzzy
-#| msgid "Rebuild index"
 msgid "Rebuild URL"
-msgstr "Αναδόμηση ευρετηρίου"
+msgstr ""
 
 #: serializers.py:271
 msgid "Reset URL"
@@ -452,10 +439,8 @@ msgid "Primary key of the document type to add to the index template."
 msgstr ""
 
 #: serializers.py:318 serializers.py:327
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type ID"
-msgstr "Τύπος εγγράφου"
+msgstr ""
 
 #: serializers.py:326
 msgid "Primary key of the document type to remove from the index template."
@@ -466,8 +451,8 @@ msgid ""
 "This could mean that no index templates have been created or that there are "
 "index templates but they are no properly defined."
 msgstr ""
-"Αυτό θα μπορούσε να σημαίνει ότι δεν έχουν δημιουργηθεί πρότυπα ευρετηρίου ή "
-"ότι υπάρχουν πρότυπα ευρετηρίου αλλά δεν έχουν καθοριστεί σωστά."
+"Αυτό θα μπορούσε να σημαίνει ότι δεν έχουν δημιουργηθεί πρότυπα ευρετηρίου ή"
+" ότι υπάρχουν πρότυπα ευρετηρίου αλλά δεν έχουν καθοριστεί σωστά."
 
 #: views/index_instance_views.py:41
 msgid "There are no index instances available."
@@ -526,8 +511,8 @@ msgstr "Ευρετήρια συνδεδεμένα σε τύπο εγγράφου
 #: views/index_template_views.py:88
 msgid ""
 "Indexes group document automatically into levels. Indexes are defined using "
-"template whose markers are replaced with direct properties of documents like "
-"label or description, or that of extended properties like metadata."
+"template whose markers are replaced with direct properties of documents like"
+" label or description, or that of extended properties like metadata."
 msgstr ""
 "Τα ευρετήρια ομαδοποιούν τα έγγραφα αυτόματα σε επίπεδα. Τα ευρετήρια "
 "ορίζονται χρησιμοποιώντας πρότυπα των οποίων οι δείκτες αντικαθίστανται με "
@@ -557,9 +542,9 @@ msgid ""
 "built. Only the events of the documents of the types select will trigger "
 "updates in the index."
 msgstr ""
-"Μόνο τα έγγραφα των επιλεγμένων τύπων θα εμφανιστούν στο ευρετήριο όταν αυτό "
-"δομηθεί. Μόνο τα γεγονότα των εγγράφων των επιλεγμένων τύπων θα προκαλέσουν "
-"ανανεώσεις στο ευρετήριο."
+"Μόνο τα έγγραφα των επιλεγμένων τύπων θα εμφανιστούν στο ευρετήριο όταν αυτό"
+" δομηθεί. Μόνο τα γεγονότα των εγγράφων των επιλεγμένων τύπων θα προκαλέσουν"
+" ανανεώσεις στο ευρετήριο."
 
 #: views/index_template_views.py:154
 #, python-format

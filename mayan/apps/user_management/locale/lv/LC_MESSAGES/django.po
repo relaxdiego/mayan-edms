@@ -1,25 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Māris Teivāns <maris.teivans@gmail.com>, 2022
-#
+# Māris Teivāns <maris.teivans@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Māris Teivāns <maris.teivans@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Māris Teivāns <maris.teivans@gmail.com>, 2023\n"
 "Language-Team: Latvian (https://www.transifex.com/rosarior/teams/13584/lv/)\n"
-"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Language: lv\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
 #: apps.py:62 events.py:6 permissions.py:6
 msgid "User management"
@@ -43,7 +42,7 @@ msgid "User"
 msgstr "Lietotājs"
 
 #: apps.py:100 apps.py:219 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:168
+#: views/user_views.py:170
 msgid "Users"
 msgstr ""
 
@@ -212,10 +211,8 @@ msgid "URL of the API endpoint showing the list users of this group."
 msgstr ""
 
 #: serializers.py:18
-#, fuzzy
-#| msgid "User"
 msgid "Users URL"
-msgstr "Lietotājs"
+msgstr ""
 
 #: serializers.py:22
 msgid "Users add URL"
@@ -234,10 +231,8 @@ msgid "Primary key of the user to add to the group."
 msgstr ""
 
 #: serializers.py:49 serializers.py:58
-#, fuzzy
-#| msgid "User"
 msgid "User ID"
-msgstr "Lietotājs"
+msgstr ""
 
 #: serializers.py:57
 msgid "Primary key of the user to remove from the group."
@@ -248,10 +243,8 @@ msgid "URL of the API endpoint showing the list groups this user belongs to."
 msgstr ""
 
 #: serializers.py:68
-#, fuzzy
-#| msgid "Groups"
 msgid "Groups URL"
-msgstr "Grupas"
+msgstr ""
 
 #: utils.py:26
 msgid "Anonymous"
@@ -363,48 +356,48 @@ msgstr ""
 
 #: views/user_views.py:73
 msgid ""
-"Warning! You are about to delete your own user account. You will lose access "
-"to the system. This process is not reversible."
+"Warning! You are about to delete your own user account. You will lose access"
+" to the system. This process is not reversible."
 msgstr ""
 
-#: views/user_views.py:91
+#: views/user_views.py:93
 #, python-format
 msgid "Details of user: %s"
 msgstr ""
 
-#: views/user_views.py:110
+#: views/user_views.py:112
 #, python-format
 msgid "Edit user: %s"
 msgstr ""
 
-#: views/user_views.py:121
+#: views/user_views.py:123
 msgid "Available groups"
 msgstr "Pieejamās grupas"
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:124
+#: views/user_views.py:126
 msgid "User groups"
 msgstr ""
 
-#: views/user_views.py:139
+#: views/user_views.py:141
 #, python-format
 msgid "Groups of user: %s"
 msgstr ""
 
-#: views/user_views.py:164
+#: views/user_views.py:166
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
 msgstr ""
-"No šī skata var izveidot lietotāju kontus. Pēc lietotāja konta "
-"izveidošanas,  jums tiks piedāvāts iestatīt paroli."
+"No šī skata var izveidot lietotāju kontus. Pēc lietotāja konta izveidošanas,"
+"  jums tiks piedāvāts iestatīt paroli."
 
-#: views/user_views.py:167
+#: views/user_views.py:169
 msgid "There are no user accounts"
 msgstr ""
 
-#: views/user_views.py:187
+#: views/user_views.py:189
 #, python-format
 msgid "Edit options for user: %s"
 msgstr ""

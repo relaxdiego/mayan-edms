@@ -1,27 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-# 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2022
-#
+# 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2023
+# Roberto Rosario, 2023
+# Lyudmil Antonov <lantonov.here@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: 295005be79b88987cac803400975dbae_87f6b64 "
-"<412e4e8df9c702a35ac89972be5f12ff_27148>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
-"bg/)\n"
-"Language: bg\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2023\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
@@ -34,10 +32,10 @@ msgid "The OCR content."
 msgstr "Съдържанието на OCR."
 
 #: apps.py:121
-msgid "A generator returning the document's pages OCR content."
-msgstr "Генератор, връщащ OCR съдържанието на страниците на документа."
+msgid "A generator returning the document's version pages OCR content."
+msgstr ""
 
-#: apps.py:122
+#: apps.py:123
 msgid "OCR content"
 msgstr "OCR съдържание"
 
@@ -107,10 +105,8 @@ msgid "Automatically queue newly created documents for OCR."
 msgstr "Автоматично поставете на опашка новосъздадените документи за OCR."
 
 #: models.py:27
-#, fuzzy
-#| msgid "Submit for OCR"
 msgid "Auto OCR"
-msgstr "Изпращане за OCR"
+msgstr ""
 
 #: models.py:33
 msgid "Document type settings"
@@ -157,18 +153,14 @@ msgid "Change document type OCR settings"
 msgstr "Промяна на настройките на OCR за типа документ"
 
 #: queues.py:10
-msgid "Finish document file OCR"
-msgstr "Завършете OCR на файла с документа"
+msgid "Finish document version OCR"
+msgstr "Завършете OCR на версията на документа"
 
 #: queues.py:14
-msgid "Document file page OCR"
-msgstr "OCR на страница от файла с документа"
+msgid "Document version page OCR"
+msgstr "OCR на страница с версия на документа"
 
-#: queues.py:18
-msgid "Document file OCR"
-msgstr "OCR на файла с документа"
-
-#: search.py:12 search.py:24
+#: queues.py:18 search.py:12 search.py:24
 msgid "Document version OCR"
 msgstr "OCR за версия на документа"
 
@@ -276,8 +268,8 @@ msgid ""
 "logical None, or an empty string ('') are considered to be logical false, "
 "any other value is considered to be the logical true."
 msgstr ""
-"Състоянието, което ще определи дали извлечения текст от страница на документ "
-"ще бъде променен или не. Условието се оценява спрямо последователната "
+"Състоянието, което ще определи дали извлечения текст от страница на документ"
+" ще бъде променен или не. Условието се оценява спрямо последователната "
 "страница на документа. Условия, които не връщат никаква стойност, които "
 "връщат логическо НЕ в Python, или празен низ (&#39;&#39;) се считат за "
 "логическа неистина, всяка друга стойност се счита за логическа истина."

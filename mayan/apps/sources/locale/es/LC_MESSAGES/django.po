@@ -1,26 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Lory977 <helga.carrero@gmail.com>, 2022
-# Roberto Rosario, 2022
-#
+# Lory977 <helga.carrero@gmail.com>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (https://www.transifex.com/rosarior/teams/13584/es/)\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:53 events.py:6 links.py:144 menus.py:6 models.py:35 queues.py:7
 #: settings.py:13 views/source_views.py:177
@@ -177,14 +176,12 @@ msgid "Handle upload"
 msgstr "Manejar la carga"
 
 #: serializers.py:12
-#, fuzzy
-#| msgid "Action"
 msgid "Actions"
-msgstr "Acción"
+msgstr "Acciones"
 
 #: serializers.py:18
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:55
 msgid "Optional arguments for the action. Must be JSON formatted."
@@ -284,8 +281,8 @@ msgid ""
 "Select a metadata type to store the email's message ID value. Must be a "
 "valid metadata type for the document type selected previously."
 msgstr ""
-"Seleccione un tipo de metadatos para almacenar el valor de ID del mensaje de "
-"correo electrónico. Debe ser un tipo de metadatos válido para el tipo de "
+"Seleccione un tipo de metadatos para almacenar el valor de ID del mensaje de"
+" correo electrónico. Debe ser un tipo de metadatos válido para el tipo de "
 "documento seleccionado anteriormente."
 
 #: source_backends/email_backends.py:159
@@ -294,7 +291,8 @@ msgstr "ID de tipo de metadatos de mensaje"
 
 #: source_backends/email_backends.py:167
 msgid "Store the body of the email as a text document."
-msgstr "Almacenar el cuerpo del correo electrónico como un documento de texto."
+msgstr ""
+"Almacenar el cuerpo del correo electrónico como un documento de texto."
 
 #: source_backends/email_backends.py:169
 msgid "Store email body"
@@ -315,14 +313,14 @@ msgid ""
 "Subject metadata type \"%(metadata_type)s\" is not valid for the document "
 "type: %(document_type)s"
 msgstr ""
-"El tipo de metadatos de tema \"%(metadata_type)s\" no es válido para el tipo "
-"de documento: %(document_type)s"
+"El tipo de metadatos de tema \"%(metadata_type)s\" no es válido para el tipo"
+" de documento: %(document_type)s"
 
 #: source_backends/email_backends.py:351
 #, python-format
 msgid ""
-"Message ID metadata type \"%(metadata_type)s\" is not valid for the document "
-"type: %(document_type)s"
+"Message ID metadata type \"%(metadata_type)s\" is not valid for the document"
+" type: %(document_type)s"
 msgstr ""
 "El ID de tipo de metadatos de mensaje \"%(metadata_type)s\" no es válido "
 "para el tipo de documento: %(document_type)s"
@@ -350,13 +348,14 @@ msgstr "Criterio de búsqueda"
 #: source_backends/email_backends.py:423
 msgid ""
 "IMAP STORE command to execute on messages after they are processed. One "
-"command per line. Use the commands specified in https://tools.ietf.org/html/"
-"rfc2060.html#section-6.4.6 or the custom commands for your IMAP server."
+"command per line. Use the commands specified in "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 or the custom "
+"commands for your IMAP server."
 msgstr ""
 "Comando IMAP STORE para ejecutar en mensajes después de que se procesan. Un "
-"comando por línea. Use los comandos especificados en https://tools.ietf.org/"
-"html/rfc2060.html#section-6.4.6 o los comandos personalizados para su "
-"servidor IMAP."
+"comando por línea. Use los comandos especificados en "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 o los comandos "
+"personalizados para su servidor IMAP."
 
 #: source_backends/email_backends.py:428
 msgid "Store commands"
@@ -454,8 +453,8 @@ msgid ""
 "name=DEVICE` for the list of supported arguments."
 msgstr ""
 "Argumentos con formato YAML para pasar al comando `scanimage`. Los "
-"argumentos cambiarán según el dispositivo. Ejecute `scanimage --help --"
-"device-name = DEVICE` para obtener la lista de argumentos admitidos."
+"argumentos cambiarán según el dispositivo. Ejecute `scanimage --help "
+"--device-name = DEVICE` para obtener la lista de argumentos admitidos."
 
 #: source_backends/sane_scanner_backends.py:49
 msgid "SANE Scanner"
@@ -576,11 +575,11 @@ msgstr "No se puede obtener la lista de archivos provisionales; %s"
 #: source_backends/staging_folder_backends.py:668
 msgid ""
 "This could mean that the staging folder is empty. It could also mean that "
-"the operating system user account being used for Mayan EDMS doesn't have the "
-"necessary file system permissions for the folder."
+"the operating system user account being used for Mayan EDMS doesn't have the"
+" necessary file system permissions for the folder."
 msgstr ""
-"Esto podría significar que la carpeta provisional está vacía. También podría "
-"significar que la cuenta de usuario del sistema operativo que se utiliza "
+"Esto podría significar que la carpeta provisional está vacía. También podría"
+" significar que la cuenta de usuario del sistema operativo que se utiliza "
 "para Mayan EDMS no tiene los permisos necesarios del sistema de archivos "
 "para la carpeta."
 
@@ -611,8 +610,8 @@ msgstr "Archivos de carpetas de ensayo"
 
 #: views/base.py:55 wizards.py:58
 msgid ""
-"No interactive document sources have been defined or none have been enabled, "
-"create one before proceeding."
+"No interactive document sources have been defined or none have been enabled,"
+" create one before proceeding."
 msgstr ""
 "No se han definido fuentes de documentos interactivos o no hay ninguna "
 "habilitada, cree una antes de continuar."
@@ -690,8 +689,8 @@ msgid ""
 msgstr ""
 "Las fuentes proporcionan los medios para cargar documentos. Algunas fuentes "
 "son interactivas y requieren la participación del usuario para funcionar. "
-"Otros son automáticas y se ejecutan en segundo plano sin la intervención del "
-"usuario."
+"Otros son automáticas y se ejecutan en segundo plano sin la intervención del"
+" usuario."
 
 #: views/source_views.py:176
 msgid "No sources available"
@@ -699,15 +698,15 @@ msgstr "No hay fuentes disponibles"
 
 #: views/source_views.py:195
 msgid ""
-"This will execute the source code even if the source is not enabled. Sources "
-"that delete content after downloading will not do so while being tested. "
+"This will execute the source code even if the source is not enabled. Sources"
+" that delete content after downloading will not do so while being tested. "
 "Check the source's error log for information during testing. A successful "
 "test will clear the error log."
 msgstr ""
 "Esto ejecutará el código de la fuente incluso si la fuente no está "
 "habilitada. Las fuentes que eliminan contenido después de la descarga no lo "
-"harán mientras se prueban. Consulte el registro de errores de la fuente para "
-"obtener información durante la prueba. Una prueba exitosa borrará el "
+"harán mientras se prueban. Consulte el registro de errores de la fuente para"
+" obtener información durante la prueba. Una prueba exitosa borrará el "
 "registro de errores."
 
 #: views/source_views.py:201
@@ -743,27 +742,3 @@ msgstr "Previo"
 #: wizards.py:105
 msgid "Next"
 msgstr "Próximo"
-
-#~ msgid "Cancel upload"
-#~ msgstr "Cancelar carga"
-
-#~ msgid "Are you sure you want to cancel this upload?"
-#~ msgstr "¿Estás seguro de que desea cancelar esta carga?"
-
-#~ msgid "Drop files or click here to upload files"
-#~ msgstr "Soltar archivos o hacer clic aquí para subir archivos"
-
-#~ msgid "Your browser does not support drag and drop file uploads."
-#~ msgstr ""
-#~ "Su navegador no admite la carga de archivos mediante arrastrar y soltar."
-
-#~ msgid "Please use the fallback form below to upload your files."
-#~ msgstr ""
-#~ "Por favor, use el formulario de reserva a continuación para cargar sus "
-#~ "archivos."
-
-#~ msgid "Clear"
-#~ msgstr "Limpiar"
-
-#~ msgid "Server responded with {{statusCode}} code."
-#~ msgstr "El servidor respondió con el código {{statusCode}}."

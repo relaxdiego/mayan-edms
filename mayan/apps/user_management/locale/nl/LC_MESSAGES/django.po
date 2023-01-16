@@ -1,25 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# e6bc1d20d3f0031709c3c11db1061ebc_be0a371 <8b4e580508477646e97982ebad39e3af_312311>, 2022
-# Roberto Rosario, 2022
-# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
-#
+# e6bc1d20d3f0031709c3c11db1061ebc_be0a371 <8b4e580508477646e97982ebad39e3af_312311>, 2023
+# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:62 events.py:6 permissions.py:6
@@ -44,7 +44,7 @@ msgid "User"
 msgstr "Gebruiker"
 
 #: apps.py:100 apps.py:219 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:168
+#: views/user_views.py:170
 msgid "Users"
 msgstr "Gebruikers"
 
@@ -213,10 +213,8 @@ msgid "URL of the API endpoint showing the list users of this group."
 msgstr ""
 
 #: serializers.py:18
-#, fuzzy
-#| msgid "Users"
 msgid "Users URL"
-msgstr "Gebruikers"
+msgstr ""
 
 #: serializers.py:22
 msgid "Users add URL"
@@ -228,17 +226,15 @@ msgstr ""
 
 #: serializers.py:33 serializers.py:80
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:48
 msgid "Primary key of the user to add to the group."
 msgstr ""
 
 #: serializers.py:49 serializers.py:58
-#, fuzzy
-#| msgid "User"
 msgid "User ID"
-msgstr "Gebruiker"
+msgstr "Gebruikers-ID"
 
 #: serializers.py:57
 msgid "Primary key of the user to remove from the group."
@@ -249,10 +245,8 @@ msgid "URL of the API endpoint showing the list groups this user belongs to."
 msgstr ""
 
 #: serializers.py:68
-#, fuzzy
-#| msgid "Groups"
 msgid "Groups URL"
-msgstr "Groepen"
+msgstr ""
 
 #: utils.py:26
 msgid "Anonymous"
@@ -368,36 +362,36 @@ msgstr ""
 
 #: views/user_views.py:73
 msgid ""
-"Warning! You are about to delete your own user account. You will lose access "
-"to the system. This process is not reversible."
+"Warning! You are about to delete your own user account. You will lose access"
+" to the system. This process is not reversible."
 msgstr ""
 
-#: views/user_views.py:91
+#: views/user_views.py:93
 #, python-format
 msgid "Details of user: %s"
 msgstr "Details van gebruiker: %s"
 
-#: views/user_views.py:110
+#: views/user_views.py:112
 #, python-format
 msgid "Edit user: %s"
 msgstr "Bewerk gebruiker: %s"
 
-#: views/user_views.py:121
+#: views/user_views.py:123
 msgid "Available groups"
 msgstr "Beschikbare groepen"
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:124
+#: views/user_views.py:126
 msgid "User groups"
 msgstr "Gebruikersgroepen"
 
-#: views/user_views.py:139
+#: views/user_views.py:141
 #, python-format
 msgid "Groups of user: %s"
 msgstr "Groepen van gebruiker: %s"
 
-#: views/user_views.py:164
+#: views/user_views.py:166
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
@@ -406,11 +400,11 @@ msgstr ""
 "gebruikersaccount is aangemaakt wordt u gevraagd een wachtwoord in te "
 "stellen."
 
-#: views/user_views.py:167
+#: views/user_views.py:169
 msgid "There are no user accounts"
 msgstr "Er zijn geen gebruikersaccounts"
 
-#: views/user_views.py:187
+#: views/user_views.py:189
 #, python-format
 msgid "Edit options for user: %s"
 msgstr "Bewerk opties voor gebruiker: %s"

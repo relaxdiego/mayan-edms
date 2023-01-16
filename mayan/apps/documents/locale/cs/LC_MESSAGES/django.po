@@ -1,30 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Jiri Fait <fait@orkasolutions.cz>, 2022
-# Michal Švábík <snadno@lehce.cz>, 2022
-# trendspotter <jirka.p@volny.cz>, 2022
-#
+# Jiri Fait <fait@orkasolutions.cz>, 2023
+# trendspotter <jirka.p@volny.cz>, 2023
+# Michal Švábík <snadno@lehce.cz>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: Michal Švábík <snadno@lehce.cz>, 2023\n"
 "Language-Team: Czech (https://www.transifex.com/rosarior/teams/13584/cs/)\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
-"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: apps.py:212 apps.py:653 events.py:6 menus.py:8 models/document_models.py:103
-#: permissions.py:6 queues.py:21 settings.py:33 statistics.py:286
+#: apps.py:212 apps.py:653 events.py:6 menus.py:8
+#: models/document_models.py:103 permissions.py:6 queues.py:21 settings.py:33
+#: statistics.py:286
 msgid "Documents"
 msgstr "Dokumenty"
 
@@ -138,11 +138,11 @@ msgstr "UUID plus originál"
 
 #: classes.py:92
 msgid ""
-"Generates an immutable, random UUID (RFC 4122) for each file and appends the "
-"original filename of the uploaded file."
+"Generates an immutable, random UUID (RFC 4122) for each file and appends the"
+" original filename of the uploaded file."
 msgstr ""
-"Pro každý soubor generuje neměnné, náhodné UUID (RFC 4122) a připojí původní "
-"název souboru nahraného souboru."
+"Pro každý soubor generuje neměnné, náhodné UUID (RFC 4122) a připojí původní"
+" název souboru nahraného souboru."
 
 #: dashboard_widgets.py:32
 msgid "Total pages"
@@ -402,10 +402,8 @@ msgid "Target page number can't be repeated."
 msgstr "Číslo cílové stránky nelze opakovat."
 
 #: forms/misc_forms.py:10
-#, fuzzy
-#| msgid "Page range"
 msgid "Page group"
-msgstr "Rozsah stran"
+msgstr ""
 
 #: forms/misc_forms.py:13 literals.py:91
 msgid "Page range"
@@ -458,19 +456,23 @@ msgstr "Vymazání transformací"
 msgid "Clone transformations"
 msgstr "Klonování transformací"
 
-#: links/document_file_page_links.py:46 links/document_version_page_links.py:62
+#: links/document_file_page_links.py:46
+#: links/document_version_page_links.py:62
 msgid "First page"
 msgstr "První strana"
 
-#: links/document_file_page_links.py:52 links/document_version_page_links.py:68
+#: links/document_file_page_links.py:52
+#: links/document_version_page_links.py:68
 msgid "Last page"
 msgstr "Poslední strana"
 
-#: links/document_file_page_links.py:60 links/document_version_page_links.py:76
+#: links/document_file_page_links.py:60
+#: links/document_version_page_links.py:76
 msgid "Previous page"
 msgstr "Předchozí strana"
 
-#: links/document_file_page_links.py:66 links/document_version_page_links.py:82
+#: links/document_file_page_links.py:66
+#: links/document_version_page_links.py:82
 msgid "Next page"
 msgstr "Další strana"
 
@@ -573,7 +575,8 @@ msgstr "Upravit"
 msgid "Remap pages"
 msgstr "Přemapovat stránky"
 
-#: links/document_version_page_links.py:96 models/document_version_models.py:51
+#: links/document_version_page_links.py:96
+#: models/document_version_models.py:51
 #: models/document_version_page_models.py:32 search.py:123
 msgid "Document version"
 msgstr "Verze dokumentu"
@@ -705,12 +708,12 @@ msgstr "Název souboru"
 
 #: models/document_file_models.py:79
 msgid ""
-"The document file's file mimetype. MIME types are a standard way to describe "
-"the format of a file, in this case the file format of the document. Some "
+"The document file's file mimetype. MIME types are a standard way to describe"
+" the format of a file, in this case the file format of the document. Some "
 "examples: \"text/plain\" or \"image/jpeg\". "
 msgstr ""
-"Mimetype souboru souboru dokumentu. Typy MIME jsou standardním způsobem, jak "
-"popsat formát souboru, v tomto případě formát souboru dokumentu. Několik "
+"Mimetype souboru souboru dokumentu. Typy MIME jsou standardním způsobem, jak"
+" popsat formát souboru, v tomto případě formát souboru dokumentu. Několik "
 "příkladů: „text/plain“ nebo „image/jpeg“."
 
 #: models/document_file_models.py:87
@@ -757,8 +760,8 @@ msgid ""
 "A short text identifying the document. By default, will be set to the "
 "filename of the first file uploaded to the document."
 msgstr ""
-"Krátký text identifikující dokument. Ve výchozím nastavení bude nastaveno na "
-"název souboru prvního souboru nahraného do dokumentu."
+"Krátký text identifikující dokument. Ve výchozím nastavení bude nastaveno na"
+" název souboru prvního souboru nahraného do dokumentu."
 
 #: models/document_models.py:64
 msgid "An optional short text describing a document."
@@ -816,7 +819,8 @@ msgstr ""
 
 #: models/document_type_models.py:42
 msgid ""
-"Amount of time after which documents of this type will be moved to the trash."
+"Amount of time after which documents of this type will be moved to the "
+"trash."
 msgstr "Doba, po které budou dokumenty tohoto typu přesunuty do koše."
 
 #: models/document_type_models.py:44
@@ -952,10 +956,8 @@ msgid "Recently accessed documents"
 msgstr ""
 
 #: permissions.py:12
-#, fuzzy
-#| msgid "Change the type of the document: %s"
 msgid "Change type of documents"
-msgstr "Změňte typ dokumentu: %s"
+msgstr ""
 
 #: permissions.py:15
 msgid "Create documents"
@@ -1134,10 +1136,8 @@ msgid "Document version comment"
 msgstr "Komentář k verzi dokumentu"
 
 #: serializers/document_file_serializers.py:13
-#, fuzzy
-#| msgid "Document file"
 msgid "Document file URL"
-msgstr "Soubor dokumentu"
+msgstr ""
 
 #: serializers/document_file_serializers.py:25
 #: serializers/document_version_serializers.py:57
@@ -1155,20 +1155,16 @@ msgstr ""
 #: serializers/favorite_document_serializers.py:26
 #: serializers/trashed_document_serializers.py:23
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers/document_file_serializers.py:70
-#, fuzzy
-#| msgid "Active"
 msgid "Action"
-msgstr "Aktivní"
+msgstr "Akce"
 
 #: serializers/document_file_serializers.py:74
 #: serializers/document_version_serializers.py:104
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document URL"
-msgstr "UUID dokumentu"
+msgstr ""
 
 #: serializers/document_file_serializers.py:78
 msgid "Download URL"
@@ -1179,10 +1175,8 @@ msgid "Binary content for the new file."
 msgstr ""
 
 #: serializers/document_file_serializers.py:91
-#, fuzzy
-#| msgid "Filename"
 msgid "File new"
-msgstr "Název souboru"
+msgstr ""
 
 #: serializers/document_file_serializers.py:94
 #: serializers/document_version_serializers.py:120
@@ -1191,10 +1185,8 @@ msgstr ""
 
 #: serializers/document_file_serializers.py:106
 #: serializers/document_version_serializers.py:132
-#, fuzzy
-#| msgid "Pages"
 msgid "Pages first"
-msgstr "Strany"
+msgstr ""
 
 #: serializers/document_serializers.py:19
 #: serializers/document_version_serializers.py:14
@@ -1207,38 +1199,28 @@ msgstr "ID typu dokumentu pro nový dokument."
 
 #: serializers/document_serializers.py:32
 #: serializers/document_serializers.py:78
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type ID"
-msgstr "Typ dokumentu"
+msgstr ""
 
 #: serializers/document_serializers.py:35
-#, fuzzy
-#| msgid "Document type"
 msgid "Document change type URL"
-msgstr "Typ dokumentu"
+msgstr ""
 
 #: serializers/document_serializers.py:39
-#, fuzzy
-#| msgid "File timestamps"
 msgid "File latest"
-msgstr "Časová razítka souborů"
+msgstr ""
 
 #: serializers/document_serializers.py:42
 msgid "File list URL"
 msgstr ""
 
 #: serializers/document_serializers.py:46
-#, fuzzy
-#| msgid "Make active"
 msgid "Version active"
-msgstr "Aktivovat"
+msgstr ""
 
 #: serializers/document_serializers.py:49
-#, fuzzy
-#| msgid "Versions"
 msgid "Version list URL"
-msgstr "Verze"
+msgstr ""
 
 #: serializers/document_serializers.py:79
 msgid ""
@@ -1246,16 +1228,12 @@ msgid ""
 msgstr ""
 
 #: serializers/document_type_serializers.py:11
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type URL"
-msgstr "Typ dokumentu"
+msgstr ""
 
 #: serializers/document_type_serializers.py:35
-#, fuzzy
-#| msgid "Quick labels"
 msgid "Quick label list URL"
-msgstr "Rychlé jmenovky"
+msgstr ""
 
 #: serializers/document_version_serializers.py:26
 msgid "Backend ID"
@@ -1270,38 +1248,30 @@ msgid "Content type ID of the source object for the page."
 msgstr "ID typu obsahu zdrojového objektu pro stránku."
 
 #: serializers/document_version_serializers.py:45
-#, fuzzy
-#| msgid "Document version"
 msgid "Document version URL"
-msgstr "Verze dokumentu"
+msgstr ""
 
 #: serializers/document_version_serializers.py:108
-#, fuzzy
-#| msgid "Export"
 msgid "Export URL"
-msgstr "Export"
+msgstr ""
 
 #: serializers/favorite_document_serializers.py:16
 msgid "Document ID for the new favorite document."
 msgstr "ID dokumentu pro nový oblíbený dokument."
 
 #: serializers/favorite_document_serializers.py:17
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document ID"
-msgstr "UUID dokumentu"
+msgstr ""
 
 #: serializers/trashed_document_serializers.py:16
-#, fuzzy
-#| msgid "Restore"
 msgid "Restore URL"
-msgstr "Obnovit"
+msgstr ""
 
 #: settings.py:49
 msgid ""
 "The threshold at which the DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"will start deleting the oldest document file page image cache files. Specify "
-"the size in bytes."
+"will start deleting the oldest document file page image cache files. Specify"
+" the size in bytes."
 msgstr ""
 "Prah, při kterém DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND začne "
 "odstraňovat nejstarší soubory mezipaměti obrazu stránky souboru. Zadejte "
@@ -1321,8 +1291,8 @@ msgid ""
 "Path to the Storage subclass to use when storing the cached document file "
 "page image files."
 msgstr ""
-"Cesta k podtřídě Storage, která se má použít při ukládání obrazových souborů "
-"stránky se soubory dokumentu v mezipaměti."
+"Cesta k podtřídě Storage, která se má použít při ukládání obrazových souborů"
+" stránky se soubory dokumentu v mezipaměti."
 
 #: settings.py:78
 msgid ""
@@ -1335,9 +1305,9 @@ msgstr "Maximální počet oblíbených dokumentů, na uživatele"
 
 #: settings.py:90
 msgid ""
-"Size of blocks to use when calculating the document file's checksum. A value "
-"of 0 disables the block calculation and the entire file will be loaded into "
-"memory."
+"Size of blocks to use when calculating the document file's checksum. A value"
+" of 0 disables the block calculation and the entire file will be loaded into"
+" memory."
 msgstr ""
 "Velikost bloků, které se mají použít při výpočtu kontrolního součtu souboru "
 "dokumentu. Hodnota 0 zakáže výpočet bloku a celý soubor bude načten do "
@@ -1353,15 +1323,15 @@ msgstr "Seznam podporovaných jazyků dokumentů. Ve formátu ISO639-3."
 
 #: settings.py:107
 msgid ""
-"The threshold at which the DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"will start deleting the oldest document version page image cache versions. "
+"The threshold at which the DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND"
+" will start deleting the oldest document version page image cache versions. "
 "Specify the size in bytes."
 msgstr ""
 
 #: settings.py:116
 msgid ""
-"Path to the Storage subclass to use when storing the cached document version "
-"page image versions."
+"Path to the Storage subclass to use when storing the cached document version"
+" page image versions."
 msgstr ""
 "Cesta k podtřídě Úložiště, která se má použít při ukládání verzí obrázku "
 "stránky verze dokumentu v mezipaměti."
@@ -1443,27 +1413,21 @@ msgid "Total document pages at each month"
 msgstr "Celkový počet stránek dokumentu v každém měsíci"
 
 #: statistics.py:332
-#, fuzzy
-#| msgid "Total documents at each month"
 msgid "Total documents per document type"
-msgstr "Celkem dokumentů za každý měsíc"
+msgstr ""
 
 #: statistics.py:339
-#, fuzzy
-#| msgid "Total document files at each month"
 msgid "Total document files per document type"
-msgstr "Soubory dokumentů celkem za každý měsíc"
+msgstr ""
 
 #: statistics.py:346
-#, fuzzy
-#| msgid "Total document files at each month"
 msgid "Total document file pages per document type"
-msgstr "Soubory dokumentů celkem za každý měsíc"
+msgstr ""
 
 #: storages.py:21
 msgid ""
-"Unable to initialize the document file storage. Check the settings {} and {} "
-"for formatting errors."
+"Unable to initialize the document file storage. Check the settings {} and {}"
+" for formatting errors."
 msgstr ""
 "Nelze inicializovat úložiště souborů dokumentů. Zkontrolujte nastavení {} a "
 "{}, zda nedošlo k chybám ve formátování."
@@ -1554,8 +1518,8 @@ msgstr ""
 
 #: views/document_file_page_views.py:104
 msgid ""
-"This could mean that the document file is of a format that is not supported, "
-"that it is corrupted or that the upload process was interrupted. Use the "
+"This could mean that the document file is of a format that is not supported,"
+" that it is corrupted or that the upload process was interrupted. Use the "
 "document file page recalculation action to attempt to introspect the page "
 "count again."
 msgstr ""
@@ -1698,8 +1662,8 @@ msgstr ""
 #: views/document_file_views.py:342
 #, python-format
 msgid ""
-"Error cloning the page transformations for document file: %(document_file)s; "
-"%(error)s."
+"Error cloning the page transformations for document file: %(document_file)s;"
+" %(error)s."
 msgstr ""
 
 #: views/document_file_views.py:351 views/document_version_views.py:411
@@ -1719,13 +1683,13 @@ msgstr "Dokumenty typu: %s"
 #: views/document_type_views.py:75
 msgid ""
 "Document types are the most basic units of configuration. Everything in the "
-"system will depend on them. Define a document type for each type of physical "
-"document you intend to upload. Example document types: invoice, receipt, "
+"system will depend on them. Define a document type for each type of physical"
+" document you intend to upload. Example document types: invoice, receipt, "
 "manual, prescription, balance sheet."
 msgstr ""
-"Typy dokumentů jsou nejzákladnější konfigurační jednotky. Vše v systému bude "
-"záviset na nich. Definujte typ dokumentu pro každý typ fyzického dokumentu, "
-"který chcete odeslat. Příklady typů dokumentů: faktura, účtenka, příručka, "
+"Typy dokumentů jsou nejzákladnější konfigurační jednotky. Vše v systému bude"
+" záviset na nich. Definujte typ dokumentu pro každý typ fyzického dokumentu,"
+" který chcete odeslat. Příklady typů dokumentů: faktura, účtenka, příručka, "
 "předpis, rozvaha."
 
 #: views/document_type_views.py:81
@@ -1769,8 +1733,7 @@ msgstr ""
 
 #: views/document_type_views.py:246
 #, python-format
-msgid ""
-"Edit quick label \"%(filename)s\" from document type \"%(document_type)s\""
+msgid "Edit quick label \"%(filename)s\" from document type \"%(document_type)s\""
 msgstr ""
 "Upravit rychlou jmenovku „%(filename)s“ z typu dokumentu „%(document_type)s“"
 
@@ -1935,7 +1898,8 @@ msgstr ""
 
 #: views/document_version_views.py:329
 #, python-format
-msgid "Transformation clear request processed for %(count)d document versions."
+msgid ""
+"Transformation clear request processed for %(count)d document versions."
 msgstr ""
 
 #: views/document_version_views.py:337
@@ -2094,8 +2058,8 @@ msgstr "Tisk: %s"
 
 #: views/recently_accessed_document_views.py:23
 msgid ""
-"This view will list the latest documents viewed or manipulated in any way by "
-"this user account."
+"This view will list the latest documents viewed or manipulated in any way by"
+" this user account."
 msgstr ""
 "V tomto zobrazení budou uvedeny nejnovější dokumenty, které byly tímto "
 "uživatelským účtem jakýmkoli způsobem prohlíženy nebo jakýmkoli jiným "
@@ -2233,32 +2197,3 @@ msgstr "Změnit typ dokumentu"
 #: workflow_actions.py:40
 msgid "Send document to trash"
 msgstr "Odeslat dokument do koše"
-
-#~ msgid "Document file downloaded"
-#~ msgstr "Soubor dokumentu stažen"
-
-#~ msgid "Document version exported"
-#~ msgstr "Exportovaná verze dokumentu"
-
-#~ msgid "Quick download"
-#~ msgstr "Rychlé stažení"
-
-#~ msgid "Document version export to PDF"
-#~ msgstr "Export verze dokumentu do PDF"
-
-#~ msgid "Download document files"
-#~ msgstr "Stáhnout soubory dokumentů"
-
-#~ msgid "Export document versions"
-#~ msgstr "Exportovat verze dokumentu"
-
-#, python-format
-#~ msgid "Export %(count)d document versions."
-#~ msgstr "Exportovat %(count)d verzí dokumentu. "
-
-#~ msgid ""
-#~ "The process will be performed in the background. The exported file will "
-#~ "be available in the downloads area."
-#~ msgstr ""
-#~ "Proces bude probíhat na pozadí. Exportovaný soubor bude k dispozici v "
-#~ "místě stahování."

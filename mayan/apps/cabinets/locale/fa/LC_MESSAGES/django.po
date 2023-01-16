@@ -2,23 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Mehdi Amani <MehdiAmani@toorintan.com>, 2022
-# Roberto Rosario, 2022
-#
+# Mehdi Amani <MehdiAmani@toorintan.com>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:47+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Persian (https://www.transifex.com/rosarior/teams/13584/fa/)\n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: apps.py:54 apps.py:164 apps.py:168 apps.py:172 apps.py:176 apps.py:180
@@ -32,10 +32,8 @@ msgid "Cabinet created"
 msgstr ""
 
 #: events.py:14
-#, fuzzy
-#| msgid "Cabinet"
 msgid "Cabinet deleted"
-msgstr "کابینه"
+msgstr ""
 
 #: events.py:17
 msgid "Cabinet edited"
@@ -191,14 +189,13 @@ msgid "Children"
 msgstr ""
 
 #: serializers.py:23
-msgid "URL of the API endpoint showing the list documents inside this cabinet."
+msgid ""
+"URL of the API endpoint showing the list documents inside this cabinet."
 msgstr "URL نقطه پایان API نشان دادن اسناد لیست در داخل این کابینه."
 
 #: serializers.py:25
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "اسناد"
+msgstr ""
 
 #: serializers.py:30
 msgid "The name of this cabinet level appended to the names of its ancestors."
@@ -210,17 +207,15 @@ msgstr ""
 
 #: serializers.py:51
 msgid "URL"
-msgstr ""
+msgstr "نشانی اینترنتی"
 
 #: serializers.py:84
 msgid "Primary key of the document to add to the cabinet."
 msgstr ""
 
 #: serializers.py:85 serializers.py:94
-#, fuzzy
-#| msgid "Documents"
 msgid "Document ID"
-msgstr "اسناد"
+msgstr ""
 
 #: serializers.py:93
 msgid "Primary key of the document to remove from the cabinet."

@@ -1,34 +1,33 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Panasoft, 2022
-# Alex Chigrin <chalex84@mail.ru>, 2022
-# Ilya Pavlov <spirkaa@gmail.com>, 2022
-# lilo.panic, 2022
-# Sergey Glita <gsv70@mail.ru>, 2022
-#
+# Panasoft, 2023
+# Roberto Rosario, 2023
+# Sergey Glita <gsv70@mail.ru>, 2023
+# lilo.panic, 2023
+# Alex Chigrin <chalex84@mail.ru>, 2023
+# Ilya Pavlov <spirkaa@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Sergey Glita <gsv70@mail.ru>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2023\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: apps.py:212 apps.py:653 events.py:6 menus.py:8 models/document_models.py:103
-#: permissions.py:6 queues.py:21 settings.py:33 statistics.py:286
+#: apps.py:212 apps.py:653 events.py:6 menus.py:8
+#: models/document_models.py:103 permissions.py:6 queues.py:21 settings.py:33
+#: statistics.py:286
 msgid "Documents"
 msgstr "Документы"
 
@@ -142,8 +141,8 @@ msgstr "UUID плюс оригинал"
 
 #: classes.py:92
 msgid ""
-"Generates an immutable, random UUID (RFC 4122) for each file and appends the "
-"original filename of the uploaded file."
+"Generates an immutable, random UUID (RFC 4122) for each file and appends the"
+" original filename of the uploaded file."
 msgstr ""
 "Создавать неизменяемый, случайный UUID (RFC 4122) для каждого файла и "
 "присоединять исходное имя загруженного файла."
@@ -410,10 +409,8 @@ msgid "Target page number can't be repeated."
 msgstr "Номер целевой страницы не может повторяться."
 
 #: forms/misc_forms.py:10
-#, fuzzy
-#| msgid "Page range"
 msgid "Page group"
-msgstr "Диапазон страниц"
+msgstr ""
 
 #: forms/misc_forms.py:13 literals.py:91
 msgid "Page range"
@@ -424,8 +421,8 @@ msgid ""
 "Page number from which all the transformations will be cloned. Existing "
 "transformations will be lost."
 msgstr ""
-"Номер страницы, с которой будут клонированы все преобразования. Существующие "
-"преобразования будут потеряны."
+"Номер страницы, с которой будут клонированы все преобразования. Существующие"
+" преобразования будут потеряны."
 
 #: links/document_file_links.py:26 links/document_file_links.py:31
 #: links/document_type_links.py:28 links/document_type_links.py:52
@@ -466,19 +463,23 @@ msgstr "Очистить преобразования"
 msgid "Clone transformations"
 msgstr "Клонировать преобразования"
 
-#: links/document_file_page_links.py:46 links/document_version_page_links.py:62
+#: links/document_file_page_links.py:46
+#: links/document_version_page_links.py:62
 msgid "First page"
 msgstr "Первая страница"
 
-#: links/document_file_page_links.py:52 links/document_version_page_links.py:68
+#: links/document_file_page_links.py:52
+#: links/document_version_page_links.py:68
 msgid "Last page"
 msgstr "Последняя страница"
 
-#: links/document_file_page_links.py:60 links/document_version_page_links.py:76
+#: links/document_file_page_links.py:60
+#: links/document_version_page_links.py:76
 msgid "Previous page"
 msgstr "Предыдущая страница"
 
-#: links/document_file_page_links.py:66 links/document_version_page_links.py:82
+#: links/document_file_page_links.py:66
+#: links/document_version_page_links.py:82
 msgid "Next page"
 msgstr "Следующая страница"
 
@@ -581,7 +582,8 @@ msgstr ""
 msgid "Remap pages"
 msgstr "Переназначить страницы"
 
-#: links/document_version_page_links.py:96 models/document_version_models.py:51
+#: links/document_version_page_links.py:96
+#: models/document_version_models.py:51
 #: models/document_version_page_models.py:32 search.py:123
 msgid "Document version"
 msgstr "Версия документа"
@@ -713,13 +715,13 @@ msgstr "Имя файла"
 
 #: models/document_file_models.py:79
 msgid ""
-"The document file's file mimetype. MIME types are a standard way to describe "
-"the format of a file, in this case the file format of the document. Some "
+"The document file's file mimetype. MIME types are a standard way to describe"
+" the format of a file, in this case the file format of the document. Some "
 "examples: \"text/plain\" or \"image/jpeg\". "
 msgstr ""
 "MIME тип файла документа. MIME типы - это стандартный способ описания "
-"формата файла, в данном случае формата файла документа. Например, \"text/"
-"plain\" или \"image/jpeg\"."
+"формата файла, в данном случае формата файла документа. Например, "
+"\"text/plain\" или \"image/jpeg\"."
 
 #: models/document_file_models.py:87
 msgid ""
@@ -753,7 +755,8 @@ msgid ""
 "UUID of a document, universally Unique ID. An unique identifier generated "
 "for each document."
 msgstr ""
-"UUID документа. Уникальный идентификатор, генерируемый для каждого документа."
+"UUID документа. Уникальный идентификатор, генерируемый для каждого "
+"документа."
 
 #: models/document_models.py:50
 msgid "The document type of the document."
@@ -809,8 +812,8 @@ msgid ""
 "uploaded. This could be an interrupted upload or a deferred upload via the "
 "API."
 msgstr ""
-"Заглушка документа - это запись в базе данных без самого документа. Документ "
-"может оказаться заглушкой, если загрузка прервалась, или выполняется "
+"Заглушка документа - это запись в базе данных без самого документа. Документ"
+" может оказаться заглушкой, если загрузка прервалась, или выполняется "
 "отложенная загрузка через API."
 
 #: models/document_models.py:93
@@ -823,7 +826,8 @@ msgstr ""
 
 #: models/document_type_models.py:42
 msgid ""
-"Amount of time after which documents of this type will be moved to the trash."
+"Amount of time after which documents of this type will be moved to the "
+"trash."
 msgstr ""
 "Сколько должно пройти времени, прежде чем документы этого типа будут "
 "перемещены в корзину."
@@ -841,8 +845,8 @@ msgid ""
 "Amount of time after which documents of this type in the trash will be "
 "deleted."
 msgstr ""
-"Сколько должно пройти времени, прежде чем документы этого типа будут удалены "
-"из корзины."
+"Сколько должно пройти времени, прежде чем документы этого типа будут удалены"
+" из корзины."
 
 #: models/document_type_models.py:54
 msgid "Delete time period"
@@ -963,10 +967,8 @@ msgid "Recently accessed documents"
 msgstr "Недавно просмотренные документы"
 
 #: permissions.py:12
-#, fuzzy
-#| msgid "Change the type of the document: %s"
 msgid "Change type of documents"
-msgstr "Изменить тип документа: %s"
+msgstr ""
 
 #: permissions.py:15
 msgid "Create documents"
@@ -1145,10 +1147,8 @@ msgid "Document version comment"
 msgstr "Комментарий к версии документа"
 
 #: serializers/document_file_serializers.py:13
-#, fuzzy
-#| msgid "Document file"
 msgid "Document file URL"
-msgstr "Файл документа"
+msgstr ""
 
 #: serializers/document_file_serializers.py:25
 #: serializers/document_version_serializers.py:57
@@ -1166,20 +1166,16 @@ msgstr ""
 #: serializers/favorite_document_serializers.py:26
 #: serializers/trashed_document_serializers.py:23
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers/document_file_serializers.py:70
-#, fuzzy
-#| msgid "Active"
 msgid "Action"
-msgstr "Активна"
+msgstr "Действие"
 
 #: serializers/document_file_serializers.py:74
 #: serializers/document_version_serializers.py:104
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document URL"
-msgstr "UUID документа"
+msgstr ""
 
 #: serializers/document_file_serializers.py:78
 msgid "Download URL"
@@ -1190,10 +1186,8 @@ msgid "Binary content for the new file."
 msgstr "Двоичное содержимое для нового файла."
 
 #: serializers/document_file_serializers.py:91
-#, fuzzy
-#| msgid "Filename"
 msgid "File new"
-msgstr "Имя файла"
+msgstr ""
 
 #: serializers/document_file_serializers.py:94
 #: serializers/document_version_serializers.py:120
@@ -1202,10 +1196,8 @@ msgstr ""
 
 #: serializers/document_file_serializers.py:106
 #: serializers/document_version_serializers.py:132
-#, fuzzy
-#| msgid "Pages"
 msgid "Pages first"
-msgstr "Страницы"
+msgstr ""
 
 #: serializers/document_serializers.py:19
 #: serializers/document_version_serializers.py:14
@@ -1218,38 +1210,28 @@ msgstr "Идентификатор типа документа для новог
 
 #: serializers/document_serializers.py:32
 #: serializers/document_serializers.py:78
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type ID"
-msgstr "Тип документа"
+msgstr ""
 
 #: serializers/document_serializers.py:35
-#, fuzzy
-#| msgid "Document type"
 msgid "Document change type URL"
-msgstr "Тип документа"
+msgstr ""
 
 #: serializers/document_serializers.py:39
-#, fuzzy
-#| msgid "File timestamps"
 msgid "File latest"
-msgstr "Отметки времени файла"
+msgstr ""
 
 #: serializers/document_serializers.py:42
 msgid "File list URL"
 msgstr ""
 
 #: serializers/document_serializers.py:46
-#, fuzzy
-#| msgid "Make active"
 msgid "Version active"
-msgstr "Сделать активным"
+msgstr ""
 
 #: serializers/document_serializers.py:49
-#, fuzzy
-#| msgid "Versions"
 msgid "Version list URL"
-msgstr "Версии"
+msgstr ""
 
 #: serializers/document_serializers.py:79
 msgid ""
@@ -1257,16 +1239,12 @@ msgid ""
 msgstr ""
 
 #: serializers/document_type_serializers.py:11
-#, fuzzy
-#| msgid "Document type"
 msgid "Document type URL"
-msgstr "Тип документа"
+msgstr ""
 
 #: serializers/document_type_serializers.py:35
-#, fuzzy
-#| msgid "Quick labels"
 msgid "Quick label list URL"
-msgstr "Быстрые ярлыки"
+msgstr ""
 
 #: serializers/document_version_serializers.py:26
 msgid "Backend ID"
@@ -1281,42 +1259,34 @@ msgid "Content type ID of the source object for the page."
 msgstr "Идентификатор типа контента исходного объекта для страницы."
 
 #: serializers/document_version_serializers.py:45
-#, fuzzy
-#| msgid "Document version"
 msgid "Document version URL"
-msgstr "Версия документа"
+msgstr ""
 
 #: serializers/document_version_serializers.py:108
-#, fuzzy
-#| msgid "Export"
 msgid "Export URL"
-msgstr "Экспорт"
+msgstr ""
 
 #: serializers/favorite_document_serializers.py:16
 msgid "Document ID for the new favorite document."
 msgstr "Идентификатор документа для нового избранного документа."
 
 #: serializers/favorite_document_serializers.py:17
-#, fuzzy
-#| msgid "Document UUID"
 msgid "Document ID"
-msgstr "UUID документа"
+msgstr ""
 
 #: serializers/trashed_document_serializers.py:16
-#, fuzzy
-#| msgid "Restore"
 msgid "Restore URL"
-msgstr "Восстановить"
+msgstr ""
 
 #: settings.py:49
 msgid ""
 "The threshold at which the DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"will start deleting the oldest document file page image cache files. Specify "
-"the size in bytes."
+"will start deleting the oldest document file page image cache files. Specify"
+" the size in bytes."
 msgstr ""
 "Пороговое значение в байтах, при котором "
-"DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND начнет удаление самых старых "
-"файлов кеша изображений страницы файла документа."
+"DOCUMENTS_FILE_PAGE_IMAGE_CACHE_STORAGE_BACKEND начнет удаление самых старых"
+" файлов кеша изображений страницы файла документа."
 
 #: settings.py:57
 msgid "Path to the Storage subclass to use when storing document files."
@@ -1343,13 +1313,14 @@ msgstr ""
 
 #: settings.py:84
 msgid "Maximum number of favorite documents to remember per user."
-msgstr "Максимальное количество избранных документов для каждого пользователя."
+msgstr ""
+"Максимальное количество избранных документов для каждого пользователя."
 
 #: settings.py:90
 msgid ""
-"Size of blocks to use when calculating the document file's checksum. A value "
-"of 0 disables the block calculation and the entire file will be loaded into "
-"memory."
+"Size of blocks to use when calculating the document file's checksum. A value"
+" of 0 disables the block calculation and the entire file will be loaded into"
+" memory."
 msgstr ""
 "Размер блоков, используемых при вычислении контрольной суммы файла "
 "документа. Значение 0 отключает вычисление блоками, и весь файл будет "
@@ -1365,8 +1336,8 @@ msgstr "Список поддерживаемых языков документ�
 
 #: settings.py:107
 msgid ""
-"The threshold at which the DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND "
-"will start deleting the oldest document version page image cache versions. "
+"The threshold at which the DOCUMENT_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND"
+" will start deleting the oldest document version page image cache versions. "
 "Specify the size in bytes."
 msgstr ""
 "Пороговое значение в байтах, при котором "
@@ -1375,8 +1346,8 @@ msgstr ""
 
 #: settings.py:116
 msgid ""
-"Path to the Storage subclass to use when storing the cached document version "
-"page image versions."
+"Path to the Storage subclass to use when storing the cached document version"
+" page image versions."
 msgstr ""
 "Путь к подклассу Storage для использования при хранении кэша файлов "
 "изображений страниц версии документа."
@@ -1385,7 +1356,8 @@ msgstr ""
 msgid ""
 "Arguments to pass to the DOCUMENTS_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND."
 msgstr ""
-"Аргументы, передаваемые в DOCUMENTS_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND."
+"Аргументы, передаваемые в "
+"DOCUMENTS_VERSION_PAGE_IMAGE_CACHE_STORAGE_BACKEND."
 
 #: settings.py:146
 msgid ""
@@ -1459,30 +1431,24 @@ msgid "Total document pages at each month"
 msgstr "Всего страниц документов по месяцам"
 
 #: statistics.py:332
-#, fuzzy
-#| msgid "Total documents at each month"
 msgid "Total documents per document type"
-msgstr "Всего документов по месяцам"
+msgstr ""
 
 #: statistics.py:339
-#, fuzzy
-#| msgid "Total document files at each month"
 msgid "Total document files per document type"
-msgstr "Всего файлов документов по месяцам"
+msgstr ""
 
 #: statistics.py:346
-#, fuzzy
-#| msgid "Append all document file pages to a document version"
 msgid "Total document file pages per document type"
-msgstr "Добавить все страницы файла документа к версии документа"
+msgstr ""
 
 #: storages.py:21
 msgid ""
-"Unable to initialize the document file storage. Check the settings {} and {} "
-"for formatting errors."
+"Unable to initialize the document file storage. Check the settings {} and {}"
+" for formatting errors."
 msgstr ""
-"Невозможно инициализировать хранилище файлов документов. Проверьте настройки "
-"{} и {} на наличие ошибок форматирования."
+"Невозможно инициализировать хранилище файлов документов. Проверьте настройки"
+" {} и {} на наличие ошибок форматирования."
 
 #: storages.py:35
 msgid ""
@@ -1576,8 +1542,8 @@ msgstr "Пересчитать количество страниц файла д
 
 #: views/document_file_page_views.py:104
 msgid ""
-"This could mean that the document file is of a format that is not supported, "
-"that it is corrupted or that the upload process was interrupted. Use the "
+"This could mean that the document file is of a format that is not supported,"
+" that it is corrupted or that the upload process was interrupted. Use the "
 "document file page recalculation action to attempt to introspect the page "
 "count again."
 msgstr ""
@@ -1725,8 +1691,8 @@ msgstr ""
 #: views/document_file_views.py:342
 #, python-format
 msgid ""
-"Error cloning the page transformations for document file: %(document_file)s; "
-"%(error)s."
+"Error cloning the page transformations for document file: %(document_file)s;"
+" %(error)s."
 msgstr ""
 "Ошибка при клонировании преобразований страниц для файла документа: "
 "%(document_file)s; %(error)s."
@@ -1748,14 +1714,14 @@ msgstr "Документы типа %s"
 #: views/document_type_views.py:75
 msgid ""
 "Document types are the most basic units of configuration. Everything in the "
-"system will depend on them. Define a document type for each type of physical "
-"document you intend to upload. Example document types: invoice, receipt, "
+"system will depend on them. Define a document type for each type of physical"
+" document you intend to upload. Example document types: invoice, receipt, "
 "manual, prescription, balance sheet."
 msgstr ""
 "Типы документов - это самые основные единицы конфигурации. Все в системе "
-"будет зависеть от них. Определите тип документа для каждого типа физического "
-"документа, который вы собираетесь загрузить. Примеры типов документов: счет-"
-"фактура, квитанция, инструкция, предписание, баланс."
+"будет зависеть от них. Определите тип документа для каждого типа физического"
+" документа, который вы собираетесь загрузить. Примеры типов документов: "
+"счет-фактура, квитанция, инструкция, предписание, баланс."
 
 #: views/document_type_views.py:81
 msgid "No document types available"
@@ -1793,13 +1759,11 @@ msgstr "Создать быстрый ярлык для типа докумен�
 #, python-format
 msgid ""
 "Delete the quick label: %(label)s, from document type \"%(document_type)s\"?"
-msgstr ""
-"Удалить быстрый ярлык \"%(label)s\" для типа документа \"%(document_type)s\"?"
+msgstr "Удалить быстрый ярлык \"%(label)s\" для типа документа \"%(document_type)s\"?"
 
 #: views/document_type_views.py:246
 #, python-format
-msgid ""
-"Edit quick label \"%(filename)s\" from document type \"%(document_type)s\""
+msgid "Edit quick label \"%(filename)s\" from document type \"%(document_type)s\""
 msgstr ""
 "Редактировать быстрый ярлык \"%(filename)s\" для типа документа "
 "\"%(document_type)s\""
@@ -1833,8 +1797,9 @@ msgid ""
 "The page number of this page will be skipped. If you want to achieve "
 "sequential page numbering, use the page remap action instead."
 msgstr ""
-"Номер этой страницы будет пропущен. Если вы хотите добиться последовательной "
-"нумерации страниц, используйте вместо этого действие переназначения страниц."
+"Номер этой страницы будет пропущен. Если вы хотите добиться последовательной"
+" нумерации страниц, используйте вместо этого действие переназначения "
+"страниц."
 
 #: views/document_version_page_views.py:62
 #, python-format
@@ -1862,7 +1827,8 @@ msgstr "Нет"
 
 #: views/document_version_page_views.py:183
 msgid "There are no sources available to remap for this document version."
-msgstr "Для этой версии документа нет доступных источников для переназначения."
+msgstr ""
+"Для этой версии документа нет доступных источников для переназначения."
 
 #: views/document_version_page_views.py:186
 msgid "No page sources available"
@@ -1966,7 +1932,8 @@ msgstr ""
 
 #: views/document_version_views.py:329
 #, python-format
-msgid "Transformation clear request processed for %(count)d document versions."
+msgid ""
+"Transformation clear request processed for %(count)d document versions."
 msgstr ""
 "Запрос на очистку преобразований выполнен %(count)d для версий документов"
 
@@ -2130,8 +2097,8 @@ msgstr "Печать: %s"
 
 #: views/recently_accessed_document_views.py:23
 msgid ""
-"This view will list the latest documents viewed or manipulated in any way by "
-"this user account."
+"This view will list the latest documents viewed or manipulated in any way by"
+" this user account."
 msgstr ""
 "Здесь отображаются последние документы, с которыми взаимодействовал текущий "
 "пользователь."
@@ -2212,7 +2179,7 @@ msgstr ""
 
 #: views/trashed_document_views.py:111
 msgid "Delete the selected trashed document?"
-msgstr ""
+msgstr "Удалить выбранный документ из корзины?"
 
 #: views/trashed_document_views.py:149
 msgid ""
@@ -2221,7 +2188,8 @@ msgid ""
 "restored."
 msgstr ""
 "Чтобы избежать потери данных, документы не удаляются мгновенно, а сначала "
-"перемещаются в корзину. Здесь их можно восстановить или удалить окончательно."
+"перемещаются в корзину. Здесь их можно восстановить или удалить "
+"окончательно."
 
 #: views/trashed_document_views.py:154
 msgid "There are no documents in the trash can"
@@ -2254,7 +2222,7 @@ msgstr ""
 
 #: views/trashed_document_views.py:177
 msgid "Restore the selected trashed document?"
-msgstr ""
+msgstr "Восстановить выбранный документ из корзины?"
 
 #: workflow_actions.py:14
 msgid "New document type for the workflow document."
@@ -2267,65 +2235,3 @@ msgstr "Изменить тип документа"
 #: workflow_actions.py:40
 msgid "Send document to trash"
 msgstr "Переместить документ в корзину"
-
-#~ msgid "Document file downloaded"
-#~ msgstr "Файл документа скачан"
-
-#~ msgid "Document version exported"
-#~ msgstr "Версия документа экспортирована"
-
-#~ msgid "Quick download"
-#~ msgstr "Скачать"
-
-#, python-format
-#~ msgid ""
-#~ "Document version \"%(document_version)s\" has been exported and is "
-#~ "available for download using the link: %(download_url)s or from the "
-#~ "downloads area (%(download_list_url)s)."
-#~ msgstr ""
-#~ "Версия документа \"%(document_version)s\" экспортирована и доступна для "
-#~ "скачивания по ссылке: %(download_url)s или из области загрузок "
-#~ "(%(download_list_url)s)."
-
-#~ msgid "Document version exported."
-#~ msgstr "Версия документа экспортирована."
-
-#~ msgid "Document version export to PDF"
-#~ msgstr "Экспорт версии документа в PDF"
-
-#~ msgid "Download document files"
-#~ msgstr "Скачать файлы документов"
-
-#~ msgid "Export document versions"
-#~ msgstr "Экспортировать версии документов"
-
-#, python-format
-#~ msgid "Document version \"%(object)s\" export successfully queued."
-#~ msgstr "Экспорт версии документа \"%(object)s\" поставлен в очередь."
-
-#, python-format
-#~ msgid "%(count)d document version export successfully queued."
-#~ msgstr "%(count)d экспорт версии документа поставлен в очередь."
-
-#, python-format
-#~ msgid "%(count)d document versions exports successfully queued."
-#~ msgstr "%(count)d экспортов версий документов поставлено в очередь."
-
-#, python-format
-#~ msgid "Export document version \"%(object)s\"."
-#~ msgstr "Экспортировать версию документа \"%(object)s\"."
-
-#, python-format
-#~ msgid "Export %(count)d document version."
-#~ msgstr "Экспорт %(count)d версии документа."
-
-#, python-format
-#~ msgid "Export %(count)d document versions."
-#~ msgstr "Экспорт %(count)d версий документов."
-
-#~ msgid ""
-#~ "The process will be performed in the background. The exported file will "
-#~ "be available in the downloads area."
-#~ msgstr ""
-#~ "Процесс будет выполняться в фоновом режиме. Экспортированный файл будет "
-#~ "доступен в области загрузок."

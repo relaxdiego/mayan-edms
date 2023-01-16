@@ -1,26 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
-"Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/"
-"teams/13584/es_PR/)\n"
-"Language: es_PR\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: es_PR\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:46 apps.py:133 apps.py:137 apps.py:141 apps.py:146 apps.py:150
 #: events.py:6 forms.py:27 links.py:28 menus.py:14 models.py:35
@@ -162,7 +160,7 @@ msgstr "Descripción del documento"
 
 #: search.py:65
 msgid "Document UUID"
-msgstr "Documento"
+msgstr "UUID de Documento"
 
 #: search.py:69
 msgid "Document file checksum"
@@ -173,14 +171,12 @@ msgid "Document file MIME type"
 msgstr "Codificación MIME del archivo de documento "
 
 #: serializers.py:12
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Documentos"
+msgstr "URL de documentos"
 
 #: serializers.py:19
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:33
 msgid "Primary key of the tag to add to the document."
@@ -281,8 +277,8 @@ msgid ""
 "Tags are color coded properties that can be attached or removed from "
 "documents."
 msgstr ""
-"Las etiquetas son propiedades codificadas por colores que se pueden adjuntar "
-"o retirar de los documentos."
+"Las etiquetas son propiedades codificadas por colores que se pueden adjuntar"
+" o retirar de los documentos."
 
 #: views.py:179
 msgid "No tags available"

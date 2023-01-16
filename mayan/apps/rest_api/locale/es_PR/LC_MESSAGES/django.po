@@ -1,26 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
-"Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/"
-"teams/13584/es_PR/)\n"
-"Language: es_PR\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: es_PR\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:23 links.py:17 settings.py:11
 msgid "REST API"
@@ -60,47 +58,47 @@ msgstr "%s API"
 
 #: serializers.py:37
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 #: serializers.py:40
 msgid "Data"
-msgstr ""
+msgstr "Datos"
 
 #: serializers.py:43
 msgid "Headers"
-msgstr ""
+msgstr "Encabezados"
 
 #: serializers.py:46
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: serializers.py:49
 msgid "Status code"
-msgstr ""
+msgstr "Código de estado"
 
 #: serializers.py:52
 msgid "Requests"
-msgstr ""
+msgstr "Peticiones"
 
 #: serializers.py:75
 msgid "Label"
-msgstr ""
+msgstr "Etiqueta"
 
 #: serializers.py:78
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:106
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: serializers.py:109
 msgid "Author email"
-msgstr ""
+msgstr "Correo electrónico del autor"
 
 #: serializers.py:112
 msgid "Build"
-msgstr ""
+msgstr "Construcción"
 
 #: serializers.py:115
 msgid "Build string"
@@ -108,31 +106,31 @@ msgstr ""
 
 #: serializers.py:118
 msgid "Copyright"
-msgstr ""
+msgstr "Derechos de autor"
 
 #: serializers.py:121
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: serializers.py:124
 msgid "Django version"
-msgstr ""
+msgstr "Versión de Django"
 
 #: serializers.py:127
 msgid "License"
-msgstr ""
+msgstr "Licencia"
 
 #: serializers.py:130
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: serializers.py:133
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 #: serializers.py:136
 msgid "Website"
-msgstr ""
+msgstr "Sitio web"
 
 #: settings.py:17
 msgid "Disable the REST API links in the tools menu."

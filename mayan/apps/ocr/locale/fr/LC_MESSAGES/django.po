@@ -1,29 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Guillaume Trottier <gui.trottier@gmail.com>, 2022
-# Olivier W, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-#
+# Guillaume Trottier <gui.trottier@gmail.com>, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Olivier W, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
 #: search.py:18 settings.py:11
@@ -35,10 +34,10 @@ msgid "The OCR content."
 msgstr "Le contenu provenant de la reconnaissance de caractères."
 
 #: apps.py:121
-msgid "A generator returning the document's pages OCR content."
-msgstr "Un générateur renvoyant le contenu OCR des pages du document."
+msgid "A generator returning the document's version pages OCR content."
+msgstr ""
 
-#: apps.py:122
+#: apps.py:123
 msgid "OCR content"
 msgstr "Contenu OCR"
 
@@ -106,13 +105,12 @@ msgstr "Type de document"
 #: models.py:26
 msgid "Automatically queue newly created documents for OCR."
 msgstr ""
-"Ajouter automatiquement les nouveaux documents créés à la file d'attente OCR."
+"Ajouter automatiquement les nouveaux documents créés à la file d'attente "
+"OCR."
 
 #: models.py:27
-#, fuzzy
-#| msgid "Submit for OCR"
 msgid "Auto OCR"
-msgstr "Ajouter à la file d'attente OCR"
+msgstr ""
 
 #: models.py:33
 msgid "Document type settings"
@@ -159,18 +157,14 @@ msgid "Change document type OCR settings"
 msgstr "Modifier les paramétrages OCR du type de document"
 
 #: queues.py:10
-msgid "Finish document file OCR"
-msgstr "Terminer l'analyse OCR pour le document "
-
-#: queues.py:14
-msgid "Document file page OCR"
+msgid "Finish document version OCR"
 msgstr ""
 
-#: queues.py:18
-msgid "Document file OCR"
-msgstr "OCR du fichier"
+#: queues.py:14
+msgid "Document version page OCR"
+msgstr ""
 
-#: search.py:12 search.py:24
+#: queues.py:18 search.py:12 search.py:24
 msgid "Document version OCR"
 msgstr "OCR de la version du document"
 

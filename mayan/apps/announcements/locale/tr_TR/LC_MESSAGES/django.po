@@ -1,25 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# serhatcan77 <serhat_can@yahoo.com>, 2022
-# Bedreddin Şahbaz, 2022
-#
+# abc Def <hdogan1974@gmail.com>, 2023
+# serhatcan77 <serhat_can@yahoo.com>, 2023
+# Bedreddin Şahbaz, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
-"teams/13584/tr_TR/)\n"
-"Language: tr_TR\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:46+0000\n"
+"Last-Translator: Bedreddin Şahbaz, 2023\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: apps.py:36 events.py:6 links.py:42 models.py:43 permissions.py:6
@@ -61,7 +61,7 @@ msgstr "Etiket"
 
 #: models.py:23
 msgid "The actual text to be displayed."
-msgstr "Görüntülenecek halihazırdaki metin."
+msgstr "Görüntülenecek metin."
 
 #: models.py:24
 msgid "Text"
@@ -73,7 +73,7 @@ msgstr "Etkin"
 
 #: models.py:29
 msgid "Date and time after which this announcement will be displayed."
-msgstr "Bu duyurunun gösterileceği tarih ve saat."
+msgstr "Bu duyurunun gösterilemeye başlayacağı tarih saat."
 
 #: models.py:30
 msgid "Start date time"
@@ -93,7 +93,7 @@ msgstr "Duyuru"
 
 #: permissions.py:10
 msgid "Create announcements"
-msgstr "Duyuru oluştur"
+msgstr "Duyurları oluştur"
 
 #: permissions.py:13
 msgid "Delete announcements"
@@ -109,7 +109,7 @@ msgstr "Duyuruları görüntüle"
 
 #: serializers.py:12
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: views.py:45
 #, python-format

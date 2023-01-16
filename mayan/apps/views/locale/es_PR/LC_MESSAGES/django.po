@@ -2,25 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
-"Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/"
-"teams/13584/es_PR/)\n"
-"Language: es_PR\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: es_PR\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:20 settings.py:11
 msgid "Views"
@@ -49,8 +47,8 @@ msgid ""
 "to activate the action."
 msgstr ""
 "Seleccione las entradas que desea eliminar. Mantén pulsado Control para "
-"seleccionar varias entradas. Una vez que se complete la selección, haga clic "
-"en el botón de abajo o haga doble clic en la lista para activar la acción."
+"seleccionar varias entradas. Una vez que se complete la selección, haga clic"
+" en el botón de abajo o haga doble clic en la lista para activar la acción."
 
 #: generics.py:168
 msgid ""
@@ -59,8 +57,8 @@ msgid ""
 "to activate the action."
 msgstr ""
 "Seleccione las entradas que se añadirán. Mantén pulsado Control para "
-"seleccionar varias entradas. Una vez que se complete la selección, haga clic "
-"en el botón de abajo o haga doble clic en la lista para activar la acción."
+"seleccionar varias entradas. Una vez que se complete la selección, haga clic"
+" en el botón de abajo o haga doble clic en la lista para activar la acción."
 
 #: generics.py:322
 msgid "Add all"
@@ -172,34 +170,39 @@ msgid ""
 "Display a submit button and wait for the submit button to be pressed before "
 "processing up the upload."
 msgstr ""
+"Muestrar un botón de enviar y esperar a que se presione el botón de enviar "
+"antes de procesar la carga."
 
 #: templates/views/app/foot.html:46
 msgid "Cancel upload"
-msgstr ""
+msgstr "Cancelar carga"
 
 #: templates/views/app/foot.html:47
 msgid "Are you sure you want to cancel this upload?"
-msgstr ""
+msgstr "¿Estás seguro de que desea cancelar esta carga?"
 
 #: templates/views/app/foot.html:48
 msgid "Drop files or click here to upload files"
-msgstr ""
+msgstr "Soltar archivos o hacer clic aquí para subir archivos"
 
 #: templates/views/app/foot.html:49
 msgid "Your browser does not support drag and drop file uploads."
 msgstr ""
+"Su navegador no admite la carga de archivos mediante arrastrar y soltar."
 
 #: templates/views/app/foot.html:50
 msgid "Please use the fallback form below to upload your files."
 msgstr ""
+"Por favor, use el formulario de reserva a continuación para cargar sus "
+"archivos."
 
 #: templates/views/app/foot.html:51
 msgid "Clear"
-msgstr ""
+msgstr "Limpiar"
 
 #: templates/views/app/foot.html:52
 msgid "Server responded with {{statusCode}} code."
-msgstr ""
+msgstr "El servidor respondió con el código {{statusCode}}."
 
 #: templatetags/views_tags.py:30
 msgid "Confirm delete"

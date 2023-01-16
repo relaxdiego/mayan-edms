@@ -1,26 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Pavlin Koldamov <pkoldamov@gmail.com>, 2022
-# Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-#
+# Pavlin Koldamov <pkoldamov@gmail.com>, 2023
+# Lyudmil Antonov <lantonov.here@gmail.com>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
-"bg/)\n"
-"Language: bg\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:53 events.py:6 links.py:144 menus.py:6 models.py:35 queues.py:7
@@ -178,18 +177,17 @@ msgid "Handle upload"
 msgstr "Обработете качването"
 
 #: serializers.py:12
-#, fuzzy
-#| msgid "Action"
 msgid "Actions"
-msgstr "Действие"
+msgstr "Действия"
 
 #: serializers.py:18
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:55
 msgid "Optional arguments for the action. Must be JSON formatted."
-msgstr "Незадължителни аргументи за действието. Трябва да е форматиран в JSON."
+msgstr ""
+"Незадължителни аргументи за действието. Трябва да е форматиран в JSON."
 
 #: serializers.py:56 source_backends/sane_scanner_backends.py:45
 msgid "Arguments"
@@ -259,8 +257,8 @@ msgid ""
 "Select a metadata type to store the email's \"from\" value. Must be a valid "
 "metadata type for the document type selected previously."
 msgstr ""
-"Изберете тип метаданни за съхраняване стойността „от“ на имейла. Трябва да е "
-"валиден тип метаданни за избрания преди това тип документ."
+"Изберете тип метаданни за съхраняване стойността „от“ на имейла. Трябва да е"
+" валиден тип метаданни за избрания преди това тип документ."
 
 #: source_backends/email_backends.py:115
 msgid "From metadata type"
@@ -283,9 +281,9 @@ msgid ""
 "Select a metadata type to store the email's message ID value. Must be a "
 "valid metadata type for the document type selected previously."
 msgstr ""
-"Изберете тип метаданни, за съхраняване стойността на идентификатора на имейл "
-"съобщението. Трябва да е валиден тип метаданни за предварително избрания тип "
-"документ."
+"Изберете тип метаданни, за съхраняване стойността на идентификатора на имейл"
+" съобщението. Трябва да е валиден тип метаданни за предварително избрания "
+"тип документ."
 
 #: source_backends/email_backends.py:159
 msgid "Message ID metadata type"
@@ -314,14 +312,14 @@ msgid ""
 "Subject metadata type \"%(metadata_type)s\" is not valid for the document "
 "type: %(document_type)s"
 msgstr ""
-"Типът метаданни за темата &quot;%(metadata_type)s&quot; не е валиден за типа "
-"документ: %(document_type)s"
+"Типът метаданни за темата &quot;%(metadata_type)s&quot; не е валиден за типа"
+" документ: %(document_type)s"
 
 #: source_backends/email_backends.py:351
 #, python-format
 msgid ""
-"Message ID metadata type \"%(metadata_type)s\" is not valid for the document "
-"type: %(document_type)s"
+"Message ID metadata type \"%(metadata_type)s\" is not valid for the document"
+" type: %(document_type)s"
 msgstr ""
 "Тип метаданни за идентификатор на съобщението „%(metadata_type)s“ не е "
 "валиден за типа документ: %(document_type)s"
@@ -340,8 +338,8 @@ msgid ""
 "specified in https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 msgstr ""
 "Критерии, които се използват при търсене на съобщения за обработка. "
-"Използвайте формата, посочен в https://tools.ietf.org/html/rfc2060."
-"html#section-6.4.4"
+"Използвайте формата, посочен в "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 
 #: source_backends/email_backends.py:415
 msgid "Search criteria"
@@ -350,13 +348,14 @@ msgstr "Критерии за търсене"
 #: source_backends/email_backends.py:423
 msgid ""
 "IMAP STORE command to execute on messages after they are processed. One "
-"command per line. Use the commands specified in https://tools.ietf.org/html/"
-"rfc2060.html#section-6.4.6 or the custom commands for your IMAP server."
+"command per line. Use the commands specified in "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 or the custom "
+"commands for your IMAP server."
 msgstr ""
 "IMAP STORE команда за изпълнение на съобщения след тяхното обработване. По "
-"една команда на ред. Използвайте командите, посочени в https://tools.ietf."
-"org/html/rfc2060.html#section-6.4.6 или персонализираните команди за вашия "
-"IMAP сървър."
+"една команда на ред. Използвайте командите, посочени в "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 или персонализираните"
+" команди за вашия IMAP сървър."
 
 #: source_backends/email_backends.py:428
 msgid "Store commands"
@@ -373,7 +372,8 @@ msgstr "Премахнете изцяло"
 
 #: source_backends/email_backends.py:445
 msgid "IMAP Mailbox to which processed messages will be copied."
-msgstr "IMAP пощенска кутия, в която ще бъдат копирани обработените съобщения."
+msgstr ""
+"IMAP пощенска кутия, в която ще бъдат копирани обработените съобщения."
 
 #: source_backends/email_backends.py:447
 msgid "Destination mailbox"
@@ -575,8 +575,8 @@ msgstr ""
 #: source_backends/staging_folder_backends.py:668
 msgid ""
 "This could mean that the staging folder is empty. It could also mean that "
-"the operating system user account being used for Mayan EDMS doesn't have the "
-"necessary file system permissions for the folder."
+"the operating system user account being used for Mayan EDMS doesn't have the"
+" necessary file system permissions for the folder."
 msgstr ""
 "Това може да означава, че папката за поставяне е празна. Това също може да "
 "означава, че потребителският акаунт на операционната система, използвана за "
@@ -608,8 +608,8 @@ msgstr "Активиране на файлове в папките"
 
 #: views/base.py:55 wizards.py:58
 msgid ""
-"No interactive document sources have been defined or none have been enabled, "
-"create one before proceeding."
+"No interactive document sources have been defined or none have been enabled,"
+" create one before proceeding."
 msgstr ""
 "Не са дефинирани интерактивни източници на документи или никой не е "
 "активиран, създайте такъв преди да продължите."
@@ -683,8 +683,8 @@ msgid ""
 "and require user input to operate. Others are automatic and run in the "
 "background without user intervention."
 msgstr ""
-"Източниците предоставят средства за качване на документи. Някои източници са "
-"интерактивни и изискват въвеждане от потребителя за да работят. Други са "
+"Източниците предоставят средства за качване на документи. Някои източници са"
+" интерактивни и изискват въвеждане от потребителя за да работят. Други са "
 "автоматични и работят във фонов режим без намеса на потребителя."
 
 #: views/source_views.py:176
@@ -693,13 +693,13 @@ msgstr "Няма налични източници"
 
 #: views/source_views.py:195
 msgid ""
-"This will execute the source code even if the source is not enabled. Sources "
-"that delete content after downloading will not do so while being tested. "
+"This will execute the source code even if the source is not enabled. Sources"
+" that delete content after downloading will not do so while being tested. "
 "Check the source's error log for information during testing. A successful "
 "test will clear the error log."
 msgstr ""
-"Това ще изпълни изходния код, дори ако източникът не е активиран. Източници, "
-"които изтриват съдържание след изтегляне, няма да го направят, докато се "
+"Това ще изпълни изходния код, дори ако източникът не е активиран. Източници,"
+" които изтриват съдържание след изтегляне, няма да го направят, докато се "
 "тестват. Проверете дневника на грешките на източника за информация по време "
 "на тестването. Успешен тест ще изчисти регистъра на грешките."
 
@@ -736,25 +736,3 @@ msgstr "Предна"
 #: wizards.py:105
 msgid "Next"
 msgstr "Следваща"
-
-#~ msgid "Cancel upload"
-#~ msgstr "Прекратете качването"
-
-#~ msgid "Are you sure you want to cancel this upload?"
-#~ msgstr "Наистина ли искате да прекратите това качване?"
-
-#~ msgid "Drop files or click here to upload files"
-#~ msgstr "Пуснете файлове или щракнете тук, за да качите файлове"
-
-#~ msgid "Your browser does not support drag and drop file uploads."
-#~ msgstr "Вашият браузър не поддържа качване на файлове с плъзгане и пускане."
-
-#~ msgid "Please use the fallback form below to upload your files."
-#~ msgstr ""
-#~ "Моля, използвайте резервния формуляр по-долу, за да качите вашите файлове."
-
-#~ msgid "Clear"
-#~ msgstr "Изчистване"
-
-#~ msgid "Server responded with {{statusCode}} code."
-#~ msgstr "Сървърът отговори с {{statusCode}} код."

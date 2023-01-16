@@ -1,26 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Allan Møller <it@brandts.dk>, 2022
-# Roberto Rosario, 2022
-# Mads L. Nielsen <sirlundgaard@gmail.com>, 2022
-# Rasmus Kierudsen <tebrasso@gmail.com>, 2022
-#
+# René Rovsing Bach <reroba@outlook.com>, 2023
+# Roberto Rosario, 2023
+# Allan Møller <it@brandts.dk>, 2023
+# Rasmus Kierudsen <tebrasso@gmail.com>, 2023
+# Mads L. Nielsen <sirlundgaard@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Rasmus Kierudsen <tebrasso@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Mads L. Nielsen <sirlundgaard@gmail.com>, 2023\n"
 "Language-Team: Danish (https://www.transifex.com/rosarior/teams/13584/da/)\n"
-"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:27 permissions.py:6 settings.py:15
@@ -99,7 +100,7 @@ msgstr ""
 
 #: model_mixins.py:101 models.py:48
 msgid "User"
-msgstr ""
+msgstr "Bruger"
 
 #: models.py:40 models.py:91
 msgid "File"
@@ -171,14 +172,14 @@ msgstr ""
 
 #: storages.py:15
 msgid ""
-"Unable to initialize the download file storage. Check the settings {} and {} "
-"for formatting errors."
+"Unable to initialize the download file storage. Check the settings {} and {}"
+" for formatting errors."
 msgstr ""
 
 #: storages.py:29
 msgid ""
-"Unable to initialize the shared uploaded file storage. Check the settings {} "
-"and {} for formatting errors."
+"Unable to initialize the shared uploaded file storage. Check the settings {}"
+" and {} for formatting errors."
 msgstr ""
 
 #: views.py:67

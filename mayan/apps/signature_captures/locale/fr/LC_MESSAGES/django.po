@@ -2,27 +2,27 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Roberto Rosario, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-#
+# Yves Dubois <ydubois@gmail.com>, 2023
+# Roberto Rosario, 2023
+# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:41 events.py:6 links.py:34 models.py:71 permissions.py:6
 #: settings.py:13
@@ -176,10 +176,8 @@ msgid "User username"
 msgstr "Nom de l'utilisateur"
 
 #: serializers.py:11
-#, fuzzy
-#| msgid "Document"
 msgid "Document URL"
-msgstr "Document"
+msgstr ""
 
 #: serializers.py:15
 msgid "Image URL"
@@ -187,13 +185,14 @@ msgstr ""
 
 #: serializers.py:27
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: settings.py:21
 msgid ""
 "The threshold at which the "
 "SIGNATURE_CAPTURES_SIGNATURE_CAPTURE_CACHE_STORAGE_BACKEND will start "
-"deleting the oldest signature capture cache files. Specify the size in bytes."
+"deleting the oldest signature capture cache files. Specify the size in "
+"bytes."
 msgstr ""
 
 #: settings.py:30
@@ -210,8 +209,8 @@ msgstr ""
 
 #: storages.py:15
 msgid ""
-"Unable to initialize the converter signature capture cachestorage. Check the "
-"settings {} and {} for formatting errors."
+"Unable to initialize the converter signature capture cachestorage. Check the"
+" settings {} and {} for formatting errors."
 msgstr ""
 
 #: storages.py:21

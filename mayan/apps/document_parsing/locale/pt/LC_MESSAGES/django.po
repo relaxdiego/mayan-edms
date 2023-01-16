@@ -2,32 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Roberto Rosario, 2022
-# Rogerio Falcone <rogerio@falconeit.com.br>, 2022
-# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-# Aline Freitas <aline@alinefreitas.com.br>, 2022
-# Emerson Soares <on.emersonsoares@gmail.com>, 2022
-# Márcia Ferreira, 2022
-# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2022
-#
+# Rogerio Falcone <rogerio@falconeit.com.br>, 2023
+# Emerson Soares <on.emersonsoares@gmail.com>, 2023
+# Márcia Ferreira, 2023
+# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2023
+# Roberto Rosario, 2023
+# Aline Freitas <aline@alinefreitas.com.br>, 2023
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, "
-"2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/"
-"pt/)\n"
-"Language: pt\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:49+0000\n"
+"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023\n"
+"Language-Team: Portuguese (https://www.transifex.com/rosarior/teams/13584/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: pt\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:51 events.py:6 permissions.py:6 settings.py:11
 msgid "Document parsing"
@@ -48,8 +45,8 @@ msgid ""
 "Utility from the poppler-utils package used to extract content from PDF "
 "files."
 msgstr ""
-"Utilidade do pacto de poppler-utils usada para extrair conteúdo de ficheiros "
-"PDF."
+"Utilidade do pacto de poppler-utils usada para extrair conteúdo de ficheiros"
+" PDF."
 
 #: events.py:10
 msgid "Document file parsed content deleted"
@@ -120,10 +117,8 @@ msgstr ""
 "Enfileirar automaticamente documentos criados recentemente para análise."
 
 #: models.py:49
-#, fuzzy
-#| msgid "Submit for parsing"
 msgid "Auto parsing"
-msgstr "Enviar para análise"
+msgstr ""
 
 #: models.py:59
 msgid "Document type settings"
@@ -175,7 +170,8 @@ msgstr ""
 
 #: settings.py:24
 msgid ""
-"File path to poppler's pdftotext program used to extract text from PDF files."
+"File path to poppler's pdftotext program used to extract text from PDF "
+"files."
 msgstr ""
 "Caminho para o programa pdftotext de poppler, usado para extrair texto de "
 "ficheiros PDF."
@@ -190,7 +186,8 @@ msgstr ""
 #: views.py:44
 #, python-format
 msgid "Content of %(count)d document versions deleted successfully."
-msgstr "Conteúdo de %(count)d das versões do documento eliminadas com sucesso."
+msgstr ""
+"Conteúdo de %(count)d das versões do documento eliminadas com sucesso."
 
 #: views.py:47
 #, python-format

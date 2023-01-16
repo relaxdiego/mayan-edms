@@ -1,66 +1,64 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: apps.py:23 links.py:17 settings.py:11
 msgid "REST API"
-msgstr "REST API"
+msgstr ""
 
 #: fields.py:30
 #, python-format
 msgid "Unable to find serializer class for: %s"
-msgstr "Ni mogoče najti razreda serializatorja za: %s"
+msgstr ""
 
 #: links.py:21
 msgid "API Documentation (Swagger)"
-msgstr "Dokumentacija API (Swagger)"
+msgstr ""
 
 #: links.py:26
 msgid "API Documentation (ReDoc)"
-msgstr "Dokumentacija API-ja (ReDoc)"
+msgstr ""
 
 #: relations.py:33
 #, python-brace-format
 msgid "Invalid pk \"{pk_value}\" - object does not exist."
-msgstr "Neveljaven pk &quot;{pk_value}&quot; - predmet ne obstaja."
+msgstr ""
 
 #: relations.py:36
 #, python-brace-format
 msgid "Incorrect type. Expected pk value, received {data_type}."
-msgstr "Nepravilna vrsta. Pričakovana vrednost pk, prejeta {data_type}."
+msgstr ""
 
 #: relations.py:38
 msgid "This field is required."
-msgstr "To polje je obvezno."
+msgstr ""
 
 #: schemas.py:11
 #, python-format
 msgid "%s API"
-msgstr "%s API"
+msgstr ""
 
 #: serializers.py:37
 msgid "Content"
-msgstr ""
+msgstr "Vsebina"
 
 #: serializers.py:40
 msgid "Data"
@@ -72,7 +70,7 @@ msgstr ""
 
 #: serializers.py:46
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 #: serializers.py:49
 msgid "Status code"
@@ -84,7 +82,7 @@ msgstr ""
 
 #: serializers.py:75
 msgid "Label"
-msgstr ""
+msgstr "Oznaka"
 
 #: serializers.py:78
 msgid "URL"
@@ -112,7 +110,7 @@ msgstr ""
 
 #: serializers.py:121
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #: serializers.py:124
 msgid "Django version"
@@ -128,7 +126,7 @@ msgstr ""
 
 #: serializers.py:133
 msgid "Version"
-msgstr ""
+msgstr "Različica"
 
 #: serializers.py:136
 msgid "Website"
@@ -136,12 +134,12 @@ msgstr ""
 
 #: settings.py:17
 msgid "Disable the REST API links in the tools menu."
-msgstr "Onemogočite povezave REST API v meniju orodij."
+msgstr ""
 
 #: settings.py:23
 msgid "The maximum page size that can be requested."
-msgstr "Največja velikost strani, ki jo je mogoče zahtevati."
+msgstr ""
 
 #: settings.py:29
 msgid "The default page size if none is specified."
-msgstr "Privzeta velikost strani, če nobena ni navedena."
+msgstr ""

@@ -1,29 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# Pavlin Koldamov <pkoldamov@gmail.com>, 2022
-# Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-#
+# Roberto Rosario, 2023
+# Pavlin Koldamov <pkoldamov@gmail.com>, 2023
+# Lyudmil Antonov <lantonov.here@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
-"bg/)\n"
-"Language: bg\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:46+0000\n"
+"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2023\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:57 events.py:6 permissions.py:6 settings.py:11
+#: apps.py:57 events.py:6 permissions.py:6 settings.py:12
 msgid "Appearance"
 msgstr "Изглед"
 
@@ -163,25 +162,36 @@ msgstr "Редактирайте теми"
 msgid "View existing themes"
 msgstr "Вижте съществуващите теми"
 
-#: settings.py:17
+#: settings.py:18
 msgid "Custom HTTP response code for AJAX redirections."
 msgstr ""
 
-#: settings.py:23
+#: settings.py:24
 msgid "Maximum number of characters that will be displayed as the view title."
 msgstr ""
 "Максимален брой на знаците, които ще се изобразят в заглавката на изгледа."
 
-#: settings.py:33
+#: settings.py:34
 msgid "Position where the system messages will be displayed."
 msgstr ""
 
-#: settings.py:39
+#: settings.py:40
 msgid ""
 "Delay in milliseconds after which the menus will be checked for updates."
 msgstr ""
 "Забавяне в милисекунди, след което менютата ще бъдат проверени за "
 "актуализации."
+
+#: settings.py:47
+msgid ""
+"Maximum number of requests that can be made before throttling is enabled."
+msgstr ""
+
+#: settings.py:54
+msgid ""
+"Time in milliseconds after which a throttled request will clear allowing an "
+"additional request to be performed."
+msgstr ""
 
 #: templates/403.html:5 templates/403.html:30
 msgid "Insufficient permission"
@@ -219,7 +229,8 @@ msgstr ""
 "Местоположението е правилно, но акаунтът ви няма необходимото разрешение за "
 "достъп до него."
 
-#: templates/500.html:5 templates/500.html:30 templates/appearance/root.html:47
+#: templates/500.html:5 templates/500.html:30
+#: templates/appearance/root.html:47
 msgid "Server error"
 msgstr "Грешка в сървъра"
 
@@ -244,9 +255,7 @@ msgid "Contact your system administrator."
 msgstr "Свържете се с вашия системен администратор."
 
 #: templates/500.html:47
-msgid ""
-"Check the logs for messages with the tags \"ERROR\", \"CRITICAL\" or "
-"\"FATAL\"."
+msgid "Check the logs for messages with the tags \"ERROR\", \"CRITICAL\" or \"FATAL\"."
 msgstr ""
 "Проверете дневниците за съобщения с маркери \"ERROR\", \"CRITICAL\" или "
 "\"FATAL\"."
@@ -270,8 +279,7 @@ msgid ""
 "                "
 msgstr ""
 "\n"
-"                    %(setting_project_title)s се основава "
-"на%(project_title)s\n"
+"                    %(setting_project_title)s се основава на%(project_title)s\n"
 "                "
 
 #: templates/appearance/about.html:77
@@ -291,64 +299,49 @@ msgstr "Издаден под лиценз:"
 #, python-format
 msgid ""
 "\n"
-"                The complete list of changes is available via the <a "
-"class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index."
-"html\">Release notes %(icon_documentation)s</a> or the short version <a "
-"class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/"
-"master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
+"                The complete list of changes is available via the <a class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index.html\">Release notes %(icon_documentation)s</a> or the short version <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/master/HISTORY.rst\">Changelog %(icon_documentation)s</a>.\n"
 "            "
 msgstr ""
 "\n"
-"                Пълният списък на промените е наличен чрез <a "
-"class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index."
-"html\">Бележки към версията %(icon_documentation)s</a> или кратката версия "
-"<a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/"
-"master/HISTORY.rst\">Дневник на промените%(icon_documentation)s</a>.\n"
+"                Пълният списък на промените е наличен чрез <a class=\"new_window\" href=\"https://docs.mayan-edms.com/releases/index.html\">Бележки към версията %(icon_documentation)s</a> или кратката версия <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms/blob/master/HISTORY.rst\">Дневник на промените%(icon_documentation)s</a>.\n"
 "            "
 
 #: templates/appearance/about.html:104
 #, python-format
 msgid ""
 "\n"
-"                For questions check the <a class=\"new_window\" "
-"href=\"https://docs.mayan-edms.com\">Documentation %(icon_documentation)s</"
-"a>.\n"
+"                For questions check the <a class=\"new_window\" href=\"https://docs.mayan-edms.com\">Documentation %(icon_documentation)s</a>.\n"
 "            "
 msgstr ""
 "\n"
-"За въпроси проверете <a class=\"new_window\" href=\"https://docs.mayan-edms."
-"com\">Документация %(icon_documentation)s</a> ."
+"За въпроси проверете <a class=\"new_window\" href=\"https://docs.mayan-edms.com\">Документация %(icon_documentation)s</a> ."
 
 #: templates/appearance/about.html:110
 #, python-format
 msgid ""
 "\n"
-"                If you found a bug or have a feature idea, visit the <a "
-"class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum "
-"%(icon_forum)s</a> or open a ticket in the <a class=\"new_window\" "
-"href=\"https://gitlab.com/mayan-edms/mayan-edms\">Source code repository "
-"%(icon_source_code)s</a>.\n"
+"                If you found a bug or have a feature idea, visit the <a class=\"new_window\" href=\"https://forum.mayan-edms.com\">Forum %(icon_forum)s</a> or open a ticket in the <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms\">Source code repository %(icon_source_code)s</a>.\n"
 "            "
 msgstr ""
 "\n"
-"                Ако намерите бъг или имате идея за прибавка, посетете <a "
-"class=\"new_window\" href=\"https://forum.mayan-edms.com\">Форум "
-"%(icon_forum)s</a> или направете заявка в <a class=\"new_window\" "
-"href=\"https://gitlab.com/mayan-edms/mayan-edms\">Хранилище на изходен код "
-"%(icon_source_code)s</a>.\n"
+"                Ако намерите бъг или имате идея за прибавка, посетете <a class=\"new_window\" href=\"https://forum.mayan-edms.com\">Форум %(icon_forum)s</a> или направете заявка в <a class=\"new_window\" href=\"https://gitlab.com/mayan-edms/mayan-edms\">Хранилище на изходен код %(icon_source_code)s</a>.\n"
 "            "
 
 #: templates/appearance/about.html:115
 #, python-format
 msgid ""
 "\n"
-"                Spread the word. Talk to your friends and colleagues about "
-"how awesome %(project_title)s is!\n"
+"                Spread the word. Talk to your friends and colleagues about how awesome %(project_title)s is!\n"
 "            "
 msgstr ""
 "\n"
-"Разпространете информация за този проект. Говорете с вашите приятели и "
-"колеги за това колко страхотен е %(project_title)s!"
+"Разпространете информация за този проект. Говорете с вашите приятели и колеги за това колко страхотен е %(project_title)s!"
+
+#: templates/appearance/app/foot.html:70
+msgid ""
+"Too many pending requests. Additional requests will be blocked until a "
+"pending one is completed or after the cooling off period ends."
+msgstr ""
 
 #: templates/appearance/base.html:73
 msgid "Object"
@@ -400,13 +393,11 @@ msgstr "Идентификатор"
 #: templates/appearance/partials/list_object_facet_links_column.html:8
 #: templates/appearance/partials/list_object_facet_links_column.html:39
 msgid "Views"
-msgstr ""
+msgstr "Изгледи"
 
 #: templates/appearance/generic_list_subtemplate.html:91
-#, fuzzy
-#| msgid "Bulk actions"
 msgid "Actions"
-msgstr "Групови действия"
+msgstr "Действия"
 
 #: templates/appearance/home.html:27
 msgid "Getting started"
@@ -469,12 +460,12 @@ msgstr "Няма резултати"
 #: templates/appearance/partials/pagination.html:12
 #: templates/appearance/partials/pagination.html:14
 msgid "Previous page"
-msgstr ""
+msgstr "Предишна страница"
 
 #: templates/appearance/partials/pagination.html:30
 #: templates/appearance/partials/pagination.html:32
 msgid "Next page"
-msgstr ""
+msgstr "Следваща страница"
 
 #: templates/appearance/root.html:52
 msgid "Close"
@@ -522,14 +513,3 @@ msgstr "Настройки на темата за потребителя: %s"
 #, python-format
 msgid "Edit theme settings for user: %s"
 msgstr "Редактиране на настройките на потребителската тема: %s"
-
-#~ msgid ""
-#~ "Position where the system message will be displayed. Options are: top-"
-#~ "left, top-center, top-right, bottom-left, bottom-center, bottom-right."
-#~ msgstr ""
-#~ "Позиция, където ще се показва системното съобщение. Опциите са: горе "
-#~ "вляво, горе в центъра, горе вдясно, отдолу вляво, отдолу в центъра, "
-#~ "отдолу вдясно."
-
-#~ msgid "Facets"
-#~ msgstr "Фасети"

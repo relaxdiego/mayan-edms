@@ -2,31 +2,31 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2022
-# Yves Dubois <ydubois@gmail.com>, 2022
-# Benoît GROUSSET <benoit@grousset.xyz>, 2022
-# Roberto Rosario, 2022
-# Guillaume Trottier <gui.trottier@gmail.com>, 2022
-# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-#
+# Baptiste GAILLET <baptiste.gaillet@cstb.fr>, 2023
+# Roberto Rosario, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Benoît GROUSSET <benoit@grousset.xyz>, 2023
+# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2023
+# Yves Dubois <ydubois@gmail.com>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# Guillaume Trottier <gui.trottier@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Guillaume Trottier <gui.trottier@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:20 settings.py:11
 msgid "Views"
@@ -180,31 +180,35 @@ msgstr ""
 
 #: templates/views/app/foot.html:46
 msgid "Cancel upload"
-msgstr ""
+msgstr "Annuler le téléversement"
 
 #: templates/views/app/foot.html:47
 msgid "Are you sure you want to cancel this upload?"
-msgstr ""
+msgstr "Êtes-vous sûr que vous voulez annuler ce téléversement?"
 
 #: templates/views/app/foot.html:48
 msgid "Drop files or click here to upload files"
-msgstr ""
+msgstr "Déposez vos fichiers ou cliquez pour téléverser des fichiers."
 
 #: templates/views/app/foot.html:49
 msgid "Your browser does not support drag and drop file uploads."
 msgstr ""
+"Votre navigateur ne prend pas en charge le téléversement de fichiers par "
+"glisser-déposer."
 
 #: templates/views/app/foot.html:50
 msgid "Please use the fallback form below to upload your files."
 msgstr ""
+"Veuillez utiliser le formulaire alternatif ci-dessous pour téléverser vos "
+"fichiers."
 
 #: templates/views/app/foot.html:51
 msgid "Clear"
-msgstr ""
+msgstr "Effacer"
 
 #: templates/views/app/foot.html:52
 msgid "Server responded with {{statusCode}} code."
-msgstr ""
+msgstr "Le serveur a répondu avec le code {{statusCode}}."
 
 #: templatetags/views_tags.py:30
 msgid "Confirm delete"

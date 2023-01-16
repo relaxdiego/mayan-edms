@@ -2,25 +2,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Roberto Rosario, 2022
-# Pavlin Koldamov <pkoldamov@gmail.com>, 2022
-# Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-#
+# Roberto Rosario, 2023
+# Pavlin Koldamov <pkoldamov@gmail.com>, 2023
+# Lyudmil Antonov <lantonov.here@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
-"bg/)\n"
-"Language: bg\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2023\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:20 settings.py:11
@@ -49,9 +48,9 @@ msgid ""
 "the selection is complete, click the button below or double click the list "
 "to activate the action."
 msgstr ""
-"Изберете записи, които ще бъдат премахнати. Задръжте Control, за да изберете "
-"няколко записа. След като избирането приключи, щракнете върху бутона по-долу "
-"или щракнете двукратно върху списъка, за да активирате действието."
+"Изберете записи, които ще бъдат премахнати. Задръжте Control, за да изберете"
+" няколко записа. След като избирането приключи, щракнете върху бутона по-"
+"долу или щракнете двукратно върху списъка, за да активирате действието."
 
 #: generics.py:168
 msgid ""
@@ -174,31 +173,32 @@ msgstr ""
 
 #: templates/views/app/foot.html:46
 msgid "Cancel upload"
-msgstr ""
+msgstr "Прекратете качването"
 
 #: templates/views/app/foot.html:47
 msgid "Are you sure you want to cancel this upload?"
-msgstr ""
+msgstr "Наистина ли искате да прекратите това качване?"
 
 #: templates/views/app/foot.html:48
 msgid "Drop files or click here to upload files"
-msgstr ""
+msgstr "Пуснете файлове или щракнете тук, за да качите файлове"
 
 #: templates/views/app/foot.html:49
 msgid "Your browser does not support drag and drop file uploads."
-msgstr ""
+msgstr "Вашият браузър не поддържа качване на файлове с плъзгане и пускане."
 
 #: templates/views/app/foot.html:50
 msgid "Please use the fallback form below to upload your files."
 msgstr ""
+"Моля, използвайте резервния формуляр по-долу, за да качите вашите файлове."
 
 #: templates/views/app/foot.html:51
 msgid "Clear"
-msgstr ""
+msgstr "Изчистване"
 
 #: templates/views/app/foot.html:52
 msgid "Server responded with {{statusCode}} code."
-msgstr ""
+msgstr "Сървърът отговори с {{statusCode}} код."
 
 #: templatetags/views_tags.py:30
 msgid "Confirm delete"

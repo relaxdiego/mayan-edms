@@ -2,73 +2,67 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: apps.py:19 permissions.py:6
 msgid "Templating"
-msgstr "Šabloniranje"
+msgstr ""
 
 #: fields.py:19
 #, python-format
 msgid ""
-"Use Django's default templating language (https://docs.djangoproject.com/en/"
-"%(django_version)s/ref/templates/builtins/). "
+"Use Django's default templating language "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+" "
 msgstr ""
-"Uporabite Djangov privzeti jezik za predloge (https://docs.djangoproject.com/"
-"en/%(django_version)s/ref/templates/builtins/)."
 
 #: fields.py:37
 #, python-format
 msgid ""
-"Use Django's default templating language (https://docs.djangoproject.com/en/"
-"%(django_version)s/ref/templates/builtins/). The {{ %(variable)s }} variable "
-"is available to the template."
+"Use Django's default templating language "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+" The {{ %(variable)s }} variable is available to the template."
 msgstr ""
-"Uporabite Djangov privzeti jezik za predloge (https://docs.djangoproject.com/"
-"en/%(django_version)s/ref/templates/builtins/). Predlogi je na voljo "
-"spremenljivka {{ %(variable)s }}."
 
 #: forms.py:9
 msgid "Resulting text from the evaluated template."
-msgstr "Nastalo besedilo iz ovrednotene predloge."
+msgstr ""
 
 #: forms.py:10
 msgid "Result"
-msgstr "Rezultat"
+msgstr ""
 
 #: forms.py:20
 msgid "The template string to be evaluated."
-msgstr "Niz predloge, ki ga je treba oceniti."
+msgstr ""
 
 #: forms.py:21
 msgid "Template"
-msgstr "Predloga"
+msgstr ""
 
 #: links.py:11
 msgid "Sandbox"
-msgstr "Peskovnik"
+msgstr ""
 
 #: permissions.py:10
 msgid "Use the template sandbox"
-msgstr "Uporabite peskovnik predloge"
+msgstr ""
 
 #: serializers.py:8
 msgid "Hex hash"
@@ -76,7 +70,7 @@ msgstr ""
 
 #: serializers.py:11
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 #: serializers.py:14
 msgid "HTML"
@@ -89,25 +83,25 @@ msgstr ""
 #: views.py:44
 #, python-format
 msgid "Template sandbox for: %s"
-msgstr "Peskovnik predloge za: %s"
+msgstr ""
 
 #: views.py:65
 #, python-format
 msgid "Template error; %(exception)s"
-msgstr "Napaka predloge; %(exception)s"
+msgstr ""
 
 #: widgets.py:69
 msgid "Filters"
-msgstr "Filtri"
+msgstr ""
 
 #: widgets.py:76
 msgid "Tags"
-msgstr "Oznake"
+msgstr ""
 
 #: widgets.py:83
 msgid "<Filters and tags>"
-msgstr "<Filters and tags>"
+msgstr ""
 
 #: widgets.py:128
 msgid "<Model attributes>"
-msgstr "<Model attributes>"
+msgstr ""

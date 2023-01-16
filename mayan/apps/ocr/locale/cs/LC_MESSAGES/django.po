@@ -1,26 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2022
-# Michal Švábík <snadno@lehce.cz>, 2022
-#
+# trendspotter <jirka.p@volny.cz>, 2023
+# Michal Švábík <snadno@lehce.cz>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: Michal Švábík <snadno@lehce.cz>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Michal Švábík <snadno@lehce.cz>, 2023\n"
 "Language-Team: Czech (https://www.transifex.com/rosarior/teams/13584/cs/)\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
-"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
 #: search.py:18 settings.py:11
@@ -32,10 +31,10 @@ msgid "The OCR content."
 msgstr "Obsah OCR."
 
 #: apps.py:121
-msgid "A generator returning the document's pages OCR content."
-msgstr "Generátor vracející obsah OCR stránek dokumentu."
+msgid "A generator returning the document's version pages OCR content."
+msgstr ""
 
-#: apps.py:122
+#: apps.py:123
 msgid "OCR content"
 msgstr "Obsah OCR"
 
@@ -105,10 +104,8 @@ msgid "Automatically queue newly created documents for OCR."
 msgstr "Automaticky zařazuje nově vytvořené dokumenty do fronty pro OCR."
 
 #: models.py:27
-#, fuzzy
-#| msgid "Submit for OCR"
 msgid "Auto OCR"
-msgstr "Odeslat do OCR"
+msgstr ""
 
 #: models.py:33
 msgid "Document type settings"
@@ -155,18 +152,14 @@ msgid "Change document type OCR settings"
 msgstr "Změna nastavení OCR pro typu dokumentu"
 
 #: queues.py:10
-msgid "Finish document file OCR"
-msgstr "Dokončit soubor dokumentu OCR"
+msgid "Finish document version OCR"
+msgstr "Dokončit verzi dokumentu OCR"
 
 #: queues.py:14
-msgid "Document file page OCR"
-msgstr "Stránka OCR souboru dokumentu "
+msgid "Document version page OCR"
+msgstr "Stránka OCR verze dokumentu"
 
-#: queues.py:18
-msgid "Document file OCR"
-msgstr "Soubor dokumentu OCR"
-
-#: search.py:12 search.py:24
+#: queues.py:18 search.py:12 search.py:24
 msgid "Document version OCR"
 msgstr "OCR verze dokumnetu"
 

@@ -1,24 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# molnars <szabolcs.molnar@gmail.com>, 2022
-#
+# molnars <szabolcs.molnar@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: molnars <szabolcs.molnar@gmail.com>, 2022\n"
-"Language-Team: Hungarian (https://www.transifex.com/rosarior/teams/13584/"
-"hu/)\n"
-"Language: hu\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:51+0000\n"
+"Last-Translator: molnars <szabolcs.molnar@gmail.com>, 2023\n"
+"Language-Team: Hungarian (https://www.transifex.com/rosarior/teams/13584/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:45
@@ -195,8 +194,8 @@ msgstr "Külső dokumentum paraméter"
 
 #: models.py:101
 msgid ""
-"The expression using document properties to be evaluated against the foreign "
-"document field."
+"The expression using document properties to be evaluated against the foreign"
+" document field."
 msgstr ""
 
 #: models.py:103
@@ -240,10 +239,8 @@ msgid "View existing smart links"
 msgstr ""
 
 #: serializers.py:20 serializers.py:132
-#, fuzzy
-#| msgid "Smart links"
 msgid "Smart link URL"
-msgstr "Okos kapcsolatok"
+msgstr ""
 
 #: serializers.py:24 serializers.py:86 serializers.py:135
 msgid "URL"
@@ -254,10 +251,8 @@ msgid "Primary key of the document type to add to the smart link."
 msgstr ""
 
 #: serializers.py:50 serializers.py:59
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Dokumentum típusok"
+msgstr ""
 
 #: serializers.py:58
 msgid "Primary key of the document type to remove from the smart link."
@@ -268,32 +263,24 @@ msgid "Conditions URL"
 msgstr ""
 
 #: serializers.py:70
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Dokumentum típusok"
+msgstr ""
 
 #: serializers.py:74
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Dokumentum típusok"
+msgstr ""
 
 #: serializers.py:78
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types remove URL"
-msgstr "Dokumentum típusok"
+msgstr ""
 
 #: serializers.py:105
 msgid "Resolved smart link URL"
 msgstr ""
 
 #: serializers.py:126
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Dokumentumok"
+msgstr ""
 
 #: views/smart_link_condition_views.py:47
 msgid ""

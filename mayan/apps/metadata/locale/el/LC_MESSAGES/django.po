@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Hmayag Antonian <hmayag@freemail.gr>, 2022
-# pyrotech <anastasios@tutamail.com>, 2022
-#
+# Hmayag Antonian <hmayag@freemail.gr>, 2023
+# pyrotech <anastasios@tutamail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:36+0000\n"
-"Last-Translator: pyrotech <anastasios@tutamail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: pyrotech <anastasios@tutamail.com>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:70 apps.py:208 apps.py:214 apps.py:218 apps.py:223 apps.py:227
@@ -277,7 +277,8 @@ msgstr ""
 
 #: models.py:73
 msgid ""
-"The parser will reformat the value entered to conform to the expected format."
+"The parser will reformat the value entered to conform to the expected "
+"format."
 msgstr ""
 "Ο αναλυτής θα διαμορφώσει ξανά την τιμή που έχει εισαχθεί για να "
 "συμμορφώνεται με την αναμενόμενη μορφή."
@@ -391,7 +392,7 @@ msgstr ""
 
 #: serializers.py:28 serializers.py:57 serializers.py:111
 msgid "URL"
-msgstr ""
+msgstr "Διεύθυνση URL"
 
 #: serializers.py:52
 msgid "Primary key of the metadata type to be added."
@@ -440,7 +441,8 @@ msgstr ""
 #: views/document_views.py:161
 #, python-format
 msgid ""
-"Metadata type: %(metadata_type)s successfully added to document %(document)s."
+"Metadata type: %(metadata_type)s successfully added to document "
+"%(document)s."
 msgstr ""
 "Τύπος μεταδεδομένων: %(metadata_type)s προστέθηκε με επιτυχία στο έγγραφο "
 "%(document)s."
@@ -500,8 +502,9 @@ msgstr "Τα μεταδεδομένα για το έγγραφο %s επεξερ
 
 #: views/document_views.py:368
 msgid ""
-"Add metadata types this document's type to be able to add them to individual "
-"documents. Once added to individual document, you can then edit their values."
+"Add metadata types this document's type to be able to add them to individual"
+" documents. Once added to individual document, you can then edit their "
+"values."
 msgstr ""
 "Προσθέστε τύπους μεταδεδομένων αυτού του τύπου εγγράφου για να μπορείτε να "
 "τα προσθέσετε σε μεμονωμένα έγγραφα. Μόλις προστεθεί σε ένα μεμονωμένο "
@@ -603,8 +606,8 @@ msgstr "Επεξεργασία τύπου μεταδεδομένων: %s"
 
 #: views/metadata_type_views.py:107
 msgid ""
-"Metadata types are user defined properties that can be assigned values. Once "
-"created they must be associated to document types, either as optional or "
+"Metadata types are user defined properties that can be assigned values. Once"
+" created they must be associated to document types, either as optional or "
 "required, for each. Setting a metadata type as required for a document type "
 "will block the upload of documents of that type until a metadata value is "
 "provided."
@@ -648,8 +651,8 @@ msgid ""
 "Unable to add metadata type \"%(metadata_type)s\" from document: "
 "%(document)s. Exception: %(exception)s"
 msgstr ""
-"Δεν είναι δυνατή η προσθήκη τύπου μεταδεδομένων \"%(metadata_type)s\" από το "
-"έγγραφο: %(document)s. Εξαίρεση: %(exception)s"
+"Δεν είναι δυνατή η προσθήκη τύπου μεταδεδομένων \"%(metadata_type)s\" από το"
+" έγγραφο: %(document)s. Εξαίρεση: %(exception)s"
 
 #: workflow_actions.py:90
 msgid "Metadata types to edit."

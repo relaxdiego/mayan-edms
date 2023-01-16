@@ -1,26 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# jmcainzos <jmcainzos@vodafone.es>, 2022
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# jmcainzos <jmcainzos@vodafone.es>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:32+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:44+0000\n"
+"PO-Revision-Date: 2023-01-16 06:46+0000\n"
+"Last-Translator: jmcainzos <jmcainzos@vodafone.es>, 2023\n"
 "Language-Team: Spanish (https://www.transifex.com/rosarior/teams/13584/es/)\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:26 classes.py:200 links.py:27
 msgid "ACLs"
@@ -85,16 +84,12 @@ msgid "Insufficient access for: %s"
 msgstr "Acceso insuficiente para: %s"
 
 #: model_mixins.py:23
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permission count"
-msgstr "Permisos"
+msgstr "Número de permisos"
 
 #: models.py:40 serializers.py:16
-#, fuzzy
-#| msgid "Object type"
 msgid "Content type"
-msgstr "Tipo de objeto"
+msgstr "Tipo de contenido"
 
 #: models.py:43 workflow_actions.py:32
 msgid "Object ID"
@@ -126,42 +121,32 @@ msgid "View ACLs"
 msgstr "Ver LCAs"
 
 #: serializers.py:19
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions add URL"
-msgstr "Permisos"
+msgstr "URL de agregar permisos"
 
 #: serializers.py:39
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions remove URL"
-msgstr "Permisos"
+msgstr "URL de eliminación de permisos"
 
 #: serializers.py:59
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions URL"
-msgstr "Permisos"
+msgstr "URL de permisos"
 
 #: serializers.py:82
-#, fuzzy
-#| msgid "Role"
 msgid "Role ID"
-msgstr "Rol"
+msgstr ""
 
 #: serializers.py:85
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:118
 msgid "Primary key of the permission to add to the ACL."
 msgstr "Llave principal del permiso para agregar a la LCA."
 
 #: serializers.py:119 serializers.py:126
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permission ID"
-msgstr "Permisos"
+msgstr "ID de permiso"
 
 #: serializers.py:125
 msgid "Primary key of the permission to remove from the ACL."
@@ -248,8 +233,10 @@ msgid "Type of the object for which the access will be modified."
 msgstr "Tipo de objeto para el que se modificará el acceso."
 
 #: workflow_actions.py:35
-msgid "Numeric identifier of the object for which the access will be modified."
-msgstr "Identificador numérico del objeto para el que se modificará el acceso."
+msgid ""
+"Numeric identifier of the object for which the access will be modified."
+msgstr ""
+"Identificador numérico del objeto para el que se modificará el acceso."
 
 #: workflow_actions.py:40 workflow_actions.py:160
 msgid "Roles"

@@ -2,24 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Māris Teivāns <maris.teivans@gmail.com>, 2022
-#
+# Māris Teivāns <maris.teivans@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Māris Teivāns <maris.teivans@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: Māris Teivāns <maris.teivans@gmail.com>, 2023\n"
 "Language-Team: Latvian (https://www.transifex.com/rosarior/teams/13584/lv/)\n"
-"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Language: lv\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 
 #: apps.py:41 events.py:6 links.py:34 models.py:71 permissions.py:6
 #: settings.py:13
@@ -170,10 +169,8 @@ msgid "User username"
 msgstr ""
 
 #: serializers.py:11
-#, fuzzy
-#| msgid "Document"
 msgid "Document URL"
-msgstr "Dokuments"
+msgstr ""
 
 #: serializers.py:15
 msgid "Image URL"
@@ -187,7 +184,8 @@ msgstr ""
 msgid ""
 "The threshold at which the "
 "SIGNATURE_CAPTURES_SIGNATURE_CAPTURE_CACHE_STORAGE_BACKEND will start "
-"deleting the oldest signature capture cache files. Specify the size in bytes."
+"deleting the oldest signature capture cache files. Specify the size in "
+"bytes."
 msgstr ""
 
 #: settings.py:30
@@ -204,8 +202,8 @@ msgstr ""
 
 #: storages.py:15
 msgid ""
-"Unable to initialize the converter signature capture cachestorage. Check the "
-"settings {} and {} for formatting errors."
+"Unable to initialize the converter signature capture cachestorage. Check the"
+" settings {} and {} for formatting errors."
 msgstr ""
 
 #: storages.py:21

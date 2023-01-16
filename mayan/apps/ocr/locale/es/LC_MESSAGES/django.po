@@ -1,25 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (https://www.transifex.com/rosarior/teams/13584/es/)\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:55 events.py:6 links.py:54 links.py:80 permissions.py:6 queues.py:6
 #: search.py:18 settings.py:11
@@ -31,11 +30,10 @@ msgid "The OCR content."
 msgstr "El contenido de OCR."
 
 #: apps.py:121
-msgid "A generator returning the document's pages OCR content."
+msgid "A generator returning the document's version pages OCR content."
 msgstr ""
-"Un generador que devuelve el contenido de OCR de las páginas del documento."
 
-#: apps.py:122
+#: apps.py:123
 msgid "OCR content"
 msgstr "Contenido de OCR"
 
@@ -102,13 +100,12 @@ msgstr "Tipo de documento"
 
 #: models.py:26
 msgid "Automatically queue newly created documents for OCR."
-msgstr "Poner en lista automáticamente los documentos recién creados para OCR."
+msgstr ""
+"Poner en lista automáticamente los documentos recién creados para OCR."
 
 #: models.py:27
-#, fuzzy
-#| msgid "Submit for OCR"
 msgid "Auto OCR"
-msgstr "Enviar para OCR"
+msgstr "OCR automático"
 
 #: models.py:33
 msgid "Document type settings"
@@ -155,18 +152,14 @@ msgid "Change document type OCR settings"
 msgstr "Cambiar opciones OCR por tipo de documento"
 
 #: queues.py:10
-msgid "Finish document file OCR"
-msgstr "Finalizar OCR de archivo de documento"
+msgid "Finish document version OCR"
+msgstr "OCR de la versión del documento finalizado"
 
 #: queues.py:14
-msgid "Document file page OCR"
-msgstr "OCR de página de archivo de documento"
+msgid "Document version page OCR"
+msgstr "OCR de página de versión del documento"
 
-#: queues.py:18
-msgid "Document file OCR"
-msgstr "OCR de archivo de documento"
-
-#: search.py:12 search.py:24
+#: queues.py:18 search.py:12 search.py:24
 msgid "Document version OCR"
 msgstr "OCR de versión de documento"
 
@@ -203,8 +196,8 @@ msgstr ""
 #, python-format
 msgid "OCR content of %(count)d document versions deleted successfully."
 msgstr ""
-"%(count)d contenidos de OCR de las versiones del documento se eliminaron con "
-"éxito."
+"%(count)d contenidos de OCR de las versiones del documento se eliminaron con"
+" éxito."
 
 #: views.py:115
 #, python-format

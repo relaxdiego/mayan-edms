@@ -1,28 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Yves Dubois <ydubois@gmail.com>, 2022
-# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-#
+# Yves Dubois <ydubois@gmail.com>, 2023
+# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Thierry Schott <DarkDare@users.noreply.github.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:48+0000\n"
+"Last-Translator: Thierry Schott <DarkDare@users.noreply.github.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:32 events.py:6 search.py:19 search.py:26 search.py:33 search.py:40
 msgid "Document comments"
@@ -94,7 +93,7 @@ msgstr "Afficher les commentaires"
 
 #: serializers.py:12
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: views.py:37
 #, python-format
@@ -121,8 +120,8 @@ msgid ""
 "Document comments are timestamped text entries from users. They are great "
 "for collaboration."
 msgstr ""
-"Les commentaires de document sont des entrées de texte horodatées ajouté par "
-"les utilisateurs. Ils sont parfaits pour la collaboration."
+"Les commentaires de document sont des entrées de texte horodatées ajouté par"
+" les utilisateurs. Ils sont parfaits pour la collaboration."
 
 #: views.py:161
 msgid "There are no comments"

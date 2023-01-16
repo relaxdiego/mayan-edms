@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# bwakkie <bwakkie@gmail.com>, 2022
-# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
-#
+# bwakkie <bwakkie@gmail.com>, 2023
+# j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2023
+# Roberto Rosario, 2023
+# e6bc1d20d3f0031709c3c11db1061ebc_be0a371 <8b4e580508477646e97982ebad39e3af_312311>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: e6bc1d20d3f0031709c3c11db1061ebc_be0a371 <8b4e580508477646e97982ebad39e3af_312311>, 2023\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:23 links.py:17 settings.py:11
@@ -60,19 +61,19 @@ msgstr "%s API"
 
 #: serializers.py:37
 msgid "Content"
-msgstr ""
+msgstr "Inhoud"
 
 #: serializers.py:40
 msgid "Data"
-msgstr ""
+msgstr "Gegevens"
 
 #: serializers.py:43
 msgid "Headers"
-msgstr ""
+msgstr "Kopteksten"
 
 #: serializers.py:46
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: serializers.py:49
 msgid "Status code"
@@ -84,11 +85,11 @@ msgstr ""
 
 #: serializers.py:75
 msgid "Label"
-msgstr ""
+msgstr "Label"
 
 #: serializers.py:78
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:106
 msgid "Author"
@@ -100,7 +101,7 @@ msgstr ""
 
 #: serializers.py:112
 msgid "Build"
-msgstr ""
+msgstr "Versie"
 
 #: serializers.py:115
 msgid "Build string"
@@ -112,7 +113,7 @@ msgstr ""
 
 #: serializers.py:121
 msgid "Description"
-msgstr ""
+msgstr "Beschrijving"
 
 #: serializers.py:124
 msgid "Django version"
@@ -120,7 +121,7 @@ msgstr ""
 
 #: serializers.py:127
 msgid "License"
-msgstr ""
+msgstr "Licentie"
 
 #: serializers.py:130
 msgid "Title"
@@ -128,7 +129,7 @@ msgstr ""
 
 #: serializers.py:133
 msgid "Version"
-msgstr ""
+msgstr "Versie"
 
 #: serializers.py:136
 msgid "Website"

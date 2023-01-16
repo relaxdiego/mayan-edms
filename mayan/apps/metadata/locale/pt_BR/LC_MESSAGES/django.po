@@ -1,36 +1,34 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2022
-# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2022
-# Emerson Soares <on.emersonsoares@gmail.com>, 2022
-# Renata Oliveira <renatabels@gmail.com>, 2022
-# Aline Freitas <aline@alinefreitas.com.br>, 2022
-# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2022
-# Márcia Ferreira, 2022
-# Roberto Rosario, 2022
-# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatica@protonmail.com>, 2022
-# Jadson Ribeiro <jadsonbr@outlook.com.br>, 2022
-# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-#
+# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2023
+# Emerson Soares <on.emersonsoares@gmail.com>, 2023
+# Renata Oliveira <renatabels@gmail.com>, 2023
+# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2023
+# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatica@protonmail.com>, 2023
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2023
+# Aline Freitas <aline@alinefreitas.com.br>, 2023
+# Jadson Ribeiro <jadsonbr@outlook.com.br>, 2023
+# Márcia Ferreira, 2023
+# Roberto Rosario, 2023
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:36+0000\n"
-"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/"
-"teams/13584/pt_BR/)\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:52+0000\n"
+"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/teams/13584/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:70 apps.py:208 apps.py:214 apps.py:218 apps.py:223 apps.py:227
 #: events.py:6 links.py:52 permissions.py:6 queues.py:7
@@ -287,7 +285,8 @@ msgstr "Argumentos de validador"
 
 #: models.py:73
 msgid ""
-"The parser will reformat the value entered to conform to the expected format."
+"The parser will reformat the value entered to conform to the expected "
+"format."
 msgstr ""
 "O analisador irá reformatar o valor inserido para estar em conformidade com "
 "o formato esperado."
@@ -400,7 +399,7 @@ msgstr "Valor de metadados do documento"
 
 #: serializers.py:28 serializers.py:57 serializers.py:111
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:52
 msgid "Primary key of the metadata type to be added."
@@ -422,7 +421,8 @@ msgstr "Solicitação de adicionar metadados executada em %(count)d documento"
 #: views/document_views.py:48
 #, python-format
 msgid "Metadata add request performed on %(count)d documents"
-msgstr "Solicitação de inserção de metadados realizada em %(count)d documentos"
+msgstr ""
+"Solicitação de inserção de metadados realizada em %(count)d documentos"
 
 #: views/document_views.py:57
 msgid "Add metadata types to document"
@@ -448,7 +448,8 @@ msgstr ""
 #: views/document_views.py:161
 #, python-format
 msgid ""
-"Metadata type: %(metadata_type)s successfully added to document %(document)s."
+"Metadata type: %(metadata_type)s successfully added to document "
+"%(document)s."
 msgstr ""
 "Tipo Metadado %(metadata_type)s adicionado com sucesso para o documento "
 "%(document)s."
@@ -497,7 +498,8 @@ msgstr "Editar os metadados do documento: %s"
 #: views/document_views.py:329
 #, python-format
 msgid "Error editing metadata for document: %(document)s; %(exception)s."
-msgstr "Erro editando metadados para o documento: %(document)s; %(exception)s."
+msgstr ""
+"Erro editando metadados para o documento: %(document)s; %(exception)s."
 
 #: views/document_views.py:342
 #, python-format
@@ -506,8 +508,9 @@ msgstr "Metadados para o documento %s alterados com sucesso."
 
 #: views/document_views.py:368
 msgid ""
-"Add metadata types this document's type to be able to add them to individual "
-"documents. Once added to individual document, you can then edit their values."
+"Add metadata types this document's type to be able to add them to individual"
+" documents. Once added to individual document, you can then edit their "
+"values."
 msgstr ""
 "Adicione tipos de metadado para este tipo de documento para poder adicioná-"
 "los aos documentos individuais. Uma vez adicionados aos documentos "
@@ -550,8 +553,8 @@ msgid ""
 "Successfully remove metadata type \"%(metadata_type)s\" from document: "
 "%(document)s."
 msgstr ""
-"Removido com sucesso o tipo de  metadado \"%(metadata_type)s\" do documento: "
-"%(document)s."
+"Removido com sucesso o tipo de  metadado \"%(metadata_type)s\" do documento:"
+" %(document)s."
 
 #: views/document_views.py:490
 #, python-format
@@ -608,8 +611,8 @@ msgstr "Editar o tipo de metadado: %s"
 
 #: views/metadata_type_views.py:107
 msgid ""
-"Metadata types are user defined properties that can be assigned values. Once "
-"created they must be associated to document types, either as optional or "
+"Metadata types are user defined properties that can be assigned values. Once"
+" created they must be associated to document types, either as optional or "
 "required, for each. Setting a metadata type as required for a document type "
 "will block the upload of documents of that type until a metadata value is "
 "provided."

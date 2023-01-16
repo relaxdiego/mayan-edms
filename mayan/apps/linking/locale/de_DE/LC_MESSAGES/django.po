@@ -1,26 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Ingo Buchholz <ingo.buchholz@takwa.de>, 2022
-# Mathias Behrle <mathiasb@m9s.biz>, 2022
-# Roberto Rosario, 2022
-#
+# Ingo Buchholz <ingo.buchholz@takwa.de>, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
-"teams/13584/de_DE/)\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:51+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:45
@@ -199,8 +198,8 @@ msgstr "Fremddokumentattribut"
 
 #: models.py:101
 msgid ""
-"The expression using document properties to be evaluated against the foreign "
-"document field."
+"The expression using document properties to be evaluated against the foreign"
+" document field."
 msgstr ""
 "Der Ausdruck, der Dokumenteigenschaften verwendet, die für das "
 "Fremddokumentfeld ausgewertet werden sollen."
@@ -246,64 +245,48 @@ msgid "View existing smart links"
 msgstr "Existierende Smart Links anzeigen"
 
 #: serializers.py:20 serializers.py:132
-#, fuzzy
-#| msgid "Smart link"
 msgid "Smart link URL"
-msgstr "Smart Link"
+msgstr ""
 
 #: serializers.py:24 serializers.py:86 serializers.py:135
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:49
 msgid "Primary key of the document type to add to the smart link."
 msgstr ""
 
 #: serializers.py:50 serializers.py:59
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:58
 msgid "Primary key of the document type to remove from the smart link."
 msgstr ""
 
 #: serializers.py:66
-#, fuzzy
-#| msgid "Conditions"
 msgid "Conditions URL"
-msgstr "Bedingungen"
+msgstr ""
 
 #: serializers.py:70
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:74
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:78
-#, fuzzy
-#| msgid "Document types enabled"
 msgid "Document types remove URL"
-msgstr "Aktivierte Dokumententypen"
+msgstr ""
 
 #: serializers.py:105
-#, fuzzy
-#| msgid "Delete smart links"
 msgid "Resolved smart link URL"
-msgstr "Smart Links löschen"
+msgstr ""
 
 #: serializers.py:126
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Dokumente"
+msgstr ""
 
 #: views/smart_link_condition_views.py:47
 msgid ""
@@ -360,8 +343,8 @@ msgid ""
 "documents even if they are in different indexes and are of different types."
 msgstr ""
 "Indices gruppieren Dokumente in Einheiten, üblicherweise mit ähnlichen "
-"Eigenschaften und gleichen oder ähnlichen Typen. Smart links ermöglichen die "
-"Definition von Beziehungen zwischen Dokumenten, auch wenn sie in "
+"Eigenschaften und gleichen oder ähnlichen Typen. Smart links ermöglichen die"
+" Definition von Beziehungen zwischen Dokumenten, auch wenn sie in "
 "verschiedenen Indices sind oder einen unterschiedlichen Typ aufweisen."
 
 #: views/smart_link_views.py:154
@@ -374,8 +357,8 @@ msgid ""
 "in different indexes and are of different types."
 msgstr ""
 "Smart links ermöglichen die Definition von Beziehungen zwischen Dokumenten, "
-"auch wenn sie in verschiedenen Indices sind oder einen unterschiedlichen Typ "
-"aufweisen."
+"auch wenn sie in verschiedenen Indices sind oder einen unterschiedlichen Typ"
+" aufweisen."
 
 #: views/smart_link_views.py:181
 msgid "There are no resolved smart links for this document"

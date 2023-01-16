@@ -2,25 +2,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Jiri Fait <fait@orkasolutions.cz>, 2022
-# Michal Švábík <snadno@lehce.cz>, 2022
-#
+# Jiri Fait <fait@orkasolutions.cz>, 2023
+# Michal Švábík <snadno@lehce.cz>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Michal Švábík <snadno@lehce.cz>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:48+0000\n"
+"Last-Translator: Michal Švábík <snadno@lehce.cz>, 2023\n"
 "Language-Team: Czech (https://www.transifex.com/rosarior/teams/13584/cs/)\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
-"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: apps.py:24 links.py:38 permissions.py:6
 msgid "Dependencies"
@@ -70,7 +69,7 @@ msgstr "název"
 msgid "App"
 msgstr "Aplikace"
 
-#: classes.py:219 classes.py:906
+#: classes.py:219 classes.py:911
 msgid "Environments"
 msgstr ""
 
@@ -126,8 +125,8 @@ msgstr "Binární"
 
 #: classes.py:500
 msgid ""
-"JavaScript libraries downloaded the from NPM registry and used for front-end "
-"functionality."
+"JavaScript libraries downloaded the from NPM registry and used for front-end"
+" functionality."
 msgstr ""
 "Knihovny JavaScriptu stažené z registru NPM a použily se pro front-end "
 "funkce."
@@ -136,7 +135,7 @@ msgstr ""
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: classes.py:535 classes.py:812
+#: classes.py:535 classes.py:814
 msgid "Downloading... "
 msgstr "Stahování ..."
 
@@ -144,7 +143,7 @@ msgstr "Stahování ..."
 msgid "Verifying... "
 msgstr "Ověření ..."
 
-#: classes.py:545 classes.py:817
+#: classes.py:545 classes.py:819
 msgid "Extracting... "
 msgstr "Probíhá extrakce ..."
 
@@ -156,27 +155,27 @@ msgstr "Python balíčky stažené z PyPI."
 msgid "Python"
 msgstr "Python"
 
-#: classes.py:792
+#: classes.py:794
 msgid "Fonts downloaded from fonts.googleapis.com."
 msgstr "Fonty stažené z fonts.googleapis.com."
 
-#: classes.py:794
+#: classes.py:796
 msgid "Google font"
 msgstr "Písmo Google"
 
-#: classes.py:887
+#: classes.py:892
 msgid "Declared in app"
 msgstr "Deklarováno v aplikaci"
 
-#: classes.py:888
+#: classes.py:893
 msgid "Show dependencies by the app that declared them."
 msgstr "Zobrazit závislosti podle aplikace, která je deklarovala."
 
-#: classes.py:892
+#: classes.py:897
 msgid "Class"
 msgstr "Třída"
 
-#: classes.py:893
+#: classes.py:898
 msgid ""
 "Show the different classes of dependencies. Classes are usually divided by "
 "language or the file types of the dependency."
@@ -184,21 +183,21 @@ msgstr ""
 "Zobrazit různé třídy závislostí. Třídy jsou obvykle rozděleny podle jazyka "
 "nebo typu souboru závislosti."
 
-#: classes.py:898
+#: classes.py:903
 msgid "State"
 msgstr "Stav"
 
-#: classes.py:899
+#: classes.py:904
 msgid ""
 "Show the different states of the dependencies. True means that the "
 "dependencies is installed and is of a correct version. False means the "
 "dependencies is missing or an incorrect version is present."
 msgstr ""
 "Zobrazit různé stavy závislostí. True znamená, že jsou nainstalovány "
-"závislosti a mají správnou verzi. False znamená, že chybí závislosti nebo je "
-"přítomna nesprávná verze."
+"závislosti a mají správnou verzi. False znamená, že chybí závislosti nebo je"
+" přítomna nesprávná verze."
 
-#: classes.py:907
+#: classes.py:912
 msgid ""
 "Dependencies required for an environment might not be required for another. "
 "Example environments: Production, Development."
@@ -211,8 +210,8 @@ msgid ""
 "Environment used for building distributable packages of the software. End "
 "users can ignore missing dependencies under this environment."
 msgstr ""
-"Prostředí používané k vytváření distribuovatelných balíčků softwaru. Koncoví "
-"uživatelé mohou v tomto prostředí ignorovat chybějící závislosti."
+"Prostředí používané k vytváření distribuovatelných balíčků softwaru. Koncoví"
+" uživatelé mohou v tomto prostředí ignorovat chybějící závislosti."
 
 #: environments.py:20
 msgid "Build"
@@ -235,8 +234,8 @@ msgid ""
 "Environment used for building the documentation. End users can ignore "
 "missing dependencies under this environment."
 msgstr ""
-"Prostředí použité pro vytvoření dokumentace. Koncoví uživatelé mohou v tomto "
-"prostředí ignorovat chybějící závislosti."
+"Prostředí použité pro vytvoření dokumentace. Koncoví uživatelé mohou v tomto"
+" prostředí ignorovat chybějící závislosti."
 
 #: environments.py:32
 msgid "Documentation"
@@ -245,8 +244,8 @@ msgstr "Dokumentace"
 #: environments.py:36
 msgid ""
 "Environment used to specify direct documentation depedencies to workaround "
-"unpinned or immutable depedency bugs in third party libraries. End users can "
-"ignore missing dependencies under this environment."
+"unpinned or immutable depedency bugs in third party libraries. End users can"
+" ignore missing dependencies under this environment."
 msgstr ""
 
 #: environments.py:40
@@ -307,16 +306,16 @@ msgstr "Vypíše závislosti jako seznam hodnot oddělených čárkami."
 msgid ""
 "Comma separated names of dependencies to exclude from the list generated."
 msgstr ""
-"Čárkami oddělené názvy závislostí, které mají být vyloučeny z vygenerovaného "
-"seznamu."
+"Čárkami oddělené názvy závislostí, které mají být vyloučeny z vygenerovaného"
+" seznamu."
 
 #: management/commands/dependencies_generate_requirements.py:20
 msgid ""
 "Comma separated names of dependencies to show in the list while excluding "
 "every other one."
 msgstr ""
-"Čárkami oddělené názvy závislostí, které se mají zobrazit v seznamu, přičemž "
-"vylučují všechny ostatní."
+"Čárkami oddělené názvy závislostí, které se mají zobrazit v seznamu, přičemž"
+" vylučují všechny ostatní."
 
 #: management/commands/dependencies_install.py:13
 msgid "Process a specific app."

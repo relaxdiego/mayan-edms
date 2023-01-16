@@ -2,26 +2,25 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
-# Roberto Rosario, 2022
-# Mathias Behrle <mathiasb@m9s.biz>, 2022
-# Ingo Buchholz <ingo.buchholz@takwa.de>, 2022
-#
+# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
+# Roberto Rosario, 2023
+# Ingo Buchholz <ingo.buchholz@takwa.de>, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Ingo Buchholz <ingo.buchholz@takwa.de>, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
-"teams/13584/de_DE/)\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2023\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:43
@@ -117,10 +116,8 @@ msgstr ""
 "Primärschlüssel des Dokumententyps, welcher zum Weblink hinzuzufügt wird."
 
 #: serializers.py:17 serializers.py:26
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
@@ -128,32 +125,24 @@ msgstr ""
 "Primärschlüssel des Dokumenttyps, welcher aus dem Weblink entfernt wird."
 
 #: serializers.py:33
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:37
-#, fuzzy
-#| msgid "Document types enabled"
 msgid "Document types remove URL"
-msgstr "Aktivierte Dokumententypen"
+msgstr ""
 
 #: serializers.py:41
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Dokumententypen"
+msgstr ""
 
 #: serializers.py:48 serializers.py:63
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:66
-#, fuzzy
-#| msgid "Navigate"
 msgid "Navigation URL"
-msgstr "Navigieren"
+msgstr ""
 
 #: views.py:32
 msgid "Web links enabled"
@@ -196,8 +185,8 @@ msgid ""
 "Web links allow generating HTTP links from documents to external resources. "
 "The link URL's can contain document properties values."
 msgstr ""
-"Weblinks ermöglichen die Erzeugung von HTTP-Links von Dokumenten zu externen "
-"Ressourcen. Die Link-URLs können Werte für Dokumenteigenschaften enthalten."
+"Weblinks ermöglichen die Erzeugung von HTTP-Links von Dokumenten zu externen"
+" Ressourcen. Die Link-URLs können Werte für Dokumenteigenschaften enthalten."
 
 #: views.py:167
 msgid "There are no web links"

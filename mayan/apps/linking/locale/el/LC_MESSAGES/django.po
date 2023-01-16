@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# pyrotech <anastasios@tutamail.com>, 2022
-# Hmayag Antonian <hmayag@freemail.gr>, 2022
-#
+# pyrotech <anastasios@tutamail.com>, 2023
+# Hmayag Antonian <hmayag@freemail.gr>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Hmayag Antonian <hmayag@freemail.gr>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:51+0000\n"
+"Last-Translator: Hmayag Antonian <hmayag@freemail.gr>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:45
@@ -198,8 +198,8 @@ msgstr "Ιδιότητα έταιρου εγγράφου"
 
 #: models.py:101
 msgid ""
-"The expression using document properties to be evaluated against the foreign "
-"document field."
+"The expression using document properties to be evaluated against the foreign"
+" document field."
 msgstr ""
 "Η έκφραση που χρησιμοποιεί ιδιότητες εγγράφου προς αξιολόγηση έναντι του "
 "πεδίου του έταιρου εγγράφου."
@@ -245,64 +245,48 @@ msgid "View existing smart links"
 msgstr "Προβολή υπαρχόντων έξυπνων συνδέσμων"
 
 #: serializers.py:20 serializers.py:132
-#, fuzzy
-#| msgid "Smart link"
 msgid "Smart link URL"
-msgstr "Έξυπνος συνδεσμός"
+msgstr ""
 
 #: serializers.py:24 serializers.py:86 serializers.py:135
 msgid "URL"
-msgstr ""
+msgstr "Διεύθυνση URL"
 
 #: serializers.py:49
 msgid "Primary key of the document type to add to the smart link."
 msgstr ""
 
 #: serializers.py:50 serializers.py:59
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers.py:58
 msgid "Primary key of the document type to remove from the smart link."
 msgstr ""
 
 #: serializers.py:66
-#, fuzzy
-#| msgid "Conditions"
 msgid "Conditions URL"
-msgstr "Προϋποθέσεις"
+msgstr ""
 
 #: serializers.py:70
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers.py:74
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Τύποι εγγράφων"
+msgstr ""
 
 #: serializers.py:78
-#, fuzzy
-#| msgid "Document types enabled"
 msgid "Document types remove URL"
-msgstr "Ενεργοποιημένοι τύποι εγγράφων"
+msgstr ""
 
 #: serializers.py:105
-#, fuzzy
-#| msgid "Delete smart links"
 msgid "Resolved smart link URL"
-msgstr "Διαγραφή έξυπνων συνδεσμών"
+msgstr ""
 
 #: serializers.py:126
-#, fuzzy
-#| msgid "Documents"
 msgid "Documents URL"
-msgstr "Έγγραφα"
+msgstr ""
 
 #: views/smart_link_condition_views.py:47
 msgid ""
@@ -358,8 +342,8 @@ msgid ""
 "equal or similar types. Smart links allow defining relationships between "
 "documents even if they are in different indexes and are of different types."
 msgstr ""
-"Τα ευρετήρια ομαδοποιούν έγγραφα σε ενότητες, συνήθως με παρόμοιες ιδιότητες "
-"και παρόμοιων ή ιδίων τύπων. Οι έξυπνοι σύνδεσμοι επιτρέπουν τον καθορισμό "
+"Τα ευρετήρια ομαδοποιούν έγγραφα σε ενότητες, συνήθως με παρόμοιες ιδιότητες"
+" και παρόμοιων ή ιδίων τύπων. Οι έξυπνοι σύνδεσμοι επιτρέπουν τον καθορισμό "
 "σχέσεων μεταξύ εγγράφων ακόμα και αν περιέχονται σε διαφορετικά ευρετήρια ή "
 "είναι διαφορετικών τύπων."
 

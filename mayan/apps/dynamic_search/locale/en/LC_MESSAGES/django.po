@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
 "PO-Revision-Date: 2020-04-04 05:54+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -52,11 +52,11 @@ msgstr ""
 msgid "Reindex search backend"
 msgstr ""
 
-#: literals.py:17
+#: literals.py:21
 msgid "Yes"
 msgstr ""
 
-#: literals.py:18
+#: literals.py:22
 msgid "No"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgid ""
 msgstr ""
 
 #: search_fields.py:289
-msgid "ANY"
+msgid "Any"
 msgstr ""
 
 #: search_models.py:42
@@ -214,11 +214,11 @@ msgid "Sets the default state of the \"Match all\" checkbox."
 msgstr ""
 
 #: settings.py:63
-msgid "Hard limit of number search results to fetch and display."
+msgid "Hard limit of number of search results to fetch and display."
 msgstr ""
 
 #: settings.py:68
-msgid "Maximum number search results to fetch and display."
+msgid "Maximum number of search results to fetch and display."
 msgstr ""
 
 #: templates/dynamic_search/app/list_toolbar.html:17
@@ -286,7 +286,7 @@ msgstr ""
 
 #: views.py:75
 msgid ""
-"The currently selected search backend does not support or required "
+"The currently selected search backend does not support or requires "
 "reindexing."
 msgstr ""
 

@@ -1,31 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# mizhgan <i@mizhgan.ru>, 2022
-# Roberto Rosario, 2022
-# Panasoft, 2022
-# lilo.panic, 2022
-# Ilya Pavlov <spirkaa@gmail.com>, 2022
-# Sergey Glita <gsv70@mail.ru>, 2022
-#
+# mizhgan <i@mizhgan.ru>, 2023
+# Panasoft, 2023
+# Sergey Glita <gsv70@mail.ru>, 2023
+# lilo.panic, 2023
+# Ilya Pavlov <spirkaa@gmail.com>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Sergey Glita <gsv70@mail.ru>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: apps.py:53 events.py:6 links.py:144 menus.py:6 models.py:35 queues.py:7
 #: settings.py:13 views/source_views.py:177
@@ -42,8 +40,8 @@ msgid ""
 "create at least a web form source to be able to upload documents from a "
 "browser."
 msgstr ""
-"Источники документов - это способы добавления новых документов в Mayan EDMS. "
-"Как минимум, создайте веб-форму, чтобы загружать документы из браузера."
+"Источники документов - это способы добавления новых документов в Mayan EDMS."
+" Как минимум, создайте веб-форму, чтобы загружать документы из браузера."
 
 #: apps.py:108
 msgid "Type"
@@ -181,14 +179,12 @@ msgid "Handle upload"
 msgstr "Обработать загрузку"
 
 #: serializers.py:12
-#, fuzzy
-#| msgid "Action"
 msgid "Actions"
-msgstr "Действие"
+msgstr "Действия"
 
 #: serializers.py:18
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:55
 msgid "Optional arguments for the action. Must be JSON formatted."
@@ -227,8 +223,8 @@ msgid ""
 "Typical choices are 110 for POP3, 995 for POP3 over SSL, 143 for IMAP, 993 "
 "for IMAP over SSL."
 msgstr ""
-"Обычно выбирают 110 для POP3, 995 для POP3 с SSL, 143 для IMAP, 993 для IMAP "
-"с SSL"
+"Обычно выбирают 110 для POP3, 995 для POP3 с SSL, 143 для IMAP, 993 для IMAP"
+" с SSL"
 
 #: source_backends/email_backends.py:68
 msgid "Port"
@@ -318,8 +314,8 @@ msgstr ""
 #: source_backends/email_backends.py:351
 #, python-format
 msgid ""
-"Message ID metadata type \"%(metadata_type)s\" is not valid for the document "
-"type: %(document_type)s"
+"Message ID metadata type \"%(metadata_type)s\" is not valid for the document"
+" type: %(document_type)s"
 msgstr ""
 
 #: source_backends/email_backends.py:400
@@ -336,8 +332,8 @@ msgid ""
 "specified in https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 msgstr ""
 "Критерии, которые следует использовать при поиске сообщений для обработки. "
-"Используйте формат, указанный в https://tools.ietf.org/html/rfc2060."
-"html#section-6.4.4"
+"Используйте формат, указанный в "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.4"
 
 #: source_backends/email_backends.py:415
 msgid "Search criteria"
@@ -346,13 +342,14 @@ msgstr "Критерии поиска"
 #: source_backends/email_backends.py:423
 msgid ""
 "IMAP STORE command to execute on messages after they are processed. One "
-"command per line. Use the commands specified in https://tools.ietf.org/html/"
-"rfc2060.html#section-6.4.6 or the custom commands for your IMAP server."
+"command per line. Use the commands specified in "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 or the custom "
+"commands for your IMAP server."
 msgstr ""
 "Команды IMAP STORE, выполняемые для сообщений после их обработки. По одной "
-"команде на строку. Используйте команды, указанные в https://tools.ietf.org/"
-"html/rfc2060.html#section-6.4.6, или пользовательские команды для вашего "
-"сервера IMAP."
+"команде на строку. Используйте команды, указанные в "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6, или пользовательские"
+" команды для вашего сервера IMAP."
 
 #: source_backends/email_backends.py:428
 msgid "Store commands"
@@ -569,11 +566,11 @@ msgstr ""
 #: source_backends/staging_folder_backends.py:668
 msgid ""
 "This could mean that the staging folder is empty. It could also mean that "
-"the operating system user account being used for Mayan EDMS doesn't have the "
-"necessary file system permissions for the folder."
+"the operating system user account being used for Mayan EDMS doesn't have the"
+" necessary file system permissions for the folder."
 msgstr ""
-"Это может означать, что промежуточная папка пуста. Это также может означать, "
-"что учетная запись пользователя операционной системы, используемая для "
+"Это может означать, что промежуточная папка пуста. Это также может означать,"
+" что учетная запись пользователя операционной системы, используемая для "
 "запуска Mayan EDMS, не имеет необходимых разрешений для доступа к папке."
 
 #: source_backends/staging_folder_backends.py:675
@@ -602,8 +599,8 @@ msgstr "Файлы промежуточной папки"
 
 #: views/base.py:55 wizards.py:58
 msgid ""
-"No interactive document sources have been defined or none have been enabled, "
-"create one before proceeding."
+"No interactive document sources have been defined or none have been enabled,"
+" create one before proceeding."
 msgstr ""
 "Интерактивные источники документов не определены или отключены. Чтобы "
 "продолжить, создайте или включите источник."
@@ -623,13 +620,13 @@ msgstr "Ошибка при загрузке файла документа; %(ex
 #: views/document_file_views.py:97
 msgid "New document file queued for upload and will be available shortly."
 msgstr ""
-"Новый файл документа поставлен в очередь на загрузку и скоро станет доступен."
+"Новый файл документа поставлен в очередь на загрузку и скоро станет "
+"доступен."
 
 #: views/document_file_views.py:136
 #, python-format
 msgid "Upload a new file for document \"%(document)s\" from source: %(source)s"
-msgstr ""
-"Загрузка нового файла документа \"%(document)s\" из источника: %(source)s"
+msgstr "Загрузка нового файла документа \"%(document)s\" из источника: %(source)s"
 
 #: views/document_file_views.py:142
 msgid "Submit"
@@ -682,8 +679,8 @@ msgstr "Нет доступных источников"
 
 #: views/source_views.py:195
 msgid ""
-"This will execute the source code even if the source is not enabled. Sources "
-"that delete content after downloading will not do so while being tested. "
+"This will execute the source code even if the source is not enabled. Sources"
+" that delete content after downloading will not do so while being tested. "
 "Check the source's error log for information during testing. A successful "
 "test will clear the error log."
 msgstr ""
@@ -721,24 +718,3 @@ msgstr "Предыдущий"
 #: wizards.py:105
 msgid "Next"
 msgstr "Следующий"
-
-#~ msgid "Cancel upload"
-#~ msgstr "Отменить загрузку"
-
-#~ msgid "Are you sure you want to cancel this upload?"
-#~ msgstr "Вы уверены, что хотите отменить загрузку?"
-
-#~ msgid "Drop files or click here to upload files"
-#~ msgstr "Выберите файлы или перетащите их сюда для загрузки"
-
-#~ msgid "Your browser does not support drag and drop file uploads."
-#~ msgstr "Ваш браузер не поддерживает загрузку файлов методом перетаскивания."
-
-#~ msgid "Please use the fallback form below to upload your files."
-#~ msgstr "Воспользуйтесь формой ниже, чтобы загрузить файлы."
-
-#~ msgid "Clear"
-#~ msgstr "Очистить"
-
-#~ msgid "Server responded with {{statusCode}} code."
-#~ msgstr "Сервер ответил кодом {{statusCode}}."

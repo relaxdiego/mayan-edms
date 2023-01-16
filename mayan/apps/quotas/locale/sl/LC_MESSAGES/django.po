@@ -2,63 +2,60 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Roberto Rosario, 2022
-# Jože Detečnik <joze.detecnik@3tav.si>, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
-"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/"
-"sl/)\n"
-"Language: sl\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: apps.py:33 events.py:6 links.py:34 models.py:31 permissions.py:6
 #: views.py:150
 msgid "Quotas"
-msgstr "Kvote"
+msgstr ""
 
 #: classes.py:59
 msgid "none"
-msgstr "nič"
+msgstr ""
 
 #: classes.py:159
 msgid "Does not apply"
-msgstr "Ne velja"
+msgstr ""
 
 #: classes.py:163 classes.py:167
 msgid "Null backend"
-msgstr "Null backend"
+msgstr ""
 
 #: events.py:10
 msgid "Quota created"
-msgstr "Kvota ustvarjena"
+msgstr ""
 
 #: events.py:13
 msgid "Quota edited"
-msgstr "Kvota urejena"
+msgstr ""
 
 #: forms.py:15 model_mixins.py:16
 msgid "Backend"
-msgstr "Zaledje"
+msgstr ""
 
 #: forms.py:16
 msgid "The quota driver for this entry."
-msgstr "Gonilnik kvote za ta vnos."
+msgstr ""
 
 #: links.py:16
 msgid "Create quota"
-msgstr "Ustvari kvoto"
+msgstr ""
 
 #: links.py:21
 msgid "Delete"
@@ -66,40 +63,38 @@ msgstr "Izbriši"
 
 #: links.py:25
 msgid "Edit"
-msgstr "Uredi"
+msgstr ""
 
 #: links.py:30
 msgid "Quotas list"
-msgstr "Seznam kvot"
+msgstr ""
 
 #: mixins.py:17
 msgid "All document types"
-msgstr "Vse vrste dokumentov"
+msgstr ""
 
 #: mixins.py:20
 msgid ""
 "Apply to all document types. Enabling this, the quota will ignore the "
 "indiviual document type selection."
 msgstr ""
-"Uporablja se za vse vrste dokumentov. Če to omogočite, bo kvota prezrla "
-"izbiro vrste posameznega dokumenta."
 
 #: mixins.py:26
 msgid "Document types"
-msgstr "Vrste dokumentov"
+msgstr ""
 
 #: mixins.py:33
 msgid "Document types to which the quota will be applied."
-msgstr "Vrste dokumentov, za katere bo uporabljena kvota."
+msgstr ""
 
 #: mixins.py:67
 msgid "all document types"
-msgstr "vse vrste dokumentov"
+msgstr ""
 
 #: mixins.py:70
 #, python-format
 msgid "document types: %(document_types)s"
-msgstr "vrste dokumentov: %(document_types)s"
+msgstr ""
 
 #: mixins.py:94
 msgid "Groups"
@@ -107,11 +102,11 @@ msgstr "Skupine"
 
 #: mixins.py:101
 msgid "Groups to which the quota will be applied."
-msgstr "Skupine, za katere bo uporabljena kvota."
+msgstr ""
 
 #: mixins.py:105
 msgid "All users"
-msgstr "Vsi uporabniki"
+msgstr ""
 
 #: mixins.py:108
 msgid ""
@@ -119,140 +114,137 @@ msgid ""
 "Enabling this option, the quota will ignore the indiviual user and group "
 "selection."
 msgstr ""
-"Uporabi kvoto za vse uporabnike v sistemu, razen za skrbnike in osebje. Če "
-"omogočite to možnost, bo kvota prezrla izbiro posameznega uporabnika in "
-"skupine."
 
 #: mixins.py:115
 msgid "Users"
-msgstr "Uporabniki"
+msgstr ""
 
 #: mixins.py:122
 msgid "Users to which the quota will be applied."
-msgstr "Uporabniki, za katere bo uporabljena kvota."
+msgstr ""
 
 #: mixins.py:160
 msgid "all users"
-msgstr "vsi uporabniki"
+msgstr ""
 
 #: mixins.py:162
 #, python-format
 msgid "groups: %(groups)s, users: %(users)s"
-msgstr "skupine: %(groups)s, uporabniki: %(users)s"
+msgstr ""
 
 #: model_mixins.py:15
 msgid "Driver used for this quota entry."
-msgstr "Gonilnik, uporabljen za ta vnos kvote."
+msgstr ""
 
 #: model_mixins.py:20
 msgid "Arguments"
-msgstr "Argumenti"
+msgstr ""
 
 #: model_mixins.py:24
 msgid "Usage"
-msgstr "Uporaba"
+msgstr ""
 
 #: models.py:16
 msgid "The dotted Python path to the backend class."
-msgstr "Pikčasta pot Python do zalednega razreda."
+msgstr ""
 
 #: models.py:17
 msgid "Backend path"
-msgstr "Zaledna pot"
+msgstr ""
 
 #: models.py:20
 msgid "Backend data"
-msgstr "Zaledni podatki"
+msgstr ""
 
 #: models.py:24
 msgid "Allow quick disable or enable of the quota."
-msgstr "Dovoli hitro onemogočanje ali omogočanje kvote."
+msgstr ""
 
 #: models.py:25
 msgid "Enabled"
-msgstr "Omogočeno"
+msgstr ""
 
 #: models.py:30
 msgid "Quota"
-msgstr "Kvota"
+msgstr ""
 
 #: permissions.py:10
 msgid "Create a quota"
-msgstr "Ustvarite kvoto"
+msgstr ""
 
 #: permissions.py:13
 msgid "Delete a quota"
-msgstr "Izbriši kvoto"
+msgstr ""
 
 #: permissions.py:16
 msgid "Edit a quota"
-msgstr "Uredite kvoto"
+msgstr ""
 
 #: permissions.py:19
 msgid "View a quota"
-msgstr "Oglejte si kvoto"
+msgstr ""
 
 #: quota_backends.py:71 quota_backends.py:171
 msgid "Document count quota exceeded."
-msgstr "Kvota števila dokumentov je presežena."
+msgstr ""
 
 #: quota_backends.py:75
 msgid "Documents limit"
-msgstr "Omejitev dokumentov"
+msgstr ""
 
 #: quota_backends.py:78
 msgid "Maximum number of documents."
-msgstr "Največje število dokumentov."
+msgstr ""
 
 #: quota_backends.py:82
 msgid "Document count limit"
-msgstr "Omejitev števila dokumentov"
+msgstr ""
 
 #: quota_backends.py:107
 #, python-format
 msgid "document count: %(document_count)s"
-msgstr "število dokumentov: %(document_count)s"
+msgstr ""
 
 #: quota_backends.py:182
 msgid "Maximum document size in megabytes (MB)."
-msgstr "Največja velikost dokumenta v megabajtih (MB)."
+msgstr ""
 
 #: quota_backends.py:183 quota_backends.py:186
 msgid "Document size limit"
-msgstr "Omejitev velikosti dokumenta"
+msgstr ""
 
 #: quota_backends.py:211
 #, python-format
 msgid "document size: %(formatted_file_size)s"
-msgstr "velikost dokumenta: %(formatted_file_size)s"
+msgstr ""
 
 #: quota_backends.py:233
 msgid "Document size quota exceeded."
-msgstr "Kvota velikosti dokumenta je presežena."
+msgstr ""
 
 #: views.py:27
 msgid "New quota backend selection"
-msgstr "Nova izbira zaledja kvote"
+msgstr ""
 
 #: views.py:65
 #, python-format
 msgid "Create a \"%s\" quota"
-msgstr "Ustvarite kvoto &quot;%s&quot;."
+msgstr ""
 
 #: views.py:98
 #, python-format
 msgid "Delete quota: %s"
-msgstr "Izbriši kvoto: %s"
+msgstr ""
 
 #: views.py:114
 #, python-format
 msgid "Edit quota: %s"
-msgstr "Uredi kvoto: %s"
+msgstr ""
 
 #: views.py:147
 msgid "Quotas restrict usage of system resources. "
-msgstr "Kvote omejujejo uporabo sistemskih virov."
+msgstr ""
 
 #: views.py:149
 msgid "No quotas available"
-msgstr "Kvote niso na voljo"
+msgstr ""

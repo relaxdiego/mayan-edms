@@ -2,29 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Yves Dubois <ydubois@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Guillaume Trottier <gui.trottier@gmail.com>, 2022
-# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-#
+# Guillaume Trottier <gui.trottier@gmail.com>, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Yves Dubois <ydubois@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:37+0000\n"
-"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:53+0000\n"
+"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:33 events.py:6 links.py:34 models.py:31 permissions.py:6
 #: views.py:150
@@ -123,8 +122,8 @@ msgid ""
 "selection."
 msgstr ""
 "Appliquez le quota à tous les utilisateurs du système, à l'exception des "
-"administrateurs et du personnel. En activant cette option, le quota ignorera "
-"la sélection individuelle des utilisateurs et des groupes."
+"administrateurs et du personnel. En activant cette option, le quota ignorera"
+" la sélection individuelle des utilisateurs et des groupes."
 
 #: mixins.py:115
 msgid "Users"

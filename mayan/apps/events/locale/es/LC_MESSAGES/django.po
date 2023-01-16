@@ -1,28 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (https://www.transifex.com/rosarior/teams/13584/es/)\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Language: es\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: apps.py:31 events.py:11 links.py:52 links.py:93 permissions.py:6 queues.py:7
-#: views/event_views.py:29
+#: apps.py:31 events.py:11 links.py:52 links.py:93 permissions.py:6
+#: queues.py:7 views/event_views.py:29
 msgid "Events"
 msgstr "Eventos"
 
@@ -203,31 +202,27 @@ msgstr "Exportar conjuntos de consultas de eventos"
 
 #: serializers.py:27
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:40
 msgid "Event type namespace URL"
-msgstr ""
+msgstr "URL del espacio de nombres del tipo de evento"
 
 #: serializers.py:43
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: serializers.py:75
-#, fuzzy
-#| msgid "Stored event type"
 msgid "Actor content type"
-msgstr "Tipo de evento almacenado"
+msgstr "Tipo de contenido de actor"
 
 #: serializers.py:81
-#, fuzzy
-#| msgid "Stored event type"
 msgid "Target content type"
-msgstr "Tipo de evento almacenado"
+msgstr "Tipo de contenido del objetivo"
 
 #: serializers.py:84
 msgid "Verb"
-msgstr ""
+msgstr "Verbo"
 
 #: views/clear_views.py:27
 msgid ""
@@ -282,8 +277,8 @@ msgstr "Eventos de tipo: %s"
 
 #: views/export_views.py:27
 msgid ""
-"The process will be performed in the background. The exported events will be "
-"available in the downloads area."
+"The process will be performed in the background. The exported events will be"
+" available in the downloads area."
 msgstr ""
 "El proceso se realizará en segundo plano. Los eventos exportados estarán "
 "disponibles en el área de descargas."

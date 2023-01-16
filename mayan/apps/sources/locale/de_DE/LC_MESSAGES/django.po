@@ -1,32 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2022
-# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
-# Jesaja Everling <jeverling@gmail.com>, 2022
-# Berny <berny@bernhard-marx.de>, 2022
-# Marvin Haschker <marvin@haschker.me>, 2022
-# Tobias Paepke <tobias.paepke@paepke.net>, 2022
-# Ingo Buchholz <ingo.buchholz@takwa.de>, 2022
-# Mathias Behrle <mathiasb@m9s.biz>, 2022
-# Roberto Rosario, 2022
-#
+# Tobias Paepke <tobias.paepke@paepke.net>, 2023
+# Jesaja Everling <jeverling@gmail.com>, 2023
+# Marvin Haschker <marvin@haschker.me>, 2023
+# Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2023
+# Berny <berny@bernhard-marx.de>, 2023
+# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
+# Ingo Buchholz <ingo.buchholz@takwa.de>, 2023
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
-"teams/13584/de_DE/)\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:53 events.py:6 links.py:144 menus.py:6 models.py:35 queues.py:7
@@ -45,8 +44,8 @@ msgid ""
 "browser."
 msgstr ""
 "Dokumentenquellen definieren verschiedene Möglichkeiten für die Einspeisung "
-"in Mayan EDMS. Minimal ein Webformular für das Hochladen mittels Browser ist "
-"erforderlich."
+"in Mayan EDMS. Minimal ein Webformular für das Hochladen mittels Browser ist"
+" erforderlich."
 
 #: apps.py:108
 msgid "Type"
@@ -184,14 +183,12 @@ msgid "Handle upload"
 msgstr "Hochladen erledigen"
 
 #: serializers.py:12
-#, fuzzy
-#| msgid "Action"
 msgid "Actions"
-msgstr "Aktion"
+msgstr "Aktionen"
 
 #: serializers.py:18
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:55
 msgid "Optional arguments for the action. Must be JSON formatted."
@@ -322,8 +319,8 @@ msgstr ""
 #: source_backends/email_backends.py:351
 #, python-format
 msgid ""
-"Message ID metadata type \"%(metadata_type)s\" is not valid for the document "
-"type: %(document_type)s"
+"Message ID metadata type \"%(metadata_type)s\" is not valid for the document"
+" type: %(document_type)s"
 msgstr ""
 
 #: source_backends/email_backends.py:400
@@ -350,13 +347,14 @@ msgstr "Suchkriterien"
 #: source_backends/email_backends.py:423
 msgid ""
 "IMAP STORE command to execute on messages after they are processed. One "
-"command per line. Use the commands specified in https://tools.ietf.org/html/"
-"rfc2060.html#section-6.4.6 or the custom commands for your IMAP server."
+"command per line. Use the commands specified in "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 or the custom "
+"commands for your IMAP server."
 msgstr ""
 "IMAP STORE-Befehl, der für Nachrichten ausgeführt wird, nachdem diese "
-"verarbeitet wurden. Ein Befehl pro Zeile. Verwenden Sie die in https://tools."
-"ietf.org/html/rfc2060.html#section-6.4.6 angegebenen Befehle oder die "
-"benutzerdefinierten Befehle für Ihren IMAP-Server."
+"verarbeitet wurden. Ein Befehl pro Zeile. Verwenden Sie die in "
+"https://tools.ietf.org/html/rfc2060.html#section-6.4.6 angegebenen Befehle "
+"oder die benutzerdefinierten Befehle für Ihren IMAP-Server."
 
 #: source_backends/email_backends.py:428
 msgid "Store commands"
@@ -569,8 +567,8 @@ msgstr ""
 #: source_backends/staging_folder_backends.py:668
 msgid ""
 "This could mean that the staging folder is empty. It could also mean that "
-"the operating system user account being used for Mayan EDMS doesn't have the "
-"necessary file system permissions for the folder."
+"the operating system user account being used for Mayan EDMS doesn't have the"
+" necessary file system permissions for the folder."
 msgstr ""
 "Dies könnte bedeuten, dass der Staging-Ordner leer ist. Es könnte auch "
 "bedeuten, dass das Betriebssystem-Benutzerkonto, das für Mayan EDMS "
@@ -603,18 +601,18 @@ msgstr "Stagingordner-Dateien"
 
 #: views/base.py:55 wizards.py:58
 msgid ""
-"No interactive document sources have been defined or none have been enabled, "
-"create one before proceeding."
+"No interactive document sources have been defined or none have been enabled,"
+" create one before proceeding."
 msgstr ""
-"Es wurden keine interaktiven Dokumentenquellen konfiguriert. Bitte erstellen "
-"oder aktivieren Sie eine bevor Sie fortsetzen."
+"Es wurden keine interaktiven Dokumentenquellen konfiguriert. Bitte erstellen"
+" oder aktivieren Sie eine bevor Sie fortsetzen."
 
 #: views/document_file_views.py:51
 #, python-format
 msgid "Unable to upload new files for document \"%(document)s\". %(exception)s"
 msgstr ""
-"Hochladen neuer Dateien für das Dokument \"%(document)s\" nicht möglich."
-"%(exception)s"
+"Hochladen neuer Dateien für das Dokument \"%(document)s\" nicht "
+"möglich.%(exception)s"
 
 #: views/document_file_views.py:76
 #, python-format
@@ -687,8 +685,8 @@ msgstr "Keine Quellen verfügbar"
 
 #: views/source_views.py:195
 msgid ""
-"This will execute the source code even if the source is not enabled. Sources "
-"that delete content after downloading will not do so while being tested. "
+"This will execute the source code even if the source is not enabled. Sources"
+" that delete content after downloading will not do so while being tested. "
 "Check the source's error log for information during testing. A successful "
 "test will clear the error log."
 msgstr ""
@@ -726,27 +724,3 @@ msgstr "Vorherige Seite"
 #: wizards.py:105
 msgid "Next"
 msgstr "Nächste Seite"
-
-#~ msgid "Cancel upload"
-#~ msgstr "Hochladen abbrechen"
-
-#~ msgid "Are you sure you want to cancel this upload?"
-#~ msgstr "Hochladen wirklich abbrechen?"
-
-#~ msgid "Drop files or click here to upload files"
-#~ msgstr ""
-#~ "Dateien auf diese Fläche ziehen oder darauf klicken, um Dateien zum "
-#~ "Hochladen auszuwählen"
-
-#~ msgid "Your browser does not support drag and drop file uploads."
-#~ msgstr "Ihr Browser unterstützt kein Drag and Drop."
-
-#~ msgid "Please use the fallback form below to upload your files."
-#~ msgstr ""
-#~ "Bitte benützen Sie das Formular weiter unten um Dateien hochzuladen."
-
-#~ msgid "Clear"
-#~ msgstr "Löschen"
-
-#~ msgid "Server responded with {{statusCode}} code."
-#~ msgstr "Der Server antwortete mit Code {{statusCode}}."

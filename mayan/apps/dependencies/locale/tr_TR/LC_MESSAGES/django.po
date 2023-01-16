@@ -2,25 +2,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Nurgül Özkan <nurgulozkan@hotmail.com>, 2022
-# serhatcan77 <serhat_can@yahoo.com>, 2022
-# Bedreddin Şahbaz, 2022
-#
+# Nurgül Özkan <nurgulozkan@hotmail.com>, 2023
+# serhatcan77 <serhat_can@yahoo.com>, 2023
+# Bedreddin Şahbaz, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Bedreddin Şahbaz, 2022\n"
-"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/"
-"teams/13584/tr_TR/)\n"
-"Language: tr_TR\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:48+0000\n"
+"Last-Translator: Bedreddin Şahbaz, 2023\n"
+"Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: apps.py:24 links.py:38 permissions.py:6
@@ -71,7 +70,7 @@ msgstr "İsim"
 msgid "App"
 msgstr "Uygulama"
 
-#: classes.py:219 classes.py:906
+#: classes.py:219 classes.py:911
 msgid "Environments"
 msgstr "Çevresel değişkenler"
 
@@ -127,17 +126,17 @@ msgstr "Binary"
 
 #: classes.py:500
 msgid ""
-"JavaScript libraries downloaded the from NPM registry and used for front-end "
-"functionality."
+"JavaScript libraries downloaded the from NPM registry and used for front-end"
+" functionality."
 msgstr ""
-"JavaScript kitaplıkları, NPM kayıt defterinden indirilir ve front-end işlevi "
-"için kullanılır."
+"JavaScript kitaplıkları, NPM kayıt defterinden indirilir ve front-end işlevi"
+" için kullanılır."
 
 #: classes.py:503
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: classes.py:535 classes.py:812
+#: classes.py:535 classes.py:814
 msgid "Downloading... "
 msgstr "İndiriliyor..."
 
@@ -145,7 +144,7 @@ msgstr "İndiriliyor..."
 msgid "Verifying... "
 msgstr "Doğrulanıyor..."
 
-#: classes.py:545 classes.py:817
+#: classes.py:545 classes.py:819
 msgid "Extracting... "
 msgstr "Ayıklanıyor..."
 
@@ -157,27 +156,27 @@ msgstr "Python paketleri PyPI'den indirildi."
 msgid "Python"
 msgstr "Python"
 
-#: classes.py:792
+#: classes.py:794
 msgid "Fonts downloaded from fonts.googleapis.com."
 msgstr "fonts.googleapis.com adresinden indirilen yazı tipleri."
 
-#: classes.py:794
+#: classes.py:796
 msgid "Google font"
 msgstr "Google yazı tipi"
 
-#: classes.py:887
+#: classes.py:892
 msgid "Declared in app"
 msgstr "Uygulamada bildirildi"
 
-#: classes.py:888
+#: classes.py:893
 msgid "Show dependencies by the app that declared them."
 msgstr "Bağımlılıkları, bunları bildiren uygulamaya göre gösterin."
 
-#: classes.py:892
+#: classes.py:897
 msgid "Class"
 msgstr "Sınıf"
 
-#: classes.py:893
+#: classes.py:898
 msgid ""
 "Show the different classes of dependencies. Classes are usually divided by "
 "language or the file types of the dependency."
@@ -185,11 +184,11 @@ msgstr ""
 "Farklı bağımlılık sınıflarını göster. Sınıflar genellikle dile veya "
 "bağımlılığın dosya türlerine göre bölünür."
 
-#: classes.py:898
+#: classes.py:903
 msgid "State"
 msgstr "Durum"
 
-#: classes.py:899
+#: classes.py:904
 msgid ""
 "Show the different states of the dependencies. True means that the "
 "dependencies is installed and is of a correct version. False means the "
@@ -199,7 +198,7 @@ msgstr ""
 "olduğu ve doğru bir sürüm olduğu anlamına gelir. False, bağımlılıkların "
 "eksik olduğu veya yanlış bir sürümün mevcut olduğu anlamına gelir."
 
-#: classes.py:907
+#: classes.py:912
 msgid ""
 "Dependencies required for an environment might not be required for another. "
 "Example environments: Production, Development."
@@ -246,8 +245,8 @@ msgstr "Belgeleme"
 #: environments.py:36
 msgid ""
 "Environment used to specify direct documentation depedencies to workaround "
-"unpinned or immutable depedency bugs in third party libraries. End users can "
-"ignore missing dependencies under this environment."
+"unpinned or immutable depedency bugs in third party libraries. End users can"
+" ignore missing dependencies under this environment."
 msgstr ""
 
 #: environments.py:40
@@ -289,7 +288,7 @@ msgstr "Gruplar"
 
 #: links.py:23
 msgid "Entries"
-msgstr "Girdileri"
+msgstr "Girdiler"
 
 #: links.py:29
 msgid "Details"

@@ -1,27 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2022
-# Pavlin Koldamov <pkoldamov@gmail.com>, 2022
-# Roberto Rosario, 2022
-# Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-#
+# 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2023
+# Pavlin Koldamov <pkoldamov@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Lyudmil Antonov <lantonov.here@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
-"bg/)\n"
-"Language: bg\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2023\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:62 events.py:6 permissions.py:6
@@ -46,7 +45,7 @@ msgid "User"
 msgstr "Потребител"
 
 #: apps.py:100 apps.py:219 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:168
+#: views/user_views.py:170
 msgid "Users"
 msgstr "Потребители"
 
@@ -217,10 +216,8 @@ msgstr ""
 "група."
 
 #: serializers.py:18
-#, fuzzy
-#| msgid "Users"
 msgid "Users URL"
-msgstr "Потребители"
+msgstr ""
 
 #: serializers.py:22
 msgid "Users add URL"
@@ -232,17 +229,15 @@ msgstr ""
 
 #: serializers.py:33 serializers.py:80
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:48
 msgid "Primary key of the user to add to the group."
 msgstr "Основен ключ на потребителя, който да добавите към групата."
 
 #: serializers.py:49 serializers.py:58
-#, fuzzy
-#| msgid "User"
 msgid "User ID"
-msgstr "Потребител"
+msgstr "Потребител №"
 
 #: serializers.py:57
 msgid "Primary key of the user to remove from the group."
@@ -255,10 +250,8 @@ msgstr ""
 "принадлежи този потребител."
 
 #: serializers.py:68
-#, fuzzy
-#| msgid "Groups"
 msgid "Groups URL"
-msgstr "Групи"
+msgstr ""
 
 #: utils.py:26
 msgid "Anonymous"
@@ -317,8 +310,8 @@ msgid ""
 msgstr ""
 "Потребителските групи са организационни звена. Те трябва да отразяват "
 "организационните звена на вашата организация. Групите не могат да се "
-"използват за контрол на достъпа. Използвайте роли за разрешения и контрол на "
-"достъпа, добавете групи към тях."
+"използват за контрол на достъпа. Използвайте роли за разрешения и контрол на"
+" достъпа, добавете групи към тях."
 
 #: views/group_views.py:110
 msgid "There are no user groups"
@@ -374,36 +367,36 @@ msgstr "Изтрийте %(count)d избран потребител."
 
 #: views/user_views.py:73
 msgid ""
-"Warning! You are about to delete your own user account. You will lose access "
-"to the system. This process is not reversible."
+"Warning! You are about to delete your own user account. You will lose access"
+" to the system. This process is not reversible."
 msgstr ""
 
-#: views/user_views.py:91
+#: views/user_views.py:93
 #, python-format
 msgid "Details of user: %s"
 msgstr "Данни за потребителя: %s"
 
-#: views/user_views.py:110
+#: views/user_views.py:112
 #, python-format
 msgid "Edit user: %s"
 msgstr "Редактиране на потребителя: %s"
 
-#: views/user_views.py:121
+#: views/user_views.py:123
 msgid "Available groups"
 msgstr "Налични групи"
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:124
+#: views/user_views.py:126
 msgid "User groups"
 msgstr "Потребителски групи"
 
-#: views/user_views.py:139
+#: views/user_views.py:141
 #, python-format
 msgid "Groups of user: %s"
 msgstr "Групи на потребителя: %s"
 
-#: views/user_views.py:164
+#: views/user_views.py:166
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
@@ -412,11 +405,11 @@ msgstr ""
 "създаването на потребителски акаунт ще бъдете подканени да зададете парола "
 "за него."
 
-#: views/user_views.py:167
+#: views/user_views.py:169
 msgid "There are no user accounts"
 msgstr "Няма потребителски акаунти"
 
-#: views/user_views.py:187
+#: views/user_views.py:189
 #, python-format
 msgid "Edit options for user: %s"
 msgstr "Редактиране на опции за потребител: %s"

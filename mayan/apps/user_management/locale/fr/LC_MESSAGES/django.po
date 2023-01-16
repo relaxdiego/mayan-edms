@@ -1,31 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Baptiste GAILLET <baptiste.gaillet@cstb.fr>, 2022
-# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2022
-# Yves Dubois <ydubois@gmail.com>, 2022
-# Roberto Rosario, 2022
-# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2022
-# Thierry Schott <DarkDare@users.noreply.github.com>, 2022
-# Frédéric Sheedy <sheedf@gmail.com>, 2022
-#
+# Yves Dubois <ydubois@gmail.com>, 2023
+# 0041b687dd284925c1885ba94464aacd_fde037b <fc746b00d74cefecce9698255909a24f_28512>, 2023
+# Baptiste GAILLET <baptiste.gaillet@cstb.fr>, 2023
+# Frédéric Sheedy <sheedf@gmail.com>, 2023
+# Roberto Rosario, 2023
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2023
+# Thierry Schott <DarkDare@users.noreply.github.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Thierry Schott <DarkDare@users.noreply.github.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:62 events.py:6 permissions.py:6
 msgid "User management"
@@ -49,7 +48,7 @@ msgid "User"
 msgstr "Utilisateur"
 
 #: apps.py:100 apps.py:219 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:168
+#: views/user_views.py:170
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -218,10 +217,8 @@ msgid "URL of the API endpoint showing the list users of this group."
 msgstr ""
 
 #: serializers.py:18
-#, fuzzy
-#| msgid "Users"
 msgid "Users URL"
-msgstr "Utilisateurs"
+msgstr ""
 
 #: serializers.py:22
 msgid "Users add URL"
@@ -233,17 +230,15 @@ msgstr ""
 
 #: serializers.py:33 serializers.py:80
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:48
 msgid "Primary key of the user to add to the group."
 msgstr "Clé primaire de l'utilisateur à ajouter au groupe."
 
 #: serializers.py:49 serializers.py:58
-#, fuzzy
-#| msgid "User"
 msgid "User ID"
-msgstr "Utilisateur"
+msgstr "ID Utilisateur"
 
 #: serializers.py:57
 msgid "Primary key of the user to remove from the group."
@@ -254,10 +249,8 @@ msgid "URL of the API endpoint showing the list groups this user belongs to."
 msgstr ""
 
 #: serializers.py:68
-#, fuzzy
-#| msgid "Groups"
 msgid "Groups URL"
-msgstr "Groupes"
+msgstr ""
 
 #: utils.py:26
 msgid "Anonymous"
@@ -266,8 +259,7 @@ msgstr "Anonyme"
 #: views/group_views.py:40
 #, python-format
 msgid "Error deleting group \"%(instance)s\"; %(exception)s"
-msgstr ""
-"Erreur lors de la suppression du groupe \"%(instance)s\"; %(exception)s"
+msgstr "Erreur lors de la suppression du groupe \"%(instance)s\"; %(exception)s"
 
 #: views/group_views.py:47
 #, python-format
@@ -316,9 +308,9 @@ msgid ""
 "roles for permissions and access control, add groups to them."
 msgstr ""
 "Les groupes d'utilisateurs sont des unités d'organisation. Ils doivent "
-"refléter les unités organisationnelles de votre organisation. Les groupes ne "
-"peuvent pas être utilisés pour le contrôle d'accès. Utilisez les rôles pour "
-"les autorisations et le contrôle d'accès, ajoutez-leur des groupes."
+"refléter les unités organisationnelles de votre organisation. Les groupes ne"
+" peuvent pas être utilisés pour le contrôle d'accès. Utilisez les rôles pour"
+" les autorisations et le contrôle d'accès, ajoutez-leur des groupes."
 
 #: views/group_views.py:110
 msgid "There are no user groups"
@@ -376,39 +368,39 @@ msgstr "Supprimez %(count)d utilisateur sélectionné."
 
 #: views/user_views.py:73
 msgid ""
-"Warning! You are about to delete your own user account. You will lose access "
-"to the system. This process is not reversible."
+"Warning! You are about to delete your own user account. You will lose access"
+" to the system. This process is not reversible."
 msgstr ""
 "Avertissement! Vous êtes sur le point de supprimer votre propre compte "
 "utilisateur. Vous perdrez l'accès au système. Cette action n'est pas "
 "réversible."
 
-#: views/user_views.py:91
+#: views/user_views.py:93
 #, python-format
 msgid "Details of user: %s"
 msgstr "Détails pour l'utilisateur: %s"
 
-#: views/user_views.py:110
+#: views/user_views.py:112
 #, python-format
 msgid "Edit user: %s"
 msgstr "Modifier l'utilisateur : %s"
 
-#: views/user_views.py:121
+#: views/user_views.py:123
 msgid "Available groups"
 msgstr "Groupes disponibles"
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:124
+#: views/user_views.py:126
 msgid "User groups"
 msgstr "Groupes d'utilisateurs"
 
-#: views/user_views.py:139
+#: views/user_views.py:141
 #, python-format
 msgid "Groups of user: %s"
 msgstr "Membre des groupes : %s"
 
-#: views/user_views.py:164
+#: views/user_views.py:166
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
@@ -417,11 +409,11 @@ msgstr ""
 "avoir créé un compte d'utilisateur, vous serez invité à définir un mot de "
 "passe pour ce compte."
 
-#: views/user_views.py:167
+#: views/user_views.py:169
 msgid "There are no user accounts"
 msgstr "Il n'y a pas de compte utilisateur"
 
-#: views/user_views.py:187
+#: views/user_views.py:189
 #, python-format
 msgid "Edit options for user: %s"
 msgstr "Options de modification pour l'utilisateur: %s"

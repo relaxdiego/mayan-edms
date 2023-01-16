@@ -1,25 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-#
+# Roberto Rosario, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Bosnian (https://www.transifex.com/rosarior/teams/13584/bs/)\n"
-"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: bs\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: apps.py:27
 msgid "Dynamic search"
@@ -39,10 +38,8 @@ msgid "Search terms"
 msgstr "Pojmovi pretrage"
 
 #: links.py:20
-#, fuzzy
-#| msgid "Dynamic search"
 msgid "Basic search"
-msgstr "Dinamičko pretraživanje"
+msgstr ""
 
 #: links.py:24 templates/dynamic_search/search_box.html:49
 #: templates/dynamic_search/search_box_toolbar.html:33
@@ -57,13 +54,13 @@ msgstr "Traži ponovo"
 msgid "Reindex search backend"
 msgstr ""
 
-#: literals.py:17
+#: literals.py:21
 msgid "Yes"
-msgstr ""
+msgstr "Da"
 
-#: literals.py:18
+#: literals.py:22
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: permissions.py:6 queues.py:7 settings.py:14
 #: templates/dynamic_search/search_box.html:47
@@ -115,7 +112,7 @@ msgid ""
 msgstr ""
 
 #: search_fields.py:289
-msgid "ANY"
+msgid "Any"
 msgstr ""
 
 #: search_models.py:42
@@ -173,7 +170,7 @@ msgstr ""
 
 #: serializers.py:17
 msgid "Label"
-msgstr ""
+msgstr "Labela"
 
 #: serializers.py:23
 msgid "App label"
@@ -188,10 +185,8 @@ msgid "Primary key"
 msgstr ""
 
 #: serializers.py:32
-#, fuzzy
-#| msgid "Search terms"
 msgid "Search fields"
-msgstr "Pojmovi pretrage"
+msgstr ""
 
 #: settings.py:20
 msgid "Full path to the backend to be used to handle the search."
@@ -221,18 +216,16 @@ msgid "Sets the default state of the \"Match all\" checkbox."
 msgstr ""
 
 #: settings.py:63
-msgid "Hard limit of number search results to fetch and display."
+msgid "Hard limit of number of search results to fetch and display."
 msgstr ""
 
 #: settings.py:68
-msgid "Maximum number search results to fetch and display."
+msgid "Maximum number of search results to fetch and display."
 msgstr ""
 
 #: templates/dynamic_search/app/list_toolbar.html:17
-#, fuzzy
-#| msgid "Search terms"
 msgid "Filter terms"
-msgstr "Pojmovi pretrage"
+msgstr ""
 
 #: templates/dynamic_search/search_box.html:49
 #: templates/dynamic_search/search_box_toolbar.html:33
@@ -295,7 +288,7 @@ msgstr ""
 
 #: views.py:75
 msgid ""
-"The currently selected search backend does not support or required "
+"The currently selected search backend does not support or requires "
 "reindexing."
 msgstr ""
 
@@ -309,10 +302,9 @@ msgid "Search for: %s"
 msgstr "Traži za:%s"
 
 #: views.py:139
-#, fuzzy, python-format
-#| msgid "Advanced search"
+#, python-format
 msgid "Advanced search for: %s"
-msgstr "Napredna pretraga"
+msgstr ""
 
 #: views.py:174
 msgid "Try again using different terms. "
@@ -323,23 +315,11 @@ msgid "No search results"
 msgstr ""
 
 #: views.py:179
-#, fuzzy, python-format
-#| msgid "Search for: %s"
+#, python-format
 msgid "Search query: %s"
-msgstr "Traži za:%s"
+msgstr ""
 
 #: views.py:181
 #, python-format
 msgid "Search results for: %s"
 msgstr "Traži rezultate za:%s"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid ""
-#~ "When checked, only results that match all fields will be returned. When "
-#~ "unchecked results that match at least one field will be returned."
-#~ msgstr ""
-#~ "Kada se proveri, biće vraćeni samo rezultati koji odgovaraju svim "
-#~ "poljima. Kada se neprovereni rezultati koji se podudaraju sa najmanje "
-#~ "jednim poljem će biti vraćeni."

@@ -1,26 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2022
-# Michal Švábík <snadno@lehce.cz>, 2022
-#
+# trendspotter <jirka.p@volny.cz>, 2023
+# Michal Švábík <snadno@lehce.cz>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:35+0000\n"
-"Last-Translator: Michal Švábík <snadno@lehce.cz>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:50+0000\n"
+"Last-Translator: Michal Švábík <snadno@lehce.cz>, 2023\n"
 "Language-Team: Czech (https://www.transifex.com/rosarior/teams/13584/cs/)\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
-"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: apps.py:27
 msgid "Dynamic search"
@@ -40,10 +39,8 @@ msgid "Search terms"
 msgstr "Hledané výrazy"
 
 #: links.py:20
-#, fuzzy
-#| msgid "Dynamic search"
 msgid "Basic search"
-msgstr "Dynamické vyhledávání"
+msgstr ""
 
 #: links.py:24 templates/dynamic_search/search_box.html:49
 #: templates/dynamic_search/search_box_toolbar.html:33
@@ -58,13 +55,13 @@ msgstr "Hledej znovu"
 msgid "Reindex search backend"
 msgstr "Backend pro reindexaci vyhledávání"
 
-#: literals.py:17
+#: literals.py:21
 msgid "Yes"
-msgstr ""
+msgstr "Ano"
 
-#: literals.py:18
+#: literals.py:22
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: permissions.py:6 queues.py:7 settings.py:14
 #: templates/dynamic_search/search_box.html:47
@@ -116,7 +113,7 @@ msgid ""
 msgstr ""
 
 #: search_fields.py:289
-msgid "ANY"
+msgid "Any"
 msgstr ""
 
 #: search_models.py:42
@@ -174,11 +171,11 @@ msgstr ""
 
 #: serializers.py:17
 msgid "Label"
-msgstr ""
+msgstr "Jmenovka"
 
 #: serializers.py:23
 msgid "App label"
-msgstr ""
+msgstr "Štítek aplikace"
 
 #: serializers.py:26
 msgid "Model name"
@@ -189,10 +186,8 @@ msgid "Primary key"
 msgstr ""
 
 #: serializers.py:32
-#, fuzzy
-#| msgid "Search terms"
 msgid "Search fields"
-msgstr "Hledané výrazy"
+msgstr ""
 
 #: settings.py:20
 msgid "Full path to the backend to be used to handle the search."
@@ -224,20 +219,16 @@ msgid "Sets the default state of the \"Match all\" checkbox."
 msgstr "Nastaví výchozí stav zaškrtávacího políčka „Porovnat vše“."
 
 #: settings.py:63
-#, fuzzy
-#| msgid "Maximum number search results to fetch and display."
-msgid "Hard limit of number search results to fetch and display."
-msgstr "Maximální počet výsledků vyhledávání k načtení a zobrazení."
+msgid "Hard limit of number of search results to fetch and display."
+msgstr ""
 
 #: settings.py:68
-msgid "Maximum number search results to fetch and display."
-msgstr "Maximální počet výsledků vyhledávání k načtení a zobrazení."
+msgid "Maximum number of search results to fetch and display."
+msgstr ""
 
 #: templates/dynamic_search/app/list_toolbar.html:17
-#, fuzzy
-#| msgid "Search terms"
 msgid "Filter terms"
-msgstr "Hledané výrazy"
+msgstr ""
 
 #: templates/dynamic_search/search_box.html:49
 #: templates/dynamic_search/search_box_toolbar.html:33
@@ -297,12 +288,12 @@ msgid ""
 "This tool is required only for some search backends. Search results will be "
 "affected while the backend is being reindexed."
 msgstr ""
-"Tento nástroj je vyžadován pouze pro některé back-endy vyhledávání. Výsledky "
-"vyhledávání budou ovlivněny během opětovné indexace backendu."
+"Tento nástroj je vyžadován pouze pro některé back-endy vyhledávání. Výsledky"
+" vyhledávání budou ovlivněny během opětovné indexace backendu."
 
 #: views.py:75
 msgid ""
-"The currently selected search backend does not support or required "
+"The currently selected search backend does not support or requires "
 "reindexing."
 msgstr ""
 
@@ -316,10 +307,9 @@ msgid "Search for: %s"
 msgstr "Vyhledejte: %s"
 
 #: views.py:139
-#, fuzzy, python-format
-#| msgid "Advanced search"
+#, python-format
 msgid "Advanced search for: %s"
-msgstr "Pokročilé vyhledávání"
+msgstr ""
 
 #: views.py:174
 msgid "Try again using different terms. "
@@ -330,23 +320,11 @@ msgid "No search results"
 msgstr "Bez výsledku"
 
 #: views.py:179
-#, fuzzy, python-format
-#| msgid "Search for: %s"
+#, python-format
 msgid "Search query: %s"
-msgstr "Vyhledejte: %s"
+msgstr ""
 
 #: views.py:181
 #, python-format
 msgid "Search results for: %s"
 msgstr "Výsledky hledání pro klíčové slovo: %s"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid ""
-#~ "When checked, only results that match all fields will be returned. When "
-#~ "unchecked results that match at least one field will be returned."
-#~ msgstr ""
-#~ "Po zaškrtnutí budou vráceny pouze výsledky, které odpovídají všem polím. "
-#~ "Pokud nezaškrtnete, bude vr8cen v7sledek odpovídající alespoň jednomu "
-#~ "poli."

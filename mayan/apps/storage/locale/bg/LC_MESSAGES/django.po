@@ -1,27 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
-# 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2022
-# Pavlin Koldamov <pkoldamov@gmail.com>, 2022
-# Lyudmil Antonov <lantonov.here@gmail.com>, 2022
-#
+# Pavlin Koldamov <pkoldamov@gmail.com>, 2023
+# Roberto Rosario, 2023
+# 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2023
+# Lyudmil Antonov <lantonov.here@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
-"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/"
-"bg/)\n"
-"Language: bg\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2023\n"
+"Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:27 permissions.py:6 settings.py:15
@@ -102,11 +101,11 @@ msgstr "Файл без име"
 
 #: model_mixins.py:94
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: model_mixins.py:101 models.py:48
 msgid "User"
-msgstr ""
+msgstr "Потребител"
 
 #: models.py:40 models.py:91
 msgid "File"
@@ -129,16 +128,12 @@ msgid "Shared uploaded files"
 msgstr "Споделени качени файлове"
 
 #: permissions.py:10
-#, fuzzy
-#| msgid "Delete stale download files"
 msgid "Delete user files"
-msgstr "Изтрийте остарелите файлове за изтегляне"
+msgstr ""
 
 #: permissions.py:13
-#, fuzzy
-#| msgid "Download files"
 msgid "Download user files"
-msgstr "Изтеглете файлове"
+msgstr ""
 
 #: permissions.py:16
 msgid "View user files"
@@ -171,8 +166,8 @@ msgstr ""
 #: settings.py:38
 msgid "A storage backend that all workers can use to share files."
 msgstr ""
-"Бекенд за съхранение, който всички работници могат да използват за споделяне "
-"на файлове."
+"Бекенд за съхранение, който всички работници могат да използват за споделяне"
+" на файлове."
 
 #: settings.py:48
 msgid ""
@@ -188,16 +183,16 @@ msgstr ""
 
 #: storages.py:15
 msgid ""
-"Unable to initialize the download file storage. Check the settings {} and {} "
-"for formatting errors."
+"Unable to initialize the download file storage. Check the settings {} and {}"
+" for formatting errors."
 msgstr ""
 "Не може да се инициализира хранилището на файла за изтегляне. Проверете "
 "настройките {} и {} за грешки при форматирането."
 
 #: storages.py:29
 msgid ""
-"Unable to initialize the shared uploaded file storage. Check the settings {} "
-"and {} for formatting errors."
+"Unable to initialize the shared uploaded file storage. Check the settings {}"
+" and {} for formatting errors."
 msgstr ""
 "Не може да се инициализира съхраняването на качени файлове. Проверете "
 "настройките {} и {} за форматиране на грешки."
@@ -209,8 +204,8 @@ msgid ""
 "automatically."
 msgstr ""
 "Файловете за изтегляне се създават в резултат на външен процес като "
-"експортиране. Изтеглените файлове се запазват за определен период от време и "
-"след това се премахват автоматично."
+"експортиране. Изтеглените файлове се запазват за определен период от време и"
+" след това се премахват автоматично."
 
 #: views.py:71
 msgid "There are no files to download."
@@ -219,9 +214,3 @@ msgstr "Няма файлове за изтегляне."
 #: views.py:72
 msgid "Downloads"
 msgstr "Изтегляния"
-
-#~ msgid "Source object"
-#~ msgstr "Изходен обект"
-
-#~ msgid "Permission"
-#~ msgstr "Разрешение"

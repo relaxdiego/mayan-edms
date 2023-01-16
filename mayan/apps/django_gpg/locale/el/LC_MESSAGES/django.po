@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Hmayag Antonian <hmayag@freemail.gr>, 2022
-# pyrotech <anastasios@tutamail.com>, 2022
-#
+# pyrotech <anastasios@tutamail.com>, 2023
+# Hmayag Antonian <hmayag@freemail.gr>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: pyrotech <anastasios@tutamail.com>, 2022\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:48+0000\n"
+"Last-Translator: Hmayag Antonian <hmayag@freemail.gr>, 2023\n"
 "Language-Team: Greek (https://www.transifex.com/rosarior/teams/13584/el/)\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:31
@@ -157,8 +157,8 @@ msgstr "Σφάλμα υπογραφής."
 #: literals.py:80
 msgid "Document is signed but no public key is available for verification."
 msgstr ""
-"Το έγγραφο είναι υπογεγραμμένο αλλά δεν υπάρχει διαθέσιμο δημόσιο κλειδί για "
-"επαλήθευση."
+"Το έγγραφο είναι υπογεγραμμένο αλλά δεν υπάρχει διαθέσιμο δημόσιο κλειδί για"
+" επαλήθευση."
 
 #: literals.py:85
 msgid "Document is signed, and signature is good."
@@ -218,7 +218,7 @@ msgstr "Εμφάνιση κλειδιών"
 
 #: serializers.py:12
 msgid "URL"
-msgstr ""
+msgstr "Διεύθυνση URL"
 
 #: settings.py:11
 msgid "Signatures"
@@ -289,8 +289,8 @@ msgstr "Φόρτωση νέου κλειδιού"
 
 #: views.py:208
 msgid ""
-"Private keys are used to signed documents. Private keys can only be uploaded "
-"by the user. The view to upload private and public keys is the same."
+"Private keys are used to signed documents. Private keys can only be uploaded"
+" by the user. The view to upload private and public keys is the same."
 msgstr ""
 "Τα ιδιωτικά κλειδιά χρησιμοποιούνται για την υπογραφή εγγράφων. Τα ιδιωτικά "
 "κλειδιά μπορούν να φορτωθούν μόνο από τον χρήστη. Η προβολή για φόρτωση "
@@ -302,8 +302,8 @@ msgstr "Δεν υπάρχουν ιδιωτικά κλειδιά"
 
 #: views.py:232
 msgid ""
-"Public keys are used to verify signed documents. Public keys can be uploaded "
-"by the user or downloaded from keyservers. The view to upload private and "
+"Public keys are used to verify signed documents. Public keys can be uploaded"
+" by the user or downloaded from keyservers. The view to upload private and "
 "public keys is the same."
 msgstr ""
 "Τα δημόσια κλειδιά χρησιμοποιούνται για την επαλήθευση υπογεγραμμένων "

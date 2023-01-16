@@ -2,30 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# tetjarediske <tetja.rediske@googlemail.com>, 2022
-# Tobias Paepke <tobias.paepke@paepke.net>, 2022
-# Marvin Haschker <marvin@haschker.me>, 2022
-# Roberto Rosario, 2022
-# Robin Schubert <robin.schubert@gmx.de>, 2022
-# Berny <berny@bernhard-marx.de>, 2022
-# Mathias Behrle <mathiasb@m9s.biz>, 2022
-# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
-#
+# Roberto Rosario, 2023
+# Robin Schubert <robin.schubert@gmx.de>, 2023
+# Marvin Haschker <marvin@haschker.me>, 2023
+# Tobias Paepke <tobias.paepke@paepke.net>, 2023
+# tetjarediske <tetja.rediske@googlemail.com>, 2023
+# Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
+# Berny <berny@bernhard-marx.de>, 2023
+# Mathias Behrle <mathiasb@m9s.biz>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022\n"
-"Language-Team: German (Germany) (https://www.transifex.com/rosarior/"
-"teams/13584/de_DE/)\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2023\n"
+"Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: apps.py:20 settings.py:11
@@ -54,10 +53,10 @@ msgid ""
 "the selection is complete, click the button below or double click the list "
 "to activate the action."
 msgstr ""
-"Wählen Sie Einträge aus, die entfernt werden sollen. Mit der Steuerungstaste "
-"können mehrere Einträge ausgewählt werden. Wenn die Auswahl vollständig ist, "
-"klicken Sie den folgenden Button oder doppelklicken Sie auf die Liste um die "
-"Aktion durchzuführen."
+"Wählen Sie Einträge aus, die entfernt werden sollen. Mit der Steuerungstaste"
+" können mehrere Einträge ausgewählt werden. Wenn die Auswahl vollständig "
+"ist, klicken Sie den folgenden Button oder doppelklicken Sie auf die Liste "
+"um die Aktion durchzuführen."
 
 #: generics.py:168
 msgid ""
@@ -67,8 +66,8 @@ msgid ""
 msgstr ""
 "Wählen Sie Einträge aus, die hinzugefügt werden sollen. Mit der "
 "Steuerungstaste können mehrere Einträge ausgewählt werden. Wenn die Auswahl "
-"vollständig ist, klicken Sie den folgenden Button oder doppelklicken Sie auf "
-"die Liste um die Aktion durchzuführen."
+"vollständig ist, klicken Sie den folgenden Button oder doppelklicken Sie auf"
+" die Liste um die Aktion durchzuführen."
 
 #: generics.py:322
 msgid "Add all"
@@ -181,31 +180,33 @@ msgstr ""
 
 #: templates/views/app/foot.html:46
 msgid "Cancel upload"
-msgstr ""
+msgstr "Hochladen abbrechen"
 
 #: templates/views/app/foot.html:47
 msgid "Are you sure you want to cancel this upload?"
-msgstr ""
+msgstr "Hochladen wirklich abbrechen?"
 
 #: templates/views/app/foot.html:48
 msgid "Drop files or click here to upload files"
 msgstr ""
+"Dateien auf diese Fläche ziehen oder darauf klicken, um Dateien zum "
+"Hochladen auszuwählen"
 
 #: templates/views/app/foot.html:49
 msgid "Your browser does not support drag and drop file uploads."
-msgstr ""
+msgstr "Ihr Browser unterstützt kein Drag and Drop."
 
 #: templates/views/app/foot.html:50
 msgid "Please use the fallback form below to upload your files."
-msgstr ""
+msgstr "Bitte benützen Sie das Formular weiter unten um Dateien hochzuladen."
 
 #: templates/views/app/foot.html:51
 msgid "Clear"
-msgstr ""
+msgstr "Löschen"
 
 #: templates/views/app/foot.html:52
 msgid "Server responded with {{statusCode}} code."
-msgstr ""
+msgstr "Der Server antwortete mit Code {{statusCode}}."
 
 #: templatetags/views_tags.py:30
 msgid "Confirm delete"
@@ -237,13 +238,15 @@ msgstr "Erstellen"
 #: view_mixins.py:413
 #, python-format
 msgid "No %(verbose_name)s found matching the query"
-msgstr "Es wurden keine %(verbose_name)s passend zu Ihrer Suchanfrage gefunden"
+msgstr ""
+"Es wurden keine %(verbose_name)s passend zu Ihrer Suchanfrage gefunden"
 
 #: view_mixins.py:439
 #, python-format
 msgid "Unable to perform operation on object %(instance)s; %(exception)s."
 msgstr ""
-"Ausführung des Vorgangs für Objekt %(instance)s nicht möglich; %(exception)s."
+"Ausführung des Vorgangs für Objekt %(instance)s nicht möglich; "
+"%(exception)s."
 
 #: view_mixins.py:442
 #, python-format

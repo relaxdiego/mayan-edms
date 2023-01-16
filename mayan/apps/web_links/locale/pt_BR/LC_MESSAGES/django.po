@@ -2,30 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatica@protonmail.com>, 2022
-# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2022
-# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2022
-# Márcia Ferreira, 2022
-# Aline Freitas <aline@alinefreitas.com.br>, 2022
-# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-#
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2023
+# Rodrigo de Almeida Sottomaior Macedo <rmsolucoeseminformatica@protonmail.com>, 2023
+# Aline Freitas <aline@alinefreitas.com.br>, 2023
+# Márcia Ferreira, 2023
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023
+# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:39+0000\n"
-"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/"
-"teams/13584/pt_BR/)\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:55+0000\n"
+"Last-Translator: José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/teams/13584/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:43
 msgid "Links"
@@ -117,42 +115,32 @@ msgid "Primary key of the document type to add to the web link."
 msgstr "Chave primária do tipo de documento a ser adicionado ao link da web."
 
 #: serializers.py:17 serializers.py:26
-#, fuzzy
-#| msgid "Document types"
 msgid "Document type ID"
-msgstr "Tipos de documentos"
+msgstr ""
 
 #: serializers.py:25
 msgid "Primary key of the document type to remove from the web link."
 msgstr "Chave primária do tipo de documento a ser removido do link da web."
 
 #: serializers.py:33
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types add URL"
-msgstr "Tipos de documentos"
+msgstr ""
 
 #: serializers.py:37
-#, fuzzy
-#| msgid "Document types enabled"
 msgid "Document types remove URL"
-msgstr "Tipos de documentos habilitados"
+msgstr ""
 
 #: serializers.py:41
-#, fuzzy
-#| msgid "Document types"
 msgid "Document types URL"
-msgstr "Tipos de documentos"
+msgstr ""
 
 #: serializers.py:48 serializers.py:63
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: serializers.py:66
-#, fuzzy
-#| msgid "Navigate"
 msgid "Navigation URL"
-msgstr "Navegar"
+msgstr ""
 
 #: views.py:32
 msgid "Web links enabled"

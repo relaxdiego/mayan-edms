@@ -2,27 +2,27 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# Roberto Rosario, 2022
-# Márcia Ferreira, 2022
-# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-#
+# Márcia Ferreira, 2023
+# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2023
+# 425fe09b3064b9f906f637fff94056ae_a00ea56 <0fa3588fa89906bfcb3a354600956e0e_308047>, 2023
+# Roberto Rosario, 2023
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:33+0000\n"
-"PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/"
-"teams/13584/pt_BR/)\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2023-01-16 06:46+0000\n"
+"PO-Revision-Date: 2023-01-16 06:54+0000\n"
+"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/teams/13584/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: apps.py:19 permissions.py:6
 msgid "Templating"
@@ -31,22 +31,23 @@ msgstr "Templating"
 #: fields.py:19
 #, python-format
 msgid ""
-"Use Django's default templating language (https://docs.djangoproject.com/en/"
-"%(django_version)s/ref/templates/builtins/). "
+"Use Django's default templating language "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+" "
 msgstr ""
-"Use a linguagem de template padrão do Django (https://docs.djangoproject.com/"
-"en/%(django_version)s/ref/templates/builtins/)."
+"Use a linguagem de template padrão do Django "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
 
 #: fields.py:37
 #, python-format
 msgid ""
-"Use Django's default templating language (https://docs.djangoproject.com/en/"
-"%(django_version)s/ref/templates/builtins/). The {{ %(variable)s }} variable "
-"is available to the template."
+"Use Django's default templating language "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+" The {{ %(variable)s }} variable is available to the template."
 msgstr ""
-"Use a linguagem de template padrão do Django (https://docs.djangoproject.com/"
-"en/%(django_version)s/ref/templates/builtins/). A {{ %(variable)s}} está "
-"disponível para o template."
+"Use a linguagem de template padrão do Django "
+"(https://docs.djangoproject.com/en/%(django_version)s/ref/templates/builtins/)."
+" A {{ %(variable)s}} está disponível para o template."
 
 #: forms.py:9
 msgid "Resulting text from the evaluated template."
@@ -78,7 +79,7 @@ msgstr ""
 
 #: serializers.py:11
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: serializers.py:14
 msgid "HTML"
@@ -86,7 +87,7 @@ msgstr ""
 
 #: serializers.py:17
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: views.py:44
 #, python-format

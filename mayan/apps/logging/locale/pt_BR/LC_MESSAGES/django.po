@@ -2,31 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
-# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2022
-# Márcia Ferreira, 2022
-# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2022
-# Emerson Soares <on.emersonsoares@gmail.com>, 2022
-# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022
-#
+# Bruno Martins <bruno.martins@bewgpt.com.pt>, 2023
+# Emerson Soares <on.emersonsoares@gmail.com>, 2023
+# Márcia Ferreira, 2023
+# José Samuel Facundo da Silva <samuel.facundo@ufca.edu.br>, 2023
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-28 07:32+0000\n"
-"PO-Revision-Date: 2022-07-27 05:36+0000\n"
-"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/"
-"teams/13584/pt_BR/)\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2023-01-16 06:45+0000\n"
+"PO-Revision-Date: 2023-01-16 06:51+0000\n"
+"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/rosarior/teams/13584/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: apps.py:23 events.py:6 permissions.py:6 settings.py:11
+#: apps.py:23 events.py:6 permissions.py:6 settings.py:12
 msgid "Logging"
 msgstr "Logging"
 
@@ -104,36 +102,33 @@ msgstr "Ver log de erros"
 
 #: serializers.py:12
 msgid "Content type"
-msgstr ""
+msgstr "Tipo de conteúdo"
 
 #: serializers.py:16
-#, fuzzy
-#| msgid "Object"
 msgid "Object ID"
-msgstr "Objeto"
+msgstr "ID do objeto"
 
 #: serializers.py:19
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: settings.py:18
+msgid "Disable logging message ANSI color codes."
+msgstr ""
+
+#: settings.py:24
 msgid "Automatically enable logging to all apps."
 msgstr "Ativar automaticamente o logging de todos as apps."
 
-#: settings.py:25
-#, fuzzy
-#| msgid ""
-#| "List of handlers to which logging messages will be sent. Options are: {}"
+#: settings.py:30
 msgid "List of handlers to which logging messages will be sent."
 msgstr ""
-"Lista de handlers para os quais as mensagens de registro serão enviadas. As "
-"opções são: {}"
 
-#: settings.py:30
+#: settings.py:35
 msgid "Level for the logging system."
 msgstr "Nível de logging do sistema."
 
-#: settings.py:36
+#: settings.py:41
 msgid "Path to the logfile that will track errors during production."
 msgstr "Caminho para o arquivo de log que rastreará erros durante a produção."
 
@@ -165,8 +160,10 @@ msgstr ""
 
 #: views.py:97
 msgid ""
-"This view displays the error log of an object. An empty list is a good thing."
-msgstr "Esta vista mostra o erro log de um objeto. Uma lista vazia é algo bom."
+"This view displays the error log of an object. An empty list is a good "
+"thing."
+msgstr ""
+"Esta vista mostra o erro log de um objeto. Uma lista vazia é algo bom."
 
 #: views.py:104
 #, python-format
