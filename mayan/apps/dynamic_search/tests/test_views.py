@@ -38,7 +38,9 @@ class SearchAdvancedViewTestCase(
         # Make sure all documents are returned by the search.
         queryset = self._test_search_backend.search(
             search_model=search_model_document,
-            query={'label': TEST_SEARCH_OBJECT_TERM},
+            query={
+                'label': '*{}'.format(TEST_SEARCH_OBJECT_TERM)
+            },
             user=self._test_case_user
         )
         self.assertEqual(queryset.count(), 4)
@@ -48,7 +50,9 @@ class SearchAdvancedViewTestCase(
         with self.settings(VIEWS_PAGINATE_BY=2):
             # Functional test for the first page of advanced results.
             response = self._request_search_results_view(
-                data={'label': TEST_SEARCH_OBJECT_TERM}, kwargs={
+                data={
+                    'label': '*{}'.format(TEST_SEARCH_OBJECT_TERM)
+                }, kwargs={
                     SEARCH_MODEL_NAME_KWARG: search_model_document.full_name
                 }
             )
@@ -73,7 +77,10 @@ class SearchAdvancedViewTestCase(
 
             # Functional test for the second page of advanced results.
             response = self._request_search_results_view(
-                data={'label': TEST_SEARCH_OBJECT_TERM, 'page': 2}, kwargs={
+                data={
+                    'label': '*{}'.format(TEST_SEARCH_OBJECT_TERM),
+                    'page': 2
+                }, kwargs={
                     SEARCH_MODEL_NAME_KWARG: search_model_document.full_name
                 }
             )
@@ -146,7 +153,7 @@ class FilterViewMixinTestCase(
         self._clear_events()
 
         response = self._request_test_document_list_view(
-            data={'filter_q': 'stub_3'}
+            data={'filter_q': '*stub_3'}
         )
         self.assertNotContains(
             response=response, status_code=200,
@@ -187,7 +194,9 @@ class SearchFilterViewTestCase(
         self._clear_events()
 
         response = self._request_search_results_view(
-            data={'q': TEST_SEARCH_OBJECT_TERM}, kwargs={
+            data={
+                'q': '*{}'.format(TEST_SEARCH_OBJECT_TERM)
+            }, kwargs={
                 SEARCH_MODEL_NAME_KWARG: search_model_document.full_name
             }
         )
@@ -216,7 +225,7 @@ class SearchFilterViewTestCase(
         response = self._request_search_results_view(
             data={
                 'q': TEST_SEARCH_OBJECT_TERM,
-                'filter_q': 'stub_3',
+                'filter_q': '*stub_3',
             }, kwargs={
                 SEARCH_MODEL_NAME_KWARG: search_model_document.full_name
             }
@@ -269,7 +278,9 @@ class SearchViewTestCase(
     def test_search_again_advanced_view_no_permission(self):
         self._clear_events()
 
-        response = self._request_search_again_view(query={'label': 'test'})
+        response = self._request_search_again_view(
+            query={'label': 'test'}
+        )
         expected_url = '{}?{}'.format(
             reverse(
                 viewname='search:search_advanced', kwargs={
@@ -288,7 +299,9 @@ class SearchViewTestCase(
     def test_search_again_simple_view_no_permission(self):
         self._clear_events()
 
-        response = self._request_search_again_view(query={'q': 'test'})
+        response = self._request_search_again_view(
+            query={'q': 'test'}
+        )
         expected_url = '{}?{}'.format(
             reverse(
                 viewname='search:search_simple', kwargs={
