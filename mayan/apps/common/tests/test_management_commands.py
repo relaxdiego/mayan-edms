@@ -3,6 +3,7 @@ from unittest import skip
 
 from django.test import override_settings
 
+from mayan.apps.events.classes import EventType
 from mayan.apps.storage.utils import TemporaryDirectory
 from mayan.apps.testing.tests.base import BaseTransactionTestCase
 from mayan.settings.literals import (
@@ -63,6 +64,10 @@ class CommonAppPerformUpgradeManagementCommandTestCase(
     ManagementCommandTestMixin, BaseTransactionTestCase
 ):
     _test_management_command_name = COMMAND_NAME_COMMON_PERFORM_UPGRADE
+
+    def setUp(self):
+        super().setUp()
+        EventType.refresh()
 
     def test_command_perform_upgrade_no_files(self):
         with TemporaryDirectory() as path_name:
