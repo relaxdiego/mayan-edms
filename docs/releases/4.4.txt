@@ -1,7 +1,7 @@
 Version 4.4
 ===========
 
-Released: January XX, 2023
+Released: January 16, 2023
 
 Status: Stable
 
