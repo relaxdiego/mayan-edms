@@ -99,6 +99,10 @@ class QueryType(metaclass=QueryTypeMetaclass):
             )
 
     @classmethod
+    def get_default(cls):
+        return cls._default_klass
+
+    @classmethod
     def get_for_backend(cls, search_backend):
         return BackendQueryType.get_for_query_type(
             query_type=cls, search_backend=search_backend
