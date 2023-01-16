@@ -7,7 +7,6 @@ from mayan.apps.storage.models import DownloadFile
 
 from ..classes import DocumentFileCompressor
 from ..events import event_document_file_downloaded
-from ..literals import DOCUMENT_FILE_DOWNLOAD_MESSAGE_SUBJECT
 
 from .literals import TEST_DOCUMENT_FILE_DOWNLOAD_MESSAGE_SUBJECT
 
