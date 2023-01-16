@@ -80,7 +80,7 @@ class CachePartitionDetailView(SingleObjectDetailView):
     def get_extra_context(self):
         return {
             'object': self.object,
-            'title': _('Details cache: %s') % self.object
+            'title': _('Details of cache partition: %s') % self.object
         }
 
 

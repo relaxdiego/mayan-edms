@@ -60,10 +60,10 @@ setting_query_results_limit = namespace.add_setting(
     default=DEFAULT_SEARCH_QUERY_RESULTS_LIMIT,
     global_name='SEARCH_QUERY_RESULTS_LIMIT',
     help_text=_(
-        'Hard limit of number search results to fetch and display.'
+        'Hard limit of number of search results to fetch and display.'
     )
 )
 setting_results_limit = namespace.add_setting(
     default=DEFAULT_SEARCH_RESULTS_LIMIT, global_name='SEARCH_RESULTS_LIMIT',
-    help_text=_('Maximum number search results to fetch and display.')
+    help_text=_('Maximum number of search results to fetch and display.')
 )

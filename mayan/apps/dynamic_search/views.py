@@ -73,7 +73,7 @@ class SearchBackendReindexView(ConfirmView):
         else:
             context['message'] = _(
                 'The currently selected search backend does not support or '
-                'required reindexing.'
+                'requires reindexing.'
             )
 
         return context

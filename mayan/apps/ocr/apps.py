@@ -118,7 +118,8 @@ class OCRApp(MayanAppConfig):
         )
         ModelProperty(
             description=_(
-                'A generator returning the document\'s pages OCR content.'
+                'A generator returning the document\'s version pages OCR '
+                'content.'
             ), label=_('OCR content'), model=Document,
             name='ocr_content'
         )

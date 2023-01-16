@@ -286,7 +286,7 @@ class SearchFieldVirtual(SearchField):
 
 
 class SearchFieldVirtualAllFields(SearchFieldVirtual):
-    label = _('ANY')
+    label = _('Any')
 
     @classmethod
     def check(cls, *args, **kwargs):
