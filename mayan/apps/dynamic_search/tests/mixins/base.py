@@ -2,6 +2,7 @@ from django.db import models
 
 from ...search_backends import SearchBackend
 from ...search_models import SearchModel
+from ...search_query_types import QueryType, QueryTypeExact
 
 from ..backends import TestSearchBackendProxy
 from ..literals import (
@@ -13,6 +14,8 @@ from ..literals import (
 
 
 class TestSearchObjectHierarchyTestMixin:
+    auto_test_search_objects_create = True
+
     def _create_test_models(self):
         self.TestModelAttribute = self._create_test_model(
             fields={
@@ -139,6 +142,7 @@ class TestSearchObjectHierarchyTestMixin:
 
 
 class TestSearchObjectSimpleTestMixin:
+    auto_test_search_objects_create = True
     _test_object_integer_set = True
 
     def _create_test_models(self):
@@ -195,12 +199,7 @@ class TestSearchObjectSimpleTestMixin:
 
 class SearchTestMixin:
     auto_test_search_backend_initialize = True
-    auto_test_search_objects_create = True
-
-    def _create_test_search_objects(self):
-        """
-        This method allows tests to add test objects.
-        """
+    auto_test_search_objects_create = False
 
     def _deindex_instance(self, instance):
         self._test_search_backend.deindex_instance(instance=instance)
@@ -217,6 +216,9 @@ class SearchTestMixin:
     def setUp(self):
         self._existing_search_models = SearchModel._registry.copy()
         super().setUp()
+
+        self._default_query_type_class = QueryType.get_default()
+        QueryType.set_default(klass=QueryTypeExact)
 
         TestSearchBackendProxy._test_class = self.__class__
         self._test_search_backend = SearchBackend.get_instance()
@@ -244,5 +246,5 @@ class SearchTestMixin:
         SearchBackend._disable()
 
         super().tearDown()
-
+        QueryType.set_default(klass=self._default_query_type_class)
         SearchModel._registry = self._existing_search_models
