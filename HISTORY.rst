@@ -41,6 +41,10 @@
 
   There are no known actual or theoretical attacks exploiting this
   weakness to expose or destroy data.
+- Add configurable remote branch for GitOps.
+- Support a local environment config file names ``config-local.env``.
+  This file is ignored by Git and meant to override values of ``config.env``.
+- Add makefile targets to trigger standalone builds.
 
 4.1.10 (2022-11-13)
 ===================
