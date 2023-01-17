@@ -32,9 +32,9 @@ def code_document_export_event_and_permission_update(apps, schema_editor):
         name='documents.document_version_exported'
     ).delete()
 
-    stored_permission = StoredPermission.objects.using(
+    stored_permission, created = StoredPermission.objects.using(
         alias=schema_editor.connection.alias
-    ).get(
+    ).get_or_create(
         namespace='document_exports', name='document_version_export'
     )
 
