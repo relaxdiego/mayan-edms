@@ -58,6 +58,10 @@ X.Y     # Final release
 Release checklist
 =================
 
+#. Check for missing ``__init__.py`` modules::
+
+    make check-missing-inits
+
 #. Copy the ``config.env`` values::
 
     make copy-config-env
