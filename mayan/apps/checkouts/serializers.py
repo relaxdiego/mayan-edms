@@ -42,7 +42,7 @@ class NewDocumentCheckoutSerializer(serializers.ModelSerializer):
     block_new_file = serializers.BooleanField()
     document_pk = serializers.IntegerField(
         help_text=_('Primary key of the document to be checked out.'),
-        label=_('Document PK'), write_only=True
+        label=_('Document ID'), write_only=True
     )
     expiration_datetime = serializers.DateTimeField()
 

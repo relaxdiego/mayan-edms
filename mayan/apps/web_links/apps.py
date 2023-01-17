@@ -40,7 +40,7 @@ class WebLinksApp(MayanAppConfig):
     has_rest_api = True
     has_tests = True
     name = 'mayan.apps.web_links'
-    verbose_name = _('Links')
+    verbose_name = _('Web links')
 
     def ready(self):
         super().ready()

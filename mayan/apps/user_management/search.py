@@ -37,5 +37,5 @@ search_model_user.add_model_field(
     field='last_name', label=_('Last name')
 )
 search_model_user.add_model_field(
-    field='username', label=_('username')
+    field='username', label=_('Username')
 )
