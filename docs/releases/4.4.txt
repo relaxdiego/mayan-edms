@@ -134,7 +134,7 @@ Support was added for document file bulk downloads.
 Document exports
 ^^^^^^^^^^^^^^^^
 
-The code to export document versions was move into its own app
+The code to export document versions was move into its own app named
 ``document_exports``. Existing export events and permissions are migrated
 automatically.
 
@@ -190,7 +190,7 @@ files.
 
 The file metadata value fields was changed from a character field with a
 maximum length of 255 characters to a text field. In theory this allows
-adding file attibutes values of unlimited size.
+adding file attributes values of unlimited size.
 
 Update the file metadata model ``verbose_name`` attribute to be the
 ``help_text`` attribute. In the user interface, this field now appears
@@ -352,7 +352,7 @@ A new HTML widget was added to better format setting values.
 
 A few feature called composable settings was added. This feature adds
 templating support to bootstrap settings allowing the settings to work
-with values that are not defined until runtime such as Kuberetes operator
+with values that are not defined until runtime such as Kubernetes operator
 secrets.
 
 Template names are the same as the bootstrap setting but include the
