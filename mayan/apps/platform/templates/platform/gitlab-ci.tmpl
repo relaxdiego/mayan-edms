@@ -27,6 +27,7 @@ job_docker_build:
       - /var/cache/apk
   image: {{ DOCKER_DIND_IMAGE_VERSION }}
   only:
+    - builds/docker
     - releases/all_major
     - releases/all_minor
     - releases/docker_major
@@ -191,6 +192,7 @@ job_documentation_build:
     - . venv/bin/activate
   image: {{ DOCKER_LINUX_IMAGE_VERSION }}
   only:
+    - builds/documentation
     - releases/all_major
     - releases/documentation
     - tests/all
@@ -237,6 +239,7 @@ job_python_build:
     - pip install pip==$PYTHON_PIP_VERSION
   image: {{ DOCKER_LINUX_IMAGE_VERSION }}
   only:
+    - builds/python
     - releases/all_major
     - releases/all_minor
     - releases/python_major

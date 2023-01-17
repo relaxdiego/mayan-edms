@@ -27,6 +27,7 @@ job_docker_build:
       - /var/cache/apk
   image: docker:20.10.21-dind
   only:
+    - builds/docker
     - releases/all_major
     - releases/all_minor
     - releases/docker_major
@@ -191,6 +192,7 @@ job_documentation_build:
     - . venv/bin/activate
   image: debian:11.5-slim
   only:
+    - builds/documentation
     - releases/all_major
     - releases/documentation
     - tests/all
@@ -237,6 +239,7 @@ job_python_build:
     - pip install pip==$PYTHON_PIP_VERSION
   image: debian:11.5-slim
   only:
+    - builds/python
     - releases/all_major
     - releases/all_minor
     - releases/python_major
