@@ -1,6 +1,10 @@
 #!make
 include config.env
 
+ifneq ($(wildcard config-local.env),)
+	include config-local.env
+endif
+
 ifndef MODULE
 override MODULE = --mayan-apps
 endif
@@ -306,77 +310,88 @@ generate-requirements: ## Generate all requirements files from the project deped
 
 gitlab-release-documentation: ## Trigger the documentation build and publication using GitLab CI
 gitlab-release-documentation:
-	git push
-	git push --tags
-	git push origin :releases/documentation || true
-	git push origin HEAD:releases/documentation
+	git push $(GIT_REMOTE_NAME)
+	git push $(GIT_REMOTE_NAME) --tags
+	git push $(GIT_REMOTE_NAME) :releases/documentation || true
+	git push $(GIT_REMOTE_NAME) HEAD:releases/documentation
 
 gitlab-release-docker-major: ## Trigger the Docker image build and publication using GitLab CI
 gitlab-release-docker-major:
-	git push
-	git push --tags
-	git push origin :releases/docker_major || true
-	git push origin HEAD:releases/docker_major
+	git push $(GIT_REMOTE_NAME)
+	git push $(GIT_REMOTE_NAME) --tags
+	git push $(GIT_REMOTE_NAME) :releases/docker_major || true
+	git push $(GIT_REMOTE_NAME) HEAD:releases/docker_major
 
 gitlab-release-python-major: ## Trigger the Python package build and publication using GitLab CI
 gitlab-release-python-major:
-	git push
-	git push --tags
-	git push origin :releases/python_major || true
-	git push origin HEAD:releases/python_major
+	git push $(GIT_REMOTE_NAME)
+	git push $(GIT_REMOTE_NAME) --tags
+	git push $(GIT_REMOTE_NAME) :releases/python_major || true
+	git push $(GIT_REMOTE_NAME) HEAD:releases/python_major
 
 gitlab-release-all-major: ## Trigger the Python package, Docker image, and documentation build and publication using GitLab CI
 gitlab-release-all-major:
-	git push
-	git push --tags
-	git push origin :releases/all_major || true
-	git push origin HEAD:releases/all_major
+	git push $(GIT_REMOTE_NAME)
+	git push $(GIT_REMOTE_NAME) --tags
+	git push $(GIT_REMOTE_NAME) :releases/all_major || true
+	git push $(GIT_REMOTE_NAME) HEAD:releases/all_major
 
 # Minor releases
 
 gitlab-release-docker-minor: ## Trigger the Docker image build and publication of a minor version using GitLab CI
 gitlab-release-docker-minor:
-	git push
-	git push --tags
-	git push origin :releases/docker_minor || true
-	git push origin HEAD:releases/docker_minor
+	git push $(GIT_REMOTE_NAME)
+	git push $(GIT_REMOTE_NAME) --tags
+	git push $(GIT_REMOTE_NAME) :releases/docker_minor || true
+	git push $(GIT_REMOTE_NAME) HEAD:releases/docker_minor
 
 gitlab-release-python-minor: ## Trigger the Python package build and publication of a minor version using GitLab CI
 gitlab-release-python-minor:
-	git push
-	git push --tags
-	git push origin :releases/python_minor || true
-	git push origin HEAD:releases/python_minor
+	git push $(GIT_REMOTE_NAME)
+	git push $(GIT_REMOTE_NAME) --tags
+	git push open :releases/python_minor || true
+	git push open HEAD:releases/python_minor
 
 gitlab-release-all-minor: ## Trigger the Python package, Docker image build and publication of a minor version using GitLab CI
 gitlab-release-all-minor:
-	git push
-	git push --tags
-	git push origin :releases/all_minor || true
-	git push origin HEAD:releases/all_minor
+	git push $(GIT_REMOTE_NAME)
+	git push $(GIT_REMOTE_NAME) --tags
+	git push $(GIT_REMOTE_NAME) :releases/all_minor || true
+	git push $(GIT_REMOTE_NAME) HEAD:releases/all_minor
 
-# Internal testing
+# GitOps builds
 
-gitlab-tests-internal-all: ## Trigger all tests as a CD/CI pipeline
-gitlab-tests-internal-all:
-	git push internal
-	git push internal --tags
-	git push internal :tests/all || true
-	git push internal HEAD:tests/all
+gitlab-builds-docker: ## Trigger all tests as a CD/CI pipeline
+gitlab-builds-docker:
+	git push $(GIT_REMOTE_NAME) :builds/docker || true
+	git push $(GIT_REMOTE_NAME) HEAD:builds/docker
 
-gitlab-tests-internal-base: ## Trigger normal and migration tests as a CD/CI pipeline
-gitlab-tests-internal-base:
-	git push internal
-	git push internal --tags
-	git push internal :tests/base || true
-	git push internal HEAD:tests/base
+gitlab-builds-documentation: ## Trigger normal and migration tests as a CD/CI pipeline
+gitlab-builds-documentation:
+	git push $(GIT_REMOTE_NAME) :builds/docker || true
+	git push $(GIT_REMOTE_NAME) HEAD:builds/docker
 
-gitlab-tests-internal-upgrade: ## Trigger upgrade tests as a CD/CI pipeline
-gitlab-tests-internal-upgrade:
-	git push internal
-	git push internal --tags
-	git push internal :tests/upgrade || true
-	git push internal HEAD:tests/upgrade
+gitlab-builds-python: ## Trigger upgrade tests as a CD/CI pipeline
+gitlab-builds-python:
+	git push $(GIT_REMOTE_NAME) :builds/docker || true
+	git push $(GIT_REMOTE_NAME) HEAD:builds/docker
+
+# GitOps testing
+
+gitlab-tests-all: ## Trigger all tests as a CD/CI pipeline
+gitlab-tests-all:
+	git push $(GIT_REMOTE_NAME) :tests/all || true
+	git push $(GIT_REMOTE_NAME) HEAD:tests/all
+
+gitlab-tests-base: ## Trigger normal and migration tests as a CD/CI pipeline
+gitlab-tests-base:
+	git push $(GIT_REMOTE_NAME) :tests/base || true
+	git push $(GIT_REMOTE_NAME) HEAD:tests/base
+
+gitlab-tests-upgrade: ## Trigger upgrade tests as a CD/CI pipeline
+gitlab-tests-upgrade:
+	git push $(GIT_REMOTE_NAME) :tests/upgrade || true
+	git push $(GIT_REMOTE_NAME) HEAD:tests/upgrade
 
 # Dev server
 

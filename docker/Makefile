@@ -1,6 +1,10 @@
 #!make
 include config.env
 
+ifneq ($(wildcard config-local.env),)
+	include config-local.env
+endif
+
 HOST_IP = `/sbin/ip route|awk '/docker0/ { print $$9 }'`
 APT_PROXY ?= $(HOST_IP):3142
 CONSOLE_COLUMNS ?= `echo $$(tput cols)`
