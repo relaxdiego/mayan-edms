@@ -368,13 +368,13 @@ gitlab-builds-docker:
 
 gitlab-builds-documentation: ## Trigger normal and migration tests as a CD/CI pipeline
 gitlab-builds-documentation:
-	git push $(GIT_REMOTE_NAME) :builds/docker || true
-	git push $(GIT_REMOTE_NAME) HEAD:builds/docker
+	git push $(GIT_REMOTE_NAME) :builds/documentation || true
+	git push $(GIT_REMOTE_NAME) HEAD:builds/documentation
 
 gitlab-builds-python: ## Trigger upgrade tests as a CD/CI pipeline
 gitlab-builds-python:
-	git push $(GIT_REMOTE_NAME) :builds/docker || true
-	git push $(GIT_REMOTE_NAME) HEAD:builds/docker
+	git push $(GIT_REMOTE_NAME) :builds/python || true
+	git push $(GIT_REMOTE_NAME) HEAD:builds/python
 
 # GitOps testing
 

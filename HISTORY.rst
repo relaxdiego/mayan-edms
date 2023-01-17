@@ -312,10 +312,15 @@
   is named ``LOGGING_DISABLE_COLOR_FORMATTER`` and defaults to ``False``.
 - Standardize management command testing.
 - Move management command names to the ``literals`` module of each app.
-- Add configurable remote branch for GitOps.
-- Support a local environment config file names ``config-local.env``.
-  This file is ignored by Git and meant to override values of ``config.env``.
-- Add makefile targets to trigger standalone builds.
+- GitOps updates:
+
+  - Add configurable remote branch for GitOps.
+  - Support a local environment config file names ``config-local.env``.
+    This file is ignored by Git and meant to override values of ``config.env``.
+  - Add makefile targets to trigger standalone builds.
+  - Increase artifact expiration.
+  - Add PIP and APT caching to documenation and python build stages.
+  - Add GitLab CI job dependecies.
 
 4.3.5 (2023-01-10)
 ==================

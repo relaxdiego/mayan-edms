@@ -181,16 +181,27 @@ job_docker_testing:
 
 job_documentation_build:
   artifacts:
-    expire_in: 2 hr
+    expire_in: 4 hr
     paths:
     - docs
   before_script:
+    - export APT_DIR=$CI_PROJECT_DIR/.apt && export APT_STATE_LISTS=$APT_DIR/lists && export APT_CACHE_ARCHIVES=$APT_DIR/archives
+    - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
+    - mkdir -p "${APT_STATE_LISTS}/partial" && mkdir -p "${APT_CACHE_ARCHIVES}/partial"
     - apt-get update
     - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
-    - apt-get install --yes enchant-2 gcc make libjpeg-dev libpng-dev python3-venv python3-dev zlib1g-dev
+    - apt-get install --yes --no-install-recommends enchant-2 gcc make libcairo2-dev libjpeg-dev libldap2-dev libpng-dev libsasl2-dev python3-venv python3-dev zlib1g-dev
     - python3 -m venv venv
     - . venv/bin/activate
+  cache:
+    paths:
+      - .apt
+      - .cache/pip
+  dependencies:
+    - job_python_build
   image: debian:11.5-slim
+  needs:
+    - job_python_build
   only:
     - builds/documentation
     - releases/all_major
@@ -200,9 +211,13 @@ job_documentation_build:
   script:
     - pip install --requirement requirements/documentation.txt
     - pip install --requirement requirements/documentation_override.txt
+    - DOCKER_VERSION=`cat docker/rootfs/version`
+    - pip install dist/mayan_edms-${DOCKER_VERSION}-py*.whl
     - cd docs
     - make html
   stage: stage_build_documentation
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 job_documentation_push:
   before_script:
@@ -226,10 +241,13 @@ job_documentation_push:
 
 job_python_build:
   artifacts:
-    expire_in: 2 hr
+    expire_in: 4 hr
     paths:
     - dist
   before_script:
+    - export APT_DIR=$CI_PROJECT_DIR/.apt && export APT_STATE_LISTS=$APT_DIR/lists && export APT_CACHE_ARCHIVES=$APT_DIR/archives
+    - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
+    - mkdir -p "${APT_STATE_LISTS}/partial" && mkdir -p "${APT_CACHE_ARCHIVES}/partial"
     - set -a && . ./config.env && set +a
     - apt-get update
     - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
@@ -237,8 +255,13 @@ job_python_build:
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==$PYTHON_PIP_VERSION
+  cache:
+    paths:
+      - .apt
+      - .cache/pip
   image: debian:11.5-slim
   only:
+    - builds/documentation
     - builds/python
     - releases/all_major
     - releases/all_minor
@@ -250,8 +273,13 @@ job_python_build:
     - pip install --requirement requirements/build.txt
     - make python-wheel
   stage: stage_build_python
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 job_python_push_pypi:
+  cache:
+    paths:
+      - .cache/pip
   before_script:
     - set -a && . ./config.env && set +a
     - apt-get update
@@ -273,6 +301,8 @@ job_python_push_pypi:
     - echo "$PYPIRC" > ~/.pypirc
     - twine upload --verbose dist/* -r pypi
   stage: stage_push_python
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 # Test upgrade from the latest public version to the local version
 
