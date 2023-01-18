@@ -1,11 +1,10 @@
 stages:
-  - stage_test
   - stage_build_python
-  - stage_build_docker
+  - stage_test_python
+  - stage_build_container
+  - stage_test_container
   - stage_build_documentation
-  - stage_push_python
-  - stage_push_docker
-  - stage_push_documentation
+  - stage_push
   - stage_deploy
 
 # Docker
@@ -13,7 +12,7 @@ stages:
 job_docker_build:
   before_script:
     - set -a && . ./config.env && set +a
-    - docker login --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
     - apk update
     - apk add cairo gcc libffi-dev libjpeg-turbo-dev make musl-dev python3 python3-dev zlib-dev
     - python3 -m venv venv
@@ -28,26 +27,46 @@ job_docker_build:
   image: docker:20.10.21-dind
   only:
     - builds/docker
-    - releases/all_major
-    - releases/all_minor
-    - releases/docker_major
-    - releases/docker_minor
+    - releases/all/major
+    - releases/all/minor
+    - releases/docker/major
+    - releases/docker/minor
+    - releases/nightly
+    - releases/staging
     - tests/all
     - tests/docker
   script:
     - DOCKER_VERSION=`cat docker/rootfs/version`
-    - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
-    - make docker-build
-    - docker tag "mayanedms/mayanedms:$DOCKER_VERSION" "$CI_REGISTRY_IMAGE:$DOCKER_VERSION"
+    - make docker-build DOCKER_IMAGE_MAYAN_NAME=${CI_REGISTRY_IMAGE} IMAGE_VERSION=${DOCKER_VERSION}
+    - docker push "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
+  services:
+    - docker:20.10.21-dind
+  stage: stage_build_container
+  variables:
+    DOCKER_DRIVER: overlay2
+
+job_docker_test:
+  before_script:
+    - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
+  image: docker:20.10.21-dind
+  needs:
+    - job_docker_build
+  only:
+    - builds/docker
+    - releases/all/major
+    - releases/all/minor
+    - releases/docker/major
+    - releases/docker/minor
+    - tests/all
+    - tests/docker
+  script:
+    - DOCKER_VERSION=`cat docker/rootfs/version`
     - SERVICE_POSTGRES_IP=$(cat /etc/hosts | awk '{if ($2 == "postgres") print $1;}')
-    - docker run --rm --add-host="postgres:$SERVICE_POSTGRES_IP" -e MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql_psycopg2','NAME':'mayan','USER':'mayan','PASSWORD':'mayanuserpass','HOST':'postgres'}}" "$CI_REGISTRY_IMAGE:$DOCKER_VERSION" run_tests
-    - docker login --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - docker push "$CI_REGISTRY_IMAGE:$DOCKER_VERSION"
-    - docker logout $CI_REGISTRY
+    - docker run --rm --add-host="postgres:$SERVICE_POSTGRES_IP" -e MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql_psycopg2','NAME':'mayan','USER':'mayan','PASSWORD':'mayanuserpass','HOST':'postgres'}}" "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" run_tests
   services:
     - docker:20.10.21-dind
     - postgres:13.8-alpine
-  stage: stage_build_docker
+  stage: stage_test_container
   tags:
     - postgres
   variables:
@@ -59,23 +78,24 @@ job_docker_build:
 job_docker_push_major:
   before_script:
     - apk add --no-cache python3
-    - docker login --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: docker:20.10.21-dind
+  needs:
+    - job_docker_test
   only:
-    - releases/all_major
-    - releases/docker_major
+    - releases/all/major
+    - releases/docker/major
   script:
     - PYTHON_BIN=/usr/bin/python3
     - DOCKER_VERSION=`cat docker/rootfs/version`
-    - docker pull "$CI_REGISTRY_IMAGE:$DOCKER_VERSION"
-    - docker tag "$CI_REGISTRY_IMAGE:$DOCKER_VERSION" registry-1.docker.io/mayanedms/mayanedms:v"$DOCKER_VERSION"
-    - docker tag "$CI_REGISTRY_IMAGE:$DOCKER_VERSION" registry-1.docker.io/mayanedms/mayanedms:latest
+    - docker pull "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
+    - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:v"${DOCKER_VERSION}"
+    - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:latest
     - VERSION_SCRIPT_BIN=contrib/scripts/version.py
-    - MAJOR_VERSION=$($PYTHON_BIN $VERSION_SCRIPT_BIN $DOCKER_VERSION major);
-    - docker tag "$CI_REGISTRY_IMAGE:$DOCKER_VERSION" registry-1.docker.io/mayanedms/mayanedms:s"$MAJOR_VERSION"
-    - MINOR_VERSION=$($PYTHON_BIN $VERSION_SCRIPT_BIN $DOCKER_VERSION minor);
-    - docker tag "$CI_REGISTRY_IMAGE:$DOCKER_VERSION" registry-1.docker.io/mayanedms/mayanedms:s"$MINOR_VERSION"
-    - docker logout $CI_REGISTRY
+    - MAJOR_VERSION=$(${PYTHON_BIN} ${VERSION_SCRIPT_BIN} ${DOCKER_VERSION} major);
+    - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:s"${MAJOR_VERSION}"
+    - MINOR_VERSION=$(${PYTHON_BIN} ${VERSION_SCRIPT_BIN} ${DOCKER_VERSION} minor);
+    - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:s"${MINOR_VERSION}"
     - docker login --username "$DOCKER_HUB_USERNAME" --password "$DOCKER_HUB_PASSWORD" https://registry-1.docker.io
     - docker push registry-1.docker.io/mayanedms/mayanedms:v"$DOCKER_VERSION"
     - docker push registry-1.docker.io/mayanedms/mayanedms:latest
@@ -83,97 +103,74 @@ job_docker_push_major:
     - docker push registry-1.docker.io/mayanedms/mayanedms:s"$MINOR_VERSION"
   services:
     - docker:20.10.21-dind
-  stage: stage_push_docker
+  stage: stage_push
   variables:
     DOCKER_DRIVER: overlay2
 
 job_docker_push_minor:
   before_script:
     - apk add --no-cache python3
-    - docker login --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: docker:20.10.21-dind
+  needs:
+    - job_docker_test
   only:
-    - releases/all_minor
-    - releases/docker_minor
+    - releases/all/minor
+    - releases/docker/minor
   script:
     - PYTHON_BIN=/usr/bin/python3
     - DOCKER_VERSION=`cat docker/rootfs/version`
-    - docker pull "$CI_REGISTRY_IMAGE:$DOCKER_VERSION"
-    - docker tag "$CI_REGISTRY_IMAGE:$DOCKER_VERSION" registry-1.docker.io/mayanedms/mayanedms:v"$DOCKER_VERSION"
+    - docker pull "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
+    - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:v"${DOCKER_VERSION}"
     - VERSION_SCRIPT_BIN=contrib/scripts/version.py
     - MINOR_VERSION=$($PYTHON_BIN $VERSION_SCRIPT_BIN $DOCKER_VERSION minor);
-    - docker tag "$CI_REGISTRY_IMAGE:$DOCKER_VERSION" registry-1.docker.io/mayanedms/mayanedms:s"$MINOR_VERSION"
-    - docker logout $CI_REGISTRY
-    - docker login --username "$DOCKER_HUB_USERNAME" --password "$DOCKER_HUB_PASSWORD" https://registry-1.docker.io
-    - docker push registry-1.docker.io/mayanedms/mayanedms:v"$DOCKER_VERSION"
-    - docker push registry-1.docker.io/mayanedms/mayanedms:s"$MINOR_VERSION"
+    - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:s"${MINOR_VERSION}"
+    - docker login --username "${DOCKER_HUB_USERNAME}" --password "${DOCKER_HUB_PASSWORD}" https://registry-1.docker.io
+    - docker push registry-1.docker.io/mayanedms/mayanedms:v"${DOCKER_VERSION}"
+    - docker push registry-1.docker.io/mayanedms/mayanedms:s"${MINOR_VERSION}"
   services:
     - docker:20.10.21-dind
-  stage: stage_push_docker
+  stage: stage_push
   variables:
     DOCKER_DRIVER: overlay2
 
 job_docker_nightly:
   before_script:
-    - set -a && . ./config.env && set +a
-    - docker login --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - apk update
-    - apk add cairo gcc libffi-dev libjpeg-turbo-dev make musl-dev python3 python3-dev zlib-dev
-    - python3 -m venv venv
-    - . venv/bin/activate
-    - pip install pip==$PYTHON_PIP_VERSION
-    - pip install wheel
-    - cat requirements/base.txt | grep -v 'django-auth-ldap'| pip install -r /dev/stdin
-  cache:
-    paths:
-      - ~/.cache/pip/
-      - /var/cache/apk
+    - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: docker:20.10.21-dind
+  needs:
+    - job_docker_build
   only:
     - releases/nightly
-    - releases/staging
   script:
     - DOCKER_VERSION=`cat docker/rootfs/version`
-    - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
-    - make docker-build
-    - docker tag "mayanedms/mayanedms:$DOCKER_VERSION" "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-    - docker logout $CI_REGISTRY
+    - docker pull "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
+    - docker login --username "${DOCKER_HUB_USERNAME}" --password "${DOCKER_HUB_PASSWORD}" https://registry-1.docker.io
+    - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" "registry-1.docker.io/mayanedms/mayanedms:${CI_COMMIT_REF_SLUG}"
+    - docker push "registry-1.docker.io/mayanedms/mayanedms:${CI_COMMIT_REF_SLUG}"
   services:
     - docker:20.10.21-dind
-  stage: stage_build_docker
+  stage: stage_push
   variables:
     DOCKER_DRIVER: overlay2
 
 job_docker_testing:
   before_script:
-    - set -a && . ./config.env && set +a
-    - docker login --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
-    - apk update
-    - apk add cairo gcc libffi-dev libjpeg-turbo-dev make musl-dev python3 python3-dev zlib-dev
-    - python3 -m venv venv
-    - . venv/bin/activate
-    - pip install pip==$PYTHON_PIP_VERSION
-    - pip install wheel
-    - cat requirements/base.txt | grep -v 'django-auth-ldap'| pip install -r /dev/stdin
-  cache:
-    paths:
-      - ~/.cache/pip/
-      - /var/cache/apk
+    - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: docker:20.10.21-dind
+  needs:
+    - job_docker_test
   only:
     - releases/testing
-    - releases/testing_docker
   script:
     - DOCKER_VERSION=`cat docker/rootfs/version`
-    - DOCKER_IMAGE_MAYAN_NAME=$CI_REGISTRY_IMAGE
-    - make docker-build
-    - docker tag "mayanedms/mayanedms:$DOCKER_VERSION" "$CI_REGISTRY_IMAGE:$DOCKER_VERSION"
-    - docker push "$CI_REGISTRY_IMAGE:$DOCKER_VERSION"
-    - docker logout $CI_REGISTRY
+    - docker pull "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
+    - docker login --username "${DOCKER_HUB_USERNAME}" --password "${DOCKER_HUB_PASSWORD}" https://registry-1.docker.io
+    - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" "registry-1.docker.io/mayanedms/mayanedms:t${DOCKER_VERSION}"
+    - docker push "registry-1.docker.io/mayanedms/mayanedms:t${DOCKER_VERSION}"
   services:
     - docker:20.10.21-dind
-  stage: stage_build_docker
+  stage: stage_push
   variables:
     DOCKER_DRIVER: overlay2
 
@@ -204,10 +201,9 @@ job_documentation_build:
     - job_python_build
   only:
     - builds/documentation
-    - releases/all_major
+    - releases/all/major
     - releases/documentation
     - tests/all
-    - tests/documentation
   script:
     - pip install --requirement requirements/documentation.txt
     - pip install --requirement requirements/documentation_override.txt
@@ -230,12 +226,12 @@ job_documentation_push:
     - echo "$DOCUMENTATION_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
   image: debian:11.5-slim
   only:
-    - releases/all_major
+    - releases/all/major
     - releases/documentation
   script:
     - ssh $DOCUMENTATION_SSH_USERNAME@$DOCUMENTATION_HOSTNAME "rm -Rf $DOCUMENTATION_SERVER_PATH/*"
     - rsync -avzP --progress -e ssh docs/_build/html/* $DOCUMENTATION_SSH_USERNAME@$DOCUMENTATION_HOSTNAME:$DOCUMENTATION_SERVER_PATH
-  stage: stage_push_documentation
+  stage: stage_push
 
 # Python
 
@@ -263,12 +259,14 @@ job_python_build:
   only:
     - builds/documentation
     - builds/python
-    - releases/all_major
-    - releases/all_minor
-    - releases/python_major
-    - releases/python_minor
+    - releases/all/major
+    - releases/all/minor
+    - releases/python/major
+    - releases/python/minor
     - releases/testing
-    - releases/testing_python
+    - tests/all
+    - tests/python/all
+    - tests/python/upgrade
   script:
     - pip install --requirement requirements/build.txt
     - make python-wheel
@@ -279,8 +277,12 @@ job_python_build:
 job_python_push_pypi:
   cache:
     paths:
+      - .apt
       - .cache/pip
   before_script:
+    - export APT_DIR=$CI_PROJECT_DIR/.apt && export APT_STATE_LISTS=$APT_DIR/lists && export APT_CACHE_ARCHIVES=$APT_DIR/archives
+    - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
+    - mkdir -p "${APT_STATE_LISTS}/partial" && mkdir -p "${APT_CACHE_ARCHIVES}/partial"
     - set -a && . ./config.env && set +a
     - apt-get update
     - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
@@ -290,17 +292,16 @@ job_python_push_pypi:
     - pip install pip==$PYTHON_PIP_VERSION
   image: debian:11.5-slim
   only:
-    - releases/all_major
-    - releases/all_minor
-    - releases/python_major
-    - releases/python_minor
+    - releases/all/major
+    - releases/all/minor
+    - releases/python/major
+    - releases/python/minor
     - releases/testing
-    - releases/testing_python
   script:
     - pip install --requirement requirements/build.txt
     - echo "$PYPIRC" > ~/.pypirc
     - twine upload --verbose dist/* -r pypi
-  stage: stage_push_python
+  stage: stage_push
   variables:
     PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
@@ -308,6 +309,9 @@ job_python_push_pypi:
 
 .job_base_upgrade_test: &job_base_upgrade_test
   before_script:
+    - export APT_DIR=$CI_PROJECT_DIR/.apt && export APT_STATE_LISTS=$APT_DIR/lists && export APT_CACHE_ARCHIVES=$APT_DIR/archives
+    - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
+    - mkdir -p "${APT_STATE_LISTS}/partial" && mkdir -p "${APT_CACHE_ARCHIVES}/partial"
     - set -a && . ./config.env && set +a
     - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
@@ -322,19 +326,25 @@ job_python_push_pypi:
     paths:
       - ~/.cache/pip/
       - /var/cache/apt/archives/
+  dependencies:
+    - job_python_build
   image: debian:11.5-slim
+  needs:
+    - job_python_build
   only:
-    - releases/all_major
-    - releases/all_minor
-    - releases/docker_major
-    - releases/docker_minor
-    - releases/python_major
-    - releases/python_minor
+    - releases/all/major
+    - releases/all/minor
+    - releases/docker/major
+    - releases/docker/minor
+    - releases/python/major
+    - releases/python/minor
     - releases/staging
     - tests/all
-    - tests/python
-    - tests/upgrade
-  stage: stage_test
+    - tests/python/all
+    - tests/python/upgrade
+  stage: stage_test_python
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 job_postgres_upgrade_test:
   <<: *job_base_upgrade_test
@@ -346,7 +356,6 @@ job_postgres_upgrade_test:
     - echo "from mayan.apps.documents.models import DocumentType;from mayan.apps.documents.tests.literals import TEST_FILE_SMALL_PATH;DocumentType.objects.first().new_document(file_object=open(file=TEST_FILE_SMALL_PATH, mode='rb'))" | mayan-edms.py shell
     - pip install --requirement requirements/build.txt --requirement requirements/testing-base.txt
     - pip install psycopg2==$PYTHON_PSYCOPG2_VERSION
-    - make python-wheel
     - pip install dist/mayan_edms-*.whl
     - mayan-edms.py common_perform_upgrade --no-dependencies
   services:
@@ -364,7 +373,6 @@ job_sqlite_upgrade_test:
     - mayan-edms.py common_initial_setup --no-dependencies
     - echo "from mayan.apps.documents.models import DocumentType;from mayan.apps.documents.tests.literals import TEST_FILE_SMALL_PATH;DocumentType.objects.first().new_document(file_object=open(file=TEST_FILE_SMALL_PATH, mode='rb'))" | mayan-edms.py shell
     - pip install --requirement requirements/build.txt --requirement requirements/testing-base.txt
-    - make python-wheel
     - pip install dist/mayan_edms-*.whl
     - mayan-edms.py common_perform_upgrade --no-dependencies
 
@@ -372,6 +380,9 @@ job_sqlite_upgrade_test:
 
 .job_base_test: &job_base_test
   before_script:
+    - export APT_DIR=$CI_PROJECT_DIR/.apt && export APT_STATE_LISTS=$APT_DIR/lists && export APT_CACHE_ARCHIVES=$APT_DIR/archives
+    - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
+    - mkdir -p "${APT_STATE_LISTS}/partial" && mkdir -p "${APT_CACHE_ARCHIVES}/partial"
     - set -a && . ./config.env && set +a
     - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
@@ -382,21 +393,23 @@ job_sqlite_upgrade_test:
     - pip install --requirement requirements.txt --requirement requirements/testing-base.txt --requirement requirements/build.txt
   cache:
     paths:
-      - ~/.cache/pip/
-      - /var/cache/apt/archives/
+      - .apt
+      - .cache/pip
   image: debian:11.5-slim
   only:
-    - releases/all_major
-    - releases/all_minor
-    - releases/docker_major
-    - releases/docker_minor
-    - releases/python_major
-    - releases/python_minor
+    - releases/all/major
+    - releases/all/minor
+    - releases/docker/major
+    - releases/docker/minor
+    - releases/python/major
+    - releases/python/minor
     - releases/staging
     - tests/all
-    - tests/base
-    - tests/python
-  stage: stage_test
+    - tests/python/all
+    - tests/python/base
+  stage: stage_test_python
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 job_postgres_test:
   <<: *job_base_test

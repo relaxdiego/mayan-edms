@@ -321,6 +321,9 @@
   - Increase artifact expiration.
   - Add PIP and APT caching to documenation and python build stages.
   - Add GitLab CI job dependecies.
+  - Reuse Python build in stages.
+  - Convert branches into literals.
+  - Remove duplicated code in jobs.
 
 4.3.5 (2023-01-10)
 ==================
