@@ -90,7 +90,7 @@ gitlab-ci-builds-docker:
 gitlab-ci-builds-documentation: ## Trigger normal and migration tests as a CD/CI pipeline
 gitlab-ci-builds-documentation:
 	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_BUILDS_DOCUMENTATION) || true
-	git push $(GIT_REMOTE_NAME) HEAD::$(GITLAB_CI_BRANCH_BUILDS_DOCUMENTATION)
+	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_BUILDS_DOCUMENTATION)
 
 gitlab-ci-builds-python: ## Trigger upgrade tests as a CD/CI pipeline
 gitlab-ci-builds-python:
