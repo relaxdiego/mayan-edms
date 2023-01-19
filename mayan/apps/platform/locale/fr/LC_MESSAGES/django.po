@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"POT-Creation-Date: 2023-01-19 14:21+0000\n"
 "PO-Revision-Date: 2023-01-05 02:54+0000\n"
 "Last-Translator: PatrickHetu <patrick.hetu@gmail.com>, 2023\n"
 "Language-Team: French (https://www.transifex.com/rosarior/teams/13584/fr/)\n"
@@ -25,27 +25,27 @@ msgstr ""
 msgid "Platform"
 msgstr "Plateforme"
 
-#: classes.py:214
+#: classes.py:226
 msgid "Template for entrypoint.sh file inside a Docker image."
 msgstr "Modèle pour le fichier entrypoint.sh dans une image Docker."
 
-#: classes.py:229
+#: classes.py:241
 msgid "Template that generates a Dockerfile file."
 msgstr "Modèle qui génère un fichier Dockerfile."
 
-#: classes.py:244
+#: classes.py:256
 msgid "Template for Supervisord inside a Docker image."
 msgstr "Modèle pour Supervisord dans une image Docker."
 
-#: classes.py:262
+#: classes.py:274
 msgid "Template that generates a GitLab CI config file."
 msgstr "Modèle qui génère un fichier de configuration GitLab CI."
 
-#: classes.py:306
+#: classes.py:408
 msgid "Template for Supervisord."
 msgstr "Modèle pour Supervisord."
 
-#: classes.py:380
+#: classes.py:482
 msgid "Template showing the queues of a worker."
 msgstr "Modèle montrant les files d'attente d'un processus de travail."
 

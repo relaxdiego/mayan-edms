@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 23:30+0000\n"
+"POT-Creation-Date: 2023-01-19 14:21+0000\n"
 "PO-Revision-Date: 2023-01-05 02:54+0000\n"
 "Last-Translator: Bedreddin Şahbaz, 2023\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
@@ -25,27 +25,27 @@ msgstr ""
 msgid "Platform"
 msgstr "Platform"
 
-#: classes.py:214
+#: classes.py:226
 msgid "Template for entrypoint.sh file inside a Docker image."
 msgstr "Bir Docker görüntüsünün içindeki entrypoint.sh dosyası için şablon."
 
-#: classes.py:229
+#: classes.py:241
 msgid "Template that generates a Dockerfile file."
 msgstr "Dockerfile dosyası oluşturan şablon."
 
-#: classes.py:244
+#: classes.py:256
 msgid "Template for Supervisord inside a Docker image."
 msgstr "Docker görüntüsünün içindeki Gözetmen için şablon."
 
-#: classes.py:262
+#: classes.py:274
 msgid "Template that generates a GitLab CI config file."
 msgstr "GitLab CI yapılandırma dosyası oluşturan şablon."
 
-#: classes.py:306
+#: classes.py:408
 msgid "Template for Supervisord."
 msgstr "Gözetmen için şablon."
 
-#: classes.py:380
+#: classes.py:482
 msgid "Template showing the queues of a worker."
 msgstr "Bir işçinin sıralarını gösteren şablon."
 
