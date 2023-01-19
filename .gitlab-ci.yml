@@ -52,7 +52,6 @@ job_docker_test:
   needs:
     - job_docker_build
   only:
-    - builds/docker
     - releases/all/major
     - releases/all/minor
     - releases/docker/major

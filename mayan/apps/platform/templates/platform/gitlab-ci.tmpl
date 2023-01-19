@@ -52,7 +52,6 @@ job_docker_test:
   needs:
     - job_docker_build
   only:
-    - {{ GITLAB_CI_BRANCH_BUILDS_DOCKER }}
     - {{ GITLAB_CI_BRANCH_RELEASES_ALL_MAJOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_ALL_MINOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_DOCKER_MAJOR }}
