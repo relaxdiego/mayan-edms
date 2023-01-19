@@ -1,7 +1,7 @@
 .. _docker_compose:
 
 ====================
-Using Docker compose
+Using Docker Compose
 ====================
 
 Docker Compose is the recommended way to run Mayan EDMS in production for

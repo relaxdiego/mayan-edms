@@ -11,27 +11,8 @@ Docker Compose installation
 
        wget -qO- https://get.docker.com/ | sh
 
-   If you don't want to run an automated script, follow the instructions outlined
-   in their documentation: https://docs.docker.com/install/
-
-
-#. Install Docker Compose:
-
-   Follow the instructions as: https://docs.docker.com/compose/install/
-
-   For GNU/Linux based operating systems, this is usually:
-
-   .. code-block:: console
-
-       sudo curl -L "https://github.com/docker/compose/releases/download/|BINARY_DOCKER_COMPOSE_VERSION|/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-       sudo chmod +x /usr/local/bin/docker-compose
-
-   Verify Docker Compose is working with:
-
-   .. code-block:: console
-
-       docker-compose -v
+   If you don't want to run an automated script, follow the instructions
+   outlined in their documentation: https://docs.docker.com/install/
 
 
 #. Download the Mayan EDMS Docker Compose files:
@@ -43,6 +24,21 @@ Docker Compose installation
        curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml -O
        curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env -O
 
+
+#. Launch the Mayan EDMS Docker Compose containers:
+
+   .. code-block:: console
+
+       docker compose up --detach
+
+   .. note::
+
+       There is no need to restart the containers after a shutdown, the
+       containers in the Docker Compose file are set to start automatically.
+
+
+Customization
+-------------
 
 #. Update the Mayan EDMS Docker Compose file:
 
@@ -68,60 +64,58 @@ Docker Compose installation
        If the ``.env`` file does not reside in the same folder where the
        ``docker-compose.yml`` is or you choose another filename for it,
        the option ``--env-file <you env file path>`` needs to be added
-       to every ``docker-compose`` invocation.
+       to every ``docker compose`` invocation.
 
 
 #. Verify the configuration changes:
 
    .. code-block:: console
 
-       docker-compose --file docker-compose.yml --project-name mayan config
+       docker compose --file docker-compose.yml --project-name mayan config
 
    This command will output the Docker Compose file, using the values of your
    ``.env`` file.
 
 
-#. Launch the Mayan EDMS Docker Compose containers:
-
-   .. note::
-
-       If you are invoking the ``docker-compose`` command in the same directory
-       where the file ``docker-compose.yml`` resides, there is no need to
-       add the ``--file docker-compose.yml`` option.
-
-   .. code-block:: console
-
-       docker-compose --file docker-compose.yml --project-name mayan up --detach
-
-   .. note::
-
-       There is no need to restart the containers after a shutdown, the
-       containers in the Docker Compose file are set to start automatically.
-
-
 Additional commands
 -------------------
+
+- Invoking from and external folder:
+
+  .. note::
+
+      If you are invoking the ``docker compose`` command outside the
+      directory where the file ``docker-compose.yml`` resides,
+      you need to add the ``--file docker-compose.yml`` option.
+
+
+- Multiple deployments:
+
+  Multiple deployments can be made from the same ``docker-compose.yml``
+  file by using the ``--project-name <project_name>`` option.
+
 
 - To view the logs of the containers:
 
   .. code-block:: console
 
-      docker-compose --file docker-compose.yml --project-name mayan logs
+      docker compose logs
 
 
 - To list the containers:
 
   .. code-block:: console
 
-      docker-compose --file docker-compose.yml --project-name mayan ps --all
+      docker compose ps --all
 
 
 - To terminate the containers:
 
   .. note::
 
-      Once terminated, the containers are removed and only the data volumes remain.
+      Once terminated, the containers are removed and only the data volumes
+      remain.
 
   .. code-block:: console
 
-      docker-compose --file docker-compose.yml --project-name mayan down
+      docker compose down
