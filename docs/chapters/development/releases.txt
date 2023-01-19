@@ -126,10 +126,10 @@ Release checklist
 Release using GitLab CI using the makefile
 ------------------------------------------
 
-#. Use of the GitLab makefile targets: ``gitlab-release-all``,
-   ``gitlab-release-all-minor``, ``gitlab-release-docker-minor``,
-   ``gitlab-release-python-minor``, ``gitlab-release-docker``,
-   ``gitlab-release-documentation``, ``gitlab-release-python``.
+#. Use of the GitLab makefile targets: ``gitlab-ci-release-all``,
+   ``gitlab-ci-release-all-minor``, ``gitlab-ci-release-docker-minor``,
+   ``gitlab-ci-release-python-minor``, ``gitlab-ci-release-docker``,
+   ``gitlab-ci-release-documentation``, ``gitlab-ci-release-python``.
 
 
 Release using GitLab CI manually
