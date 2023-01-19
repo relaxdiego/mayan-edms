@@ -1,3 +1,16 @@
+4.4.1 (2023-01-19)
+==================
+- Fix list filtering template issue caused by caching.
+- GitOps updates:
+
+  - Add makefile targets to trigger standalone builds.
+  - Increase artifact expiration.
+  - Add PIP and APT caching to documenation and python build stages.
+  - Add GitLab CI job dependecies.
+  - Reuse Python build in stages.
+  - Convert branches into literals.
+  - Remove duplicated code in jobs.
+
 4.4 (2023-01-16)
 ================
 - Update Docker image tags:
@@ -317,13 +330,6 @@
   - Add configurable remote branch for GitOps.
   - Support a local environment config file names ``config-local.env``.
     This file is ignored by Git and meant to override values of ``config.env``.
-  - Add makefile targets to trigger standalone builds.
-  - Increase artifact expiration.
-  - Add PIP and APT caching to documenation and python build stages.
-  - Add GitLab CI job dependecies.
-  - Reuse Python build in stages.
-  - Convert branches into literals.
-  - Remove duplicated code in jobs.
 
 4.3.5 (2023-01-10)
 ==================
