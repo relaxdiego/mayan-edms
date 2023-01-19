@@ -29,6 +29,8 @@ Other
   - Convert branches into literals.
   - Remove duplicated code in jobs.
 
+- Simplify installation documentation
+
 
 Removals
 --------

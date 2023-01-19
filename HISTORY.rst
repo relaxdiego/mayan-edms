@@ -11,6 +11,8 @@
   - Convert branches into literals.
   - Remove duplicated code in jobs.
 
+- Simplify installation documentation
+
 4.4 (2023-01-16)
 ================
 - Update Docker image tags:
