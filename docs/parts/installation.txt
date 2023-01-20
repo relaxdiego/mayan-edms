@@ -27,7 +27,8 @@ applications spanning multiple containers.
 
 .. note::
 
-   This is the installation method recommended for the majority of cases.
+   This is the default installation method and is recommended for the
+   majority of cases.
 
 
 - :ref:`docker_compose_install`
