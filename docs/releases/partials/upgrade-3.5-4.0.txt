@@ -1,8 +1,21 @@
-Upgrading from Mayan EDMS 3.5.x
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Docker Compose
+^^^^^^^^^^^^^^
+
+Check the :doc:`Docker upgrading</chapters/docker/upgrading>` chapter for
+the complete upgrade process.
+
 
 Direct deployment
-"""""""""""""""""
+^^^^^^^^^^^^^^^^^
+
+
+Upgrading from Mayan EDMS 3.5.x
+"""""""""""""""""""""""""""""""
+
+.. important::
+
+  Supervisord must be upgraded to version 4.2.2. See troubleshooting
+  section: :ref:`troubleshooting-version-4.1`
 
 
 #. Stop supervisord::
@@ -120,10 +133,3 @@ Direct deployment
 #. Clear the browser cache to avoid loading old web assets.
 
 The upgrade procedure is now complete.
-
-
-Docker Compose
-""""""""""""""
-
-Check the :doc:`Docker upgrading</chapters/docker/upgrading>` chapter for
-the complete upgrade process.

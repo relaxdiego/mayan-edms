@@ -34,6 +34,7 @@ repository for electronic documents.
     chapters/portainer/index
     parts/advanced
     parts/administration
+    parts/upgrades
     parts/troubleshooting/index
     chapters/development/index
     parts/faq
