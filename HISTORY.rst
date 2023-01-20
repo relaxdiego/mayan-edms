@@ -1,3 +1,10 @@
+4.4.2 (2023-01-XX)
+==================
+- Merge request #106. Do not show server communication modal
+  for interrupted AJAX requests. Thanks to
+  Nicholas Buttigieg (@nicholasbuttigieg) and
+  Kyle Pullicino (@KPull) for the patch.
+
 4.4.1 (2023-01-19)
 ==================
 - Fix list filtering template issue caused by caching.
