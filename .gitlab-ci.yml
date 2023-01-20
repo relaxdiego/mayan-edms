@@ -260,6 +260,7 @@ job_python_build:
     - builds/python
     - releases/all/major
     - releases/all/minor
+    - releases/documentation
     - releases/python/major
     - releases/python/minor
     - releases/testing
