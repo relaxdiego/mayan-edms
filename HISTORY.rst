@@ -1,4 +1,4 @@
-4.4.2 (2023-01-XX)
+4.4.2 (2023-01-23)
 ==================
 - Merge request !106. Do not show server communication modal
   for interrupted AJAX requests. Thanks to
