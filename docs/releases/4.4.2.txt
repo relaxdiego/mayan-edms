@@ -11,7 +11,7 @@ Changes
 User interface
 ^^^^^^^^^^^^^^
 
-Patch was merged that ensures the server communication modal is not shown
+A patch was merged that ensures the server communication modal is not shown
 for interrupted AJAX requests.
 
 
