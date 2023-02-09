@@ -19,7 +19,7 @@ from ..icons import (
     icon_transformation_select
 )
 from ..links import link_transformation_select
-from ..models import LayerTransformation, ObjectLayer
+from ..models import ObjectLayer
 from ..transformations import BaseTransformation
 
 from .view_mixins import DynamicTransformationFormClassMixin, LayerViewMixin
@@ -94,11 +94,6 @@ class TransformationCreateView(
             }
         )
 
-    def get_queryset(self):
-        return self.layer.get_transformations_for(
-            obj=self.content_object
-        )
-
     def get_template_names(self):
         return [
             getattr(
@@ -113,14 +108,19 @@ class TransformationCreateView(
         )
 
 
-class TransformationDeleteView(LayerViewMixin, SingleObjectDeleteView):
-    model = LayerTransformation
+class TransformationDeleteView(
+    LayerViewMixin, ExternalContentTypeObjectViewMixin, SingleObjectDeleteView
+):
     pk_url_kwarg = 'transformation_id'
     view_icon = icon_transformation_delete
 
+    def get_external_object_permission(self):
+        return self.layer.get_permission(action='delete')
+
     def get_extra_context(self):
         return {
-            'content_object': self.object.object_layer.content_object,
+            'content_object': self.external_object,
+            'layer': self.layer,
             'layer_name': self.layer.name,
             'navigation_object_list': ('content_object', 'transformation'),
             'previous': self.get_post_action_redirect(),
@@ -129,13 +129,10 @@ class TransformationDeleteView(LayerViewMixin, SingleObjectDeleteView):
                 '%(content_object)s?'
             ) % {
                 'transformation': self.object,
-                'content_object': self.object.object_layer.content_object
+                'content_object': self.external_object
             },
             'transformation': self.object
         }
-
-    def get_object_permission(self):
-        return self.layer.get_permission(action='delete')
 
     def get_post_action_redirect(self):
         return reverse(
@@ -147,11 +144,16 @@ class TransformationDeleteView(LayerViewMixin, SingleObjectDeleteView):
             }
         )
 
+    def get_source_queryset(self):
+        return self.layer.get_transformations_for(
+            obj=self.external_object
+        )
+
 
 class TransformationEditView(
-    DynamicTransformationFormClassMixin, LayerViewMixin, SingleObjectEditView
+    LayerViewMixin, DynamicTransformationFormClassMixin,
+    ExternalContentTypeObjectViewMixin, SingleObjectEditView
 ):
-    model = LayerTransformation
     pk_url_kwarg = 'transformation_id'
     view_icon = icon_transformation_edit
 
@@ -166,9 +168,12 @@ class TransformationEditView(
         else:
             return super().form_valid(form=form)
 
+    def get_external_object_permission(self):
+        return self.layer.get_permission(action='edit')
+
     def get_extra_context(self):
         return {
-            'content_object': self.object.object_layer.content_object,
+            'content_object': self.external_object,
             'form_field_css_classes': 'hidden' if hasattr(
                 self.object.get_transformation_class(), 'template_name'
             ) else '',
@@ -180,13 +185,10 @@ class TransformationEditView(
                 'for: %(content_object)s'
             ) % {
                 'transformation': self.object,
-                'content_object': self.object.object_layer.content_object
+                'content_object': self.external_object
             },
             'transformation': self.object
         }
-
-    def get_object_permission(self):
-        return self.layer.get_permission(action='edit')
 
     def get_post_action_redirect(self):
         return reverse(
@@ -196,6 +198,11 @@ class TransformationEditView(
                 'object_id': self.object.object_layer.object_id,
                 'layer_name': self.object.object_layer.stored_layer.name
             }
+        )
+
+    def get_source_queryset(self):
+        return self.layer.get_transformations_for(
+            obj=self.external_object
         )
 
     def get_template_names(self):

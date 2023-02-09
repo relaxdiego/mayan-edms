@@ -1,3 +1,8 @@
+4.4.3 (2023-XX-XX)
+==================
+- Improve transformation views to always pass the object
+  having the transformation applied.
+
 4.4.2 (2023-01-23)
 ==================
 - Merge request !106. Do not show server communication modal

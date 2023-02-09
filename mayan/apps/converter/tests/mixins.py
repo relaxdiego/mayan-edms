@@ -149,33 +149,53 @@ class LayerTestCaseMixin:
 
 
 class LayerTestMixin(PermissionTestMixin):
+    _test_transformation_object = None
+    _test_transformation_object_parent = None
     auto_create_test_layer = True
 
     def setUp(self):
         super().setUp()
 
+        self._test_transformation_object = self._test_document_version_page
+        self._test_transformation_object_parent = self._test_document
+
+        self._test_transformation_object_content_type = ContentType.objects.get_for_model(
+            model=self._test_transformation_object
+        )
+
         if self.auto_create_test_layer:
-            self._test_layer = Layer(
-                label=TEST_LAYER_LABEL, name=TEST_LAYER_NAME,
-                order=TEST_LAYER_ORDER, permissions={}
-            )
+            self._create_test_permission()
+            self._test_layer_permission_create = self._test_permission
 
             self._create_test_permission()
+            self._test_layer_permission_delete = self._test_permission
 
-            self._test_layer_permission = self._test_permission
-            ModelPermission.register(
-                model=self._test_document._meta.model, permissions=(
-                    self._test_permission,
-                )
+            self._create_test_permission()
+            self._test_layer_permission_edit = self._test_permission
+
+            self._create_test_permission()
+            self._test_layer_permission_view = self._test_permission
+
+            self._test_layer = Layer(
+                label=TEST_LAYER_LABEL, name=TEST_LAYER_NAME,
+                order=TEST_LAYER_ORDER, permissions={
+                    'create': self._test_layer_permission_create,
+                    'delete': self._test_layer_permission_delete,
+                    'edit': self._test_layer_permission_edit,
+                    'select': self._test_layer_permission_create,
+                    'view': self._test_layer_permission_view
+                }
             )
 
-            self._test_layer.permissions = {
-                'create': self._test_layer_permission,
-                'delete': self._test_layer_permission,
-                'edit': self._test_layer_permission,
-                'select': self._test_layer_permission,
-                'view': self._test_layer_permission,
-            }
+            ModelPermission.register(
+                model=self._test_transformation_object_parent._meta.model,
+                permissions=(
+                    self._test_layer_permission_create,
+                    self._test_layer_permission_delete,
+                    self._test_layer_permission_edit,
+                    self._test_layer_permission_view
+                )
+            )
 
     def tearDown(self):
         if self.auto_create_test_layer:
@@ -199,7 +219,7 @@ class TransformationTestMixin(LayerTestMixin):
 
     def _create_test_transformation(self):
         self._test_transformation = self._test_layer.add_transformation_to(
-            obj=self._test_document,
+            obj=self._test_transformation_object,
             transformation_class=self.TestTransformationClass,
             arguments=getattr(
                 self, '_test_transformation_arguments',
@@ -223,14 +243,17 @@ class TransformationTestMixin(LayerTestMixin):
 
 class TransformationViewTestMixin:
     def _request_transformation_create_post_view(self):
-        pk_list = list(LayerTransformation.objects.values('pk'))
+        pk_list = list(
+            LayerTransformation.objects.values('pk')
+        )
 
         response = self.post(
             viewname='converter:transformation_create', kwargs={
-                'app_label': 'documents', 'model_name': 'document',
-                'object_id': self._test_document.pk,
+                'app_label': self._test_transformation_object_content_type.app_label,
+                'model_name': self._test_transformation_object_content_type.model,
+                'object_id': self._test_transformation_object.pk,
                 'layer_name': self._test_layer.name,
-                'transformation_name': self.TestTransformationClass.name,
+                'transformation_name': self.TestTransformationClass.name
             }, data={
                 'arguments': getattr(
                     self, '.test_transformation_argument',
@@ -251,10 +274,11 @@ class TransformationViewTestMixin:
     def _request_transformation_create_get_view(self):
         return self.get(
             viewname='converter:transformation_create', kwargs={
-                'app_label': 'documents', 'model_name': 'document',
-                'object_id': self._test_document.pk,
+                'app_label': self._test_transformation_object_content_type.app_label,
+                'model_name': self._test_transformation_object_content_type.model,
+                'object_id': self._test_transformation_object.pk,
                 'layer_name': self._test_layer.name,
-                'transformation_name': self.TestTransformationClass.name,
+                'transformation_name': self.TestTransformationClass.name
             }, data={
                 'arguments': getattr(
                     self, '.test_transformation_argument',
@@ -266,6 +290,9 @@ class TransformationViewTestMixin:
     def _request_transformation_delete_view(self):
         return self.post(
             viewname='converter:transformation_delete', kwargs={
+                'app_label': self._test_transformation_object_content_type.app_label,
+                'model_name': self._test_transformation_object_content_type.model,
+                'object_id': self._test_transformation_object.pk,
                 'layer_name': self._test_layer.name,
                 'transformation_id': self._test_transformation.pk
             }
@@ -274,6 +301,9 @@ class TransformationViewTestMixin:
     def _request_transformation_edit_view(self):
         return self.post(
             viewname='converter:transformation_edit', kwargs={
+                'app_label': self._test_transformation_object_content_type.app_label,
+                'model_name': self._test_transformation_object_content_type.model,
+                'object_id': self._test_transformation_object.pk,
                 'layer_name': self._test_layer.name,
                 'transformation_id': self._test_transformation.pk
             }, data={
@@ -287,8 +317,9 @@ class TransformationViewTestMixin:
     def _request_transformation_list_view(self):
         return self.get(
             viewname='converter:transformation_list', kwargs={
-                'app_label': 'documents', 'model_name': 'document',
-                'object_id': self._test_document.pk,
+                'app_label': self._test_transformation_object_content_type.app_label,
+                'model_name': self._test_transformation_object_content_type.model,
+                'object_id': self._test_transformation_object.pk,
                 'layer_name': self._test_layer.name
             }
         )
@@ -296,8 +327,9 @@ class TransformationViewTestMixin:
     def _request_test_transformation_select_get_view(self):
         return self.get(
             viewname='converter:transformation_select', kwargs={
-                'app_label': 'documents', 'model_name': 'document',
-                'object_id': self._test_document.pk,
+                'app_label': self._test_transformation_object_content_type.app_label,
+                'model_name': self._test_transformation_object_content_type.model,
+                'object_id': self._test_transformation_object.pk,
                 'layer_name': self._test_layer.name
             }
         )
@@ -305,8 +337,9 @@ class TransformationViewTestMixin:
     def _request_test_transformation_select_post_view(self):
         return self.post(
             viewname='converter:transformation_select', kwargs={
-                'app_label': 'documents', 'model_name': 'document',
-                'object_id': self._test_document.pk,
+                'app_label': self._test_transformation_object_content_type.app_label,
+                'model_name': self._test_transformation_object_content_type.model,
+                'object_id': self._test_transformation_object.pk,
                 'layer_name': self._test_layer.name
             }, data={
                 'transformation': self.TestTransformationClass.name
