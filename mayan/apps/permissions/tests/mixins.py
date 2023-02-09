@@ -45,15 +45,25 @@ class PermissionAPIViewTestMixin:
 
 
 class PermissionTestMixin:
+    def setUp(self):
+        super().setUp()
+        self._test_permission_list = []
+
     def _create_test_permission(self):
         self._test_permission_namespace = PermissionNamespace(
             label=TEST_PERMISSION_NAMESPACE_LABEL,
             name=TEST_PERMISSION_NAMESPACE_NAME
         )
+
+        test_permission_count = len(self._test_permission_list)
         self._test_permission = self._test_permission_namespace.add_permission(
-            label=TEST_PERMISSION_LABEL,
-            name=TEST_PERMISSION_NAME
+            label='{}_{}'.format(
+                TEST_PERMISSION_LABEL, test_permission_count
+            ), name='{}_{}'.format(
+                TEST_PERMISSION_NAME, test_permission_count
+            )
         )
+        self._test_permission_list.append(self._test_permission)
 
 
 class PermissionTestCaseMixin:
