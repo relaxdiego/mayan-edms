@@ -13,7 +13,9 @@ from ..permissions import permission_acl_edit, permission_acl_view
 
 class ACLAPIViewTestMixin:
     def _request_test_acl_create_api_view(self):
-        pk_list = list(AccessControlList.objects.values_list('pk', flat=True))
+        pk_list = list(
+            AccessControlList.objects.values_list('pk', flat=True)
+        )
 
         response = self.post(
             viewname='rest_api:accesscontrollist-list',
@@ -189,7 +191,9 @@ class AccessControlListViewTestMixin:
         )
 
     def _request_test_acl_create_post_view(self):
-        pk_list = list(AccessControlList.objects.values_list('pk', flat=True))
+        pk_list = list(
+            AccessControlList.objects.values_list('pk', flat=True)
+        )
 
         response = self.post(
             viewname='acls:acl_create',

@@ -18,15 +18,18 @@ class ACLActionTestCase(ActionTestCase):
                 ).pk,
                 'object_id': self._test_document.pk,
                 'roles': [self._test_case_role.pk],
-                'permissions': [permission_document_view.pk],
+                'permissions': [permission_document_view.pk]
             }
         )
-        action.execute(context={'entry_log': self.entry_log})
+        action.execute(
+            context={'entry_log': self.entry_log}
+        )
 
         self.assertEqual(self._test_document.acls.count(), 1)
         self.assertEqual(
-            list(self._test_document.acls.first().permissions.all()),
-            [permission_document_view.stored_permission]
+            list(
+                elf._test_document.acls.first().permissions.all()
+            ), [permission_document_view.stored_permission]
         )
         self.assertEqual(
             self._test_document.acls.first().role, self._test_case_role
@@ -36,15 +39,18 @@ class ACLActionTestCase(ActionTestCase):
         action = GrantDocumentAccessAction(
             form_data={
                 'roles': [self._test_case_role.pk],
-                'permissions': [permission_document_view.pk],
+                'permissions': [permission_document_view.pk]
             }
         )
-        action.execute(context={'document': self._test_document})
+        action.execute(
+            context={'document': self._test_document}
+        )
 
         self.assertEqual(self._test_document.acls.count(), 1)
         self.assertEqual(
-            list(self._test_document.acls.first().permissions.all()),
-            [permission_document_view.stored_permission]
+            list(
+                self._test_document.acls.first().permissions.all()
+            ), [permission_document_view.stored_permission]
         )
         self.assertEqual(
             self._test_document.acls.first().role, self._test_case_role
@@ -62,10 +68,12 @@ class ACLActionTestCase(ActionTestCase):
                 ).pk,
                 'object_id': self._test_document.pk,
                 'roles': [self._test_case_role.pk],
-                'permissions': [permission_document_view.pk],
+                'permissions': [permission_document_view.pk]
             }
         )
-        action.execute(context={'entry_log': self.entry_log})
+        action.execute(
+            context={'entry_log': self.entry_log}
+        )
 
         self.assertEqual(self._test_document.acls.count(), 0)
 
@@ -77,9 +85,11 @@ class ACLActionTestCase(ActionTestCase):
         action = RevokeDocumentAccessAction(
             form_data={
                 'roles': [self._test_case_role.pk],
-                'permissions': [permission_document_view.pk],
+                'permissions': [permission_document_view.pk]
             }
         )
-        action.execute(context={'document': self._test_document})
+        action.execute(
+            context={'document': self._test_document}
+        )
 
         self.assertEqual(self._test_document.acls.count(), 0)

@@ -195,7 +195,9 @@ class ACLPermissionAPIViewTestCase(
 
     def test_acl_permission_list_api_view_no_permission(self):
         self._create_test_acl()
-        self._test_acl.permissions.add(self._test_permission.stored_permission)
+        self._test_acl.permissions.add(
+            self._test_permission.stored_permission
+        )
 
         self._clear_events()
 
@@ -207,7 +209,9 @@ class ACLPermissionAPIViewTestCase(
 
     def test_acl_permission_list_api_view_with_access(self):
         self._create_test_acl()
-        self._test_acl.permissions.add(self._test_permission.stored_permission)
+        self._test_acl.permissions.add(
+            self._test_permission.stored_permission
+        )
 
         self.grant_access(
             obj=self._test_object, permission=permission_acl_view
@@ -227,7 +231,9 @@ class ACLPermissionAPIViewTestCase(
 
     def test_acl_permission_remove_api_view_no_permission(self):
         self._create_test_acl()
-        self._test_acl.permissions.add(self._test_permission.stored_permission)
+        self._test_acl.permissions.add(
+            self._test_permission.stored_permission
+        )
 
         acl_permission_count = self._test_acl.permissions.count()
 
@@ -245,9 +251,13 @@ class ACLPermissionAPIViewTestCase(
 
     def test_acl_permission_remove_api_view_with_access(self):
         self._create_test_acl()
-        self._test_acl.permissions.add(self._test_permission.stored_permission)
+        self._test_acl.permissions.add(
+            self._test_permission.stored_permission
+        )
 
-        self.grant_access(obj=self._test_object, permission=permission_acl_edit)
+        self.grant_access(
+            obj=self._test_object, permission=permission_acl_edit
+        )
 
         acl_permission_count = self._test_acl.permissions.count()
 

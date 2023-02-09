@@ -19,7 +19,7 @@ class DocumentsLinksTestCase(
 
         self.assertEqual(resolved_link, None)
 
-    def test_document_file_download_link_with_permission(self):
+    def test_document_file_download_link_with_access(self):
         self.grant_access(
             obj=self._test_document,
             permission=permission_document_file_download

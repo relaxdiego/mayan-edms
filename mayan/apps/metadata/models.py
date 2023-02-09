@@ -195,6 +195,10 @@ class DocumentMetadata(
         return str(self.metadata_type)
 
     def clean_fields(self, *args, **kwargs):
+        """
+        Pass the value of the metadata being created to the parsers and
+        validators for cleanup before saving.
+        """
         super().clean_fields(*args, **kwargs)
 
         self.value = self.metadata_type.validate_value(

@@ -149,7 +149,9 @@ class AccessControlListManager(models.Manager):
                 else:
                     relation_result = []
                     for related_field_model_inheritance in related_field_model_inheritances:
-                        new_related_field_name = '{}__{}'.format(related_field_name, related_field_model_inheritance['field_name'])
+                        new_related_field_name = '{}__{}'.format(
+                            related_field_name, related_field_model_inheritance['field_name']
+                        )
                         related_field_inherited_acl_queries = self._get_acl_filters(
                             fk_field_cast=related_field_model_inheritance['fk_field_cast'],
                             queryset=queryset,
@@ -221,7 +223,10 @@ class AccessControlListManager(models.Manager):
                     model=queryset.model
                 )
             except KeyError:
-                pass
+                """
+                Does not have specialized field query function. Proceed to
+                next case.
+                """
             else:
                 function_results = field_query_function()
 
@@ -237,7 +242,9 @@ class AccessControlListManager(models.Manager):
                 # Obtain a queryset of filtered, authorized model instances.
                 acl_queryset = queryset.model._meta.default_manager.filter(
                     id__in=acl_filter
-                ).filter(**function_results['acl_filter'])
+                ).filter(
+                    **function_results['acl_filter']
+                )
 
                 if 'acl_values' in function_results:
                     acl_queryset = acl_queryset.values(
