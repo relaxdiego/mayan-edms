@@ -8,7 +8,7 @@ from .links import link_current_user_events
 
 class DashboardWidgetUserEvents(DashboardWidgetList):
     columns = ('event_type', 'target')
-    icon = link_current_user_events.icon
+    icon = link_current_user_events.get_icon()
     label = link_current_user_events.text
     link = reverse_lazy(
         viewname=link_current_user_events.view

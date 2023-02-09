@@ -25,7 +25,8 @@
                                     <h4 class="panel-title">
                                         <a aria-controls="collapse-{{ link.name }}" aria-expanded="false" class="non-ajax collapsed" data-parent="#accordion-sidebar" data-toggle="collapse" href="#accordion-body-{{ forloop.counter }}" role="button">
                                             <div class="pull-left">
-                                                {% if link.icon %}{{ link.icon.render }}{% endif %}
+                                                {% navigation_link_get_icon link=link as link_icon %}
+                                                {% if link_icon %}{{ link_icon.render }}{% endif %}
                                                 {{ link.label }}
                                             </div>
                                             <div class="accordion-indicator pull-right"><span class="caret"></span></div>

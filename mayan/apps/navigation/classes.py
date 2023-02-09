@@ -64,7 +64,7 @@ class Link(TemplateObjectMixin):
         self.html_data_resolved = None
         self.html_extra_attributes = html_extra_attributes
         self.html_extra_classes = html_extra_classes
-        self.icon = icon
+        self._icon = icon
         self.keep_query = keep_query
         self.kwargs = kwargs or {}
         self.name = name
@@ -78,6 +78,27 @@ class Link(TemplateObjectMixin):
 
         if name:
             self.__class__._registry[name] = self
+
+    def get_icon(self, context=None):
+        return self._icon
+
+    def get_kwargs(self, context):
+        try:
+            return self.kwargs(context)
+        except TypeError:
+            # Is not a callable.
+            return self.kwargs
+
+    def get_permissions(self, context):
+        return self.permissions
+
+    def get_resolved_object(self, context):
+        try:
+            return Variable(
+                var='object'
+            ).resolve(context=context)
+        except VariableDoesNotExist:
+            """No object variable in the context"""
 
     def resolve(self, context=None, request=None, resolved_object=None):
         AccessControlList = apps.get_model(
@@ -101,20 +122,17 @@ class Link(TemplateObjectMixin):
         # ACL is tested against the resolved_object or just {{ object }}
         # if not.
         if not resolved_object:
-            try:
-                resolved_object = Variable(
-                    var='object'
-                ).resolve(context=context)
-            except VariableDoesNotExist:
-                """No object variable in the context"""
+            resolved_object = self.get_resolved_object(context=context)
 
         # If this link has a required permission check that the user has it
         # too.
-        if self.permissions:
+        permissions = self.get_permissions(context=context)
+
+        if permissions:
             if resolved_object:
                 try:
                     AccessControlList.objects.check_access(
-                        obj=resolved_object, permissions=self.permissions,
+                        obj=resolved_object, permissions=permissions,
                         user=request.user
                     )
                 except PermissionDenied:
@@ -122,13 +140,13 @@ class Link(TemplateObjectMixin):
             else:
                 try:
                     Permission.check_user_permissions(
-                        permissions=self.permissions, user=request.user
+                        permissions=permissions, user=request.user
                     )
                 except PermissionDenied:
                     return None
 
         # If we were passed an instance of the view context object we are
-        # resolving, inject it into the context. This help resolve links for
+        # resolving, inject it into the context. This helps resolve links for
         # object lists.
         if resolved_object:
             context['resolved_object'] = resolved_object
@@ -156,11 +174,7 @@ class Link(TemplateObjectMixin):
                     Variable(var=self.args)
                 ]
 
-            try:
-                kwargs = self.kwargs(context)
-            except TypeError:
-                # Is not a callable.
-                kwargs = self.kwargs
+            kwargs = self.get_kwargs(context=context)
 
             kwargs = {
                 key: Variable(var=value) for key, value in kwargs.items()
@@ -287,7 +301,7 @@ class Menu(TemplateObjectMixin):
         self.bound_links = {}
         self.condition = condition
         self.excluded_links = {}
-        self.icon = icon
+        self._icon = icon
         self.label = label
         self.link_positions = {}
         self.name = name
@@ -339,6 +353,9 @@ class Menu(TemplateObjectMixin):
                 links=links, map_variable='bound_links',
                 position=position, source=sources
             )
+
+    def get_icon(self, context):
+        return self._icon
 
     def get_resolved_navigation_object_list(self, context, source):
         resolved_navigation_object_list = []
@@ -669,6 +686,9 @@ class ResolvedLink:
     def description(self):
         return self.link.description
 
+    def get_icon(self, context=None):
+        return self.link.get_icon(context=context)
+
     @property
     def html_data(self):
         return self.link.html_data_resolved
@@ -676,10 +696,6 @@ class ResolvedLink:
     @property
     def html_extra_classes(self):
         return self.link.html_extra_classes or ''
-
-    @property
-    def icon(self):
-        return self.link.icon
 
     @property
     def tags(self):
@@ -698,7 +714,7 @@ class Separator(Link):
     Menu separator. Renders to an <hr> tag.
     """
     def __init__(self, *args, **kwargs):
-        self.icon = None
+        self._icon = None
         self.text = None
         self.view = None
 
@@ -1046,7 +1062,7 @@ class Text(Link):
     """
     def __init__(self, *args, **kwargs):
         self.html_extra_classes = kwargs.get('html_extra_classes', '')
-        self.icon = None
+        self._icon = None
         self.text = kwargs.get('text')
         self.view = None
 
