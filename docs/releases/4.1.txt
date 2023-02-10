@@ -420,7 +420,7 @@ OCR
 ^^^
 
 Support for editing the document version page OCR content was added.
-This work via the user interface and the API.
+This works via the user interface and the API.
 
 
 Parsing
