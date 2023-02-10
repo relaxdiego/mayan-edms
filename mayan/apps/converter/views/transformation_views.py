@@ -227,10 +227,13 @@ class TransformationListView(
 
     def get_extra_context(self):
         return {
-            'object': self.external_object,
+            'content_object': self.external_object,
             'hide_link': True,
             'hide_object': True,
+            'layer': self.layer,
             'layer_name': self.layer.name,
+            'navigation_disable_menus_link_group_object_header': True,
+            'navigation_object_list': ('content_object',),
             'no_results_icon': self.layer.get_icon(),
             'no_results_main_link': link_transformation_select.resolve(
                 context=RequestContext(
@@ -311,10 +314,10 @@ class TransformationSelectView(
 
     def get_extra_context(self):
         return {
+            'content_object': self.external_object,
             'layer': self.layer,
             'layer_name': self.kwargs['layer_name'],
             'navigation_object_list': ('content_object',),
-            'content_object': self.external_object,
             'submit_label': _('Select'),
             'title': _(
                 'Select new layer "%(layer)s" transformation '

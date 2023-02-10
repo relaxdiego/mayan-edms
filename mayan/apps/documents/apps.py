@@ -11,7 +11,6 @@ from mayan.apps.common.menus import (
 )
 from mayan.apps.common.signals import signal_post_initial_setup
 from mayan.apps.converter.classes import AppImageErrorImage
-from mayan.apps.converter.layers import layer_decorations
 from mayan.apps.converter.links import link_transformation_list
 from mayan.apps.converter.permissions import (
     permission_transformation_create,
@@ -150,6 +149,7 @@ from .links.favorite_links import (
     link_document_favorites_list, link_document_favorites_add_multiple,
     link_document_favorites_remove_multiple
 )
+from .links.miscellaneous_links import link_decorations_list
 from .links.trashed_document_links import (
     link_document_delete, link_document_list_deleted,
     link_document_multiple_delete, link_document_multiple_restore,
@@ -271,11 +271,6 @@ class DocumentsApp(MayanAppConfig):
         error_log.register_model(model=DocumentFilePage)
         error_log.register_model(model=DocumentVersion)
         error_log.register_model(model=DocumentVersionPage)
-
-        link_decorations_list = link_transformation_list.copy(
-            layer=layer_decorations
-        )
-        link_decorations_list.text = _('Decorations')
 
         DocumentFileAction.load_modules()
         DocumentVersionModification.load_modules()

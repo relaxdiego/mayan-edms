@@ -5,10 +5,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.acls.classes import ModelPermission
 from mayan.apps.common.apps import MayanAppConfig
-from mayan.apps.converter.links import link_transformation_list
 from mayan.apps.common.menus import menu_list_facet
 
-from .layers import layer_redactions
+from .links import link_redaction_list
 from .transformations import *  # NOQA
 from .permissions import (
     permission_redaction_create, permission_redaction_delete,
@@ -67,11 +66,6 @@ class RedactionsApp(MayanAppConfig):
                 permission_redaction_view
             )
         )
-
-        link_redaction_list = link_transformation_list.copy(
-            layer=layer_redactions
-        )
-        link_redaction_list.text = _('Redactions')
 
         menu_list_facet.bind_links(
             links=(link_redaction_list,), sources=(

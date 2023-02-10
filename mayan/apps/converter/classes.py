@@ -441,76 +441,84 @@ class Layer:
 
 
 class LayerLink(Link):
-    @staticmethod
-    def set_icon(instance, layer):
-        if instance.action == 'list':
-            if layer.symbol:
-                instance.icon = layer.get_icon()
-
-    def __init__(self, action, layer, object_name=None, **kwargs):
+    def __init__(self, action, layer=None, **kwargs):
         super().__init__(**kwargs)
         self.action = action
         self.layer = layer
-        self.object_name = object_name or _('transformation')
 
-        permission = layer.get_permission(action=action)
-        if permission:
-            self.permissions = (permission,)
-
-        if action == 'list':
-            self.kwargs = LayerLinkKwargsFactory(
-                layer_name=layer.name
-            ).get_kwargs_function()
-
-        if action in ('create', 'select'):
-            self.kwargs = LayerLinkKwargsFactory().get_kwargs_function()
-
-        LayerLink.set_icon(instance=self, layer=layer)
+    def __repr__(self):
+        return '<LayerLink ({} | {})>'.format(
+            self.layer, self.action
+        )
 
     def copy(self, layer):
         result = copy.copy(self)
-        result.kwargs = LayerLinkKwargsFactory(
-            layer_name=layer.name
-        ).get_kwargs_function()
-        result._layer_name = layer.name
-
-        LayerLink.set_icon(instance=result, layer=layer)
+        result.layer = layer
 
         return result
 
-    @cached_property
-    def layer_name(self):
-        return getattr(
-            self, '_layer_name', Layer.get_by_value(
-                key='default', value=True
-            ).name
+    def get_icon(self, context):
+        if self.action == 'list':
+            layer = self.get_layer(context=context)
+            if layer and layer.symbol:
+                return layer.get_icon()
+
+        return super().get_icon(context=context)
+
+    def get_kwargs(self, context):
+        ContentType = apps.get_model(
+            app_label='contenttypes', model_name='ContentType'
         )
 
+        if 'content_object' in context:
+            content_object_variable = 'content_object'
+        else:
+            content_object_variable = 'resolved_object'
 
-class LayerLinkKwargsFactory:
-    def __init__(self, layer_name=None, variable_name='resolved_object'):
-        self.layer_name = layer_name
-        self.variable_name = variable_name
+        content_type = ContentType.objects.get_for_model(
+            context[content_object_variable]
+        )
+        layer = self.get_layer(context=context)
 
-    def get_kwargs_function(self):
-        def get_kwargs(context):
-            ContentType = apps.get_model(
-                app_label='contenttypes', model_name='ContentType'
+        layer_name = layer.name
+
+        result = {
+            'app_label': '"{}"'.format(content_type.app_label),
+            'model_name': '"{}"'.format(content_type.model),
+            'object_id': '{}.pk'.format(content_object_variable),
+            'layer_name': '"{}"'.format(layer_name)
+        }
+
+        if self.action in ('delete', 'edit'):
+            result['transformation_id'] = 'object.pk'
+
+        return result
+
+    def get_layer(self, context=None):
+        context = context or {}
+
+        if self.layer:
+            return self.layer
+        elif 'layer' in context:
+            return context['layer']
+        else:
+            return Layer.get(
+                name=context['layer_name']
             )
 
-            content_type = ContentType.objects.get_for_model(
-                context[self.variable_name]
-            )
-            default_layer = Layer.get_by_value(key='default', value=True)
-            return {
-                'app_label': '"{}"'.format(content_type.app_label),
-                'model_name': '"{}"'.format(content_type.model),
-                'object_id': '{}.pk'.format(self.variable_name),
-                'layer_name': '"{}"'.format(
-                    self.layer_name or context.get(
-                        'layer_name', default_layer.name
-                    )
-                )
-            }
+    def get_permissions(self, context):
+        layer = self.get_layer(context=context)
+        permission = layer.get_permission(action=self.action)
 
-        return get_kwargs
+        if permission:
+            return (permission,)
+        else:
+            return ()
+
+    def get_resolved_object(self, context):
+        if 'content_object' in context:
+            content_object_variable = 'content_object'
+        else:
+            content_object_variable = 'resolved_object'
+
+        return context[content_object_variable]

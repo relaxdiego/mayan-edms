@@ -4,6 +4,14 @@
   having the transformation applied.
 - Add support to the ``Link`` class for dynamic view keyword arguments, icon,
   resolved object, and permissions.
+- Update the transformation, decorations, and redactions links to use
+  dynamic view keyword arguments, icons, resolved objects, and permissions.
+- Move transformation and redactions links to either their own ``links.py``
+  module. In the case of the ``documents`` app, the module is named
+  ``miscellaneous_links.py``.
+- Improve permissions handling of the transformation, decorations, and
+  redactions links.
+- Improve transformation and redaction link testing.
 
 4.4.2 (2023-01-23)
 ==================
@@ -25,7 +33,7 @@
   - Convert branches into literals.
   - Remove duplicated code in jobs.
 
-- Simplify installation documentation
+- Simplify installation documentation.
 
 4.4 (2023-01-16)
 ================
