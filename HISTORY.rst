@@ -2,6 +2,8 @@
 ==================
 - Improve transformation views to always pass the object
   having the transformation applied.
+- Add support to the ``Link`` class for dynamic view keyword arguments, icon,
+  resolved object, and permissions.
 
 4.4.2 (2023-01-23)
 ==================
