@@ -12,7 +12,7 @@ class TagFormWidget(forms.SelectMultiple):
         result = super().create_option(
             attrs=attrs, index=index,
             label='{}'.format(
-                conditional_escape(label)
+                conditional_escape(text=label)
             ), name=name, selected=selected, subindex=subindex,
             value=value
         )

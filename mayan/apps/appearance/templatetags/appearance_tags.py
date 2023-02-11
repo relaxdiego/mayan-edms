@@ -48,7 +48,9 @@ def appearance_app_templates(context, template_name):
 
         result.append(app_template_output)
 
-    return mark_safe(' '.join(result))
+    return mark_safe(
+        s=' '.join(result)
+    )
 
 
 @register.filter
@@ -56,7 +58,11 @@ def appearance_get_choice_value(field):
     try:
         return dict(field.field.choices)[field.value()]
     except TypeError:
-        return ', '.join([subwidget.data['label'] for subwidget in field.subwidgets if subwidget.data['selected']])
+        return ', '.join(
+            [
+                subwidget.data['label'] for subwidget in field.subwidgets if subwidget.data['selected']
+            ]
+        )
     except KeyError:
         return _('None')
 
@@ -105,7 +111,9 @@ def appearance_get_user_theme_stylesheet(user):
 
 @register.simple_tag
 def appearance_icon_render(icon, enable_shadow=False):
-    return icon.render(extra_context={'enable_shadow': enable_shadow})
+    return icon.render(
+        extra_context={'enable_shadow': enable_shadow}
+    )
 
 
 @register.filter

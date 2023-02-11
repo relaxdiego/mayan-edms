@@ -36,7 +36,7 @@ class DocumentVersionPageOCRContentDetailForm(forms.Form):
                 str(page_content)
             )
 
-        self.fields['contents'].initial = mark_safe(content)
+        self.fields['contents'].initial = mark_safe(s=content)
 
 
 class DocumentVersionPageOCRContentEditForm(forms.ModelForm):
@@ -90,7 +90,7 @@ class DocumentVersionOCRContentForm(forms.Form):
             else:
                 content.append(
                     conditional_escape(
-                        str(page_content)
+                        text=str(page_content)
                     )
                 )
                 content.append(
@@ -102,5 +102,5 @@ class DocumentVersionOCRContentForm(forms.Form):
                 )
 
         self.fields['contents'].initial = mark_safe(
-            ''.join(content)
+            s=''.join(content)
         )

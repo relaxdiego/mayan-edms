@@ -30,7 +30,11 @@ class DocumentFileContentForm(forms.Form):
             except DocumentFilePageContent.DoesNotExist:
                 """Page does not have parsed content, skip."""
             else:
-                content.append(conditional_escape(force_text(s=page_content)))
+                content.append(
+                    conditional_escape(
+                        text=force_text(s=page_content)
+                    )
+                )
                 content.append(
                     '\n\n\n<hr/><div class="document-page-content-divider">- %s -</div><hr/>\n\n\n' % (
                         ugettext(
@@ -39,7 +43,9 @@ class DocumentFileContentForm(forms.Form):
                     )
                 )
 
-        self.fields['contents'].initial = mark_safe(''.join(content))
+        self.fields['contents'].initial = mark_safe(
+            s=''.join(content)
+        )
 
     contents = forms.CharField(
         label=_('Contents'),
@@ -74,6 +80,8 @@ class DocumentFilePageContentForm(forms.Form):
         except DocumentFilePageContent.DoesNotExist:
             pass
         else:
-            content = conditional_escape(force_text(s=page_content))
+            content = conditional_escape(
+                text=force_text(s=page_content)
+            )
 
-        self.fields['contents'].initial = mark_safe(content)
+        self.fields['contents'].initial = mark_safe(s=content)

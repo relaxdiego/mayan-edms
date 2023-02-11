@@ -1,5 +1,5 @@
 from django.apps import apps
-from django.utils.html import mark_safe, escape
+from django.utils.html import escape, mark_safe
 
 from .icons import (
     icon_index, icon_index_level_up, icon_index_instance_node_with_documents
@@ -12,10 +12,9 @@ def get_instance_link(index_instance_node):
     """
     return mark_safe(
         s='<a href="{url}">{text}</a>'.format(
-            url=index_instance_node.get_absolute_url(),
             text=escape(
                 index_instance_node.get_full_path()
-            )
+            ), url=index_instance_node.get_absolute_url()
         )
     )
 
@@ -35,9 +34,8 @@ def index_instance_item_link(index_instance_item):
 
     return mark_safe(
         s='{icon}&nbsp;<a href="{url}">{text}</a>'.format(
-            url=index_instance_item.get_absolute_url(),
-            icon=icon,
-            text=index_instance_item
+            icon=icon, text=index_instance_item,
+            url=index_instance_item.get_absolute_url()
         )
     )
 
@@ -85,4 +83,6 @@ def node_tree(node, user):
 
     result.append('</div>')
 
-    return mark_safe(''.join(result))
+    return mark_safe(
+        s=''.join(result)
+    )

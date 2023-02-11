@@ -37,7 +37,9 @@ def widget_event_actor_link(context, attribute=None):
     if url:
         return Template(
             template_string='<a href="{{ url }}">{{ label }}</a>'
-        ).render(context={'label': entry.actor, 'url': url})
+        ).render(
+            context={'label': entry.actor, 'url': url}
+        )
     else:
         return label
 
@@ -54,7 +56,7 @@ def widget_event_type_link(context, attribute=None):
         event_type_label = TEXT_UNKNOWN_EVENT_ID % entry.verb
 
     return mark_safe(
-        '<a href="{url}">{label}</a>'.format(
+        s='<a href="{url}">{label}</a>'.format(
             url=reverse(
                 viewname='events:verb_event_list',
                 kwargs={'verb': entry.verb}

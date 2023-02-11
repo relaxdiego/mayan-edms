@@ -31,7 +31,9 @@ def method_document_file_content(document_file):
         except DocumentFilePageContent.DoesNotExist:
             """Page has no content, skip."""
         else:
-            yield conditional_escape(text=str(page_content))
+            yield conditional_escape(
+                text=str(page_content)
+            )
 
 
 def method_document_file_parsing_submit(self, user=None):

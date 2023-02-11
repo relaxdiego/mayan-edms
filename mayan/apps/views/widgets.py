@@ -56,7 +56,9 @@ class NamedMultiWidget(forms.widgets.Widget):
 
     @property
     def is_hidden(self):
-        return all(widget.is_hidden for name, widget in self.widgets.items())
+        return all(
+            widget.is_hidden for name, widget in self.widgets.items()
+        )
 
     def get_context(self, name, value, attrs):
         context = super().get_context(name, value, attrs)

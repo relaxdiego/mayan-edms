@@ -112,7 +112,7 @@ class Variable:
 
     def get_value(self):
         return mark_safe(
-            self._get_value()
+            s=self._get_value()
         )
 
 
