@@ -4,6 +4,43 @@
   converted document file size does not exceed the ``PositiveIntegerField``
   database field maximum value of 2147483647
   (https://docs.djangoproject.com/en/4.1/ref/models/fields/#positiveintegerfield).
+- Sanitize tag labels to avoid XSS abuse (CVE-2022-47419: Mayan EDMS Tag XSS).
+  This is a limited scope weakness of the tagging system markup that can be
+  used to display an arbitrary text when selecting a tag for attachment to
+  or removal from a document.
+
+  It is not possible to circumvent Mayan EDMS access control system or
+  expose arbitrary information with this weakness.
+
+  Attempting to exploit this weakness requires a privileged account and
+  is not possible to enable from a guest or an anonymous account. Visitors
+  to a Mayan EDMS installation cannot exploit this weakness.
+
+  It is also being incorrectly reported that this weakness can be used to
+  steal the session cookie and impersonate users. Since version 1.4
+  (March 23, 2012) Django has included the ``httponly``
+  attribute for the session cookie. This means that the session cookie data,
+  including ``sessionid``, is no longer accessible from JavaScript.
+  https://docs.djangoproject.com/en/4.1/releases/1.4/
+
+  Mayan EDMS currently uses Django 3.2. Under this version of Django
+  The ``SESSION_COOKIE_HTTPONLY`` defaults to ``True``, which enables the
+  ``httponly`` for the session cookie making it inaccessible to JavaScript
+  and therefore not available for impersonation via session hijacking.
+  https://docs.djangoproject.com/en/3.2/ref/settings/#session-cookie-httponly
+
+  Django's ``SESSION_COOKIE_HTTPONLY`` setting is not currently exposed by
+  Mayan EDMS' setting system, therefore it is not possible to disable this
+  protection by conventional means.
+
+  Any usage of this weakness remains logged in the event system making
+  it easy to track down any bad actors.
+
+  Due to all these factors, the surface of attack of this weakness is
+  very limited, if any.
+
+  There are no known actual or theoretical attacks exploiting this
+  weakness to expose or destroy data.
 
 4.3.5 (2023-01-10)
 ==================
