@@ -12,6 +12,26 @@
 - Improve permissions handling of the transformation, decorations, and
   redactions links.
 - Improve transformation and redaction link testing.
+- Sanitize tag labels to avoid XSS abuse (CVE-2022-47419: Mayan EDMS Tag XSS).
+  This is a limited scope abuse of the tagging system markup that can be
+  used to display an arbitrary text when selecting a tag for attachment to
+  or removal from a document.
+
+  It is not possible to circumvent Mayan EDMS access control system or
+  expose arbitrary information with this vulnerability.
+
+  Attempting to exploit this vulnerability requires a privileged account and
+  is not possible to enable from a guest or an anonymous account. Visitors
+  to a Mayan EDMS installation cannot exploit this vulnerability.
+
+  Any usage of this vulnerability remains logged in the event system making
+  it easy to track down any bad actors.
+
+  Due to all these factors, the surface of attack of this vulnerability is
+  very limited, if any.
+
+  There are no known actual or theoretical attacks exploiting this
+  vulnerability to expose or destroy data.
 
 4.4.2 (2023-01-23)
 ==================
