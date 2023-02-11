@@ -42,7 +42,7 @@ Direct deployment method
 
 
 - |DEFAULT_OS_DISTRIBUTION| GNU/Linux or a derivative distribution.
-- Python version 3.7.
+- Python version 3.9.
 
 
 Recommended
@@ -56,7 +56,7 @@ All sizes
 - CPU: 64 bit, 4 cores or more, 2 GHz or faster, third generation of the
   Intel Core processors (Core i7, i5, i3) "IvyBridge" or better.
 - Storage: solid state drive.
-- Database manager: PostgreSQL 12 or later.
+- Database manager: PostgreSQL 13 or later.
 
 
 Enterprise

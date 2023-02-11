@@ -1,4 +1,4 @@
-4.4.3 (2023-XX-XX)
+4.4.3 (2023-02-11)
 ==================
 - Improve transformation views to always pass the object
   having the transformation applied.
@@ -13,25 +13,29 @@
   redactions links.
 - Improve transformation and redaction link testing.
 - Sanitize tag labels to avoid XSS abuse (CVE-2022-47419: Mayan EDMS Tag XSS).
-  This is a limited scope abuse of the tagging system markup that can be
+  This is a limited scope weakness of the tagging system markup that can be
   used to display an arbitrary text when selecting a tag for attachment to
   or removal from a document.
 
   It is not possible to circumvent Mayan EDMS access control system or
-  expose arbitrary information with this vulnerability.
+  expose arbitrary information with this weakness.
 
-  Attempting to exploit this vulnerability requires a privileged account and
+  Attempting to exploit this weakness requires a privileged account and
   is not possible to enable from a guest or an anonymous account. Visitors
-  to a Mayan EDMS installation cannot exploit this vulnerability.
+  to a Mayan EDMS installation cannot exploit this weakness.
 
-  Any usage of this vulnerability remains logged in the event system making
+  Any usage of this weakness remains logged in the event system making
   it easy to track down any bad actors.
 
-  Due to all these factors, the surface of attack of this vulnerability is
+  Due to all these factors, the surface of attack of this weakness is
   very limited, if any.
 
   There are no known actual or theoretical attacks exploiting this
-  vulnerability to expose or destroy data.
+  weakness to expose or destroy data.
+- Drop support for Python 3.7 and Python 3.8. Python 3.9 is now the minimum
+  version supported. This change happened in version 4.4 but was not
+  documented. Closes GitLab issue #1137. Thanks to joh-ku (@joh-ku)
+  for the report and research.
 
 4.4.2 (2023-01-23)
 ==================
@@ -47,8 +51,8 @@
 
   - Add makefile targets to trigger standalone builds.
   - Increase artifact expiration.
-  - Add PIP and APT caching to documenation and python build stages.
-  - Add GitLab CI job dependecies.
+  - Add PIP and APT caching to documentation and python build stages.
+  - Add GitLab CI job dependencies.
   - Reuse Python build in stages.
   - Convert branches into literals.
   - Remove duplicated code in jobs.
