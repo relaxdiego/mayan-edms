@@ -591,7 +591,7 @@ class DocumentsApp(MayanAppConfig):
         SourceColumn(
             attribute='datetime_created', include_label=True,
             is_sortable=True, name='datetime_created',
-            source=Document
+            source=RecentlyCreatedDocument
         )
 
         # DocumentFile

@@ -28,7 +28,7 @@ class ACLActionTestCase(ActionTestCase):
         self.assertEqual(self._test_document.acls.count(), 1)
         self.assertEqual(
             list(
-                elf._test_document.acls.first().permissions.all()
+                self._test_document.acls.first().permissions.all()
             ), [permission_document_view.stored_permission]
         )
         self.assertEqual(
