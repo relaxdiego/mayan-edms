@@ -23,7 +23,7 @@ def conditional_active(context, resolved_link):
 
 def condition_valid_transformation_and_arguments(context, resolved_object):
     try:
-        transformation = BaseTransformation.get(name=context['object'].name)
+        transformation = BaseTransformation.get(name=resolved_object.name)
     except KeyError:
         return False
     else:
@@ -69,7 +69,7 @@ link_transformation_edit = LayerLink(
     view='converter:transformation_edit'
 )
 link_transformation_list = LayerLink(
-    action='list', conditional_active=conditional_active,
+    action='view', conditional_active=conditional_active,
     layer=layer_saved_transformations, text=_('Transformations'),
     view='converter:transformation_list'
 )

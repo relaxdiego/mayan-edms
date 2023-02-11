@@ -80,7 +80,6 @@ class RedactionViewTestCase(
         context['layer_name'] = self._test_layer.name
         context['content_object'] = self._test_transformation_object
         resolved_link = link_transformation_edit.resolve(context=context)
-
         self.assertEqual(resolved_link, None)
 
     def test_redaction_edit_link_with_access(self):
@@ -97,7 +96,6 @@ class RedactionViewTestCase(
         context['layer_name'] = self._test_layer.name
         context['content_object'] = self._test_transformation_object
         resolved_link = link_transformation_edit.resolve(context=context)
-
         self.assertNotEqual(resolved_link, None)
 
         self.assertEqual(
@@ -138,7 +136,6 @@ class RedactionViewTestCase(
         context['layer_name'] = self._test_layer.name
         context['content_object'] = self._test_transformation_object
         resolved_link = link_transformation_select.resolve(context=context)
-
         self.assertNotEqual(resolved_link, None)
 
         self.assertEqual(
@@ -162,18 +159,7 @@ class RedactionViewTestCase(
         context['content_object'] = self._test_transformation_object
         resolved_link = link_redaction_list.resolve(context=context)
 
-        self.assertNotEqual(resolved_link, None)
-
-        self.assertEqual(
-            resolved_link.url, reverse(
-                viewname=link_redaction_list.view, kwargs={
-                    'app_label': self._test_transformation_object_content_type.app_label,
-                    'model_name': self._test_transformation_object_content_type.model,
-                    'object_id': self._test_transformation_object.pk,
-                    'layer_name': self._test_layer.name
-                }
-            )
-        )
+        self.assertEqual(resolved_link, None)
 
     def test_redaction_list_link_with_access(self):
         self._create_test_transformation()
@@ -189,7 +175,6 @@ class RedactionViewTestCase(
         context['layer_name'] = self._test_layer.name
         context['content_object'] = self._test_transformation_object
         resolved_link = link_redaction_list.resolve(context=context)
-
         self.assertNotEqual(resolved_link, None)
 
         self.assertEqual(
@@ -202,3 +187,138 @@ class RedactionViewTestCase(
                 }
             )
         )
+
+
+class RedactionLinkDisplayTestCase(
+    TransformationTestMixin, TransformationViewTestMixin,
+    GenericDocumentViewTestCase
+):
+    _test_layer = layer_redactions
+    _test_transformation_argument = TEST_REDACTION_ARGUMENT
+    auto_create_test_layer = False
+    auto_create_test_transformation_class = False
+    TestTransformationClass = TransformationRedactionPercent
+
+    def test_redaction_delete_link_view_with_view_access(self):
+        self._create_test_transformation()
+
+        self.grant_access(
+            obj=self._test_transformation_object_parent,
+            permission=permission_redaction_view
+        )
+
+        self._clear_events()
+
+        response = self._request_transformation_list_view()
+        self.assertContains(
+            response=response, text=str(self._test_transformation_object),
+            status_code=200
+        )
+        self.assertContains(
+            response=response,
+            text=self._test_transformation.get_transformation_class().label,
+            status_code=200
+        )
+        self.assertNotContains(
+            response=response,
+            text=link_transformation_delete.text,
+            status_code=200
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_redaction_delete_link_view_with_all_access(self):
+        self._create_test_transformation()
+
+        self.grant_access(
+            obj=self._test_transformation_object_parent,
+            permission=permission_redaction_delete
+        )
+        self.grant_access(
+            obj=self._test_transformation_object_parent,
+            permission=permission_redaction_view
+        )
+
+        self._clear_events()
+
+        response = self._request_transformation_list_view()
+        self.assertContains(
+            response=response, text=str(self._test_transformation_object),
+            status_code=200
+        )
+        self.assertContains(
+            response=response,
+            text=self._test_transformation.get_transformation_class().label,
+            status_code=200
+        )
+        self.assertContains(
+            response=response,
+            text=link_transformation_delete.text,
+            status_code=200
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_redaction_edit_link_view_with_view_access(self):
+        self._create_test_transformation()
+
+        self.grant_access(
+            obj=self._test_transformation_object_parent,
+            permission=permission_redaction_view
+        )
+
+        self._clear_events()
+
+        response = self._request_transformation_list_view()
+        self.assertContains(
+            response=response, text=str(self._test_transformation_object),
+            status_code=200
+        )
+        self.assertContains(
+            response=response,
+            text=self._test_transformation.get_transformation_class().label,
+            status_code=200
+        )
+        self.assertNotContains(
+            response=response,
+            text=link_transformation_edit.text,
+            status_code=200
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
+
+    def test_redaction_edit_link_view_with_all_access(self):
+        self._create_test_transformation()
+
+        self.grant_access(
+            obj=self._test_transformation_object_parent,
+            permission=permission_redaction_edit
+        )
+        self.grant_access(
+            obj=self._test_transformation_object_parent,
+            permission=permission_redaction_view
+        )
+
+        self._clear_events()
+
+        response = self._request_transformation_list_view()
+        self.assertContains(
+            response=response, text=str(self._test_transformation_object),
+            status_code=200
+        )
+        self.assertContains(
+            response=response,
+            text=self._test_transformation.get_transformation_class().label,
+            status_code=200
+        )
+        self.assertContains(
+            response=response,
+            text=link_transformation_edit.text,
+            status_code=200
+        )
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)

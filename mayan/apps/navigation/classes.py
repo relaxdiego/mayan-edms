@@ -66,9 +66,9 @@ class Link(TemplateObjectMixin):
         self.html_extra_classes = html_extra_classes
         self._icon = icon
         self.keep_query = keep_query
-        self.kwargs = kwargs or {}
+        self._kwargs = kwargs or {}
         self.name = name
-        self.permissions = permissions or []
+        self._permissions = permissions or []
         self.query = query or {}
         self.remove_from_query = remove_from_query or []
         self.tags = tags
@@ -84,13 +84,16 @@ class Link(TemplateObjectMixin):
 
     def get_kwargs(self, context):
         try:
-            return self.kwargs(context)
+            return self._kwargs(context)
         except TypeError:
             # Is not a callable.
-            return self.kwargs
+            return self._kwargs
+
+    def get_permission_object(self, context):
+        return None
 
     def get_permissions(self, context):
-        return self.permissions
+        return self._permissions
 
     def get_resolved_object(self, context):
         try:
@@ -119,20 +122,28 @@ class Link(TemplateObjectMixin):
         current_path = request.META['PATH_INFO']
         current_view_name = resolve(path=current_path).view_name
 
-        # ACL is tested against the resolved_object or just {{ object }}
-        # if not.
         if not resolved_object:
             resolved_object = self.get_resolved_object(context=context)
+
+        # If we were passed an instance of the view context object we are
+        # resolving, inject it into the context. This helps resolve links for
+        # object lists.
+        if resolved_object:
+            context['resolved_object'] = resolved_object
+
+        # ACL is tested against the resolved_object, {{ object }}
+        # or a custom object returned by the link subclass.
+        permission_object = self.get_permission_object(context=context) or resolved_object
 
         # If this link has a required permission check that the user has it
         # too.
         permissions = self.get_permissions(context=context)
 
         if permissions:
-            if resolved_object:
+            if permission_object:
                 try:
                     AccessControlList.objects.check_access(
-                        obj=resolved_object, permissions=permissions,
+                        obj=permission_object, permissions=permissions,
                         user=request.user
                     )
                 except PermissionDenied:
@@ -144,12 +155,6 @@ class Link(TemplateObjectMixin):
                     )
                 except PermissionDenied:
                     return None
-
-        # If we were passed an instance of the view context object we are
-        # resolving, inject it into the context. This helps resolve links for
-        # object lists.
-        if resolved_object:
-            context['resolved_object'] = resolved_object
 
         # Check to see if link has conditional display function and only
         # display it if the result of the conditional display function is

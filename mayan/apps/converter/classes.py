@@ -458,7 +458,7 @@ class LayerLink(Link):
         return result
 
     def get_icon(self, context):
-        if self.action == 'list':
+        if self.action == 'view':
             layer = self.get_layer(context=context)
             if layer and layer.symbol:
                 return layer.get_icon()
@@ -502,9 +502,20 @@ class LayerLink(Link):
         elif 'layer' in context:
             return context['layer']
         else:
-            return Layer.get(
-                name=context['layer_name']
-            )
+            layer_name = context.get('layer_name', None)
+            if layer_name:
+                return Layer.get(name=layer_name)
+            else:
+                return Layer.get_by_value(key='default', value=True)
+
+    def get_permission_object(self, context):
+        try:
+            return context['content_object']
+        except KeyError:
+            try:
+                return context['resolved_object']
+            except KeyError:
+                return None
 
     def get_permissions(self, context):
         layer = self.get_layer(context=context)
@@ -514,11 +525,3 @@ class LayerLink(Link):
             return (permission,)
         else:
             return ()
-
-    def get_resolved_object(self, context):
-        if 'content_object' in context:
-            content_object_variable = 'content_object'
-        else:
-            content_object_variable = 'resolved_object'
-
-        return context[content_object_variable]
