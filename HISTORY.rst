@@ -1,3 +1,9 @@
+4.4.4 (2023-XX-XX)
+==================
+- Update image interface when generating QRCode image. Fixes OTP QRCode
+  rendering. Thanks to forum user Ken Robinson (@DocCyblade) for the report.
+- Simplify OTP QRCode generation to lower the changes of future regressions.
+
 4.4.3 (2023-02-11)
 ==================
 - Improve transformation views to always pass the object
