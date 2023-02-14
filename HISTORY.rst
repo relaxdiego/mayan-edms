@@ -47,6 +47,11 @@
   (https://github.com/transifex/cli).
 - Add Makefile target to allow testing individual migration tests against
   PostgreSQL.
+- Add a custom REST API exception handler to workaround inconsistent
+  validation exception behavior in Django REST framework
+  (https://github.com/encode/django-rest-framework/issues/2145). Closes
+  GitLab issue #1128. Thanks to Jan Przychodniak (@janprzychodniak) for the
+  report and debug information.
 
 4.3.5 (2023-01-10)
 ==================
