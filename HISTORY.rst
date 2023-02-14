@@ -3,6 +3,11 @@
 - Update image interface when generating QRCode image. Fixes OTP QRCode
   rendering. Thanks to forum user Ken Robinson (@DocCyblade) for the report.
 - Simplify OTP QRCode generation to lower the changes of future regressions.
+- Add a custom REST API exception handler to workaround inconsistent
+  validation exception behavior in Django REST framework
+  (https://github.com/encode/django-rest-framework/issues/2145). Closes
+  GitLab issue #1128. Thanks to Jan Przychodniak (@janprzychodniak) for the
+  report and debug information.
 
 4.4.3 (2023-02-11)
 ==================
