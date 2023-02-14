@@ -1,4 +1,4 @@
-4.4.4 (2023-XX-XX)
+4.4.4 (2023-02-14)
 ==================
 - Update image interface when generating QRCode image. Fixes OTP QRCode
   rendering. Thanks to forum user Ken Robinson (@DocCyblade) for the report.
@@ -8,6 +8,15 @@
   (https://github.com/encode/django-rest-framework/issues/2145). Closes
   GitLab issue #1128. Thanks to Jan Przychodniak (@janprzychodniak) for the
   report and debug information.
+- Ensure correct index instance nodes are deleted. Don't delete all excluded
+  index instances nodes. Instead delete all the index instance nodes where
+  the document being processed is found but exclude the nodes recently
+  updated. Closes GitLab issue #1134. Thanks to Nicholas Buttigieg
+  (@nicholasbuttigieg) and Kyle Pullicino (@KPull) for the report and test
+  scenario.
+- Remove the Python Transifex client. The new Go based client is required
+  to be installed manually when working with translations
+  (https://github.com/transifex/cli).
 
 4.4.3 (2023-02-11)
 ==================
