@@ -8,7 +8,7 @@ from mayan.apps.documents.tests.literals import (
     TEST_DOCUMENT_DESCRIPTION, TEST_DOCUMENT_DESCRIPTION_EDITED,
     TEST_DOCUMENT_LABEL_EDITED
 )
-from mayan.apps.metadata.models import MetadataType, DocumentTypeMetadataType
+from mayan.apps.metadata.models import DocumentTypeMetadataType, MetadataType
 
 from ..models import (
     IndexInstance, IndexInstanceNode, IndexTemplate, IndexTemplateNode
@@ -22,18 +22,33 @@ from .literals import (
 from .mixins import IndexTemplateTestMixin
 
 
-class IndexTemplateTestCase(IndexTemplateTestMixin, GenericDocumentTestCase):
+class IndexInstanceNodeMaintenanceTestCase(
+    IndexTemplateTestMixin, GenericDocumentTestCase
+):
+    auto_create_test_index_template_node = False
     auto_upload_test_document = False
 
-    def test_method_get_absolute_url(self):
-        self._create_test_index_template()
+    def test_index_instance_node_deletion(self):
+        self._test_index_template.index_template_nodes.create(
+            expression='{% if not document.label %}No label{% endif %}',
+            link_documents=True,
+            parent=self._test_index_template.index_template_root_node
+        )
+        self._create_test_document_stub(label='')
+        self._create_test_document_stub(label='')
 
-        self._clear_events()
+        IndexTemplate.objects.rebuild()
 
-        self.assertTrue(self._test_index_template.get_absolute_url())
+        self._test_documents[1].label = 'test_label'
+        self._test_documents[1].save()
 
-        events = self._get_test_events()
-        self.assertEqual(events.count(), 0)
+        self.assertEqual(IndexInstanceNode.objects.count(), 2)
+        self.assertTrue(
+            self._test_documents[0] in IndexInstanceNode.objects.last().documents.all()
+        )
+        self.assertTrue(
+            self._test_documents[1] not in IndexInstanceNode.objects.last().documents.all()
+        )
 
 
 class IndexInstanceBasicTestCase(
@@ -137,8 +152,9 @@ class IndexInstanceTestCase(IndexTemplateTestMixin, GenericDocumentTestCase):
         self._upload_test_document()
 
         self.assertEqual(
-            list(IndexInstanceNode.objects.values_list('value', flat=True)),
-            [
+            list(
+                IndexInstanceNode.objects.values_list('value', flat=True)
+            ), [
                 '', str(self._test_document.datetime_created.year),
                 '{:02}'.format(self._test_document.datetime_created.month)
             ]
@@ -171,8 +187,9 @@ class IndexInstanceTestCase(IndexTemplateTestMixin, GenericDocumentTestCase):
 
         # Typecast to sets to make sorting irrelevant in the comparison.
         self.assertEqual(
-            set(IndexInstanceNode.objects.values_list('value', flat=True)),
-            {
+            set(
+                IndexInstanceNode.objects.values_list('value', flat=True)
+            ), {
                 '', str(self._test_documents[1].uuid),
                 self._test_documents[1].label,
                 str(self._test_documents[0].uuid),
@@ -245,7 +262,9 @@ class IndexInstanceTestCase(IndexTemplateTestMixin, GenericDocumentTestCase):
 
     def test_method_get_absolute_url(self):
         test_index_instance = IndexInstance.objects.first()
-        self.assertTrue(test_index_instance.get_absolute_url())
+        self.assertTrue(
+            test_index_instance.get_absolute_url()
+        )
 
     def test_multi_level_template_with_no_result_parent(self):
         """
@@ -299,7 +318,9 @@ class IndexInstanceTestCase(IndexTemplateTestMixin, GenericDocumentTestCase):
         # Check that document is in instance node.
         instance_node = IndexInstanceNode.objects.get(value='0001')
         self.assertQuerysetEqual(
-            instance_node.documents.all(), [repr(self._test_document)]
+            instance_node.documents.all(), [
+                repr(self._test_document)
+            ]
         )
 
 

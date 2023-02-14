@@ -83,12 +83,16 @@ class IndexInstanceBusinessLogicMixin:
         excluded_index_instance_node_id_list = excluded_index_instance_node_id_list or ()
 
         with transaction.atomic():
-            document_index_instance_node_queryset = IndexInstanceNode.objects.filter(
-                documents=document, index_template_node__index=self
-            )
-            document_index_instance_node_queryset.exclude(
-                pk__in=excluded_index_instance_node_id_list
+            IndexInstanceNode.documents.through.objects.filter(
+                document=document,
+                indexinstancenode__index_template_node__enabled=True,
+                indexinstancenode__index_template_node__index=self,
+                indexinstancenode__index_template_node__index__enabled=True,
+                indexinstancenode__index_template_node__index__document_types=document.document_type
+            ).exclude(
+                indexinstancenode__in=excluded_index_instance_node_id_list
             ).delete()
+
             self.delete_empty_nodes(acquire_lock=False)
 
     def delete_empty_nodes(self, acquire_lock=True):
@@ -121,7 +125,7 @@ class IndexInstanceBusinessLogicMixin:
 
         index_instance_node_id_list = []
 
-        if Document.valid.filter(pk=document.pk) and self.enabled and self.document_types.filter(pk=document.document_type.pk).exists():
+        if Document.valid.filter(pk=document.pk).exists() and self.enabled and self.document_types.filter(pk=document.document_type.pk).exists():
             try:
                 locking_backend = LockingBackend.get_backend()
 
@@ -163,7 +167,7 @@ class IndexInstanceBusinessLogicMixin:
     ):
         excluded_index_instance_node_id_list = excluded_index_instance_node_id_list or ()
 
-        if Document.valid.filter(pk=document.pk) and self.enabled and self.document_types.filter(pk=document.document_type.pk).exists():
+        if Document.valid.filter(pk=document.pk).exists() and self.enabled and self.document_types.filter(pk=document.document_type.pk).exists():
             if acquire_lock:
                 try:
                     lock_index_instance = LockingBackend.get_backend().acquire_lock(
