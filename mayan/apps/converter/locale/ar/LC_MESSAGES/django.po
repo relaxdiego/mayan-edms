@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2023\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
@@ -56,10 +56,6 @@ msgid ""
 "Transformations allow changing the visual appearance of documents without "
 "making permanent changes to the document file themselves."
 msgstr "تغير الوثيقة الخارجية للعرض"
-
-#: classes.py:454
-msgid "transformation"
-msgstr "التغيرات"
 
 #: dependencies.py:14
 msgid "Utility from the poppler-utils package used to inspect PDF files."
@@ -117,7 +113,7 @@ msgstr "أنشاء"
 msgid "Delete"
 msgstr "حذف"
 
-#: links.py:48 links.py:72
+#: links.py:48 links.py:68
 msgid "Edit"
 msgstr "تعديل"
 
@@ -125,11 +121,11 @@ msgstr "تعديل"
 msgid "Assets"
 msgstr "الأصول"
 
-#: links.py:77
+#: links.py:73
 msgid "Transformations"
 msgstr "المسار التعديلي"
 
-#: links.py:82
+#: links.py:78
 msgid "Select new transformation"
 msgstr "تحديد جديد"
 
@@ -703,31 +699,31 @@ msgstr ""
 "هل تريد حذف التحويل &quot;%(transformation)s&quot; من أجل: "
 "%(content_object)s؟"
 
-#: views/transformation_views.py:179
+#: views/transformation_views.py:184
 #, python-format
 msgid "Edit transformation \"%(transformation)s\" for: %(content_object)s"
 msgstr ""
 "تعديل التحويل &quot;%(transformation)s&quot; من أجل: %(content_object)s"
 
-#: views/transformation_views.py:238
+#: views/transformation_views.py:248
 #, python-format
 msgid "There are no entries for layer \"%(layer_name)s\""
 msgstr "لا توجد أي اضافات على الوثيقة &quot;%(layer_name)s&quot;"
 
-#: views/transformation_views.py:241
+#: views/transformation_views.py:251
 #, python-format
 msgid "Layer \"%(layer)s\" transformations for: %(object)s"
 msgstr "تحويلات طبقة &quot;%(layer)s&quot; لـ: %(object)s"
 
-#: views/transformation_views.py:287
+#: views/transformation_views.py:297
 msgid "Transformation created successfully."
 msgstr "تم إنشاء التحول بنجاح."
 
-#: views/transformation_views.py:311
+#: views/transformation_views.py:321
 msgid "Select"
 msgstr "إختيار"
 
-#: views/transformation_views.py:313
+#: views/transformation_views.py:323
 #, python-format
 msgid "Select new layer \"%(layer)s\" transformation for: %(object)s"
 msgstr "حدد تحويل طبقة جديدة &quot;%(layer)s&quot; لـ: %(object)s"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:47+0000\n"
 "PO-Revision-Date: 2023-01-05 02:55+0000\n"
 "Last-Translator: Bedreddin Şahbaz, 2023\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps.py:34 apps.py:74 layers.py:15 permissions.py:6
+#: apps.py:33 layers.py:15 links.py:10 permissions.py:6
 msgid "Redactions"
 msgstr "Redaksiyonlar"
 

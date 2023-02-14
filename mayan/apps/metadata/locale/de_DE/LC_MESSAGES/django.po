@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:47+0000\n"
 "PO-Revision-Date: 2023-01-05 02:53+0000\n"
 "Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2023\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
@@ -88,7 +88,7 @@ msgstr "Wert"
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: forms.py:52 forms.py:236 models.py:278
+#: forms.py:52 forms.py:236 models.py:282
 msgid "Required"
 msgstr "Erforderlich"
 
@@ -111,7 +111,7 @@ msgstr "\"%s\" wird für diesen Dokumententyp benötigt."
 msgid "Metadata types to be added to the selected documents."
 msgstr "Metadatentypen für die ausgewählten Dokumente."
 
-#: forms.py:138 models.py:89 models.py:275 search.py:14 serializers.py:48
+#: forms.py:138 models.py:89 models.py:279 search.py:14 serializers.py:48
 #: serializers.py:108 workflow_actions.py:88
 msgid "Metadata type"
 msgstr "Metadatentyp"
@@ -326,23 +326,23 @@ msgstr ""
 msgid "Document metadata"
 msgstr "Dokument Metadaten"
 
-#: models.py:224
+#: models.py:228
 msgid "Metadata type is required for this document type."
 msgstr "Metadatentyp ist erforderlich für diesen Dokumententyp."
 
-#: models.py:257
+#: models.py:261
 msgid "Metadata type is not valid for this document type."
 msgstr "Metadatentyp ist nicht gültig für diesen Dokumententyp."
 
-#: models.py:271 serializers.py:45
+#: models.py:275 serializers.py:45
 msgid "Document type"
 msgstr "Dokumententyp"
 
-#: models.py:286
+#: models.py:290
 msgid "Document type metadata type options"
 msgstr "Metadatentyp Optionen"
 
-#: models.py:287
+#: models.py:291
 msgid "Document type metadata types options"
 msgstr "Metadatentyp Optionen"
 

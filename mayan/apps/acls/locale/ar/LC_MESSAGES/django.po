@@ -5,7 +5,7 @@
 # Translators:
 # Translators:
 # Yaman Sanobar <yman.snober@gmail.com>, 2023
-# Ali Mohamed, 2023
+# Ali, 2023
 # Roberto Rosario, 2023
 # Ayoub BENSAKHRIA <bensakhria.ayoub@gmail.com>, 2023
 # Marwan Rahhal <Marwanr@sssit.net>, 2023
@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:49+0000\n"
 "Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2023\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
@@ -76,12 +76,12 @@ msgstr "الصلاحيات"
 msgid "Global ACLs"
 msgstr "قوائم حق الوصول ACL شاملة"
 
-#: managers.py:267
+#: managers.py:274
 #, python-format
 msgid "Object \"%s\" is not a model and cannot be checked for access."
 msgstr "الكائن \"%s\" ليس نموذجًا ولا يمكن التحقق منه للولوج. "
 
-#: managers.py:287
+#: managers.py:294
 #, python-format
 msgid "Insufficient access for: %s"
 msgstr "صلاحيات الوصول غير كافية لـ:%s"

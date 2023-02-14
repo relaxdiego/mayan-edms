@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:49+0000\n"
 "Last-Translator: yan songwei <yansw@vip.163.com>, 2023\n"
 "Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
@@ -469,7 +469,7 @@ msgstr "服务器通信错误"
 msgid "Check you network connection and try again in a few moments."
 msgstr "检查网络连接，并稍后再试。"
 
-#: templatetags/appearance_tags.py:61
+#: templatetags/appearance_tags.py:67
 msgid "None"
 msgstr "没有"
 

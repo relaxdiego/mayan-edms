@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:51+0000\n"
 "Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2023\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
@@ -169,23 +169,23 @@ msgstr ""
 "Fehler bei der Indexierung von Dokument %(document)s; Ausdruck: "
 "%(expression)s; %(exception)s"
 
-#: models/index_instance_model_mixins.py:212
+#: models/index_instance_model_mixins.py:216
 msgid "Total number of nodes with unique values this item contains."
 msgstr ""
 
-#: models/index_instance_model_mixins.py:221
+#: models/index_instance_model_mixins.py:225
 msgid "Total number of unique documents this item contains."
 msgstr ""
 
-#: models/index_instance_model_mixins.py:231
+#: models/index_instance_model_mixins.py:235
 msgid "Total number of node levels this item contains."
 msgstr ""
 
-#: models/index_instance_model_mixins.py:300
+#: models/index_instance_model_mixins.py:304
 msgid "The path to the index including all ancestors."
 msgstr "Der Pfad zum Index, einschließlich aller übergeordneten Elemente."
 
-#: models/index_instance_model_mixins.py:302
+#: models/index_instance_model_mixins.py:306
 msgid "Full path"
 msgstr "Vollständiger Pfad"
 

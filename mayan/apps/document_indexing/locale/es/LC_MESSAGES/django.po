@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:51+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (https://www.transifex.com/rosarior/teams/13584/es/)\n"
@@ -161,23 +161,23 @@ msgstr ""
 "Error indexando documento: %(document)s; expresión: %(expression)s; "
 "%(exception)s"
 
-#: models/index_instance_model_mixins.py:212
+#: models/index_instance_model_mixins.py:216
 msgid "Total number of nodes with unique values this item contains."
 msgstr "Número total de nodos con valores únicos que contiene este elemento."
 
-#: models/index_instance_model_mixins.py:221
+#: models/index_instance_model_mixins.py:225
 msgid "Total number of unique documents this item contains."
 msgstr "Número total de documentos únicos que contiene este elemento."
 
-#: models/index_instance_model_mixins.py:231
+#: models/index_instance_model_mixins.py:235
 msgid "Total number of node levels this item contains."
 msgstr "Número total de niveles de nodo que contiene este elemento."
 
-#: models/index_instance_model_mixins.py:300
+#: models/index_instance_model_mixins.py:304
 msgid "The path to the index including all ancestors."
 msgstr "La ruta al nodo del índice, incluidos todos los que lo contienen."
 
-#: models/index_instance_model_mixins.py:302
+#: models/index_instance_model_mixins.py:306
 msgid "Full path"
 msgstr "Ruta completa"
 

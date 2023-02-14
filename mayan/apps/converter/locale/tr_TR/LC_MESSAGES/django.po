@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: serhatcan77 <serhat_can@yahoo.com>, 2023\n"
 "Language-Team: Turkish (Turkey) (https://www.transifex.com/rosarior/teams/13584/tr_TR/)\n"
@@ -53,10 +53,6 @@ msgstr "Ofis dosyası biçimi değil."
 msgid ""
 "Transformations allow changing the visual appearance of documents without "
 "making permanent changes to the document file themselves."
-msgstr ""
-
-#: classes.py:454
-msgid "transformation"
 msgstr ""
 
 #: dependencies.py:14
@@ -115,7 +111,7 @@ msgstr ""
 msgid "Delete"
 msgstr "Sil"
 
-#: links.py:48 links.py:72
+#: links.py:48 links.py:68
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -123,11 +119,11 @@ msgstr "Düzenle"
 msgid "Assets"
 msgstr ""
 
-#: links.py:77
+#: links.py:73
 msgid "Transformations"
 msgstr "Dönüşümler"
 
-#: links.py:82
+#: links.py:78
 msgid "Select new transformation"
 msgstr ""
 
@@ -691,30 +687,30 @@ msgstr ""
 msgid "Delete transformation \"%(transformation)s\" for: %(content_object)s?"
 msgstr ""
 
-#: views/transformation_views.py:179
+#: views/transformation_views.py:184
 #, python-format
 msgid "Edit transformation \"%(transformation)s\" for: %(content_object)s"
 msgstr ""
 
-#: views/transformation_views.py:238
+#: views/transformation_views.py:248
 #, python-format
 msgid "There are no entries for layer \"%(layer_name)s\""
 msgstr ""
 
-#: views/transformation_views.py:241
+#: views/transformation_views.py:251
 #, python-format
 msgid "Layer \"%(layer)s\" transformations for: %(object)s"
 msgstr ""
 
-#: views/transformation_views.py:287
+#: views/transformation_views.py:297
 msgid "Transformation created successfully."
 msgstr ""
 
-#: views/transformation_views.py:311
+#: views/transformation_views.py:321
 msgid "Select"
 msgstr "Seçiniz"
 
-#: views/transformation_views.py:313
+#: views/transformation_views.py:323
 #, python-format
 msgid "Select new layer \"%(layer)s\" transformation for: %(object)s"
 msgstr ""

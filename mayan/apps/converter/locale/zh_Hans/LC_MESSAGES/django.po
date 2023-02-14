@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
@@ -54,10 +54,6 @@ msgid ""
 "Transformations allow changing the visual appearance of documents without "
 "making permanent changes to the document file themselves."
 msgstr "转换允许更改文档的可视外观，而无需对文档文件本身进行永久更改。"
-
-#: classes.py:454
-msgid "transformation"
-msgstr "转换"
 
 #: dependencies.py:14
 msgid "Utility from the poppler-utils package used to inspect PDF files."
@@ -115,7 +111,7 @@ msgstr "建立資源項目"
 msgid "Delete"
 msgstr "删除"
 
-#: links.py:48 links.py:72
+#: links.py:48 links.py:68
 msgid "Edit"
 msgstr "编辑"
 
@@ -123,11 +119,11 @@ msgstr "编辑"
 msgid "Assets"
 msgstr "資源項目"
 
-#: links.py:77
+#: links.py:73
 msgid "Transformations"
 msgstr "转换"
 
-#: links.py:82
+#: links.py:78
 msgid "Select new transformation"
 msgstr "选择新的转换"
 
@@ -690,30 +686,30 @@ msgstr "建立層級\"%(layer)s\"轉變格式 %(transformation)s\"給 : %(object
 msgid "Delete transformation \"%(transformation)s\" for: %(content_object)s?"
 msgstr "对%(content_object)s删除转换“%(transformation)s”？"
 
-#: views/transformation_views.py:179
+#: views/transformation_views.py:184
 #, python-format
 msgid "Edit transformation \"%(transformation)s\" for: %(content_object)s"
 msgstr "对%(content_object)s编辑转换“%(transformation)s”"
 
-#: views/transformation_views.py:238
+#: views/transformation_views.py:248
 #, python-format
 msgid "There are no entries for layer \"%(layer_name)s\""
 msgstr "沒有任何條目於˙此層級\"%(layer_name)s\""
 
-#: views/transformation_views.py:241
+#: views/transformation_views.py:251
 #, python-format
 msgid "Layer \"%(layer)s\" transformations for: %(object)s"
 msgstr "層級\"%(layer)s\"轉變格式於:%(object)s"
 
-#: views/transformation_views.py:287
+#: views/transformation_views.py:297
 msgid "Transformation created successfully."
 msgstr "转换创建成功。"
 
-#: views/transformation_views.py:311
+#: views/transformation_views.py:321
 msgid "Select"
 msgstr "选择"
 
-#: views/transformation_views.py:313
+#: views/transformation_views.py:323
 #, python-format
 msgid "Select new layer \"%(layer)s\" transformation for: %(object)s"
 msgstr ""

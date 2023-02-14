@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:51+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (Puerto Rico) (https://www.transifex.com/rosarior/teams/13584/es_PR/)\n"
@@ -54,12 +54,12 @@ msgstr "Archivo de documento enviado para extracción de contenido"
 msgid "Document file parsing finished"
 msgstr "Extracción de contenido del archivo del documento finalizado"
 
-#: forms.py:37
+#: forms.py:41
 #, python-format
 msgid "Page %(page_number)d"
 msgstr "Página %(page_number)d"
 
-#: forms.py:45 forms.py:57
+#: forms.py:51 forms.py:63
 msgid "Contents"
 msgstr "Contenido"
 

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Daniele Bortoluzzi <daniele@elkos.it>, 2023\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
@@ -57,10 +57,6 @@ msgid ""
 msgstr ""
 "Le trasformazioni consentono di modificare l'aspetto visivo dei documenti "
 "senza apportare modifiche permanenti al file del documento stesso."
-
-#: classes.py:454
-msgid "transformation"
-msgstr "trasformazione"
 
 #: dependencies.py:14
 msgid "Utility from the poppler-utils package used to inspect PDF files."
@@ -123,7 +119,7 @@ msgstr "Crea risorsa"
 msgid "Delete"
 msgstr "Cancella"
 
-#: links.py:48 links.py:72
+#: links.py:48 links.py:68
 msgid "Edit"
 msgstr "Modifica"
 
@@ -131,11 +127,11 @@ msgstr "Modifica"
 msgid "Assets"
 msgstr "Risorse"
 
-#: links.py:77
+#: links.py:73
 msgid "Transformations"
 msgstr "Trasformazioni"
 
-#: links.py:82
+#: links.py:78
 msgid "Select new transformation"
 msgstr "Seleziona nuova trasformazione"
 
@@ -729,30 +725,30 @@ msgid "Delete transformation \"%(transformation)s\" for: %(content_object)s?"
 msgstr ""
 "Cancellare le trasformazioni \"%(transformation)s\" per: %(content_object)s?"
 
-#: views/transformation_views.py:179
+#: views/transformation_views.py:184
 #, python-format
 msgid "Edit transformation \"%(transformation)s\" for: %(content_object)s"
 msgstr "Modifica le trasformazioni \"%(transformation)s\" per: %(content_object)s"
 
-#: views/transformation_views.py:238
+#: views/transformation_views.py:248
 #, python-format
 msgid "There are no entries for layer \"%(layer_name)s\""
 msgstr "Non ci sono voci per il livello \"%(layer_name)s\""
 
-#: views/transformation_views.py:241
+#: views/transformation_views.py:251
 #, python-format
 msgid "Layer \"%(layer)s\" transformations for: %(object)s"
 msgstr "Trasformazioni del livello \"%(layer)s\" per: %(object)s"
 
-#: views/transformation_views.py:287
+#: views/transformation_views.py:297
 msgid "Transformation created successfully."
 msgstr "Trasformazione creata con successo."
 
-#: views/transformation_views.py:311
+#: views/transformation_views.py:321
 msgid "Select"
 msgstr "Seleziona"
 
-#: views/transformation_views.py:313
+#: views/transformation_views.py:323
 #, python-format
 msgid "Select new layer \"%(layer)s\" transformation for: %(object)s"
 msgstr ""

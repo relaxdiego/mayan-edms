@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:47+0000\n"
 "PO-Revision-Date: 2023-01-05 02:53+0000\n"
 "Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2023\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
@@ -85,7 +85,7 @@ msgstr "قيمة"
 msgid "Update"
 msgstr "تحديث"
 
-#: forms.py:52 forms.py:236 models.py:278
+#: forms.py:52 forms.py:236 models.py:282
 msgid "Required"
 msgstr "متطلب"
 
@@ -108,7 +108,7 @@ msgstr "مطلوب &quot;%s&quot; لنوع المستند هذا."
 msgid "Metadata types to be added to the selected documents."
 msgstr "يرجى الإختيار لإكمال عملية الإضافة"
 
-#: forms.py:138 models.py:89 models.py:275 search.py:14 serializers.py:48
+#: forms.py:138 models.py:89 models.py:279 search.py:14 serializers.py:48
 #: serializers.py:108 workflow_actions.py:88
 msgid "Metadata type"
 msgstr "نوع البيانات الوصفية"
@@ -320,23 +320,23 @@ msgstr "القيمة الفعلية المخزنة في حقل نوع البيا
 msgid "Document metadata"
 msgstr "بيانات تعريف الوثيقة"
 
-#: models.py:224
+#: models.py:228
 msgid "Metadata type is required for this document type."
 msgstr "نوع البيانات الوصفية للوثيقة"
 
-#: models.py:257
+#: models.py:261
 msgid "Metadata type is not valid for this document type."
 msgstr "نوع البيانات الوصفية غير صالح للوثيقة."
 
-#: models.py:271 serializers.py:45
+#: models.py:275 serializers.py:45
 msgid "Document type"
 msgstr "نوع الوثيقة"
 
-#: models.py:286
+#: models.py:290
 msgid "Document type metadata type options"
 msgstr "خيارات نوع البيانات الأولية لنوع الوثيقة"
 
-#: models.py:287
+#: models.py:291
 msgid "Document type metadata types options"
 msgstr "خيارات أنواع البيانات الأولية لنوع الوثيقة"
 

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Harald Ersch, 2023\n"
 "Language-Team: Romanian (Romania) (https://www.transifex.com/rosarior/teams/13584/ro_RO/)\n"
@@ -56,10 +56,6 @@ msgid ""
 msgstr ""
 "Transformările permit modificarea aspectului vizual al documentelor, fără a "
 "face modificări permanente ale fișierului documentului în sine."
-
-#: classes.py:454
-msgid "transformation"
-msgstr "transformare"
 
 #: dependencies.py:14
 msgid "Utility from the poppler-utils package used to inspect PDF files."
@@ -123,7 +119,7 @@ msgstr "Creați un element"
 msgid "Delete"
 msgstr "Șterge"
 
-#: links.py:48 links.py:72
+#: links.py:48 links.py:68
 msgid "Edit"
 msgstr "Editați"
 
@@ -131,11 +127,11 @@ msgstr "Editați"
 msgid "Assets"
 msgstr "Elemente"
 
-#: links.py:77
+#: links.py:73
 msgid "Transformations"
 msgstr "Transformări"
 
-#: links.py:82
+#: links.py:78
 msgid "Select new transformation"
 msgstr "Selectați o nouă transformare"
 
@@ -727,30 +723,30 @@ msgstr ""
 msgid "Delete transformation \"%(transformation)s\" for: %(content_object)s?"
 msgstr "Ștergeți transformarea \"%(transformation)s\" pentru: %(content_object)s?"
 
-#: views/transformation_views.py:179
+#: views/transformation_views.py:184
 #, python-format
 msgid "Edit transformation \"%(transformation)s\" for: %(content_object)s"
 msgstr "Editați transformarea \"%(transformation)s\" pentru: %(content_object)s"
 
-#: views/transformation_views.py:238
+#: views/transformation_views.py:248
 #, python-format
 msgid "There are no entries for layer \"%(layer_name)s\""
 msgstr "Nu există înregistrări pentru stratul \"%(layer_name)s\""
 
-#: views/transformation_views.py:241
+#: views/transformation_views.py:251
 #, python-format
 msgid "Layer \"%(layer)s\" transformations for: %(object)s"
 msgstr "Transformări la stratul \"%(layer)s\" pentru: %(object)s"
 
-#: views/transformation_views.py:287
+#: views/transformation_views.py:297
 msgid "Transformation created successfully."
 msgstr "Transformare creată cu succes."
 
-#: views/transformation_views.py:311
+#: views/transformation_views.py:321
 msgid "Select"
 msgstr "Selecta"
 
-#: views/transformation_views.py:313
+#: views/transformation_views.py:323
 #, python-format
 msgid "Select new layer \"%(layer)s\" transformation for: %(object)s"
 msgstr "Selectați noul strat de transformare \"%(layer)s\" pentru: %(object)s"

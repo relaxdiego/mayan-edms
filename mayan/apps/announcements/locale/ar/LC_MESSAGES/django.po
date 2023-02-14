@@ -8,14 +8,15 @@
 # Roberto Rosario, 2023
 # Yaman Sanobar <yman.snober@gmail.com>, 2023
 # Marwan Rahhal <Marwanr@sssit.net>, 2023
+# Ali, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:49+0000\n"
-"Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2023\n"
+"Last-Translator: Ali, 2023\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +27,7 @@ msgstr ""
 #: apps.py:36 events.py:6 links.py:42 models.py:43 permissions.py:6
 #: templates/announcements/announcements.html:8 views.py:126
 msgid "Announcements"
-msgstr ""
+msgstr "إعلانات"
 
 #: apps.py:78 apps.py:82
 msgid "None"
@@ -34,15 +35,15 @@ msgstr "لا شيء"
 
 #: events.py:10
 msgid "Announcement created"
-msgstr ""
+msgstr "إعلانات مُعدّة"
 
 #: events.py:13
 msgid "Announcement edited"
-msgstr ""
+msgstr "الإعلان تم تعديله"
 
 #: links.py:18 views.py:34
 msgid "Create announcement"
-msgstr ""
+msgstr "إنشاء إعلان"
 
 #: links.py:22 links.py:28
 msgid "Delete"
@@ -54,7 +55,7 @@ msgstr "تعديل"
 
 #: models.py:19
 msgid "Short description of this announcement."
-msgstr ""
+msgstr "وصف بسيط لهذا الإعلان"
 
 #: models.py:20
 msgid "Label"
@@ -62,7 +63,7 @@ msgstr "العنوان"
 
 #: models.py:23
 msgid "The actual text to be displayed."
-msgstr ""
+msgstr "الحجم الفعلي للنص الذي سيتم عرضه"
 
 #: models.py:24
 msgid "Text"
@@ -74,7 +75,7 @@ msgstr "مفعل"
 
 #: models.py:29
 msgid "Date and time after which this announcement will be displayed."
-msgstr ""
+msgstr "التاريخ و الوقت الذي سيُعرض حينه هذا الإعلان"
 
 #: models.py:30
 msgid "Start date time"
@@ -82,7 +83,7 @@ msgstr "وقت تاريخ البدء"
 
 #: models.py:34
 msgid "Date and time until when this announcement is to be displayed."
-msgstr ""
+msgstr "التاريخ و الوقت الذي سيوقف حينه عرض هذا الإعلان"
 
 #: models.py:35
 msgid "End date time"
@@ -90,23 +91,23 @@ msgstr "وقت تاريخ الانتهاء"
 
 #: models.py:42
 msgid "Announcement"
-msgstr ""
+msgstr "إعلان"
 
 #: permissions.py:10
 msgid "Create announcements"
-msgstr ""
+msgstr "إنشاء إعلانات"
 
 #: permissions.py:13
 msgid "Delete announcements"
-msgstr ""
+msgstr "حذف إعلانات"
 
 #: permissions.py:16
 msgid "Edit announcements"
-msgstr ""
+msgstr "تعديل إعلانات"
 
 #: permissions.py:19
 msgid "View announcements"
-msgstr ""
+msgstr "عرض إعلانات"
 
 #: serializers.py:12
 msgid "URL"
@@ -115,42 +116,42 @@ msgstr "URL"
 #: views.py:45
 #, python-format
 msgid "Error deleting announcement \"%(instance)s\"; %(exception)s"
-msgstr ""
+msgstr "خطأ حذف إعلانات \"%(instance)s\"; %(exception)s"
 
 #: views.py:54
 #, python-format
 msgid "%(count)d announcements deleted successfully."
-msgstr ""
+msgstr "%(count)d إعلانات حُذفت بنجاح."
 
 #: views.py:57
 #, python-format
 msgid "Announcement \"%(object)s\" deleted successfully."
-msgstr ""
+msgstr "إعلاناتt \"%(object)s\" حُذفت بنجاح."
 
 #: views.py:60
 #, python-format
 msgid "%(count)d announcement deleted successfully."
-msgstr ""
+msgstr "%(count)d إعلانات حُذفت بنجاح."
 
 #: views.py:62
 #, python-format
 msgid "Delete the %(count)d selected announcements."
-msgstr ""
+msgstr "إحذف %(count)d من الإعلانات المحددة."
 
 #: views.py:63
 #, python-format
 msgid "Delete announcement: %(object)s."
-msgstr ""
+msgstr "حذف إعلانات: %(object)s."
 
 #: views.py:64
 #, python-format
 msgid "Delete the %(count)d selected announcement."
-msgstr ""
+msgstr "إحدف %(count)d من الإ‘علانات المختارة."
 
 #: views.py:98
 #, python-format
 msgid "Edit announcement: %s"
-msgstr ""
+msgstr "عدّل الإعلان: %s"
 
 #: views.py:121
 msgid ""
@@ -158,7 +159,9 @@ msgid ""
 "convery information about your organzation, announcements or usage "
 "guidelines for your users."
 msgstr ""
+"الإعلانات معروضة في واجهة الدخول. يمكنك استخدام الإعلانات لإيصال معلومات عن "
+"مؤسستك، أو لإيصال إرشادات للمستخدمين."
 
 #: views.py:125
 msgid "No announcements available"
-msgstr ""
+msgstr "لا توجد إعلانات حاليّاً"

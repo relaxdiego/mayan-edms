@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Adek Lanin, 2023\n"
 "Language-Team: Indonesian (https://www.transifex.com/rosarior/teams/13584/id/)\n"
@@ -26,19 +26,23 @@ msgstr ""
 msgid "Common"
 msgstr ""
 
-#: dependencies.py:172
+#: dependencies.py:163
+msgid "Transifex Client"
+msgstr ""
+
+#: dependencies.py:180
 msgid "Used to allow offline translation of the code text strings."
 msgstr ""
 
-#: dependencies.py:181
+#: dependencies.py:189
 msgid "Provides style checking."
 msgstr ""
 
-#: dependencies.py:186
+#: dependencies.py:194
 msgid "Command line environment with autocompletion."
 msgstr ""
 
-#: dependencies.py:191
+#: dependencies.py:199
 msgid "Checks proper formatting of the README file."
 msgstr ""
 
@@ -86,20 +90,20 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: literals.py:25
+#: literals.py:26
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr ""
 
-#: literals.py:34
+#: literals.py:35
 msgid "Days"
 msgstr ""
 
-#: literals.py:35
+#: literals.py:36
 msgid "Hours"
 msgstr ""
 
-#: literals.py:36
+#: literals.py:37
 msgid "Minutes"
 msgstr ""
 

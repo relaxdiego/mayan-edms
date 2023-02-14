@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:51+0000\n"
 "Last-Translator: Michal Švábík <snadno@lehce.cz>, 2023\n"
 "Language-Team: Czech (https://www.transifex.com/rosarior/teams/13584/cs/)\n"
@@ -53,12 +53,12 @@ msgstr "Soubor dokumentu odeslán k analýze"
 msgid "Document file parsing finished"
 msgstr "Analýza souboru dokumentu byla dokončena"
 
-#: forms.py:37
+#: forms.py:41
 #, python-format
 msgid "Page %(page_number)d"
 msgstr "Strana %(page_number)d"
 
-#: forms.py:45 forms.py:57
+#: forms.py:51 forms.py:63
 msgid "Contents"
 msgstr "Obsah"
 

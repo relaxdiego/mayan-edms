@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:51+0000\n"
 "Last-Translator: Ford Guo <agile.guo@gmail.com>, 2023\n"
 "Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
@@ -53,12 +53,12 @@ msgstr "已提交解析之文件檔案"
 msgid "Document file parsing finished"
 msgstr "文˙件檔案解析完˙成"
 
-#: forms.py:37
+#: forms.py:41
 #, python-format
 msgid "Page %(page_number)d"
 msgstr "第%(page_number)d页"
 
-#: forms.py:45 forms.py:57
+#: forms.py:51 forms.py:63
 msgid "Contents"
 msgstr "内容"
 

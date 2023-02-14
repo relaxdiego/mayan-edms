@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:47+0000\n"
 "PO-Revision-Date: 2023-01-05 02:52+0000\n"
 "Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2023\n"
 "Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
@@ -23,21 +23,17 @@ msgstr ""
 "Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:212 apps.py:653 events.py:6 menus.py:8
+#: apps.py:212 apps.py:648 events.py:6 menus.py:8
 #: models/document_models.py:103 permissions.py:6 queues.py:21 settings.py:33
 #: statistics.py:286
 msgid "Documents"
 msgstr "Документи"
 
-#: apps.py:278
-msgid "Decorations"
-msgstr "Декорации"
-
-#: apps.py:298
+#: apps.py:293
 msgid "Create a document type"
 msgstr "Създайте тип документ"
 
-#: apps.py:300
+#: apps.py:295
 msgid ""
 "Every uploaded document must be assigned a document type, it is the basic "
 "way Mayan EDMS categorizes documents."
@@ -45,46 +41,46 @@ msgstr ""
 "На всеки качен документ трябва да бъде присвоен тип документ, това е "
 "основният начин, по който Mayan EDMS категоризира документите."
 
-#: apps.py:399
+#: apps.py:394
 msgid "File comments"
 msgstr "Файлови коментари"
 
-#: apps.py:403
+#: apps.py:398
 msgid "File encodings"
 msgstr "Файлови кодирания"
 
-#: apps.py:407
+#: apps.py:402
 msgid "File MIME types"
 msgstr "Файлови MIME типове"
 
-#: apps.py:411
+#: apps.py:406
 msgid "File timestamps"
 msgstr "Файлови времеви печати"
 
-#: apps.py:416 links/document_file_page_links.py:79
+#: apps.py:411 links/document_file_page_links.py:79
 #: models/document_file_models.py:106 models/document_file_page_models.py:24
 #: search.py:49
 msgid "Document file"
 msgstr "Файл на документа"
 
-#: apps.py:420 models/document_file_page_models.py:28
+#: apps.py:415 models/document_file_page_models.py:28
 #: models/document_version_page_models.py:38
 msgid "Page number"
 msgstr "Номер на страница"
 
-#: apps.py:425
+#: apps.py:420
 msgid "Return the latest file of the document."
 msgstr "Върнете най-новия файл на документа."
 
-#: apps.py:426
+#: apps.py:421
 msgid "Latest file"
 msgstr "Последен файл"
 
-#: apps.py:429
+#: apps.py:424
 msgid "Return the document instance."
 msgstr "Върнете екземпляра на документа."
 
-#: apps.py:430 links/document_file_links.py:58
+#: apps.py:425 links/document_file_links.py:58
 #: links/document_file_page_links.py:73 links/document_version_links.py:74
 #: links/document_version_page_links.py:90 models/document_file_models.py:57
 #: models/document_models.py:102 models/document_version_models.py:28
@@ -95,25 +91,25 @@ msgstr "Върнете екземпляра на документа."
 msgid "Document"
 msgstr "Документ"
 
-#: apps.py:558 apps.py:610 apps.py:639 apps.py:673 apps.py:698
+#: apps.py:553 apps.py:605 apps.py:634 apps.py:668 apps.py:693
 msgid "Thumbnail"
 msgstr "Умалено изображение"
 
-#: apps.py:564
+#: apps.py:559
 msgid "Type"
 msgstr "Тип"
 
-#: apps.py:568 apps.py:615 apps.py:678 forms/document_file_forms.py:89
+#: apps.py:563 apps.py:610 apps.py:673 forms/document_file_forms.py:89
 #: links/document_file_page_links.py:122
 #: links/document_version_page_links.py:50
 msgid "Pages"
 msgstr "Страници"
 
-#: apps.py:577 models/favorite_document_models.py:33
+#: apps.py:572 models/favorite_document_models.py:33
 msgid "Date and time added"
 msgstr "Добавени дата и час"
 
-#: apps.py:588
+#: apps.py:583
 msgid "Access date and time"
 msgstr "Дата и час на достъп"
 
@@ -602,6 +598,10 @@ msgstr "Добави към предпочитани"
 #: links/favorite_links.py:40 links/favorite_links.py:48
 msgid "Remove from favorites"
 msgstr "Премахни от предпочитани"
+
+#: links/miscellaneous_links.py:9
+msgid "Decorations"
+msgstr "Декорации"
 
 #: links/trashed_document_links.py:24 links/trashed_document_links.py:37
 msgid "Move to trash"

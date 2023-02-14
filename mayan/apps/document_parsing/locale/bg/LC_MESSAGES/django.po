@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:51+0000\n"
 "Last-Translator: 295005be79b88987cac803400975dbae_87f6b64 <412e4e8df9c702a35ac89972be5f12ff_27148>, 2023\n"
 "Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
@@ -55,12 +55,12 @@ msgstr "Файл с документи, изпратен за синтактич
 msgid "Document file parsing finished"
 msgstr "Синтаксисът на файла на документа завърши"
 
-#: forms.py:37
+#: forms.py:41
 #, python-format
 msgid "Page %(page_number)d"
 msgstr "Страница %(page_number)d"
 
-#: forms.py:45 forms.py:57
+#: forms.py:51 forms.py:63
 msgid "Contents"
 msgstr "Съдържание"
 

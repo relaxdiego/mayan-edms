@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 18:45+0000\n"
+"POT-Creation-Date: 2023-02-14 23:46+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Harald Ersch, 2023\n"
 "Language-Team: Romanian (Romania) (https://www.transifex.com/rosarior/teams/13584/ro_RO/)\n"
@@ -27,19 +27,23 @@ msgstr ""
 msgid "Common"
 msgstr "Comune"
 
-#: dependencies.py:172
+#: dependencies.py:163
+msgid "Transifex Client"
+msgstr ""
+
+#: dependencies.py:180
 msgid "Used to allow offline translation of the code text strings."
 msgstr "Folosit pentru a permite traducerea offline a șirurilor de text cod."
 
-#: dependencies.py:181
+#: dependencies.py:189
 msgid "Provides style checking."
 msgstr "Oferă verificarea stilului."
 
-#: dependencies.py:186
+#: dependencies.py:194
 msgid "Command line environment with autocompletion."
 msgstr "Mediul liniei de comandă cu autocompletare."
 
-#: dependencies.py:191
+#: dependencies.py:199
 msgid "Checks proper formatting of the README file."
 msgstr "Verifică formatarea corectă a fișierului README."
 
@@ -87,22 +91,22 @@ msgstr "Obțineți sprijin"
 msgid "Tools"
 msgstr "Unelte"
 
-#: literals.py:25
+#: literals.py:26
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr ""
 "Această caracteristică a fost depreciată și va fi eliminată într-o versiune "
 "viitoare."
 
-#: literals.py:34
+#: literals.py:35
 msgid "Days"
 msgstr "Zile"
 
-#: literals.py:35
+#: literals.py:36
 msgid "Hours"
 msgstr "Ore"
 
-#: literals.py:36
+#: literals.py:37
 msgid "Minutes"
 msgstr "Minute"
 
