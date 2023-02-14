@@ -133,11 +133,14 @@ class DocumentTestMixin:
         super().tearDown()
 
     def _create_test_document_stub(self, document_type=None, label=None):
-        self._test_document_stub = Document.objects.create(
-            document_type=document_type or self._test_document_type,
-            label=label or '{}_{}'.format(
+        if label is None:
+            label = '{}_{}'.format(
                 DEFAULT_DOCUMENT_STUB_LABEL, len(self._test_documents)
             )
+
+        self._test_document_stub = Document.objects.create(
+            document_type=document_type or self._test_document_type,
+            label=label
         )
         self._test_document = self._test_document_stub
         self._test_documents.append(self._test_document)
