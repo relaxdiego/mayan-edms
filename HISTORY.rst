@@ -42,6 +42,9 @@
   There are no known actual or theoretical attacks exploiting this
   weakness to expose or destroy data.
 - Simplify OTP QRCode generation to lower the chances of future regressions.
+- Remove the Python Transifex client. The new Go based client is required
+  to be installed manually when working with translations
+  (https://github.com/transifex/cli).
 
 4.3.5 (2023-01-10)
 ==================
