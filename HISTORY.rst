@@ -74,6 +74,10 @@
   - Add GitLab CI cache template tags.
   - Update deployment stages.
 
+- Add a custom REST API exception handler to workaround inconsistent
+  validation exception behavior in Django REST framework
+  (https://github.com/encode/django-rest-framework/issues/2145).
+
 4.1.10 (2022-11-13)
 ===================
 - Fixes from version 4.0.23.
