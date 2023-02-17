@@ -1,3 +1,10 @@
+4.3.6 (2023-XX-XX)
+==================
+- Update migration 80 of the documents app to ensure the stored size of the
+  converted document file size does not exceed the ``PositiveIntegerField``
+  database field maximum value of 2147483647
+  (https://docs.djangoproject.com/en/4.1/ref/models/fields/#positiveintegerfield).
+
 4.3.5 (2023-01-10)
 ==================
 - Fix error when deleting a user form the user interface. Closes GitLab
