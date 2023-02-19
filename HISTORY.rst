@@ -45,6 +45,8 @@
 - Remove the Python Transifex client. The new Go based client is required
   to be installed manually when working with translations
   (https://github.com/transifex/cli).
+- Add Makefile target to allow testing individual migration tests against
+  PostgreSQL.
 
 4.3.5 (2023-01-10)
 ==================

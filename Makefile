@@ -112,6 +112,11 @@ test-all-migrations-with-postgresql:
 	export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'$(DEFAULT_DATABASE_NAME)','PASSWORD':'$(DEFAULT_DATABASE_PASSWORD)','USER':'$(DEFAULT_DATABASE_USER)','HOST':'127.0.0.1'}}"; \
 	./manage.py test --mayan-apps --settings=mayan.settings.testing.development --no-exclude --tag=migration_test
 
+test-migrations-with-postgresql: ## MODULE=<python module name> - Run migration tests for a single app, module or test class against a PostgreSQL database container.
+test-migrations-with-postgresql:
+	export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'$(DEFAULT_DATABASE_NAME)','PASSWORD':'$(DEFAULT_DATABASE_PASSWORD)','USER':'$(DEFAULT_DATABASE_USER)','HOST':'127.0.0.1'}}"; \
+	./manage.py test $(MODULE) --settings=mayan.settings.testing.development --no-exclude --tag=migration_test
+
 gitlab-ci-update: ## Update the GitLab CI file from the platform template.
 gitlab-ci-update: copy-config-env
 	./manage.py platformtemplate gitlab-ci > .gitlab-ci.yml
