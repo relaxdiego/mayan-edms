@@ -1,4 +1,4 @@
-4.3.6 (2023-XX-XX)
+4.3.6 (2023-02-19)
 ==================
 - Update migration 80 of the documents app to ensure the stored size of the
   converted document file size does not exceed the ``PositiveIntegerField``
