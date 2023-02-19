@@ -41,6 +41,7 @@
 
   There are no known actual or theoretical attacks exploiting this
   weakness to expose or destroy data.
+- Simplify OTP QRCode generation to lower the chances of future regressions.
 
 4.3.5 (2023-01-10)
 ==================

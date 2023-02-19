@@ -195,3 +195,15 @@ class LoginOTPTestCase(
         self.assertEqual(events[1].actor, self._test_case_superuser)
         self.assertEqual(events[1].target, self._test_case_superuser)
         self.assertEqual(events[1].verb, event_user_logged_in.id)
+
+
+class UserOTPDataViewTestCase(
+    AuthenticationOTPTestMixin, GenericViewTestCase
+):
+    @override_settings(AUTHENTICATION_BACKEND=PATH_AUTHENTICATION_BACKEND_USERNAME_OTP)
+    def test_user_otp_data_verify_token_view(self):
+        response = self.get(viewname='authentication_otp:otp_verify')
+        self.assertEqual(response.status_code, 200)
+
+        events = self._get_test_events()
+        self.assertEqual(events.count(), 0)
