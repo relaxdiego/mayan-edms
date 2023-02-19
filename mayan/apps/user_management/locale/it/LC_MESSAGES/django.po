@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2023-02-19 16:19+0000\n"
 "PO-Revision-Date: 2022-07-27 05:39+0000\n"
 "Last-Translator: Roberto Rosario, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/rosarior/teams/13584/it/)\n"
@@ -45,7 +45,7 @@ msgid "User"
 msgstr "Utente"
 
 #: apps.py:112 apps.py:216 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:166
+#: views/user_views.py:168
 msgid "Users"
 msgstr "Utenti"
 
@@ -343,32 +343,32 @@ msgid ""
 " to the system. This process is not reversible."
 msgstr ""
 
-#: views/user_views.py:89
+#: views/user_views.py:91
 #, python-format
 msgid "Details of user: %s"
 msgstr "Dettagli dell'utente: %s"
 
-#: views/user_views.py:108
+#: views/user_views.py:110
 #, python-format
 msgid "Edit user: %s"
 msgstr "Modifica utente: %s"
 
-#: views/user_views.py:125
+#: views/user_views.py:127
 msgid "Available groups"
 msgstr "Gruppi disponibili "
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:128
+#: views/user_views.py:130
 msgid "User groups"
 msgstr "Gruppi di utenti"
 
-#: views/user_views.py:137
+#: views/user_views.py:139
 #, python-format
 msgid "Groups of user: %s"
 msgstr "Gruppi per l'utente: %s"
 
-#: views/user_views.py:162
+#: views/user_views.py:164
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
@@ -376,11 +376,11 @@ msgstr ""
 "Gli account utente possono essere creati da questa vista. Dopo aver creato "
 "un account utente ti verrà chiesto di impostare una password per esso."
 
-#: views/user_views.py:165
+#: views/user_views.py:167
 msgid "There are no user accounts"
 msgstr "Non ci sono account utente"
 
-#: views/user_views.py:182
+#: views/user_views.py:184
 #, python-format
 msgid "Edit options for user: %s"
 msgstr "Opzioni di modifica per l'utente: %s"

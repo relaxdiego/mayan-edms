@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2023-02-19 16:18+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Lyudmil Antonov <lantonov.here@gmail.com>, 2022\n"
 "Language-Team: Bulgarian (https://www.transifex.com/rosarior/teams/13584/bg/)\n"
@@ -40,7 +40,7 @@ msgstr "Свойства на модела"
 msgid "Model reverse fields"
 msgstr "Обратни полета на модела"
 
-#: literals.py:12
+#: literals.py:14
 msgid ""
 "Your database backend is set to use SQLite. SQLite should only be used for "
 "development and testing, not for production."

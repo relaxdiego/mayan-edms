@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2023-02-19 16:19+0000\n"
 "PO-Revision-Date: 2022-07-27 05:39+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
 "Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
@@ -43,7 +43,7 @@ msgid "User"
 msgstr "Uporabnik"
 
 #: apps.py:112 apps.py:216 links.py:61 links.py:102 links.py:120
-#: views/user_views.py:166
+#: views/user_views.py:168
 msgid "Users"
 msgstr "Uporabniki"
 
@@ -345,32 +345,32 @@ msgstr ""
 "Opozorilo! Izbrisali boste svoj uporabniški račun. Izgubili boste dostop do "
 "sistema. Ta proces ni reverzibilen."
 
-#: views/user_views.py:89
+#: views/user_views.py:91
 #, python-format
 msgid "Details of user: %s"
 msgstr "Podrobnosti o uporabniku: %s"
 
-#: views/user_views.py:108
+#: views/user_views.py:110
 #, python-format
 msgid "Edit user: %s"
 msgstr "Uredi uporabnika: %s"
 
-#: views/user_views.py:125
+#: views/user_views.py:127
 msgid "Available groups"
 msgstr "Razpoložljive skupine"
 
 #. Translators: "User groups" here refer to the list of groups of a
 #. specific user. The user's group membership.
-#: views/user_views.py:128
+#: views/user_views.py:130
 msgid "User groups"
 msgstr "Skupine uporabnikov"
 
-#: views/user_views.py:137
+#: views/user_views.py:139
 #, python-format
 msgid "Groups of user: %s"
 msgstr "Skupine uporabnikov: %s"
 
-#: views/user_views.py:162
+#: views/user_views.py:164
 msgid ""
 "User accounts can be create from this view. After creating a user account "
 "you will prompted to set a password for it. "
@@ -378,11 +378,11 @@ msgstr ""
 "V tem pogledu lahko ustvarite uporabniške račune. Ko ustvarite uporabniški "
 "račun, boste pozvani, da zanj nastavite geslo."
 
-#: views/user_views.py:165
+#: views/user_views.py:167
 msgid "There are no user accounts"
 msgstr "Ni uporabniških računov"
 
-#: views/user_views.py:182
+#: views/user_views.py:184
 #, python-format
 msgid "Edit options for user: %s"
 msgstr "Možnosti urejanja za uporabnika: %s"

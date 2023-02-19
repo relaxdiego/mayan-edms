@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2023-02-19 16:18+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
 "Language-Team: Slovenian (https://www.transifex.com/rosarior/teams/13584/sl/)\n"
@@ -25,20 +25,24 @@ msgstr ""
 msgid "Common"
 msgstr "Običajni"
 
-#: dependencies.py:172
+#: dependencies.py:163
+msgid "Transifex Client"
+msgstr ""
+
+#: dependencies.py:180
 msgid "Used to allow offline translation of the code text strings."
 msgstr ""
 "Uporablja se za omogočanje prevajanja besedilnih nizov kode brez povezave."
 
-#: dependencies.py:181
+#: dependencies.py:189
 msgid "Provides style checking."
 msgstr "Omogoča preverjanje sloga."
 
-#: dependencies.py:186
+#: dependencies.py:194
 msgid "Command line environment with autocompletion."
 msgstr "Okolje ukazne vrstice s samodokončanjem."
 
-#: dependencies.py:191
+#: dependencies.py:199
 msgid "Checks proper formatting of the README file."
 msgstr "Preveri pravilno oblikovanje datoteke README."
 
@@ -86,20 +90,20 @@ msgstr "Pridobite podporo"
 msgid "Tools"
 msgstr "Orodja"
 
-#: literals.py:21
+#: literals.py:22
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr "Ta funkcija je zastarela in bo odstranjena v prihodnji različici."
 
-#: literals.py:29
+#: literals.py:30
 msgid "Days"
 msgstr "Dnevi"
 
-#: literals.py:30
+#: literals.py:31
 msgid "Hours"
 msgstr "Ure"
 
-#: literals.py:31
+#: literals.py:32
 msgid "Minutes"
 msgstr "minute"
 

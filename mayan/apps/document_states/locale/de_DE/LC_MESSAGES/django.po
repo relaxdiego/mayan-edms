@@ -14,14 +14,15 @@
 # Marvin Haschker <marvin@haschker.me>, 2022
 # Mathias Behrle <mathiasb@m9s.biz>, 2022
 # Ingo Buchholz <ingo.buchholz@takwa.de>, 2022
+# Nico Reins, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 21:00+0000\n"
+"POT-Creation-Date: 2023-02-19 16:18+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
-"Last-Translator: Ingo Buchholz <ingo.buchholz@takwa.de>, 2022\n"
+"Last-Translator: Nico Reins, 2023\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1204,7 +1205,7 @@ msgstr "Zu startende Workflows."
 #: views/workflow_template_views.py:165
 #, python-format
 msgid "Error deleting workflow \"%(instance)s\"; %(exception)s"
-msgstr ""
+msgstr "Fehler beim Löschen des Workflows \"%(instance)s\": %(exception)s"
 
 #: views/workflow_template_views.py:173
 #, python-format

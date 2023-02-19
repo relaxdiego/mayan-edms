@@ -5,14 +5,15 @@
 # 
 # Translators:
 # Marwan Rahhal <Marwanr@sssit.net>, 2022
+# Ali, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2023-02-19 16:18+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Marwan Rahhal <Marwanr@sssit.net>, 2022\n"
+"Last-Translator: Ali, 2023\n"
 "Language-Team: Arabic (https://www.transifex.com/rosarior/teams/13584/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +41,7 @@ msgstr "خصائص النموذج"
 msgid "Model reverse fields"
 msgstr "نموذج الحقول العكسية"
 
-#: literals.py:12
+#: literals.py:14
 msgid ""
 "Your database backend is set to use SQLite. SQLite should only be used for "
 "development and testing, not for production."
@@ -58,7 +59,7 @@ msgstr "الرابط الخاص بالمبرمجين"
 
 #: model_mixins.py:29
 msgid "JSON encoded data for the backend class."
-msgstr ""
+msgstr "بيانات في صيغة جيسون لفصيلة المُخدّم"
 
 #: model_mixins.py:30
 msgid "Backend data"

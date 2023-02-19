@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2023-02-19 16:18+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Leon Chu, 2022\n"
 "Language-Team: Chinese Simplified (https://www.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
@@ -27,19 +27,23 @@ msgstr ""
 msgid "Common"
 msgstr "常用"
 
-#: dependencies.py:172
+#: dependencies.py:163
+msgid "Transifex Client"
+msgstr ""
+
+#: dependencies.py:180
 msgid "Used to allow offline translation of the code text strings."
 msgstr "用來允許離現翻譯程式碼的文字字串"
 
-#: dependencies.py:181
+#: dependencies.py:189
 msgid "Provides style checking."
 msgstr "提供格式檢查"
 
-#: dependencies.py:186
+#: dependencies.py:194
 msgid "Command line environment with autocompletion."
 msgstr "含有自動完成之命令列環境"
 
-#: dependencies.py:191
+#: dependencies.py:199
 msgid "Checks proper formatting of the README file."
 msgstr "檢查適當的README檔案格式"
 
@@ -87,20 +91,20 @@ msgstr "取得協助"
 msgid "Tools"
 msgstr "工具"
 
-#: literals.py:21
+#: literals.py:22
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr "此功能已經被反對將於未來新版本上移除"
 
-#: literals.py:29
+#: literals.py:30
 msgid "Days"
 msgstr "天"
 
-#: literals.py:30
+#: literals.py:31
 msgid "Hours"
 msgstr "时"
 
-#: literals.py:31
+#: literals.py:32
 msgid "Minutes"
 msgstr "分"
 

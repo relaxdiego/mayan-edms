@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2022
+# Jiří Podhorecký, 2022
 # Michal Švábík <snadno@lehce.cz>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 20:59+0000\n"
+"POT-Creation-Date: 2023-02-19 16:18+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Michal Švábík <snadno@lehce.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/rosarior/teams/13584/cs/)\n"
@@ -25,19 +25,23 @@ msgstr ""
 msgid "Common"
 msgstr "Společný"
 
-#: dependencies.py:172
+#: dependencies.py:163
+msgid "Transifex Client"
+msgstr ""
+
+#: dependencies.py:180
 msgid "Used to allow offline translation of the code text strings."
 msgstr "Slouží k povolení offline překladu textových řetězců."
 
-#: dependencies.py:181
+#: dependencies.py:189
 msgid "Provides style checking."
 msgstr "Poskytuje kontrolu stylu."
 
-#: dependencies.py:186
+#: dependencies.py:194
 msgid "Command line environment with autocompletion."
 msgstr "Prostředí příkazového řádku s automatickým dokončováním."
 
-#: dependencies.py:191
+#: dependencies.py:199
 msgid "Checks proper formatting of the README file."
 msgstr "Zkontroluje správné formátování souboru README."
 
@@ -85,20 +89,20 @@ msgstr "Získat podporu"
 msgid "Tools"
 msgstr "Nástroje"
 
-#: literals.py:21
+#: literals.py:22
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr "Tato funkce byla ukončena a v budoucí verzi bude odstraněna."
 
-#: literals.py:29
+#: literals.py:30
 msgid "Days"
 msgstr "Dny"
 
-#: literals.py:30
+#: literals.py:31
 msgid "Hours"
 msgstr "Hodiny"
 
-#: literals.py:31
+#: literals.py:32
 msgid "Minutes"
 msgstr "Minuty"
 
