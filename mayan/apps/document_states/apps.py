@@ -378,9 +378,12 @@ class DocumentStatesApp(MayanAppConfig):
             attribute='completion', include_label=True, is_sortable=True,
             source=WorkflowState
         )
-        SourceColumn(
+        column_workflow_actions = SourceColumn(
             attribute='get_actions_display', include_label=True,
             source=WorkflowState
+        )
+        column_workflow_actions.add_exclude(
+            source=WorkflowStateRuntimeProxy
         )
 
         SourceColumn(

@@ -10,6 +10,9 @@
   - Redis from 6.2-alpine to 6.2.11-alpine
   - RabbitMQ from 3.10-alpine to 3.10.20-alpine
 
+- Ensure the workflow state action column is not shown for the workflow
+  state runtime proxies where is does not make sense to show.
+
 4.3.7 (2023-09-10)
 ==================
 - Merge changes from version 4.2.14:
