@@ -18,7 +18,9 @@ def code_document_file_size_copy(apps, schema_editor):
                 document_file_size = DJANGO_POSITIVE_INTEGER_FIELD_MAX_VALUE
 
             document_file.size = document_file_size
-            document_file.save(update_fields=('size',))
+            document_file.save(
+                update_fields=('size',)
+            )
 
 
 class Migration(migrations.Migration):
