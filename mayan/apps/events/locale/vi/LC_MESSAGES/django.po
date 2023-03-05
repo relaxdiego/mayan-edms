@@ -59,7 +59,7 @@ msgstr ""
 
 #: apps.py:145
 msgid "Object"
-msgstr ""
+msgstr "Chủ đề"
 
 #: apps.py:150 models.py:46 models.py:105
 msgid "Event type"

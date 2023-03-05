@@ -4,6 +4,8 @@ from pathlib import Path
 from shutil import copyfileobj
 from tempfile import NamedTemporaryFile
 
+REMOTE_NAME = 'origin'
+
 
 class AutomaticTranslationConflictSolver:
     """
@@ -31,7 +33,7 @@ class AutomaticTranslationConflictSolver:
                 flag_remote = True
 
             if flag_remote:
-                if '>>>>>>> origin' in line:
+                if '>>>>>>> {}'.format(REMOTE_NAME) in line:
                     break
             else:
                 file_object_temporary.write(line)
@@ -51,13 +53,21 @@ class AutomaticTranslationConflictSolver:
                             if not line:
                                 file_object_temporary.seek(0)
                                 file_object.seek(0)
-                                copyfileobj(fsrc=file_object_temporary, fdst=file_object)
+                                copyfileobj(
+                                    fsrc=file_object_temporary,
+                                    fdst=file_object
+                                )
                                 file_object.truncate()
                                 break
 
                             if line == '<<<<<<< HEAD\n':
-                                print('Conflict found: {}'.format(entry))
-                                AutomaticTranslationConflictSolver.handle_conflict(file_object, file_object_temporary)
+                                print(
+                                    'Conflict found: {}'.format(entry)
+                                )
+                                AutomaticTranslationConflictSolver.handle_conflict(
+                                    file_object=file_object,
+                                    file_object_temporary=file_object_temporary
+                                )
                             else:
                                 file_object_temporary.write(line)
 

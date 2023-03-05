@@ -46,7 +46,7 @@ msgstr ""
 
 #: model_mixins.py:10
 msgid "Object"
-msgstr ""
+msgstr "Chủ đề"
 
 #: model_mixins.py:18
 msgid "App label"

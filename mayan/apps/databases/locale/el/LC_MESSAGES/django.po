@@ -40,7 +40,7 @@ msgstr "Ιδιότητες μοντέλου"
 msgid "Model reverse fields"
 msgstr "Πεδία αντιστροφής μοντέλου"
 
-#: literals.py:12
+#: literals.py:14
 msgid ""
 "Your database backend is set to use SQLite. SQLite should only be used for "
 "development and testing, not for production."

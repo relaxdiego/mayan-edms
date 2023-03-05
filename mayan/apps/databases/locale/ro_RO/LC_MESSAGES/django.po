@@ -41,7 +41,7 @@ msgstr "Proprietățile modelului"
 msgid "Model reverse fields"
 msgstr "Model câmpuri invers"
 
-#: literals.py:12
+#: literals.py:14
 msgid ""
 "Your database backend is set to use SQLite. SQLite should only be used for "
 "development and testing, not for production."

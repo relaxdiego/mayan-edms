@@ -32,7 +32,7 @@ msgstr ""
 
 #: apps.py:65
 msgid "Object"
-msgstr ""
+msgstr "Chủ đề"
 
 #: events.py:6 permissions.py:6
 msgid "Access control lists"

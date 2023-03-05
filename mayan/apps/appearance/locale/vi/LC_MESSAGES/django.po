@@ -319,7 +319,7 @@ msgstr ""
 
 #: templates/appearance/base.html:73
 msgid "Object"
-msgstr ""
+msgstr "Chủ đề"
 
 #: templates/appearance/generic_confirm.html:13
 msgid "Are you sure?"
