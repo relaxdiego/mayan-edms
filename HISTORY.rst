@@ -1,3 +1,7 @@
+4.1.11 (2023-XX-XX)
+===================
+- Install OS and Python dependencies as separate makefile targets.
+
 4.1.10 (2022-11-13)
 ===================
 - Fixes from version 4.0.23.
