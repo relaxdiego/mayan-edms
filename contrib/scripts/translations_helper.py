@@ -72,7 +72,7 @@ class TransifexHelper:
         output = []
 
         output.extend(
-            ('[main]', 'host = https://www.transifex.com')
+            ('[main]', 'host     = https://www.transifex.com')
         )
 
         if TRANSIFEX_LANGUAGE_MAPPING:
@@ -94,7 +94,7 @@ class TransifexHelper:
 
             if app_has_translations:
                 output.append(
-                    '[mayan-edms.{}-{}]'.format(app_name, version_string)
+                    '[o:rosarior:p:mayan-edms:r:{}-{}]'.format(app_name, version_string)
                 )
                 output.append(
                     'file_filter = mayan/apps/{}/locale/<lang>/LC_MESSAGES/django.po'.format(app_name)
@@ -103,10 +103,14 @@ class TransifexHelper:
                     'source_file = mayan/apps/{}/locale/en/LC_MESSAGES/django.po'.format(app_name)
                 )
                 output.append('source_lang = en')
-                output.append('type = PO')
+                output.append('type        = PO')
                 output.append('')
 
-        print('\n'.join(output[:-1]))
+        print(
+            '\n'.join(
+                output[:-1]
+            )
+        )
 
 
 class MessageProcessor:

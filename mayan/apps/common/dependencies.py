@@ -1,9 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 
-from mayan.apps.dependencies.classes import PythonDependency
+from mayan.apps.dependencies.classes import (
+    BinaryDependency, PythonDependency
+)
 from mayan.apps.dependencies.environments import (
     environment_build, environment_development, environment_documentation,
 )
+
+from .literals import DEFAULT_TX_PATH
+
 
 PythonDependency(
     copyright_text='''
@@ -154,6 +159,10 @@ PythonDependency(
 
 # Development
 
+BinaryDependency(
+    help_text=_('Transifex Client'), label='Transifex Client',
+    module=__name__, name='tx', path=DEFAULT_TX_PATH
+)
 PythonDependency(
     module=__name__, environment=environment_development, name='devpi-server',
     version_string='==6.2.0'
@@ -193,10 +202,6 @@ PythonDependency(
 PythonDependency(
     environment=environment_development,
     module=__name__, name='safety', version_string='==1.10.3'
-)
-PythonDependency(
-    environment=environment_development,
-    module=__name__, name='transifex-client', version_string='==0.14.3'
 )
 
 # Build

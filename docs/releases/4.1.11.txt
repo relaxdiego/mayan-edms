@@ -1,0 +1,50 @@
+Version 4.1.11
+==============
+
+Released: March XX, 2023
+
+Status: End of life
+
+Changes
+-------
+
+This version includes all fixes and backports from series 4.2, 4.3, and 4.4.
+
+
+Removals
+--------
+
+- Transifex Python client
+
+
+Upgrade process
+---------------
+
+.. important::
+
+  If using a direct deployment, Supervisord must be upgraded to version
+  4.2.2. See troubleshooting section: :ref:`troubleshooting-version-4.1`
+
+
+.. include:: partials/upgrade-3.5-4.0.txt
+
+
+Troubleshooting
+---------------
+
+Follow the solutions outlined in the troubleshooting section:
+:ref:`troubleshooting-version-4.1`
+
+
+Backward incompatible changes
+-----------------------------
+
+- None
+
+
+Issues closed
+-------------
+
+- None
+
+.. _PyPI: https://pypi.python.org/pypi/mayan-edms/
