@@ -468,7 +468,7 @@ job_demo_deploy:
   script:
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl -sSL https://get.docker.com/ | sh"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "sudo usermod -aG docker ubuntu"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down || true"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker volume rm --force `docker volume ls | cut -d\  -f6`"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml -O"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env -O"
@@ -506,7 +506,7 @@ job_staging_deploy:
   script:
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "curl -sSL https://get.docker.com/ | sh"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "sudo usermod -aG docker ubuntu"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down || true"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker volume rm --force `docker volume ls | cut -d\  -f6`"
     - scp docker/docker-compose.yml ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - scp docker/.env ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
