@@ -108,4 +108,8 @@
         </style>\
     ');
     $('#div-javascript-dynamic-content').remove();
+
+    const appearanceSanitizeHTML = function (text) {
+      return $('<div>').text(text).html();
+    }
 </script>

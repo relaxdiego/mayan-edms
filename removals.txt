@@ -16,3 +16,4 @@ pathlib2
 pdfminer
 pyocr
 pytesseract
+transifex-client

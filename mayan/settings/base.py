@@ -273,7 +273,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication'
     ),
-    'DEFAULT_PAGINATION_CLASS': 'mayan.apps.rest_api.pagination.MayanPageNumberPagination'
+    'DEFAULT_PAGINATION_CLASS': 'mayan.apps.rest_api.pagination.MayanPageNumberPagination',
+    'EXCEPTION_HANDLER': 'mayan.apps.rest_api.exception_handlers.mayan_exception_handler'
 }
 
 # --------- Pagination --------

@@ -1,6 +1,10 @@
 #!make
 include config.env
 
+ifneq ($(wildcard config-local.env),)
+	include config-local.env
+endif
+
 HOST_IP = `/sbin/ip route|awk '/docker0/ { print $$9 }'`
 APT_PROXY ?= $(HOST_IP):3142
 CONSOLE_COLUMNS ?= `echo $$(tput cols)`
@@ -14,11 +18,11 @@ DOCKER_IMAGE_MAYAN_NAME ?= $(DOCKER_IMAGE_MAYAN_NAME)
 
 docker-build: ## Build a new image locally.
 docker-build: docker-dockerfile-update
-	docker build --file docker/Dockerfile --tag $(DOCKER_IMAGE_MAYAN_NAME):$(IMAGE_VERSION) .
+	DOCKER_BUILDKIT=1 docker build --file docker/Dockerfile --tag $(DOCKER_IMAGE_MAYAN_NAME):$(IMAGE_VERSION) .
 
 docker-build-with-proxy: ## Build a new image locally using an APT proxy as APT_PROXY.
 docker-build-with-proxy: docker-dockerfile-update devpi-start
-	docker build --build-arg APT_PROXY=$(APT_PROXY) --build-arg PIP_INDEX_URL=$(PIP_INDEX_URL) --build-arg PIP_TRUSTED_HOST=$(PIP_TRUSTED_HOST) --build-arg HTTP_PROXY=$(HTTP_PROXY) --build-arg HTTPS_PROXY=$(HTTPS_PROXY) --file docker/Dockerfile --tag $(DOCKER_IMAGE_MAYAN_NAME):$(IMAGE_VERSION) .
+	DOCKER_BUILDKIT=1 docker build --build-arg APT_PROXY=$(APT_PROXY) --build-arg PIP_INDEX_URL=$(PIP_INDEX_URL) --build-arg PIP_TRUSTED_HOST=$(PIP_TRUSTED_HOST) --build-arg HTTP_PROXY=$(HTTP_PROXY) --build-arg HTTPS_PROXY=$(HTTPS_PROXY) --file docker/Dockerfile --tag $(DOCKER_IMAGE_MAYAN_NAME):$(IMAGE_VERSION) .
 	$(MAKE) devpi-stop
 
 docker-build-with-proxy-push: ## Build an image with an APT proxy and push to the test registry.

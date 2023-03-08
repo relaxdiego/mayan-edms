@@ -14,7 +14,11 @@ DEFAULT_COMMON_HOME_VIEW_DASHBOARD_NAME = 'user'
 DEFAULT_COMMON_PROJECT_TITLE = mayan.__title__
 DEFAULT_COMMON_PROJECT_URL = mayan.__website__
 
+DEFAULT_TX_PATH = '/usr/local/bin/tx'
+
 EMPTY_LABEL = '---------'
+
+DJANGO_SQLITE_BACKEND = 'django.db.backends.sqlite3'
 
 MESSAGE_DEPRECATION_WARNING = _(
     'This feature has been deprecated and will be removed in a future version.'

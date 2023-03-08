@@ -1,20 +1,23 @@
 'use strict';
 
 jQuery(document).ready(function() {
-    const tagSelectionTemplate = function (tag, container) {
-        const $tag = $(
-            '<span class="label label-tag" style="background: ' + tag.element.dataset.color + ';"> ' + tag.text + '</span>'
+    const tagsTagTemplate = function (object) {
+        return $(
+            '<span class="label label-tag" style="background: ' + object.element.dataset.color + ';"> ' + appearanceSanitizeHTML(object.text) + '</span>'
         );
-        container[0].style.background = tag.element.dataset.color;
-        return $tag;
     }
 
-    const tagResultTemplate = function (tag) {
-        if (!tag.element) { return ''; }
-        const $tag = $(
-            '<span class="label label-tag" style="background: ' + tag.element.dataset.color + ';"> ' + tag.text + '</span>'
-        );
-        return $tag;
+    const tagSelectionTemplate = function (object, container) {
+        container[0].style.background = object.element.dataset.color;
+        return tagsTagTemplate(object);
+    }
+
+    const tagResultTemplate = function (object) {
+        if (!object.element) {
+            return '';
+        }
+
+        return tagsTagTemplate(object);
     }
 
     $('.select2-tags').select2({
