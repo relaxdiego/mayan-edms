@@ -1,4 +1,4 @@
-4.1.11 (2023-03-XX)
+4.1.11 (2023-03-08)
 ===================
 - Install OS and Python dependencies as separate makefile targets.
 - Remove the Python Transifex client. The new Go based client is required to
