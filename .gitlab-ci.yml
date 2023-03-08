@@ -1,5 +1,10 @@
 
 
+.job_docker_push_variables:
+  &job_docker_push_variables
+    PYTHON_BIN: /usr/bin/python3
+    VERSION_SCRIPT_BIN: mayan/apps/dependencies/versions.py
+
 stages:
   - stage_build_python
   - stage_test_python
@@ -101,12 +106,10 @@ job_docker_push_major:
     - releases/all/major
     - releases/docker/major
   script:
-    - PYTHON_BIN=/usr/bin/python3
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - docker pull "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:v"${DOCKER_VERSION}"
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:latest
-    - VERSION_SCRIPT_BIN=contrib/scripts/version.py
     - MAJOR_VERSION=$(${PYTHON_BIN} ${VERSION_SCRIPT_BIN} ${DOCKER_VERSION} major);
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:s"${MAJOR_VERSION}"
     - MINOR_VERSION=$(${PYTHON_BIN} ${VERSION_SCRIPT_BIN} ${DOCKER_VERSION} minor);
@@ -122,6 +125,7 @@ job_docker_push_major:
   variables:
     DOCKER_DRIVER: overlay2
     APK_CACHE_DIR: ${CI_PROJECT_DIR}/.cache/apk
+    << : *job_docker_push_variables
 
 job_docker_push_minor:
   before_script:
@@ -141,11 +145,9 @@ job_docker_push_minor:
     - releases/all/minor
     - releases/docker/minor
   script:
-    - PYTHON_BIN=/usr/bin/python3
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - docker pull "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:v"${DOCKER_VERSION}"
-    - VERSION_SCRIPT_BIN=contrib/scripts/version.py
     - MINOR_VERSION=$(${PYTHON_BIN} ${VERSION_SCRIPT_BIN} ${DOCKER_VERSION} minor);
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:s"${MINOR_VERSION}"
     - docker login --username "${DOCKER_HUB_USERNAME}" --password "${DOCKER_HUB_PASSWORD}" https://registry-1.docker.io
@@ -157,6 +159,7 @@ job_docker_push_minor:
   variables:
     DOCKER_DRIVER: overlay2
     APK_CACHE_DIR: ${CI_PROJECT_DIR}/.cache/apk
+    << : *job_docker_push_variables
 
 job_docker_nightly:
   before_script:
