@@ -515,30 +515,92 @@ job_sqlite_test:
 
 job_demo_deploy:
   before_script:
+    - set -a && . ./config.env && set +a
+    - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
+    - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
+    - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - apt-get update
     - mkdir --parents ~/.ssh
+    - chmod 700 ~/.ssh
     - echo "${DEMO_SSH_KNOWN_HOST}" > ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
-    - echo "${DEMO_PRIVATE_KEY}" > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
+    - 'which ssh-agent || ( apt-get update --yes && apt-get install --yes --no-install-recommends openssh-client rsync )'
+    - eval $(ssh-agent -s)
+    - echo "${DEMO_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
+  cache:
+    - key: apt-cache-4.1
+      paths:
+        - ${APT_CACHE_DIR}
   environment:
     name: demo
+  image: debian:10.13-slim
+  only:
+    - builds/docker
+    - deployments/demo
+    - releases/all/major
+    - releases/all/minor
+    - releases/docker/major
+    - releases/docker/minor
+    - releases/nightly
+    - releases/staging
   script:
-    - scp contrib/scripts/install/docker.sh root@${DEMO_IP_ADDRESS}:~
-    - ssh root@${DEMO_IP_ADDRESS} "DELETE_VOLUMES=true ./docker.sh"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl -sSL https://get.docker.com/ | sh"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "sudo usermod -aG docker ubuntu"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker volume rm --force `docker volume ls | cut -d\  -f6`"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml -O"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env -O"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose up -d"
   stage: stage_deploy
   when: manual
+  variables:
+    APT_CACHE_DIR: ${CI_PROJECT_DIR}/.cache/apt
 
 job_staging_deploy:
   before_script:
+    - set -a && . ./config.env && set +a
+    - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
+    - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
+    - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - apt-get update
     - mkdir --parents ~/.ssh
+    - chmod 700 ~/.ssh
     - echo "${STAGING_SSH_KNOWN_HOST}" > ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
-    - echo "${STAGING_PRIVATE_KEY}" > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
+    - 'which ssh-agent || ( apt-get update --yes && apt-get install --yes --no-install-recommends openssh-client rsync )'
+    - eval $(ssh-agent -s)
+    - echo "${STAGING_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
+  cache:
+    - key: apt-cache-4.1
+      paths:
+        - ${APT_CACHE_DIR}
   environment:
     name: staging
+  image: debian:10.13-slim
+  only:
+    - builds/docker
+    - deployments/staging
+    - releases/all/major
+    - releases/all/minor
+    - releases/docker/major
+    - releases/docker/minor
+    - releases/nightly
+    - releases/staging
   script:
-    - scp contrib/scripts/install/docker.sh root@${STAGING_IP_ADDRESS}:~
-    - ssh root@${STAGING_IP_ADDRESS} "DOCKER_MAYAN_IMAGE=registry.gitlab.com/mayan-edms/mayan-edms:staging ./docker.sh"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "curl -sSL https://get.docker.com/ | sh"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "sudo usermod -aG docker ubuntu"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker volume rm --force `docker volume ls | cut -d\  -f6`"
+    - scp docker/docker-compose.yml ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
+    - scp docker/.env ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
+    - DOCKER_VERSION=`cat docker/rootfs/version`;
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_NAME=${CI_REGISTRY_IMAGE}\" >> .env"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_TAG=${DOCKER_VERSION}\" >> .env"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker login --username \"${CI_REGISTRY_USER}\" --password \"${CI_REGISTRY_PASSWORD}\" ${CI_REGISTRY}"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose up -d"
   stage: stage_deploy
   when: manual
+  variables:
+    APT_CACHE_DIR: ${CI_PROJECT_DIR}/.cache/apt

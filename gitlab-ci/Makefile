@@ -97,6 +97,18 @@ gitlab-ci-builds-python:
 	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_BUILDS_PYTHON) || true
 	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_BUILDS_PYTHON)
 
+# GitOps deployments
+
+gitlab-ci-deployments-demo: ## Trigger the demo deployment
+gitlab-ci-deployments-demo:
+	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_DEPLOYMENTS_DEMO) || true
+	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_DEPLOYMENTS_DEMO)
+
+gitlab-ci-deployments-staging: ## Trigger the staging deployment
+gitlab-ci-deployments-staging:
+	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_DEPLOYMENTS_STAGING) || true
+	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_DEPLOYMENTS_STAGING)
+
 # GitOps testing
 
 gitlab-ci-tests-all: ## Trigger all tests as a CD/CI pipeline

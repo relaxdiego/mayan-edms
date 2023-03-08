@@ -72,6 +72,7 @@
   - Update APT cache to be at ``.cache/apt``.
   - Add multi cache support.
   - Add GitLab CI cache template tags.
+  - Update deployment stages.
 
 4.1.10 (2022-11-13)
 ===================
