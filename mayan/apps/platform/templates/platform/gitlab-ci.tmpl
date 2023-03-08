@@ -472,6 +472,7 @@ job_demo_deploy:
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker volume rm --force `docker volume ls | cut -d\  -f6` || true"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml -O"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env -O"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/env_file -O"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose up -d"
   stage: stage_deploy
   when: manual
@@ -510,6 +511,7 @@ job_staging_deploy:
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker volume rm --force `docker volume ls | cut -d\  -f6` || true"
     - scp docker/docker-compose.yml ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - scp docker/.env ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
+    - scp docker/env_file ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - DOCKER_VERSION=`cat docker/rootfs/version`;
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_NAME=${CI_REGISTRY_IMAGE}\" >> .env"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_TAG=${DOCKER_VERSION}\" >> .env"
