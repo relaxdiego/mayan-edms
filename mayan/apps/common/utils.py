@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.exceptions import FieldDoesNotExist
 from django.db.models.constants import LOOKUP_SEP
 
+from .compatibility import Iterable
 from .exceptions import ResolverError, ResolverPipelineError
 from .literals import DJANGO_SQLITE_BACKEND
 
@@ -131,6 +132,17 @@ class ResolverPipelineModelAttribute(ResolverPipelineObjectAttribute):
 
 def check_for_sqlite():
     return settings.DATABASES['default']['ENGINE'] == DJANGO_SQLITE_BACKEND and settings.DEBUG is False
+
+
+def flatten_list(value):
+    if isinstance(value, (str, bytes)):
+        yield value
+    else:
+        for item in value:
+            if isinstance(item, Iterable) and not isinstance(item, (str, bytes)):
+                yield from flatten_list(value=item)
+            else:
+                yield item
 
 
 def get_class_full_name(klass):

@@ -41,10 +41,37 @@
 
   There are no known actual or theoretical attacks exploiting this
   weakness to expose or destroy data.
-- Add configurable remote branch for GitOps.
+- Pin Jinja2 version to workaround Sphinx bug. Sphinx Jinja2 dependency is
+  not pinned or immutable, and causes the installation of an incompatible
+  version breaking builds.
 - Support a local environment config file names ``config-local.env``.
   This file is ignored by Git and meant to override values of ``config.env``.
-- Add makefile targets to trigger standalone builds.
+- Support multi `psycopg2` versions for testing. Upgrade testing now uses
+  ``PYTHON_PSYCOPG2_VERSION_PREVIOUS`` for the previous version when testing
+  against PostgreSQL.
+- Improve Python 3.10 compatibility. Add a compatibility module to
+  encapsulate import of the ``Iterable`` class.
+- Move ``SearchModel.flatten_list`` to the common app ``utils.py`` module.
+- Move the helper module ``version.py`` to the dependencies app.
+- GitOps improvements and backports:
+
+  - Add configurable remote branch for GitOps.
+  - Add makefile targets to trigger standalone builds.
+  - Reuse Python build in stages.
+  - Convert branches into literals.
+  - Remove duplicated code in jobs.
+  - Split GitLab CI targets into their own makefile.
+  - Increase artifact expiration.
+  - Add PIP and APT caching to documentation and python build
+    stages.
+  - Add GitLab CI job dependencies.
+  - Enable Buildkit builds.
+  - Use APT proxy and cache in more places.
+  - Cache Alpine APK packages.
+  - Clean up cache directory definitions.
+  - Update APT cache to be at ``.cache/apt``.
+  - Add multi cache support.
+  - Add GitLab CI cache template tags.
 
 4.1.10 (2022-11-13)
 ===================

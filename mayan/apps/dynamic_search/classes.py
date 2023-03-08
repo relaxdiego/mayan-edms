@@ -1,4 +1,3 @@
-from collections import Iterable
 import logging
 
 from django.apps import apps
@@ -11,7 +10,7 @@ from django.utils.translation import ugettext as _
 from mayan.apps.common.class_mixins import AppsModuleLoaderMixin
 from mayan.apps.common.exceptions import ResolverPipelineError
 from mayan.apps.common.utils import (
-    ResolverPipelineModelAttribute, get_related_field
+    ResolverPipelineModelAttribute, flatten_list, get_related_field
 )
 from mayan.apps.views.literals import LIST_MODE_CHOICE_LIST
 
@@ -254,17 +253,6 @@ class SearchModel(AppsModuleLoaderMixin):
     _registry = {}
 
     @staticmethod
-    def flatten_list(value):
-        if isinstance(value, (str, bytes)):
-            yield value
-        else:
-            for item in value:
-                if isinstance(item, Iterable) and not isinstance(item, (str, bytes)):
-                    yield from SearchModel.flatten_list(value=item)
-                else:
-                    yield item
-
-    @staticmethod
     def function_return_same(value):
         return value
 
@@ -485,7 +473,9 @@ class SearchModel(AppsModuleLoaderMixin):
                     attribute=field, obj=instance
                 )
                 try:
-                    value = list(SearchModel.flatten_list(value))
+                    value = list(
+                        flatten_list(value=value)
+                    )
                     if value == [None]:
                         value = None
                     else:

@@ -5,6 +5,7 @@ from mayan.apps.dependencies.classes import (
 )
 from mayan.apps.dependencies.environments import (
     environment_build, environment_development, environment_documentation,
+    environment_documentation_override
 )
 
 from .literals import DEFAULT_TX_PATH
@@ -244,4 +245,8 @@ PythonDependency(
 PythonDependency(
     environment=environment_documentation, module=__name__, name='tornado',
     version_string='==6.1'
+)
+PythonDependency(
+    environment=environment_documentation_override, module=__name__,
+    name='jinja2', version_string='==3.0.3'
 )

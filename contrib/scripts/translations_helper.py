@@ -141,7 +141,9 @@ class MessageProcessor:
         return result
 
     def __init__(self):
-        sys.path.insert(1, os.path.abspath('.'))
+        sys.path.insert(
+            1, os.path.abspath('.')
+        )
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mayan.settings')
 
         import mayan
