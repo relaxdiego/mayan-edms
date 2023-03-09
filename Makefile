@@ -1,6 +1,10 @@
 #!make
 include config.env
 
+ifneq ($(wildcard config-local.env),)
+	include config-local.env
+endif
+
 ifndef MODULE
 override MODULE = --mayan-apps
 endif
@@ -116,18 +120,6 @@ test-migrations-with-postgresql: ## MODULE=<python module name> - Run migration 
 test-migrations-with-postgresql:
 	export MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql','NAME':'$(DEFAULT_DATABASE_NAME)','PASSWORD':'$(DEFAULT_DATABASE_PASSWORD)','USER':'$(DEFAULT_DATABASE_USER)','HOST':'127.0.0.1'}}"; \
 	./manage.py test $(MODULE) --settings=mayan.settings.testing.development --no-exclude --tag=migration_test
-
-gitlab-ci-update: ## Update the GitLab CI file from the platform template.
-gitlab-ci-update: copy-config-env
-	./manage.py platformtemplate gitlab-ci > .gitlab-ci.yml
-
-gitlab-ci-run: ## Execute a GitLab CI job locally
-gitlab-ci-run:
-	if [ -z $(GITLAB_CI_JOB) ]; then echo "Specify the job to execute using GITLAB_CI_JOB."; exit 1; fi; \
-	docker rm --force gitlab-runner || true
-	docker run --detach --name gitlab-runner --restart no --volume $$PWD:$$PWD --volume /var/run/docker.sock:/var/run/docker.sock gitlab/gitlab-runner:latest
-	docker exec --interactive --tty --workdir $$PWD gitlab-runner gitlab-runner exec docker --docker-privileged --docker-volumes /var/run/docker.sock:/var/run/docker.sock --docker-volumes $$PWD/gitlab-ci-volume:/builds $(GITLAB_CI_JOB)
-	docker rm --force gitlab-runner || true
 
 # Coverage
 
@@ -301,82 +293,6 @@ generate-requirements: ## Generate all requirements files from the project deped
 	@./manage.py generaterequirements production --exclude=django > requirements/base.txt
 	@./manage.py generaterequirements production --only=django > requirements/common.txt
 
-# Major releases
-
-gitlab-release-documentation: ## Trigger the documentation build and publication using GitLab CI
-gitlab-release-documentation:
-	git push
-	git push --tags
-	git push origin :releases/documentation || true
-	git push origin HEAD:releases/documentation
-
-gitlab-release-docker-major: ## Trigger the Docker image build and publication using GitLab CI
-gitlab-release-docker-major:
-	git push
-	git push --tags
-	git push origin :releases/docker_major || true
-	git push origin HEAD:releases/docker_major
-
-gitlab-release-python-major: ## Trigger the Python package build and publication using GitLab CI
-gitlab-release-python-major:
-	git push
-	git push --tags
-	git push origin :releases/python_major || true
-	git push origin HEAD:releases/python_major
-
-gitlab-release-all-major: ## Trigger the Python package, Docker image, and documentation build and publication using GitLab CI
-gitlab-release-all-major:
-	git push
-	git push --tags
-	git push origin :releases/all_major || true
-	git push origin HEAD:releases/all_major
-
-# Minor releases
-
-gitlab-release-docker-minor: ## Trigger the Docker image build and publication of a minor version using GitLab CI
-gitlab-release-docker-minor:
-	git push
-	git push --tags
-	git push origin :releases/docker_minor || true
-	git push origin HEAD:releases/docker_minor
-
-gitlab-release-python-minor: ## Trigger the Python package build and publication of a minor version using GitLab CI
-gitlab-release-python-minor:
-	git push
-	git push --tags
-	git push origin :releases/python_minor || true
-	git push origin HEAD:releases/python_minor
-
-gitlab-release-all-minor: ## Trigger the Python package, Docker image build and publication of a minor version using GitLab CI
-gitlab-release-all-minor:
-	git push
-	git push --tags
-	git push origin :releases/all_minor || true
-	git push origin HEAD:releases/all_minor
-
-# Internal testing
-
-gitlab-tests-internal-all: ## Trigger all tests as a CD/CI pipeline
-gitlab-tests-internal-all:
-	git push internal
-	git push internal --tags
-	git push internal :tests/all || true
-	git push internal HEAD:tests/all
-
-gitlab-tests-internal-base: ## Trigger normal and migration tests as a CD/CI pipeline
-gitlab-tests-internal-base:
-	git push internal
-	git push internal --tags
-	git push internal :tests/base || true
-	git push internal HEAD:tests/base
-
-gitlab-tests-internal-upgrade: ## Trigger upgrade tests as a CD/CI pipeline
-gitlab-tests-internal-upgrade:
-	git push internal
-	git push internal --tags
-	git push internal :tests/upgrade || true
-	git push internal HEAD:tests/upgrade
-
 # Dev server
 
 manage: ## Run a command with the development settings.
@@ -519,7 +435,7 @@ setup-dev-environment: setup-dev-operating-system-packages setup-dev-python-libr
 
 setup-dev-operating-system-packages:  ## Install the operating system packages needed for development.
 setup-dev-operating-system-packages:
-	sudo apt-get install --yes exiftool gcc gettext gnupg1 graphviz libcairo2 libffi-dev libjpeg-dev libpng-dev poppler-utils python3-dev sane-utils tesseract-ocr-deu
+	sudo apt-get install --yes exiftool gcc gettext gnupg1 graphviz libcairo2 libffi-dev libfuse2 libjpeg-dev libpng-dev poppler-utils python3-dev sane-utils tesseract-ocr-deu
 
 setup-dev-python-libraries: ## Install the Python libraries needed for development.
 setup-dev-python-libraries:
@@ -553,4 +469,5 @@ devpi-stop:
 	killall devpi-server || true
 
 -include docker/Makefile
+-include gitlab-ci/Makefile
 -include vagrant/Makefile

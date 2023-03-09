@@ -25,28 +25,28 @@ msgstr ""
 msgid "Platform"
 msgstr "Platformă"
 
-#: classes.py:183
+#: classes.py:212
 msgid "Template for entrypoint.sh file inside a Docker image."
 msgstr ""
 "Șablon pentru fișierul entrypoint.sh în interiorul unei imagini Docker."
 
-#: classes.py:194
+#: classes.py:227
 msgid "Template that generates a Dockerfile file."
 msgstr "Șablon care generează un fișier Dockerfile."
 
-#: classes.py:209
+#: classes.py:242
 msgid "Template for Supervisord inside a Docker image."
 msgstr "Șablon pentru Supervisord în interiorul unei imagini Docker."
 
-#: classes.py:227
+#: classes.py:260
 msgid "Template that generates a GitLab CI config file."
 msgstr "Șablon care generează un fișier de configurare GitLab CI."
 
-#: classes.py:271
+#: classes.py:404
 msgid "Template for Supervisord."
 msgstr "Șablon pentru Supervisord."
 
-#: classes.py:344
+#: classes.py:477
 msgid "Template showing the queues of a worker."
 msgstr "Șablon care arată cozile unui lucrător."
 

@@ -20,6 +20,7 @@ repository for electronic documents.
     parts/features
     parts/installation
     releases/index
+    chapters/series_status
     parts/getting_started
     parts/access_control
     parts/categorization
@@ -33,6 +34,7 @@ repository for electronic documents.
     parts/administration
     parts/troubleshooting/index
     chapters/development/index
+    chapters/security
     parts/faq
     parts/license
     parts/contact

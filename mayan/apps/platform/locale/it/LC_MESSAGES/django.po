@@ -25,27 +25,27 @@ msgstr ""
 msgid "Platform"
 msgstr "Piattaforma"
 
-#: classes.py:183
+#: classes.py:212
 msgid "Template for entrypoint.sh file inside a Docker image."
 msgstr ""
 
-#: classes.py:194
+#: classes.py:227
 msgid "Template that generates a Dockerfile file."
 msgstr ""
 
-#: classes.py:209
+#: classes.py:242
 msgid "Template for Supervisord inside a Docker image."
 msgstr "Modello per Supervisord all'interno di un'immagine Docker."
 
-#: classes.py:227
+#: classes.py:260
 msgid "Template that generates a GitLab CI config file."
 msgstr ""
 
-#: classes.py:271
+#: classes.py:404
 msgid "Template for Supervisord."
 msgstr "Modello per Supervisord."
 
-#: classes.py:344
+#: classes.py:477
 msgid "Template showing the queues of a worker."
 msgstr "Modello che mostra le code di un lavoratore."
 

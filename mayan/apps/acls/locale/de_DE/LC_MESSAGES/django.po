@@ -35,6 +35,8 @@ msgid ""
 "Object for which the access is granted. When sorting objects, only the type "
 "is used and not the actual label of the object."
 msgstr ""
+"Objekt auf das der Zugriff gewährt wird. Zum Sortieren von Objekten wird nur"
+" der Typ, nicht jedoch die Beschriftung des Objekts verwendet. "
 
 #: apps.py:65
 msgid "Object"
@@ -90,7 +92,7 @@ msgstr "Unzureichende Berechtigung für: %s"
 
 #: models.py:49
 msgid "Role to which the access is granted for the specified object."
-msgstr ""
+msgstr "Rolle welcher der Zugriff auf das angegebene Objekt gewährt wird."
 
 #: models.py:59
 msgid "Access entry"
@@ -116,10 +118,12 @@ msgstr "Zugriffsberechtigungen anzeigen"
 #: serializers.py:116
 msgid "Primary key of the permission to add to the ACL."
 msgstr ""
+"Primärschlüssel der Berechtigung zum Hinzufügen von Zugriffsberechtigungen."
 
 #: serializers.py:123
 msgid "Primary key of the permission to remove from the ACL."
 msgstr ""
+"Primärschlüssel der Berechtigung zum Entzug von Zugriffsberechtigungen."
 
 #: views.py:44
 #, python-format

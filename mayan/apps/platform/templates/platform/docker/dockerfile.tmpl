@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.2
 # vim:set ft=dockerfile:
 
 ####
@@ -7,7 +8,18 @@
 
 FROM {{ DOCKER_LINUX_IMAGE_VERSION }} as base_image
 
+LABEL io.artifacthub.package.keywords="Python,Django,document management,OCR,PDF"
+LABEL io.artifacthub.package.readme-url="https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/README.md"
 LABEL maintainer="Roberto Rosario roberto.rosario@mayan-edms.com"
+LABEL org.opencontainers.image.authors="Roberto Rosario roberto.rosario@mayan-edms.com, https://forum.mayan-edms.com"
+LABEL org.opencontainers.image.base.name="{{ DOCKER_LINUX_IMAGE_VERSION }}"
+LABEL org.opencontainers.image.description="Free Open Source Electronic Document Management System"
+LABEL org.opencontainers.image.documentation="https://docs.mayan-edms.com/chapters/docker/index.html"
+LABEL org.opencontainers.image.licenses="Apache-2.0"
+LABEL org.opencontainers.image.source="https://gitlab.com/mayan-edms/mayan-edms/-/blob/master/mayan/apps/platform/templates/platform/docker/dockerfile.tmpl"
+LABEL org.opencontainers.image.url="https://hub.docker.com/r/mayanedms/mayanedms"
+LABEL org.opencontainers.image.vendor="Roberto Rosario"
+LABEL org.opencontainers.image.title="Mayan EDMS"
 
 COPY config.env /config.env
 

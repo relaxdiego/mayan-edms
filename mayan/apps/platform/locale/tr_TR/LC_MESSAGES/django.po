@@ -25,27 +25,27 @@ msgstr ""
 msgid "Platform"
 msgstr "Ortam"
 
-#: classes.py:183
+#: classes.py:212
 msgid "Template for entrypoint.sh file inside a Docker image."
 msgstr "Bir Docker görüntüsünün içindeki entrypoint.sh dosyası için şablon."
 
-#: classes.py:194
+#: classes.py:227
 msgid "Template that generates a Dockerfile file."
 msgstr "Dockerfile dosyası oluşturan şablon."
 
-#: classes.py:209
+#: classes.py:242
 msgid "Template for Supervisord inside a Docker image."
 msgstr "Docker görüntüsünün içindeki Gözetmen için şablon."
 
-#: classes.py:227
+#: classes.py:260
 msgid "Template that generates a GitLab CI config file."
 msgstr "GitLab CI yapılandırma dosyası oluşturan şablon."
 
-#: classes.py:271
+#: classes.py:404
 msgid "Template for Supervisord."
 msgstr "Gözetmen için şablon."
 
-#: classes.py:344
+#: classes.py:477
 msgid "Template showing the queues of a worker."
 msgstr "Bir işçinin sıralarını gösteren şablon."
 

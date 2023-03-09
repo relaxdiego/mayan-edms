@@ -17,12 +17,15 @@ import sys
 from docutils.parsers.rst import directives
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mayan.settings')
-sys.path.insert(0, os.path.abspath('..'))
-sys.path.insert(1, os.path.abspath('.'))
-
-from contrib.scripts.version import Version
+sys.path.insert(
+    0, os.path.abspath('..')
+)
+sys.path.insert(
+    1, os.path.abspath('.')
+)
 
 import mayan
+from mayan.apps.dependencies.versions import Version
 
 import callbacks
 import patches
@@ -32,7 +35,11 @@ import utils
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.append(
-    os.path.abspath(os.path.join(os.path.dirname(__file__), '_ext'))
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__), '_ext'
+        )
+    )
 )
 
 # -- General configuration -----------------------------------------------------
@@ -242,8 +249,10 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'mayanedms', '{} Documentation'.format(mayan.__title__),
-     [mayan.__author__], 1)
+    (
+        'index', 'mayanedms', '{} Documentation'.format(mayan.__title__),
+        [mayan.__author__], 1
+    )
 ]
 
 # -- External links --

@@ -1,6 +1,10 @@
 #!make
 include config.env
 
+ifneq ($(wildcard config-local.env),)
+	include config-local.env
+endif
+
 HOST_IP = `/sbin/ip route get 1.0.0.0|cut --delimiter=" " --fields=7`
 APT_PROXY ?= $(HOST_IP):3142
 PIP_INDEX_URL ?= http://$(HOST_IP):3141/root/pypi/+simple/

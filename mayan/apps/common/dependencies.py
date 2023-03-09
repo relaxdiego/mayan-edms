@@ -10,6 +10,7 @@ from mayan.apps.dependencies.environments import (
 
 from .literals import DEFAULT_TX_PATH
 
+
 PythonDependency(
     copyright_text='''
         Copyright (c) Django Software Foundation and individual contributors.

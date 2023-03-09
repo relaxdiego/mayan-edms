@@ -24,27 +24,27 @@ msgstr ""
 msgid "Platform"
 msgstr "Platforma"
 
-#: classes.py:183
+#: classes.py:212
 msgid "Template for entrypoint.sh file inside a Docker image."
 msgstr "Predloga za datoteko entrypoint.sh znotraj slike Docker."
 
-#: classes.py:194
+#: classes.py:227
 msgid "Template that generates a Dockerfile file."
 msgstr "Predloga, ki ustvari datoteko Dockerfile."
 
-#: classes.py:209
+#: classes.py:242
 msgid "Template for Supervisord inside a Docker image."
 msgstr "Predloga za Supervisor znotraj slike Docker."
 
-#: classes.py:227
+#: classes.py:260
 msgid "Template that generates a GitLab CI config file."
 msgstr "Predloga, ki ustvari konfiguracijsko datoteko GitLab CI."
 
-#: classes.py:271
+#: classes.py:404
 msgid "Template for Supervisord."
 msgstr "Predloga za nadzornika."
 
-#: classes.py:344
+#: classes.py:477
 msgid "Template showing the queues of a worker."
 msgstr "Predloga, ki prikazuje čakalne vrste delavca."
 

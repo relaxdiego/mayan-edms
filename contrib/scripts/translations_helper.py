@@ -12,8 +12,6 @@ import django
 from django.apps import apps
 from django.conf import settings
 
-import version
-
 TRANSIFEX_LANGUAGE_MAPPING = {
     'zh-Hans': 'zh_Hans'
 }
@@ -61,6 +59,9 @@ class TransifexHelper:
         return missing_list
 
     def generate_configuration_file(self):
+        # Hidden import
+        from mayan.apps.dependencies import versions as version
+
         mayan_version = version.Version(
             version_string=self.message_processor.mayan.__version__
         )
@@ -106,7 +107,11 @@ class TransifexHelper:
                 output.append('type        = PO')
                 output.append('')
 
-        print('\n'.join(output[:-1]))
+        print(
+            '\n'.join(
+                output[:-1]
+            )
+        )
 
 
 class MessageProcessor:
@@ -135,7 +140,9 @@ class MessageProcessor:
         return result
 
     def __init__(self):
-        sys.path.insert(1, os.path.abspath('.'))
+        sys.path.insert(
+            1, os.path.abspath('.')
+        )
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mayan.settings')
 
         import mayan
