@@ -1,5 +1,10 @@
 
 
+.job_docker_push_variables:
+  &job_docker_push_variables
+    PYTHON_BIN: /usr/bin/python3
+    VERSION_SCRIPT_BIN: mayan/apps/dependencies/versions.py
+
 stages:
   - stage_build_python
   - stage_test_python
@@ -100,12 +105,10 @@ job_docker_push_major:
     - releases/all/major
     - releases/docker/major
   script:
-    - PYTHON_BIN=/usr/bin/python3
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - docker pull "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:v"${DOCKER_VERSION}"
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:latest
-    - VERSION_SCRIPT_BIN=contrib/scripts/version.py
     - MAJOR_VERSION=$(${PYTHON_BIN} ${VERSION_SCRIPT_BIN} ${DOCKER_VERSION} major);
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:s"${MAJOR_VERSION}"
     - MINOR_VERSION=$(${PYTHON_BIN} ${VERSION_SCRIPT_BIN} ${DOCKER_VERSION} minor);
@@ -121,6 +124,7 @@ job_docker_push_major:
   variables:
     DOCKER_DRIVER: overlay2
     APK_CACHE_DIR: ${CI_PROJECT_DIR}/.cache/apk
+    << : *job_docker_push_variables
 
 job_docker_push_minor:
   before_script:
@@ -140,11 +144,9 @@ job_docker_push_minor:
     - releases/all/minor
     - releases/docker/minor
   script:
-    - PYTHON_BIN=/usr/bin/python3
     - DOCKER_VERSION=`cat docker/rootfs/version`
     - docker pull "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:v"${DOCKER_VERSION}"
-    - VERSION_SCRIPT_BIN=contrib/scripts/version.py
     - MINOR_VERSION=$(${PYTHON_BIN} ${VERSION_SCRIPT_BIN} ${DOCKER_VERSION} minor);
     - docker tag "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" registry-1.docker.io/mayanedms/mayanedms:s"${MINOR_VERSION}"
     - docker login --username "${DOCKER_HUB_USERNAME}" --password "${DOCKER_HUB_PASSWORD}" https://registry-1.docker.io
@@ -156,6 +158,7 @@ job_docker_push_minor:
   variables:
     DOCKER_DRIVER: overlay2
     APK_CACHE_DIR: ${CI_PROJECT_DIR}/.cache/apk
+    << : *job_docker_push_variables
 
 job_docker_nightly:
   before_script:
@@ -541,10 +544,11 @@ job_demo_deploy:
   script:
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl -sSL https://get.docker.com/ | sh"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "sudo usermod -aG docker ubuntu"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker volume rm --force `docker volume ls | cut -d\  -f6`"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down || true"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker volume rm --force `docker volume ls | cut -d\  -f6` || true"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml -O"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env -O"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/env_file -O"
     - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose up -d"
   stage: stage_deploy
   when: manual
@@ -585,10 +589,11 @@ job_staging_deploy:
   script:
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "curl -sSL https://get.docker.com/ | sh"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "sudo usermod -aG docker ubuntu"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker volume rm --force `docker volume ls | cut -d\  -f6`"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down || true"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker volume rm --force `docker volume ls | cut -d\  -f6` || true"
     - scp docker/docker-compose.yml ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - scp docker/.env ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
+    - scp docker/env_file ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - DOCKER_VERSION=`cat docker/rootfs/version`;
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_NAME=${CI_REGISTRY_IMAGE}\" >> .env"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_TAG=${DOCKER_VERSION}\" >> .env"
