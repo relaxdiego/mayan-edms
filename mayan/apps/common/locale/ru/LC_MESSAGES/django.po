@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 02:50+0000\n"
+"POT-Creation-Date: 2023-03-09 08:43+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
 "Last-Translator: Ilya Pavlov <spirkaa@gmail.com>, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/rosarior/teams/13584/ru/)\n"
@@ -46,20 +46,24 @@ msgstr "Связанные поля модели"
 msgid "Model reverse fields"
 msgstr "Обратные поля модели"
 
-#: dependencies.py:172
+#: dependencies.py:164
+msgid "Transifex Client"
+msgstr ""
+
+#: dependencies.py:181
 msgid "Used to allow offline translation of the code text strings."
 msgstr ""
 "Используется для разрешения автономного перевода текстовых строк кода."
 
-#: dependencies.py:181
+#: dependencies.py:190
 msgid "Provides style checking."
 msgstr "Обеспечивает проверку стиля."
 
-#: dependencies.py:186
+#: dependencies.py:195
 msgid "Command line environment with autocompletion."
 msgstr "Среда командной строки с автодополнением."
 
-#: dependencies.py:191
+#: dependencies.py:200
 msgid "Checks proper formatting of the README file."
 msgstr "Проверяет правильность форматирования файла README."
 
@@ -107,20 +111,20 @@ msgstr "Получить поддержку"
 msgid "Tools"
 msgstr "Инструменты"
 
-#: literals.py:20
+#: literals.py:24
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr "Эта функция устарела и будет удалена в будущей версии."
 
-#: literals.py:28
+#: literals.py:32
 msgid "Days"
 msgstr "Дни"
 
-#: literals.py:29
+#: literals.py:33
 msgid "Hours"
 msgstr "Часы"
 
-#: literals.py:30
+#: literals.py:34
 msgid "Minutes"
 msgstr "Минуты"
 

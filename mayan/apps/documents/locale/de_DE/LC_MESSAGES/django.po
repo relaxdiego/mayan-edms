@@ -16,15 +16,15 @@
 # Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
 # Berny <berny@bernhard-marx.de>, 2022
 # Mathias Behrle <mathiasb@m9s.biz>, 2022
-# Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2022
+# Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 02:50+0000\n"
+"POT-Creation-Date: 2023-03-09 08:43+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
-"Last-Translator: Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2022\n"
+"Last-Translator: Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2023\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -217,15 +217,15 @@ msgstr "Dokumententyp bearbeitet"
 
 #: events.py:43
 msgid "Document type quick label created"
-msgstr ""
+msgstr "Schnellbezeichner für Dokumententyp erstellt"
 
 #: events.py:47
 msgid "Document type quick label deleted"
-msgstr ""
+msgstr "Schnellbezeichner für Dokumententyp gelöscht"
 
 #: events.py:51
 msgid "Document type quick label edited"
-msgstr ""
+msgstr "Schnellbezeichner für Dokumententyp bearbeitet"
 
 #: events.py:56
 msgid "Document type changed"
@@ -701,6 +701,9 @@ msgid ""
 " the format of a file, in this case the file format of the document. Some "
 "examples: \"text/plain\" or \"image/jpeg\". "
 msgstr ""
+"Der MIME-Typ der Dokumentendatei. MIME-Typen beschreiben das Format einer "
+"Datei, in diesem Fall das Dateiformat des Dokuments. Beispiele für MIME-"
+"Typen sind: \"text/plain\" oder \"image/jpeg\"."
 
 #: models/document_file_models.py:106
 msgid ""
@@ -1083,7 +1086,7 @@ msgstr ""
 
 #: queues.py:42
 msgid "Delete a document version"
-msgstr ""
+msgstr "Eine Dokumentenversion löschen"
 
 #: queues.py:46
 msgid "Export a document version"
@@ -1107,11 +1110,11 @@ msgstr "Dokumentenseitenzahl aktualisieren"
 
 #: queues.py:76
 msgid "Upload new document file"
-msgstr ""
+msgstr "Neue Dokumentendatei hochladen"
 
 #: queues.py:80
 msgid "Upload new document"
-msgstr ""
+msgstr "Neues Dokument hochladen"
 
 #: search.py:31 search.py:64 search.py:96 search.py:141 search.py:169
 msgid "Document type label"
@@ -1143,7 +1146,7 @@ msgstr ""
 
 #: serializers/document_file_serializers.py:94
 msgid "Binary content for the new file."
-msgstr ""
+msgstr "Binärdaten der neuen Datei"
 
 #: serializers/document_serializers.py:19
 msgid "Document type ID for the new document."
@@ -1275,7 +1278,7 @@ msgstr "Neue Dokumente pro Monat"
 
 #: statistics.py:241
 msgid "New document files per month"
-msgstr ""
+msgstr "Neue Dokumentdateien pro Monat"
 
 #: statistics.py:248
 msgid "New document pages per month"
@@ -1333,7 +1336,7 @@ msgstr ""
 
 #: templates/documents/errors/no_valid_version.html:5
 msgid "No valid or active version"
-msgstr ""
+msgstr "Keine gültige oder aktive Version"
 
 #: templates/documents/errors/no_version_pages.html:5
 msgid "No version pages"
@@ -1395,7 +1398,7 @@ msgstr ""
 #: views/document_file_page_views.py:115
 #, python-format
 msgid "Pages of document file: %s"
-msgstr ""
+msgstr "Seiten der Dokumentendatei: %s"
 
 #: views/document_file_page_views.py:189
 #: views/document_version_page_views.py:394
@@ -1760,7 +1763,7 @@ msgstr ""
 #: views/document_version_views.py:156
 #, python-format
 msgid "Edit document version: %s"
-msgstr ""
+msgstr "Dokumentversion bearbeiten: %s"
 
 #: views/document_version_views.py:177
 #, python-format
@@ -1806,7 +1809,7 @@ msgstr ""
 
 #: views/document_version_views.py:237
 msgid "No versions available"
-msgstr ""
+msgstr "Keine Versionen vorhanden"
 
 #: views/document_version_views.py:240
 #, python-format
@@ -2112,7 +2115,7 @@ msgstr "Neuer Dokumenttyp für das Workflow-Dokument."
 
 #: workflow_actions.py:18
 msgid "Change document type"
-msgstr ""
+msgstr "Dokumententyp ändern"
 
 #: workflow_actions.py:37
 msgid "Send document to trash"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 02:51+0000\n"
+"POT-Creation-Date: 2023-03-09 08:43+0000\n"
 "PO-Revision-Date: 2022-02-03 10:13+0000\n"
 "Last-Translator: Faiqul Azmi <kasempurnaningurip@gmail.com>, 2022\n"
 "Language-Team: Indonesian (https://www.transifex.com/rosarior/teams/13584/id/)\n"
@@ -24,27 +24,27 @@ msgstr ""
 msgid "Platform"
 msgstr "Platform"
 
-#: classes.py:183
+#: classes.py:212
 msgid "Template for entrypoint.sh file inside a Docker image."
 msgstr ""
 
-#: classes.py:194
+#: classes.py:227
 msgid "Template that generates a Dockerfile file."
 msgstr ""
 
-#: classes.py:209
+#: classes.py:242
 msgid "Template for Supervisord inside a Docker image."
 msgstr "Template untuk Supervisord dalam sebuah Image Docker"
 
-#: classes.py:227
+#: classes.py:260
 msgid "Template that generates a GitLab CI config file."
 msgstr ""
 
-#: classes.py:271
+#: classes.py:404
 msgid "Template for Supervisord."
 msgstr "Template untuk Supervisord"
 
-#: classes.py:344
+#: classes.py:477
 msgid "Template showing the queues of a worker."
 msgstr "Template menampilkan antrian sebuah pekerja."
 
