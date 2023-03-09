@@ -225,17 +225,6 @@ def flatten_list(value):
                     yield ''
 
 
-def flatten_list(value):
-    if isinstance(value, (str, bytes)):
-        yield value
-    else:
-        for item in value:
-            if isinstance(item, Iterable) and not isinstance(item, (str, bytes)):
-                yield from flatten_list(value=item)
-            else:
-                yield item
-
-
 def get_class_full_name(klass):
     return '{klass.__module__}.{klass.__qualname__}'.format(klass=klass)
 
