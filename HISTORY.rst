@@ -73,6 +73,7 @@
   - Add multi cache support.
   - Add GitLab CI cache template tags.
   - Update deployment stages.
+  - Don't push to the master branch on nightly or testing releases.
 
 - Add a custom REST API exception handler to workaround inconsistent
   validation exception behavior in Django REST framework
