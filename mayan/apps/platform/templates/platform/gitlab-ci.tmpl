@@ -18,6 +18,7 @@ stages:
 
 job_docker_build:
   before_script:
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apk=True indent=4 %}
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
     - apk update
@@ -53,6 +54,7 @@ job_docker_build:
 
 job_docker_test:
   before_script:
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: {{ DOCKER_DIND_IMAGE_VERSION }}
   needs:
@@ -82,7 +84,7 @@ job_docker_test:
 
 job_docker_push_major:
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apk=True indent=4 %}
     - apk add --cache-dir ${APK_CACHE_DIR} python3
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
@@ -118,7 +120,7 @@ job_docker_push_major:
 
 job_docker_push_minor:
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apk=True indent=4 %}
     - apk add --cache-dir ${APK_CACHE_DIR} python3
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
@@ -149,6 +151,7 @@ job_docker_push_minor:
 
 job_docker_nightly:
   before_script:
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: {{ DOCKER_DIND_IMAGE_VERSION }}
   needs:
@@ -169,6 +172,7 @@ job_docker_nightly:
 
 job_docker_testing:
   before_script:
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: {{ DOCKER_DIND_IMAGE_VERSION }}
   needs:
@@ -195,7 +199,7 @@ job_documentation_build:
     paths:
     - docs
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
     - apt-get update
     - apt-get install --yes --no-install-recommends enchant-2 gcc make libffi-dev libjpeg-dev libpng-dev python3-venv python3-dev zlib1g-dev
@@ -227,7 +231,7 @@ job_documentation_build:
 
 job_documentation_push:
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
     - mkdir --parents ~/.ssh
     - chmod 700 ~/.ssh
@@ -257,7 +261,7 @@ job_python_build:
     paths:
     - dist
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
     - apt-get update
     - apt-get install --yes --no-install-recommends make python3-venv python3-dev
@@ -288,7 +292,7 @@ job_python_build:
 
 job_python_push_pypi:
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
     - apt-get update
     - apt-get install --yes --no-install-recommends make python3-venv python3-dev
@@ -317,7 +321,7 @@ job_python_push_pypi:
 .job_base_upgrade_test:
   &job_base_upgrade_test
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
     - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool gcc ghostscript gnupg1 libldap2-dev libjpeg-dev libmagic1 libpng-dev libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev tesseract-ocr
@@ -384,7 +388,7 @@ job_sqlite_upgrade_test:
 .job_base_test:
   &job_base_test
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
     - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool gcc ghostscript gnupg1 graphviz libfuse2 libldap2-dev libjpeg-dev libmagic1 libpng-dev libreoffice-calc-nogui libreoffice-draw-nogui libreoffice-impress-nogui libreoffice-math-nogui libreoffice-writer-nogui libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev sane-utils tesseract-ocr tesseract-ocr-deu
@@ -439,15 +443,9 @@ job_sqlite_test:
 
 job_demo_deploy:
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
-    - mkdir --parents ~/.ssh
-    - chmod 700 ~/.ssh
-    - echo "${DEMO_SSH_KNOWN_HOST}" > ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
-    - 'which ssh-agent || ( apt-get update --yes && apt-get install --yes --no-install-recommends openssh-client rsync )'
-    - eval $(ssh-agent -s)
-    - echo "${DEMO_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
+{% platform_gitlab_ci_ssh_before_script hostname='${DEMO_SSH_KNOWN_HOST}' indent=4 private_key='${DEMO_PRIVATE_KEY}' %}
   cache:
 {% platform_gitlab_ci_cache_paths apt=True indent=4 %}
   environment:
@@ -478,15 +476,9 @@ job_demo_deploy:
 
 job_staging_deploy:
   before_script:
-    - set -a && . ./config.env && set +a
+{% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
-    - mkdir --parents ~/.ssh
-    - chmod 700 ~/.ssh
-    - echo "${STAGING_SSH_KNOWN_HOST}" > ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
-    - 'which ssh-agent || ( apt-get update --yes && apt-get install --yes --no-install-recommends openssh-client rsync )'
-    - eval $(ssh-agent -s)
-    - echo "${STAGING_PRIVATE_KEY}" | tr -d '\r' | ssh-add - > /dev/null
+{% platform_gitlab_ci_ssh_before_script hostname='${STAGING_SSH_KNOWN_HOST}' indent=4 private_key='${STAGING_PRIVATE_KEY}' %}
   cache:
 {% platform_gitlab_ci_cache_paths apt=True indent=4 %}
   environment:

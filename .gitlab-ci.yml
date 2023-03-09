@@ -18,6 +18,7 @@ stages:
 
 job_docker_build:
   before_script:
+    - set -a && . ./config.env && set +a
     - mkdir --parents ${APK_CACHE_DIR}
     - apk update
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
@@ -60,6 +61,7 @@ job_docker_build:
 
 job_docker_test:
   before_script:
+    - set -a && . ./config.env && set +a
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: docker:20-dind
   needs:
@@ -162,6 +164,7 @@ job_docker_push_minor:
 
 job_docker_nightly:
   before_script:
+    - set -a && . ./config.env && set +a
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: docker:20-dind
   needs:
@@ -182,6 +185,7 @@ job_docker_nightly:
 
 job_docker_testing:
   before_script:
+    - set -a && . ./config.env && set +a
     - docker login --username "${CI_REGISTRY_USER}" --password "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   image: docker:20-dind
   needs:

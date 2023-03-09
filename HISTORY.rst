@@ -30,6 +30,9 @@
   - Add GitLab CI cache template tags.
   - Update deployment stages.
   - Don't push to the master branch on nightly or testing releases.
+  - Load config.env in all jobs.
+  - Move common SSH initialization to its own template tags.
+  - Convert YAML triple ''' quotes to a single quote.
 
 - Sanitize tag labels to avoid XSS abuse (CVE-2022-47419: Mayan EDMS Tag XSS).
   This is a limited scope weakness of the tagging system markup that can be

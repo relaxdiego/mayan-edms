@@ -19,6 +19,8 @@ def yaml_dump(data, indent):
         Dumper=Dumper, data=data, width=1000
     )
 
+    result = result.replace('\'\'\'', '\'')
+
     output = []
 
     for line in result.split('\n'):
@@ -115,3 +117,25 @@ def platform_gitlab_ci_cache_variables(
         variables['PIP_CACHE_DIR'] = '${CI_PROJECT_DIR}/.cache/pip'
 
     return yaml_dump(data=variables, indent=indent)
+
+
+@register.simple_tag
+def platform_gitlab_ci_config_env_before_script(indent):
+    data = ['set -a && . ./config.env && set +a']
+
+    return yaml_dump(data=data, indent=indent)
+
+
+@register.simple_tag
+def platform_gitlab_ci_ssh_before_script(indent, hostname, private_key):
+    data = [
+        'mkdir --parents ~/.ssh',
+        'chmod 700 ~/.ssh',
+        'echo "{}" > ~/.ssh/known_hosts'.format(hostname),
+        'chmod 644 ~/.ssh/known_hosts',
+        '\'which ssh-agent || ( apt-get update --yes && apt-get install --yes --no-install-recommends openssh-client rsync )\'',
+        'eval $(ssh-agent -s)',
+        'echo "{}" | tr -d \'\\r\' | ssh-add - > /dev/null'.format(private_key)
+    ]
+
+    return yaml_dump(data=data, indent=indent)
