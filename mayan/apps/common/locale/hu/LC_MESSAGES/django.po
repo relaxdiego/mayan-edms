@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-19 16:18+0000\n"
+"POT-Creation-Date: 2023-03-09 09:22+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Dezső József <dejo60@gmail.com>, 2022\n"
 "Language-Team: Hungarian (https://www.transifex.com/rosarior/teams/13584/hu/)\n"
@@ -25,23 +25,23 @@ msgstr ""
 msgid "Common"
 msgstr "Általános"
 
-#: dependencies.py:163
+#: dependencies.py:164
 msgid "Transifex Client"
 msgstr ""
 
-#: dependencies.py:180
+#: dependencies.py:181
 msgid "Used to allow offline translation of the code text strings."
 msgstr ""
 
-#: dependencies.py:189
+#: dependencies.py:190
 msgid "Provides style checking."
 msgstr ""
 
-#: dependencies.py:194
+#: dependencies.py:195
 msgid "Command line environment with autocompletion."
 msgstr ""
 
-#: dependencies.py:199
+#: dependencies.py:200
 msgid "Checks proper formatting of the README file."
 msgstr ""
 
@@ -89,20 +89,20 @@ msgstr ""
 msgid "Tools"
 msgstr "Eszköz"
 
-#: literals.py:22
+#: literals.py:26
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr ""
 
-#: literals.py:30
+#: literals.py:34
 msgid "Days"
 msgstr "Napok"
 
-#: literals.py:31
+#: literals.py:35
 msgid "Hours"
 msgstr "Órák"
 
-#: literals.py:32
+#: literals.py:36
 msgid "Minutes"
 msgstr "Percek"
 

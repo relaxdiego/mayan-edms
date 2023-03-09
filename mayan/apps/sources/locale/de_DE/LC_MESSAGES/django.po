@@ -4,7 +4,6 @@
 # 
 # Translators:
 # Translators:
-# Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2022
 # Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2022
 # Jesaja Everling <jeverling@gmail.com>, 2022
 # Berny <berny@bernhard-marx.de>, 2022
@@ -13,14 +12,15 @@
 # Ingo Buchholz <ingo.buchholz@takwa.de>, 2022
 # Mathias Behrle <mathiasb@m9s.biz>, 2022
 # Roberto Rosario, 2022
+# Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-19 16:19+0000\n"
+"POT-Creation-Date: 2023-03-09 09:22+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"Last-Translator: Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2023\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -192,7 +192,7 @@ msgstr "Argumente"
 
 #: serializers.py:61
 msgid "Binary content for the new file."
-msgstr ""
+msgstr "Binärdaten der neuen Datei"
 
 #: settings.py:20
 msgid "Arguments to use when creating source backends."

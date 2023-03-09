@@ -5,16 +5,16 @@
 # Translators:
 # Translators:
 # j jacobs <j.jacobs@rijnlandslyceum-rls.nl>, 2022
-# bwakkie <bwakkie@gmail.com>, 2022
 # Roberto Rosario, 2022
+# bwakkie <bwakkie@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-19 16:18+0000\n"
+"POT-Creation-Date: 2023-03-09 09:22+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"Last-Translator: bwakkie <bwakkie@gmail.com>, 2023\n"
 "Language-Team: Dutch (https://www.transifex.com/rosarior/teams/13584/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,23 +26,23 @@ msgstr ""
 msgid "Common"
 msgstr "Gemeenschappelijk"
 
-#: dependencies.py:163
+#: dependencies.py:164
 msgid "Transifex Client"
-msgstr ""
+msgstr "Transifex Client"
 
-#: dependencies.py:180
+#: dependencies.py:181
 msgid "Used to allow offline translation of the code text strings."
 msgstr "Gebruikt om offline vertaling van de codetekststrings toe te staan."
 
-#: dependencies.py:189
+#: dependencies.py:190
 msgid "Provides style checking."
 msgstr "Biedt stijlcontrole."
 
-#: dependencies.py:194
+#: dependencies.py:195
 msgid "Command line environment with autocompletion."
 msgstr "Opdrachtregelomgeving met automatisch aanvullen."
 
-#: dependencies.py:199
+#: dependencies.py:200
 msgid "Checks proper formatting of the README file."
 msgstr "Controleert de juiste opmaak van het README-bestand."
 
@@ -90,22 +90,22 @@ msgstr "Ondersteuning"
 msgid "Tools"
 msgstr "Gereedschappen"
 
-#: literals.py:22
+#: literals.py:26
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr ""
 "Deze functie is achterhaald en zal worden verwijderd in een toekomstige "
 "versie."
 
-#: literals.py:30
+#: literals.py:34
 msgid "Days"
 msgstr "Dagen"
 
-#: literals.py:31
+#: literals.py:35
 msgid "Hours"
 msgstr "Uren"
 
-#: literals.py:32
+#: literals.py:36
 msgid "Minutes"
 msgstr "Minuten"
 
@@ -163,6 +163,10 @@ msgid ""
 "apps must be also configured via their respective storage backend settings "
 "to use alternate persistence."
 msgstr ""
+"Schakelt het gebruik van de lokale `media`-map uit. Wanneer u deze "
+"instelling gebruikt, moeten alle apps ook worden geconfigureerd via hun "
+"respectievelijke backend-instellingen voor opslag om alternatieve "
+"persistentie te gebruiken."
 
 #: settings.py:46
 msgid ""

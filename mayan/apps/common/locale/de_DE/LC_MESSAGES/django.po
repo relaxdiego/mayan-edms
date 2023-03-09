@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-19 16:18+0000\n"
+"POT-Creation-Date: 2023-03-09 09:22+0000\n"
 "PO-Revision-Date: 2022-07-27 05:33+0000\n"
 "Last-Translator: Roberto Rosario, 2022\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
@@ -32,23 +32,23 @@ msgstr ""
 msgid "Common"
 msgstr "Allgemein"
 
-#: dependencies.py:163
+#: dependencies.py:164
 msgid "Transifex Client"
 msgstr ""
 
-#: dependencies.py:180
+#: dependencies.py:181
 msgid "Used to allow offline translation of the code text strings."
 msgstr "Ermöglicht die Offline Übersetzung von Zeichenketten im Code."
 
-#: dependencies.py:189
+#: dependencies.py:190
 msgid "Provides style checking."
 msgstr "Ermöglicht Stilüberprüfung."
 
-#: dependencies.py:194
+#: dependencies.py:195
 msgid "Command line environment with autocompletion."
 msgstr "Kommandozeilenumgebung mit Autovervollständigung."
 
-#: dependencies.py:199
+#: dependencies.py:200
 msgid "Checks proper formatting of the README file."
 msgstr "Überprüft die korrekte Formatierung der README-Datei."
 
@@ -96,21 +96,21 @@ msgstr "Support erhalten"
 msgid "Tools"
 msgstr "Werkzeuge"
 
-#: literals.py:22
+#: literals.py:26
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr ""
 "Diese Funktion ist veraltet und wird in einer zukünftigen Version entfernt."
 
-#: literals.py:30
+#: literals.py:34
 msgid "Days"
 msgstr "Tage"
 
-#: literals.py:31
+#: literals.py:35
 msgid "Hours"
 msgstr "Stunden"
 
-#: literals.py:32
+#: literals.py:36
 msgid "Minutes"
 msgstr "Minuten"
 
