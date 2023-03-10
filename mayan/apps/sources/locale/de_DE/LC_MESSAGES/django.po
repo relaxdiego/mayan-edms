@@ -200,7 +200,7 @@ msgstr "Argumente"
 
 #: serializers.py:66
 msgid "Binary content for the new file."
-msgstr ""
+msgstr "Binärdaten der neuen Datei"
 
 #: settings.py:20
 msgid "Arguments to use when creating source backends."

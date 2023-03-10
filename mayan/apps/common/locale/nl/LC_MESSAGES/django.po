@@ -26,23 +26,23 @@ msgstr ""
 msgid "Common"
 msgstr "Gemeenschappelijk"
 
-#: dependencies.py:163
+#: dependencies.py:164
 msgid "Transifex Client"
-msgstr ""
+msgstr "Transifex Client"
 
-#: dependencies.py:180
+#: dependencies.py:181
 msgid "Used to allow offline translation of the code text strings."
 msgstr "Gebruikt om offline vertaling van de codetekststrings toe te staan."
 
-#: dependencies.py:189
+#: dependencies.py:190
 msgid "Provides style checking."
 msgstr "Biedt stijlcontrole."
 
-#: dependencies.py:194
+#: dependencies.py:195
 msgid "Command line environment with autocompletion."
 msgstr "Opdrachtregelomgeving met automatisch aanvullen."
 
-#: dependencies.py:199
+#: dependencies.py:200
 msgid "Checks proper formatting of the README file."
 msgstr "Controleert de juiste opmaak van het README-bestand."
 
@@ -163,6 +163,10 @@ msgid ""
 "apps must be also configured via their respective storage backend settings "
 "to use alternate persistence."
 msgstr ""
+"Schakelt het gebruik van de lokale `media`-map uit. Wanneer u deze "
+"instelling gebruikt, moeten alle apps ook worden geconfigureerd via hun "
+"respectievelijke backend-instellingen voor opslag om alternatieve "
+"persistentie te gebruiken."
 
 #: settings.py:49
 msgid ""

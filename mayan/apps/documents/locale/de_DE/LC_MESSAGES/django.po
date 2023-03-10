@@ -242,15 +242,15 @@ msgstr "Dokumententyp bearbeitet"
 
 #: events.py:42
 msgid "Document type quick label created"
-msgstr ""
+msgstr "Schnellbezeichner für Dokumententyp erstellt"
 
 #: events.py:46
 msgid "Document type quick label deleted"
-msgstr ""
+msgstr "Schnellbezeichner für Dokumententyp gelöscht"
 
 #: events.py:50
 msgid "Document type quick label edited"
-msgstr ""
+msgstr "Schnellbezeichner für Dokumententyp bearbeitet"
 
 #: events.py:55
 msgid "Document type changed"
@@ -310,7 +310,7 @@ msgstr "Dokumentenversion hochgeladen (historisch)"
 
 #: forms/document_file_forms.py:44
 msgid "Detected"
-msgstr ""
+msgstr "Erkannt"
 
 #: forms/document_file_forms.py:48
 msgid "Storage"
@@ -318,7 +318,7 @@ msgstr "Dateispeicher"
 
 #: forms/document_file_forms.py:52
 msgid "Other"
-msgstr ""
+msgstr "Andere"
 
 #: forms/document_file_forms.py:61
 msgid "Date added"
@@ -577,7 +577,7 @@ msgstr "Versionen"
 
 #: links/document_version_links.py:58
 msgid "Modify"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: links/document_version_page_links.py:55
 msgid "Remap pages"
@@ -726,6 +726,9 @@ msgid ""
 " the format of a file, in this case the file format of the document. Some "
 "examples: \"text/plain\" or \"image/jpeg\". "
 msgstr ""
+"Der MIME-Typ der Dokumentendatei. MIME-Typen beschreiben das Format einer "
+"Datei, in diesem Fall das Dateiformat des Dokuments. Beispiele für MIME-"
+"Typen sind: \"text/plain\" oder \"image/jpeg\"."
 
 #: models/document_file_models.py:87
 msgid ""
@@ -1094,7 +1097,7 @@ msgstr ""
 
 #: queues.py:42
 msgid "Delete a document version"
-msgstr ""
+msgstr "Eine Dokumentenversion löschen"
 
 #: queues.py:46
 msgid "Export a document version"
@@ -1118,11 +1121,11 @@ msgstr "Dokumentenseitenzahl aktualisieren"
 
 #: queues.py:76
 msgid "Upload new document file"
-msgstr ""
+msgstr "Neue Dokumentendatei hochladen"
 
 #: queues.py:80
 msgid "Upload new document"
-msgstr ""
+msgstr "Neues Dokument hochladen"
 
 #: search.py:30 search.py:61 search.py:92 search.py:136 search.py:163
 msgid "Document type label"
@@ -1189,7 +1192,7 @@ msgstr ""
 
 #: serializers/document_file_serializers.py:90
 msgid "Binary content for the new file."
-msgstr ""
+msgstr "Binärdaten der neuen Datei"
 
 #: serializers/document_file_serializers.py:91
 msgid "File new"
@@ -1254,7 +1257,7 @@ msgstr ""
 
 #: serializers/document_version_serializers.py:26
 msgid "Backend ID"
-msgstr ""
+msgstr "Backend-ID"
 
 #: serializers/document_version_serializers.py:27
 msgid "Primary key of the modification backend to execute."
@@ -1402,7 +1405,7 @@ msgstr "Neue Dokumente pro Monat"
 
 #: statistics.py:297
 msgid "New document files per month"
-msgstr ""
+msgstr "Neue Dokumentdateien pro Monat"
 
 #: statistics.py:304
 msgid "New document pages per month"
@@ -1472,7 +1475,7 @@ msgstr ""
 
 #: templates/documents/errors/no_valid_version.html:5
 msgid "No valid or active version"
-msgstr ""
+msgstr "Keine gültige oder aktive Version"
 
 #: templates/documents/errors/no_version_pages.html:5
 msgid "No version pages"
@@ -1534,7 +1537,7 @@ msgstr ""
 #: views/document_file_page_views.py:112
 #, python-format
 msgid "Pages of document file: %s"
-msgstr ""
+msgstr "Seiten der Dokumentendatei: %s"
 
 #: views/document_file_page_views.py:193
 #: views/document_version_page_views.py:308
@@ -1850,7 +1853,7 @@ msgstr ""
 #: views/document_version_views.py:162
 #, python-format
 msgid "Edit document version: %s"
-msgstr ""
+msgstr "Dokumentversion bearbeiten: %s"
 
 #: views/document_version_views.py:199
 msgid ""
@@ -1860,7 +1863,7 @@ msgstr ""
 
 #: views/document_version_views.py:202
 msgid "No versions available"
-msgstr ""
+msgstr "Keine Versionen vorhanden"
 
 #: views/document_version_views.py:205
 #, python-format
@@ -2175,7 +2178,7 @@ msgstr "Neuer Dokumenttyp für das Workflow-Dokument."
 
 #: workflow_actions.py:19
 msgid "Change document type"
-msgstr ""
+msgstr "Dokumententyp ändern"
 
 #: workflow_actions.py:40
 msgid "Send document to trash"

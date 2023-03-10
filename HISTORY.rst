@@ -424,6 +424,19 @@
   - Support a local environment config file names ``config-local.env``.
     This file is ignored by Git and meant to override values of ``config.env``.
 
+4.3.7 (2023-09-10)
+==================
+- Merge changes from version 4.2.14:
+
+  - GitOps improvements.
+  - Support a local environment config file names ``config-local.env``.
+  - Split GitLab CI targets into their own makefile.
+  - Move the helper module ``version.py`` to the dependencies app.
+  - Convert branches into literals.
+  - Add OCI metadata annotations
+
+- OCI metadata change. Don't remove the 'T' from the image date label.
+
 4.3.6 (2023-02-19)
 ==================
 - Update migration 80 of the documents app to ensure the stored size of the
@@ -979,6 +992,83 @@
 - Display a warning message in the setting edit view when local storage is
   disabled.
 
+4.2.14 (2023-03-09)
+===================
+- Merge changes from version 4.1.11:
+
+  - Removal of the Transifex Python client.
+  - Support a local environment config file names ``config-local.env``.
+  - Support multi `psycopg2` versions for testing. Upgrade testing now uses
+    ``PYTHON_PSYCOPG2_VERSION_PREVIOUS`` for the previous version when testing
+    against PostgreSQL.
+  - Move the helper module ``version.py`` to the dependencies app.
+
+- GitOps improvements and backports:
+
+  - Add configurable remote branch for GitOps.
+  - Add makefile targets to trigger standalone builds.
+  - Reuse Python build in stages.
+  - Convert branches into literals.
+  - Remove duplicated code in jobs.
+  - Split GitLab CI targets into their own makefile.
+  - Increase artifact expiration.
+  - Add PIP and APT caching to documentation and python build
+    stages.
+  - Add GitLab CI job dependencies.
+  - Enable Buildkit builds.
+  - Use APT proxy and cache in more places.
+  - Cache Alpine APK packages.
+  - Clean up cache directory definitions.
+  - Update APT cache to be at ``.cache/apt``.
+  - Add multi cache support.
+  - Add GitLab CI cache template tags.
+  - Update deployment stages.
+  - Don't push to the master branch on nightly or testing releases.
+  - Load config.env in all jobs.
+  - Move common SSH initialization to its own template tags.
+  - Convert YAML triple ''' quotes to a single quote.
+
+- Sanitize tag labels to avoid XSS abuse (CVE-2022-47419: Mayan EDMS Tag XSS).
+  This is a limited scope weakness of the tagging system markup that can be
+  used to display an arbitrary text when selecting a tag for attachment to
+  or removal from a document.
+
+  It is not possible to circumvent Mayan EDMS access control system or
+  expose arbitrary information with this weakness.
+
+  Attempting to exploit this weakness requires a privileged account and
+  is not possible to enable from a guest or an anonymous account. Visitors
+  to a Mayan EDMS installation cannot exploit this weakness.
+
+  It is also being incorrectly reported that this weakness can be used to
+  steal the session cookie and impersonate users. Since version 1.4
+  (March 23, 2012) Django has included the ``httponly``
+  attribute for the session cookie. This means that the session cookie data,
+  including ``sessionid``, is no longer accessible from JavaScript.
+  https://docs.djangoproject.com/en/4.1/releases/1.4/
+
+  Mayan EDMS currently uses Django 3.2. Under this version of Django
+  The ``SESSION_COOKIE_HTTPONLY`` defaults to ``True``, which enables the
+  ``httponly`` for the session cookie making it inaccessible to JavaScript
+  and therefore not available for impersonation via session hijacking.
+  https://docs.djangoproject.com/en/3.2/ref/settings/#session-cookie-httponly
+
+  Django's ``SESSION_COOKIE_HTTPONLY`` setting is not currently exposed by
+  Mayan EDMS' setting system, therefore it is not possible to disable this
+  protection by conventional means.
+
+  Any usage of this weakness remains logged in the event system making
+  it easy to track down any bad actors.
+
+  Due to all these factors, the surface of attack of this weakness is
+  very limited, if any.
+
+  There are no known actual or theoretical attacks exploiting this
+  weakness to expose or destroy data.
+- Add a custom REST API exception handler to workaround inconsistent
+  validation exception behavior in Django REST framework
+  (https://github.com/encode/django-rest-framework/issues/2145).
+
 4.2.13 (2022-12-18)
 ===================
 - Fix document file and document version print form submit button.
@@ -1454,6 +1544,87 @@
   to be optional.
 - Redirect to current user to user detail view after password change.
 - Support two different ``psycopg2`` versions for upgrade testing.
+
+4.1.11 (2023-03-08)
+===================
+- Install OS and Python dependencies as separate makefile targets.
+- Remove the Python Transifex client. The new Go based client is required to
+  be installed manually when working with translations
+  (https://github.com/transifex/cli).
+- Sanitize tag labels to avoid XSS abuse (CVE-2022-47419: Mayan EDMS Tag XSS).
+  This is a limited scope weakness of the tagging system markup that can be
+  used to display an arbitrary text when selecting a tag for attachment to
+  or removal from a document.
+
+  It is not possible to circumvent Mayan EDMS access control system or
+  expose arbitrary information with this weakness.
+
+  Attempting to exploit this weakness requires a privileged account and
+  is not possible to enable from a guest or an anonymous account. Visitors
+  to a Mayan EDMS installation cannot exploit this weakness.
+
+  It is also being incorrectly reported that this weakness can be used to
+  steal the session cookie and impersonate users. Since version 1.4
+  (March 23, 2012) Django has included the ``httponly``
+  attribute for the session cookie. This means that the session cookie data,
+  including ``sessionid``, is no longer accessible from JavaScript.
+  https://docs.djangoproject.com/en/4.1/releases/1.4/
+
+  Mayan EDMS currently uses Django 3.2. Under this version of Django
+  The ``SESSION_COOKIE_HTTPONLY`` defaults to ``True``, which enables the
+  ``httponly`` for the session cookie making it inaccessible to JavaScript
+  and therefore not available for impersonation via session hijacking.
+  https://docs.djangoproject.com/en/3.2/ref/settings/#session-cookie-httponly
+
+  Django's ``SESSION_COOKIE_HTTPONLY`` setting is not currently exposed by
+  Mayan EDMS' setting system, therefore it is not possible to disable this
+  protection by conventional means.
+
+  Any usage of this weakness remains logged in the event system making
+  it easy to track down any bad actors.
+
+  Due to all these factors, the surface of attack of this weakness is
+  very limited, if any.
+
+  There are no known actual or theoretical attacks exploiting this
+  weakness to expose or destroy data.
+- Pin Jinja2 version to workaround Sphinx bug. Sphinx Jinja2 dependency is
+  not pinned or immutable, and causes the installation of an incompatible
+  version breaking builds.
+- Support a local environment config file names ``config-local.env``.
+  This file is ignored by Git and meant to override values of ``config.env``.
+- Support multi `psycopg2` versions for testing. Upgrade testing now uses
+  ``PYTHON_PSYCOPG2_VERSION_PREVIOUS`` for the previous version when testing
+  against PostgreSQL.
+- Improve Python 3.10 compatibility. Add a compatibility module to
+  encapsulate import of the ``Iterable`` class.
+- Move ``SearchModel.flatten_list`` to the common app ``utils.py`` module.
+- Move the helper module ``version.py`` to the dependencies app.
+- GitOps improvements and backports:
+
+  - Add configurable remote branch for GitOps.
+  - Add makefile targets to trigger standalone builds.
+  - Reuse Python build in stages.
+  - Convert branches into literals.
+  - Remove duplicated code in jobs.
+  - Split GitLab CI targets into their own makefile.
+  - Increase artifact expiration.
+  - Add PIP and APT caching to documentation and python build
+    stages.
+  - Add GitLab CI job dependencies.
+  - Enable Buildkit builds.
+  - Use APT proxy and cache in more places.
+  - Cache Alpine APK packages.
+  - Clean up cache directory definitions.
+  - Update APT cache to be at ``.cache/apt``.
+  - Add multi cache support.
+  - Add GitLab CI cache template tags.
+  - Update deployment stages.
+  - Don't push to the master branch on nightly or testing releases.
+
+- Add a custom REST API exception handler to workaround inconsistent
+  validation exception behavior in Django REST framework
+  (https://github.com/encode/django-rest-framework/issues/2145).
 
 4.1.10 (2022-11-13)
 ===================

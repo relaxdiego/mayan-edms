@@ -54,8 +54,8 @@ gitlab-ci-release-docker-minor: ## Trigger the Docker image build and publicatio
 gitlab-ci-release-docker-minor:
 	git push $(GIT_REMOTE_NAME)
 	git push $(GIT_REMOTE_NAME) --tags
-	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_RELEASES_ALL_MINOR) || true
-	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_RELEASES_ALL_MINOR)
+	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_RELEASES_DOCKER_MINOR) || true
+	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_RELEASES_DOCKER_MINOR)
 
 gitlab-ci-release-python-minor: ## Trigger the Python package build and publication of a minor version using GitLab CI
 gitlab-ci-release-python-minor:
@@ -73,12 +73,15 @@ gitlab-ci-release-all-minor:
 
 # Development releases
 
-gitlab-ci-release-nightly: ## Trigger the Docker image build and publication of a working version using GitLab CI
+gitlab-ci-release-nightly: ## Trigger the Docker image build and publication of a nightly version using GitLab CI
 gitlab-ci-release-nightly:
-	git push $(GIT_REMOTE_NAME)
-	git push $(GIT_REMOTE_NAME) --tags
 	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_RELEASES_NIGHTLY) || true
 	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_RELEASES_NIGHTLY)
+
+gitlab-ci-release-testing: ## Trigger the Docker image build and publication of a test version using GitLab CI
+gitlab-ci-release-testing:
+	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_RELEASES_TESTING) || true
+	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_RELEASES_TESTING)
 
 # GitOps builds
 
@@ -96,6 +99,18 @@ gitlab-ci-builds-python: ## Trigger upgrade tests as a CD/CI pipeline
 gitlab-ci-builds-python:
 	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_BUILDS_PYTHON) || true
 	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_BUILDS_PYTHON)
+
+# GitOps deployments
+
+gitlab-ci-deployments-demo: ## Trigger the demo deployment
+gitlab-ci-deployments-demo:
+	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_DEPLOYMENTS_DEMO) || true
+	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_DEPLOYMENTS_DEMO)
+
+gitlab-ci-deployments-staging: ## Trigger the staging deployment
+gitlab-ci-deployments-staging:
+	git push $(GIT_REMOTE_NAME) :$(GITLAB_CI_BRANCH_DEPLOYMENTS_STAGING) || true
+	git push $(GIT_REMOTE_NAME) HEAD:$(GITLAB_CI_BRANCH_DEPLOYMENTS_STAGING)
 
 # GitOps testing
 
