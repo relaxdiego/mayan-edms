@@ -1,3 +1,16 @@
+4.3.7 (2023-09-10)
+==================
+- Merge changes from version 4.2.14:
+
+  - GitOps improvements.
+  - Support a local environment config file names ``config-local.env``.
+  - Split GitLab CI targets into their own makefile.
+  - Move the helper module ``version.py`` to the dependencies app.
+  - Convert branches into literals.
+  - Add OCI metadata annotations
+
+- OCI metadata change. Don't remove the 'T' from the image date label.
+
 4.3.6 (2023-02-19)
 ==================
 - Update migration 80 of the documents app to ensure the stored size of the
