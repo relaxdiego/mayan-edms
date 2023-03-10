@@ -15,7 +15,7 @@ PIP_TRUSTED_HOST ?= $(HOST_IP)
 DOCKER_HOST_REGISTRY_NAME ?= $(DOCKER_HOST_REGISTRY_NAME)
 DOCKER_HOST_REGISTRY_PORT ?= $(DOCKER_HOST_REGISTRY_PORT)
 DOCKER_IMAGE_MAYAN_NAME ?= $(DOCKER_IMAGE_MAYAN_NAME)
-DOCKER_IMAGE_DATE_TIME ?= `date -Iseconds  --utc | sed 's/T/ /'`
+DOCKER_IMAGE_DATE_TIME ?= `date -Iseconds  --utc`
 DOCKER_IMAGE_LABELS ?= --label org.opencontainers.image.created="$(DOCKER_IMAGE_DATE_TIME)" --label org.opencontainers.image.version=$(IMAGE_VERSION) $(DOCKER_IMAGE_LABELS_EXTRA)
 
 docker-build: ## Build a new image locally.
