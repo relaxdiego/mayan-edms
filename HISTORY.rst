@@ -1,10 +1,15 @@
-4.4.5 (2023-XX-XX)
+4.4.5 (2023-03-11)
 ==================
 - Merge version 4.3.6 documents app migration 80 workaround.
   Update migration 80 of the documents app to ensure the stored size of the
   converted document file size does not exceed the ``PositiveIntegerField``
   database field maximum value of 2147483647
   (https://docs.djangoproject.com/en/4.1/ref/models/fields/#positiveintegerfield).
+- Merges from version 4.3.7:
+
+  - GitOps improvements.
+  - Move the helper module ``version.py`` to the dependencies app.
+  - Add OCI metadata annotations.
 
 4.4.4 (2023-02-14)
 ==================

@@ -73,6 +73,7 @@ Deprecations
 Issues closed
 -------------
 
+- :gitlab-issue:`1121` Index not adding Dokuments
 - :gitlab-issue:`1128` Endpoint api/v4/documents/(?P<document_id>\d+)/metadata/ not handling ValidationError exception (Returns 500 Internal Server Error instead)
 - :gitlab-issue:`1134` Assigning a Cabinet to a Document that is part of an "No Cabinet" Index destroys the Index
 
