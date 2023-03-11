@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-14 23:46+0000\n"
+"POT-Creation-Date: 2023-03-11 22:43+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Adek Lanin, 2023\n"
 "Language-Team: Indonesian (https://www.transifex.com/rosarior/teams/13584/id/)\n"
@@ -90,20 +90,20 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: literals.py:26
+#: literals.py:30
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr ""
 
-#: literals.py:35
+#: literals.py:39
 msgid "Days"
 msgstr ""
 
-#: literals.py:36
+#: literals.py:40
 msgid "Hours"
 msgstr ""
 
-#: literals.py:37
+#: literals.py:41
 msgid "Minutes"
 msgstr ""
 

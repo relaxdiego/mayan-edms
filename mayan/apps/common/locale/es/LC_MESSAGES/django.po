@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-14 23:46+0000\n"
+"POT-Creation-Date: 2023-03-11 22:43+0000\n"
 "PO-Revision-Date: 2023-01-05 02:50+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (https://www.transifex.com/rosarior/teams/13584/es/)\n"
@@ -26,7 +26,7 @@ msgstr "Común"
 
 #: dependencies.py:164
 msgid "Transifex Client"
-msgstr ""
+msgstr "Cliente Transifex"
 
 #: dependencies.py:181
 msgid "Used to allow offline translation of the code text strings."
@@ -90,21 +90,21 @@ msgstr "Obtener apoyo"
 msgid "Tools"
 msgstr "Herramientas"
 
-#: literals.py:26
+#: literals.py:30
 msgid ""
 "This feature has been deprecated and will be removed in a future version."
 msgstr ""
 "Esta función ha quedado en desuso y se eliminará en una versión futura."
 
-#: literals.py:35
+#: literals.py:39
 msgid "Days"
 msgstr "Días"
 
-#: literals.py:36
+#: literals.py:40
 msgid "Hours"
 msgstr "Horas"
 
-#: literals.py:37
+#: literals.py:41
 msgid "Minutes"
 msgstr "Minutos"
 

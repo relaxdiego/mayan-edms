@@ -10,13 +10,14 @@
 # tetjarediske <tetja.rediske@googlemail.com>, 2023
 # Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
 # Paul Patolla <appdev.blackrose@gmail.com>, 2023
+# Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2023
 # Mathias Behrle <mathiasb@m9s.biz>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-14 23:46+0000\n"
+"POT-Creation-Date: 2023-03-11 22:43+0000\n"
 "PO-Revision-Date: 2023-01-05 02:49+0000\n"
 "Last-Translator: Mathias Behrle <mathiasb@m9s.biz>, 2023\n"
 "Language-Team: German (Germany) (https://www.transifex.com/rosarior/teams/13584/de_DE/)\n"
@@ -100,7 +101,7 @@ msgstr "Inhaltstyp"
 
 #: models.py:43 workflow_actions.py:32
 msgid "Object ID"
-msgstr "Objekt ID"
+msgstr "Objekt-ID"
 
 #: models.py:54
 msgid "Role to which the access is granted for the specified object."
@@ -129,19 +130,19 @@ msgstr "Zugriffsberechtigungen anzeigen"
 
 #: serializers.py:19
 msgid "Permissions add URL"
-msgstr ""
+msgstr "Berechtigung hinzufügen URL"
 
 #: serializers.py:39
 msgid "Permissions remove URL"
-msgstr ""
+msgstr "Berechtigung entziehen URL"
 
 #: serializers.py:59
 msgid "Permissions URL"
-msgstr ""
+msgstr "Berechtigungs-URL"
 
 #: serializers.py:82
 msgid "Role ID"
-msgstr ""
+msgstr "Rollen-ID"
 
 #: serializers.py:85
 msgid "URL"
@@ -154,7 +155,7 @@ msgstr ""
 
 #: serializers.py:119 serializers.py:126
 msgid "Permission ID"
-msgstr ""
+msgstr "Berechtigungs-ID"
 
 #: serializers.py:125
 msgid "Primary key of the permission to remove from the ACL."
