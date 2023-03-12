@@ -33,8 +33,15 @@ class DatabaseFileModelMixin(models.Model):
         return super().delete(*args, **kwargs)
 
     def open(self, **kwargs):
+        # Some storage class file do not provide a mode attribute.
+        # In that case default to read only in binary mode.
+        # Python's default is read only in text format which does not work
+        # for this use case.
+        # https://docs.python.org/3/library/functions.html#open
+        mode = getattr(self.file.file, 'mode', 'rb')
+
         default_kwargs = {
-            'mode': getattr(self.file.file, 'mode', 'rb'),
+            'mode': mode,
             'name': self.file.name
         }
 
