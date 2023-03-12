@@ -604,6 +604,7 @@ job_staging_deploy:
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_NAME=${CI_REGISTRY_IMAGE}\" >> .env"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_TAG=${DOCKER_VERSION}\" >> .env"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker login --username \"${CI_REGISTRY_USER}\" --password \"${CI_REGISTRY_PASSWORD}\" ${CI_REGISTRY}"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker pull ${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose up -d"
   stage: stage_deploy
   when: manual
