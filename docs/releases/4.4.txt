@@ -545,6 +545,7 @@ Issues closed
 
 - :gitlab-issue:`740` value too long for type character varying - Metadata not saved at all if one value errors
 - :gitlab-issue:`909` DB: change metadata_documentmetadata 'value' field to text
+- :gitlab-issue:`1071` Generated Swagger configuration is missing body parameters and models
 - :gitlab-issue:`1125` Error deleting user
 - :gitlab-issue:`1126` Files not saving to S3-compatible storage
 - :gitlab-issue:`1127` "Self-documenting" API is not self-documenting
