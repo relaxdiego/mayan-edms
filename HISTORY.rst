@@ -1,3 +1,7 @@
+4.1.12 (XX-XX-XX)
+=================
+- Fix sources app migration 0027 backend mapping path.
+
 4.1.11 (2023-03-08)
 ===================
 - Install OS and Python dependencies as separate makefile targets.
