@@ -98,6 +98,7 @@ Other
   - Update deployment stages.
   - Don't push to the master branch on nightly or testing releases.
 
+- Add OCI metadata annotations.
 
 Removals
 --------

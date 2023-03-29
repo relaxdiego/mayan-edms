@@ -74,6 +74,7 @@
 - Add a custom REST API exception handler to workaround inconsistent
   validation exception behavior in Django REST framework
   (https://github.com/encode/django-rest-framework/issues/2145).
+- Add OCI metadata annotations
 
 4.2.13 (2022-12-18)
 ===================
