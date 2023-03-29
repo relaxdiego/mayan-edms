@@ -639,6 +639,7 @@
 - Add a custom REST API exception handler to workaround inconsistent
   validation exception behavior in Django REST framework
   (https://github.com/encode/django-rest-framework/issues/2145).
+- Add OCI metadata annotations
 
 4.2.13 (2022-12-18)
 ===================
@@ -1115,6 +1116,10 @@
   to be optional.
 - Redirect to current user to user detail view after password change.
 - Support two different ``psycopg2`` versions for upgrade testing.
+
+4.1.12 (XX-XX-XX)
+=================
+- Fix sources app migration 0027 backend mapping path.
 
 4.1.11 (2023-03-08)
 ===================
