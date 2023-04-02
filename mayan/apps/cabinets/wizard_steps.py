@@ -52,4 +52,4 @@ class DocumentCreateWizardStepCabinets(DocumentCreateWizardStep):
             cabinet.document_add(document=document)
 
 
-DocumentCreateWizardStep.register(DocumentCreateWizardStepCabinets)
+DocumentCreateWizardStep.register(step=DocumentCreateWizardStepCabinets)
