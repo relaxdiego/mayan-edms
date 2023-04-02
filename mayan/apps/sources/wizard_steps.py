@@ -32,4 +32,4 @@ class DocumentCreateWizardStepDocumentType(DocumentCreateWizardStep):
         }
 
 
-DocumentCreateWizardStep.register(DocumentCreateWizardStepDocumentType)
+DocumentCreateWizardStep.register(step=DocumentCreateWizardStepDocumentType)
