@@ -21,12 +21,12 @@ SOURCE_BACKEND_MAPPING_LIST = [
         'model_name': 'StagingFolderSource'
     },
     {
-        'backend_path': 'mayan.apps.sources.source_backends.SourceBackendWebForm',
-        'model_name': 'WebFormSource'
-    },
-    {
         'backend_path': 'mayan.apps.sources.source_backends.SourceBackendWatchFolder',
         'model_name': 'WatchFolderSource'
+    },
+    {
+        'backend_path': 'mayan.apps.sources.source_backends.SourceBackendWebForm',
+        'model_name': 'WebFormSource'
     }
 ]
 
