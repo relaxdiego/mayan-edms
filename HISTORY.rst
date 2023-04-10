@@ -1,3 +1,15 @@
+4.3.8 (2023-XX-XX)
+==================
+- Update Docker image versions:
+
+  - ElasticSearch from 7.17.0 to 7.17.9
+  - Debian from 11.4-slim to 11.6-slim
+  - MySQL from 8.0 to 8.0.32
+  - PostgreSQL from 12.11-alpine to 12.14-alpine
+  - Python from 3.10-slim to 3.10.11-slim
+  - Redis from 6.2-alpine to 6.2.11-alpine
+  - RabbitMQ from 3.10-alpine to 3.10.20-alpine
+
 4.3.7 (2023-09-10)
 ==================
 - Merge changes from version 4.2.14:
