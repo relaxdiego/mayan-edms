@@ -1,9 +1,11 @@
-4.0.24 (XX-XX-XX)
-=================
+4.0.24 (2023-XX-XX)
+===================
 - Split dev environment makefile target into OS and Python dependencies.
 - Remove duplicated makefile target keys.
 - Pin containers to specific bug fix versions.
 - Enable organization app testing.
+- Add check named ``check_app_tests`` to ensure Mayan apps tests
+  flag matches the actual state of the app's tests.
 
 4.0.23 (2022-11-13)
 ===================
