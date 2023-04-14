@@ -96,6 +96,7 @@ class CeleryQueue(AppsModuleLoaderMixin):
         self.default_queue = default_queue
         self.transient = transient
         self.task_types = []
+        self.worker = worker
 
         if name in self.__class__._registry:
             raise NonUniqueError(
@@ -133,7 +134,8 @@ class CeleryQueue(AppsModuleLoaderMixin):
         if self.transient:
             kwargs['delivery_mode'] = 1
 
-        celery_app.conf.task_queues.append(Queue(**kwargs))
+        queue_new = Queue(**kwargs)
+        celery_app.conf.task_queues.append(queue_new)
 
         if self.default_queue:
             celery_app.conf.task_default_queue = self.name
@@ -143,7 +145,7 @@ class CeleryQueue(AppsModuleLoaderMixin):
                 {
                     task_type.dotted_path: {
                         'queue': self.name
-                    },
+                    }
                 }
             )
 
@@ -153,9 +155,37 @@ class CeleryQueue(AppsModuleLoaderMixin):
                         task_type.name: {
                             'task': task_type.dotted_path,
                             'schedule': task_type.schedule
-                        },
+                        }
                     }
                 )
+
+    def remove(self):
+        kwargs = {
+            'name': self.name, 'exchange': Exchange(self.name),
+            'routing_key': self.name
+        }
+
+        if self.transient:
+            kwargs['delivery_mode'] = 1
+
+        queue = Queue(**kwargs)
+        if queue in celery_app.conf.task_queues:
+            celery_app.conf.task_queues.remove(queue)
+
+        if self.default_queue:
+            celery_app.conf.task_default_queue = None
+
+        for task_type in self.task_types:
+            celery_app.conf.task_routes.pop(task_type.dotted_path, None)
+
+            if task_type.schedule:
+                celery_app.conf.beat_schedule.pop(task_type.name)
+
+        self.__class__._registry.pop(self.name, None)
+        if self.name in self.worker._queues:
+            self.worker._queues.remove(self.name)
+
+        del self
 
 
 class Worker:

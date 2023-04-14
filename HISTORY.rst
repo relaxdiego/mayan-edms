@@ -6,6 +6,7 @@
 - Enable organization app testing.
 - Add check named ``check_app_tests`` to ensure Mayan apps tests
   flag matches the actual state of the app's tests.
+- Backport ``CeleryQueue`` class improvements. Enable task manager app tests.
 
 4.0.23 (2022-11-13)
 ===================
