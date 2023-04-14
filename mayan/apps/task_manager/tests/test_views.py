@@ -10,6 +10,7 @@ class TaskManagerViewTestCase(
 ):
     def setUp(self):
         super().setUp()
+        self._create_test_worker()
         self._create_test_queue()
 
     def test_queue_list_view_no_permission(self):
@@ -22,5 +23,5 @@ class TaskManagerViewTestCase(
 
         response = self._request_queue_list()
         self.assertContains(
-            response, text=self.test_queue.name, status_code=200
+            response, text=self._test_queue.name, status_code=200
         )
