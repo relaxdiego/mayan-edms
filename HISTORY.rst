@@ -1,4 +1,4 @@
-4.0.24 (2023-XX-XX)
+4.0.24 (2023-04-14)
 ===================
 - Split dev environment makefile target into OS and Python dependencies.
 - Remove duplicated makefile target keys.
