@@ -1,6 +1,13 @@
+4.0.24 (XX-XX-XX)
+=================
+- Split dev environment makefile target into OS and Python dependencies.
+- Remove duplicated makefile target keys.
+- Pin containers to specific bug fix versions.
+- Enable organization app testing.
+
 4.0.23 (2022-11-13)
 ===================
-- Add help text to the `SEARCH_BACKEND_ARGUMENTS` setting.
+- Add help text to the ``SEARCH_BACKEND_ARGUMENTS`` setting.
 - Backport an object storage documentation chapter fix
   from version 4.4dev0.
 - Don't tag Docker images as ``latest`` for minor releases. As per Docker's
