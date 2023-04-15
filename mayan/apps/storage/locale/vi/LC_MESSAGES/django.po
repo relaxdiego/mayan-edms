@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Translators:
-# Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2022
+# Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -175,7 +175,7 @@ msgstr ""
 
 #: views.py:64
 msgid "There are no files to download."
-msgstr ""
+msgstr "Không có tệp nào để tải xuống"
 
 #: views.py:65
 msgid "Downloads"

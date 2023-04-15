@@ -62,6 +62,10 @@ Release checklist
 
     make copy-config-env
 
+#. Run the system checks::
+
+    ./manage.py check
+
 #. Update the distrution ``.gitlab-ci.yml`` file::
 
     make gitlab-ci-update

@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:16 settings.py:11
+#: apps.py:17 settings.py:11
 msgid "Organizations"
 msgstr ""
 

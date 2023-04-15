@@ -575,9 +575,25 @@
 - Display a warning message in the setting edit view when local storage is
   disabled.
 
+4.2.15 (2023-04-14)
+===================
+- Merged changes from version 4.1.12:
+
+  - Fix sources app migration 0027 backend mapping path.
+  - Include bug fixes and updates from version 4.0.24.
+  - Don't include local config values in app settings. Local config values are
+    meant to override CI/CD and test settings, and not meant to be committed
+    as permanent to the repository.
+  - Improve deployment stages:
+
+    - Use long setting versions.
+    - Clean up volumes using the official method.
+    - Pull images to ensure the latest copy is used even if the image
+      has the same tag as the remote.
+
 4.2.14 (2023-03-09)
 ===================
-- Merge changes from version 4.1.11:
+- Merged changes from version 4.1.11:
 
   - Removal of the Transifex Python client.
   - Support a local environment config file names ``config-local.env``.
@@ -1129,9 +1145,19 @@
 - Redirect to current user to user detail view after password change.
 - Support two different ``psycopg2`` versions for upgrade testing.
 
-4.1.12 (XX-XX-XX)
-=================
+4.1.12 (2023-04-14)
+===================
 - Fix sources app migration 0027 backend mapping path.
+- Include bug fixes and updates from version 4.0.24.
+- Don't include local config values in app settings. Local config values are
+  meant to override CI/CD and test settings, and not meant to be committed
+  as permanent to the repository.
+- Improve deployment stages:
+
+  - Use long setting versions.
+  - Clean up volumes using the official method.
+  - Pull images to ensure the latest copy is used even if the image
+    has the same tag as the remote.
 
 4.1.11 (2023-03-08)
 ===================
@@ -1923,9 +1949,19 @@
   Thanks to Ludovic Anterieur (@lanterieur) for the request.
 - Pin jsonschema to version 3.2.0 to avoid errors with
 
+4.0.24 (2023-04-14)
+===================
+- Split dev environment makefile target into OS and Python dependencies.
+- Remove duplicated makefile target keys.
+- Pin containers to specific bug fix versions.
+- Enable organization app testing.
+- Add check named ``check_app_tests`` to ensure Mayan apps tests
+  flag matches the actual state of the app's tests.
+- Backport ``CeleryQueue`` class improvements. Enable task manager app tests.
+
 4.0.23 (2022-11-13)
 ===================
-- Add help text to the `SEARCH_BACKEND_ARGUMENTS` setting.
+- Add help text to the ``SEARCH_BACKEND_ARGUMENTS`` setting.
 - Backport an object storage documentation chapter fix
   from version 4.4dev0.
 - Don't tag Docker images as ``latest`` for minor releases. As per Docker's
