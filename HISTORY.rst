@@ -1,5 +1,5 @@
-4.1.12 (XX-XX-XX)
-=================
+4.1.12 (2023-04-14)
+===================
 - Fix sources app migration 0027 backend mapping path.
 - Include bug fixes and updates from version 4.0.24.
 - Don't include local config values in app settings. Local config values are
