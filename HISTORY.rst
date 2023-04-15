@@ -1,5 +1,19 @@
 4.3.8 (2023-04-15)
 ==================
+- Merged changes from version 4.2.15:
+
+  - Fix sources app migration 0027 backend mapping path.
+  - Include bug fixes and updates from version 4.0.24.
+  - Don't include local config values in app settings. Local config values
+    are meant to override CI/CD and test settings, and not meant to be
+    committed as permanent to the repository.
+  - Improve deployment stages:
+
+    - Use long setting versions.
+    - Clean up volumes using the official method.
+    - Pull images to ensure the latest copy is used even if the image
+      has the same tag as the remote.
+
 - Update Docker image versions:
 
   - ElasticSearch from 7.17.0 to 7.17.9
