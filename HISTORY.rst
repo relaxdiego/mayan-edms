@@ -12,6 +12,8 @@
 
 - Ensure the workflow state action column is not shown for the workflow
   state runtime proxies where is does not make sense to show.
+- Ignore staging folder file image cache error if the image cache is not
+  already generated when deleting the staging folder file.
 
 4.3.7 (2023-09-10)
 ==================

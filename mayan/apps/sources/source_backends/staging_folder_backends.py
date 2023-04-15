@@ -104,8 +104,14 @@ class StagingFolderFile:
         )
 
     def delete(self):
-        self.storage.delete(self.cache_filename)
-        os.unlink(self.get_full_path())
+        try:
+            self.storage.delete(self.cache_filename)
+        except FileNotFoundError:
+            """No preview was yet generated."""
+
+        os.unlink(
+            path=self.get_full_path()
+        )
 
     def generate_image(self, transformation_instance_list=None):
         # Check is transformed image is available.
