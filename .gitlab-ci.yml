@@ -79,7 +79,7 @@ job_docker_test:
     - docker run --rm --add-host="postgres:${SERVICE_POSTGRES_IP}" -e MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql_psycopg2','NAME':'mayan','USER':'mayan','PASSWORD':'mayanuserpass','HOST':'postgres'}}" "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" run_tests
   services:
     - docker:20-dind
-    - postgres:12.11-alpine
+    - postgres:12.14-alpine
   stage: stage_test_container
   tags:
     - postgres
@@ -232,7 +232,7 @@ job_documentation_build:
         - ${PIP_CACHE_DIR}
   dependencies:
     - job_python_build
-  image: debian:11.4-slim
+  image: debian:11.6-slim
   needs:
     - job_python_build
   only:
@@ -274,7 +274,7 @@ job_documentation_push:
     - key: pip-cache-4.3
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.4-slim
+  image: debian:11.6-slim
   only:
     - releases/all/major
     - releases/documentation
@@ -312,7 +312,7 @@ job_python_build:
     - key: pip-cache-4.3
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.4-slim
+  image: debian:11.6-slim
   only:
     - builds/documentation
     - builds/python
@@ -353,7 +353,7 @@ job_python_push_pypi:
     - key: pip-cache-4.3
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.4-slim
+  image: debian:11.6-slim
   only:
     - releases/all/major
     - releases/all/minor
@@ -397,7 +397,7 @@ job_python_push_pypi:
         - ${PIP_CACHE_DIR}
   dependencies:
     - job_python_build
-  image: debian:11.4-slim
+  image: debian:11.6-slim
   needs:
     - job_python_build
   only:
@@ -429,7 +429,7 @@ job_postgres_upgrade_test:
     - pip install dist/mayan_edms-*.whl
     - mayan-edms.py common_perform_upgrade --no-dependencies
   services:
-    - postgres:12.11-alpine
+    - postgres:12.14-alpine
   tags:
     - postgres
   variables:
@@ -470,7 +470,7 @@ job_sqlite_upgrade_test:
     - key: pip-cache-4.3
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.4-slim
+  image: debian:11.6-slim
   only:
     - releases/all/major
     - releases/all/minor
@@ -497,7 +497,7 @@ job_postgres_test:
     - make test-all SETTINGS=mayan.settings.testing.gitlab-ci
     - make test-all-migrations SETTINGS=mayan.settings.testing.gitlab-ci
   services:
-    - postgres:12.11-alpine
+    - postgres:12.14-alpine
   tags:
     - postgres
   variables:
@@ -535,7 +535,7 @@ job_demo_deploy:
         - ${APT_CACHE_DIR}
   environment:
     name: demo
-  image: debian:11.4-slim
+  image: debian:11.6-slim
   only:
     - builds/docker
     - deployments/demo
@@ -579,7 +579,7 @@ job_staging_deploy:
         - ${APT_CACHE_DIR}
   environment:
     name: staging
-  image: debian:11.4-slim
+  image: debian:11.6-slim
   only:
     - builds/docker
     - deployments/staging
