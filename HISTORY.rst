@@ -1,4 +1,4 @@
-4.3.8 (2023-XX-XX)
+4.3.8 (2023-04-15)
 ==================
 - Update Docker image versions:
 
