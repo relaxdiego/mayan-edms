@@ -17,14 +17,15 @@
 # Dennis M. Pöpperl <free-software@dm-poepperl.de>, 2023
 # Mathias Behrle <mathiasb@m9s.biz>, 2023
 # Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2023
+# Ampérlo Voltić <amperlo.voltic@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-11 22:43+0000\n"
+"POT-Creation-Date: 2023-04-16 03:53+0000\n"
 "PO-Revision-Date: 2023-01-05 02:52+0000\n"
-"Last-Translator: Thomas Lauterbach <lauterbachthomas@googlemail.com>, 2023\n"
+"Last-Translator: Ampérlo Voltić <amperlo.voltic@gmail.com>, 2023\n"
 "Language-Team: German (Germany) (https://app.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1163,7 +1164,7 @@ msgstr ""
 #: serializers/document_version_serializers.py:57
 #: serializers/trashed_document_serializers.py:12
 msgid "Image URL"
-msgstr ""
+msgstr "Bild URL"
 
 #: serializers/document_file_serializers.py:41
 #: serializers/document_file_serializers.py:109

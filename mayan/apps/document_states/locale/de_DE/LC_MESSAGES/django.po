@@ -15,14 +15,15 @@
 # Ingo Buchholz <ingo.buchholz@takwa.de>, 2023
 # Marvin Haschker <marvin@haschker.me>, 2023
 # Nico Reins, 2023
+# Ampérlo Voltić <amperlo.voltic@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-11 22:43+0000\n"
+"POT-Creation-Date: 2023-04-16 03:53+0000\n"
 "PO-Revision-Date: 2023-01-05 02:52+0000\n"
-"Last-Translator: Nico Reins, 2023\n"
+"Last-Translator: Ampérlo Voltić <amperlo.voltic@gmail.com>, 2023\n"
 "Language-Team: German (Germany) (https://app.transifex.com/rosarior/teams/13584/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -114,34 +115,34 @@ msgstr "Fertigstellung"
 msgid "Additional details"
 msgstr "Zusätzliche Details"
 
-#: apps.py:412
+#: apps.py:415
 msgid "When?"
 msgstr "Wann"
 
-#: apps.py:416
+#: apps.py:419
 msgid "Action type"
 msgstr "Aktionstyp"
 
-#: apps.py:472
+#: apps.py:475
 msgid ""
 "Triggers are system events that will cause the transition to be applied."
 msgstr ""
 "Trigger sind Systemereignisse, die bewirken, dass der Übergang angewendet "
 "wird."
 
-#: apps.py:474
+#: apps.py:477
 msgid "Triggers"
 msgstr "Trigger"
 
-#: apps.py:488 models/workflow_transition_models.py:105
+#: apps.py:491 models/workflow_transition_models.py:105
 msgid "Type"
 msgstr "Typ"
 
-#: apps.py:496
+#: apps.py:499
 msgid "Widget"
 msgstr "Widget"
 
-#: apps.py:507 apps.py:513
+#: apps.py:510 apps.py:516
 msgid "Documents"
 msgstr "Dokumente"
 
@@ -847,7 +848,7 @@ msgstr ""
 
 #: serializers/workflow_template_serializers.py:28
 msgid "Image URL"
-msgstr ""
+msgstr "Bild URL"
 
 #: serializers/workflow_template_serializers.py:32
 msgid "States URL"

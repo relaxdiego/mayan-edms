@@ -14,10 +14,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-11 22:43+0000\n"
+"POT-Creation-Date: 2023-04-16 03:53+0000\n"
 "PO-Revision-Date: 2023-01-05 02:52+0000\n"
 "Last-Translator: Tomasz Szymanowicz <alakdae@gmail.com>, 2023\n"
-"Language-Team: Polish (https://www.transifex.com/rosarior/teams/13584/pl/)\n"
+"Language-Team: Polish (https://app.transifex.com/rosarior/teams/13584/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -105,33 +105,33 @@ msgstr "Ukończenie"
 msgid "Additional details"
 msgstr "Dodatkowe szczegóły"
 
-#: apps.py:412
+#: apps.py:415
 msgid "When?"
 msgstr "Kiedy?"
 
-#: apps.py:416
+#: apps.py:419
 msgid "Action type"
 msgstr "Rodzaj działania"
 
-#: apps.py:472
+#: apps.py:475
 msgid ""
 "Triggers are system events that will cause the transition to be applied."
 msgstr ""
 "Wyzwalacze to zdarzenia systemowe, które spowodują zastosowanie przejścia."
 
-#: apps.py:474
+#: apps.py:477
 msgid "Triggers"
 msgstr "Wyzwalacze"
 
-#: apps.py:488 models/workflow_transition_models.py:105
+#: apps.py:491 models/workflow_transition_models.py:105
 msgid "Type"
 msgstr "Typ"
 
-#: apps.py:496
+#: apps.py:499
 msgid "Widget"
 msgstr "Widżet"
 
-#: apps.py:507 apps.py:513
+#: apps.py:510 apps.py:516
 msgid "Documents"
 msgstr "Dokumenty"
 
