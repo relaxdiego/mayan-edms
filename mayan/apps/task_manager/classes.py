@@ -168,7 +168,7 @@ class CeleryQueue(AppsModuleLoaderMixin):
             celery_app.conf.task_default_queue = None
 
         for task_type in self.task_types:
-            celery_app.conf.task_routes.pop(task_type.dotted_path)
+            celery_app.conf.task_routes.pop(task_type.dotted_path, None)
 
             if task_type.schedule:
                 celery_app.conf.beat_schedule.pop(task_type.name)

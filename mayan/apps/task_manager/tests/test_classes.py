@@ -9,6 +9,10 @@ from .mixins import TaskManagerTestMixin, TaskManagerViewTestMixin
 class CeleryQueueTestCase(
     TaskManagerTestMixin, TaskManagerViewTestMixin, BaseTestCase
 ):
+    def setUp(self):
+        super().setUp()
+        self._create_test_worker()
+
     def test_queue_creation(self):
         CeleryQueue.update_celery()
 

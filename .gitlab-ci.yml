@@ -79,7 +79,7 @@ job_docker_test:
     - docker run --rm --add-host="postgres:${SERVICE_POSTGRES_IP}" -e MAYAN_DATABASES="{'default':{'ENGINE':'django.db.backends.postgresql_psycopg2','NAME':'mayan','USER':'mayan','PASSWORD':'mayanuserpass','HOST':'postgres'}}" "${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}" run_tests
   services:
     - docker:20.10.21-dind
-    - postgres:13.8-alpine
+    - postgres:13.10-alpine
   stage: stage_test_container
   tags:
     - postgres
@@ -232,7 +232,7 @@ job_documentation_build:
         - ${PIP_CACHE_DIR}
   dependencies:
     - job_python_build
-  image: debian:11.5-slim
+  image: debian:11.6-slim
   needs:
     - job_python_build
   only:
@@ -274,7 +274,7 @@ job_documentation_push:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.5-slim
+  image: debian:11.6-slim
   only:
     - releases/all/major
     - releases/documentation
@@ -312,7 +312,7 @@ job_python_build:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.5-slim
+  image: debian:11.6-slim
   only:
     - builds/documentation
     - builds/python
@@ -357,7 +357,7 @@ job_python_push_pypi:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.5-slim
+  image: debian:11.6-slim
   only:
     - releases/all/major
     - releases/all/minor
@@ -401,7 +401,7 @@ job_python_push_pypi:
         - ${PIP_CACHE_DIR}
   dependencies:
     - job_python_build
-  image: debian:11.5-slim
+  image: debian:11.6-slim
   needs:
     - job_python_build
   only:
@@ -433,7 +433,7 @@ job_postgres_upgrade_test:
     - pip install dist/mayan_edms-*.whl
     - mayan-edms.py common_perform_upgrade --no-dependencies
   services:
-    - postgres:13.8-alpine
+    - postgres:13.10-alpine
   tags:
     - postgres
   variables:
@@ -474,7 +474,7 @@ job_sqlite_upgrade_test:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.5-slim
+  image: debian:11.6-slim
   only:
     - releases/all/major
     - releases/all/minor
@@ -501,7 +501,7 @@ job_postgres_test:
     - make test-all SETTINGS=mayan.settings.testing.gitlab-ci
     - make test-all-migrations SETTINGS=mayan.settings.testing.gitlab-ci
   services:
-    - postgres:13.8-alpine
+    - postgres:13.10-alpine
   tags:
     - postgres
   variables:
@@ -539,7 +539,7 @@ job_demo_deploy:
         - ${APT_CACHE_DIR}
   environment:
     name: demo
-  image: debian:11.5-slim
+  image: debian:11.6-slim
   only:
     - builds/docker
     - deployments/demo
@@ -550,13 +550,13 @@ job_demo_deploy:
     - releases/nightly
     - releases/staging
   script:
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl -sSL https://get.docker.com/ | sh"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "sudo usermod -aG docker ubuntu"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down || true"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker volume rm --force `docker volume ls | cut -d\  -f6` || true"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml -O"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env -O"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose up -d"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl --silent --show-error --location https://get.docker.com/ | sh"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "sudo usermod --append --groups docker ubuntu"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down --remove-orphans --volumes || true"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl --silent --show-error --remote-name https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl --silent --show-error --remote-name https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose pull"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose up --detach"
   stage: stage_deploy
   when: manual
   variables:
@@ -583,7 +583,7 @@ job_staging_deploy:
         - ${APT_CACHE_DIR}
   environment:
     name: staging
-  image: debian:11.5-slim
+  image: debian:11.6-slim
   only:
     - builds/docker
     - deployments/staging
@@ -594,18 +594,17 @@ job_staging_deploy:
     - releases/nightly
     - releases/staging
   script:
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "curl -sSL https://get.docker.com/ | sh"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "sudo usermod -aG docker ubuntu"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down || true"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker volume rm --force `docker volume ls | cut -d\  -f6` || true"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "curl --silent --show-error --location https://get.docker.com/ | sh"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "sudo usermod --append --groups docker ubuntu"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down --remove-orphans --volumes || true"
     - scp docker/docker-compose.yml ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - scp docker/.env ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - DOCKER_VERSION=`cat docker/rootfs/version`;
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_NAME=${CI_REGISTRY_IMAGE}\" >> .env"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_TAG=${DOCKER_VERSION}\" >> .env"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker login --username \"${CI_REGISTRY_USER}\" --password \"${CI_REGISTRY_PASSWORD}\" ${CI_REGISTRY}"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker pull ${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose up -d"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose pull"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose up --detach"
   stage: stage_deploy
   when: manual
   variables:

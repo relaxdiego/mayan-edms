@@ -349,7 +349,7 @@ msgstr ""
 
 #: transformation_mixins.py:26
 msgid "Transparency"
-msgstr ""
+msgstr "Transparenz"
 
 #: transformation_mixins.py:29 transformations.py:723
 msgid "Zoom level in percent."
@@ -361,7 +361,7 @@ msgstr "Zoom"
 
 #: transformation_mixins.py:113
 msgid "Paste an image"
-msgstr ""
+msgstr "Bild einfügen"
 
 #: transformation_mixins.py:118
 msgid "Horizontal position in pixels from the left."
@@ -371,7 +371,7 @@ msgstr ""
 #: transformation_mixins.py:227 transformations.py:226 transformations.py:325
 #: transformations.py:424
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 #: transformation_mixins.py:122
 msgid "Vertical position in pixels from the top."
@@ -381,7 +381,7 @@ msgstr ""
 #: transformation_mixins.py:235 transformations.py:230 transformations.py:329
 #: transformations.py:428
 msgid "Top"
-msgstr ""
+msgstr "Oben"
 
 #: transformation_mixins.py:157
 msgid "Paste an image (percents coordinates)"
@@ -410,7 +410,7 @@ msgstr ""
 #: transformation_mixins.py:231 transformations.py:234 transformations.py:333
 #: transformations.py:432
 msgid "Right"
-msgstr ""
+msgstr "Rechts"
 
 #: transformation_mixins.py:234
 msgid "Vertical start position in pixels from the top."
@@ -423,7 +423,7 @@ msgstr ""
 #: transformation_mixins.py:239 transformations.py:238 transformations.py:338
 #: transformations.py:436
 msgid "Bottom"
-msgstr ""
+msgstr "Unten"
 
 #: transformation_mixins.py:242
 msgid "Horizontal position increments in pixels."
@@ -431,7 +431,7 @@ msgstr ""
 
 #: transformation_mixins.py:243
 msgid "Horizontal increment"
-msgstr ""
+msgstr "Horizontale Zunahme"
 
 #: transformation_mixins.py:246
 msgid "Vertical position increments in pixels."
@@ -439,7 +439,7 @@ msgstr ""
 
 #: transformation_mixins.py:247
 msgid "Vertical increment"
-msgstr ""
+msgstr "Vertikale Zunahme"
 
 #: transformation_mixins.py:306
 msgid "Asset name"
@@ -451,7 +451,7 @@ msgstr ""
 
 #: transformation_mixins.py:350 transformations.py:625
 msgid "Fill color"
-msgstr ""
+msgstr "Füllfarbe"
 
 #: transformation_mixins.py:353
 msgid "Opacity level of the fill color in percent"
@@ -491,19 +491,19 @@ msgstr "Zuschneiden"
 
 #: transformations.py:225
 msgid "Number of pixels to remove from the left."
-msgstr ""
+msgstr "Beschnitt von links in Pixel"
 
 #: transformations.py:229
 msgid "Number of pixels to remove from the top."
-msgstr ""
+msgstr "Beschnitt von oben in Pixel"
 
 #: transformations.py:233
 msgid "Number of pixels to remove from the right."
-msgstr ""
+msgstr "Beschnitt von rechts in Pixel"
 
 #: transformations.py:237
 msgid "Number of pixels to remove from the bottom."
-msgstr ""
+msgstr "Beschnitt von unten in Pixel"
 
 #: transformations.py:320
 msgid "Draw rectangle"
@@ -555,7 +555,7 @@ msgstr "Gaußsche Unschärfe"
 
 #: transformations.py:530 transformations.py:693
 msgid "Radius"
-msgstr ""
+msgstr "Radius"
 
 #: transformations.py:542
 msgid "Line art"
@@ -571,7 +571,7 @@ msgstr "Größe ändern"
 
 #: transformations.py:573
 msgid "New width in pixels."
-msgstr ""
+msgstr "Neue Breite in Pixel"
 
 #: transformations.py:574
 msgid "Width"
@@ -579,7 +579,7 @@ msgstr "Breite"
 
 #: transformations.py:578
 msgid "New height in pixels."
-msgstr ""
+msgstr "Neue Höhe in Pixel"
 
 #: transformations.py:579
 msgid "Height"

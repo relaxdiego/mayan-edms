@@ -465,13 +465,13 @@ job_demo_deploy:
     - {{ GITLAB_CI_BRANCH_RELEASES_NIGHTLY }}
     - {{ GITLAB_CI_BRANCH_RELEASES_STAGING }}
   script:
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl -sSL https://get.docker.com/ | sh"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "sudo usermod -aG docker ubuntu"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down || true"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker volume rm --force `docker volume ls | cut -d\  -f6` || true"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml -O"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env -O"
-    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose up -d"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl --silent --show-error --location https://get.docker.com/ | sh"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "sudo usermod --append --groups docker ubuntu"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose down --remove-orphans --volumes || true"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl --silent --show-error --remote-name https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/docker-compose.yml"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "curl --silent --show-error --remote-name https://gitlab.com/mayan-edms/mayan-edms/-/raw/master/docker/.env"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose pull"
+    - ssh ${DEMO_USERNAME}@${DEMO_IP_ADDRESS} "docker compose up --detach"
   stage: stage_deploy
   when: manual
   variables:
@@ -497,18 +497,17 @@ job_staging_deploy:
     - {{ GITLAB_CI_BRANCH_RELEASES_NIGHTLY }}
     - {{ GITLAB_CI_BRANCH_RELEASES_STAGING }}
   script:
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "curl -sSL https://get.docker.com/ | sh"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "sudo usermod -aG docker ubuntu"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down || true"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker volume rm --force `docker volume ls | cut -d\  -f6` || true"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "curl --silent --show-error --location https://get.docker.com/ | sh"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "sudo usermod --append --groups docker ubuntu"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose down --remove-orphans --volumes || true"
     - scp docker/docker-compose.yml ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - scp docker/.env ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME}:~
     - DOCKER_VERSION=`cat docker/rootfs/version`;
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_NAME=${CI_REGISTRY_IMAGE}\" >> .env"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "echo \"MAYAN_DOCKER_IMAGE_TAG=${DOCKER_VERSION}\" >> .env"
     - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker login --username \"${CI_REGISTRY_USER}\" --password \"${CI_REGISTRY_PASSWORD}\" ${CI_REGISTRY}"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker pull ${CI_REGISTRY_IMAGE}:${DOCKER_VERSION}"
-    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose up -d"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose pull"
+    - ssh ${STAGING_SSH_USERNAME}@${STAGING_HOSTNAME} "docker compose up --detach"
   stage: stage_deploy
   when: manual
   variables:

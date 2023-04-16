@@ -12,6 +12,7 @@ logger = logging.getLogger(name=__name__)
 class OrganizationsApp(MayanAppConfig):
     app_namespace = 'organizations'
     app_url = 'organizations'
+    has_tests = True
     name = 'mayan.apps.organizations'
     verbose_name = _('Organizations')
 

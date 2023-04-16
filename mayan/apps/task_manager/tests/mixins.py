@@ -26,23 +26,28 @@ class TaskManagerManagementCommandTestMixin:
 class TaskManagerTestMixin:
     def setUp(self):
         super().setUp()
-        self._test_queues = []
+        self._test_queue_list = []
+        self._test_worker_list = []
 
     def tearDown(self):
-        for test_queue in self._test_queues:
+        for test_queue in self._test_queue_list:
             test_queue.remove()
 
     def _create_test_queue(self, label=None, name=None):
-        self.test_worker = Worker(name=TEST_WORKER_NAME)
-
-        total_test_queues = len(self._test_queues)
-        label = label or '{}_{}'.format(TEST_QUEUE_LABEL, total_test_queues)
-        name = name or '{}_{}'.format(TEST_QUEUE_NAME, total_test_queues)
+        total_test_queue_list = len(self._test_queue_list)
+        label = label or '{}_{}'.format(
+            TEST_QUEUE_LABEL, total_test_queue_list
+        )
+        name = name or '{}_{}'.format(TEST_QUEUE_NAME, total_test_queue_list)
 
         self._test_queue = CeleryQueue(
-            label=label, name=name, worker=self.test_worker
+            label=label, name=name, worker=self._test_worker
         )
-        self._test_queues.append(self._test_queue)
+        self._test_queue_list.append(self._test_queue)
+
+    def _create_test_worker(self):
+        self._test_worker = Worker(name=TEST_WORKER_NAME)
+        self._test_worker_list.append(self._test_worker)
 
 
 class TaskManagerViewTestMixin:

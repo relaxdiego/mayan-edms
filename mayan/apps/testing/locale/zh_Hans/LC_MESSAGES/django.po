@@ -20,6 +20,6 @@ msgstr ""
 "Language: zh-Hans\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: apps.py:8
+#: apps.py:11
 msgid "Testing"
 msgstr "测试中"
