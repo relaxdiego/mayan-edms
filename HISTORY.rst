@@ -1,9 +1,9 @@
-4.4.6 (2023-XX-XX)
+4.4.6 (2023-04-16)
 ==================
 - Update Docker image versions:
 
-  - Docker from 20-dind to 20.10.21-dind
   - Debian from 11.5-slim to 11.6-slim
+  - Docker from 20-dind to 20.10.21-dind
   - ElasticSearch from 7.17.0 to 7.17.9  
   - MySQL from 8.0 to 8.0.32
   - PostgreSQL from 13.8 to 13.10
