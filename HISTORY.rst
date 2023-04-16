@@ -1,10 +1,14 @@
+4.4.7 (20XX-XX-XX)
+==================
+- Fix sitemap URL scheme format.
+
 4.4.6 (2023-04-16)
 ==================
 - Update Docker image versions:
 
   - Debian from 11.5-slim to 11.6-slim
   - Docker from 20-dind to 20.10.21-dind
-  - ElasticSearch from 7.17.0 to 7.17.9  
+  - ElasticSearch from 7.17.0 to 7.17.9
   - MySQL from 8.0 to 8.0.32
   - PostgreSQL from 13.8 to 13.10
   - Python from 3.10-slim to 3.10.11-slim
@@ -31,7 +35,7 @@
 - Update Docker Compose file to work backward incompatible bug introduced
   in version 2.17.0 YAML processor
   (https://github.com/docker/compose/issues/10411).
-  
+
 4.4.5 (2023-03-11)
 ==================
 - Merge version 4.3.6 documents app migration 80 workaround.
