@@ -28,6 +28,9 @@
   state runtime proxies where is does not make sense to show.
 - Ignore staging folder file image cache error if the image cache is not
   already generated when deleting the staging folder file.
+- Update Docker Compose file to work backward incompatible bug introduced
+  in version 2.17.0 YAML processor
+  (https://github.com/docker/compose/issues/10411).
   
 4.4.5 (2023-03-11)
 ==================
