@@ -23,15 +23,15 @@ sys.path.insert(
     1, os.path.abspath('.')
 )
 
-import django
+import django  # NOQA
 
-import mayan
-from mayan.apps.dependencies.versions import Version
+import mayan  # NOQA
+from mayan.apps.dependencies.versions import Version  # NOQA
 
-import callbacks
-import directives
-import patches
-import utils
+import callbacks  # NOQA
+import directives  # NOQA
+import patches  # NOQA
+import utils  # NOQA
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the

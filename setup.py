@@ -59,6 +59,7 @@ def find_packages(directory):
 
     return packages
 
+
 install_requires = """
 django==3.2.16
 CairoSVG==2.5.2
