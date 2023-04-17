@@ -7,6 +7,7 @@ from mayan.apps.dependencies.environments import (
     environment_build, environment_development, environment_documentation,
     environment_documentation_override
 )
+from mayan.settings.literals import PYTHON_WHEEL_VERSION
 
 from .literals import DEFAULT_TX_PATH
 
@@ -213,7 +214,9 @@ PythonDependency(
 )
 PythonDependency(
     environments=(environment_build, environment_documentation),
-    module=__name__, name='wheel', version_string='==0.37.0'
+    module=__name__, name='wheel', version_string='=={}'.format(
+        PYTHON_WHEEL_VERSION
+    )
 )
 
 # Documentation

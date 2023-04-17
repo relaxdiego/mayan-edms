@@ -10,6 +10,13 @@
   select widget.
 - Split the Whoosh backend search object deletion and addition into separate
   try and exception blocks.
+- CI documentation jobs improvements:
+
+  - Install wheel to use modern Python package versions.
+  - Don't install or build the Mayan EDMS Python package and
+    instead use the development code to build the documentation.
+  - Ensure APT proxy quotes are escaped.
+  - Move Wheel dependency version to top level config file.
 
 4.2.15 (2023-04-14)
 ===================
