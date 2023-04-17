@@ -122,8 +122,6 @@ services:
     restart: unless-stopped
 
   keycloak-postgres:
-    image: postgres:13.2
-    restart: unless-stopped
     environment:
       POSTGRES_DB: ${MAYAN_KEYCLOAK_DATABASE_NAME:-keycloak}
       POSTGRES_PASSWORD: ${MAYAN_KEYCLOAK_DATABASE_PASSWORD:-keycloakdbpass}
