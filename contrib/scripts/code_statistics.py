@@ -17,8 +17,12 @@ def print_views_summary(module_filename):
             if line.startswith('def') and 'request' in line:
                 count_function_based_views += 1
 
-    print('      class based views: {}'.format(count_class_based_views))
-    print('      function based views: {}'.format(count_function_based_views))
+    print(
+        '      class based views: {}'.format(count_class_based_views)
+    )
+    print(
+        '      function based views: {}'.format(count_function_based_views)
+    )
     return count_class_based_views, count_function_based_views
 
 
@@ -30,7 +34,9 @@ def print_tests_summary(module_filename):
             if line.startswith('    def test'):
                 count_tests += 1
 
-    print('      tests: {}'.format(count_tests))
+    print(
+        '      tests: {}'.format(count_tests)
+    )
     return count_tests
 
 
@@ -47,7 +53,9 @@ if __name__ == '__main__':
     for app_name in sorted(os.listdir(BASE_PATH)):
         if app_name != '__init__.py':
             count_totals['Apps'] += 1
-            print('\n\nApp name: {}'.format(app_name))
+            print(
+                '\n\nApp name: {}'.format(app_name)
+            )
             app_path = os.path.join(BASE_PATH, app_name)
 
             print('\n  Views')
@@ -100,4 +108,6 @@ if __name__ == '__main__':
 
     print('Totals:')
     for key, value in count_totals.items():
-        print('  {}: {}'.format(key, value))
+        print(
+            '  {}: {}'.format(key, value)
+        )
