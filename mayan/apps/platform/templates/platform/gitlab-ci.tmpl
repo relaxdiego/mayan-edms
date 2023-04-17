@@ -206,23 +206,20 @@ job_documentation_build:
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==${PYTHON_PIP_VERSION}
+    - pip install wheel
   cache:
 {% platform_gitlab_ci_cache_paths apt=True indent=4 pip=True %}
-  dependencies:
-    - job_python_build
   image: {{ DOCKER_LINUX_IMAGE_VERSION }}
-  needs:
-    - job_python_build
   only:
     - {{ GITLAB_CI_BRANCH_BUILDS_DOCUMENTATION }}
     - {{ GITLAB_CI_BRANCH_RELEASES_ALL_MAJOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_DOCUMENTATION }}
     - {{ GITLAB_CI_BRANCH_TESTS_ALL }}
   script:
+    - pip install --requirement requirements/common.txt
+    - pip install --requirement requirements/base.txt
     - pip install --requirement requirements/documentation.txt
     - pip install --requirement requirements/documentation_override.txt
-    - DOCKER_VERSION=`cat docker/rootfs/version`
-    - pip install dist/mayan_edms-${DOCKER_VERSION}-py*.whl
     - cd docs
     - make html
   stage: stage_build_documentation
@@ -272,11 +269,9 @@ job_python_build:
 {% platform_gitlab_ci_cache_paths apt=True indent=4 pip=True %}
   image: {{ DOCKER_LINUX_IMAGE_VERSION }}
   only:
-    - {{ GITLAB_CI_BRANCH_BUILDS_DOCUMENTATION }}
     - {{ GITLAB_CI_BRANCH_BUILDS_PYTHON }}
     - {{ GITLAB_CI_BRANCH_RELEASES_ALL_MAJOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_ALL_MINOR }}
-    - {{ GITLAB_CI_BRANCH_RELEASES_DOCUMENTATION }}
     - {{ GITLAB_CI_BRANCH_RELEASES_PYTHON_MAJOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_PYTHON_MINOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_TESTING }}

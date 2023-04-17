@@ -216,13 +216,14 @@ job_documentation_build:
     - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
     - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
-    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
     - apt-get update
     - apt-get install --yes --no-install-recommends enchant-2 gcc make libcairo2-dev libffi-dev libjpeg-dev libldap2-dev libpng-dev libsasl2-dev python3-venv python3-dev zlib1g-dev
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==${PYTHON_PIP_VERSION}
+    - pip install wheel
   cache:
     - key: apt-cache-4.4
       paths:
@@ -230,21 +231,17 @@ job_documentation_build:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  dependencies:
-    - job_python_build
   image: debian:11.6-slim
-  needs:
-    - job_python_build
   only:
     - builds/documentation
     - releases/all/major
     - releases/documentation
     - tests/all
   script:
+    - pip install --requirement requirements/common.txt
+    - pip install --requirement requirements/base.txt
     - pip install --requirement requirements/documentation.txt
     - pip install --requirement requirements/documentation_override.txt
-    - DOCKER_VERSION=`cat docker/rootfs/version`
-    - pip install dist/mayan_edms-${DOCKER_VERSION}-py*.whl
     - cd docs
     - make html
   stage: stage_build_documentation
@@ -258,7 +255,7 @@ job_documentation_push:
     - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
     - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
-    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
     - mkdir --parents ~/.ssh
     - chmod 700 ~/.ssh
@@ -298,7 +295,7 @@ job_python_build:
     - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
     - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
-    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
     - apt-get update
     - apt-get install --yes --no-install-recommends make python3-venv python3-dev
@@ -314,11 +311,9 @@ job_python_build:
         - ${PIP_CACHE_DIR}
   image: debian:11.6-slim
   only:
-    - builds/documentation
     - builds/python
     - releases/all/major
     - releases/all/minor
-    - releases/documentation
     - releases/python/major
     - releases/python/minor
     - releases/testing
@@ -343,7 +338,7 @@ job_python_push_pypi:
     - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
     - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
-    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
     - apt-get update
     - apt-get install --yes --no-install-recommends make python3-venv python3-dev
@@ -382,7 +377,7 @@ job_python_push_pypi:
     - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
     - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
-    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
     - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool file gcc ghostscript gnupg1 libldap2-dev libjpeg-dev libmagic1 libpng-dev libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev tesseract-ocr
@@ -459,7 +454,7 @@ job_sqlite_upgrade_test:
     - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
     - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
-    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
     - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool file gcc ghostscript gnupg1 graphviz libfuse2 libldap2-dev libjpeg-dev libmagic1 libpng-dev libreoffice-calc-nogui libreoffice-draw-nogui libreoffice-impress-nogui libreoffice-math-nogui libreoffice-writer-nogui libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev sane-utils tesseract-ocr tesseract-ocr-deu
@@ -524,7 +519,7 @@ job_demo_deploy:
     - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
     - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
-    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
     - mkdir --parents ~/.ssh
     - chmod 700 ~/.ssh
@@ -568,7 +563,7 @@ job_staging_deploy:
     - export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives
     - mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
-    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy "http://${APT_PROXY}"; };" > /etc/apt/apt.conf.d/01proxy; fi
+    - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
     - mkdir --parents ~/.ssh
     - chmod 700 ~/.ssh

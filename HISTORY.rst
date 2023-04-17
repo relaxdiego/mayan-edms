@@ -1,6 +1,12 @@
 4.4.7 (20XX-XX-XX)
 ==================
 - Fix sitemap URL scheme format.
+- CI documentation jobs improvements:
+
+  - Install wheel to use modern Python package versions.
+  - Don't install or build the Mayan EDMS Python package and
+    instead use the development code to build the documentation.
+  - Ensure APT proxy quotes are escaped.
 
 4.4.6 (2023-04-16)
 ==================

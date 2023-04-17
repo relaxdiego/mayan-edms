@@ -54,7 +54,7 @@ def platform_gitlab_ci_cache_before_script(indent, apk=False, apt=False):
                 'export APT_STATE_LISTS=${APT_CACHE_DIR}/lists && export APT_CACHE_ARCHIVES=${APT_CACHE_DIR}/archives',
                 'mkdir --parents "${APT_STATE_LISTS}/partial" && mkdir --parents "${APT_CACHE_ARCHIVES}/partial"',
                 'printf "dir::state::lists    ${APT_STATE_LISTS};\\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache',
-                'if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi',
+                'if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \\"http://${APT_PROXY}\\"; };" > /etc/apt/apt.conf.d/01proxy; fi',
                 'apt-get update'
             ]
         )
