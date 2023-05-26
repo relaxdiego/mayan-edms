@@ -2,6 +2,12 @@
 ===================
 - Fix error in staging target Docker credential variable names. Closes
   GitLab issue #1143. Thanks to Matthias Löblich(@startmat) for the report.
+- Fix workflow action test. Test was using the incorrect assertion type.
+- Remove extra punctuation in help text. Text being concatenated already has
+  punctuation.
+- Fix document type change action form widget. The widget definition was
+  incorrect causing the document type selector to use the regular HTML
+  select widget.
 
 4.2.15 (2023-04-14)
 ===================
