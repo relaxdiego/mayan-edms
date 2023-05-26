@@ -17,7 +17,7 @@ class DocumentTypeChangeAction(WorkflowAction):
     }
     label = _('Change document type')
     widgets = {
-        'workflows': {
+        'document_type': {
             'class': 'django.forms.widgets.Select', 'kwargs': {
                 'attrs': {'class': 'select2'},
             }
@@ -30,7 +30,9 @@ class DocumentTypeChangeAction(WorkflowAction):
         )
 
     def get_document_type(self):
-        return DocumentType.objects.get(pk=self.form_data.get('document_type'))
+        return DocumentType.objects.get(
+            pk=self.form_data.get('document_type')
+        )
 
 
 class TrashDocumentAction(WorkflowAction):
