@@ -27,7 +27,7 @@ class DocumentPropertiesEditAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _('The new label to be assigned to the document.'),
                         BASE_WORKFLOW_TEMPLATE_STATE_ACTION_HELP_TEXT
                     )
@@ -42,7 +42,7 @@ class DocumentPropertiesEditAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _(
                             'The new description to be assigned to the '
                             'document.'
@@ -136,7 +136,7 @@ class HTTPAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _('The URL to access.'),
                         BASE_WORKFLOW_TEMPLATE_STATE_ACTION_HELP_TEXT
                     )
@@ -152,7 +152,7 @@ class HTTPAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _('Time in seconds to wait for a response.'),
                         BASE_WORKFLOW_TEMPLATE_STATE_ACTION_HELP_TEXT
                     )
@@ -167,7 +167,7 @@ class HTTPAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _('A JSON document to include in the request.'),
                         BASE_WORKFLOW_TEMPLATE_STATE_ACTION_HELP_TEXT
                     )
@@ -182,7 +182,7 @@ class HTTPAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _(
                             'Username to use for making the request with '
                             'HTTP Basic Auth.'
@@ -200,7 +200,7 @@ class HTTPAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _(
                             'Password to use for making the request with '
                             'HTTP Basic Auth.'
@@ -218,7 +218,7 @@ class HTTPAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _(
                             'The HTTP method to use for the request. '
                             'Typical choices are OPTIONS, HEAD, POST, GET, '
@@ -236,7 +236,7 @@ class HTTPAction(WorkflowAction):
             'kwargs': {
                 'initial_help_text': _(
                     format_lazy(
-                        '{}. {}',
+                        '{} {}',
                         _(
                             'Headers to send with the HTTP request. Must '
                             'be in JSON format.'
