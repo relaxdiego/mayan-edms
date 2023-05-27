@@ -19,6 +19,7 @@
   - Move Wheel dependency version to top level config file.
 
 - Fix sitemap URL scheme format.
+- Add release step flake8 command.
 
 4.2.15 (2023-04-14)
 ===================
