@@ -201,8 +201,7 @@ job_documentation_build:
   before_script:
 {% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
-    - apt-get update
-    - apt-get install --yes --no-install-recommends enchant-2 gcc make libffi-dev libjpeg-dev libpng-dev libsasl2-dev python3-venv python3-dev zlib1g-dev
+    - apt-get install --yes --no-install-recommends enchant-2 gcc make libffi-dev libjpeg-dev libldap2-dev libpng-dev libsasl2-dev python3-venv python3-dev zlib1g-dev
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==${PYTHON_PIP_VERSION}
@@ -318,7 +317,6 @@ job_python_push_pypi:
   before_script:
 {% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
-    - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool gcc ghostscript gnupg1 libldap2-dev libjpeg-dev libmagic1 libpng-dev libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev tesseract-ocr
     - python3 -m venv venv
     - . venv/bin/activate
@@ -385,7 +383,6 @@ job_sqlite_upgrade_test:
   before_script:
 {% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
-    - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool gcc ghostscript gnupg1 graphviz libfuse2 libldap2-dev libjpeg-dev libmagic1 libpng-dev libreoffice-calc-nogui libreoffice-draw-nogui libreoffice-impress-nogui libreoffice-math-nogui libreoffice-writer-nogui libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev sane-utils tesseract-ocr tesseract-ocr-deu
     - python3 -m venv venv
     - . venv/bin/activate
