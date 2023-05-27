@@ -20,6 +20,8 @@
 
 - Fix sitemap URL scheme format.
 - Add release step flake8 command.
+- Update the Docker Debian image from version 11.4-slim to 11.7-slim.
+- Update the Redis Docker image from version 6.2.11-alpine to 6.2.12-alpine.
 
 4.2.15 (2023-04-14)
 ===================
