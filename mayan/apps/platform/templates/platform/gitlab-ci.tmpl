@@ -202,7 +202,7 @@ job_documentation_build:
 {% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
     - apt-get update
-    - apt-get install --yes --no-install-recommends enchant-2 gcc make libffi-dev libjpeg-dev libpng-dev python3-venv python3-dev zlib1g-dev
+    - apt-get install --yes --no-install-recommends enchant-2 gcc make libffi-dev libjpeg-dev libpng-dev libsasl2-dev python3-venv python3-dev zlib1g-dev
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==${PYTHON_PIP_VERSION}
