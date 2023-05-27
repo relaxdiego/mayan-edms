@@ -22,6 +22,10 @@
 - Add release step flake8 command.
 - Update the Docker Debian image from version 11.4-slim to 11.7-slim.
 - Update the Redis Docker image from version 6.2.11-alpine to 6.2.12-alpine.
+- Create a separate CSS class to handle unwanted second scrollbar on forms
+  with an embedded carousel on Firefox. Closes issue #1144. Thanks to
+  Rodrigo EvilNet Olguin (@evilnet1), @qra, @vintager for report and
+  Matthias Löblich (@startmat) for the research.
 
 4.2.15 (2023-04-14)
 ===================
