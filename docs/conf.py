@@ -280,6 +280,7 @@ extlinks = {
 # -- Options for sitemap extension ---------------------------------------------
 
 html_baseurl = 'https://docs.mayan-edms.com/'
+sitemap_url_scheme = '{lang}{link}'
 
 
 def setup(app):

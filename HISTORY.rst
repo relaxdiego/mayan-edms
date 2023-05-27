@@ -18,6 +18,8 @@
   - Ensure APT proxy quotes are escaped.
   - Move Wheel dependency version to top level config file.
 
+- Fix sitemap URL scheme format.
+
 4.2.15 (2023-04-14)
 ===================
 - Merged changes from version 4.1.12:
