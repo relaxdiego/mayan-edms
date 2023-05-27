@@ -8,6 +8,8 @@
 - Fix document type change action form widget. The widget definition was
   incorrect causing the document type selector to use the regular HTML
   select widget.
+- Split the Whoosh backend search object deletion and addition into separate
+  try and exception blocks.
 
 4.2.15 (2023-04-14)
 ===================

@@ -182,33 +182,58 @@ class WhooshSearchBackend(SearchBackend):
                 index = self.get_or_create_index(search_model=search_model)
 
                 with index.writer(**self.writer_kwargs) as writer:
-                    kwargs = search_model.populate(
-                        backend=self, instance=instance,
-                        exclude_model=exclude_model,
-                        exclude_kwargs=exclude_kwargs
-                    )
-
                     try:
-                        writer.delete_by_term('id', str(instance.pk))
-                        writer.add_document(**kwargs)
+                        writer.delete_by_term(
+                            'id', str(instance.pk)
+                        )
                     except Exception as exception:
                         logger.error(
-                            'Unexpected exception while indexing object '
-                            'id: %(id)s, search model: %(search_model)s, '
-                            'index data: %(index_data)s, raw data: '
-                            '%(raw_data)s, field map: %(field_map)s; '
+                            'Unexpected exception while '
+                            'deleting search object id: %(id)s, '
+                            'search model: %(search_model)s, '
+                            'raw data: %(raw_data)s, '
+                            'field map: %(field_map)s; '
                             '%(exception)s' % {
                                 'exception': exception,
                                 'field_map': self.get_resolved_field_map(
                                     search_model=search_model
                                 ),
                                 'id': instance.pk,
-                                'index_data': kwargs,
                                 'raw_data': instance.__dict__,
                                 'search_model': search_model.get_full_name()
                             }, exc_info=True
                         )
                         raise
+                    else:
+                        kwargs = search_model.populate(
+                            backend=self, instance=instance,
+                            exclude_model=exclude_model,
+                            exclude_kwargs=exclude_kwargs
+                        )
+
+                        try:
+                            writer.add_document(**kwargs)
+                        except Exception as exception:
+                            logger.error(
+                                'Unexpected exception while '
+                                'indexing object id: %(id)s, '
+                                'search model: %(search_model)s, '
+                                'index data: %(index_data)s, '
+                                'raw data: %(raw_data)s, '
+                                'field map: %(field_map)s; '
+                                '%(exception)s' % {
+                                    'exception': exception,
+                                    'field_map': self.get_resolved_field_map(
+                                        search_model=search_model
+                                    ),
+                                    'id': instance.pk,
+                                    'index_data': kwargs,
+                                    'raw_data': instance.__dict__,
+                                    'search_model': search_model.get_full_name()
+                                }, exc_info=True
+                            )
+                            raise
+
             except whoosh.index.LockError:
                 raise DynamicSearchRetry
             finally:
