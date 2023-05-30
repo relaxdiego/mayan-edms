@@ -28,6 +28,18 @@
   Matthias Löblich (@startmat) for the research.
 - Split ``DocumentTestMixin`` into ``DocumentTypeTestMixin`` and
   ``DocumentTestMixin``.
+- Retry trashed document deletion on database OperationalError.
+  On large number of documents or document with many pages, the level
+  of deletions exceed the database capacity to fulfill them. This
+  causes a query deadlock where one database process waits for a
+  ShareLock on a transaction which itself is blocked by another
+  ShareLock on the previous transaction.
+
+  After a timeout period of this circular transaction dependency
+  an OperationalError exception will be raised and the trashed
+  document deletion can be retried.
+
+  Closes GitLab issue #1146, thanks to DS (@dshah01) for the report.
 
 4.2.15 (2023-04-14)
 ===================
