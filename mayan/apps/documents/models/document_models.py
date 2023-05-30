@@ -229,10 +229,6 @@ class Document(
                 # Fall through to same code path as expand=False to avoid
                 # duplicating code.
 
-        DocumentVersion = apps.get_model(
-            app_label='documents', model_name='DocumentVersion'
-        )
-
         try:
             document_file = DocumentFile(
                 document=self, comment=comment, file=File(file=file_object),
