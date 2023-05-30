@@ -14,7 +14,7 @@ from ..literals import (
     TEST_SMALL_DOCUMENT_PATH
 )
 
-from .mixins.document_type_mixins import DocumentTypeTestMixin
+from .document_type_mixins import DocumentTypeTestMixin
 
 
 class DocumentAPIViewTestMixin:
