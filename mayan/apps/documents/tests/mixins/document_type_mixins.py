@@ -10,6 +10,33 @@ from ..literals import (
 )
 
 
+class DocumentTypeTestMixin:
+    auto_create_test_document_type = True
+    auto_delete_test_document_type = True
+
+    def setUp(self):
+        super().setUp()
+
+        self.test_document_types = []
+
+        if self.auto_create_test_document_type:
+            self._create_test_document_type()
+
+    def tearDown(self):
+        if self.auto_delete_test_document_type:
+            for document_type in DocumentType.objects.all():
+                document_type.delete()
+        super().tearDown()
+
+    def _create_test_document_type(self, label=None):
+        label = label or '{}_{}'.format(
+            TEST_DOCUMENT_TYPE_LABEL, len(self.test_document_types)
+        )
+
+        self.test_document_type = DocumentType.objects.create(label=label)
+        self.test_document_types.append(self.test_document_type)
+
+
 class DocumentQuickLabelViewTestMixin:
     def _request_test_document_quick_label_edit_view(self, extra_data=None):
         data = {

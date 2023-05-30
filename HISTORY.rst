@@ -26,6 +26,8 @@
   with an embedded carousel on Firefox. Closes issue #1144. Thanks to
   Rodrigo EvilNet Olguin (@evilnet1), @qra, @vintager for report and
   Matthias Löblich (@startmat) for the research.
+- Split ``DocumentTestMixin`` into ``DocumentTypeTestMixin`` and
+  ``DocumentTestMixin``.
 
 4.2.15 (2023-04-14)
 ===================
