@@ -40,6 +40,9 @@
   document deletion can be retried.
 
   Closes GitLab issue #1146, thanks to DS (@dshah01) for the report.
+- Disable announcements app login template caching. Fixes announcement edits
+  not showing up. Thanks to forum user @jwolfe for the report and debug
+  information.
 
 4.2.15 (2023-04-14)
 ===================
