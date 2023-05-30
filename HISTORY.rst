@@ -43,6 +43,7 @@
 - Disable announcements app login template caching. Fixes announcement edits
   not showing up. Thanks to forum user @jwolfe for the report and debug
   information.
+- Add documents app task testing module.
 
 4.2.15 (2023-04-14)
 ===================
