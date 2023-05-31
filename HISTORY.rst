@@ -1,3 +1,8 @@
+4.3.9 (XXXX-XX-XX)
+==================
+- Fix document parsing error logging. Use the correct argument
+  name when creating new error log entries.
+
 4.3.8 (2023-04-15)
 ==================
 - Merged changes from version 4.2.15:
