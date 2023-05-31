@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 03:30+0000\n"
+"POT-Creation-Date: 2023-05-31 04:14+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
 "Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
 "Language-Team: French (https://app.transifex.com/rosarior/teams/13584/fr/)\n"
@@ -714,7 +714,7 @@ msgid "Document files"
 msgstr "Fichiers de document"
 
 #: models/document_file_models.py:333 models/document_file_page_models.py:272
-#: models/document_models.py:72 models/document_models.py:318
+#: models/document_models.py:72 models/document_models.py:314
 #: models/document_type_models.py:41 models/document_type_models.py:203
 #: models/document_version_models.py:236
 #: models/document_version_page_models.py:354
@@ -801,7 +801,7 @@ msgstr ""
 msgid "Is stub?"
 msgstr "Parcellaire ?"
 
-#: models/document_models.py:316
+#: models/document_models.py:312
 #, python-format
 msgid "Document stub, id: %d"
 msgstr "Document parcellaire, id : %d"
@@ -2184,6 +2184,6 @@ msgstr "Nouveau type de document pour le flux de travail."
 msgid "Change document type"
 msgstr "Changer le type de document"
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Envoyer le document dans la corbeille"

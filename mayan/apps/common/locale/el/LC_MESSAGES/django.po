@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 03:30+0000\n"
+"POT-Creation-Date: 2023-05-31 04:14+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
 "Last-Translator: pyrotech <anastasios@tutamail.com>, 2022\n"
 "Language-Team: Greek (https://app.transifex.com/rosarior/teams/13584/el/)\n"
@@ -41,25 +41,25 @@ msgstr "Πεδία σχετιζόμενα με το μοντέλο"
 msgid "Model reverse fields"
 msgstr "Πεδία αντιστροφής μοντέλου"
 
-#: dependencies.py:164
+#: dependencies.py:165
 msgid "Transifex Client"
 msgstr ""
 
-#: dependencies.py:181
+#: dependencies.py:182
 msgid "Used to allow offline translation of the code text strings."
 msgstr ""
 "Χρησιμοποιείται για την εκτός σύνδεσης μετάφραση συμβολοσειρών κειμένου του "
 "κώδικα."
 
-#: dependencies.py:190
+#: dependencies.py:191
 msgid "Provides style checking."
 msgstr "Παρέχει έλεγχο του στυλ."
 
-#: dependencies.py:195
+#: dependencies.py:196
 msgid "Command line environment with autocompletion."
 msgstr "Γραμμή εντολών με αυτόματη συμπλήρωση."
 
-#: dependencies.py:200
+#: dependencies.py:201
 msgid "Checks proper formatting of the README file."
 msgstr "Ελέγχει την ορθή μορφοποίηση του αρχείου README."
 

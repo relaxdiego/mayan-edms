@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 03:30+0000\n"
+"POT-Creation-Date: 2023-05-31 04:14+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
 "Last-Translator: Jože Detečnik <joze.detecnik@3tav.si>, 2022\n"
 "Language-Team: Slovenian (https://app.transifex.com/rosarior/teams/13584/sl/)\n"
@@ -41,24 +41,24 @@ msgstr "Polja, povezana z modelom"
 msgid "Model reverse fields"
 msgstr "Obratna polja modela"
 
-#: dependencies.py:164
+#: dependencies.py:165
 msgid "Transifex Client"
 msgstr ""
 
-#: dependencies.py:181
+#: dependencies.py:182
 msgid "Used to allow offline translation of the code text strings."
 msgstr ""
 "Uporablja se za omogočanje prevajanja besedilnih nizov kode brez povezave."
 
-#: dependencies.py:190
+#: dependencies.py:191
 msgid "Provides style checking."
 msgstr "Omogoča preverjanje sloga."
 
-#: dependencies.py:195
+#: dependencies.py:196
 msgid "Command line environment with autocompletion."
 msgstr "Okolje ukazne vrstice s samodokončanjem."
 
-#: dependencies.py:200
+#: dependencies.py:201
 msgid "Checks proper formatting of the README file."
 msgstr "Preveri pravilno oblikovanje datoteke README."
 

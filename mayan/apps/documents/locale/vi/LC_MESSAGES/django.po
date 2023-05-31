@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Translators:
-# Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2022
+# Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 03:30+0000\n"
+"POT-Creation-Date: 2023-05-31 04:14+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
-"Last-Translator: Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2022\n"
+"Last-Translator: Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2023\n"
 "Language-Team: Vietnamese (https://app.transifex.com/rosarior/teams/13584/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -490,7 +490,7 @@ msgstr "Tạo kiểu tài liệu"
 
 #: links/document_type_links.py:34
 msgid "Deletion policies"
-msgstr "Chính sách xóa"
+msgstr "Chính sách Xóa"
 
 #: links/document_type_links.py:45
 msgid "Add quick label to document type"
@@ -694,7 +694,7 @@ msgid "Document files"
 msgstr ""
 
 #: models/document_file_models.py:333 models/document_file_page_models.py:272
-#: models/document_models.py:72 models/document_models.py:318
+#: models/document_models.py:72 models/document_models.py:314
 #: models/document_type_models.py:41 models/document_type_models.py:203
 #: models/document_version_models.py:236
 #: models/document_version_page_models.py:354
@@ -779,7 +779,7 @@ msgstr ""
 msgid "Is stub?"
 msgstr "Có phải tài liệu rỗng?"
 
-#: models/document_models.py:316
+#: models/document_models.py:312
 #, python-format
 msgid "Document stub, id: %d"
 msgstr "Tài liệu rỗng, id: %d"
@@ -2064,6 +2064,6 @@ msgstr ""
 msgid "Change document type"
 msgstr ""
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Đưa tài liệu vào thùng rác"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 03:30+0000\n"
+"POT-Creation-Date: 2023-05-31 04:15+0000\n"
 "PO-Revision-Date: 2022-02-03 10:14+0000\n"
 "Last-Translator: molnars <szabolcs.molnar@gmail.com>, 2022\n"
 "Language-Team: Hungarian (https://app.transifex.com/rosarior/teams/13584/hu/)\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: apps.py:47 apps.py:131 apps.py:135 apps.py:139 apps.py:144 apps.py:148
 #: events.py:5 forms.py:15 links.py:28 menus.py:14 models.py:41
-#: permissions.py:5 views.py:172 workflow_actions.py:18 workflow_actions.py:61
+#: permissions.py:5 views.py:172 workflow_actions.py:18 workflow_actions.py:65
 msgid "Tags"
 msgstr "Címkék"
 
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Attach tags"
 msgstr "Címke hozzárendelése"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Címke levétele"
 
@@ -331,6 +331,6 @@ msgstr ""
 msgid "Attach tag"
 msgstr ""
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
 msgstr ""

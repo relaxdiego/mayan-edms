@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 03:30+0000\n"
+"POT-Creation-Date: 2023-05-31 04:14+0000\n"
 "PO-Revision-Date: 2022-02-03 10:12+0000\n"
 "Last-Translator: Leon Chu, 2022\n"
 "Language-Team: Chinese Simplified (https://app.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
@@ -43,23 +43,23 @@ msgstr "Model related fields"
 msgid "Model reverse fields"
 msgstr "Model reverse fields"
 
-#: dependencies.py:164
+#: dependencies.py:165
 msgid "Transifex Client"
 msgstr ""
 
-#: dependencies.py:181
+#: dependencies.py:182
 msgid "Used to allow offline translation of the code text strings."
 msgstr "用來允許離現翻譯程式碼的文字字串"
 
-#: dependencies.py:190
+#: dependencies.py:191
 msgid "Provides style checking."
 msgstr "提供格式檢查"
 
-#: dependencies.py:195
+#: dependencies.py:196
 msgid "Command line environment with autocompletion."
 msgstr "含有自動完成之命令列環境"
 
-#: dependencies.py:200
+#: dependencies.py:201
 msgid "Checks proper formatting of the README file."
 msgstr "檢查適當的README檔案格式"
 
