@@ -28,19 +28,19 @@ msgstr "Kopīgs"
 msgid "Transifex Client"
 msgstr ""
 
-#: dependencies.py:181
+#: dependencies.py:182
 msgid "Used to allow offline translation of the code text strings."
 msgstr "Izmantots, lai atļautu koda teksta virkņu bezsaistes tulkojumu."
 
-#: dependencies.py:190
+#: dependencies.py:191
 msgid "Provides style checking."
 msgstr "Nodrošina stila pārbaudi."
 
-#: dependencies.py:195
+#: dependencies.py:196
 msgid "Command line environment with autocompletion."
 msgstr "Komandrindas vide ar automātisko aizpildi."
 
-#: dependencies.py:200
+#: dependencies.py:201
 msgid "Checks proper formatting of the README file."
 msgstr "Pārbauda README faila pareizu formatēšanu."
 

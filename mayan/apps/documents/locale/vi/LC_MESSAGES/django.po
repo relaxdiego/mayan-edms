@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Translators:
-# Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2022
+# Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -541,7 +541,7 @@ msgstr "Tạo kiểu tài liệu"
 
 #: links/document_type_links.py:34
 msgid "Deletion policies"
-msgstr "Chính sách xóa"
+msgstr "Chính sách Xóa"
 
 #: links/document_type_links.py:45
 msgid "Add quick label to document type"
@@ -2076,6 +2076,6 @@ msgstr ""
 msgid "Change document type"
 msgstr ""
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Đưa tài liệu vào thùng rác"

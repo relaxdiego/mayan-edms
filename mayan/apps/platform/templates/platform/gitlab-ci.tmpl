@@ -26,7 +26,7 @@ job_docker_build:
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==${PYTHON_PIP_VERSION}
-    - pip install wheel
+    - pip install wheel==${PYTHON_WHEEL_VERSION}
     - cat requirements/base.txt | grep -v 'django-auth-ldap'| pip install -r /dev/stdin
   cache:
 {% platform_gitlab_ci_cache_paths apk=True indent=4 pip=True %}
@@ -201,28 +201,24 @@ job_documentation_build:
   before_script:
 {% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
-    - apt-get update
-    - apt-get install --yes --no-install-recommends enchant-2 gcc make libffi-dev libjpeg-dev libpng-dev python3-venv python3-dev zlib1g-dev
+    - apt-get install --yes --no-install-recommends enchant-2 gcc make libffi-dev libjpeg-dev libldap2-dev libpng-dev libsasl2-dev python3-venv python3-dev zlib1g-dev
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==${PYTHON_PIP_VERSION}
+    - pip install wheel==${PYTHON_WHEEL_VERSION}
   cache:
 {% platform_gitlab_ci_cache_paths apt=True indent=4 pip=True %}
-  dependencies:
-    - job_python_build
   image: {{ DOCKER_LINUX_IMAGE_VERSION }}
-  needs:
-    - job_python_build
   only:
     - {{ GITLAB_CI_BRANCH_BUILDS_DOCUMENTATION }}
     - {{ GITLAB_CI_BRANCH_RELEASES_ALL_MAJOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_DOCUMENTATION }}
     - {{ GITLAB_CI_BRANCH_TESTS_ALL }}
   script:
+    - pip install --requirement requirements/common.txt
+    - pip install --requirement requirements/base.txt
     - pip install --requirement requirements/documentation.txt
     - pip install --requirement requirements/documentation_override.txt
-    - DOCKER_VERSION=`cat docker/rootfs/version`
-    - pip install dist/mayan_edms-${DOCKER_VERSION}-py*.whl
     - cd docs
     - make html
   stage: stage_build_documentation
@@ -272,11 +268,9 @@ job_python_build:
 {% platform_gitlab_ci_cache_paths apt=True indent=4 pip=True %}
   image: {{ DOCKER_LINUX_IMAGE_VERSION }}
   only:
-    - {{ GITLAB_CI_BRANCH_BUILDS_DOCUMENTATION }}
     - {{ GITLAB_CI_BRANCH_BUILDS_PYTHON }}
     - {{ GITLAB_CI_BRANCH_RELEASES_ALL_MAJOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_ALL_MINOR }}
-    - {{ GITLAB_CI_BRANCH_RELEASES_DOCUMENTATION }}
     - {{ GITLAB_CI_BRANCH_RELEASES_PYTHON_MAJOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_PYTHON_MINOR }}
     - {{ GITLAB_CI_BRANCH_RELEASES_TESTING }}
@@ -323,7 +317,6 @@ job_python_push_pypi:
   before_script:
 {% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
-    - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool file gcc ghostscript gnupg1 libldap2-dev libjpeg-dev libmagic1 libpng-dev libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev tesseract-ocr
     - python3 -m venv venv
     - . venv/bin/activate
@@ -390,7 +383,6 @@ job_sqlite_upgrade_test:
   before_script:
 {% platform_gitlab_ci_config_env_before_script indent=4 %}
 {% platform_gitlab_ci_cache_before_script apt=True indent=4 %}
-    - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool file gcc ghostscript gnupg1 graphviz libfuse2 libldap2-dev libjpeg-dev libmagic1 libpng-dev libreoffice-calc-nogui libreoffice-draw-nogui libreoffice-impress-nogui libreoffice-math-nogui libreoffice-writer-nogui libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev sane-utils tesseract-ocr tesseract-ocr-deu
     - python3 -m venv venv
     - . venv/bin/activate

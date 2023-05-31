@@ -2143,6 +2143,6 @@ msgstr "Nový typ dokumentu pro dokument pracovního postupu."
 msgid "Change document type"
 msgstr "Změnit typ dokumentu"
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Odeslat dokument do koše"

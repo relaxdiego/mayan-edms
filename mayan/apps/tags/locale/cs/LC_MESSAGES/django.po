@@ -52,7 +52,7 @@ msgstr "Značka byla z dokumentu odstraněna"
 msgid "Attach tags"
 msgstr "Připojte značky"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Odstranit značku"
 
@@ -334,6 +334,6 @@ msgstr "Značky pro připojení k dokumentu"
 msgid "Attach tag"
 msgstr "Připojit značku"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Značky, které se mají z dokumentu odebrat"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

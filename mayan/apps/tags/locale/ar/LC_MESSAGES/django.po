@@ -53,7 +53,7 @@ msgstr "حذف دلالة من وثيقة"
 msgid "Attach tags"
 msgstr "دلالات المرفق"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "حذف دلالة"
 
@@ -333,6 +333,6 @@ msgstr "دلالات سيتم ارفاقها مع الوثيقة"
 msgid "Attach tag"
 msgstr "الدلالة المرفقة"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "سيتم الغاء الدلالات عن الوثيقة"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

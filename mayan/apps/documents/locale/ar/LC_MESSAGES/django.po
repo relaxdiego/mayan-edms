@@ -2105,6 +2105,6 @@ msgstr ""
 msgid "Change document type"
 msgstr ""
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "أرسل الوثيقة إلى الإتلاف"

@@ -6,13 +6,15 @@ from django.db.models import Q
 from mayan.apps.converter.classes import Layer
 
 from ...literals import PAGE_RANGE_ALL
-from ...models import Document, DocumentType
+from ...models import Document
 
 from ..literals import (
     DEFAULT_DOCUMENT_STUB_LABEL, TEST_DOCUMENT_DESCRIPTION,
-    TEST_DOCUMENT_DESCRIPTION_EDITED, TEST_DOCUMENT_TYPE_LABEL,
-    TEST_FILE_SMALL_FILENAME, TEST_FILE_SMALL_PATH
+    TEST_DOCUMENT_DESCRIPTION_EDITED, TEST_FILE_SMALL_FILENAME,
+    TEST_FILE_SMALL_PATH
 )
+
+from .document_type_mixins import DocumentTypeTestMixin
 
 
 class DocumentAPIViewTestMixin:
@@ -86,16 +88,14 @@ class DocumentAPIViewTestMixin:
         return response
 
 
-class DocumentTestMixin:
+class DocumentTestMixin(DocumentTypeTestMixin):
     auto_create_test_document_stub = False
-    auto_create_test_document_type = True
     auto_upload_test_document = True
     _test_document_file_filename = TEST_FILE_SMALL_FILENAME
     _test_document_file_path = None
     _test_document_filename = TEST_FILE_SMALL_FILENAME
     _test_document_language = None
     _test_document_path = None
-    auto_delete_test_document_type = True
 
     def setUp(self):
         super().setUp()
@@ -109,36 +109,10 @@ class DocumentTestMixin:
         self._test_document_version_pages = []
 
         if self.auto_create_test_document_type:
-            self._create_test_document_type()
-
             if self.auto_upload_test_document:
                 self._upload_test_document()
             elif self.auto_create_test_document_stub:
                 self._create_test_document_stub()
-
-    def tearDown(self):
-        if self.auto_delete_test_document_type:
-            for document_type in DocumentType.objects.all():
-                document_type.delete()
-        super().tearDown()
-
-    def _create_test_document_stub(self, document_type=None, label=None):
-        self._test_document_stub = Document.objects.create(
-            document_type=document_type or self._test_document_type,
-            label=label or '{}_{}'.format(
-                DEFAULT_DOCUMENT_STUB_LABEL, len(self._test_documents)
-            )
-        )
-        self._test_document = self._test_document_stub
-        self._test_documents.append(self._test_document)
-
-    def _create_test_document_type(self, label=None):
-        label = label or '{}_{}'.format(
-            TEST_DOCUMENT_TYPE_LABEL, len(self._test_document_types)
-        )
-
-        self._test_document_type = DocumentType.objects.create(label=label)
-        self._test_document_types.append(self._test_document_type)
 
     def _calculate_test_document_path(self):
         if not self._test_document_path:
@@ -153,6 +127,16 @@ class DocumentTestMixin:
                 settings.BASE_DIR, 'apps', 'documents', 'tests', 'contrib',
                 'sample_documents', self._test_document_file_filename
             )
+
+    def _create_test_document_stub(self, document_type=None, label=None):
+        self._test_document_stub = Document.objects.create(
+            document_type=document_type or self._test_document_type,
+            label=label or '{}_{}'.format(
+                DEFAULT_DOCUMENT_STUB_LABEL, len(self._test_documents)
+            )
+        )
+        self._test_document = self._test_document_stub
+        self._test_documents.append(self._test_document)
 
     def _upload_test_document(
         self, description=None, document_file_attributes=None,

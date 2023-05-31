@@ -52,7 +52,7 @@ msgstr "Tag usunięty z dokumentu"
 msgid "Attach tags"
 msgstr "Załącz tagi"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Usuń tag"
 
@@ -334,6 +334,6 @@ msgstr "Tagi do załączenia do dokumentu"
 msgid "Attach tag"
 msgstr "Dołącz tag"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Tagi do usunięcia z dokumentu"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

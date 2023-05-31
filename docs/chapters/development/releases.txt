@@ -70,7 +70,10 @@ Release checklist
 
     make gitlab-ci-update
 
-#. Scan the code with flake8 for simple style warnings.
+#. Scan the code with flake8 for simple style warnings::
+
+    flake8
+
 #. Run all tests::
 
     make test-all

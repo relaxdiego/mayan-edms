@@ -51,7 +51,7 @@ msgstr ""
 msgid "Attach tags"
 msgstr "Címke hozzárendelése"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Címke levétele"
 
@@ -331,6 +331,6 @@ msgstr ""
 msgid "Attach tag"
 msgstr ""
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
 msgstr ""

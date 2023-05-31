@@ -2227,6 +2227,6 @@ msgstr "Nou tip de document pentru documentul de flux de lucru."
 msgid "Change document type"
 msgstr "Schimbați tipul documentului"
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Trimiteți documentul la coșul de gunoi"

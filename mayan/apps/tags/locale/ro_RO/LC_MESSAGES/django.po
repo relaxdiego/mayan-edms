@@ -53,7 +53,7 @@ msgstr "Eticheta a fost eliminată din document"
 msgid "Attach tags"
 msgstr "Atașați etichete"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Elimină eticheta"
 
@@ -336,6 +336,6 @@ msgstr "Etichete care se atașează la document"
 msgid "Attach tag"
 msgstr "Atașează etichetă"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Etichete pentru a fi eliminate din document"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

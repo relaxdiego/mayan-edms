@@ -50,7 +50,7 @@ msgstr "Etiqueta retirada del documento"
 msgid "Attach tags"
 msgstr "Adjuntar etiqueta"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Retirar etiqueta"
 
@@ -332,6 +332,6 @@ msgstr "Etiquetas para adjuntar al documento"
 msgid "Attach tag"
 msgstr "Adjuntar etiqueta"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Etiquetas a retirar del documento"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

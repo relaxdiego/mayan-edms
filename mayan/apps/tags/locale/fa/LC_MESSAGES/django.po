@@ -51,7 +51,7 @@ msgstr "برچسب از سند حذف شد"
 msgid "Attach tags"
 msgstr "پیوست برچسب ها"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "برچسب را حذف کنید"
 
@@ -331,6 +331,6 @@ msgstr "برچسب ها برای پیوستن به سند"
 msgid "Attach tag"
 msgstr "ضمیمه برچسب"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "برچسب ها را از سند حذف کنید"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

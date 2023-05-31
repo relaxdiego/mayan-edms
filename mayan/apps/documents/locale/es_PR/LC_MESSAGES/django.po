@@ -2239,6 +2239,6 @@ msgstr "Nuevo tipo de documento para el documento de flujo de trabajo."
 msgid "Change document type"
 msgstr "Cambiar el tipo de documento"
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Enviar documento a la papelera"

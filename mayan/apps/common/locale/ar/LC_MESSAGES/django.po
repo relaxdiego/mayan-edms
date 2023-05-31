@@ -30,19 +30,19 @@ msgstr "المشتركة"
 msgid "Transifex Client"
 msgstr ""
 
-#: dependencies.py:181
+#: dependencies.py:182
 msgid "Used to allow offline translation of the code text strings."
 msgstr "يستخدم للسماح بالترجمة دون اتصال للسلاسل النصية للتعليمات البرمجية."
 
-#: dependencies.py:190
+#: dependencies.py:191
 msgid "Provides style checking."
 msgstr "يوفر فحص النمط."
 
-#: dependencies.py:195
+#: dependencies.py:196
 msgid "Command line environment with autocompletion."
 msgstr "بيئة سطر الأوامر مع الإكمال التلقائي."
 
-#: dependencies.py:200
+#: dependencies.py:201
 msgid "Checks proper formatting of the README file."
 msgstr "يتحقق من التنسيق الصحيح لملف إقرأني"
 

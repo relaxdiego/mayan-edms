@@ -53,7 +53,7 @@ msgstr "标签已从文档中删除"
 msgid "Attach tags"
 msgstr "附加标签"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "删除标签"
 
@@ -333,6 +333,6 @@ msgstr "要附加到文档的标签"
 msgid "Attach tag"
 msgstr "附加标签"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "要从文档中删除的标签"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

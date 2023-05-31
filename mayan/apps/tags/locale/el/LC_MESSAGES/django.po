@@ -51,7 +51,7 @@ msgstr "Ετικέτα αφαιρέθηκε από το έγγραφο"
 msgid "Attach tags"
 msgstr "Επισύναψη ετικέτας"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Αφαίρεση ετικέτας"
 
@@ -333,6 +333,6 @@ msgstr "ετικέτες που θα προστεθούν στο έγγραφο"
 msgid "Attach tag"
 msgstr "Προσθήκη ετικέτας"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Ετικέτες που θα αφαιρεθούν από το έγγραφο"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

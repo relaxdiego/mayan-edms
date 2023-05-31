@@ -53,7 +53,7 @@ msgstr "Etiket belgeden kaldırıldı"
 msgid "Attach tags"
 msgstr "Etiketleri ekle"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Etiketi kaldır"
 
@@ -335,6 +335,6 @@ msgstr "Belgeye eklenecek etiketler"
 msgid "Attach tag"
 msgstr "Etiket ekle"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Belgeden kaldırılacak etiketler"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

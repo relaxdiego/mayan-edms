@@ -53,7 +53,7 @@ msgstr "Маркерът е премахнат от документа"
 msgid "Attach tags"
 msgstr "Прикачване на маркери"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Премахване на маркер"
 
@@ -335,6 +335,6 @@ msgstr "Маркери за прикачване към документа"
 msgid "Attach tag"
 msgstr "Прикачете маркер"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Маркери за премахване от документа"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

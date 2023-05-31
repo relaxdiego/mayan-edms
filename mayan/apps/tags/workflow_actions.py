@@ -52,7 +52,11 @@ class AttachTagAction(WorkflowAction):
         return result
 
     def get_tags(self):
-        return Tag.objects.filter(pk__in=self.form_data.get('tags', ()))
+        return Tag.objects.filter(
+            pk__in=self.form_data.get(
+                'tags', ()
+            )
+        )
 
 
 class RemoveTagAction(AttachTagAction):
@@ -60,7 +64,7 @@ class RemoveTagAction(AttachTagAction):
         'tags': {
             'label': _('Tags'),
             'class': 'django.forms.ModelMultipleChoiceField', 'kwargs': {
-                'help_text': _('Tags to remove from the document'),
+                'help_text': _('Tags to remove from the document.'),
                 'queryset': Tag.objects.none(), 'required': False
             }
         },
@@ -70,4 +74,6 @@ class RemoveTagAction(AttachTagAction):
 
     def execute(self, context):
         for tag in self.get_tags():
-            tag.remove_from(document=context['document'])
+            tag.remove_from(
+                document=context['document']
+            )

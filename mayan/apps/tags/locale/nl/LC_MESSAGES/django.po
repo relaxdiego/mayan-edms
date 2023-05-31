@@ -52,7 +52,7 @@ msgstr "Label verwijderd van document"
 msgid "Attach tags"
 msgstr "Labels toevoegen"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Label verwijderen"
 
@@ -337,6 +337,6 @@ msgstr "Labels om toe te voegen aan document"
 msgid "Attach tag"
 msgstr "Label toevoegen"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Labels om te verwijderen van document"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

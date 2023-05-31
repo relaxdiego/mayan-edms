@@ -2202,6 +2202,6 @@ msgstr "Nova vrsta dokumenta za dokument poteka dela."
 msgid "Change document type"
 msgstr "Spremenite vrsto dokumenta"
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Pošlji dokument v koš"

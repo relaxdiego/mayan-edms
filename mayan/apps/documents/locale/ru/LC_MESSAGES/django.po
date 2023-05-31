@@ -2184,6 +2184,6 @@ msgstr "Новый тип документа для документа в раб
 msgid "Change document type"
 msgstr "Изменить тип документа"
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Переместить документ в корзину"

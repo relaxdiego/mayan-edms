@@ -346,7 +346,7 @@ class DocumentWorkflowLaunchActionTestCase(
 
         action.execute(context={'document': self._test_document})
 
-        self.assertTrue(
+        self.assertEqual(
             self._test_document.workflows.count(), workflow_count + 1
         )
 

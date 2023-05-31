@@ -50,7 +50,7 @@ msgstr "Oznaka je uklonjena iz dokumenta"
 msgid "Attach tags"
 msgstr "Priložite oznake"
 
-#: links.py:23 workflow_actions.py:68
+#: links.py:23 workflow_actions.py:72
 msgid "Remove tag"
 msgstr "Uklonite oznaku"
 
@@ -330,6 +330,6 @@ msgstr "Oznake koje treba priložiti dokumentu"
 msgid "Attach tag"
 msgstr "Priloži oznaku"
 
-#: workflow_actions.py:63
-msgid "Tags to remove from the document"
-msgstr "Oznake koje treba ukloniti iz dokumenta"
+#: workflow_actions.py:67
+msgid "Tags to remove from the document."
+msgstr ""

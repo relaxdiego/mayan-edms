@@ -167,8 +167,12 @@ class SearchBackend:
         from .tasks import task_index_instance
 
         if action in ('post_add', 'pre_remove'):
-            instance_paths = search_model_related_paths.get(instance._meta.model, ())
-            model_paths = search_model_related_paths.get(model, ())
+            instance_paths = search_model_related_paths.get(
+                instance._meta.model, ()
+            )
+            model_paths = search_model_related_paths.get(
+                model, ()
+            )
 
             if action == 'pre_remove':
                 exclude_kwargs = {
@@ -183,6 +187,14 @@ class SearchBackend:
                 result = ResolverPipelineModelAttribute.resolve(
                     attribute=instance_path, obj=instance
                 )
+
+                try:
+                    result = result.filter(pk__in=pk_set)
+                except AttributeError:
+                    """
+                    Result is not a queryset. Exception can be safely
+                    ignored.
+                    """
 
                 entries = flatten_list(value=result)
 

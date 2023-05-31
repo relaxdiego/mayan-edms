@@ -2127,6 +2127,6 @@ msgstr "Neuer Dokumenttyp für das Workflow-Dokument."
 msgid "Change document type"
 msgstr "Dokumententyp ändern"
 
-#: workflow_actions.py:37
+#: workflow_actions.py:39
 msgid "Send document to trash"
 msgstr "Dokument in den Papierkorb werfen"
