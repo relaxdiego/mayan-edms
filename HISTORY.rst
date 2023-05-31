@@ -45,6 +45,7 @@
   information.
 - Add documents app task testing module.
 - Add events assertion to the document models test module.
+- Django was updated from version 3.2.16 to 3.2.19.
 
 4.2.15 (2023-04-14)
 ===================
