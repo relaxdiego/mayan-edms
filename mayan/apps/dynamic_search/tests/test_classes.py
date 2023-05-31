@@ -1,3 +1,5 @@
+from unittest import mock
+
 from mayan.apps.documents.permissions import permission_document_view
 from mayan.apps.documents.search import document_search
 from mayan.apps.documents.tests.mixins.document_mixins import DocumentTestMixin
@@ -318,3 +320,92 @@ class ScopeOperatorSearchTestCase(
             user=self._test_case_user
         )
         self.assertEqual(queryset.count(), 0)
+
+
+class SearchUpdatePropagationTestCase(
+    DocumentTestMixin, SearchTestMixin, TagTestMixin, BaseTestCase
+):
+    _test_search_backend_path = 'mayan.apps.dynamic_search.tests.backends.DummySearchBackend'
+    auto_upload_test_document = False
+
+    def setUp(self):
+        super().setUp()
+
+        self._create_test_document_stub()
+        self._create_test_document_stub()
+        self._create_test_document_stub()
+        self._create_test_tag()
+
+    @mock.patch(target='mayan.apps.dynamic_search.tests.backends.DummySearchBackend.index_instance')
+    def test_m2m_add_propagation(self, mocked_index_instance):
+        self.test_tag.attach_to(self.test_documents[0])
+        self.assertEqual(mocked_index_instance.call_count, 2)
+        self.assertEqual(
+            mocked_index_instance.call_args_list[0].kwargs['instance'],
+            self.test_documents[0]
+        )
+        self.assertEqual(
+            mocked_index_instance.call_args_list[1].kwargs['instance'],
+            self.test_tags[0]
+        )
+
+        mocked_index_instance.reset_mock()
+
+        self.test_tag.attach_to(self.test_documents[1])
+        self.assertEqual(mocked_index_instance.call_count, 2)
+        self.assertEqual(
+            mocked_index_instance.call_args_list[0].kwargs['instance'],
+            self.test_documents[1]
+        )
+        self.assertEqual(
+            mocked_index_instance.call_args_list[1].kwargs['instance'],
+            self.test_tags[0]
+        )
+
+        mocked_index_instance.reset_mock()
+
+        self.test_tag.attach_to(self.test_documents[2])
+        self.assertEqual(mocked_index_instance.call_count, 2)
+        self.assertEqual(
+            mocked_index_instance.call_args_list[0].kwargs['instance'],
+            self.test_documents[2]
+        )
+        self.assertEqual(
+            mocked_index_instance.call_args_list[1].kwargs['instance'],
+            self.test_tags[0]
+        )
+
+        mocked_index_instance.reset_mock()
+
+        self.test_tag.label = 'edited'
+        self.test_tag.save()
+        self.assertEqual(mocked_index_instance.call_count, 4)
+        self.assertEqual(
+            mocked_index_instance.call_args_list[0].kwargs['instance'],
+            self.test_documents[0]
+        )
+        self.assertEqual(
+            mocked_index_instance.call_args_list[1].kwargs['instance'],
+            self.test_documents[1]
+        )
+        self.assertEqual(
+            mocked_index_instance.call_args_list[2].kwargs['instance'],
+            self.test_documents[2]
+        )
+        self.assertEqual(
+            mocked_index_instance.call_args_list[3].kwargs['instance'],
+            self.test_tags[0]
+        )
+
+        mocked_index_instance.reset_mock()
+
+        self.test_tag.remove_from(self.test_documents[0])
+        self.assertEqual(mocked_index_instance.call_count, 2)
+        self.assertEqual(
+            mocked_index_instance.call_args_list[0].kwargs['instance'],
+            self.test_documents[0]
+        )
+        self.assertEqual(
+            mocked_index_instance.call_args_list[1].kwargs['instance'],
+            self.test_tags[0]
+        )

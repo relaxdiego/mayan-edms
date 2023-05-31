@@ -9,6 +9,10 @@ from ..literals import DEFAULT_SEARCH_BACKEND
 from ..settings import setting_backend_arguments
 
 
+class DummySearchBackend(SearchBackend):
+    feature_reindex = True
+
+
 class TestSearchBackend(SearchBackend):
     """
     Test search backend dynamically generated from the default search
