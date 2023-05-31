@@ -1,4 +1,4 @@
-4.2.16 (XXXX-XX-XX)
+4.2.16 (2023-05-31)
 ===================
 - Fix error in staging target Docker credential variable names. Closes
   GitLab issue #1143. Thanks to Matthias Löblich(@startmat) for the report.
