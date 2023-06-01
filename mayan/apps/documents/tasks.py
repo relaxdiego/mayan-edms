@@ -80,11 +80,12 @@ def task_document_file_upload(
         raise self.retry(exc=exception)
 
     with shared_uploaded_file.open() as file_object:
+        filename = filename or str(shared_uploaded_file)
+
         try:
             document.file_new(
                 action=action, comment=comment, expand=expand,
-                file_object=file_object,
-                filename=filename or shared_uploaded_file.filename,
+                file_object=file_object, filename=filename,
                 _user=user
             )
         except Warning as warning:
@@ -161,13 +162,14 @@ def task_document_upload(
         user = None
 
     document = None
+
+    label = label or str(shared_uploaded_file)
+
     try:
         with shared_uploaded_file.open() as file_object:
             document, document_file = document_type.new_document(
-                file_object=file_object,
-                label=label or shared_uploaded_file.filename,
-                description=description, language=language,
-                _user=user
+                description=description, file_object=file_object,
+                label=label, language=language, _user=user
             )
     except Exception as exception:
         logger.critical(
