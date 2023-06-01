@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 
 from django.apps import apps
 from django.contrib.auth import get_user_model
@@ -74,8 +75,8 @@ def task_document_file_upload(
     except OperationalError as exception:
         logger.warning(
             'Operational error during attempt to retrieve shared data for '
-            'new document file for document ID: %s; %s. Retrying.', document_id,
-            exception
+            'new document file for document ID: %s; %s. Retrying.',
+            document_id, exception
         )
         raise self.retry(exc=exception)
 
@@ -163,7 +164,9 @@ def task_document_upload(
 
     document = None
 
-    label = label or str(shared_uploaded_file)
+    label = label or Path(
+        str(shared_uploaded_file)
+    ).name
 
     try:
         with shared_uploaded_file.open() as file_object:

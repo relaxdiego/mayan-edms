@@ -1,3 +1,8 @@
+4.2.17 (XXXX-XX-XX)
+===================
+- Ensure only the filename of the uploaded file is used as the document
+  label, omiting all path content.
+
 4.2.16 (2023-05-31)
 ===================
 - Fix error in staging target Docker credential variable names. Closes

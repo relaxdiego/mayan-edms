@@ -2,9 +2,8 @@ from datetime import timedelta
 
 from ..events import (
     event_document_created, event_document_file_created,
-    event_document_file_edited, event_document_type_changed,
-    event_document_version_created, event_document_version_page_created,
-    event_trashed_document_deleted
+    event_document_file_edited, event_document_version_created,
+    event_document_version_page_created, event_trashed_document_deleted
 )
 from ..models.document_models import Document
 from ..settings import setting_stub_expiration_interval
@@ -28,29 +27,33 @@ class DocumentTestCase(GenericDocumentTestCase):
             self.test_document.document_type.label,
             self.test_document_type.label
         )
-
-        self.assertEqual(self.test_document.file_latest.exists(), True)
-        self.assertEqual(
-            self.test_document.file_latest.size,
-            TEST_SMALL_DOCUMENT_SIZE
-        )
-
-        self.assertEqual(
-            self.test_document.file_latest.mimetype,
-            TEST_SMALL_DOCUMENT_MIMETYPE
-        )
-        self.assertEqual(
-            self.test_document.file_latest.encoding, 'binary'
-        )
-        self.assertEqual(
-            self.test_document.file_latest.checksum,
-            TEST_SMALL_DOCUMENT_CHECKSUM
-        )
-        self.assertEqual(
-            self.test_document.file_latest.pages.count(), 1
-        )
         self.assertEqual(
             self.test_document.label, TEST_SMALL_DOCUMENT_FILENAME
+        )
+
+        self.assertEqual(
+            self.test_document_file.exists(), True
+        )
+        self.assertEqual(
+            self.test_document_file.size, TEST_SMALL_DOCUMENT_SIZE
+        )
+
+        self.assertEqual(
+            self.test_document_file.mimetype, TEST_SMALL_DOCUMENT_MIMETYPE
+        )
+        self.assertEqual(
+            self.test_document_file.filename, TEST_SMALL_DOCUMENT_FILENAME
+        )
+        self.assertEqual(self.test_document_file.encoding, 'binary')
+        self.assertEqual(
+            self.test_document_file.checksum, TEST_SMALL_DOCUMENT_CHECKSUM
+        )
+        self.assertEqual(
+            self.test_document_file.pages.count(), 1
+        )
+
+        self.assertEqual(
+            self.test_document_version.pages.count(), 1
         )
 
         events = self._get_test_events()

@@ -13,6 +13,10 @@ from ..events import (
 from ..models.document_models import Document
 from ..tasks import task_document_upload
 
+from .literals import (
+    TEST_SMALL_DOCUMENT_CHECKSUM, TEST_SMALL_DOCUMENT_FILENAME,
+    TEST_SMALL_DOCUMENT_MIMETYPE, TEST_SMALL_DOCUMENT_SIZE
+)
 from .mixins.document_mixins import DocumentTestMixin
 
 
@@ -45,6 +49,39 @@ class DocumentTaskTestCase(DocumentTestMixin, BaseTestCase):
         self.test_document_file = self.test_document.file_latest
         self.test_document_version = self.test_document.version_active
         self.test_document_version_page = self.test_document_version.pages.first()
+
+        self.assertEqual(
+            self.test_document.document_type.label,
+            self.test_document_type.label
+        )
+        self.assertEqual(
+            self.test_document.label, TEST_SMALL_DOCUMENT_FILENAME
+        )
+
+        self.assertEqual(
+            self.test_document_file.exists(), True
+        )
+        self.assertEqual(
+            self.test_document_file.size, TEST_SMALL_DOCUMENT_SIZE
+        )
+
+        self.assertEqual(
+            self.test_document_file.mimetype, TEST_SMALL_DOCUMENT_MIMETYPE
+        )
+        self.assertEqual(
+            self.test_document_file.filename, TEST_SMALL_DOCUMENT_FILENAME
+        )
+        self.assertEqual(self.test_document_file.encoding, 'binary')
+        self.assertEqual(
+            self.test_document_file.checksum, TEST_SMALL_DOCUMENT_CHECKSUM
+        )
+        self.assertEqual(
+            self.test_document_file.pages.count(), 1
+        )
+
+        self.assertEqual(
+            self.test_document_version.pages.count(), 1
+        )
 
         events = self._get_test_events()
         self.assertEqual(events.count(), 5)
@@ -122,6 +159,39 @@ class DocumentTaskTestCase(DocumentTestMixin, BaseTestCase):
         self.assertEqual(mocked_callback.call_count, 1)
         mocked_callback.assert_called_with(
             document_file=self.test_document_file, test_argument='test_value'
+        )
+
+        self.assertEqual(
+            self.test_document.document_type.label,
+            self.test_document_type.label
+        )
+        self.assertEqual(
+            self.test_document.label, TEST_SMALL_DOCUMENT_FILENAME
+        )
+
+        self.assertEqual(
+            self.test_document_file.exists(), True
+        )
+        self.assertEqual(
+            self.test_document_file.size, TEST_SMALL_DOCUMENT_SIZE
+        )
+
+        self.assertEqual(
+            self.test_document_file.mimetype, TEST_SMALL_DOCUMENT_MIMETYPE
+        )
+        self.assertEqual(
+            self.test_document_file.filename, TEST_SMALL_DOCUMENT_FILENAME
+        )
+        self.assertEqual(self.test_document_file.encoding, 'binary')
+        self.assertEqual(
+            self.test_document_file.checksum, TEST_SMALL_DOCUMENT_CHECKSUM
+        )
+        self.assertEqual(
+            self.test_document_file.pages.count(), 1
+        )
+
+        self.assertEqual(
+            self.test_document_version.pages.count(), 1
         )
 
         events = self._get_test_events()
