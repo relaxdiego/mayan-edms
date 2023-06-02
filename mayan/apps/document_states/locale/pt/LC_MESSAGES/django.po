@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 21:45+0000\n"
+"POT-Creation-Date: 2023-06-02 04:35+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2022\n"
 "Language-Team: Portuguese (https://app.transifex.com/rosarior/teams/13584/pt/)\n"
@@ -111,34 +111,34 @@ msgstr "Finalização"
 msgid "Additional details"
 msgstr "Detalhes adicionais"
 
-#: apps.py:396
+#: apps.py:399
 msgid "When?"
 msgstr "Quando?"
 
-#: apps.py:400
+#: apps.py:403
 msgid "Action type"
 msgstr "Tipo de ação"
 
-#: apps.py:456
+#: apps.py:459
 msgid ""
 "Triggers are system events that will cause the transition to be applied."
 msgstr ""
 "Triggers são eventos do sistema que fazem com que essa transição seja "
 "aplicada."
 
-#: apps.py:458
+#: apps.py:461
 msgid "Triggers"
 msgstr "Triggers"
 
-#: apps.py:472 models/workflow_transition_models.py:139
+#: apps.py:475 models/workflow_transition_models.py:139
 msgid "Type"
 msgstr "Tipo"
 
-#: apps.py:480
+#: apps.py:483
 msgid "Widget"
 msgstr "Widget"
 
-#: apps.py:491 apps.py:497
+#: apps.py:494 apps.py:500
 msgid "Documents"
 msgstr "Documentos"
 

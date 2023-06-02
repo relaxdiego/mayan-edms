@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 21:45+0000\n"
+"POT-Creation-Date: 2023-06-02 04:36+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
 "Last-Translator: Marco Camplese <marco.camplese.mc@gmail.com>, 2022\n"
 "Language-Team: Italian (https://app.transifex.com/rosarior/teams/13584/it/)\n"
@@ -113,7 +113,7 @@ msgstr "Carica nuovo file"
 msgid "Create source"
 msgstr ""
 
-#: links.py:132 source_backends/staging_folder_backends.py:354
+#: links.py:132 source_backends/staging_folder_backends.py:360
 msgid "Delete"
 msgstr "Cancella"
 
@@ -448,49 +448,49 @@ msgstr "Proprietà documento"
 msgid "Scan"
 msgstr "Scansione"
 
-#: source_backends/staging_folder_backends.py:231
-#: source_backends/staging_folder_backends.py:545
+#: source_backends/staging_folder_backends.py:237
+#: source_backends/staging_folder_backends.py:551
 msgid "Staging file"
 msgstr "Mostra file"
 
-#: source_backends/staging_folder_backends.py:266
+#: source_backends/staging_folder_backends.py:272
 #: source_backends/watch_folder_backends.py:38
 msgid "Server side filesystem path."
 msgstr "Path sul filesystem del server"
 
-#: source_backends/staging_folder_backends.py:271
+#: source_backends/staging_folder_backends.py:277
 #: source_backends/watch_folder_backends.py:43
 msgid "Folder path"
 msgstr "Percorso cartella"
 
-#: source_backends/staging_folder_backends.py:277
+#: source_backends/staging_folder_backends.py:283
 msgid "Width value to be passed to the converter backend."
 msgstr ""
 "valore della larghezza da passare per le operazioni di conversione in "
 "backend"
 
-#: source_backends/staging_folder_backends.py:282
+#: source_backends/staging_folder_backends.py:288
 msgid "Preview width"
 msgstr "Larghezza anteprima"
 
-#: source_backends/staging_folder_backends.py:288
+#: source_backends/staging_folder_backends.py:294
 msgid "Height value to be passed to the converter backend."
 msgstr ""
 "valore dell'altezza da passare per le operazioni di conversione in backend"
 
-#: source_backends/staging_folder_backends.py:293
+#: source_backends/staging_folder_backends.py:299
 msgid "Preview height"
 msgstr "Altezza anteprima"
 
-#: source_backends/staging_folder_backends.py:299
+#: source_backends/staging_folder_backends.py:305
 msgid "Delete the file after is has been successfully uploaded."
 msgstr "Cancella il file dopo essere stato caricato"
 
-#: source_backends/staging_folder_backends.py:301
+#: source_backends/staging_folder_backends.py:307
 msgid "Delete after upload"
 msgstr "Cancella dopo aver caricato"
 
-#: source_backends/staging_folder_backends.py:308
+#: source_backends/staging_folder_backends.py:314
 #: source_backends/watch_folder_backends.py:50
 msgid ""
 "If checked, not only will the folder path be scanned for files but also its "
@@ -499,63 +499,63 @@ msgstr ""
 "Se selezionato, non solo il percorso della cartella verrà scansionato per i "
 "file, ma anche le sue sottodirectory."
 
-#: source_backends/staging_folder_backends.py:311
+#: source_backends/staging_folder_backends.py:317
 #: source_backends/watch_folder_backends.py:53
 msgid "Include subdirectories?"
 msgstr "Includere sottodirectory?"
 
-#: source_backends/staging_folder_backends.py:318
+#: source_backends/staging_folder_backends.py:324
 #: source_backends/watch_folder_backends.py:60
 msgid "Regular expression used to select which files to upload."
 msgstr ""
 
-#: source_backends/staging_folder_backends.py:320
+#: source_backends/staging_folder_backends.py:326
 #: source_backends/watch_folder_backends.py:62
 msgid "Include regular expression"
 msgstr ""
 
-#: source_backends/staging_folder_backends.py:327
+#: source_backends/staging_folder_backends.py:333
 #: source_backends/watch_folder_backends.py:69
 msgid "Regular expression used to exclude which files to upload."
 msgstr ""
 
-#: source_backends/staging_folder_backends.py:329
+#: source_backends/staging_folder_backends.py:335
 #: source_backends/watch_folder_backends.py:71
 msgid "Exclude regular expression"
 msgstr ""
 
-#: source_backends/staging_folder_backends.py:340
+#: source_backends/staging_folder_backends.py:346
 msgid "Staging folder"
 msgstr "Cartella di stage"
 
-#: source_backends/staging_folder_backends.py:360
+#: source_backends/staging_folder_backends.py:366
 msgid "Select"
 msgstr "Seleziona"
 
-#: source_backends/staging_folder_backends.py:372
+#: source_backends/staging_folder_backends.py:378
 msgid "Created"
 msgstr "Creato"
 
-#: source_backends/staging_folder_backends.py:376
+#: source_backends/staging_folder_backends.py:382
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: source_backends/staging_folder_backends.py:525
+#: source_backends/staging_folder_backends.py:531
 #, python-format
 msgid "Error deleting staging file; %s"
 msgstr "Errore cancellando il file di stage; %s"
 
-#: source_backends/staging_folder_backends.py:546
+#: source_backends/staging_folder_backends.py:552
 #, python-format
 msgid "Delete staging file \"%s\"?"
 msgstr "Eliminare il file di gestione temporanea \"%s\"?"
 
-#: source_backends/staging_folder_backends.py:611
+#: source_backends/staging_folder_backends.py:617
 #, python-format
 msgid "Unable get list of staging files; %s"
 msgstr ""
 
-#: source_backends/staging_folder_backends.py:629
+#: source_backends/staging_folder_backends.py:635
 msgid ""
 "This could mean that the staging folder is empty. It could also mean that "
 "the operating system user account being used for Mayan EDMS doesn't have the"
@@ -566,7 +566,7 @@ msgstr ""
 "utilizzato per Mayan EDMS non dispone delle autorizzazioni di file system "
 "necessarie per la cartella."
 
-#: source_backends/staging_folder_backends.py:636
+#: source_backends/staging_folder_backends.py:642
 msgid "No staging files available"
 msgstr "Nessun file di gestione temporanea disponibile"
 

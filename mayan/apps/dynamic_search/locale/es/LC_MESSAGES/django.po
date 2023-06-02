@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 21:45+0000\n"
+"POT-Creation-Date: 2023-06-02 04:35+0000\n"
 "PO-Revision-Date: 2022-07-27 05:35+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/rosarior/teams/13584/es/)\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Dynamic search"
 msgstr "Búsqueda dinámica "
 
-#: classes.py:432
+#: classes.py:444
 #, python-format
 msgid ""
 "Search backend error. Verify that the search service is available and that "
@@ -34,12 +34,12 @@ msgstr ""
 "disponible y que la sintaxis de búsqueda sea válida para el motor de "
 "búsqueda activo; %s"
 
-#: classes.py:584
+#: classes.py:596
 #, python-format
 msgid "Unknown search model `%s`."
 msgstr "Modelo de búsqueda desconocido `%s`."
 
-#: classes.py:640
+#: classes.py:652
 msgid "ID"
 msgstr "ID"
 

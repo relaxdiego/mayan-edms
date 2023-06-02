@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 21:45+0000\n"
+"POT-Creation-Date: 2023-06-02 04:35+0000\n"
 "PO-Revision-Date: 2020-04-02 06:56+0000\n"
 "Last-Translator: Roberto Rosario\n"
 "Language-Team: English (http://www.transifex.com/rosarior/mayan-edms/"
@@ -715,7 +715,7 @@ msgid "Document files"
 msgstr ""
 
 #: models/document_file_models.py:338 models/document_file_page_models.py:272
-#: models/document_models.py:70 models/document_models.py:270
+#: models/document_models.py:70 models/document_models.py:272
 #: models/document_type_models.py:41 models/document_type_models.py:203
 #: models/document_version_models.py:249
 #: models/document_version_page_models.py:354
@@ -797,7 +797,7 @@ msgstr ""
 msgid "Is stub?"
 msgstr ""
 
-#: models/document_models.py:268
+#: models/document_models.py:270
 #, python-format
 msgid "Document stub, id: %d"
 msgstr ""

@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Translators:
-# Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2023
+# Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 21:45+0000\n"
+"POT-Creation-Date: 2023-06-02 04:35+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: Thanh Long Hoàng <hoangthanhlong@gmail.com>, 2022\n"
 "Language-Team: Vietnamese (https://app.transifex.com/rosarior/teams/13584/vi/)\n"
@@ -541,7 +541,7 @@ msgstr "Tạo kiểu tài liệu"
 
 #: links/document_type_links.py:34
 msgid "Deletion policies"
-msgstr "Chính sách Xóa"
+msgstr "Chính sách xóa"
 
 #: links/document_type_links.py:45
 msgid "Add quick label to document type"
@@ -729,7 +729,7 @@ msgid "Document files"
 msgstr ""
 
 #: models/document_file_models.py:338 models/document_file_page_models.py:272
-#: models/document_models.py:70 models/document_models.py:270
+#: models/document_models.py:70 models/document_models.py:272
 #: models/document_type_models.py:41 models/document_type_models.py:203
 #: models/document_version_models.py:249
 #: models/document_version_page_models.py:354
@@ -816,7 +816,7 @@ msgstr ""
 msgid "Is stub?"
 msgstr "Có phải tài liệu rỗng?"
 
-#: models/document_models.py:268
+#: models/document_models.py:270
 #, python-format
 msgid "Document stub, id: %d"
 msgstr "Tài liệu rỗng, id: %d"

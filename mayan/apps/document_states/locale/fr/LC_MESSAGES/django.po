@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 21:45+0000\n"
+"POT-Creation-Date: 2023-06-02 04:35+0000\n"
 "PO-Revision-Date: 2022-07-27 05:34+0000\n"
 "Last-Translator: Frédéric Sheedy <sheedf@gmail.com>, 2022\n"
 "Language-Team: French (https://app.transifex.com/rosarior/teams/13584/fr/)\n"
@@ -105,34 +105,34 @@ msgstr "Finalisation"
 msgid "Additional details"
 msgstr "Détails supplémentaires"
 
-#: apps.py:396
+#: apps.py:399
 msgid "When?"
 msgstr "Quand ?"
 
-#: apps.py:400
+#: apps.py:403
 msgid "Action type"
 msgstr "Type d'action"
 
-#: apps.py:456
+#: apps.py:459
 msgid ""
 "Triggers are system events that will cause the transition to be applied."
 msgstr ""
 "Les déclencheurs sont des événements système qui entraîneront l'application "
 "de la transition."
 
-#: apps.py:458
+#: apps.py:461
 msgid "Triggers"
 msgstr "Déclencheurs"
 
-#: apps.py:472 models/workflow_transition_models.py:139
+#: apps.py:475 models/workflow_transition_models.py:139
 msgid "Type"
 msgstr "Type"
 
-#: apps.py:480
+#: apps.py:483
 msgid "Widget"
 msgstr "Composant"
 
-#: apps.py:491 apps.py:497
+#: apps.py:494 apps.py:500
 msgid "Documents"
 msgstr "Documents"
 

@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Translators:
-# Roberto Rosario, 2022
+# Roberto Rosario, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-15 21:45+0000\n"
+"POT-Creation-Date: 2023-06-02 04:36+0000\n"
 "PO-Revision-Date: 2022-07-27 05:38+0000\n"
-"Last-Translator: Roberto Rosario, 2022\n"
+"Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/rosarior/teams/13584/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: apps.py:46 apps.py:130 apps.py:134 apps.py:138 apps.py:143 apps.py:147
 #: events.py:5 forms.py:27 links.py:28 menus.py:14 models.py:39
-#: permissions.py:5 views.py:181 workflow_actions.py:18 workflow_actions.py:61
+#: permissions.py:5 views.py:181 workflow_actions.py:18 workflow_actions.py:65
 msgid "Tags"
 msgstr "Etiquetas"
 
@@ -334,4 +334,4 @@ msgstr "Adjuntar etiqueta"
 
 #: workflow_actions.py:67
 msgid "Tags to remove from the document."
-msgstr ""
+msgstr "Etiquetas a retirar del documento."
