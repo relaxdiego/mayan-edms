@@ -6,7 +6,6 @@ from pathlib import Path
 import sys
 
 from docutils import core
-from html2bbcode.parser import HTML2BBCode
 from lxml import etree, html
 import sh
 
@@ -113,40 +112,7 @@ class ReleaseNoteExporter:
             tree=html.fromstring(html_fragment)
         )
 
-        if self.options.output_format == 'bb':
-            result = result[1:]
-            html_output = str(b''.join(result))
-
-            html_replace_list = (
-                ('<tt', '<code'),
-                ('</tt>', '</code>'),
-            )
-
-            for html_replace_item in html_replace_list:
-                html_output = html_output.replace(*html_replace_item)
-
-            parser = HTML2BBCode()
-
-            result = str(parser.feed(html_output))
-
-            bbcode_replace_list = (
-                ('[h1]', '\n[size=150]'),
-                ('[/h1]', '[/size]\n'),
-                ('[h2]', '\n[size=150]'),
-                ('[/h2]', '[/size]\n'),
-                ('[h3]', '\n[b]'),
-                ('[/h3]', '[/b]\n'),
-                ('[li]', '\n[*]'),
-                ('[/li]', ''),
-                ('[code]', '[b][i]'),
-                ('[/code]', '[/i][/b]'),
-            )
-
-            for bbcode_replace_item in bbcode_replace_list:
-                result = result.replace(*bbcode_replace_item)
-
-            return result
-        elif self.options.output_format == 'md':
+        if self.options.output_format == 'md':
             command_pandoc = sh.Command('pandoc')
 
             markdown_tag_cleanup = (
