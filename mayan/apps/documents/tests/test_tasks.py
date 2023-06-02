@@ -13,6 +13,10 @@ from ..events import (
 from ..models.document_models import Document
 from ..tasks import task_document_upload
 
+from .literals import (
+    TEST_DOCUMENT_SMALL_CHECKSUM, TEST_FILE_SMALL_FILENAME,
+    TEST_DOCUMENT_SMALL_MIMETYPE, TEST_DOCUMENT_SMALL_SIZE
+)
 from .mixins.document_mixins import DocumentTestMixin
 
 
@@ -26,7 +30,7 @@ class DocumentTaskTestCase(DocumentTestMixin, BaseTestCase):
     def test_task_document_upload(self):
         self._calculate_test_document_path()
 
-        with open(file=self.test_document_path, mode='rb') as file_object:
+        with open(file=self._test_document_path, mode='rb') as file_object:
             test_shared_uploaded_file = SharedUploadedFile.objects.create(
                 file=File(file=file_object)
             )
@@ -35,7 +39,7 @@ class DocumentTaskTestCase(DocumentTestMixin, BaseTestCase):
 
         task_document_upload.apply_async(
             kwargs={
-                'document_type_id': self.test_document_type.pk,
+                'document_type_id': self._test_document_type.pk,
                 'shared_uploaded_file_id': test_shared_uploaded_file.pk,
                 'user_id': self._test_case_user.pk
             }
@@ -46,12 +50,45 @@ class DocumentTaskTestCase(DocumentTestMixin, BaseTestCase):
         self.test_document_version = self.test_document.version_active
         self.test_document_version_page = self.test_document_version.pages.first()
 
+        self.assertEqual(
+            self.test_document.document_type.label,
+            self._test_document_type.label
+        )
+        self.assertEqual(
+            self.test_document.label, TEST_FILE_SMALL_FILENAME
+        )
+
+        self.assertEqual(
+            self.test_document_file.exists(), True
+        )
+        self.assertEqual(
+            self.test_document_file.size, TEST_DOCUMENT_SMALL_SIZE
+        )
+
+        self.assertEqual(
+            self.test_document_file.mimetype, TEST_DOCUMENT_SMALL_MIMETYPE
+        )
+        self.assertEqual(
+            self.test_document_file.filename, TEST_FILE_SMALL_FILENAME
+        )
+        self.assertEqual(self.test_document_file.encoding, 'binary')
+        self.assertEqual(
+            self.test_document_file.checksum, TEST_DOCUMENT_SMALL_CHECKSUM
+        )
+        self.assertEqual(
+            self.test_document_file.pages.count(), 1
+        )
+
+        self.assertEqual(
+            self.test_document_version.pages.count(), 1
+        )
+
         events = self._get_test_events()
         self.assertEqual(events.count(), 5)
 
         # Document created
 
-        self.assertEqual(events[0].action_object, self.test_document_type)
+        self.assertEqual(events[0].action_object, self._test_document_type)
         self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self.test_document)
         self.assertEqual(events[0].verb, event_document_created.id)
@@ -96,7 +133,7 @@ class DocumentTaskTestCase(DocumentTestMixin, BaseTestCase):
     def test_task_document_upload_callback(self, mocked_callback):
         self._calculate_test_document_path()
 
-        with open(file=self.test_document_path, mode='rb') as file_object:
+        with open(file=self._test_document_path, mode='rb') as file_object:
             test_shared_uploaded_file = SharedUploadedFile.objects.create(
                 file=File(file=file_object)
             )
@@ -105,7 +142,7 @@ class DocumentTaskTestCase(DocumentTestMixin, BaseTestCase):
 
         task_document_upload.apply_async(
             kwargs={
-                'document_type_id': self.test_document_type.pk,
+                'document_type_id': self._test_document_type.pk,
                 'shared_uploaded_file_id': test_shared_uploaded_file.pk,
                 'user_id': self._test_case_user.pk,
                 'callback_dotted_path': 'mayan.apps.documents.tests.test_tasks.DocumentTaskTestCase',
@@ -124,12 +161,45 @@ class DocumentTaskTestCase(DocumentTestMixin, BaseTestCase):
             document_file=self.test_document_file, test_argument='test_value'
         )
 
+        self.assertEqual(
+            self.test_document.document_type.label,
+            self._test_document_type.label
+        )
+        self.assertEqual(
+            self.test_document.label, TEST_FILE_SMALL_FILENAME
+        )
+
+        self.assertEqual(
+            self.test_document_file.exists(), True
+        )
+        self.assertEqual(
+            self.test_document_file.size, TEST_DOCUMENT_SMALL_SIZE
+        )
+
+        self.assertEqual(
+            self.test_document_file.mimetype, TEST_DOCUMENT_SMALL_MIMETYPE
+        )
+        self.assertEqual(
+            self.test_document_file.filename, TEST_FILE_SMALL_FILENAME
+        )
+        self.assertEqual(self.test_document_file.encoding, 'binary')
+        self.assertEqual(
+            self.test_document_file.checksum, TEST_DOCUMENT_SMALL_CHECKSUM
+        )
+        self.assertEqual(
+            self.test_document_file.pages.count(), 1
+        )
+
+        self.assertEqual(
+            self.test_document_version.pages.count(), 1
+        )
+
         events = self._get_test_events()
         self.assertEqual(events.count(), 5)
 
         # Document created
 
-        self.assertEqual(events[0].action_object, self.test_document_type)
+        self.assertEqual(events[0].action_object, self._test_document_type)
         self.assertEqual(events[0].actor, self._test_case_user)
         self.assertEqual(events[0].target, self.test_document)
         self.assertEqual(events[0].verb, event_document_created.id)

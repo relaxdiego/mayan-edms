@@ -2,6 +2,7 @@
 ==================
 - Fix document parsing error logging. Use the correct argument name when
   creating new error log entries.
+- Fixes and improvements from version 4.2.16 and 4.2.17dev0.
 
 4.3.8 (2023-04-15)
 ==================

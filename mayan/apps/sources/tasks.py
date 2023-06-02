@@ -79,7 +79,7 @@ def task_process_document_upload(
         source = Source.objects.get(pk=source_id)
 
         if not label:
-            label = shared_uploaded_file.filename
+            label = str(shared_uploaded_file)
 
         if user_id:
             user = get_user_model().objects.get(pk=user_id)

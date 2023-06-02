@@ -104,7 +104,6 @@ class DocumentTestMixin(DocumentTypeTestMixin):
         self._test_documents = []
         self._test_document_files = []
         self._test_document_file_pages = []
-        self._test_document_types = []
         self._test_document_versions = []
         self._test_document_version_pages = []
 
