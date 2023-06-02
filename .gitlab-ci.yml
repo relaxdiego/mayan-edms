@@ -27,7 +27,7 @@ job_docker_build:
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==${PYTHON_PIP_VERSION}
-    - pip install wheel
+    - pip install wheel==${PYTHON_WHEEL_VERSION}
     - cat requirements/base.txt | grep -v 'django-auth-ldap'| pip install -r /dev/stdin
   cache:
     - key: apk-cache-4.4
@@ -218,12 +218,11 @@ job_documentation_build:
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
     - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
-    - apt-get update
     - apt-get install --yes --no-install-recommends enchant-2 gcc make libcairo2-dev libffi-dev libjpeg-dev libldap2-dev libpng-dev libsasl2-dev python3-venv python3-dev zlib1g-dev
     - python3 -m venv venv
     - . venv/bin/activate
     - pip install pip==${PYTHON_PIP_VERSION}
-    - pip install wheel
+    - pip install wheel==${PYTHON_WHEEL_VERSION}
   cache:
     - key: apt-cache-4.4
       paths:
@@ -231,7 +230,7 @@ job_documentation_build:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.6-slim
+  image: debian:11.7-slim
   only:
     - builds/documentation
     - releases/all/major
@@ -271,7 +270,7 @@ job_documentation_push:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.6-slim
+  image: debian:11.7-slim
   only:
     - releases/all/major
     - releases/documentation
@@ -309,7 +308,7 @@ job_python_build:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.6-slim
+  image: debian:11.7-slim
   only:
     - builds/python
     - releases/all/major
@@ -352,7 +351,7 @@ job_python_push_pypi:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.6-slim
+  image: debian:11.7-slim
   only:
     - releases/all/major
     - releases/all/minor
@@ -379,7 +378,6 @@ job_python_push_pypi:
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
     - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
-    - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool file gcc ghostscript gnupg1 libldap2-dev libjpeg-dev libmagic1 libpng-dev libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev tesseract-ocr
     - python3 -m venv venv
     - . venv/bin/activate
@@ -396,7 +394,7 @@ job_python_push_pypi:
         - ${PIP_CACHE_DIR}
   dependencies:
     - job_python_build
-  image: debian:11.6-slim
+  image: debian:11.7-slim
   needs:
     - job_python_build
   only:
@@ -456,7 +454,6 @@ job_sqlite_upgrade_test:
     - printf "dir::state::lists    ${APT_STATE_LISTS};\ndir::cache::archives    ${APT_CACHE_ARCHIVES};\n" > /etc/apt/apt.conf.d/99gitlab-ci-cache
     - if [ "${APT_PROXY}" ]; then echo "Acquire::http { Proxy \"http://${APT_PROXY}\"; };" > /etc/apt/apt.conf.d/01proxy; fi
     - apt-get update
-    - apt-get update
     - apt-get install --yes --no-install-recommends curl exiftool file gcc ghostscript gnupg1 graphviz libfuse2 libldap2-dev libjpeg-dev libmagic1 libpng-dev libreoffice-calc-nogui libreoffice-draw-nogui libreoffice-impress-nogui libreoffice-math-nogui libreoffice-writer-nogui libsasl2-dev libtiff-dev make poppler-utils python3-venv python3-dev sane-utils tesseract-ocr tesseract-ocr-deu
     - python3 -m venv venv
     - . venv/bin/activate
@@ -469,7 +466,7 @@ job_sqlite_upgrade_test:
     - key: pip-cache-4.4
       paths:
         - ${PIP_CACHE_DIR}
-  image: debian:11.6-slim
+  image: debian:11.7-slim
   only:
     - releases/all/major
     - releases/all/minor
@@ -534,7 +531,7 @@ job_demo_deploy:
         - ${APT_CACHE_DIR}
   environment:
     name: demo
-  image: debian:11.6-slim
+  image: debian:11.7-slim
   only:
     - builds/docker
     - deployments/demo
@@ -578,7 +575,7 @@ job_staging_deploy:
         - ${APT_CACHE_DIR}
   environment:
     name: staging
-  image: debian:11.6-slim
+  image: debian:11.7-slim
   only:
     - builds/docker
     - deployments/staging

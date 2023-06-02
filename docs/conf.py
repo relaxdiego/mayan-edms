@@ -284,6 +284,7 @@ extlinks = {
 html_baseurl = 'https://docs.mayan-edms.com/'
 sitemap_url_scheme = '{lang}{link}'
 
+
 def setup(app):
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mayan.settings')
     django.setup()

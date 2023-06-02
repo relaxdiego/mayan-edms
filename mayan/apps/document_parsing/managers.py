@@ -55,10 +55,10 @@ class DocumentFilePageContentManager(models.Manager):
                 result.append('{}: {}'.format(type.__name__, value))
                 result.extend(traceback.format_tb(tb))
                 document_file.error_log.create(
-                    result='\n'.join(result)
+                    text='\n'.join(result)
                 )
             else:
-                document_file.error_log.create(result=exception)
+                document_file.error_log.create(text=exception)
 
 
 class DocumentTypeSettingsManager(models.Manager):

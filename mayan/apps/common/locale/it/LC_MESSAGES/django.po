@@ -28,25 +28,25 @@ msgstr ""
 msgid "Common"
 msgstr "Comune"
 
-#: dependencies.py:164
+#: dependencies.py:165
 msgid "Transifex Client"
 msgstr ""
 
-#: dependencies.py:181
+#: dependencies.py:182
 msgid "Used to allow offline translation of the code text strings."
 msgstr ""
 "Usato per consentire la traduzione offline delle stringhe di testo nel "
 "codice."
 
-#: dependencies.py:190
+#: dependencies.py:191
 msgid "Provides style checking."
 msgstr "Fornisce controllo dello stile."
 
-#: dependencies.py:195
+#: dependencies.py:196
 msgid "Command line environment with autocompletion."
 msgstr "Ambiente a riga di comando con autocompletamento."
 
-#: dependencies.py:200
+#: dependencies.py:201
 msgid "Checks proper formatting of the README file."
 msgstr "Controlla la corretta formattazione del file README."
 

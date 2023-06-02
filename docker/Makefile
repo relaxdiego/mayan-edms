@@ -91,7 +91,7 @@ docker-staging-container-postgresql-start:
 	--detach \
 	--name mayan-staging-postgres \
 	--network=mayan-staging \
-	--env POSTGRES_USER=($DEFAULT_DATABASE_USER) \
+	--env POSTGRES_USER=$(DEFAULT_DATABASE_USER) \
 	--env POSTGRES_DB=$(DEFAULT_DATABASE_NAME) \
 	--env POSTGRES_PASSWORD=$(DEFAULT_DATABASE_PASSWORD) \
 	--volume mayan-staging-postgres:/var/lib/postgresql/data \
@@ -130,7 +130,7 @@ docker-staging-container-mayan-start:
 	--env MAYAN_DATABASE_ENGINE=django.db.backends.postgresql \
 	--env MAYAN_DATABASE_HOST=mayan-staging-postgres \
 	--env MAYAN_DATABASE_NAME=$(DEFAULT_DATABASE_NAME) \
-	--env MAYAN_DATABASE_PASSWORD=($DEFAULT_DATABASE_PASSWORD) \
+	--env MAYAN_DATABASE_PASSWORD=$(DEFAULT_DATABASE_PASSWORD) \
 	--env MAYAN_DATABASE_USER=mayan \
 	--env MAYAN_CELERY_BROKER_URL=$(MAYAN_CELERY_BROKER_URL) \
 	--env MAYAN_CELERY_RESULT_BACKEND="redis://:mayanredispassword@mayan-staging-redis:6379/1" \

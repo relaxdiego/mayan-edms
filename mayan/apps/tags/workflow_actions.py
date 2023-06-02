@@ -66,7 +66,7 @@ class RemoveTagAction(AttachTagAction):
         'tags': {
             'label': _('Tags'),
             'class': 'django.forms.ModelMultipleChoiceField', 'kwargs': {
-                'help_text': _('Tags to remove from the document'),
+                'help_text': _('Tags to remove from the document.'),
                 'queryset': Tag.objects.none(), 'required': False
             }
         }

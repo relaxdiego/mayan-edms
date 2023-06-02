@@ -23,20 +23,22 @@ class WorkflowActionActionTestCase(
 
         document_type = self._test_document.document_type
 
-        self._create_test_document_type(label='document type 2')
+        self._create_test_document_type()
 
         action = DocumentTypeChangeAction(
             form_data={'document_type': self._test_document_types[1].pk}
         )
 
-        action.execute(context={'document': self._test_document})
+        action.execute(
+            context={'document': self._test_document}
+        )
 
         self.assertNotEqual(
             self._test_document.document_type, document_type
         )
 
     def test_document_type_change_action_execution(self):
-        self._create_test_document_type(label='document type 2')
+        self._create_test_document_type()
 
         self._create_test_workflow_template()
         self._create_test_workflow_template_state()
@@ -75,7 +77,9 @@ class WorkflowActionActionTestCase(
 
         action = TrashDocumentAction()
 
-        action.execute(context={'document': self._test_document})
+        action.execute(
+            context={'document': self._test_document}
+        )
 
         self.assertEqual(
             TrashedDocument.objects.count(), trashed_document_count + 1

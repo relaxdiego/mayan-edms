@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 
 from django.apps import apps
 from django.contrib.auth import get_user_model
@@ -80,11 +81,12 @@ def task_document_file_upload(
         raise self.retry(exc=exception)
 
     with shared_uploaded_file.open() as file_object:
+        filename = filename or str(shared_uploaded_file)
+
         try:
             document.file_new(
                 action=action, comment=comment, expand=expand,
-                file_object=file_object,
-                filename=filename or shared_uploaded_file.filename,
+                file_object=file_object, filename=filename,
                 user=user
             )
         except Warning as warning:
@@ -161,13 +163,16 @@ def task_document_upload(
         user = None
 
     document = None
+
+    label = label or Path(
+        str(shared_uploaded_file)
+    ).name
+
     try:
         with shared_uploaded_file.open() as file_object:
             document, document_file = document_type.new_document(
-                file_object=file_object,
-                label=label or shared_uploaded_file.filename,
-                description=description, language=language,
-                user=user
+                description=description, file_object=file_object,
+                label=label,language=language, user=user
             )
     except Exception as exception:
         logger.critical(
@@ -316,20 +321,41 @@ def task_trash_can_empty(user_id=None):
 
 # Trashed document
 
-@app.task(ignore_result=True)
-def task_trashed_document_delete(trashed_document_id, user_id=None):
+@app.task(bind=True, ignore_result=True, retry_backoff=True)
+def task_trashed_document_delete(self, trashed_document_id, user_id=None):
     TrashedDocument = apps.get_model(
         app_label='documents', model_name='TrashedDocument'
     )
     User = get_user_model()
 
-    if user_id:
-        user = User.objects.get(pk=user_id)
-    else:
-        user = None
+    try:
+        if user_id:
+            user = User.objects.get(pk=user_id)
+        else:
+            user = None
+    except OperationalError as exception:
+        raise self.retry(exc=exception)
 
     logger.debug(msg='Executing')
-    trashed_document = TrashedDocument.objects.get(pk=trashed_document_id)
-    trashed_document._event_actor = user
-    trashed_document.delete()
+    try:
+        trashed_document = TrashedDocument.objects.get(
+            pk=trashed_document_id
+        )
+        trashed_document._event_actor = user
+        trashed_document.delete()
+    except OperationalError as exception:
+        """
+        Retry trashed document deletion on database OperationalError.
+        On large number of documents or document with many pages, the level
+        of deletions exceed the database capacity to fulfill them. This
+        causes a query deadlock where one database process waits for a
+        ShareLock on a transaction which itself is blocked by another
+        ShareLock on the previous transaction.
+
+        After a timeout period of this circular transaction dependency
+        an OperationalError exception will be raised and the trashed
+        document deletion can be retried.
+        """
+        raise self.retry(exc=exception)
+
     logger.debug(msg='Finished')

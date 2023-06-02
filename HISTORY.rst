@@ -8,6 +8,8 @@
     instead use the development code to build the documentation.
   - Ensure APT proxy quotes are escaped.
 
+- Fixes and improvements from versions 4.3.9, 4.2.16 and 4.2.17dev0.
+
 4.4.6 (2023-04-16)
 ==================
 - Update Docker image versions:
@@ -472,6 +474,12 @@
   - Add configurable remote branch for GitOps.
   - Support a local environment config file names ``config-local.env``.
     This file is ignored by Git and meant to override values of ``config.env``.
+
+4.3.9 (2023-05-02)
+==================
+- Fix document parsing error logging. Use the correct argument name when
+  creating new error log entries.
+- Fixes and improvements from versions 4.2.16 and 4.2.17dev0.
 
 4.3.8 (2023-04-15)
 ==================
@@ -1071,6 +1079,57 @@
 - Disable the settings edit link when local storage is disabled.
 - Display a warning message in the setting edit view when local storage is
   disabled.
+
+4.2.16 (2023-05-31)
+===================
+- Fix error in staging target Docker credential variable names. Closes
+  GitLab issue #1143. Thanks to Matthias Löblich(@startmat) for the report.
+- Fix workflow action test. Test was using the incorrect assertion type.
+- Remove extra punctuation in help text. Text being concatenated already has
+  punctuation.
+- Fix document type change action form widget. The widget definition was
+  incorrect causing the document type selector to use the regular HTML
+  select widget.
+- Split the Whoosh backend search object deletion and addition into separate
+  try and exception blocks.
+- CI documentation jobs improvements:
+
+  - Install wheel to use modern Python package versions.
+  - Don't install or build the Mayan EDMS Python package and
+    instead use the development code to build the documentation.
+  - Ensure APT proxy quotes are escaped.
+  - Move Wheel dependency version to top level config file.
+
+- Fix sitemap URL scheme format.
+- Add release step flake8 command.
+- Update the Docker Debian image from version 11.4-slim to 11.7-slim.
+- Update the Redis Docker image from version 6.2.11-alpine to 6.2.12-alpine.
+- Create a separate CSS class to handle unwanted second scrollbar on forms
+  with an embedded carousel on Firefox. Closes issue #1144. Thanks to
+  Rodrigo EvilNet Olguin (@evilnet1), @qra, @vintager for report and
+  Matthias Löblich (@startmat) for the research.
+- Split ``DocumentTestMixin`` into ``DocumentTypeTestMixin`` and
+  ``DocumentTestMixin``.
+- Retry trashed document deletion on database OperationalError.
+  On large number of documents or document with many pages, the level
+  of deletions exceed the database capacity to fulfill them. This
+  causes a query deadlock where one database process waits for a
+  ShareLock on a transaction which itself is blocked by another
+  ShareLock on the previous transaction.
+
+  After a timeout period of this circular transaction dependency
+  an OperationalError exception will be raised and the trashed
+  document deletion can be retried.
+
+  Closes GitLab issue #1146, thanks to DS (@dshah01) for the report.
+- Disable announcements app login template caching. Fixes announcement edits
+  not showing up. Thanks to forum user @jwolfe for the report and debug
+  information.
+- Add documents app task testing module.
+- Add events assertion to the document models test module.
+- Django was updated from version 3.2.16 to 3.2.19.
+- Reduce the amount of search update tasks during many to many model
+  additions.
 
 4.2.15 (2023-04-14)
 ===================

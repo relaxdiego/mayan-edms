@@ -215,7 +215,11 @@ class WhooshSearchBackend(SearchBackend):
         with index.searcher() as searcher:
             results = searcher.search(q=query, limit=limit)
             logger.debug('results: %s', results)
-            return [int(result['id']) for result in results]
+            return [
+                int(
+                    result['id']
+                ) for result in results
+            ]
 
     def _get_or_create_index(self, search_model):
         storage = self._get_storage()
@@ -254,7 +258,9 @@ class WhooshSearchBackend(SearchBackend):
 
         for search_model in SearchModel.all():
             index = self._get_or_create_index(search_model=search_model)
-            search_results = index.searcher().search(q=Every('id'))
+            search_results = index.searcher().search(
+                q=Every('id')
+            )
 
             result.append(
                 '{}: {}'.format(
@@ -308,7 +314,9 @@ class WhooshSearchBackend(SearchBackend):
                         if search_string is not None:
                             search_field_queries.append(search_string)
 
-                query = parser.parse(' '.join(search_field_queries))
+                query = parser.parse(
+                    ' '.join(search_field_queries)
+                )
             else:
                 parser = qparser.QueryParser(
                     fieldname=search_field.field_name, schema=index.schema
@@ -363,7 +371,9 @@ class WhooshSearchBackend(SearchBackend):
 
                 if not settings.COMMON_DISABLE_LOCAL_STORAGE:
                     with index.writer(**self.writer_kwargs) as writer:
-                        writer.delete_by_term('id', str(instance.pk))
+                        writer.delete_by_term(
+                            'id', str(instance.pk)
+                        )
             finally:
                 lock.release()
 
@@ -387,23 +397,17 @@ class WhooshSearchBackend(SearchBackend):
                     index = self._get_or_create_index(search_model=search_model)
 
                     with index.writer(**self.writer_kwargs) as writer:
-                        kwargs = search_model.populate(
-                            search_backend=self, instance=instance,
-                            exclude_model=exclude_model,
-                            exclude_kwargs=exclude_kwargs
-                        )
-
                         try:
-                            writer.delete_by_term('id', str(instance.pk))
-                            writer.add_document(**kwargs)
+                            writer.delete_by_term(
+                                'id', str(instance.pk)
+                            )
                         except Exception as exception:
                             # The parenthesis is used to defined a multi
                             # line error message not a translatable string.
                             error_text = (
                                 'Unexpected exception while '
-                                'indexing object id: {id}, '
+                                'deleting search object id: {id}, '
                                 'search model: {search_model}, '
-                                'index data: {index_data}, '
                                 'raw data: {raw_data}, '
                                 'field map: {field_map}; '
                                 '{exception}'
@@ -411,7 +415,7 @@ class WhooshSearchBackend(SearchBackend):
                                 exception=exception,
                                 field_map=self.get_resolved_field_type_map(
                                     search_model=search_model
-                                ), id=instance.pk, index_data=kwargs,
+                                ), id=instance.pk,
                                 raw_data=instance.__dict__,
                                 search_model=search_model.full_name
                             )
@@ -420,6 +424,39 @@ class WhooshSearchBackend(SearchBackend):
                             raise DynamicSearchBackendException(
                                 error_text
                             ) from exception
+                        else:
+                            kwargs = search_model.populate(
+                                search_backend=self, instance=instance,
+                                exclude_model=exclude_model,
+                                exclude_kwargs=exclude_kwargs
+                            )
+
+                            try:
+                                writer.add_document(**kwargs)
+                            except Exception as exception:
+                                # The parenthesis is used to defined a multi
+                                # line error message not a translatable string.
+                                error_text = (
+                                    'Unexpected exception while '
+                                    'indexing search object id: {id}, '
+                                    'search model: {search_model}, '
+                                    'index data: {index_data}, '
+                                    'raw data: {raw_data}, '
+                                    'field map: {field_map}; '
+                                    '{exception}'
+                                ).format(
+                                    exception=exception,
+                                    field_map=self.get_resolved_field_type_map(
+                                        search_model=search_model
+                                    ), id=instance.pk, index_data=kwargs,
+                                    raw_data=instance.__dict__,
+                                    search_model=search_model.full_name
+                                )
+
+                                logger.error(error_text, exc_info=True)
+                                raise DynamicSearchBackendException(
+                                    error_text
+                                ) from exception
 
             except whoosh.index.LockError:
                 raise DynamicSearchRetry

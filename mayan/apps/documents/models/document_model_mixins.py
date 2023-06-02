@@ -143,9 +143,11 @@ class DocumentBusinessLogicMixin:
                 # duplicating code.
 
         try:
+            filename = filename or Path(file_object.name).name
+
             document_file = DocumentFile(
                 document=self, comment=comment, file=File(file=file_object),
-                filename=filename or Path(file_object.name).name
+                filename=filename
             )
             document_file._event_actor = user
             document_file.save()

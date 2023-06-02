@@ -293,13 +293,15 @@ a i {
 /* Remove scroll bar caused by bootstraps -15px on .row margins */
 .zero-margin {
     margin-left: 0;
-    margin-right: 0;
+}
 
-    > .col,
-    > [class*="col-"] {
-        padding-left: 0;
-        padding-right: 0;
-    }
+/* Remove scroll bar caused by bootstraps -15px on .row margins */
+/*
+ * Used by the generic_form template to avoid displaying a second scrollbar
+ * for the viewport when it has a carousel.
+ */
+.zero-margin .row-avoid-second-scrollbar {
+    margin-bottom: -15px;
 }
 
 @media (min-width: 768px) {
@@ -309,7 +311,6 @@ a i {
         padding-right: 0px;
     }
 }
-
 
 /* Side bar */
 #menu-actions {
@@ -346,7 +347,6 @@ a i {
         padding-right: 160px;
     }
 }
-
 
 .btn-invisible {
     background-color: transparent;
@@ -408,7 +408,6 @@ a i {
 .navbar-fixed-top {
     border: 0;
 }
-
 
 /* menu_main */
 /* Hide for mobile, show later */
