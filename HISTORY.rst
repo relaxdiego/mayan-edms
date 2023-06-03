@@ -1,4 +1,4 @@
-4.3.9 (2023-05-02)
+4.3.9 (2023-06-02)
 ==================
 - Fix document parsing error logging. Use the correct argument name when
   creating new error log entries.
