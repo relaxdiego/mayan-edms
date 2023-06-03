@@ -1,7 +1,7 @@
 Version 4.2.16
 ==============
 
-Released: 2023-05-31
+Released: May 31, 2023
 
 Status: Maintenance
 
@@ -49,7 +49,7 @@ The Redis Docker image was updated from version 6.2.11-alpine to
 Documents
 ^^^^^^^^^
 
-The trashed document deletion taks is now retries on database
+The trashed document deletion task is now retries on database
 ``OperationalError`` exceptions.
 
 On large number of documents or document with many pages, the level
