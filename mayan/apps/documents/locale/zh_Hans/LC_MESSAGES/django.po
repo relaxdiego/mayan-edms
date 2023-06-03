@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mayan EDMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-16 03:53+0000\n"
+"POT-Creation-Date: 2023-06-03 05:20+0000\n"
 "PO-Revision-Date: 2023-01-05 02:52+0000\n"
 "Last-Translator: Roberto Rosario, 2023\n"
 "Language-Team: Chinese Simplified (https://app.transifex.com/rosarior/teams/13584/zh-Hans/)\n"
@@ -667,7 +667,7 @@ msgstr "所有页面"
 
 #: models/document_file_model_mixins.py:298
 #: models/document_file_page_model_mixins.py:230
-#: models/document_model_mixins.py:178 models/document_models.py:60
+#: models/document_model_mixins.py:180 models/document_models.py:60
 #: models/document_type_models.py:38 models/document_type_models.py:131
 #: models/document_version_model_mixins.py:113
 #: models/document_version_page_model_mixins.py:280
@@ -727,7 +727,7 @@ msgstr ""
 msgid "Document file page"
 msgstr "文件檔案頁面"
 
-#: models/document_model_mixins.py:176
+#: models/document_model_mixins.py:178
 #, python-format
 msgid "Document stub, id: %d"
 msgstr "文档存根，id：%d"
