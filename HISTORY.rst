@@ -1,4 +1,4 @@
-4.4.7 (20XX-XX-XX)
+4.4.7 (2023-05-03)
 ==================
 - Fix sitemap URL scheme format.
 - CI documentation jobs improvements:
