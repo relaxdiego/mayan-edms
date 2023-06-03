@@ -1,4 +1,4 @@
-4.4.7 (2023-05-03)
+4.4.7 (2023-06-03)
 ==================
 - Fix sitemap URL scheme format.
 - CI documentation jobs improvements:
@@ -475,7 +475,7 @@
   - Support a local environment config file names ``config-local.env``.
     This file is ignored by Git and meant to override values of ``config.env``.
 
-4.3.9 (2023-05-02)
+4.3.9 (2023-06-02)
 ==================
 - Fix document parsing error logging. Use the correct argument name when
   creating new error log entries.
