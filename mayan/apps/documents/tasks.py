@@ -172,7 +172,7 @@ def task_document_upload(
         with shared_uploaded_file.open() as file_object:
             document, document_file = document_type.new_document(
                 description=description, file_object=file_object,
-                label=label,language=language, user=user
+                label=label, language=language, user=user
             )
     except Exception as exception:
         logger.critical(
