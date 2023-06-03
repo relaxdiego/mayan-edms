@@ -23,7 +23,7 @@ class WorkflowActionActionTestCase(
 
         document_type = self.test_document.document_type
 
-        self._create_test_document_type(label='document type 2')
+        self._create_test_document_type()
 
         action = DocumentTypeChangeAction(
             form_data={'document_type': self.test_document_types[1].pk}
@@ -36,7 +36,7 @@ class WorkflowActionActionTestCase(
         )
 
     def test_document_type_change_action_execution(self):
-        self._create_test_document_type(label='document type 2')
+        self._create_test_document_type()
 
         self._create_test_workflow_template()
         self._create_test_workflow_template_state()
